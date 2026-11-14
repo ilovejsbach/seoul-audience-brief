@@ -15,6 +15,7 @@ import './theme-overrides.css';
 import './map.css';
 import './hero.css';
 import './layout-standard.css';
+import './detail-navigation.css';
 import './print.css';
 type Region={code:string;name:string;districtCode?:string};
 type Pop={columns:string[];rows:(string|number|null)[][]};

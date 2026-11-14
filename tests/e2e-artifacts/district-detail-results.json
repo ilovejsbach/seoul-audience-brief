@@ -1,0 +1,58 @@
+{
+  "testedAt": "2026-11-14T08:59:00.066Z",
+  "browser": "Chrome",
+  "before": {
+    "scenario": "presentation mobility already-selected 영등포구 → 상세 분석",
+    "step": "1 / 3",
+    "visibleTrend": 0,
+    "popup": 0
+  },
+  "after": [
+    {
+      "id": "mobility-same-district-presentation-detail",
+      "status": "passed"
+    },
+    {
+      "id": "mobility-table-selection",
+      "status": "passed"
+    },
+    {
+      "id": "commerce-table-gu-dong",
+      "status": "passed"
+    },
+    {
+      "id": "migration-table-old-year-fallback",
+      "status": "passed"
+    }
+  ],
+  "regression": [
+    {
+      "id": "mobility-aggregation",
+      "status": "passed",
+      "detail": "arrival/departure, inflow/outflow/net, hourly/cumulative/day, spatial limits",
+      "startedAt": "2026-11-14T08:58:12.596Z",
+      "finishedAt": "2026-11-14T08:58:13.684Z"
+    },
+    {
+      "id": "residential-migration",
+      "status": "passed",
+      "detail": "gu/dong, old-year reset/export, source difference notice, missing value propagation",
+      "startedAt": "2026-11-14T08:58:13.684Z",
+      "finishedAt": "2026-11-14T08:58:14.729Z"
+    },
+    {
+      "id": "commerce-detail",
+      "status": "passed",
+      "detail": "quarter, time band, dong, gu period trend, source disclosure",
+      "startedAt": "2026-11-14T08:58:14.729Z",
+      "finishedAt": "2026-11-14T08:58:15.792Z"
+    },
+    {
+      "id": "presentation-journey",
+      "status": "passed",
+      "detail": "three pages, back/direct links, hero resume, disclosure, analysis state preserved",
+      "startedAt": "2026-11-14T08:58:15.792Z",
+      "finishedAt": "2026-11-14T08:58:19.822Z"
+    }
+  ]
+}
