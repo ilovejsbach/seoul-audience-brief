@@ -37,3 +37,6 @@
 - 추가 영향 회귀 23경로: 핵심 분석 5, 상권 7, 기간 특성 5, 색상 범위 4, 영역 조절 2. 실제 원값 대조를 포함한다. 대상 A/B와 전출입 세분 전환도 수동 확인했다.
 - [실행 JSON](../tests/compact-options-results.json), [크기 행렬 테스트](../tests/compact-options-e2e.mjs), [독립 소스 전수 감사](option-layout-source-audit.md).
 - 전수 범위는 화면에 존재하는 옵션 **계열**이다. 모든 날짜·지역·업종 조합을 전부 검사했다는 뜻은 아니다. 자료표·히트맵의 의도적 가로 스크롤과 옵션창 넘침은 구분했다. 범례·출처 툴팁은 기존 의도를 유지한다.
+
+## 공개 재검사
+소스 `2d29420`, 공개 산출물 `dd232dd`, Pages 실행 [43653542002](https://github.com/ilovejsbach/seoul-audience-brief/actions/runs/43653542002) 성공. 공개 Chrome에서 다섯 조회창의 300/560/900px·낮은 높이·재열기 행렬을 다시 실행해 모두 통과했다. 모든 폭에서 옵션 본문 가로 넘침은 0px였다. [공개 검사 결과](../tests/compact-options-public-results.json). 상권 첫 로딩은 기본 3초 검사 제한을 넘을 수 있어 실제 자료 준비 대기를 15초로 명시했으며 계산·레이아웃 판정은 완화하지 않았다.
