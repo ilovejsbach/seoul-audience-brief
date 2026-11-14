@@ -1,0 +1,149 @@
+{
+  "query": [
+    {
+      "id": "population-filters",
+      "status": "passed",
+      "detail": "district, date, hour, age, sex update map and validated values",
+      "startedAt": "2026-11-14T21:42:24.263Z",
+      "finishedAt": "2026-11-14T21:42:26.537Z"
+    },
+    {
+      "id": "mobility-aggregation",
+      "status": "passed",
+      "detail": "arrival/departure, inflow/outflow/net, hourly/cumulative/day, spatial limits",
+      "startedAt": "2026-11-14T21:42:26.537Z",
+      "finishedAt": "2026-11-14T21:42:27.714Z"
+    },
+    {
+      "id": "residential-migration",
+      "status": "passed",
+      "detail": "gu/dong, old-year reset/export, source difference notice, missing value propagation",
+      "startedAt": "2026-11-14T21:42:27.714Z",
+      "finishedAt": "2026-11-14T21:42:29.227Z"
+    },
+    {
+      "id": "commerce-detail",
+      "status": "passed",
+      "detail": "quarter, time band, dong, gu period trend, source disclosure",
+      "startedAt": "2026-11-14T21:42:29.227Z",
+      "finishedAt": "2026-11-14T21:42:30.356Z"
+    },
+    {
+      "id": "fullscreen-dataset",
+      "status": "passed",
+      "detail": "full screen, zoom in/out/reset, data transition, close",
+      "startedAt": "2026-11-14T21:42:30.356Z",
+      "finishedAt": "2026-11-14T21:42:32.853Z"
+    }
+  ],
+  "market": [
+    {
+      "id": "market-open-query-and-real-values",
+      "status": "passed"
+    },
+    {
+      "id": "market-population-scope-and-period",
+      "status": "passed"
+    },
+    {
+      "id": "map-menu-and-detail-reopen",
+      "status": "passed"
+    },
+    {
+      "id": "market-empty-and-selection-reset",
+      "status": "passed"
+    },
+    {
+      "id": "market-color-scale-options",
+      "status": "passed"
+    },
+    {
+      "id": "market-candidates-and-chart-return",
+      "status": "passed"
+    },
+    {
+      "id": "market-return-to-actual-previous-view",
+      "status": "passed"
+    }
+  ],
+  "journeys": [
+    {
+      "id": "axis-fit-manual-reset",
+      "status": "passed"
+    },
+    {
+      "id": "negative-baseline-index-guard",
+      "status": "passed"
+    },
+    {
+      "id": "population-same-dong-followup",
+      "status": "passed"
+    },
+    {
+      "id": "distribution-paired-and-delta",
+      "status": "passed"
+    },
+    {
+      "id": "mobility-relative-regions",
+      "status": "passed"
+    }
+  ],
+  "semantic": [
+    {
+      "id": "sales-gongdeok-all",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T21:44:12.373Z"
+    },
+    {
+      "id": "sales-gongdeok-korean-food-time4",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T21:44:14.624Z"
+    },
+    {
+      "id": "population-gongdeok-all",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T21:44:15.728Z"
+    },
+    {
+      "id": "gongdeok-search-ranking-sales-all",
+      "status": "passed",
+      "checks": [
+        "raw-source rank order",
+        "same scope and units"
+      ],
+      "assertionCount": 9,
+      "at": "2026-11-14T21:44:16.494Z"
+    },
+    {
+      "id": "market-sales-overlap-scope",
+      "status": "passed",
+      "checks": [
+        "no false city total",
+        "no causal or conversion interpretation"
+      ],
+      "assertionCount": 2,
+      "at": "2026-11-14T21:44:16.691Z"
+    }
+  ]
+}

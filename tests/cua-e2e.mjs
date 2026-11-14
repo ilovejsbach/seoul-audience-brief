@@ -6,7 +6,7 @@ export function createSuite(tab){
  const select=(name,value)=>page.getByRole('combobox',{name,exact:true}).selectOption(value);
  const txt=selector=>visible(selector).innerText();
  const assert=(condition,message)=>{if(!condition)throw new Error(message)};
- const includes=async(selector,value)=>assert((await txt(selector)).includes(value),`${selector}: expected ${value}; actual ${await txt(selector)}`);
+ const includes=async(selector,value)=>{const text=await txt(selector);const exact=selector==='.metrics'?await visible(selector).locator('strong[title]').evaluateAll(es=>es.map(e=>e.getAttribute('title')).join(' | ')):'';assert((text+' '+exact).includes(value),`${selector}: expected ${value}; actual ${text}`)};
  async function fresh(dataset='population'){
   await tab.reload(); await page.getByRole('heading',{name:'지역별 광고 입지 분석',exact:true}).waitFor({state:'visible'});
   const name={population:/^생활인구 ↗/,mobility:/^생활이동 ↗/,migration:/^거주지 전입·전출 ↗/,commerce:/^상권 추정매출 ↗/}[dataset];

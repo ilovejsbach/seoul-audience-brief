@@ -1,0 +1,44 @@
+[
+  {
+    "case": "largest-market-value",
+    "exact": "1,261,630,232,011 원",
+    "horizontalOverflow": false,
+    "overflow": [],
+    "viewport": [
+      1800,
+      961
+    ]
+  },
+  {
+    "case": "legend-conditional-display-and-update",
+    "horizontalOverflow": false,
+    "overflow": [],
+    "viewport": [
+      1800,
+      961
+    ]
+  },
+  {
+    "case": "long-name-candidate-and-trend",
+    "horizontalOverflow": false,
+    "overflow": [],
+    "viewport": [
+      1800,
+      961
+    ]
+  },
+  {
+    "case": "grouped-analysis-controls",
+    "horizontalOverflow": false,
+    "overflow": [],
+    "viewport": [
+      1800,
+      961
+    ]
+  },
+  {
+    "case": "market-map-detail-pointer-resize",
+    "before": 320,
+    "after": 390
+  }
+]

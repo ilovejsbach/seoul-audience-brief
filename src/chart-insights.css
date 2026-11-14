@@ -1,2 +1,15 @@
 .chartAxisControls{display:flex;gap:12px;flex-wrap:wrap;align-items:end;padding:14px 0}.chartAxisControls label{display:flex;flex-direction:column;gap:6px;font-size:13px;color:#c8d8e9}.chartAxisControls select,.chartAxisControls input,.chartAxisControls button,.chartNextActions button{font:inherit;color:#e9f1fa;background:#172c43;border:1px solid #6b819a;border-radius:5px;padding:9px 12px;min-height:40px}.chartAxisControls input{width:160px}.chartAxisNotice{font-size:13px;color:#c7d6e6;margin:4px 0 12px;line-height:1.7}.chartFacts{display:flex;gap:14px 28px;flex-wrap:wrap;border-top:1px solid #40546c;padding-top:12px;color:#c1d3e5;font-size:14px}.chartFacts p{margin:0}.chartFacts b{color:#f1f6fc}.chartNextActions{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}.trendPoint.outsideAxis{fill:#17283c;stroke:#ffc18b;stroke-width:3}.chartNextActions button:hover,.chartAxisControls button:hover{background:#315478}.chartAxisControls :is(button,input,select):focus-visible,.chartNextActions button:focus-visible{outline:2px solid #ffc18b;outline-offset:3px}.timeComparisonRate{color:#c5d8eb;font-size:14px}.mode-presentation .chartFacts,.mode-presentation .chartAxisNotice{font-size:14px}@media print{.chartAxisControls,.chartNextActions{display:none}.chartAxisNotice,.chartFacts{color:#263d57;font-size:11px}}@media(max-width:800px){.chartAxisControls{gap:9px}.chartAxisControls input{width:125px}.chartFacts{font-size:13px;gap:8px}}
 .mapWorkspaceEntry{margin-left:24px;font-size:14px;white-space:nowrap;background:#254366;color:#edf4fc;border:1px solid #6887aa;padding:10px 14px;border-radius:5px}.candidateDetail{font-size:14px;border:1px solid #607d9e;border-radius:5px;background:#223d5d;color:#e4eef9;padding:8px 12px;margin:10px 0}.distributionSvg [aria-disabled=true]{cursor:default}.app .modeToggle[hidden]{display:none!important}@media(max-width:800px){.mapWorkspaceEntry{margin-left:10px;font-size:12px;padding:7px 9px}}
+/* Axis controls are secondary; keep the active interpretation visible below. */
+.chartAxisSettings{margin-top:12px;border-top:1px solid #c8d3df;padding-top:8px;min-width:0}
+.chartAxisSettings>summary{display:list-item;width:fit-content;cursor:pointer;color:#24558b;padding:4px 8px;line-height:1.5}
+.chartAxisSettings>summary:focus-visible{outline:2px solid #24558b;outline-offset:2px}
+.chartAxisSettings .chartAxisControls{padding:10px 0;align-items:end}
+.chartAxisSettings .chartAxisControls :is(label,select,input){min-width:0;max-width:100%}
+.trendIndexBaseline line{stroke:#173e69;stroke-width:2;stroke-dasharray:7 4}
+.trendExplorerHeading{flex-wrap:wrap}
+.trendExplorerHeading>div:first-child{flex:1 1 360px;min-width:0}
+.trendExplorerHeading h2,.trendExplorerHeading p{overflow-wrap:anywhere;word-break:keep-all}
+.trendCurrent{flex:0 1 auto;min-width:0;max-width:100%}
+.trendCurrent strong{display:block;overflow-wrap:anywhere;word-break:normal}
+@media print{.chartAxisSettings{display:none!important}.trendIndexBaseline line{stroke:#173e69}}

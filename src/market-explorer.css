@@ -49,3 +49,25 @@
 .marketLegendNote{grid-column:1/-1;font-size:11px;color:#4d6279;line-height:1.6}.marketLegend span{white-space:normal;line-height:1.6;align-items:flex-start}.marketLegend i{margin-top:3px}
 
 .marketLegendHeading{grid-column:1/-1;display:flex;gap:8px;align-items:center;flex-wrap:wrap}.marketLegend .marketLegendHeading b{grid-column:auto;width:auto}.marketLegend .marketLegendHeading .dataMeaningAnchor{display:inline-flex}
+
+/* Shared value slots must leave room for long Korean area and industry names. */
+.marketDetails,.marketDetails h2,.marketDetails h3,.marketMapTitle,.marketTrendDrawerHeader>div{min-width:0;overflow-wrap:anywhere;word-break:keep-all}
+.marketRank{display:grid;grid-template-columns:minmax(0,1fr) minmax(100px,.8fr);align-items:start}
+.marketRank span{max-width:none;min-width:0;overflow-wrap:anywhere;word-break:keep-all}
+.marketRank small{display:block}
+.marketRank b{text-align:right;min-width:0;overflow-wrap:anywhere;font-variant-numeric:tabular-nums}
+.marketValue,.marketCandidate p{overflow-wrap:anywhere;font-variant-numeric:tabular-nums}
+.marketCandidate>b{display:block;padding-right:24px;overflow-wrap:anywhere;word-break:keep-all}
+.marketCandidate small{display:block;overflow-wrap:anywhere;word-break:keep-all}
+.marketExact{margin:8px 0 12px}.marketExact summary{cursor:pointer;color:#24558a}.marketExact p{overflow-wrap:anywhere;font-variant-numeric:tabular-nums}
+.marketHover{max-width:min(360px,calc(100% - 36px));overflow-wrap:anywhere;word-break:keep-all}
+.marketTrendDrawerHeader{flex-wrap:wrap}.marketTrendDrawerHeader>div{flex:1 1 200px}
+
+/* Query groups keep frequent place searches visible and optional analysis folded. */
+.marketControls{gap:10px}
+.marketOptionGroup{min-width:0;border-bottom:1px solid #d1dce7;padding-bottom:8px}
+.marketOptionGroup>summary{cursor:pointer;list-style-position:inside;padding:7px 0;color:#183e69;font-weight:600;line-height:1.5;overflow-wrap:anywhere;word-break:keep-all}
+.marketOptionGroup>summary>span{float:right;color:#536c85;font-weight:400;max-width:55%;overflow-wrap:anywhere}
+.marketOptionGroupBody{display:grid;gap:10px;padding:7px 0 4px;min-width:0}
+.marketOptionGroupBody>label,.marketOptionGroupBody .marketSearchField{min-width:0}
+.marketOptionGroup>summary:focus-visible{outline:2px solid #245f9b;outline-offset:2px}

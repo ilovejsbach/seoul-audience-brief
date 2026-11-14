@@ -4,7 +4,7 @@ import assert from 'node:assert/strict';
 import ts from 'typescript';
 const source=await readFile(new URL('../src/chart-domain.ts',import.meta.url),'utf8');
 const compiled=ts.transpileModule(source,{compilerOptions:{module:ts.ModuleKind.ESNext,target:ts.ScriptTarget.ES2022}}).outputText;
-const {calculateDomain}=await import('data:text/javascript;base64,'+Buffer.from(compiled).toString('base64'));
+const {calculateDomain,calculateIndexDomain}=await import('data:text/javascript;base64,'+Buffer.from(compiled).toString('base64'));
 
 test('zero includes all positive, negative and crossing-zero observations',()=>{
  for(const [values,low,high] of [[[3,8],0,8],[[-8,-3],-8,0],[[-3,8],-3,8]]){
@@ -36,4 +36,18 @@ test('huge arrays and tiny or overflowing ranges never produce broken axes',()=>
   const x=calculateDomain(values,mode);assert.ok(Number.isFinite(x.low)&&Number.isFinite(x.high)&&Number.isFinite(x.high-x.low));assert.ok(x.low<x.high);
  }
  assert.ok(calculateDomain([-Number.MAX_VALUE,Number.MAX_VALUE],'zero').error);
+});
+
+test('index is centered on 100 with observed deviation plus configurable padding',()=>{
+ const d=calculateIndexDomain([100,103,108.706905],0.2);
+ assert.ok(Math.abs(d.low-(100-8.706905*1.2))<1e-10);
+ assert.ok(Math.abs(d.high-(100+8.706905*1.2))<1e-10);
+ assert.ok(Math.abs((d.low+d.high)/2-100)<1e-10);assert.equal(d.clippedCount,0);
+ for(const pad of [0.1,0.2,0.3]){const below=calculateIndexDomain([92,100],pad);assert.equal(below.low,100-8*(1+pad));assert.equal(below.high,100+8*(1+pad));}
+});
+test('index constant, missing, and tiny changes use at least one index point radius',()=>{
+ for(const values of [[100,100],[],[null,undefined,NaN,Infinity],[99.99,100.01]])assert.deepEqual(calculateIndexDomain(values),{low:99,high:101,clippedCount:0,zeroExcluded:true});
+});
+test('index extreme finite values return a safe domain with an error rather than broken coordinates',()=>{
+ const d=calculateIndexDomain([Number.MAX_VALUE]);assert.equal(d.low,99);assert.equal(d.high,101);assert.ok(d.error);assert.equal(d.clippedCount,1);
 });

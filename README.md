@@ -62,10 +62,14 @@ npm run build
 
 상단 왼쪽 `지도 중심 조회`는 실제 상권 경계 1,650개, 2025년 상권 추정매출 85,732행·62업종, 2021Q1–2026Q2 상권 유동인구 지표 36,281행을 제공합니다. 분기·지역·상권·업종 및 시간/성별/연령/요일 중 한 가지 주변분포를 선택합니다. 인구의 일평균 환산은 확정하지 않았고 원본 지표로 표시합니다. 경계 코드 연결과 형상의 기준 시점 일치는 구분합니다.
 
-추이는 세로축을 0 포함·자동 맞춤·직접 지정으로 바꾸고, 축을 좁힌 사실과 범위 밖 값을 확인할 수 있습니다. 음수 기준의 지수는 제한합니다. 생활인구는 두 시점 분포와 증감 지도, 생활이동은 상대지역별 유입·유출을 제공합니다.
+추이는 접힌 ‘축 설정’에서 세로축을 0 포함·자동 맞춤·직접 지정으로 바꾸고, 축을 좁힌 사실과 범위 밖 값을 확인하도록 설계합니다. 기준100 지수는100을 가운데 두고 최대 편차에 기본20% 여유(10/20/30% 선택, 최소±1포인트)를 더합니다. 음수 기준의 지수는 제한합니다. 생활인구는 두 시점 분포와 증감 지도, 생활이동은 상대지역별 유입·유출을 제공합니다.
+
+긴 금액은 주정보에서 조/억/만 단위로 줄이고 원단위 정확값은 상세·툴팁·표·CSV에 보존합니다. 일반 지도와 상권 작업공간은 경계선 조절, 조회 옵션 띄우기·이동·가로세로 크기 조절·초기화를 같은 목적에 맞게 제공합니다. 상권의 큰 범례는 버튼으로 펼치고, 짧은 기본 범례·가벼운 설명 팝오버·정확값 표의 의도적 가로 스크롤·시연3장 구조는 유지합니다. 이 항목은2026-11-15 현행 요건이며 현재 실행 검수 결과와 구분합니다.
 
 - 현행 목적·동작·영향표: [interaction-design.md](docs/interaction-design.md)
+- 현행 개발·검수 규칙: [DASHBOARD_DEVELOPMENT_RULES.md](docs/DASHBOARD_DEVELOPMENT_RULES.md)
 - 지도 레퍼런스와 설계: [map-workspace-design.md](docs/map-workspace-design.md)
+- 긴 수치·제목의 독립 소스 감사와 실제 사례: [long-content-source-audit.md](docs/long-content-source-audit.md)
 - 상권 유동인구 출처·재현: [market-population-sources.md](docs/market-population-sources.md)
 
 ```sh
@@ -76,3 +80,5 @@ python3 scripts/validate-market-data.py
 최근 상세·축·상권·색상 개선의 실제 실행 결과는 [critical-execution-report.md](docs/critical-execution-report.md)에 정리했습니다.
 
 주요 지표의 `설명` 버튼에서 의미·해석·주의를 확인할 수 있습니다. 원자료 119사례와 설명·연동을 포함한 의미 검사 128건의 결과는 [semantic-e2e-report.md](docs/semantic-e2e-report.md)에 있습니다.
+
+최근 실행 검수: [긴 수치·제목과 지도 작업공간 개선](docs/readability-and-workspace-report.md).

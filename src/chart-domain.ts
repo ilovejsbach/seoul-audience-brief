@@ -36,3 +36,13 @@ export function calculateDomain(
   }
   return zero();
 }
+
+/** Index values are already rebased to 100. Keep 100 centered, with explicit breathing room. */
+export function calculateIndexDomain(values:readonly (number|null|undefined)[],paddingRatio=0.2):ChartDomain {
+ const valid=values.filter((v):v is number=>typeof v==='number'&&Number.isFinite(v));
+ let deviation=0;for(const value of valid)deviation=Math.max(deviation,Math.abs(value-100));
+ const padding=Number.isFinite(paddingRatio)?Math.max(0,paddingRatio):0.2;
+ const radius=Math.max(1,deviation*(1+padding));
+ if(!Number.isFinite(radius)||!Number.isFinite(100+radius)||!Number.isFinite(radius*2))return {low:99,high:101,error:'지수 범위가 너무 커서 기본 범위로 표시합니다.',clippedCount:valid.filter(v=>v<99||v>101).length,zeroExcluded:true};
+ return {low:100-radius,high:100+radius,clippedCount:0,zeroExcluded:100-radius>0};
+}
