@@ -1,0 +1,16 @@
+import {readFile} from 'node:fs/promises';
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import ts from 'typescript';
+const source=await readFile(new URL('../src/demographic-model.ts',import.meta.url),'utf8');
+const js=ts.transpileModule(source,{compilerOptions:{module:ts.ModuleKind.ESNext,target:ts.ScriptTarget.ES2022}}).outputText;
+const {cohortTotal,cohortComparison}=await import('data:text/javascript;base64,'+Buffer.from(js).toString('base64'));
+const pop=JSON.parse(await readFile(new URL('../public/data/population/250_LOCAL_RESD_ADMDONG_20261031.json',import.meta.url),'utf8'));
+const regions=JSON.parse(await readFile(new URL('../public/data/regions.json',import.meta.url),'utf8'));
+const codes=new Set(regions.dongs.filter(d=>d.districtCode==='11440').map(d=>d.code));
+const rows=pop.rows.filter(row=>Number(row[1])===18&&codes.has(String(row[2]).trim()));
+const close=(a,b)=>assert.ok(Math.abs(a-b)<1e-6,`${a} != ${b}`);
+test('independent Decimal fixture: Mapo 18h 20-39 female versus male, whole population denominator',()=>{const c=cohortComparison(pop.columns,rows,{age:'young',sex:'female'},{age:'young',sex:'male'});close(c.first,125105.76);close(c.second,104189.09);close(c.total,540998.31);close(c.difference,-20916.67);close(c.firstShare,125105.76/540998.31*100);close(c.secondShare,104189.09/540998.31*100)});
+test('independent Decimal fixtures: distinct middle and senior groups',()=>{close(cohortTotal(pop.columns,rows,{age:'middle',sex:'female'}),78183.11);close(cohortTotal(pop.columns,rows,{age:'senior',sex:'female'}),59365.80)});
+test('masked cell prevents partial cohort total while all population remains independently available',()=>{const copy=structuredClone(rows);copy[0][21]=null;const c=cohortComparison(pop.columns,copy,{age:'young',sex:'female'},{age:'young',sex:'male'});assert.equal(c.first,null);assert.equal(c.firstShare,null);assert.equal(c.difference,null);close(c.second,104189.09);close(c.total,540998.31)});
+test('empty source is unavailable, zero source yields zero count without invented ratio',()=>{assert.equal(cohortTotal(pop.columns,[],{age:'all',sex:'all'}),null);const zero=pop.rows.slice(0,1).map(row=>row.map((v,i)=>i>=3?0:v));const c=cohortComparison(pop.columns,zero,{age:'young',sex:'female'},{age:'young',sex:'male'});assert.equal(c.first,0);assert.equal(c.second,0);assert.equal(c.firstShare,null);assert.equal(c.difference,0)});

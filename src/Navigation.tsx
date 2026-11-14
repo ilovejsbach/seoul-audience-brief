@@ -31,6 +31,7 @@ export async function navigateSection(id:string,step:number){
  if(sequence!==navigationSequence)return;
  const destination=document.getElementById(id);
  if(!destination)return;
+ if(destination instanceof HTMLDetailsElement)destination.open=true;
  const fullscreenMap=document.fullscreenElement||document.querySelector('.mapOverlay');
  const element=fullscreenMap&&destination.contains(fullscreenMap)?fullscreenMap as HTMLElement:destination;
  element.setAttribute('tabindex','-1');

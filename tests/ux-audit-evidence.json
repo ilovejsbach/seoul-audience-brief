@@ -1,0 +1,112 @@
+[
+  {
+    "id": "01-analysis-home",
+    "purpose": "광고주 과제에 맞는 자료와 분석 시작점 선택",
+    "file": "/Users/koscom/.codex/visualizations/2026/11/14/01a1d866-1d2b-7dc0-a58b-a48c384c2b55/ux-audit/01-analysis-home.png"
+  },
+  {
+    "id": "02-population-overview",
+    "purpose": "어느 지역에 광고 접촉 가능 인구가 많은지 후보 탐색",
+    "file": "/Users/koscom/.codex/visualizations/2026/11/14/01a1d866-1d2b-7dc0-a58b-a48c384c2b55/ux-audit/02-population-overview.png"
+  },
+  {
+    "id": "03-population-fullscreen",
+    "purpose": "20–39세 여성의 지역 분포를 보며 타깃·시간 조건을 반복 비교",
+    "file": "/Users/koscom/.codex/visualizations/2026/11/14/01a1d866-1d2b-7dc0-a58b-a48c384c2b55/ux-audit/03-population-fullscreen.png"
+  },
+  {
+    "id": "04-region-preview",
+    "purpose": "지역을 눌러 수치를 해석하고 구체적인 다음 분석 선택",
+    "file": "/Users/koscom/.codex/visualizations/2026/11/14/01a1d866-1d2b-7dc0-a58b-a48c384c2b55/ux-audit/04-region-preview.png"
+  },
+  {
+    "id": "05-fullscreen-candidate-added",
+    "purpose": "지도를 보며 비교 후보를 수집하고 저장 성공 확인",
+    "file": "/Users/koscom/.codex/visualizations/2026/11/14/01a1d866-1d2b-7dc0-a58b-a48c384c2b55/ux-audit/05-fullscreen-candidate-added.png"
+  },
+  {
+    "id": "06-scenario-workbench",
+    "purpose": "서로 다른 조건을 저장해 같은 기준으로 비교 준비",
+    "file": "/Users/koscom/.codex/visualizations/2026/11/14/01a1d866-1d2b-7dc0-a58b-a48c384c2b55/ux-audit/06-scenario-workbench.png"
+  },
+  {
+    "id": "07-migration-net",
+    "purpose": "거주 기반의 증가·감소 지역을 구분",
+    "file": "/Users/koscom/.codex/visualizations/2026/11/14/01a1d866-1d2b-7dc0-a58b-a48c384c2b55/ux-audit/07-migration-net.png"
+  },
+  {
+    "id": "08-migration-fullscreen",
+    "purpose": "전입·전출·순이동을 지도에서 교대로 비교",
+    "file": "/Users/koscom/.codex/visualizations/2026/11/14/01a1d866-1d2b-7dc0-a58b-a48c384c2b55/ux-audit/08-migration-fullscreen.png"
+  },
+  {
+    "id": "09-mobility-day-trend",
+    "purpose": "일중 이동 수요의 시간 분포와 일 합계의 관계를 판단",
+    "file": "/Users/koscom/.codex/visualizations/2026/11/14/01a1d866-1d2b-7dc0-a58b-a48c384c2b55/ux-audit/09-mobility-day-trend.png"
+  },
+  {
+    "id": "10-candidates-three",
+    "purpose": "세 후보를 모은 뒤 네 번째 지역을 조사하며 후보 유지",
+    "file": "/Users/koscom/.codex/visualizations/2026/11/14/01a1d866-1d2b-7dc0-a58b-a48c384c2b55/ux-audit/10-candidates-three.png"
+  },
+  {
+    "id": "11-candidate-reset",
+    "purpose": "다른 지역 상세로 이동한 뒤 이전 후보가 유지되는지 확인",
+    "file": "/Users/koscom/.codex/visualizations/2026/11/14/01a1d866-1d2b-7dc0-a58b-a48c384c2b55/ux-audit/11-candidate-reset.png"
+  },
+  {
+    "id": "12-population-trend",
+    "purpose": "이 지역에 광고하기 좋은 시간과 비교 기준 판단",
+    "file": "/Users/koscom/.codex/visualizations/2026/11/14/01a1d866-1d2b-7dc0-a58b-a48c384c2b55/ux-audit/12-population-trend.png"
+  },
+  {
+    "id": "13-distribution-change",
+    "purpose": "두 시점 사이 인구가 늘거나 줄어든 위치 판단",
+    "file": "/Users/koscom/.codex/visualizations/2026/11/14/01a1d866-1d2b-7dc0-a58b-a48c384c2b55/ux-audit/13-distribution-change.png"
+  },
+  {
+    "id": "14-market-map",
+    "purpose": "행정동보다 작은 실제 상권에서 소비 수요 후보 탐색",
+    "file": "/Users/koscom/.codex/visualizations/2026/11/14/01a1d866-1d2b-7dc0-a58b-a48c384c2b55/ux-audit/14-market-map.png"
+  },
+  {
+    "id": "15-market-search",
+    "purpose": "예산 후보 상권을 검색하고 현재 조건의 소비 규모 비교",
+    "file": "/Users/koscom/.codex/visualizations/2026/11/14/01a1d866-1d2b-7dc0-a58b-a48c384c2b55/ux-audit/15-market-search.png"
+  },
+  {
+    "id": "16-market-detail",
+    "purpose": "상권을 선택해 매출 규모·직전 분기 변화·타깃 구성을 확인",
+    "file": "/Users/koscom/.codex/visualizations/2026/11/14/01a1d866-1d2b-7dc0-a58b-a48c384c2b55/ux-audit/16-market-detail.png"
+  },
+  {
+    "id": "17-market-selected",
+    "purpose": "선택 상권의 기간 변화와 후보 비교 근거 확보",
+    "file": "/Users/koscom/.codex/visualizations/2026/11/14/01a1d866-1d2b-7dc0-a58b-a48c384c2b55/ux-audit/17-market-selected.png"
+  },
+  {
+    "id": "18-market-trend",
+    "purpose": "소비 규모의 분기 추세가 꾸준한지 판단하고 다시 지역 선택",
+    "file": "/Users/koscom/.codex/visualizations/2026/11/14/01a1d866-1d2b-7dc0-a58b-a48c384c2b55/ux-audit/18-market-trend.png"
+  },
+  {
+    "id": "19-presentation-home",
+    "purpose": "브리핑 시작점과 전달할 의제 파악",
+    "file": "/Users/koscom/.codex/visualizations/2026/11/14/01a1d866-1d2b-7dc0-a58b-a48c384c2b55/ux-audit/19-presentation-home.png"
+  },
+  {
+    "id": "20-presentation-region",
+    "purpose": "광고주에게 후보 지역 분포를 간결하게 설명",
+    "file": "/Users/koscom/.codex/visualizations/2026/11/14/01a1d866-1d2b-7dc0-a58b-a48c384c2b55/ux-audit/20-presentation-region.png"
+  },
+  {
+    "id": "21-presentation-time",
+    "purpose": "한 장에서 어느 시간대에 집중할지 설명",
+    "file": "/Users/koscom/.codex/visualizations/2026/11/14/01a1d866-1d2b-7dc0-a58b-a48c384c2b55/ux-audit/21-presentation-time.png"
+  },
+  {
+    "id": "22-presentation-shortlist-empty",
+    "purpose": "수집한 후보를 근거와 함께 설명하거나 후보 수집으로 복귀",
+    "file": "/Users/koscom/.codex/visualizations/2026/11/14/01a1d866-1d2b-7dc0-a58b-a48c384c2b55/ux-audit/22-presentation-shortlist-empty.png"
+  }
+]

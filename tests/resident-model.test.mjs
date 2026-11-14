@@ -1,0 +1,12 @@
+import {readFile} from 'node:fs/promises';
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import ts from 'typescript';
+const source=await readFile(new URL('../src/resident-model.ts',import.meta.url),'utf8');
+const js=ts.transpileModule(source,{compilerOptions:{module:ts.ModuleKind.ESNext,target:ts.ScriptTarget.ES2022}}).outputText;
+const {findResidentRecord}=await import('data:text/javascript;base64,'+Buffer.from(js).toString('base64'));
+const data=JSON.parse(await readFile(new URL('../public/data/resident-population.json',import.meta.url),'utf8'));
+test('same actual source region codes: Seoul / Mapo / Seogyo / Gongdeok',()=>{for(const [code,name,value] of [['all','서울 전체',9299548],['11440','마포구',357616],['11440660','서교동',23500],['11440565','공덕동',35929]])assert.equal(findResidentRecord(data.records,code,name)?.value,value)});
+test('historical unmatched codes and semantically changed name are not estimated',()=>{assert.equal(findResidentRecord(data.records,'11560540','여의동'),null);assert.equal(findResidentRecord(data.records,'11305635','수유3동'),null);assert.equal(findResidentRecord(data.records,'11680675','개포3동'),null)});
+test('punctuation-only name variation is safe with matching code',()=>{const record=data.records.find(r=>r.name.includes('종로1.2.3.4'));assert.ok(record);assert.equal(findResidentRecord(data.records,record.code.slice(0,8),'종로1·2·3·4가동')?.value,record.value)});
+test('ambiguous duplicate code/name is unavailable',()=>{const record=data.records.find(r=>r.code==='1144066000');assert.equal(findResidentRecord([record,record],'11440660','서교동'),null)});

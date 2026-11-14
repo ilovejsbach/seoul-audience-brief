@@ -1,0 +1,93 @@
+[
+  {
+    "id": "hero-entries",
+    "status": "passed",
+    "detail": "2 hero modes, 4 dataset entries, 3 purpose entries, back navigation",
+    "startedAt": "2026-11-14T13:07:32.300Z",
+    "finishedAt": "2026-11-14T13:07:38.075Z"
+  },
+  {
+    "id": "population-filters",
+    "status": "passed",
+    "detail": "district, date, hour, age, sex update map and validated values",
+    "startedAt": "2026-11-14T13:07:38.075Z",
+    "finishedAt": "2026-11-14T13:07:40.862Z"
+  },
+  {
+    "id": "map-popup-drilldown",
+    "status": "passed",
+    "detail": "map preview, Escape, gu→dong detail, selected geometry, level switching",
+    "startedAt": "2026-11-14T13:07:40.862Z",
+    "finishedAt": "2026-11-14T13:07:43.570Z"
+  },
+  {
+    "id": "candidate-limit",
+    "status": "passed",
+    "detail": "add/remove/reuse slots; maximum three",
+    "startedAt": "2026-11-14T13:07:43.570Z",
+    "finishedAt": "2026-11-14T13:07:45.850Z"
+  },
+  {
+    "id": "masked-and-unmapped",
+    "status": "passed",
+    "detail": "masked values remain null; historical geometry cannot create fictitious selection",
+    "startedAt": "2026-11-14T13:07:45.850Z",
+    "finishedAt": "2026-11-14T13:07:47.291Z"
+  },
+  {
+    "id": "saved-scenarios",
+    "status": "passed",
+    "detail": "immutable snapshots, limit, apply exact conditions, delete, clear",
+    "startedAt": "2026-11-14T13:07:47.291Z",
+    "finishedAt": "2026-11-14T13:07:50.504Z"
+  },
+  {
+    "id": "trend-playback",
+    "status": "passed",
+    "detail": "actual/difference/index, baseline, play/pause/speed, hidden stop, previous/next",
+    "startedAt": "2026-11-14T13:07:50.504Z",
+    "finishedAt": "2026-11-14T13:07:55.456Z"
+  },
+  {
+    "id": "mobility-aggregation",
+    "status": "passed",
+    "detail": "arrival/departure, inflow/outflow/net, hourly/cumulative/day, spatial limits",
+    "startedAt": "2026-11-14T13:08:03.663Z",
+    "finishedAt": "2026-11-14T13:08:04.746Z"
+  },
+  {
+    "id": "residential-migration",
+    "status": "passed",
+    "detail": "gu/dong, old-year reset/export, source difference notice, missing value propagation",
+    "startedAt": "2026-11-14T13:08:04.746Z",
+    "finishedAt": "2026-11-14T13:08:05.807Z"
+  },
+  {
+    "id": "commerce-detail",
+    "status": "passed",
+    "detail": "quarter, time band, dong, gu period trend, source disclosure",
+    "startedAt": "2026-11-14T13:08:05.807Z",
+    "finishedAt": "2026-11-14T13:08:06.796Z"
+  },
+  {
+    "id": "fullscreen-dataset",
+    "status": "passed",
+    "detail": "full screen, zoom in/out/reset, data transition, close",
+    "startedAt": "2026-11-14T13:08:06.796Z",
+    "finishedAt": "2026-11-14T13:08:09.134Z"
+  },
+  {
+    "id": "presentation-journey",
+    "status": "passed",
+    "detail": "three pages, back/direct links, hero resume, disclosure, analysis state preserved",
+    "startedAt": "2026-11-14T13:08:09.135Z",
+    "finishedAt": "2026-11-14T13:08:13.227Z"
+  },
+  {
+    "id": "pointer-controls",
+    "status": "passed",
+    "detail": "real pointer hover, drag pan without accidental popup, wheel zoom",
+    "startedAt": "2026-11-14T13:08:13.227Z",
+    "finishedAt": "2026-11-14T13:08:15.238Z"
+  }
+]

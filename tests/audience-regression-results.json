@@ -1,0 +1,37 @@
+[
+  {
+    "id": "population-filters",
+    "status": "passed",
+    "detail": "district, date, hour, age, sex update map and validated values",
+    "startedAt": "2026-11-14T13:15:41.870Z",
+    "finishedAt": "2026-11-14T13:15:43.647Z"
+  },
+  {
+    "id": "residential-migration",
+    "status": "passed",
+    "detail": "gu/dong, old-year reset/export, source difference notice, missing value propagation",
+    "startedAt": "2026-11-14T13:15:43.647Z",
+    "finishedAt": "2026-11-14T13:15:44.728Z"
+  },
+  {
+    "id": "fullscreen-dataset",
+    "status": "passed",
+    "detail": "full screen, zoom in/out/reset, data transition, close",
+    "startedAt": "2026-11-14T13:15:44.728Z",
+    "finishedAt": "2026-11-14T13:15:46.963Z"
+  },
+  {
+    "id": "presentation-journey",
+    "status": "passed",
+    "detail": "three pages, back/direct links, hero resume, disclosure, analysis state preserved",
+    "startedAt": "2026-11-14T13:15:46.964Z",
+    "finishedAt": "2026-11-14T13:15:50.921Z"
+  },
+  {
+    "id": "map-popup-drilldown",
+    "status": "passed",
+    "detail": "map preview, Escape, gu→dong detail, selected geometry, level switching",
+    "startedAt": "2026-11-14T13:15:50.921Z",
+    "finishedAt": "2026-11-14T13:15:53.568Z"
+  }
+]
