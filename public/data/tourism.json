@@ -1,0 +1,55 @@
+{
+  "available": false,
+  "sourceUrl": "https://datalab.visitkorea.or.kr/datalab/portal/loc/getAreaVisitDataForm.do",
+  "periods": [],
+  "records": [],
+  "checkedAt": "2026-11-14",
+  "status": "credentials_required_no_statistics_downloaded",
+  "notes": [
+    "No tourism statistics downloaded. No synthetic or extrapolated records.",
+    "Official dashboard supports domestic visitor residence / foreign visitor country and destination analysis. Visitor residence and next destination charts are provided at city/county/district level.",
+    "Official download button calls loginChk; logged-out visitors are directed to sign-in. Login was not bypassed.",
+    "API 15101972 is FREE with automatic application approval, but requires registration/application and serviceKey.",
+    "Published API only exposes daily province/district visitors by visitor type. Its schema has NO nationality or residence OD dimensions.",
+    "Foreign visitor country is inferred from roaming operator signals and is not necessarily passport nationality. Source: SKT. Domestic external visitors: KT.",
+    "Official foreign visitor definition: stay <=90 consecutive days; province/district cumulative >=2h per day, administrative dong continuous >=30min. Exact travel purpose is unknown.",
+    "23 named foreign countries plus other. Do not sum subregions into parent-region unique visitors. Do not manually sum daily into monthly or annual values due to rounding and deduplication definitions.",
+    "No purchase requirement found for the documented public API. Dashboard download requires login. Private raw trajectories or custom commercial extracts were not assessed.",
+    "Official terms prohibit unauthorized collection outside official downloads."
+  ],
+  "sources": [
+    {
+      "url": "https://www.data.go.kr/data/15101972/openapi.do",
+      "type": "official_openapi",
+      "cost": "free",
+      "authentication": "application and serviceKey required",
+      "baseUrl": "https://apis.data.go.kr/B551011/DataLabService",
+      "operations": [
+        "/metcoRegnVisitrDDList",
+        "/locgoRegnVisitrDDList"
+      ],
+      "fields": [
+        "baseYmd",
+        "signguCode",
+        "signguNm",
+        "touDivCd",
+        "touDivNm",
+        "touNum"
+      ],
+      "nationalityOD": false
+    },
+    {
+      "url": "https://datalab.visitkorea.or.kr/datalab/portal/loc/getAreaVisitDataForm.do",
+      "type": "official_dashboard_download",
+      "authentication": "login required for download"
+    },
+    {
+      "url": "https://datalab.visitkorea.or.kr/datalab/portal/getMetaInfoList.do",
+      "type": "definitions"
+    },
+    {
+      "url": "https://datalab.visitkorea.or.kr/html/serviceguide/serviceguide.jsp?mode=1",
+      "type": "usage_terms"
+    }
+  ]
+}
