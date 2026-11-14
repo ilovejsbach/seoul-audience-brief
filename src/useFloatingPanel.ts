@@ -9,7 +9,15 @@ export function useFloatingPanel(host:RefObject<HTMLElement|null>,enabled:boolea
   const r=host.current?.getBoundingClientRect();
   if(!r||r.width<=0||r.height<=0)return next;
   // Intersect host-relative coordinates with the visible browser viewport.
-  const minX=Math.max(0,-r.left),maxX=Math.min(r.width,window.innerWidth-r.left),minY=Math.max(0,-r.top),maxY=Math.min(r.height,window.innerHeight-r.top);
+  let visibleLeft=0,visibleTop=0,visibleRight=window.innerWidth,visibleBottom=window.innerHeight;
+  // A presentation scene scrolls inside the page. Its clipping edge is as real
+  // as the browser edge: keep the draggable title and close action inside it.
+  for(let ancestor=host.current?.parentElement;ancestor;ancestor=ancestor.parentElement){
+   const css=getComputedStyle(ancestor),bounds=ancestor.getBoundingClientRect();
+   if(/auto|scroll|hidden|clip/.test(css.overflowX)){visibleLeft=Math.max(visibleLeft,bounds.left+ancestor.clientLeft);visibleRight=Math.min(visibleRight,bounds.left+ancestor.clientLeft+ancestor.clientWidth)}
+   if(/auto|scroll|hidden|clip/.test(css.overflowY)){visibleTop=Math.max(visibleTop,bounds.top+ancestor.clientTop);visibleBottom=Math.min(visibleBottom,bounds.top+ancestor.clientTop+ancestor.clientHeight)}
+  }
+  const minX=Math.max(0,visibleLeft-r.left),maxX=Math.min(r.width,visibleRight-r.left),minY=Math.max(0,visibleTop-r.top),maxY=Math.min(r.height,visibleBottom-r.top);
   const availableWidth=maxX-minX,availableHeight=maxY-minY;
   // Hidden/offscreen hosts must not destroy a window's last useful geometry.
   if(availableWidth<=0||availableHeight<=0)return next;

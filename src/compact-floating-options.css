@@ -1,0 +1,55 @@
+/* Query windows respond to their own width, independently of the viewport. */
+.app .mapShell[data-options-layout=floating] .mapOptionsPanel,
+.app .mapWorkspace[data-controls-floating=true] .mapWorkspaceControls{container-type:inline-size;container-name:query-window}
+.app .mapShell .mapOptionsBody .controls{align-items:stretch}
+.app .mapOptionsBody .queryOptionGroup{width:100%;min-width:0}
+.app .mapShell[data-options-layout=floating] .mapOptionsBody{padding:10px 12px 18px}
+.app .mapShell[data-options-layout=floating] .mapOptionsPanel>header,
+.app .mapWorkspace[data-controls-floating=true] .mapWorkspaceControls .mapWorkspacePanelHeader{padding:8px 12px;gap:6px 12px}
+.app .mapShell[data-options-layout=floating] .mapOptionsPanel>header h3,
+.app .mapWorkspace[data-controls-floating=true] .mapWorkspacePanelHeader h2{font-size:var(--layout-body,16px);line-height:1.4}
+.app .mapShell[data-options-layout=floating] .mapOptionsPanel>header>h3,
+.app .mapWorkspace[data-controls-floating=true] .mapWorkspaceControls .mapWorkspacePanelHeader>div:first-child{flex:1 1 auto;width:auto}
+.app .mapShell[data-options-layout=floating] .mapOptionsPanel>header>.floatingPanelActions,
+.app .mapWorkspace[data-controls-floating=true] .mapWorkspaceControls .mapWorkspacePanelHeader>.floatingPanelActions{flex:0 1 auto;width:auto}
+.app .mapOptionsFloatingNote{display:none}
+.app .mapShell[data-options-layout=floating] .queryOptionGroup{gap:8px;padding-bottom:8px}
+.app .mapShell[data-options-layout=floating] .mapOptionsBody :is(label,select,input,button){min-width:0;max-width:100%;box-sizing:border-box}
+.app .mapWorkspace[data-controls-floating=true] .mapWorkspacePanelContent{padding:10px 12px 18px}
+@container query-window (min-width:520px){
+ .app .mapShell[data-options-layout=floating] .mapOptionsBody .controls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;align-items:start}
+ .app .mapShell[data-options-layout=floating] .mapOptionsBody .controls>.export{align-self:end;width:auto;justify-self:start}
+ .app .mapShell[data-options-layout=floating] .mapOptionsExtra .mapControlRail{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-items:start;gap:12px;margin-top:10px;padding-top:10px}
+ .app .mapShell[data-options-layout=floating] .mapOptionsExtra .mapDisplaySettings{grid-column:1/-1}
+ .app .mapWorkspace[data-controls-floating=true] .marketControls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;align-items:start}
+ .app .mapWorkspace[data-controls-floating=true] .marketControls>.marketOptionGroup{margin:0;min-width:0}
+ .app .mapWorkspace[data-controls-floating=true] .marketControls>.marketResetFilters{grid-column:1/-1}
+}
+@container query-window (min-width:800px){
+ .app .mapShell[data-options-layout=floating] .mapOptionsBody .controls{grid-template-columns:repeat(3,minmax(0,1fr))}
+ .app .mapWorkspace[data-controls-floating=true] .marketControls{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+
+/* Preserve related button groups while allowing them to wrap in narrow hosts. */
+.app .trendExplorerControls fieldset{display:flex;flex-wrap:wrap;min-width:0;max-width:100%}
+.app .trendExplorerControls fieldset button{flex:1 1 100px;white-space:normal}
+.app .patternControls>[role=group]{display:flex;flex-wrap:wrap;max-width:100%}
+.app .layoutOptions{box-sizing:border-box;scrollbar-gutter:stable}
+@container query-window (min-width:520px){
+ .app .mapShell[data-options-layout=floating] .mapOptionsExtra .mapLevelControls>button{flex:1 1 130px;width:auto}
+ .app .mapShell[data-options-layout=floating] .mapOptionsExtra .mapZoomTools{justify-content:flex-start;align-items:center}
+ .app .mapShell[data-options-layout=floating] .mapOptionsExtra .mapZoomTools small{display:none}
+ .app .mapShell[data-options-layout=floating] .mapOptionsExtra .migrationMapControls{flex-direction:row;flex-wrap:wrap;align-items:end}
+ .app .mapShell[data-options-layout=floating] .mapOptionsExtra :is(.mapColorRangeControls,.mapPrimaryFilters){display:flex;flex-wrap:wrap;gap:10px;align-items:end}
+ .app .mapShell[data-options-layout=floating] .mapOptionsExtra :is(.mapColorRangeControls,.mapPrimaryFilters,.migrationMapControls) label{flex:1 1 200px;width:auto;min-width:0}
+ .app .mapShell[data-options-layout=floating] .mapOptionsExtra .migrationMapControls fieldset{min-width:0;max-width:100%;flex-wrap:wrap}
+}
+@container query-window (min-width:520px){
+ .app .mapShell[data-options-layout=floating] .mapOptionsExtra .mapControlRail>.migrationMapControls{grid-column:1/-1}
+}
+/* Fullscreen keeps its own filters; the query window already owns these fields. */
+.app .mapOptionsBody>.controls~.mapOptionsExtra .audienceMapControls .mapPrimaryFilters:not(:has(.migrationMapControls)){display:none!important}
+.app .mapOptionsBody>.controls~.mapOptionsExtra .audienceMapControls .mapPrimaryFilters>.mapPeriodControl{display:none!important}
+@container query-window (min-width:520px){
+ .app .mapShell[data-options-layout=floating] .mapOptionsExtra .mapControlRail>.audienceMapControls:has(.migrationMapControls){grid-column:1/-1}
+}

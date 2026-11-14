@@ -38,6 +38,7 @@ import './presentation-type-scale.css';
 import './map-workspace-shell.css';
 import './map-candidate-tray.css';
 import './long-content-layout.css';
+import './compact-floating-options.css';
 type Region={code:string;name:string;districtCode?:string};
 type Pop={columns:string[];rows:(string|number|null)[][]};
 type IndexEntry={path:string;date:string;rows?:number};
