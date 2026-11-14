@@ -1,0 +1,981 @@
+{
+  "source": "OA-23016",
+  "sourceUrl": "https://data.seoul.go.kr/dataList/OA-23016/F/1/datasetView.do",
+  "definition": "같은 시각·지역·타깃의 생활인구를 날짜별로 먼저 집계한 뒤 요일/월 구간별 평균",
+  "months": [
+    {
+      "month": "202601",
+      "dates": 31,
+      "regions": 453,
+      "sourceRows": 317688,
+      "files": [
+        {
+          "month": "202601",
+          "age": "all",
+          "sex": "all",
+          "path": "data/population-patterns/202601-all-all.json",
+          "bytes": 1007302
+        },
+        {
+          "month": "202601",
+          "age": "all",
+          "sex": "male",
+          "path": "data/population-patterns/202601-all-male.json",
+          "bytes": 980310
+        },
+        {
+          "month": "202601",
+          "age": "all",
+          "sex": "female",
+          "path": "data/population-patterns/202601-all-female.json",
+          "bytes": 984661
+        },
+        {
+          "month": "202601",
+          "age": "young",
+          "sex": "all",
+          "path": "data/population-patterns/202601-young-all.json",
+          "bytes": 930301
+        },
+        {
+          "month": "202601",
+          "age": "young",
+          "sex": "male",
+          "path": "data/population-patterns/202601-young-male.json",
+          "bytes": 904639
+        },
+        {
+          "month": "202601",
+          "age": "young",
+          "sex": "female",
+          "path": "data/population-patterns/202601-young-female.json",
+          "bytes": 905990
+        },
+        {
+          "month": "202601",
+          "age": "middle",
+          "sex": "all",
+          "path": "data/population-patterns/202601-middle-all.json",
+          "bytes": 933682
+        },
+        {
+          "month": "202601",
+          "age": "middle",
+          "sex": "male",
+          "path": "data/population-patterns/202601-middle-male.json",
+          "bytes": 905190
+        },
+        {
+          "month": "202601",
+          "age": "middle",
+          "sex": "female",
+          "path": "data/population-patterns/202601-middle-female.json",
+          "bytes": 904160
+        },
+        {
+          "month": "202601",
+          "age": "senior",
+          "sex": "all",
+          "path": "data/population-patterns/202601-senior-all.json",
+          "bytes": 925600
+        },
+        {
+          "month": "202601",
+          "age": "senior",
+          "sex": "male",
+          "path": "data/population-patterns/202601-senior-male.json",
+          "bytes": 901263
+        },
+        {
+          "month": "202601",
+          "age": "senior",
+          "sex": "female",
+          "path": "data/population-patterns/202601-senior-female.json",
+          "bytes": 902512
+        }
+      ]
+    },
+    {
+      "month": "202602",
+      "dates": 28,
+      "regions": 453,
+      "sourceRows": 286944,
+      "files": [
+        {
+          "month": "202602",
+          "age": "all",
+          "sex": "all",
+          "path": "data/population-patterns/202602-all-all.json",
+          "bytes": 1006642
+        },
+        {
+          "month": "202602",
+          "age": "all",
+          "sex": "male",
+          "path": "data/population-patterns/202602-all-male.json",
+          "bytes": 979102
+        },
+        {
+          "month": "202602",
+          "age": "all",
+          "sex": "female",
+          "path": "data/population-patterns/202602-all-female.json",
+          "bytes": 982878
+        },
+        {
+          "month": "202602",
+          "age": "young",
+          "sex": "all",
+          "path": "data/population-patterns/202602-young-all.json",
+          "bytes": 928487
+        },
+        {
+          "month": "202602",
+          "age": "young",
+          "sex": "male",
+          "path": "data/population-patterns/202602-young-male.json",
+          "bytes": 903877
+        },
+        {
+          "month": "202602",
+          "age": "young",
+          "sex": "female",
+          "path": "data/population-patterns/202602-young-female.json",
+          "bytes": 904530
+        },
+        {
+          "month": "202602",
+          "age": "middle",
+          "sex": "all",
+          "path": "data/population-patterns/202602-middle-all.json",
+          "bytes": 933326
+        },
+        {
+          "month": "202602",
+          "age": "middle",
+          "sex": "male",
+          "path": "data/population-patterns/202602-middle-male.json",
+          "bytes": 904236
+        },
+        {
+          "month": "202602",
+          "age": "middle",
+          "sex": "female",
+          "path": "data/population-patterns/202602-middle-female.json",
+          "bytes": 903145
+        },
+        {
+          "month": "202602",
+          "age": "senior",
+          "sex": "all",
+          "path": "data/population-patterns/202602-senior-all.json",
+          "bytes": 925130
+        },
+        {
+          "month": "202602",
+          "age": "senior",
+          "sex": "male",
+          "path": "data/population-patterns/202602-senior-male.json",
+          "bytes": 900902
+        },
+        {
+          "month": "202602",
+          "age": "senior",
+          "sex": "female",
+          "path": "data/population-patterns/202602-senior-female.json",
+          "bytes": 902176
+        }
+      ]
+    },
+    {
+      "month": "202603",
+      "dates": 31,
+      "regions": 453,
+      "sourceRows": 317688,
+      "files": [
+        {
+          "month": "202603",
+          "age": "all",
+          "sex": "all",
+          "path": "data/population-patterns/202603-all-all.json",
+          "bytes": 1007417
+        },
+        {
+          "month": "202603",
+          "age": "all",
+          "sex": "male",
+          "path": "data/population-patterns/202603-all-male.json",
+          "bytes": 979189
+        },
+        {
+          "month": "202603",
+          "age": "all",
+          "sex": "female",
+          "path": "data/population-patterns/202603-all-female.json",
+          "bytes": 985215
+        },
+        {
+          "month": "202603",
+          "age": "young",
+          "sex": "all",
+          "path": "data/population-patterns/202603-young-all.json",
+          "bytes": 931613
+        },
+        {
+          "month": "202603",
+          "age": "young",
+          "sex": "male",
+          "path": "data/population-patterns/202603-young-male.json",
+          "bytes": 905206
+        },
+        {
+          "month": "202603",
+          "age": "young",
+          "sex": "female",
+          "path": "data/population-patterns/202603-young-female.json",
+          "bytes": 906471
+        },
+        {
+          "month": "202603",
+          "age": "middle",
+          "sex": "all",
+          "path": "data/population-patterns/202603-middle-all.json",
+          "bytes": 934461
+        },
+        {
+          "month": "202603",
+          "age": "middle",
+          "sex": "male",
+          "path": "data/population-patterns/202603-middle-male.json",
+          "bytes": 905268
+        },
+        {
+          "month": "202603",
+          "age": "middle",
+          "sex": "female",
+          "path": "data/population-patterns/202603-middle-female.json",
+          "bytes": 904652
+        },
+        {
+          "month": "202603",
+          "age": "senior",
+          "sex": "all",
+          "path": "data/population-patterns/202603-senior-all.json",
+          "bytes": 924733
+        },
+        {
+          "month": "202603",
+          "age": "senior",
+          "sex": "male",
+          "path": "data/population-patterns/202603-senior-male.json",
+          "bytes": 901760
+        },
+        {
+          "month": "202603",
+          "age": "senior",
+          "sex": "female",
+          "path": "data/population-patterns/202603-senior-female.json",
+          "bytes": 902735
+        }
+      ]
+    },
+    {
+      "month": "202604",
+      "dates": 30,
+      "regions": 453,
+      "sourceRows": 307440,
+      "files": [
+        {
+          "month": "202604",
+          "age": "all",
+          "sex": "all",
+          "path": "data/population-patterns/202604-all-all.json",
+          "bytes": 1007137
+        },
+        {
+          "month": "202604",
+          "age": "all",
+          "sex": "male",
+          "path": "data/population-patterns/202604-all-male.json",
+          "bytes": 978677
+        },
+        {
+          "month": "202604",
+          "age": "all",
+          "sex": "female",
+          "path": "data/population-patterns/202604-all-female.json",
+          "bytes": 983860
+        },
+        {
+          "month": "202604",
+          "age": "young",
+          "sex": "all",
+          "path": "data/population-patterns/202604-young-all.json",
+          "bytes": 930772
+        },
+        {
+          "month": "202604",
+          "age": "young",
+          "sex": "male",
+          "path": "data/population-patterns/202604-young-male.json",
+          "bytes": 904736
+        },
+        {
+          "month": "202604",
+          "age": "young",
+          "sex": "female",
+          "path": "data/population-patterns/202604-young-female.json",
+          "bytes": 906177
+        },
+        {
+          "month": "202604",
+          "age": "middle",
+          "sex": "all",
+          "path": "data/population-patterns/202604-middle-all.json",
+          "bytes": 934213
+        },
+        {
+          "month": "202604",
+          "age": "middle",
+          "sex": "male",
+          "path": "data/population-patterns/202604-middle-male.json",
+          "bytes": 905470
+        },
+        {
+          "month": "202604",
+          "age": "middle",
+          "sex": "female",
+          "path": "data/population-patterns/202604-middle-female.json",
+          "bytes": 904298
+        },
+        {
+          "month": "202604",
+          "age": "senior",
+          "sex": "all",
+          "path": "data/population-patterns/202604-senior-all.json",
+          "bytes": 924133
+        },
+        {
+          "month": "202604",
+          "age": "senior",
+          "sex": "male",
+          "path": "data/population-patterns/202604-senior-male.json",
+          "bytes": 901718
+        },
+        {
+          "month": "202604",
+          "age": "senior",
+          "sex": "female",
+          "path": "data/population-patterns/202604-senior-female.json",
+          "bytes": 902562
+        }
+      ]
+    },
+    {
+      "month": "202605",
+      "dates": 31,
+      "regions": 453,
+      "sourceRows": 317688,
+      "files": [
+        {
+          "month": "202605",
+          "age": "all",
+          "sex": "all",
+          "path": "data/population-patterns/202605-all-all.json",
+          "bytes": 1007403
+        },
+        {
+          "month": "202605",
+          "age": "all",
+          "sex": "male",
+          "path": "data/population-patterns/202605-all-male.json",
+          "bytes": 983348
+        },
+        {
+          "month": "202605",
+          "age": "all",
+          "sex": "female",
+          "path": "data/population-patterns/202605-all-female.json",
+          "bytes": 988418
+        },
+        {
+          "month": "202605",
+          "age": "young",
+          "sex": "all",
+          "path": "data/population-patterns/202605-young-all.json",
+          "bytes": 931346
+        },
+        {
+          "month": "202605",
+          "age": "young",
+          "sex": "male",
+          "path": "data/population-patterns/202605-young-male.json",
+          "bytes": 904795
+        },
+        {
+          "month": "202605",
+          "age": "young",
+          "sex": "female",
+          "path": "data/population-patterns/202605-young-female.json",
+          "bytes": 905885
+        },
+        {
+          "month": "202605",
+          "age": "middle",
+          "sex": "all",
+          "path": "data/population-patterns/202605-middle-all.json",
+          "bytes": 934422
+        },
+        {
+          "month": "202605",
+          "age": "middle",
+          "sex": "male",
+          "path": "data/population-patterns/202605-middle-male.json",
+          "bytes": 904731
+        },
+        {
+          "month": "202605",
+          "age": "middle",
+          "sex": "female",
+          "path": "data/population-patterns/202605-middle-female.json",
+          "bytes": 903856
+        },
+        {
+          "month": "202605",
+          "age": "senior",
+          "sex": "all",
+          "path": "data/population-patterns/202605-senior-all.json",
+          "bytes": 925291
+        },
+        {
+          "month": "202605",
+          "age": "senior",
+          "sex": "male",
+          "path": "data/population-patterns/202605-senior-male.json",
+          "bytes": 901246
+        },
+        {
+          "month": "202605",
+          "age": "senior",
+          "sex": "female",
+          "path": "data/population-patterns/202605-senior-female.json",
+          "bytes": 902742
+        }
+      ]
+    },
+    {
+      "month": "202606",
+      "dates": 30,
+      "regions": 453,
+      "sourceRows": 307440,
+      "files": [
+        {
+          "month": "202606",
+          "age": "all",
+          "sex": "all",
+          "path": "data/population-patterns/202606-all-all.json",
+          "bytes": 1007311
+        },
+        {
+          "month": "202606",
+          "age": "all",
+          "sex": "male",
+          "path": "data/population-patterns/202606-all-male.json",
+          "bytes": 978660
+        },
+        {
+          "month": "202606",
+          "age": "all",
+          "sex": "female",
+          "path": "data/population-patterns/202606-all-female.json",
+          "bytes": 984456
+        },
+        {
+          "month": "202606",
+          "age": "young",
+          "sex": "all",
+          "path": "data/population-patterns/202606-young-all.json",
+          "bytes": 930203
+        },
+        {
+          "month": "202606",
+          "age": "young",
+          "sex": "male",
+          "path": "data/population-patterns/202606-young-male.json",
+          "bytes": 904350
+        },
+        {
+          "month": "202606",
+          "age": "young",
+          "sex": "female",
+          "path": "data/population-patterns/202606-young-female.json",
+          "bytes": 905492
+        },
+        {
+          "month": "202606",
+          "age": "middle",
+          "sex": "all",
+          "path": "data/population-patterns/202606-middle-all.json",
+          "bytes": 933563
+        },
+        {
+          "month": "202606",
+          "age": "middle",
+          "sex": "male",
+          "path": "data/population-patterns/202606-middle-male.json",
+          "bytes": 905137
+        },
+        {
+          "month": "202606",
+          "age": "middle",
+          "sex": "female",
+          "path": "data/population-patterns/202606-middle-female.json",
+          "bytes": 904043
+        },
+        {
+          "month": "202606",
+          "age": "senior",
+          "sex": "all",
+          "path": "data/population-patterns/202606-senior-all.json",
+          "bytes": 925311
+        },
+        {
+          "month": "202606",
+          "age": "senior",
+          "sex": "male",
+          "path": "data/population-patterns/202606-senior-male.json",
+          "bytes": 901603
+        },
+        {
+          "month": "202606",
+          "age": "senior",
+          "sex": "female",
+          "path": "data/population-patterns/202606-senior-female.json",
+          "bytes": 902693
+        }
+      ]
+    },
+    {
+      "month": "202607",
+      "dates": 31,
+      "regions": 453,
+      "sourceRows": 317688,
+      "files": [
+        {
+          "month": "202607",
+          "age": "all",
+          "sex": "all",
+          "path": "data/population-patterns/202607-all-all.json",
+          "bytes": 1006926
+        },
+        {
+          "month": "202607",
+          "age": "all",
+          "sex": "male",
+          "path": "data/population-patterns/202607-all-male.json",
+          "bytes": 981278
+        },
+        {
+          "month": "202607",
+          "age": "all",
+          "sex": "female",
+          "path": "data/population-patterns/202607-all-female.json",
+          "bytes": 984810
+        },
+        {
+          "month": "202607",
+          "age": "young",
+          "sex": "all",
+          "path": "data/population-patterns/202607-young-all.json",
+          "bytes": 929412
+        },
+        {
+          "month": "202607",
+          "age": "young",
+          "sex": "male",
+          "path": "data/population-patterns/202607-young-male.json",
+          "bytes": 904528
+        },
+        {
+          "month": "202607",
+          "age": "young",
+          "sex": "female",
+          "path": "data/population-patterns/202607-young-female.json",
+          "bytes": 905332
+        },
+        {
+          "month": "202607",
+          "age": "middle",
+          "sex": "all",
+          "path": "data/population-patterns/202607-middle-all.json",
+          "bytes": 933167
+        },
+        {
+          "month": "202607",
+          "age": "middle",
+          "sex": "male",
+          "path": "data/population-patterns/202607-middle-male.json",
+          "bytes": 904861
+        },
+        {
+          "month": "202607",
+          "age": "middle",
+          "sex": "female",
+          "path": "data/population-patterns/202607-middle-female.json",
+          "bytes": 904076
+        },
+        {
+          "month": "202607",
+          "age": "senior",
+          "sex": "all",
+          "path": "data/population-patterns/202607-senior-all.json",
+          "bytes": 925722
+        },
+        {
+          "month": "202607",
+          "age": "senior",
+          "sex": "male",
+          "path": "data/population-patterns/202607-senior-male.json",
+          "bytes": 901643
+        },
+        {
+          "month": "202607",
+          "age": "senior",
+          "sex": "female",
+          "path": "data/population-patterns/202607-senior-female.json",
+          "bytes": 902530
+        }
+      ]
+    },
+    {
+      "month": "202608",
+      "dates": 31,
+      "regions": 453,
+      "sourceRows": 317688,
+      "files": [
+        {
+          "month": "202608",
+          "age": "all",
+          "sex": "all",
+          "path": "data/population-patterns/202608-all-all.json",
+          "bytes": 1006872
+        },
+        {
+          "month": "202608",
+          "age": "all",
+          "sex": "male",
+          "path": "data/population-patterns/202608-all-male.json",
+          "bytes": 979945
+        },
+        {
+          "month": "202608",
+          "age": "all",
+          "sex": "female",
+          "path": "data/population-patterns/202608-all-female.json",
+          "bytes": 986134
+        },
+        {
+          "month": "202608",
+          "age": "young",
+          "sex": "all",
+          "path": "data/population-patterns/202608-young-all.json",
+          "bytes": 929045
+        },
+        {
+          "month": "202608",
+          "age": "young",
+          "sex": "male",
+          "path": "data/population-patterns/202608-young-male.json",
+          "bytes": 904499
+        },
+        {
+          "month": "202608",
+          "age": "young",
+          "sex": "female",
+          "path": "data/population-patterns/202608-young-female.json",
+          "bytes": 905218
+        },
+        {
+          "month": "202608",
+          "age": "middle",
+          "sex": "all",
+          "path": "data/population-patterns/202608-middle-all.json",
+          "bytes": 932646
+        },
+        {
+          "month": "202608",
+          "age": "middle",
+          "sex": "male",
+          "path": "data/population-patterns/202608-middle-male.json",
+          "bytes": 904772
+        },
+        {
+          "month": "202608",
+          "age": "middle",
+          "sex": "female",
+          "path": "data/population-patterns/202608-middle-female.json",
+          "bytes": 903847
+        },
+        {
+          "month": "202608",
+          "age": "senior",
+          "sex": "all",
+          "path": "data/population-patterns/202608-senior-all.json",
+          "bytes": 925533
+        },
+        {
+          "month": "202608",
+          "age": "senior",
+          "sex": "male",
+          "path": "data/population-patterns/202608-senior-male.json",
+          "bytes": 901713
+        },
+        {
+          "month": "202608",
+          "age": "senior",
+          "sex": "female",
+          "path": "data/population-patterns/202608-senior-female.json",
+          "bytes": 902640
+        }
+      ]
+    },
+    {
+      "month": "202609",
+      "dates": 30,
+      "regions": 453,
+      "sourceRows": 307440,
+      "files": [
+        {
+          "month": "202609",
+          "age": "all",
+          "sex": "all",
+          "path": "data/population-patterns/202609-all-all.json",
+          "bytes": 1006939
+        },
+        {
+          "month": "202609",
+          "age": "all",
+          "sex": "male",
+          "path": "data/population-patterns/202609-all-male.json",
+          "bytes": 982081
+        },
+        {
+          "month": "202609",
+          "age": "all",
+          "sex": "female",
+          "path": "data/population-patterns/202609-all-female.json",
+          "bytes": 986743
+        },
+        {
+          "month": "202609",
+          "age": "young",
+          "sex": "all",
+          "path": "data/population-patterns/202609-young-all.json",
+          "bytes": 928917
+        },
+        {
+          "month": "202609",
+          "age": "young",
+          "sex": "male",
+          "path": "data/population-patterns/202609-young-male.json",
+          "bytes": 904234
+        },
+        {
+          "month": "202609",
+          "age": "young",
+          "sex": "female",
+          "path": "data/population-patterns/202609-young-female.json",
+          "bytes": 905339
+        },
+        {
+          "month": "202609",
+          "age": "middle",
+          "sex": "all",
+          "path": "data/population-patterns/202609-middle-all.json",
+          "bytes": 933252
+        },
+        {
+          "month": "202609",
+          "age": "middle",
+          "sex": "male",
+          "path": "data/population-patterns/202609-middle-male.json",
+          "bytes": 904848
+        },
+        {
+          "month": "202609",
+          "age": "middle",
+          "sex": "female",
+          "path": "data/population-patterns/202609-middle-female.json",
+          "bytes": 903868
+        },
+        {
+          "month": "202609",
+          "age": "senior",
+          "sex": "all",
+          "path": "data/population-patterns/202609-senior-all.json",
+          "bytes": 925972
+        },
+        {
+          "month": "202609",
+          "age": "senior",
+          "sex": "male",
+          "path": "data/population-patterns/202609-senior-male.json",
+          "bytes": 901576
+        },
+        {
+          "month": "202609",
+          "age": "senior",
+          "sex": "female",
+          "path": "data/population-patterns/202609-senior-female.json",
+          "bytes": 903165
+        }
+      ]
+    },
+    {
+      "month": "202610",
+      "dates": 31,
+      "regions": 453,
+      "sourceRows": 317688,
+      "files": [
+        {
+          "month": "202610",
+          "age": "all",
+          "sex": "all",
+          "path": "data/population-patterns/202610-all-all.json",
+          "bytes": 1007094
+        },
+        {
+          "month": "202610",
+          "age": "all",
+          "sex": "male",
+          "path": "data/population-patterns/202610-all-male.json",
+          "bytes": 982528
+        },
+        {
+          "month": "202610",
+          "age": "all",
+          "sex": "female",
+          "path": "data/population-patterns/202610-all-female.json",
+          "bytes": 987398
+        },
+        {
+          "month": "202610",
+          "age": "young",
+          "sex": "all",
+          "path": "data/population-patterns/202610-young-all.json",
+          "bytes": 929595
+        },
+        {
+          "month": "202610",
+          "age": "young",
+          "sex": "male",
+          "path": "data/population-patterns/202610-young-male.json",
+          "bytes": 904263
+        },
+        {
+          "month": "202610",
+          "age": "young",
+          "sex": "female",
+          "path": "data/population-patterns/202610-young-female.json",
+          "bytes": 905315
+        },
+        {
+          "month": "202610",
+          "age": "middle",
+          "sex": "all",
+          "path": "data/population-patterns/202610-middle-all.json",
+          "bytes": 932935
+        },
+        {
+          "month": "202610",
+          "age": "middle",
+          "sex": "male",
+          "path": "data/population-patterns/202610-middle-male.json",
+          "bytes": 904950
+        },
+        {
+          "month": "202610",
+          "age": "middle",
+          "sex": "female",
+          "path": "data/population-patterns/202610-middle-female.json",
+          "bytes": 903933
+        },
+        {
+          "month": "202610",
+          "age": "senior",
+          "sex": "all",
+          "path": "data/population-patterns/202610-senior-all.json",
+          "bytes": 925471
+        },
+        {
+          "month": "202610",
+          "age": "senior",
+          "sex": "male",
+          "path": "data/population-patterns/202610-senior-male.json",
+          "bytes": 901550
+        },
+        {
+          "month": "202610",
+          "age": "senior",
+          "sex": "female",
+          "path": "data/population-patterns/202610-senior-female.json",
+          "bytes": 902718
+        }
+      ]
+    }
+  ],
+  "availableCohorts": [
+    {
+      "age": "all",
+      "sex": "all"
+    },
+    {
+      "age": "all",
+      "sex": "male"
+    },
+    {
+      "age": "all",
+      "sex": "female"
+    },
+    {
+      "age": "young",
+      "sex": "all"
+    },
+    {
+      "age": "young",
+      "sex": "male"
+    },
+    {
+      "age": "young",
+      "sex": "female"
+    },
+    {
+      "age": "middle",
+      "sex": "all"
+    },
+    {
+      "age": "middle",
+      "sex": "male"
+    },
+    {
+      "age": "middle",
+      "sex": "female"
+    },
+    {
+      "age": "senior",
+      "sex": "all"
+    },
+    {
+      "age": "senior",
+      "sex": "male"
+    },
+    {
+      "age": "senior",
+      "sex": "female"
+    }
+  ],
+  "limitations": [
+    "월별 같은250m자료이며 구 OA-14991 방식과 혼합하지 않음.",
+    "공휴일 별도 분리 없음. 날짜별 유효 표본 수를 함께 확인."
+  ]
+}
