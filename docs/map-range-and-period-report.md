@@ -20,3 +20,6 @@
 - 창신1동 여성 월초 00시 평균은 2,527.96명(유효 4/10일)으로 비공개 날짜를 제외한 원자료 계산과 일치했다.
 
 검사 증거: [현재 실행 결과](../tests/map-period-regression-results.json), [자료 확보 조사](population-history-research.md), [독립 수용 기준](map-range-acceptance.md). 과거 전체 시나리오를 모두 재실행한 것은 아니며 현재 변경 영향 범위를 검사했다.
+
+## 공개 반영 확인
+소스 `042b313`, 공개 산출물 `f80dd47`, GitHub Pages 실행 [43649297527](https://github.com/ilovejsbach/seoul-audience-brief/actions/runs/43649297527) 성공. 공개 Chrome에서 기간 분석 5개와 공통 지도 범위 시나리오를 재실행해 통과했다. [공개 실행 증거](../tests/map-period-public-results.json).
