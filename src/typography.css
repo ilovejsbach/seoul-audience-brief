@@ -1,0 +1,38 @@
+/* One font family, three weights, and a shared reading hierarchy. */
+html body,.app,.app *{font-family:var(--font-ui)!important;font-synthesis:none}
+html body,.app{font-size:16px;font-weight:400;line-height:1.7;letter-spacing:0}
+.app :is(h1,h2,h3,h4){font-weight:600!important;letter-spacing:-.02em!important;line-height:1.45;word-break:keep-all;overflow-wrap:anywhere}
+.app :is(p,td,li){font-weight:400;letter-spacing:0;line-height:1.75;overflow-wrap:anywhere}
+.app button{font-weight:500!important;letter-spacing:0;line-height:1.5}
+.app :is(input,select,textarea){font-weight:400;letter-spacing:0;line-height:1.6}
+.app strong,.app b,.app .brand,.app .brand div{font-weight:600}
+.app .brand{letter-spacing:.025em}
+.app .eyebrow{font-weight:500;letter-spacing:.04em}
+.app .heroAnalysis .analysisHeroHeader h1,.app .heroPresentation .presentationHeroCopy h1{font-weight:600!important;letter-spacing:-.02em!important;line-height:1.35}
+.app :is(.heroAnalysis,.heroPresentation) p{font-size:16px;font-weight:400;line-height:1.85;letter-spacing:0}
+.app .heroAnalysis :is(.analysisDatasets p,.analysisScenarios p,.analysisHeroNotes p){font-size:15px}
+.app :is(.metrics strong,.rankRow strong,.compareGrid strong,.trendCurrent strong,.timeComparison strong,.mapPopup strong,.mapHoverTooltip strong){font-weight:600!important;font-variant-numeric:tabular-nums lining-nums;letter-spacing:0!important;line-height:1.4}
+.app :is(table,.trendAxis,.trendPlayStatus,.mapZoomTools span,.timeTicks,.pill){font-variant-numeric:tabular-nums lining-nums}
+.app .dashboardContent{font-size:16px;font-weight:400;line-height:1.75}
+.app.mode-analysis{--layout-body:16px;--layout-label:14px;--layout-title:24px}
+.app.mode-presentation{--layout-body:16px;--layout-label:15px;--layout-title:28px;--layout-kpi:40px}
+.app .analysisHeading h1{font-size:28px;line-height:1.5}
+.app.mode-analysis .dashboardContent :is(.panel h2,.panelTitle h2,.trendExplorerHeading h2,.timeComparison h2){font-size:24px!important;line-height:1.5}
+.app.mode-presentation .dashboardContent :is(.panel h2,.panelTitle h2,.trendExplorerHeading h2,.timeComparison h2){font-size:28px!important;line-height:1.5}
+.app .dashboardContent :is(.panelTitle,.trendExplorerHeading){gap:24px;align-items:flex-start}
+.app .dashboardContent :is(.panelTitle>div,.trendExplorerHeading>div:first-child){min-width:0}
+.app .dashboardContent :is(.metrics span,.controls label,.helper,.muted,.mapCaption,.legend,.legend .muted,.mapAppliedConditions>b){font-size:var(--layout-label);line-height:1.7}
+.app .dashboardContent :is(.controls select,.controls button,.rankName,.rankRow strong,.compareGrid p,.regionSelectionSummary p,.trendExplorerHeading p,.trendPlaybackButtons>button){font-size:16px;line-height:1.7}
+.app .dashboardContent :is(.metrics p,.source,.notice,.dataNotes,.movementBasisNotice,.trendExplanation,.boundaryNotice){font-size:14px;line-height:1.85}
+.app.mode-analysis .dashboardContent .metrics strong{font-size:34px}
+.app.mode-presentation .dashboardContent :is(.metrics strong,.compareGrid strong,.trendCurrent strong){font-size:40px}
+.app.mode-presentation .dashboardContent :is(.metrics p,.compareGrid p,.trendExplorerHeading p,.trendExplanation){font-size:16px}
+.app .dashboardContent .extraTable :is(td,th){font-size:15px;line-height:1.8;padding-block:16px;vertical-align:middle;overflow-wrap:anywhere}
+.app .dashboardContent .extraTable thead th{font-size:14px;font-weight:500}
+.app .dashboardContent .extraTable tbody th{font-weight:500}
+.app .dashboardContent .detailRegionButton{font-size:15px;line-height:1.8}
+.app .dashboardContent .extraTable :is(td:not(:first-child),th:not(:first-child)){white-space:nowrap}
+.app .dashboardContent .extraTable th:first-child{min-width:105px;white-space:normal;word-break:keep-all}
+@media(max-width:1100px){.app.mode-analysis .dashboardContent :is(.panel h2,.panelTitle h2,.trendExplorerHeading h2,.timeComparison h2){font-size:23px!important}.app.mode-presentation .dashboardContent :is(.panel h2,.panelTitle h2,.trendExplorerHeading h2,.timeComparison h2){font-size:25px!important}}
+@media(max-width:800px){.app .analysisHeading h1{font-size:24px}.app.mode-analysis .dashboardContent :is(.panel h2,.panelTitle h2,.trendExplorerHeading h2,.timeComparison h2),.app.mode-presentation .dashboardContent :is(.panel h2,.panelTitle h2,.trendExplorerHeading h2,.timeComparison h2){font-size:22px!important;line-height:1.55}.app.mode-analysis .dashboardContent .metrics strong,.app.mode-presentation .dashboardContent :is(.metrics strong,.compareGrid strong,.trendCurrent strong){font-size:30px}.app .dashboardContent :is(.rankName,.rankRow strong,.controls select,.controls button){font-size:15px}.app .dashboardContent .extraTable :is(td,th,.detailRegionButton){font-size:14px}.app .dashboardContent .extraTable :is(td,th){padding:13px 8px}.app .heroAnalysis :is(.analysisDatasets p,.analysisScenarios p,.analysisHeroNotes p){font-size:14px}}
+@media print{.app .dashboardContent{font-size:13px;line-height:1.65}.app.mode-analysis .dashboardContent :is(.panel h2,.panelTitle h2,.trendExplorerHeading h2,.timeComparison h2),.app.mode-presentation .dashboardContent :is(.panel h2,.panelTitle h2,.trendExplorerHeading h2,.timeComparison h2){font-size:20px!important}.app.mode-analysis .dashboardContent .metrics strong,.app.mode-presentation .dashboardContent .metrics strong{font-size:30px}.app .dashboardContent .extraTable :is(td,th,.detailRegionButton){font-size:12px!important}.app .dashboardContent :is(.source,.dataNotes){font-size:11px!important;line-height:1.8}}

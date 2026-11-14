@@ -1,0 +1,72 @@
+{
+  "testedAt": "2026-11-14T09:24:44.170Z",
+  "browser": "Chrome",
+  "layout": [
+    {
+      "mode": "analysis",
+      "width": 1440,
+      "height": 900,
+      "font": "\"IBM Plex Sans KR\", \"Apple SD Gothic Neo\", \"Malgun Gothic\", sans-serif",
+      "kpiOverflow": false,
+      "loaded": true,
+      "overflow": false
+    },
+    {
+      "mode": "analysis",
+      "width": 1280,
+      "height": 800,
+      "font": "\"IBM Plex Sans KR\", \"Apple SD Gothic Neo\", \"Malgun Gothic\", sans-serif",
+      "kpiOverflow": false,
+      "loaded": true,
+      "overflow": false
+    },
+    {
+      "mode": "presentation",
+      "width": 1440,
+      "height": 900,
+      "font": "\"IBM Plex Sans KR\", \"Apple SD Gothic Neo\", \"Malgun Gothic\", sans-serif",
+      "kpiOverflow": false,
+      "loaded": true,
+      "overflow": false
+    },
+    {
+      "mode": "presentation",
+      "width": 1280,
+      "height": 800,
+      "font": "\"IBM Plex Sans KR\", \"Apple SD Gothic Neo\", \"Malgun Gothic\", sans-serif",
+      "kpiOverflow": false,
+      "loaded": true,
+      "overflow": false
+    }
+  ],
+  "regression": [
+    {
+      "id": "hero-entries",
+      "status": "passed",
+      "detail": "2 hero modes, 4 dataset entries, 3 purpose entries, back navigation",
+      "startedAt": "2026-11-14T09:24:01.265Z",
+      "finishedAt": "2026-11-14T09:24:07.332Z"
+    },
+    {
+      "id": "population-filters",
+      "status": "passed",
+      "detail": "district, date, hour, age, sex update map and validated values",
+      "startedAt": "2026-11-14T09:24:07.333Z",
+      "finishedAt": "2026-11-14T09:24:09.282Z"
+    },
+    {
+      "id": "commerce-detail",
+      "status": "passed",
+      "detail": "quarter, time band, dong, gu period trend, source disclosure",
+      "startedAt": "2026-11-14T09:24:09.282Z",
+      "finishedAt": "2026-11-14T09:24:10.467Z"
+    },
+    {
+      "id": "presentation-journey",
+      "status": "passed",
+      "detail": "three pages, back/direct links, hero resume, disclosure, analysis state preserved",
+      "startedAt": "2026-11-14T09:24:10.467Z",
+      "finishedAt": "2026-11-14T09:24:14.774Z"
+    }
+  ]
+}

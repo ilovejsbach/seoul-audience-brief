@@ -1,0 +1,4 @@
+:root{--font-ui:"IBM Plex Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif}
+@font-face{font-family:"IBM Plex Sans KR";font-style:normal;font-weight:400;font-display:swap;src:url("./assets/fonts/IBMPlexSansKR-Regular.woff2") format("woff2")}
+@font-face{font-family:"IBM Plex Sans KR";font-style:normal;font-weight:500;font-display:swap;src:url("./assets/fonts/IBMPlexSansKR-Medium.woff2") format("woff2")}
+@font-face{font-family:"IBM Plex Sans KR";font-style:normal;font-weight:600;font-display:swap;src:url("./assets/fonts/IBMPlexSansKR-SemiBold.woff2") format("woff2")}
