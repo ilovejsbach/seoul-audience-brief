@@ -1,0 +1,36 @@
+/* Left query rail + central map; the peer ranking panel remains on the right. */
+.app .dashboardContent .mapPanel.mapShell:not(.mapIsFullscreen){display:grid;grid-template-columns:var(--map-options-width,220px) minmax(0,1fr);grid-template-rows:auto auto auto;position:relative;padding:0;align-content:start;overflow:visible}
+.app .dashboardContent .mapPanel.mapShell:not(.mapIsFullscreen)>.panelTitle{grid-column:2;grid-row:1;min-height:48px;padding:8px 300px 8px 12px;display:flex;align-items:center}
+.app .dashboardContent .mapPanel.mapShell:not(.mapIsFullscreen)>.panelTitle .pill{display:none}
+.app .dashboardContent .mapPanel.mapShell:not(.mapIsFullscreen)>.mapPanelTools{grid-column:2;grid-row:1;justify-self:end;align-self:center;display:flex;gap:6px;padding:6px 8px;z-index:8;max-width:300px}
+.app .mapShell .mapDatasetChoice select{max-width:120px;min-height:32px;padding:4px 6px}.app .mapShell:not(.mapIsFullscreen) .mapDatasetLabel{display:none}
+.app .mapShell .mapPanelTools button{min-height:32px;padding:5px 8px;border:1px solid #aabbd0;border-radius:4px;background:white;color:#24558b;white-space:nowrap}
+.app .dashboardContent .mapPanel.mapShell:not(.mapIsFullscreen)>.mapWrap{grid-column:2;grid-row:2;display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto auto auto auto auto;min-width:0;padding:0 8px}
+.app .dashboardContent .mapPanel.mapShell:not(.mapIsFullscreen) .mapAppliedConditions{grid-column:1;grid-row:1;min-height:30px;margin:0 0 4px;padding:5px 8px}
+.app .dashboardContent .mapPanel.mapShell:not(.mapIsFullscreen) .mapMissingReason{grid-column:1;grid-row:2;margin:0 0 4px}
+.app .mapShell .mapCandidateSlot{grid-column:1/-1;grid-row:3;min-width:0}
+.app .dashboardContent .mapPanel.mapShell:not(.mapIsFullscreen) .mapWrap>svg{grid-column:1;grid-row:4;height:var(--workspace-map-height,clamp(420px,calc(100dvh - 400px),680px))!important;min-height:0;max-height:none;width:100%}
+.app .dashboardContent .mapPanel.mapShell:not(.mapIsFullscreen) .mapCaption{grid-column:1;grid-row:5;margin:0;padding:1px 4px;line-height:1.4}
+.app .dashboardContent .mapPanel.mapShell:not(.mapIsFullscreen) .legend{grid-column:1;grid-row:6;padding:3px 4px 5px;gap:8px;line-height:1.4}
+.app .dashboardContent .mapPanel.mapShell:not(.mapIsFullscreen) .boundaryNotice{grid-column:1;grid-row:7}
+.app .dashboardContent .mapPanel.mapShell:not(.mapIsFullscreen)>.timeControl{grid-column:2;grid-row:3;padding:4px 12px;gap:10px}
+.app .mapOptionsPanel{grid-column:1;grid-row:1/span 3;display:flex;flex-direction:column;min-height:0;min-width:0;background:#f7f9fb;border-right:1px solid #c8d3df;position:relative;z-index:12}
+.app .mapOptionsPanel[hidden]{display:none!important}.app .mapOptionsPanel>header{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:10px 12px;border-bottom:1px solid #d1dbe6;flex:none}.app .mapOptionsPanel h3{margin:0;line-height:1.4}.app .mapOptionsPanel>header button{min-height:30px;padding:4px 8px;border:1px solid #aabbd0;background:white;color:#24558b;border-radius:4px}
+.app .mapOptionsBody{min-height:0;max-height:calc(100dvh - 290px);overflow:auto;padding:12px;scrollbar-gutter:stable;overscroll-behavior:contain}
+.app .mapShell .mapOptionsBody .controls{display:flex;flex-direction:column;gap:10px;padding:0;margin:0;border:0!important;box-shadow:none;background:transparent!important}
+.app .mapOptionsBody .controls>label{display:flex;flex-direction:column;align-items:stretch;width:100%;gap:4px}.app .mapOptionsBody .controls :is(select,button){width:100%;max-width:none;min-height:36px}.app .mapOptionsBody .controls .export{margin-top:3px}
+.app .mapControlRail{display:contents}.app .mapOptionsExtra .mapControlRail{display:flex;flex-direction:column;gap:10px;margin-top:14px;padding-top:12px;border-top:1px solid #c8d3df}
+.app .mapShell .mapOptionsExtra :is(.mapLevelControls,.mapZoomTools,.mapDisplaySettings){display:flex;flex-wrap:wrap;width:100%;margin:0;padding:0;gap:6px}
+.app .mapShell .mapOptionsExtra .mapLevelControls{align-items:stretch}.app .mapShell .mapOptionsExtra .mapLevelControls>button{flex:1 1 100%;min-height:34px;width:100%}.app .mapShell .mapOptionsExtra .mapLevelControls>span{width:100%;line-height:1.5}.app .mapShell .mapOptionsExtra .mapZoomTools{justify-content:space-between}.app .mapShell .mapOptionsExtra .mapZoomTools small{width:100%;margin:0;max-width:none}
+.app .mapShell .mapOptionsExtra .mapDisplaySettings{display:block;padding:0;border:1px solid #c8d3df}.app .mapShell .mapOptionsExtra .mapDisplaySettings>summary{padding:7px 8px}.app .mapShell .mapOptionsExtra .mapColorRangeControls label{flex-direction:column;align-items:stretch;width:100%}.app .mapShell .mapOptionsExtra .mapColorRangeControls :is(select,input){width:100%;max-width:none}
+.app .mapShell .mapOptionsExtra .mapPrimaryFilters label{flex-direction:column;align-items:stretch;width:100%}.app .mapShell .mapOptionsExtra .mapPrimaryFilters select{width:100%;max-width:none}.app .mapShell .mapOptionsExtra .migrationMapControls{display:flex;flex-direction:column;gap:8px;align-items:stretch}
+.app .mapOptionsResizer{position:absolute;left:calc(var(--map-options-width,220px) - 4px);top:0;bottom:0;width:8px;cursor:col-resize;touch-action:none;z-index:24}.app .mapOptionsResizer:hover,.app .mapOptionsResizer:focus-visible{background:#b8cce0}
+.app .dashboardContent .mapShell:is([data-options-layout=floating],[data-options-open=false]):not(.mapIsFullscreen){grid-template-columns:minmax(0,1fr)}
+.app .dashboardContent .mapShell:is([data-options-layout=floating],[data-options-open=false]):not(.mapIsFullscreen)>:is(.panelTitle,.mapPanelTools,.mapWrap,.timeControl){grid-column:1}
+.app .mapShell[data-options-layout=floating] .mapOptionsPanel{position:absolute;left:10px;top:48px;width:min(300px,calc(100% - 20px));max-height:calc(100% - 60px);border:1px solid #9eb3cb;border-radius:7px;box-shadow:0 10px 30px #152b4333;z-index:45;background:#fff}
+.app .mapOptionsFloatingNote{padding:8px 12px;margin:0;background:#eef4f9;line-height:1.5}.app .mapShell[data-options-layout=floating] .mapOptionsBody{max-height:calc(100dvh - 360px)}
+.app .mapShell.mapIsFullscreen .mapOptionsPanel{top:58px;max-height:calc(100dvh - 76px)}.app .mapShell.mapIsFullscreen .mapOptionsBody{max-height:calc(100dvh - 150px)}
+.app .mapShell.mapIsFullscreen .mapControlRail>.audienceMapControls{grid-column:1/-1;grid-row:3}.app .mapShell.mapIsFullscreen .mapLevelControls{grid-row:4}.app .mapShell.mapIsFullscreen .mapZoomTools{grid-row:4}.app .mapShell.mapIsFullscreen .mapDisplaySettings{grid-row:5}.app .mapShell.mapIsFullscreen .mapCandidateSlot{grid-row:6}
+.app .mapShell.mapIsFullscreen[data-options-open=true] .mapControlRail .mapPrimaryFilters:not(:has(.migrationMapControls)){display:none}.app .mapShell.mapIsFullscreen[data-options-open=true] .mapPeriodControl{display:none}
+@media(max-width:1099px){.app .dashboardContent .mapPanel.mapShell:not(.mapIsFullscreen) .mapWrap>svg{height:var(--workspace-map-height,400px)!important}.app .mapShell .mapOptionsBody{max-height:60dvh}.app .mapShell .mapPanelTools{flex-wrap:wrap}}
+@media print{.mapOptionsPanel,.mapOptionsResizer,.mapOptionsTrigger{display:none!important}.app .dashboardContent .mapPanel.mapShell:not(.mapIsFullscreen){display:block}.app .mapShell .mapControlRail{display:none}}

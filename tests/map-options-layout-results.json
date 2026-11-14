@@ -1,0 +1,109 @@
+[
+  {
+    "case": "default-docked",
+    "conditions": "현재 적용 조건2026.10.31 · 18:00 · 20–39세 · 여성",
+    "labels": 25,
+    "layout": "docked",
+    "mapHeight": 420,
+    "mapWidth": 780.5,
+    "open": "true",
+    "overflow": false,
+    "viewport": [
+      1512,
+      724
+    ],
+    "width": 220
+  },
+  {
+    "case": "resize",
+    "conditions": "현재 적용 조건2026.10.31 · 18:00 · 20–39세 · 여성",
+    "labels": 25,
+    "layout": "docked",
+    "mapHeight": 420,
+    "mapWidth": 770.5,
+    "open": "true",
+    "overflow": false,
+    "viewport": [
+      1512,
+      724
+    ],
+    "width": 230
+  },
+  {
+    "case": "automatic-floating",
+    "conditions": "현재 적용 조건2026.10.31 · 18:00 · 20–39세 · 여성",
+    "labels": 25,
+    "layout": "floating",
+    "mapHeight": 420,
+    "mapWidth": 728.8984375,
+    "open": "false",
+    "overflow": false,
+    "viewport": [
+      1512,
+      724
+    ],
+    "width": 0
+  },
+  {
+    "case": "floating-filter-semantics-and-escape",
+    "value": "강남구 2026.10.31 · 18:00 · 20–39세 · 여성 146,038 명",
+    "conditions": "현재 적용 조건2026.10.31 · 18:00 · 20–39세 · 여성",
+    "labels": 25,
+    "layout": "floating",
+    "mapHeight": 420,
+    "mapWidth": 728.8984375,
+    "open": "false",
+    "overflow": false,
+    "viewport": [
+      1512,
+      724
+    ],
+    "width": 0
+  },
+  {
+    "case": "reset-layout-preserves-data",
+    "conditions": "현재 적용 조건2026.10.31 · 18:00 · 20–39세 · 여성",
+    "labels": 25,
+    "layout": "docked",
+    "mapHeight": 420,
+    "mapWidth": 780.5,
+    "open": "true",
+    "overflow": false,
+    "viewport": [
+      1512,
+      724
+    ],
+    "width": 220
+  },
+  {
+    "case": "fullscreen-options-return",
+    "conditions": "현재 적용 조건2026.10.31 · 18:00 · 20–39세 · 여성",
+    "labels": 25,
+    "layout": "docked",
+    "mapHeight": 420,
+    "mapWidth": 780.5,
+    "open": "true",
+    "overflow": false,
+    "viewport": [
+      1512,
+      724
+    ],
+    "width": 220
+  },
+  {
+    "case": "migration-options-semantics",
+    "value": "강남구 2025년 · 순이동 -1,728 명",
+    "conditions": "현재 적용 조건2025년 · 순이동",
+    "labels": 25,
+    "layout": "docked",
+    "mapHeight": 420,
+    "mapWidth": 780.5,
+    "open": "true",
+    "overflow": false,
+    "viewport": [
+      1512,
+      724
+    ],
+    "width": 220
+  }
+]
