@@ -82,3 +82,6 @@ python3 scripts/validate-market-data.py
 주요 지표의 `설명` 버튼에서 의미·해석·주의를 확인할 수 있습니다. 원자료 119사례와 설명·연동을 포함한 의미 검사 128건의 결과는 [semantic-e2e-report.md](docs/semantic-e2e-report.md)에 있습니다.
 
 최근 실행 검수: [긴 수치·제목과 지도 작업공간 개선](docs/readability-and-workspace-report.md).
+
+## 생활인구 기간 분석
+일자별 상세 지도는 2026년 10월을 제공합니다. 요일·월초·월중·월말 시간대 평균은 2026년 1–10월 중 월을 골라 비교합니다. 확보한 원자료 304일의 유효 날짜 수와 결측을 함께 표시합니다. [자료 조사](docs/population-history-research.md) · [현재 실행 보고](docs/map-range-and-period-report.md).

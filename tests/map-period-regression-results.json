@@ -1,0 +1,368 @@
+{
+  "rangeResults": [
+    {
+      "case": "paired",
+      "domains": [
+        {
+          "airport": "#d9e6f2",
+          "high": "7870",
+          "low": "7630"
+        },
+        {
+          "airport": "#3d73a7",
+          "high": "7870",
+          "low": "7630"
+        }
+      ],
+      "notice": "직접 범위 7,600 명–7,900 명 · 원값 유지 · 하한 미만 35개·상한 초과 3개 관측값은 끝 색상으로 표시",
+      "tooltip": "두 지도 공통 색상 범례\n\n공통 · 7,600–7,900 명\n\n7,600 이상–7,660 이하 명\n7,660 초과–7,720 이하 명\n7,720 초과–7,780 이하 명\n7,780 초과–7,840 이하 명\n7,840 초과–7,900 이하 명\n자료 없음 · 0과 다름\n\n두 지도의 공통 색상 범위입니다. 같은 색은 같은 값 구간을 뜻합니다. 범위 밖 값은 끝 색으로 표시하며 원자료 값은 바꾸지 않습니다.",
+      "legend": {
+        "gradient": {
+          "bottom": 485.2109375,
+          "height": 9,
+          "left": 1450.0859375,
+          "right": 1530.0859375,
+          "top": 476.2109375,
+          "width": 80,
+          "x": 1450.0859375,
+          "y": 476.2109375
+        },
+        "height": 34
+      }
+    },
+    {
+      "case": "delta",
+      "domains": [
+        {
+          "airport": "#245c96",
+          "high": "100",
+          "low": "-100"
+        }
+      ],
+      "larger": [
+        {
+          "airport": "#245c96",
+          "high": "120",
+          "low": "-120"
+        }
+      ],
+      "notice": "직접 범위 -100 명–100 명 · 원값 유지 · 하한 미만 15개·상한 초과 2개 관측값은 끝 색상으로 표시"
+    },
+    {
+      "case": "mainMap",
+      "high": "7900",
+      "low": "7600",
+      "mode": null
+    },
+    {
+      "case": "market",
+      "notice": "직접 범위 100억 원–300억 원 · 원값 유지 · 하한 미만 3개·상한 초과 1개 관측값은 끝 색상으로 표시",
+      "exact": "공덕역(공덕오거리) 38,997,707,684 원 상세",
+      "tooltip": "범례\n\n2025년 4분기 · 전체 제공 업종 · 전체 · 직접 범위 · 같은 값 간격\n\n100억 이상–140억 이하 원\n10,000,000,000 이상–14,000,000,000 이하 원\n140억 초과–180억 이하 원\n14,000,000,000 초과–18,000,000,000 이하 원\n180억 초과–220억 이하 원\n18,000,000,000 초과–22,000,000,000 이하 원\n220억 초과–260억 이하 원\n22,000,000,000 초과–26,000,000,000 이하 원\n260억 초과–300억 이하 원\n26,000,000,000 초과–30,000,000,000 이하 원\n자료 없음 · 0과 다름\n\n값이 클수록 짙은 파랑입니다. 수동 범위 밖 관측값은 양 끝 색상으로 표시하며 원값은 유지합니다. 하한 미만 3개·상한 초과 1개. 정확한 값은 지역 상세·CSV에서 확인합니다."
+    }
+  ],
+  "profileResults": [
+    {
+      "case": "October-Airport-young-male-Monday",
+      "text": "월요일 · 12시 하루 평균\n8,877.5 명\n유효 4/4일"
+    },
+    {
+      "case": "profile-axis-and-hour-heatmap",
+      "mean": "월요일 · 12시 하루 평균\n8,877.5 명\n유효 4/4일"
+    },
+    {
+      "case": "month-start-vs-end",
+      "text": "월초 · 1–10일 · 12시 하루 평균\n8,596.61 명\n유효 10/10일\n월말 · 21일–말일 · 12시 하루 평균\n8,954.3 명\n유효 11/11일\n비교 그룹 − 기준 그룹\n+357.69 명\n그룹 평균의 차이 · 원인 추정 아님"
+    },
+    {
+      "case": "January-Seoul-all-cohort",
+      "text": "월요일 · 18시 하루 평균\n11,553,758.74 명\n유효 4/4일",
+      "geometry": [
+        {
+          "scroll": 400,
+          "text": "11,553,758.74 명",
+          "width": 400
+        },
+        {
+          "scroll": 400,
+          "text": "11,392,424.39 명",
+          "width": 400
+        },
+        {
+          "scroll": 400,
+          "text": "-161,334.35 명",
+          "width": 400
+        }
+      ]
+    },
+    {
+      "case": "real-partial-masked-mean",
+      "text": "월초 · 1–10일 · 0시 하루 평균\n2,527.96 명\n유효 4/10일"
+    }
+  ],
+  "legacyMapColor": [
+    "25구 독립 원자료 범위·색상·수치 불변",
+    "20% 적용·잘못된 입력 차단·초기화",
+    "마포구 16동 독립 범위",
+    "시간대 연동 재계산",
+    "공식·해석 도움말",
+    "전체화면 옵션·확대시 범위 유지"
+  ],
+  "semantic": [
+    {
+      "id": "sales-gongdeok-all",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T22:28:31.917Z"
+    },
+    {
+      "id": "sales-gongdeok-korean-food-time4",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T22:28:34.783Z"
+    },
+    {
+      "id": "population-gongdeok-all",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T22:28:36.074Z"
+    },
+    {
+      "id": "gongdeok-search-ranking-sales-all",
+      "status": "passed",
+      "checks": [
+        "raw-source rank order",
+        "same scope and units"
+      ],
+      "assertionCount": 9,
+      "at": "2026-11-14T22:28:36.880Z"
+    },
+    {
+      "id": "market-sales-overlap-scope",
+      "status": "passed",
+      "checks": [
+        "no false city total",
+        "no causal or conversion interpretation"
+      ],
+      "assertionCount": 2,
+      "at": "2026-11-14T22:28:37.268Z"
+    },
+    {
+      "id": "dynamic-time-direction-year-meaning",
+      "status": "passed",
+      "checks": [
+        "definition follows departure/arrival and accumulation",
+        "outflow not inflow",
+        "annual moves not daily visits",
+        "quarter sales not campaign effect"
+      ],
+      "assertionCount": 5,
+      "at": "2026-11-14T22:28:37.710Z"
+    },
+    {
+      "id": "map-color-and-legend-semantics",
+      "status": "passed",
+      "checks": [
+        "sequential darker means higher",
+        "rank class boundaries use raw values",
+        "legend threshold matches displayed color",
+        "palette changes no original value"
+      ],
+      "assertionCount": 11,
+      "at": "2026-11-14T22:28:41.320Z"
+    },
+    {
+      "id": "distribution-meaning-not-od",
+      "status": "passed",
+      "checks": [
+        "same-color same-range comparison",
+        "delta subtraction direction explicit",
+        "not OD and missing not computed"
+      ],
+      "assertionCount": 2,
+      "at": "2026-11-14T22:28:43.756Z"
+    }
+  ],
+  "market": [
+    {
+      "id": "market-open-query-and-real-values",
+      "status": "passed"
+    },
+    {
+      "id": "market-population-scope-and-period",
+      "status": "passed"
+    },
+    {
+      "id": "map-menu-and-detail-reopen",
+      "status": "passed"
+    },
+    {
+      "id": "market-empty-and-selection-reset",
+      "status": "passed"
+    },
+    {
+      "id": "market-color-scale-options",
+      "status": "passed"
+    },
+    {
+      "id": "market-candidates-and-chart-return",
+      "status": "passed"
+    },
+    {
+      "id": "market-return-to-actual-previous-view",
+      "status": "passed"
+    }
+  ],
+  "critical": [
+    {
+      "id": "axis-fit-manual-reset",
+      "status": "passed"
+    },
+    {
+      "id": "negative-baseline-index-guard",
+      "status": "passed"
+    },
+    {
+      "id": "population-same-dong-followup",
+      "status": "passed"
+    },
+    {
+      "id": "distribution-paired-and-delta",
+      "status": "passed"
+    },
+    {
+      "id": "mobility-relative-regions",
+      "status": "passed"
+    }
+  ],
+  "resize": [
+    {
+      "case": "legacy-split-floating-resize-reset",
+      "before": {
+        "bottom": 1034.4765625,
+        "height": 836.28125,
+        "left": 204.5,
+        "right": 1223,
+        "top": 198.1953125,
+        "width": 1018.5,
+        "x": 204.5,
+        "y": 198.1953125
+      },
+      "after": {
+        "bottom": 898.4765625,
+        "height": 836.28125,
+        "left": 204.5,
+        "right": 1209.4140625,
+        "top": 62.1953125,
+        "width": 1004.9140625,
+        "x": 204.5,
+        "y": 62.1953125
+      },
+      "initial": {
+        "bottom": 771.1953125,
+        "height": 520,
+        "left": 215.5,
+        "right": 515.5,
+        "top": 251.1953125,
+        "width": 300,
+        "x": 215.5,
+        "y": 251.1953125
+      },
+      "changed": {
+        "bottom": 531,
+        "height": 530,
+        "left": 225.5,
+        "right": 535.5,
+        "top": 1,
+        "width": 310,
+        "x": 225.5,
+        "y": 1
+      },
+      "screen": {
+        "height": 961,
+        "width": 1800
+      }
+    },
+    {
+      "case": "market-split-floating-detail-and-legend-tooltip",
+      "rightBefore": {
+        "bottom": 891,
+        "height": 735,
+        "left": 1267,
+        "right": 1587,
+        "top": 156,
+        "width": 320,
+        "x": 1267,
+        "y": 156
+      },
+      "rightAfter": {
+        "bottom": 891,
+        "height": 735,
+        "left": 1257,
+        "right": 1587,
+        "top": 156,
+        "width": 330,
+        "x": 1257,
+        "y": 156
+      },
+      "marketInitial": {
+        "bottom": 728,
+        "height": 520,
+        "left": 223,
+        "right": 523,
+        "top": 208,
+        "width": 300,
+        "x": 223,
+        "y": 208
+      },
+      "marketChanged": {
+        "bottom": 738,
+        "height": 530,
+        "left": 233,
+        "right": 543,
+        "top": 208,
+        "width": 310,
+        "x": 233,
+        "y": 208
+      },
+      "compactLegend": {
+        "bottom": 881,
+        "height": 42,
+        "left": 1097.5859375,
+        "right": 1245,
+        "top": 839,
+        "width": 147.4140625,
+        "x": 1097.5859375,
+        "y": 839
+      },
+      "legendTooltip": {
+        "bottom": 838,
+        "height": 340,
+        "left": 1194.5859375,
+        "right": 1544.5859375,
+        "top": 498,
+        "width": 350,
+        "x": 1194.5859375,
+        "y": 498
+      }
+    }
+  ]
+}

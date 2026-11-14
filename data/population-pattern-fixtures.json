@@ -1,0 +1,1015 @@
+{
+  "source": "OA-23016",
+  "sourceUrl": "https://data.seoul.go.kr/dataList/OA-23016/F/1/datasetView.do",
+  "method": "independent Python csv + Decimal summation of official archives; no profile generation code imported or copied",
+  "weekdayConvention": "Monday selected with datetime.date.weekday()==0; do not assume UI weekday index order",
+  "monthPhaseDefinitions": {
+    "early": "1–10일",
+    "middle": "11–20일",
+    "late": "21–말일"
+  },
+  "missingPolicy": "If any contributing row has any missing selected cohort cell, that region/hour/date total is null. The group mean uses only complete valid day totals; expected/valid/missing day counts remain explicit. No missing date is filled with0.",
+  "archives": [
+    {
+      "month": "202601",
+      "path": "data/raw/population-history/250_LOCAL_RESD_ADMDONG_202601.zip",
+      "sha256": "36cb9d3dad21c2b3afd702ad59a71fbf6e7398d7778243d390cc169f8fefc24a"
+    },
+    {
+      "month": "202610",
+      "path": "data/raw/mobility/OA-23016-250_LOCAL_RESD_ADMDONG_202610.zip",
+      "sha256": "f5731f68be93c44a8cf6d54e3bb8c5dc2e21994a5ff0c784e00c7dc521add4d7"
+    }
+  ],
+  "cases": [
+    {
+      "id": "202610-11500620-young-male-weekday-monday-12",
+      "month": "202610",
+      "regionCode": "11500620",
+      "regionName": "공항동",
+      "cohort": {
+        "indices": [
+          7,
+          8,
+          9,
+          10
+        ],
+        "columns": [
+          "남자 20~24세",
+          "남자 25~29세",
+          "남자 30~34세",
+          "남자 35~39세"
+        ],
+        "age": "young",
+        "sex": "male"
+      },
+      "grouping": "weekday",
+      "group": "monday",
+      "hour": 12,
+      "unit": "명",
+      "expectedDays": 4,
+      "validDays": 4,
+      "missingDays": 0,
+      "includedDates": [
+        "20261005",
+        "20261012",
+        "20261019",
+        "20261026"
+      ],
+      "excludedDates": [],
+      "sumOfValidDayTotalsDecimal": "35509.98",
+      "averageDecimal": "8877.495",
+      "averageRounded2": "8877.50",
+      "uiRoundedInteger": "8,877",
+      "dailyTotals": [
+        {
+          "date": "20261005",
+          "sourceRowCount": 1,
+          "maskedOrMissingRows": 0,
+          "totalDecimal": "7602.13"
+        },
+        {
+          "date": "20261012",
+          "sourceRowCount": 1,
+          "maskedOrMissingRows": 0,
+          "totalDecimal": "9359.44"
+        },
+        {
+          "date": "20261019",
+          "sourceRowCount": 1,
+          "maskedOrMissingRows": 0,
+          "totalDecimal": "9314.99"
+        },
+        {
+          "date": "20261026",
+          "sourceRowCount": 1,
+          "maskedOrMissingRows": 0,
+          "totalDecimal": "9233.42"
+        }
+      ]
+    },
+    {
+      "id": "202610-11500620-young-male-weekday-monday-18",
+      "month": "202610",
+      "regionCode": "11500620",
+      "regionName": "공항동",
+      "cohort": {
+        "indices": [
+          7,
+          8,
+          9,
+          10
+        ],
+        "columns": [
+          "남자 20~24세",
+          "남자 25~29세",
+          "남자 30~34세",
+          "남자 35~39세"
+        ],
+        "age": "young",
+        "sex": "male"
+      },
+      "grouping": "weekday",
+      "group": "monday",
+      "hour": 18,
+      "unit": "명",
+      "expectedDays": 4,
+      "validDays": 4,
+      "missingDays": 0,
+      "includedDates": [
+        "20261005",
+        "20261012",
+        "20261019",
+        "20261026"
+      ],
+      "excludedDates": [],
+      "sumOfValidDayTotalsDecimal": "34334.82",
+      "averageDecimal": "8583.705",
+      "averageRounded2": "8583.71",
+      "uiRoundedInteger": "8,584",
+      "dailyTotals": [
+        {
+          "date": "20261005",
+          "sourceRowCount": 1,
+          "maskedOrMissingRows": 0,
+          "totalDecimal": "7334.75"
+        },
+        {
+          "date": "20261012",
+          "sourceRowCount": 1,
+          "maskedOrMissingRows": 0,
+          "totalDecimal": "8994.29"
+        },
+        {
+          "date": "20261019",
+          "sourceRowCount": 1,
+          "maskedOrMissingRows": 0,
+          "totalDecimal": "9075.26"
+        },
+        {
+          "date": "20261026",
+          "sourceRowCount": 1,
+          "maskedOrMissingRows": 0,
+          "totalDecimal": "8930.52"
+        }
+      ]
+    },
+    {
+      "id": "202610-11500620-young-male-monthphase-early-12",
+      "month": "202610",
+      "regionCode": "11500620",
+      "regionName": "공항동",
+      "cohort": {
+        "indices": [
+          7,
+          8,
+          9,
+          10
+        ],
+        "columns": [
+          "남자 20~24세",
+          "남자 25~29세",
+          "남자 30~34세",
+          "남자 35~39세"
+        ],
+        "age": "young",
+        "sex": "male"
+      },
+      "grouping": "monthphase",
+      "group": "early",
+      "hour": 12,
+      "unit": "명",
+      "expectedDays": 10,
+      "validDays": 10,
+      "missingDays": 0,
+      "includedDates": [
+        "20261001",
+        "20261002",
+        "20261003",
+        "20261004",
+        "20261005",
+        "20261006",
+        "20261007",
+        "20261008",
+        "20261009",
+        "20261010"
+      ],
+      "excludedDates": [],
+      "sumOfValidDayTotalsDecimal": "85966.08",
+      "averageDecimal": "8596.608",
+      "averageRounded2": "8596.61",
+      "uiRoundedInteger": "8,597",
+      "dailyTotals": [
+        {
+          "date": "20261001",
+          "sourceRowCount": 1,
+          "maskedOrMissingRows": 0,
+          "totalDecimal": "9874.93"
+        },
+        {
+          "date": "20261002",
+          "sourceRowCount": 1,
+          "maskedOrMissingRows": 0,
+          "totalDecimal": "9521.69"
+        },
+        {
+          "date": "20261003",
+          "sourceRowCount": 1,
+          "maskedOrMissingRows": 0,
+          "totalDecimal": "8146.22"
+        },
+        {
+          "date": "20261004",
+          "sourceRowCount": 1,
+          "maskedOrMissingRows": 0,
+          "totalDecimal": "7567.68"
+        },
+        {
+          "date": "20261005",
+          "sourceRowCount": 1,
+          "maskedOrMissingRows": 0,
+          "totalDecimal": "7602.13"
+        },
+        {
+          "date": "20261006",
+          "sourceRowCount": 1,
+          "maskedOrMissingRows": 0,
+          "totalDecimal": "9315.12"
+        },
+        {
+          "date": "20261007",
+          "sourceRowCount": 1,
+          "maskedOrMissingRows": 0,
+          "totalDecimal": "9344.28"
+        },
+        {
+          "date": "20261008",
+          "sourceRowCount": 1,
+          "maskedOrMissingRows": 0,
+          "totalDecimal": "9087.15"
+        },
+        {
+          "date": "20261009",
+          "sourceRowCount": 1,
+          "maskedOrMissingRows": 0,
+          "totalDecimal": "7749.22"
+        },
+        {
+          "date": "20261010",
+          "sourceRowCount": 1,
+          "maskedOrMissingRows": 0,
+          "totalDecimal": "7757.66"
+        }
+      ]
+    },
+    {
+      "id": "202610-11500620-young-male-monthphase-early-18",
+      "month": "202610",
+      "regionCode": "11500620",
+      "regionName": "공항동",
+      "cohort": {
+        "indices": [
+          7,
+          8,
+          9,
+          10
+        ],
+        "columns": [
+          "남자 20~24세",
+          "남자 25~29세",
+          "남자 30~34세",
+          "남자 35~39세"
+        ],
+        "age": "young",
+        "sex": "male"
+      },
+      "grouping": "monthphase",
+      "group": "early",
+      "hour": 18,
+      "unit": "명",
+      "expectedDays": 10,
+      "validDays": 10,
+      "missingDays": 0,
+      "includedDates": [
+        "20261001",
+        "20261002",
+        "20261003",
+        "20261004",
+        "20261005",
+        "20261006",
+        "20261007",
+        "20261008",
+        "20261009",
+        "20261010"
+      ],
+      "excludedDates": [],
+      "sumOfValidDayTotalsDecimal": "84667.36",
+      "averageDecimal": "8466.736",
+      "averageRounded2": "8466.74",
+      "uiRoundedInteger": "8,467",
+      "dailyTotals": [
+        {
+          "date": "20261001",
+          "sourceRowCount": 1,
+          "maskedOrMissingRows": 0,
+          "totalDecimal": "9273.71"
+        },
+        {
+          "date": "20261002",
+          "sourceRowCount": 1,
+          "maskedOrMissingRows": 0,
+          "totalDecimal": "9367.61"
+        },
+        {
+          "date": "20261003",
+          "sourceRowCount": 1,
+          "maskedOrMissingRows": 0,
+          "totalDecimal": "8306.08"
+        },
+        {
+          "date": "20261004",
+          "sourceRowCount": 1,
+          "maskedOrMissingRows": 0,
+          "totalDecimal": "7787.06"
+        },
+        {
+          "date": "20261005",
+          "sourceRowCount": 1,
+          "maskedOrMissingRows": 0,
+          "totalDecimal": "7334.75"
+        },
+        {
+          "date": "20261006",
+          "sourceRowCount": 1,
+          "maskedOrMissingRows": 0,
+          "totalDecimal": "8736.09"
+        },
+        {
+          "date": "20261007",
+          "sourceRowCount": 1,
+          "maskedOrMissingRows": 0,
+          "totalDecimal": "8671.76"
+        },
+        {
+          "date": "20261008",
+          "sourceRowCount": 1,
+          "maskedOrMissingRows": 0,
+          "totalDecimal": "8808.39"
+        },
+        {
+          "date": "20261009",
+          "sourceRowCount": 1,
+          "maskedOrMissingRows": 0,
+          "totalDecimal": "8082.14"
+        },
+        {
+          "date": "20261010",
+          "sourceRowCount": 1,
+          "maskedOrMissingRows": 0,
+          "totalDecimal": "8299.77"
+        }
+      ]
+    },
+    {
+      "id": "202610-11500620-young-male-monthphase-late-12",
+      "month": "202610",
+      "regionCode": "11500620",
+      "regionName": "공항동",
+      "cohort": {
+        "indices": [
+          7,
+          8,
+          9,
+          10
+        ],
+        "columns": [
+          "남자 20~24세",
+          "남자 25~29세",
+          "남자 30~34세",
+          "남자 35~39세"
+        ],
+        "age": "young",
+        "sex": "male"
+      },
+      "grouping": "monthphase",
+      "group": "late",
+      "hour": 12,
+      "unit": "명",
+      "expectedDays": 11,
+      "validDays": 11,
+      "missingDays": 0,
+      "includedDates": [
+        "20261021",
+        "20261022",
+        "20261023",
+        "20261024",
+        "20261025",
+        "20261026",
+        "20261027",
+        "20261028",
+        "20261029",
+        "20261030",
+        "20261031"
+      ],
+      "excludedDates": [],
+      "sumOfValidDayTotalsDecimal": "98497.33",
+      "averageDecimal": "8954.302727272727272727272727",
+      "averageRounded2": "8954.30",
+      "uiRoundedInteger": "8,954",
+      "dailyTotals": [
+        {
+          "date": "20261021",
+          "sourceRowCount": 1,
+          "maskedOrMissingRows": 0,
+          "totalDecimal": "9319.76"
+        },
+        {
+          "date": "20261022",
+          "sourceRowCount": 1,
+          "maskedOrMissingRows": 0,
+          "totalDecimal": "9719.99"
+        },
+        {
+          "date": "20261023",
+          "sourceRowCount": 1,
+          "maskedOrMissingRows": 0,
+          "totalDecimal": "9570.20"
+        },
+        {
+          "date": "20261024",
+          "sourceRowCount": 1,
+          "maskedOrMissingRows": 0,
+          "totalDecimal": "7932.36"
+        },
+        {
+          "date": "20261025",
+          "sourceRowCount": 1,
+          "maskedOrMissingRows": 0,
+          "totalDecimal": "7230.67"
+        },
+        {
+          "date": "20261026",
+          "sourceRowCount": 1,
+          "maskedOrMissingRows": 0,
+          "totalDecimal": "9233.42"
+        },
+        {
+          "date": "20261027",
+          "sourceRowCount": 1,
+          "maskedOrMissingRows": 0,
+          "totalDecimal": "9125.10"
+        },
+        {
+          "date": "20261028",
+          "sourceRowCount": 1,
+          "maskedOrMissingRows": 0,
+          "totalDecimal": "9349.32"
+        },
+        {
+          "date": "20261029",
+          "sourceRowCount": 1,
+          "maskedOrMissingRows": 0,
+          "totalDecimal": "9615.96"
+        },
+        {
+          "date": "20261030",
+          "sourceRowCount": 1,
+          "maskedOrMissingRows": 0,
+          "totalDecimal": "9724.41"
+        },
+        {
+          "date": "20261031",
+          "sourceRowCount": 1,
+          "maskedOrMissingRows": 0,
+          "totalDecimal": "7676.14"
+        }
+      ]
+    },
+    {
+      "id": "202610-11500620-young-male-monthphase-late-18",
+      "month": "202610",
+      "regionCode": "11500620",
+      "regionName": "공항동",
+      "cohort": {
+        "indices": [
+          7,
+          8,
+          9,
+          10
+        ],
+        "columns": [
+          "남자 20~24세",
+          "남자 25~29세",
+          "남자 30~34세",
+          "남자 35~39세"
+        ],
+        "age": "young",
+        "sex": "male"
+      },
+      "grouping": "monthphase",
+      "group": "late",
+      "hour": 18,
+      "unit": "명",
+      "expectedDays": 11,
+      "validDays": 11,
+      "missingDays": 0,
+      "includedDates": [
+        "20261021",
+        "20261022",
+        "20261023",
+        "20261024",
+        "20261025",
+        "20261026",
+        "20261027",
+        "20261028",
+        "20261029",
+        "20261030",
+        "20261031"
+      ],
+      "excludedDates": [],
+      "sumOfValidDayTotalsDecimal": "94203.67",
+      "averageDecimal": "8563.97",
+      "averageRounded2": "8563.97",
+      "uiRoundedInteger": "8,564",
+      "dailyTotals": [
+        {
+          "date": "20261021",
+          "sourceRowCount": 1,
+          "maskedOrMissingRows": 0,
+          "totalDecimal": "9130.85"
+        },
+        {
+          "date": "20261022",
+          "sourceRowCount": 1,
+          "maskedOrMissingRows": 0,
+          "totalDecimal": "9128.26"
+        },
+        {
+          "date": "20261023",
+          "sourceRowCount": 1,
+          "maskedOrMissingRows": 0,
+          "totalDecimal": "9104.60"
+        },
+        {
+          "date": "20261024",
+          "sourceRowCount": 1,
+          "maskedOrMissingRows": 0,
+          "totalDecimal": "7719.90"
+        },
+        {
+          "date": "20261025",
+          "sourceRowCount": 1,
+          "maskedOrMissingRows": 0,
+          "totalDecimal": "6928.86"
+        },
+        {
+          "date": "20261026",
+          "sourceRowCount": 1,
+          "maskedOrMissingRows": 0,
+          "totalDecimal": "8930.52"
+        },
+        {
+          "date": "20261027",
+          "sourceRowCount": 1,
+          "maskedOrMissingRows": 0,
+          "totalDecimal": "8930.45"
+        },
+        {
+          "date": "20261028",
+          "sourceRowCount": 1,
+          "maskedOrMissingRows": 0,
+          "totalDecimal": "8868.19"
+        },
+        {
+          "date": "20261029",
+          "sourceRowCount": 1,
+          "maskedOrMissingRows": 0,
+          "totalDecimal": "8701.99"
+        },
+        {
+          "date": "20261030",
+          "sourceRowCount": 1,
+          "maskedOrMissingRows": 0,
+          "totalDecimal": "8980.71"
+        },
+        {
+          "date": "20261031",
+          "sourceRowCount": 1,
+          "maskedOrMissingRows": 0,
+          "totalDecimal": "7779.34"
+        }
+      ]
+    },
+    {
+      "id": "202601-all-all-all-weekday-monday-18",
+      "month": "202601",
+      "regionCode": "all",
+      "regionName": "서울 전체",
+      "cohort": {
+        "indices": [
+          3
+        ],
+        "columns": [
+          "생활인구합계"
+        ],
+        "age": "all",
+        "sex": "all"
+      },
+      "grouping": "weekday",
+      "group": "monday",
+      "hour": 18,
+      "unit": "명",
+      "expectedDays": 4,
+      "validDays": 4,
+      "missingDays": 0,
+      "includedDates": [
+        "20260105",
+        "20260112",
+        "20260119",
+        "20260126"
+      ],
+      "excludedDates": [],
+      "sumOfValidDayTotalsDecimal": "46215034.94",
+      "averageDecimal": "11553758.735",
+      "averageRounded2": "11553758.74",
+      "uiRoundedInteger": "11,553,759",
+      "dailyTotals": [
+        {
+          "date": "20260105",
+          "sourceRowCount": 427,
+          "maskedOrMissingRows": 0,
+          "totalDecimal": "11424277.48"
+        },
+        {
+          "date": "20260112",
+          "sourceRowCount": 427,
+          "maskedOrMissingRows": 0,
+          "totalDecimal": "11547445.16"
+        },
+        {
+          "date": "20260119",
+          "sourceRowCount": 427,
+          "maskedOrMissingRows": 0,
+          "totalDecimal": "11600040.25"
+        },
+        {
+          "date": "20260126",
+          "sourceRowCount": 427,
+          "maskedOrMissingRows": 0,
+          "totalDecimal": "11643272.05"
+        }
+      ]
+    },
+    {
+      "id": "202601-all-all-all-monthphase-early-18",
+      "month": "202601",
+      "regionCode": "all",
+      "regionName": "서울 전체",
+      "cohort": {
+        "indices": [
+          3
+        ],
+        "columns": [
+          "생활인구합계"
+        ],
+        "age": "all",
+        "sex": "all"
+      },
+      "grouping": "monthphase",
+      "group": "early",
+      "hour": 18,
+      "unit": "명",
+      "expectedDays": 10,
+      "validDays": 10,
+      "missingDays": 0,
+      "includedDates": [
+        "20260101",
+        "20260102",
+        "20260103",
+        "20260104",
+        "20260105",
+        "20260106",
+        "20260107",
+        "20260108",
+        "20260109",
+        "20260110"
+      ],
+      "excludedDates": [],
+      "sumOfValidDayTotalsDecimal": "112726952.00",
+      "averageDecimal": "11272695.20",
+      "averageRounded2": "11272695.20",
+      "uiRoundedInteger": "11,272,695",
+      "dailyTotals": [
+        {
+          "date": "20260101",
+          "sourceRowCount": 427,
+          "maskedOrMissingRows": 0,
+          "totalDecimal": "10465390.76"
+        },
+        {
+          "date": "20260102",
+          "sourceRowCount": 427,
+          "maskedOrMissingRows": 0,
+          "totalDecimal": "11319184.23"
+        },
+        {
+          "date": "20260103",
+          "sourceRowCount": 427,
+          "maskedOrMissingRows": 0,
+          "totalDecimal": "11156967.28"
+        },
+        {
+          "date": "20260104",
+          "sourceRowCount": 427,
+          "maskedOrMissingRows": 0,
+          "totalDecimal": "10731648.75"
+        },
+        {
+          "date": "20260105",
+          "sourceRowCount": 427,
+          "maskedOrMissingRows": 0,
+          "totalDecimal": "11424277.48"
+        },
+        {
+          "date": "20260106",
+          "sourceRowCount": 427,
+          "maskedOrMissingRows": 0,
+          "totalDecimal": "11523196.01"
+        },
+        {
+          "date": "20260107",
+          "sourceRowCount": 427,
+          "maskedOrMissingRows": 0,
+          "totalDecimal": "11528085.19"
+        },
+        {
+          "date": "20260108",
+          "sourceRowCount": 427,
+          "maskedOrMissingRows": 0,
+          "totalDecimal": "11588506.76"
+        },
+        {
+          "date": "20260109",
+          "sourceRowCount": 427,
+          "maskedOrMissingRows": 0,
+          "totalDecimal": "11647204.98"
+        },
+        {
+          "date": "20260110",
+          "sourceRowCount": 427,
+          "maskedOrMissingRows": 0,
+          "totalDecimal": "11342490.56"
+        }
+      ]
+    },
+    {
+      "id": "202601-11440-all-all-weekday-monday-18",
+      "month": "202601",
+      "regionCode": "11440",
+      "regionName": "마포구",
+      "cohort": {
+        "indices": [
+          3
+        ],
+        "columns": [
+          "생활인구합계"
+        ],
+        "age": "all",
+        "sex": "all"
+      },
+      "grouping": "weekday",
+      "group": "monday",
+      "hour": 18,
+      "unit": "명",
+      "expectedDays": 4,
+      "validDays": 4,
+      "missingDays": 0,
+      "includedDates": [
+        "20260105",
+        "20260112",
+        "20260119",
+        "20260126"
+      ],
+      "excludedDates": [],
+      "sumOfValidDayTotalsDecimal": "2044913.54",
+      "averageDecimal": "511228.385",
+      "averageRounded2": "511228.39",
+      "uiRoundedInteger": "511,228",
+      "dailyTotals": [
+        {
+          "date": "20260105",
+          "sourceRowCount": 16,
+          "maskedOrMissingRows": 0,
+          "totalDecimal": "505459.90"
+        },
+        {
+          "date": "20260112",
+          "sourceRowCount": 16,
+          "maskedOrMissingRows": 0,
+          "totalDecimal": "510928.33"
+        },
+        {
+          "date": "20260119",
+          "sourceRowCount": 16,
+          "maskedOrMissingRows": 0,
+          "totalDecimal": "514993.13"
+        },
+        {
+          "date": "20260126",
+          "sourceRowCount": 16,
+          "maskedOrMissingRows": 0,
+          "totalDecimal": "513532.18"
+        }
+      ]
+    },
+    {
+      "id": "202610-11440-all-all-weekday-monday-18",
+      "month": "202610",
+      "regionCode": "11440",
+      "regionName": "마포구",
+      "cohort": {
+        "indices": [
+          3
+        ],
+        "columns": [
+          "생활인구합계"
+        ],
+        "age": "all",
+        "sex": "all"
+      },
+      "grouping": "weekday",
+      "group": "monday",
+      "hour": 18,
+      "unit": "명",
+      "expectedDays": 4,
+      "validDays": 4,
+      "missingDays": 0,
+      "includedDates": [
+        "20261005",
+        "20261012",
+        "20261019",
+        "20261026"
+      ],
+      "excludedDates": [],
+      "sumOfValidDayTotalsDecimal": "1945646.75",
+      "averageDecimal": "486411.6875",
+      "averageRounded2": "486411.69",
+      "uiRoundedInteger": "486,412",
+      "dailyTotals": [
+        {
+          "date": "20261005",
+          "sourceRowCount": 16,
+          "maskedOrMissingRows": 0,
+          "totalDecimal": "465290.93"
+        },
+        {
+          "date": "20261012",
+          "sourceRowCount": 16,
+          "maskedOrMissingRows": 0,
+          "totalDecimal": "491194.79"
+        },
+        {
+          "date": "20261019",
+          "sourceRowCount": 16,
+          "maskedOrMissingRows": 0,
+          "totalDecimal": "497184.19"
+        },
+        {
+          "date": "20261026",
+          "sourceRowCount": 16,
+          "maskedOrMissingRows": 0,
+          "totalDecimal": "491976.84"
+        }
+      ]
+    },
+    {
+      "id": "202610-11110670-all-female-monthphase-early-00",
+      "month": "202610",
+      "regionCode": "11110670",
+      "regionName": "창신1동",
+      "cohort": {
+        "indices": [
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31
+        ],
+        "columns": [
+          "여자 0~9세",
+          "여자 10~14세",
+          "여자 15~19세",
+          "여자 20~24세",
+          "여자 25~29세",
+          "여자 30~34세",
+          "여자 35~39세",
+          "여자 40~44세",
+          "여자 45~49세",
+          "여자 50~54세",
+          "여자 55~59세",
+          "여자 60~64세",
+          "여자 65~69세",
+          "여자 70세 이상"
+        ],
+        "age": "all",
+        "sex": "female"
+      },
+      "grouping": "monthphase",
+      "group": "early",
+      "hour": 0,
+      "unit": "명",
+      "expectedDays": 10,
+      "validDays": 4,
+      "missingDays": 6,
+      "includedDates": [
+        "20261003",
+        "20261004",
+        "20261005",
+        "20261010"
+      ],
+      "excludedDates": [
+        "20261001",
+        "20261002",
+        "20261006",
+        "20261007",
+        "20261008",
+        "20261009"
+      ],
+      "sumOfValidDayTotalsDecimal": "10111.83",
+      "averageDecimal": "2527.9575",
+      "averageRounded2": "2527.96",
+      "uiRoundedInteger": "2,528",
+      "dailyTotals": [
+        {
+          "date": "20261001",
+          "sourceRowCount": 1,
+          "maskedOrMissingRows": 1,
+          "totalDecimal": null
+        },
+        {
+          "date": "20261002",
+          "sourceRowCount": 1,
+          "maskedOrMissingRows": 1,
+          "totalDecimal": null
+        },
+        {
+          "date": "20261003",
+          "sourceRowCount": 1,
+          "maskedOrMissingRows": 0,
+          "totalDecimal": "2244.95"
+        },
+        {
+          "date": "20261004",
+          "sourceRowCount": 1,
+          "maskedOrMissingRows": 0,
+          "totalDecimal": "2395.65"
+        },
+        {
+          "date": "20261005",
+          "sourceRowCount": 1,
+          "maskedOrMissingRows": 0,
+          "totalDecimal": "3061.60"
+        },
+        {
+          "date": "20261006",
+          "sourceRowCount": 1,
+          "maskedOrMissingRows": 1,
+          "totalDecimal": null
+        },
+        {
+          "date": "20261007",
+          "sourceRowCount": 1,
+          "maskedOrMissingRows": 1,
+          "totalDecimal": null
+        },
+        {
+          "date": "20261008",
+          "sourceRowCount": 1,
+          "maskedOrMissingRows": 1,
+          "totalDecimal": null
+        },
+        {
+          "date": "20261009",
+          "sourceRowCount": 1,
+          "maskedOrMissingRows": 1,
+          "totalDecimal": null
+        },
+        {
+          "date": "20261010",
+          "sourceRowCount": 1,
+          "maskedOrMissingRows": 0,
+          "totalDecimal": "2409.63"
+        }
+      ]
+    }
+  ]
+}

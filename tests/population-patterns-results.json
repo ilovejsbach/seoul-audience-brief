@@ -1,0 +1,39 @@
+[
+  {
+    "case": "October-Airport-young-male-Monday",
+    "text": "월요일 · 12시 하루 평균\n8,877.5 명\n유효 4/4일"
+  },
+  {
+    "case": "profile-axis-and-hour-heatmap",
+    "mean": "월요일 · 12시 하루 평균\n8,877.5 명\n유효 4/4일"
+  },
+  {
+    "case": "month-start-vs-end",
+    "text": "월초 · 1–10일 · 12시 하루 평균\n8,596.61 명\n유효 10/10일\n월말 · 21일–말일 · 12시 하루 평균\n8,954.3 명\n유효 11/11일\n비교 그룹 − 기준 그룹\n+357.69 명\n그룹 평균의 차이 · 원인 추정 아님"
+  },
+  {
+    "case": "January-Seoul-all-cohort",
+    "text": "월요일 · 18시 하루 평균\n11,553,758.74 명\n유효 4/4일",
+    "geometry": [
+      {
+        "scroll": 400,
+        "text": "11,553,758.74 명",
+        "width": 400
+      },
+      {
+        "scroll": 400,
+        "text": "11,392,424.39 명",
+        "width": 400
+      },
+      {
+        "scroll": 400,
+        "text": "-161,334.35 명",
+        "width": 400
+      }
+    ]
+  },
+  {
+    "case": "real-partial-masked-mean",
+    "text": "월초 · 1–10일 · 0시 하루 평균\n2,527.96 명\n유효 4/10일"
+  }
+]
