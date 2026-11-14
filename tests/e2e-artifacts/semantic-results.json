@@ -1,5 +1,5 @@
 {
-  "testedAt": "2026-11-14T10:48:12.449Z",
+  "testedAt": "2026-11-14T10:55:13.396Z",
   "browser": "Chrome",
   "fixture": "tests/semantic-fixtures.json",
   "fixtureCount": 119,
@@ -1508,6 +1508,17 @@
       ],
       "assertionCount": 3,
       "at": "2026-11-14T10:48:11.611Z"
+    },
+    {
+      "id": "all-option-label-to-source-contracts",
+      "status": "passed",
+      "checks": [
+        "62 raw industry code/name pairs",
+        "all 6 time + 2 sex + 6 age + 7 weekday labels in both datasets",
+        "not merely value presence"
+      ],
+      "assertionCount": 110,
+      "at": "2026-11-14T10:54:53.640Z"
     }
   ],
   "downloads": [

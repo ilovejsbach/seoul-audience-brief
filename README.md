@@ -75,4 +75,4 @@ python3 scripts/validate-market-data.py
 
 최근 상세·축·상권·색상 개선의 실제 실행 결과는 [critical-execution-report.md](docs/critical-execution-report.md)에 정리했습니다.
 
-주요 지표의 `설명` 버튼에서 의미·해석·주의를 확인할 수 있습니다. 원자료 119사례와 설명·연동을 포함한 의미 검사 127건의 결과는 [semantic-e2e-report.md](docs/semantic-e2e-report.md)에 있습니다.
+주요 지표의 `설명` 버튼에서 의미·해석·주의를 확인할 수 있습니다. 원자료 119사례와 설명·연동을 포함한 의미 검사 128건의 결과는 [semantic-e2e-report.md](docs/semantic-e2e-report.md)에 있습니다.
