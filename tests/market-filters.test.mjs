@@ -1,0 +1,13 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import ts from 'typescript';
+const source=fs.readFileSync(new URL('../src/market-filters.ts',import.meta.url),'utf8');
+const js=ts.transpile(source,{module:ts.ModuleKind.ESNext,target:ts.ScriptTarget.ES2022});
+const {filterMarketAreas}=await import('data:text/javascript;base64,'+Buffer.from(js).toString('base64'));
+const features=JSON.parse(fs.readFileSync(new URL('../public/data/market-areas.geojson',import.meta.url))).features;
+const apply=(query='',type='all',gu='all',dong='all')=>filterMarketAreas(features,{query,type,gu,dong});
+test('actual source types filter all four categories without code/name confusion',()=>{assert.equal(apply().length,1650);for(const [type,count] of [['A',1090],['R',305],['D',249],['U',6]])assert.equal(apply('',type).length,count)});
+test('same area name in different districts remains distinct and filters combine with AND',()=>{assert.equal(apply('홍대').length,10);assert.equal(apply('홍대','A').length,4);assert.equal(apply('홍대','A','11440').length,3);assert.equal(apply('홍대','A','11290').length,1);assert.equal(apply('공덕').length,4);assert.equal(apply('공덕','R').length,1)});
+test('spacing is normalized without modifying source names or geometry',()=>{const before=JSON.stringify(features);assert.equal(apply('  공덕  ').length,4);assert.equal(apply('홍대 입구역').length,2);assert.equal(apply('   ').length,1650);assert.equal(JSON.stringify(features),before)});
+test('contradictory geography and names produce an explicit empty result',()=>{assert.equal(apply('공덕','all','11110').length,0);assert.equal(apply('없는상권명확인').length,0)});

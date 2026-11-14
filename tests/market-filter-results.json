@@ -1,0 +1,114 @@
+{
+  "date": "2026-11-14T13:42:10.058Z",
+  "filterChecks": [
+    "sales: 21개 검색·유형·지역 조합의 원본코드 집합·표시개수 일치",
+    "population: 21개 검색·유형·지역 조합의 원본코드 집합·표시개수 일치",
+    "앞뒤·사이 공백 정규화",
+    "검색×유형 무결과 및 명시적 복구",
+    "동명이름 구별 안내·지역 좁히기",
+    "검색 결과 집중·상세 연결·공통색상 유지·범위 복귀",
+    "전체 공간 조건 초기화"
+  ],
+  "semantic": [
+    {
+      "id": "sales-gongdeok-all",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T13:42:03.524Z"
+    },
+    {
+      "id": "sales-gongdeok-time4",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T13:42:05.395Z"
+    },
+    {
+      "id": "sales-gongdeok-korean-food",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T13:42:06.197Z"
+    },
+    {
+      "id": "sales-gongdeok-korean-food-time4",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T13:42:06.969Z"
+    },
+    {
+      "id": "sales-gongdeok-male",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T13:42:08.043Z"
+    },
+    {
+      "id": "gongdeok-search-ranking-sales-all",
+      "status": "passed",
+      "checks": [
+        "raw-source rank order",
+        "same scope and units"
+      ],
+      "assertionCount": 9,
+      "at": "2026-11-14T13:42:08.911Z"
+    },
+    {
+      "id": "gongdeok-search-ranking-sales-time4",
+      "status": "passed",
+      "checks": [
+        "raw-source rank order",
+        "same scope and units"
+      ],
+      "assertionCount": 9,
+      "at": "2026-11-14T13:42:09.278Z"
+    },
+    {
+      "id": "gongdeok-search-ranking-population-all",
+      "status": "passed",
+      "checks": [
+        "raw-source rank order",
+        "same scope and units"
+      ],
+      "assertionCount": 9,
+      "at": "2026-11-14T13:42:09.428Z"
+    },
+    {
+      "id": "market-sales-overlap-scope",
+      "status": "passed",
+      "checks": [
+        "no false city total",
+        "no causal or conversion interpretation"
+      ],
+      "assertionCount": 2,
+      "at": "2026-11-14T13:42:09.527Z"
+    }
+  ]
+}
