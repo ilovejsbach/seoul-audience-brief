@@ -1,0 +1,464 @@
+{
+  "method": "Independent direct data calculations with Decimal, no UI functions imported. Displays round to nearest integer. Source values retained.",
+  "notes": [
+    "Gu migration and dong migration are separate authoritative records; never sum both levels.",
+    "Population missing cells produce missing selected-target total; never replace with zero.",
+    "Living mobility uses departure hour and excludes origin=destination district.",
+    "Commerce 2025 quarter and population October2026 are different periods; no conversion-rate calculation.",
+    "Each expectedDisplay is a rounded individual value. UI net values may add + for positive net.",
+    "Do not compare the selected-district header against a single dong row unless dong is selected."
+  ],
+  "checks": [
+    {
+      "id": "population_mapo_20261031_12_all",
+      "controls": {
+        "tab": "population",
+        "date": "20261031",
+        "district": "11440",
+        "dong": "all",
+        "hour": 12,
+        "sex": "all",
+        "target": "all"
+      },
+      "source": "public/data/population/250_LOCAL_RESD_ADMDONG_20261031.json",
+      "columns": [
+        "생활인구합계"
+      ],
+      "sourceRows": 16,
+      "expectedExact": "485894.24",
+      "expectedDisplay": "485,894"
+    },
+    {
+      "id": "population_mapo_20261031_12_female20to39",
+      "controls": {
+        "tab": "population",
+        "date": "20261031",
+        "district": "11440",
+        "dong": "all",
+        "hour": 12,
+        "sex": "female",
+        "target": "young"
+      },
+      "source": "public/data/population/250_LOCAL_RESD_ADMDONG_20261031.json",
+      "columns": [
+        "여자 20~24세",
+        "여자 25~29세",
+        "여자 30~34세",
+        "여자 35~39세"
+      ],
+      "sourceRows": 16,
+      "expectedExact": "102538.79",
+      "expectedDisplay": "102,539"
+    },
+    {
+      "id": "population_mapo_20261031_18_all",
+      "controls": {
+        "tab": "population",
+        "date": "20261031",
+        "district": "11440",
+        "dong": "all",
+        "hour": 18,
+        "sex": "all",
+        "target": "all"
+      },
+      "source": "public/data/population/250_LOCAL_RESD_ADMDONG_20261031.json",
+      "columns": [
+        "생활인구합계"
+      ],
+      "sourceRows": 16,
+      "expectedExact": "540998.31",
+      "expectedDisplay": "540,998"
+    },
+    {
+      "id": "population_mapo_20261031_18_female20to39",
+      "controls": {
+        "tab": "population",
+        "date": "20261031",
+        "district": "11440",
+        "dong": "all",
+        "hour": 18,
+        "sex": "female",
+        "target": "young"
+      },
+      "source": "public/data/population/250_LOCAL_RESD_ADMDONG_20261031.json",
+      "columns": [
+        "여자 20~24세",
+        "여자 25~29세",
+        "여자 30~34세",
+        "여자 35~39세"
+      ],
+      "sourceRows": 16,
+      "expectedExact": "125105.76",
+      "expectedDisplay": "125,106"
+    },
+    {
+      "id": "living_mobility_mapo_18",
+      "controls": {
+        "tab": "mobility",
+        "date": "2026-10-31",
+        "hour": 18,
+        "district": "11440"
+      },
+      "source": "public/data/living-mobility.json",
+      "internalDistrictTripsExcluded": true,
+      "expectedExact": {
+        "inflow": "47798.67",
+        "outflow": "45603.52",
+        "net": "2195.15"
+      },
+      "expectedDisplay": {
+        "inflow": "47,799",
+        "outflow": "45,604",
+        "net": "2,195"
+      }
+    },
+    {
+      "id": "commerce_mapo_2025Q4_all",
+      "controls": {
+        "tab": "commerce",
+        "period": "20254",
+        "district": "11440",
+        "band": -1
+      },
+      "source": "public/data/commerce.json",
+      "sourceDongRecords": 16,
+      "expectedExact": "1079338758575",
+      "expectedDisplay": "1,079,338,758,575"
+    },
+    {
+      "id": "commerce_mapo_2025Q4_17to21",
+      "controls": {
+        "tab": "commerce",
+        "period": "20254",
+        "district": "11440",
+        "band": 4
+      },
+      "source": "public/data/commerce.json",
+      "sourceDongRecords": 16,
+      "expectedExact": "318884312558",
+      "expectedDisplay": "318,884,312,558"
+    },
+    {
+      "id": "migration_dunchon1_2022_missing",
+      "controls": {
+        "tab": "migration",
+        "period": "2022",
+        "district": "11740",
+        "dong": "1174069000"
+      },
+      "expected": {
+        "period": "2022",
+        "code": "1174069000",
+        "name": "둔촌1동",
+        "gu": "강동구",
+        "level": "dong",
+        "inflow": null,
+        "outflow": 24,
+        "net": null
+      },
+      "expectedDisplay": {
+        "inflow": "자료 없음",
+        "outflow": "24",
+        "net": "자료 없음"
+      }
+    },
+    {
+      "id": "migration_2025_gu_11440",
+      "controls": {
+        "tab": "migration",
+        "period": "2025",
+        "district": "all",
+        "selectedCode": "11440"
+      },
+      "expected": {
+        "period": "2025",
+        "code": "11440",
+        "name": "마포구",
+        "inflow": 49402,
+        "outflow": 53428,
+        "net": -4026,
+        "source": "seoul-data-hub64",
+        "level": "gu"
+      },
+      "expectedDisplay": {
+        "inflow": "49,402",
+        "outflow": "53,428",
+        "net": "-4,026"
+      }
+    },
+    {
+      "id": "migration_2025_dong_1144056500",
+      "controls": {
+        "tab": "migration",
+        "period": "2025",
+        "district": "11440",
+        "selectedCode": "1144056500"
+      },
+      "expected": {
+        "period": "2025",
+        "code": "1144056500",
+        "name": "공덕동",
+        "gu": "마포구",
+        "level": "dong",
+        "inflow": 4919,
+        "outflow": 5193,
+        "net": -274
+      },
+      "expectedDisplay": {
+        "inflow": "4,919",
+        "outflow": "5,193",
+        "net": "-274"
+      }
+    },
+    {
+      "id": "mobility_mapo_arrival_hour_18",
+      "controls": {
+        "tab": "mobility",
+        "period": "2026-10-31",
+        "district": "11440",
+        "hour": 18,
+        "timeBasis": "arrival",
+        "accumulation": "hour"
+      },
+      "source": "public/data/living-mobility-arrival.json",
+      "expectedExact": {
+        "inflow": "59831.71",
+        "outflow": "52525.73",
+        "net": "7305.98"
+      },
+      "expectedDisplay": {
+        "inflow": "59,832",
+        "outflow": "52,526",
+        "net": "7,306"
+      },
+      "notes": [
+        "Internal district trips excluded. Date is source cohort date, not verified calendar arrival date."
+      ]
+    },
+    {
+      "id": "mobility_mapo_arrival_cumulative_18",
+      "controls": {
+        "tab": "mobility",
+        "period": "2026-10-31",
+        "district": "11440",
+        "hour": 18,
+        "timeBasis": "arrival",
+        "accumulation": "cumulative"
+      },
+      "source": "public/data/living-mobility-arrival.json",
+      "expectedExact": {
+        "inflow": "575182.74",
+        "outflow": "494916.72",
+        "net": "80266.02"
+      },
+      "expectedDisplay": {
+        "inflow": "575,183",
+        "outflow": "494,917",
+        "net": "80,266"
+      },
+      "notes": [
+        "Internal district trips excluded. Date is source cohort date, not verified calendar arrival date."
+      ]
+    },
+    {
+      "id": "mobility_mapo_arrival_day_18",
+      "controls": {
+        "tab": "mobility",
+        "period": "2026-10-31",
+        "district": "11440",
+        "hour": 18,
+        "timeBasis": "arrival",
+        "accumulation": "day"
+      },
+      "source": "public/data/living-mobility-arrival.json",
+      "expectedExact": {
+        "inflow": "752663.42",
+        "outflow": "690007.17",
+        "net": "62656.25"
+      },
+      "expectedDisplay": {
+        "inflow": "752,663",
+        "outflow": "690,007",
+        "net": "62,656"
+      },
+      "notes": [
+        "Internal district trips excluded. Date is source cohort date, not verified calendar arrival date."
+      ]
+    },
+    {
+      "id": "mobility_mapo_departure_hour_18",
+      "controls": {
+        "tab": "mobility",
+        "period": "2026-10-31",
+        "district": "11440",
+        "hour": 18,
+        "timeBasis": "departure",
+        "accumulation": "hour"
+      },
+      "source": "public/data/living-mobility.json",
+      "expectedExact": {
+        "inflow": "47798.67",
+        "outflow": "45603.52",
+        "net": "2195.15"
+      },
+      "expectedDisplay": {
+        "inflow": "47,799",
+        "outflow": "45,604",
+        "net": "2,195"
+      },
+      "notes": [
+        "Internal district trips excluded. Date is source cohort date, not verified calendar arrival date."
+      ]
+    },
+    {
+      "id": "mobility_mapo_departure_cumulative_18",
+      "controls": {
+        "tab": "mobility",
+        "period": "2026-10-31",
+        "district": "11440",
+        "hour": 18,
+        "timeBasis": "departure",
+        "accumulation": "cumulative"
+      },
+      "source": "public/data/living-mobility.json",
+      "expectedExact": {
+        "inflow": "632994.15",
+        "outflow": "547689.44",
+        "net": "85304.71"
+      },
+      "expectedDisplay": {
+        "inflow": "632,994",
+        "outflow": "547,689",
+        "net": "85,305"
+      },
+      "notes": [
+        "Internal district trips excluded. Date is source cohort date, not verified calendar arrival date."
+      ]
+    },
+    {
+      "id": "mobility_mapo_departure_day_18",
+      "controls": {
+        "tab": "mobility",
+        "period": "2026-10-31",
+        "district": "11440",
+        "hour": 18,
+        "timeBasis": "departure",
+        "accumulation": "day"
+      },
+      "source": "public/data/living-mobility.json",
+      "expectedExact": {
+        "inflow": "752663.42",
+        "outflow": "690007.17",
+        "net": "62656.25"
+      },
+      "expectedDisplay": {
+        "inflow": "752,663",
+        "outflow": "690,007",
+        "net": "62,656"
+      },
+      "notes": [
+        "Internal district trips excluded. Date is source cohort date, not verified calendar arrival date."
+      ]
+    },
+    {
+      "id": "population_private_cell_missing",
+      "controls": {
+        "tab": "population",
+        "date": "20261031",
+        "hour": 18,
+        "district": "11110",
+        "dong": "11110690",
+        "sex": "female",
+        "target": "all"
+      },
+      "source": "public/data/population/250_LOCAL_RESD_ADMDONG_20261031.json",
+      "missingColumn": "여자 0~9세",
+      "expectedExact": null,
+      "expectedDisplay": "자료 없음",
+      "mustNotDisplayZero": true
+    },
+    {
+      "id": "population_no_boundary_11230515",
+      "controls": {
+        "tab": "population",
+        "date": "20261031",
+        "hour": 18,
+        "district": "11230",
+        "dong": "11230515",
+        "sex": "all",
+        "target": "all"
+      },
+      "expectedExact": "19804.89",
+      "expectedDisplay": "19,805",
+      "mapExpectation": "No polygon for this code; do not assign historical Yongsin polygon. Value remains available in non-map controls/details."
+    },
+    {
+      "id": "population_no_boundary_11230533",
+      "controls": {
+        "tab": "population",
+        "date": "20261031",
+        "hour": 18,
+        "district": "11230",
+        "dong": "11230533",
+        "sex": "all",
+        "target": "all"
+      },
+      "expectedExact": "18257.14",
+      "expectedDisplay": "18,257",
+      "mapExpectation": "No polygon for this code; do not assign historical Yongsin polygon. Value remains available in non-map controls/details."
+    },
+    {
+      "id": "commerce_gongdeok_2025Q4",
+      "controls": {
+        "tab": "commerce",
+        "period": "20254",
+        "district": "11440",
+        "dong": "11440565",
+        "band": -1
+      },
+      "expectedExact": "49119921140",
+      "expectedDisplay": "49,119,921,140"
+    },
+    {
+      "id": "migration_2023_source_difference",
+      "controls": {
+        "tab": "migration",
+        "period": "2023",
+        "district": "all",
+        "selectedCode": "11440"
+      },
+      "expected": {
+        "period": "2023",
+        "code": "11440",
+        "name": "마포구",
+        "inflow": 49721,
+        "outflow": 52169,
+        "net": -2448,
+        "source": "seoul-data-hub64",
+        "level": "gu"
+      },
+      "expectedDisplay": {
+        "inflow": "49,721",
+        "outflow": "52,169",
+        "net": "-2,448"
+      },
+      "expectedNoticeContains": "2023년은 두 공식 제공처의 자치구 수치가 일치하지 않습니다.",
+      "crossSourceDifferences": [
+        {
+          "period": "2023",
+          "code": "11440",
+          "field": "outflow",
+          "dashboard": 51353,
+          "hub": 52169
+        },
+        {
+          "period": "2023",
+          "code": "11440",
+          "field": "inflow",
+          "dashboard": 50582,
+          "hub": 49721
+        }
+      ]
+    }
+  ]
+}

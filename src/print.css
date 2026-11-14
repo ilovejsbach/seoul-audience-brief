@@ -1,0 +1,14 @@
+@media print{
+ .app .dataNotes,.app.mode-presentation .dataNotes{display:block!important;color:#243b54;border-color:#8ca1ba;break-inside:avoid}
+ .app .dataNotes .source,.app.mode-presentation .dataNotes .source{display:block!important;color:#243b54}
+ .app .dataNotes a{color:#224f80;text-decoration:underline}
+ /* Override each presentation page's screen-only panel visibility rules. */
+ .app.mode-presentation:is(.presentation-step-0,.presentation-step-1,.presentation-step-2) .dashboardContent .panel.extraTable:has(>details.dataNotes){display:block!important;border:0;background:white}
+ .app.mode-presentation:is(.presentation-step-0,.presentation-step-1,.presentation-step-2) .dashboardContent .panel.extraTable>table,
+ .app.mode-presentation:is(.presentation-step-0,.presentation-step-1,.presentation-step-2) .dashboardContent .panel.extraTable>.panelTitle,
+ .app.mode-presentation:is(.presentation-step-0,.presentation-step-1,.presentation-step-2) .dashboardContent .panel.extraTable>.empty{display:none!important}
+ .app.mode-presentation:is(.presentation-step-0,.presentation-step-1,.presentation-step-2) .dashboardContent .panel.extraTable>details.dataNotes,
+ .app.mode-presentation:is(.presentation-step-0,.presentation-step-1,.presentation-step-2) .dashboardContent .panel.extraTable>details.dataNotes .source{display:block!important}
+ /* Hidden tabs and the hidden analysis view must never leak into the printout. */
+ .app [hidden],.app .analysisView[hidden]{display:none!important}
+}

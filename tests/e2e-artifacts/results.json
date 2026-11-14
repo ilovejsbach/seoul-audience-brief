@@ -1,0 +1,173 @@
+{
+  "testedAt": "2026-11-14T08:42:35.123Z",
+  "browser": "Chrome",
+  "target": "production build localhost:4173",
+  "scenarios": [
+    {
+      "id": "hero-entries",
+      "status": "passed",
+      "detail": "2 hero modes, 4 dataset entries, 3 purpose entries, back navigation",
+      "startedAt": "2026-11-14T08:40:16.139Z",
+      "finishedAt": "2026-11-14T08:40:23.272Z"
+    },
+    {
+      "id": "population-filters",
+      "status": "passed",
+      "detail": "district, date, hour, age, sex update map and validated values",
+      "startedAt": "2026-11-14T08:40:23.272Z",
+      "finishedAt": "2026-11-14T08:40:25.287Z"
+    },
+    {
+      "id": "map-popup-drilldown",
+      "status": "passed",
+      "detail": "map preview, Escape, gu→dong detail, selected geometry, level switching",
+      "startedAt": "2026-11-14T08:40:25.287Z",
+      "finishedAt": "2026-11-14T08:40:28.061Z"
+    },
+    {
+      "id": "candidate-limit",
+      "status": "passed",
+      "detail": "add/remove/reuse slots; maximum three",
+      "startedAt": "2026-11-14T08:40:40.604Z",
+      "finishedAt": "2026-11-14T08:40:43.042Z"
+    },
+    {
+      "id": "masked-and-unmapped",
+      "status": "passed",
+      "detail": "masked values remain null; historical geometry cannot create fictitious selection",
+      "startedAt": "2026-11-14T08:40:43.042Z",
+      "finishedAt": "2026-11-14T08:40:44.712Z"
+    },
+    {
+      "id": "saved-scenarios",
+      "status": "passed",
+      "detail": "immutable snapshots, limit, apply exact conditions, delete, clear",
+      "startedAt": "2026-11-14T08:40:44.712Z",
+      "finishedAt": "2026-11-14T08:40:48.334Z"
+    },
+    {
+      "id": "trend-playback",
+      "status": "passed",
+      "detail": "actual/difference/index, baseline, play/pause/speed, hidden stop, previous/next",
+      "startedAt": "2026-11-14T08:40:48.334Z",
+      "finishedAt": "2026-11-14T08:40:53.647Z"
+    },
+    {
+      "id": "residential-migration",
+      "status": "passed",
+      "detail": "gu/dong, old-year reset/export, source difference notice, missing value propagation",
+      "startedAt": "2026-11-14T08:40:58.440Z",
+      "finishedAt": "2026-11-14T08:40:59.780Z"
+    },
+    {
+      "id": "commerce-detail",
+      "status": "passed",
+      "detail": "quarter, time band, dong, gu period trend, source disclosure",
+      "startedAt": "2026-11-14T08:40:59.780Z",
+      "finishedAt": "2026-11-14T08:41:00.858Z"
+    },
+    {
+      "id": "fullscreen-dataset",
+      "status": "passed",
+      "detail": "full screen, zoom in/out/reset, data transition, close",
+      "startedAt": "2026-11-14T08:41:00.858Z",
+      "finishedAt": "2026-11-14T08:41:03.460Z"
+    },
+    {
+      "id": "presentation-journey",
+      "status": "passed",
+      "detail": "three pages, back/direct links, hero resume, disclosure, analysis state preserved",
+      "startedAt": "2026-11-14T08:41:03.460Z",
+      "finishedAt": "2026-11-14T08:41:08.127Z"
+    },
+    {
+      "id": "pointer-controls",
+      "status": "passed",
+      "detail": "real pointer hover, drag pan without accidental popup, wheel zoom",
+      "startedAt": "2026-11-14T08:41:08.127Z",
+      "finishedAt": "2026-11-14T08:41:10.923Z"
+    },
+    {
+      "id": "network-failure",
+      "status": "passed",
+      "detail": "missing file shows error, no stale value/export, valid date recovers",
+      "startedAt": "2026-11-14T08:41:58.092Z",
+      "finishedAt": "2026-11-14T08:41:59.278Z"
+    },
+    {
+      "id": "mobility-aggregation",
+      "status": "passed",
+      "detail": "arrival/departure, inflow/outflow/net, hourly/cumulative/day, spatial limits",
+      "startedAt": "2026-11-14T08:40:53.648Z",
+      "finishedAt": "2026-11-14T08:40:54.695Z"
+    },
+    {
+      "id": "same-condition-retry",
+      "status": "passed",
+      "detail": "restored file → same condition retry → Mapo 512,485"
+    },
+    {
+      "id": "analysis-print-preview",
+      "status": "passed",
+      "detail": "실제 PDF 미리보기 3페이지에서 현재 자료의 출처·정의 확인, 다른 자료 제외, 취소 복귀",
+      "notesRestored": true
+    },
+    {
+      "id": "presentation-print-preview",
+      "status": "passed",
+      "source": true,
+      "commerce": true,
+      "notesRestored": true
+    }
+  ],
+  "responsive": [
+    {
+      "id": "desktop-1440",
+      "overflow": false,
+      "viewport": 1440,
+      "width": 1425
+    },
+    {
+      "id": "desktop-1280",
+      "overflow": false,
+      "viewport": 1280,
+      "width": 1265
+    },
+    {
+      "id": "analysis-1440",
+      "overflow": false,
+      "viewport": 1440,
+      "width": 1425
+    },
+    {
+      "id": "analysis-1280",
+      "overflow": false,
+      "viewport": 1280,
+      "width": 1265
+    }
+  ],
+  "csv": {
+    "status": "passed",
+    "district": "마포구",
+    "year": 2001,
+    "inflow": 81870,
+    "outflow": 92681,
+    "net": -10811
+  },
+  "followupRegression": [
+    {
+      "id": "candidate-limit",
+      "status": "passed",
+      "detail": "add/remove/reuse slots; maximum three",
+      "startedAt": "2026-11-14T08:43:45.182Z",
+      "finishedAt": "2026-11-14T08:43:47.514Z"
+    },
+    {
+      "id": "masked-and-unmapped",
+      "status": "passed",
+      "detail": "masked values remain null; historical geometry cannot create fictitious selection",
+      "startedAt": "2026-11-14T08:43:47.514Z",
+      "finishedAt": "2026-11-14T08:43:49.181Z"
+    }
+  ]
+}
