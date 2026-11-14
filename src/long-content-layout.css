@@ -29,3 +29,8 @@
 .app .timeComparisonValues strong.negative{color:#a64b1b!important}.app .timeComparisonValues strong.positive{color:#173e69!important}.app .popupExact{overflow-wrap:anywhere;word-break:normal}
 .app :is(.timeComparisonHeading,.mapOptionsPanel>header,.floatingLegendPanel>header,.marketTrendDrawerHeader){height:auto;min-height:0}
 .app .dashboardContent .timeComparisonHeading{padding:0;border:0;position:static;box-shadow:none}
+/* Layered type rules must preserve the SVG camera's inverse label scaling. */
+@layer dashboardTypography{
+ .app:is(.mode-analysis,.mode-presentation) .mapWorkspace svg .marketDistrictContext text{font-size:var(--market-context-label-size,14px)!important}
+}
+.app .mapWorkspace .mapWorkspaceHeader .workspaceDetailsToggle>span{color:#fff!important}

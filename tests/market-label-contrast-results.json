@@ -1,0 +1,171 @@
+{
+  "labelProof": {
+    "labels": [
+      {
+        "font": "1.75px",
+        "height": 16.50006103515625,
+        "text": "종로구"
+      },
+      {
+        "font": "1.75px",
+        "height": 16.500030517578125,
+        "text": "중구"
+      },
+      {
+        "font": "1.75px",
+        "height": 16.500030517578125,
+        "text": "용산구"
+      },
+      {
+        "font": "1.75px",
+        "height": 16.500030517578125,
+        "text": "성동구"
+      },
+      {
+        "font": "1.75px",
+        "height": 16.500030517578125,
+        "text": "광진구"
+      },
+      {
+        "font": "1.75px",
+        "height": 16.50006103515625,
+        "text": "동대문구"
+      },
+      {
+        "font": "1.75px",
+        "height": 16.5,
+        "text": "중랑구"
+      },
+      {
+        "font": "1.75px",
+        "height": 16.5,
+        "text": "성북구"
+      },
+      {
+        "font": "1.75px",
+        "height": 16.5,
+        "text": "강북구"
+      },
+      {
+        "font": "1.75px",
+        "height": 16.5,
+        "text": "도봉구"
+      },
+      {
+        "font": "1.75px",
+        "height": 16.5,
+        "text": "노원구"
+      },
+      {
+        "font": "1.75px",
+        "height": 16.5,
+        "text": "은평구"
+      },
+      {
+        "font": "1.75px",
+        "height": 16.50006103515625,
+        "text": "서대문구"
+      },
+      {
+        "font": "1.75px",
+        "height": 16.500030517578125,
+        "text": "마포구"
+      },
+      {
+        "font": "1.75px",
+        "height": 16.500030517578125,
+        "text": "양천구"
+      },
+      {
+        "font": "1.75px",
+        "height": 16.500030517578125,
+        "text": "강서구"
+      },
+      {
+        "font": "1.75px",
+        "height": 16.5,
+        "text": "구로구"
+      },
+      {
+        "font": "1.75px",
+        "height": 16.5001220703125,
+        "text": "금천구"
+      },
+      {
+        "font": "1.75px",
+        "height": 16.500030517578125,
+        "text": "영등포구"
+      },
+      {
+        "font": "1.75px",
+        "height": 16.5,
+        "text": "동작구"
+      },
+      {
+        "font": "1.75px",
+        "height": 16.5,
+        "text": "관악구"
+      },
+      {
+        "font": "1.75px",
+        "height": 16.5,
+        "text": "서초구"
+      },
+      {
+        "font": "1.75px",
+        "height": 16.50006103515625,
+        "text": "강남구"
+      },
+      {
+        "font": "1.75px",
+        "height": 16.50006103515625,
+        "text": "송파구"
+      },
+      {
+        "font": "1.75px",
+        "height": 16.500030517578125,
+        "text": "강동구"
+      }
+    ],
+    "toggleColor": "rgb(255, 255, 255)"
+  },
+  "checks": [
+    {
+      "case": "largest-market-value",
+      "exact": "1,261,630,232,011 원",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "viewport": [
+        1800,
+        961
+      ]
+    },
+    {
+      "case": "legend-conditional-display-and-update",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "viewport": [
+        1800,
+        961
+      ]
+    },
+    {
+      "case": "long-name-candidate-and-trend",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "viewport": [
+        1800,
+        961
+      ]
+    },
+    {
+      "case": "grouped-analysis-controls",
+      "horizontalOverflow": false,
+      "overflow": [],
+      "viewport": [
+        1800,
+        961
+      ]
+    }
+  ]
+}
