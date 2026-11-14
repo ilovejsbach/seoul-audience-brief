@@ -1,0 +1,84 @@
+{
+  "date": "2026-11-14T12:55:25.790Z",
+  "detail": [
+    {
+      "case": "population-gu-dong-fullscreen",
+      "state": {
+        "active": "trend-population",
+        "fullscreen": false,
+        "height": 810.6875,
+        "overlay": false,
+        "popup": false,
+        "top": 0.1171875,
+        "viewport": 905
+      }
+    },
+    {
+      "case": "mobility-detail-fullscreen",
+      "state": {
+        "active": "trend-mobility",
+        "fullscreen": false,
+        "height": 810.6875,
+        "overlay": false,
+        "popup": false,
+        "top": -0.1328125,
+        "viewport": 905
+      }
+    },
+    {
+      "case": "migration-detail-fullscreen",
+      "state": {
+        "active": "trend-migration",
+        "fullscreen": false,
+        "height": 810.6875,
+        "overlay": false,
+        "popup": false,
+        "top": -0.1328125,
+        "viewport": 905
+      }
+    },
+    {
+      "case": "commerce-detail-fullscreen",
+      "state": {
+        "active": "trend-commerce",
+        "fullscreen": false,
+        "height": 810.6875,
+        "overlay": false,
+        "popup": false,
+        "top": -0.1328125,
+        "viewport": 905
+      }
+    }
+  ],
+  "presentation": {
+    "active": "trend-population",
+    "containerTop": 325.5,
+    "fullscreen": false,
+    "step": "2시간 흐름 비교",
+    "title": "서교동 생활인구 추이 · 2026.10.31 · 전체 연령 · 전체 성별",
+    "trendTop": 325.2890625
+  },
+  "regression": [
+    {
+      "id": "map-popup-drilldown",
+      "status": "passed",
+      "detail": "map preview, Escape, gu→dong detail, selected geometry, level switching",
+      "startedAt": "2026-11-14T12:55:16.836Z",
+      "finishedAt": "2026-11-14T12:55:19.484Z"
+    },
+    {
+      "id": "fullscreen-dataset",
+      "status": "passed",
+      "detail": "full screen, zoom in/out/reset, data transition, close",
+      "startedAt": "2026-11-14T12:55:19.485Z",
+      "finishedAt": "2026-11-14T12:55:21.780Z"
+    },
+    {
+      "id": "presentation-journey",
+      "status": "passed",
+      "detail": "three pages, back/direct links, hero resume, disclosure, analysis state preserved",
+      "startedAt": "2026-11-14T12:55:21.780Z",
+      "finishedAt": "2026-11-14T12:55:25.790Z"
+    }
+  ]
+}
