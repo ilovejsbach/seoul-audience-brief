@@ -1,0 +1,40 @@
+/* Selected controls: navy for the state, warm complementary badges for ordinals. */
+.app .tabs button small{display:inline-flex;align-items:center;justify-content:center;min-width:27px;min-height:24px;margin-right:9px;padding:1px 5px;border-radius:4px;background:#edf2f7!important;color:#344a63!important;font-size:12px;font-weight:600;opacity:1!important;line-height:1.3}
+.app .tabs button:is(.active,[aria-selected=true]){background:#173e69!important;color:#fff!important;border-color:#173e69!important}
+.app .tabs button:is(.active,[aria-selected=true]) small{background:#ffd28a!important;color:#173e69!important;opacity:1!important}
+.app .tabs button:is(.active,[aria-selected=true]):hover{background:#123353!important}
+.app .presentationNav button[aria-current=step] span{background:#ffd28a!important;color:#173e69!important;border-color:#ffd28a!important;opacity:1!important}
+.app button:is(.active,[aria-pressed=true],[aria-selected=true],[aria-current=step]){opacity:1}
+.app button:focus-visible,.app summary:focus-visible,.app select:focus-visible,.app input:focus-visible{outline:3px solid #b85b1a!important;outline-offset:3px}
+.app .trendExplorerHeading{gap:16px;flex-wrap:wrap}.app .trendExplorerHeading>div:first-child{flex:1 1 420px;min-width:0}.app .trendCurrent{flex:0 0 auto;min-width:0;max-width:100%;overflow:visible}.app .trendCurrent strong{display:inline-block;white-space:nowrap;max-width:100%;font-variant-numeric:tabular-nums}.app .trendCurrent small{white-space:nowrap}
+.app .mapWorkspace .marketRank b{font-variant-numeric:tabular-nums}.app .mapWorkspace .marketRank:focus-visible{background:#fff2dd!important;color:#173e69!important}
+@media(max-width:800px){.app .tabs button small{margin-right:5px;min-width:23px;font-size:11px}.app .trendExplorerHeading>div:first-child{flex-basis:100%}}
+/* Peer navigation items reserve equal space regardless of copy length. */
+.app .tabs{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr));gap:0!important;align-items:stretch;padding:0!important;overflow:visible}
+.app .tabs>button{width:100%;min-width:0;min-height:54px;display:flex;align-items:center;justify-content:center;padding:10px 14px!important;margin:0!important;white-space:nowrap;border-radius:0!important;border-bottom-width:3px!important;line-height:1.4}
+.app .tabs>.tabsNote{grid-column:1/-1;justify-self:end;margin:0!important;padding:5px 12px;font-size:11px;line-height:1.4}
+.app .presentationNav>div{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));flex:1;max-width:760px;gap:0}.app .presentationNav>div>button{width:100%;min-width:0;display:flex;align-items:center;justify-content:center;min-height:40px;white-space:nowrap}
+.app .mapLevelControls>button{min-width:112px}.app .trendExplorerControls fieldset button{flex:1;min-width:100px;min-height:36px}
+.app .migrationMetricButtons{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}.app .migrationMetricButtons>button{width:100%;min-width:56px;min-height:34px}
+@media(max-width:800px){.app .tabs>button{min-height:52px;padding:7px 5px!important;font-size:12px;white-space:normal;gap:3px}.app .tabs button small{flex:none;margin-right:2px}.app .tabs>.tabsNote{font-size:10px}.app .presentationNav>div>button{font-size:11px;white-space:normal;padding:5px!important}.app .presentationNav{gap:7px}.app .trendExplorerControls fieldset button{min-width:0}}
+@media screen and (min-width:1100px){
+ .app .tabs>.tabsNote{display:none}
+ .app .dashboardContent>div:not([hidden])>.workspace{grid-template-columns:minmax(0,var(--workspace-map-track,67fr)) minmax(280px,var(--workspace-detail-track,33fr))!important}
+ .app.mode-analysis .mapPanel:not(.mapIsFullscreen) .mapPrimaryFilters,.app.mode-presentation.details-open .mapPanel:not(.mapIsFullscreen) .mapPrimaryFilters{display:none}
+ .app .dashboardContent .mapPanel:not(.mapIsFullscreen) .mapWrap>svg{height:clamp(250px,calc(100dvh - 650px),340px)!important;--map-label-size:17px}
+ .app .dashboardContent .mapPanel:not(.mapIsFullscreen) .mapWrap>svg[data-map-level=dong]{--map-label-size:15px}
+}
+.app .mapDisplaySettings{grid-column:1/-1;grid-row:4;margin:2px 5px 4px;border:1px solid #d3dde7;border-radius:5px;background:#fff;color:#43566e;min-width:0}
+.app .mapDisplaySettings>summary{padding:6px 10px;min-height:30px;font-size:12px;font-weight:500;cursor:pointer;line-height:1.5}
+.app .mapDisplaySettings[open]>summary{border-bottom:1px solid #d3dde7}
+.app .mapDisplaySettings .mapColorRangeControls{padding:8px!important}.app .mapDisplaySettings .mapColorRangeNotice{padding:0 8px 8px!important;margin:0;font-size:12px}
+.app .mapIsFullscreen .mapDisplaySettings{grid-column:1/-1;grid-row:4}
+.app .mapWrap svg .mapLabelLayer{pointer-events:none}.app .mapWrap svg .mapLabelLayer text{paint-order:stroke fill;stroke:#fff;stroke-linejoin:round;fill:#17324f;font-weight:600;pointer-events:none}
+.app .rankingDisclosure{display:flex;gap:8px;justify-content:space-between;padding:10px 16px;flex-wrap:wrap;border-top:1px solid #d5dfe8}.app .rankingDisclosure button{min-height:34px;padding:6px 10px;font-size:12px;border:1px solid #aabbd0;border-radius:4px;color:#24558b;background:#fff}
+.app:not([data-secondary-mode=expanded]) .ranking .rankRow:nth-child(n+6){display:none}.app[data-secondary-mode=hidden] .ranking{display:none}
+@media(min-width:1100px){.app[data-secondary-mode=hidden] .dashboardContent>div:not([hidden])>.workspace{grid-template-columns:minmax(0,1fr)!important}.app .dashboardContent .mapPanel:not(.mapIsFullscreen) .mapWrap>svg{height:var(--workspace-map-height,clamp(250px,calc(100dvh - 650px),340px))!important}}
+.layoutControl{display:flex;gap:8px}.layoutOptions label{margin-block:12px}.layoutOptions select{min-height:34px;max-width:190px;font-size:14px;border:1px solid #aabbd0;border-radius:4px;background:#fff;color:#24558b;padding:5px}
+@media screen and (min-width:1100px){.app .dashboardContent .mapPanel:not(.mapIsFullscreen)>.timeControl{padding-block:4px}.app .dashboardContent .mapPanel:not(.mapIsFullscreen) .timeTicks{margin-top:2px}.app .dashboardContent .mapPanel:not(.mapIsFullscreen) .timeControl label>span{margin-bottom:2px}}
+.app .presentationNav>div>button>span{display:inline-flex;align-items:center;justify-content:center;min-width:27px;min-height:24px;margin-right:8px;border-radius:4px;line-height:1.3;flex:none}
+@media screen and (min-width:1100px){.app.mode-analysis .mapPanel:not(.mapIsFullscreen) .mapPrimaryFilters:has(.migrationMapControls),.app.mode-presentation.details-open .mapPanel:not(.mapIsFullscreen) .mapPrimaryFilters:has(.migrationMapControls){display:flex}.app.mode-analysis .mapPanel:not(.mapIsFullscreen) .mapPrimaryFilters:has(.migrationMapControls)>.mapPeriodControl,.app.mode-presentation.details-open .mapPanel:not(.mapIsFullscreen) .mapPrimaryFilters:has(.migrationMapControls)>.mapPeriodControl{display:none}}
+@media screen and (min-width:1100px){.app.mode-presentation .analysisView:not([hidden]){display:flex;flex-direction:column;height:calc(100dvh - 92px);min-height:0}.app.mode-presentation .analysisView>:is(.analysisHeading,.presentationNav,.tabs){flex:none}.app.mode-presentation .analysisView>.dashboardContent{height:auto;max-height:none;min-height:0;flex:1;overflow-y:auto;padding-bottom:8px}}

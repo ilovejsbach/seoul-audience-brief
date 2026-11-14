@@ -1,0 +1,23 @@
+/* Six fixed roles for dense analytical work. Map labels use the same scale. */
+@layer dashboardTypography {
+ .app.mode-analysis{--type-meta:12px;--type-label:14px;--type-body:16px;--type-panel:20px;--type-heading:28px;--type-key:36px;--layout-body:16px;--layout-label:14px;--layout-title:20px;--layout-kpi:36px;font-size:16px!important;line-height:1.6}
+ .app.mode-analysis :where(:not(svg):not(svg *)){font-size:16px!important}
+ .app.mode-analysis :is(h1,.analysisHeroHeader h1){font-size:28px!important;line-height:1.4!important}
+ .app.mode-analysis :is(h2,h3,h4){font-size:20px!important;line-height:1.45!important}
+ .app.mode-analysis :is(h1,h2,h3,h4)>:is(span,em,strong,b){font-size:inherit!important}
+ .app.mode-analysis :is(.metrics strong,.compareGrid strong,.trendCurrent strong,.timeComparison strong,.mapPopup>strong,.mapHoverTooltip>strong,.demographicValue,.residentContextCards strong,.marketValue){font-size:36px!important;line-height:1.3!important}
+ .app.mode-analysis :is(button,input,select,textarea,option,label){font-size:14px!important;line-height:1.5!important}
+ .app.mode-analysis :is(.muted,.helper,.notice,.mapAppliedConditions,.chartFacts,.chartAxisNotice,.chartAxisControls,.movementBasisNotice,.trendExplanation,.demographicShare,.residentPeriod,.marketCompactValue,.marketCandidateNote,.regionSelectionSummary p,.compareGrid p){font-size:14px!important;line-height:1.65!important}
+ .app.mode-analysis :is(.mapAppliedConditions,.chartFacts,.chartAxisNotice,.chartAxisControls,.movementBasisNotice,.trendExplanation,.marketCompactValue,.marketCandidateNote) :where(:not(svg):not(svg *)){font-size:14px!important}
+ .app.mode-analysis :is(small,.eyebrow,.source,.dataNotes,.mapCaption,.legend,.legend .muted,.timeTicks,.pill,.rankNumber,.mapZoomTools,.mapColorRangeNotice,.mapDisplaySettings summary,.mapCandidateTray,.mapCandidateChip,.candidateScopeNote,.trendPlayStatus,.trendCurrent>span,.chartAxisSummary,.chartMeta,.chartInsight,.connectionDefinition,.boundaryNotice,.demographicNotes,.residentContextNotes,.residentSource,.migrationBarLegend,.marketLegend,.marketLegendNote,.marketRank small,.brand small,.headerRight,.tabsNote,footer){font-size:12px!important;line-height:1.6!important}
+ .app.mode-analysis :is(.mapCaption,.legend,.mapCandidateTray,.mapZoomTools,.source,.dataNotes,.demographicNotes,.residentContextNotes,.migrationBarLegend,.marketLegend,footer) :where(:not(svg):not(svg *)){font-size:12px!important}
+ .app.mode-analysis :is(.tabs button small,.presentationNav button span,.mapPanelTools,.mapPanelTools button,.mapPanelTools select,.mapPrimaryFilters,.mapPrimaryFilters select,.mapPrimaryFilters label,.mapCandidateTray button,.mapCandidateChip b,.mapCandidateChip button,.mapZoomTools button,.mapColorRangeControls,.mapColorRangeControls label,.mapColorRangeControls input,.mapColorRangeControls select,.mapColorRangeControls button,.dataMeaningButton,.chartAxisControls button,.chartAxisControls select,.chartAxisControls input,.trendPlayback label,.trendPlayback select,.trendPlayStatus,.layoutControl>button,.layoutOptions p,.layoutOptions label,.layoutOptions button,.layoutOptions b,.layoutOptions input,.layoutOptions small){font-size:12px!important}
+ .app.mode-analysis :is(.rankRow strong,.rankName,.regionSelectionSummary strong,.analysisDatasets strong,.mapHoverTooltip b){font-size:16px!important}
+ .app.mode-analysis :is(.metrics small,.compareGrid small,.trendCurrent small,.timeComparison small,.mapPopup strong small,.mapHoverTooltip strong small,.demographicValue small,.residentContextCards strong small){font-size:12px!important}
+ .app.mode-analysis svg text:not(.mapLabelLayer text){font-size:12px!important}
+ .app.mode-analysis .mapWrap>svg{--map-label-size:14px!important}
+ .app.mode-analysis .mapIsFullscreen .mapWrap>svg{--map-label-size:16px!important}
+ body:has(.app.mode-analysis) .dataMeaningTooltip,body:has(.app.mode-analysis) .dataMeaningTooltip *{font-size:14px!important;line-height:1.65!important}
+ body:has(.app.mode-analysis) .dataMeaningTooltip .dataMeaningTerm{font-size:16px!important}
+ body:has(.app.mode-analysis) .dataMeaningTooltip :is(section>b,.dataMeaningSource){font-size:12px!important}
+}

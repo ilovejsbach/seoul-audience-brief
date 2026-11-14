@@ -1,0 +1,126 @@
+[
+  {
+    "case": "analysis-expanded-settings-and-tooltip",
+    "fonts": [
+      "16px",
+      "14px",
+      "28px",
+      "12px",
+      "20px",
+      "36px"
+    ]
+  },
+  {
+    "case": "fullscreen-25-gu",
+    "labels": {
+      "clipped": [],
+      "count": 25,
+      "overlap": []
+    },
+    "fonts": [
+      "16px",
+      "14px",
+      "28px",
+      "12px",
+      "20px",
+      "36px"
+    ]
+  },
+  {
+    "case": "zoomed-labels",
+    "labels": {
+      "clipped": [],
+      "count": 25,
+      "overlap": []
+    }
+  },
+  {
+    "case": "16-dong",
+    "labels": {
+      "clipped": [],
+      "count": 16,
+      "overlap": []
+    }
+  },
+  {
+    "case": "fullscreen-16-dong",
+    "labels": {
+      "clipped": [],
+      "count": 16,
+      "overlap": []
+    }
+  },
+  {
+    "case": "migration-mixed-candidate-semantics",
+    "tray": "후보 3/3\n강남구 80,696 명\n×\n마포구 공덕동 4,919 명\n×\n마포구 서교동 4,256 명\n×\n후보 비교 열기 →",
+    "net": "후보 3/3\n강남구 -1,728 명\n×\n마포구 공덕동 -274 명\n×\n마포구 서교동 -250 명\n×\n후보 비교 열기 →",
+    "fonts": [
+      "16px",
+      "14px",
+      "28px",
+      "12px",
+      "20px",
+      "36px"
+    ]
+  },
+  {
+    "case": "migration-fullscreen-demographics",
+    "fonts": [
+      "16px",
+      "14px",
+      "28px",
+      "12px",
+      "20px",
+      "36px"
+    ]
+  },
+  {
+    "case": "presentation-home",
+    "fonts": [
+      "18px",
+      "14px",
+      "36px",
+      "24px"
+    ]
+  },
+  {
+    "case": "presentation-fullscreen",
+    "fonts": [
+      "18px",
+      "14px",
+      "24px",
+      "36px"
+    ],
+    "labels": {
+      "clipped": [],
+      "count": 25,
+      "overlap": []
+    }
+  },
+  {
+    "case": "presentation-display-settings",
+    "fonts": [
+      "18px",
+      "14px",
+      "24px",
+      "36px"
+    ]
+  },
+  {
+    "case": "presentation-portal-tooltip",
+    "fonts": [
+      "18px",
+      "14px",
+      "24px",
+      "36px"
+    ]
+  },
+  {
+    "case": "presentation-market-map",
+    "fonts": [
+      "18px",
+      "24px",
+      "14px"
+    ]
+  }
+]

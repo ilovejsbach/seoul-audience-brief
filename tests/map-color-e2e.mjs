@@ -6,6 +6,7 @@ export async function runMapColorChecks(tab,fixtures){
  const legend=p.locator('.mapColorLegend').filter({visible:true});
  const paths=()=>p.locator('.mapWrap svg path[role="button"]').filter({visible:true}).evaluateAll(es=>es.map(e=>({label:e.getAttribute('aria-label'),fill:e.getAttribute('fill')})));
  const bound=async(f,k)=>{for(const [attr,value] of [['data-low',f[k].low],['data-high',f[k].high],['data-observed-min',f.observedMin],['data-observed-max',f.observedMax]])ok(Math.abs(Number(await legend.getAttribute(attr))-Number(value))<1e-6,`${attr} expected ${value}`)};
+ await p.locator('.mapDisplaySettings').filter({visible:true}).locator('summary').click();
  const base=await paths(),metrics=await p.locator('.metrics').filter({visible:true}).innerText();
  await bound(fixtures.cases[0],'domainZero');
  await select('색상 시작 기준','observed');await bound(fixtures.cases[0],'domainObservedPadding10');

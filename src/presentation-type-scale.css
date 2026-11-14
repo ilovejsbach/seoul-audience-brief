@@ -1,0 +1,21 @@
+/* Four fixed roles. Important declarations in this layer supersede legacy
+   unlayered !important sizes without changing the analytical mode. */
+@layer dashboardTypography {
+ .app.mode-presentation{--type-meta:14px;--type-body:18px;--type-heading:24px;--type-key:36px;--layout-body:18px;--layout-label:14px;--layout-title:24px;--layout-kpi:36px;font-size:18px!important;line-height:1.6}
+ .app.mode-presentation :where(:not(svg):not(svg *)){font-size:18px!important}
+ .app.mode-presentation :is(h1,h2,h3,h4){font-size:24px!important;line-height:1.4!important}
+ .app.mode-presentation :is(h1,h2,h3,h4)>:is(span,em,strong,b){font-size:inherit!important}
+ .app.mode-presentation .presentationHeroCopy h1,.app.mode-presentation .presentationHeroCopy h1 em{font-size:36px!important;line-height:1.35!important}
+ .app.mode-presentation :is(.metrics strong,.compareGrid strong,.trendCurrent strong,.timeComparison strong,.mapPopup>strong,.mapHoverTooltip>strong,.demographicValue,.residentContextCards strong,.marketValue){font-size:36px!important;line-height:1.3!important}
+ .app.mode-presentation :is(small,.muted,.eyebrow,.helper,.source,.notice,.dataNotes,.mapCaption,.legend,.legend .muted,.timeTicks,.pill,.rankNumber,.mapZoomTools,.mapAppliedConditions,.mapColorRangeNotice,.mapDisplaySettings summary,.mapCandidateTray,.mapCandidateChip,.candidateScopeNote,.trendPlayStatus,.trendExplanation,.chartAxisNotice,.chartFacts,.chartAxisControls,.chartAxisSummary,.chartMeta,.trendCurrent>span,.chartInsight,.movementBasisNotice,.connectionDefinition,.boundaryNotice,.demographicNotes,.residentContextNotes,.residentSource,.migrationBarLegend,.marketLegend,.marketLegendNote,.marketCompactValue,.presentationHeroEyebrow,.presentationHeroDisclaimer,.presentationJourney>div>span,.brand small,.headerRight,.tabsNote,footer){font-size:14px!important;line-height:1.6!important}
+ .app.mode-presentation :is(.mapCaption,.legend,.mapCandidateTray,.mapZoomTools,.mapAppliedConditions,.chartAxisNotice,.chartFacts,.chartAxisControls,.trendExplanation,.source,.notice,.dataNotes,.demographicNotes,.residentContextNotes,.migrationBarLegend,.marketLegend,.marketCompactValue,footer) :where(:not(svg):not(svg *)){font-size:14px!important}
+ .app.mode-presentation :is(button,input,select,textarea,option){font-size:18px!important;line-height:1.5!important}
+ .app.mode-presentation :is(.headerRight button,.tabs button small,.presentationNav button span,.mapPanelTools,.mapPanelTools button,.mapPanelTools select,.mapPrimaryFilters,.mapPrimaryFilters select,.mapPrimaryFilters label,.mapCandidateTray button,.mapCandidateTray small,.mapCandidateChip b,.mapCandidateChip button,.mapZoomTools button,.mapColorRangeControls,.mapColorRangeControls label,.mapColorRangeControls input,.mapColorRangeControls select,.mapColorRangeControls button,.dataMeaningButton,.chartAxisControls button,.chartAxisControls select,.chartAxisControls input,.trendPlayback label,.trendPlayback select,.trendPlayStatus,.layoutControl>button,.layoutOptions p,.layoutOptions label,.layoutOptions button,.layoutOptions b,.layoutOptions input,.layoutOptions small){font-size:14px!important}
+ .app.mode-presentation :is(.metrics p,.compareGrid p,.trendExplorerHeading p,.regionSelectionSummary p,.presentationJourney p){font-size:18px!important;line-height:1.65!important}
+ .app.mode-presentation :is(.metrics small,.compareGrid small,.trendCurrent small,.timeComparison small,.mapPopup strong small,.mapHoverTooltip strong small,.demographicValue small,.residentContextCards strong small){font-size:14px!important}
+ .app.mode-presentation svg text:not(.mapLabelLayer text){font-size:14px!important}
+ .app.mode-presentation .mapWrap>svg{--map-label-size:14px!important}
+ .app.mode-presentation .mapIsFullscreen .mapWrap>svg{--map-label-size:18px!important}
+ body:has(.app.mode-presentation) .dataMeaningTooltip,body:has(.app.mode-presentation) .dataMeaningTooltip *{font-size:14px!important;line-height:1.65!important}
+ body:has(.app.mode-presentation) .dataMeaningTooltip .dataMeaningTerm{font-size:18px!important}
+}

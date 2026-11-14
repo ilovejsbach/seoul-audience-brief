@@ -85,7 +85,7 @@ export function createSuite(tab){
    await role('기준 대비 증감').click();await select('비교 기준 시점','12:00');await includes('.trendCurrent','0');
    await role('기준 100').click();await includes('.trendCurrent','100');await role('실제값').click();await includes('.trendCurrent','102,539');
    await select('재생 간격','800');await role('▶ 재생').click();await visible('.mapAppliedConditions').filter({hasText:'13:00'}).waitFor({state:'visible',timeoutMs:5000});await role('Ⅱ 일시 정지').click();await includes('.mapAppliedConditions','13:00');
-   await role('▶ 재생').click();await page.getByRole('tab',{name:'02유입 · 유출',exact:true}).click();await page.getByRole('tab',{name:'01생활인구',exact:true}).click();assert(await role('▶ 재생').count()===1,'tab switch stops hidden playback');
+   await role('▶ 재생').click();await page.getByRole('tab',{name:/^02\s*유입 · 유출$/}).click();await page.getByRole('tab',{name:/^01\s*생활인구$/}).click();assert(await role('▶ 재생').count()===1,'tab switch stops hidden playback');
    await role('이전 시점').click();await role('다음 시점').click();await visible('.trendExplanation summary').click();await includes('.trendExplanation','비공개·결측');
    return 'actual/difference/index, baseline, play/pause/speed, hidden stop, previous/next';
   },
@@ -103,7 +103,7 @@ export function createSuite(tab){
    await select('기준 기간','2001');assert(await role('↓ 표 내려받기').isEnabled(),'historical gu export despite no dong data');await includes('.metrics','81,870');await role('↓ 표 내려받기').click();
    await select('기준 기간','2023');await includes('.notice','두 공식 제공처');
    await select('기준 기간','2022');await select('자치구','11740');await select('행정동',{label:'둔촌1동'});await includes('.metrics','자료 없음');
-   await select('지도 지표','net');await includes('.metrics','자료 없음');
+   await role('순이동').click();await includes('.metrics','자료 없음');
    return 'gu/dong, old-year reset/export, source difference notice, missing value propagation';
   },
   async 'commerce-detail'(){
@@ -125,7 +125,7 @@ export function createSuite(tab){
    await role('강남구 비교 추가').click();await role('송파구 비교 추가').click();await role('다음 →').click();assert(await visible('.workspace').count()===0,'time page map hidden');assert(await visible('.trendExplorer').count()===1,'time page trend visible');
    await role('다음 →').click();assert(await visible('.compareGrid article').count()===2,'shortlist page retained candidates');assert(await visible('.trendExplorer').count()===0,'shortlist trend hidden');assert(!(await role('다음 →').isEnabled()),'last page blocks next');
    await role('← 시작 화면').click();await role('이전 시연 이어보기 →').click();await includes('.presentationNav','3 / 3');
-   await role('← 이전').click();await includes('.presentationNav','2 / 3');await page.getByRole('button',{name:/1지역 살펴보기/}).click();await includes('.presentationNav','1 / 3');
+   await role('← 이전').click();await includes('.presentationNav','2 / 3');await page.getByRole('button',{name:/1\s*지역 살펴보기/}).click();await includes('.presentationNav','1 / 3');
    await role('세부 조건 보기').click();assert(await visible('.controls').count()===1,'show conditions');await role('세부 조건 접기').click();assert(await visible('.controls').count()===0,'hide conditions');
    await role('분석용').click();assert(await visible('.controls').count()===1,'analysis restores full tools');assert(await visible('.compareGrid article').count()===2,'analysis preserves candidates');
    return 'three pages, back/direct links, hero resume, disclosure, analysis state preserved';

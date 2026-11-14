@@ -8,11 +8,11 @@ export async function runDistrictDetails(tab){
  async function run(id,action){try{await action();results.push({id,status:'passed'})}catch(e){results.push({id,status:'failed',error:String(e)})}}
  async function fresh(pattern){await tab.reload();await p.getByRole('button',{name:pattern}).click();await visible('.controls').waitFor({state:'visible'})}
  await run('mobility-same-district-presentation-detail',async()=>{
-  await fresh(/^생활이동 ↗/);await select('자치구','11560');await visible('.metrics').filter({hasText:'48,205'}).waitFor({state:'visible'});await button('시연용').click();await p.locator('.mode-presentation').waitFor({state:'visible'});await p.getByRole('button',{name:/1지역 살펴보기/}).click();
+  await fresh(/^생활이동 ↗/);await select('자치구','11560');await visible('.metrics').filter({hasText:'48,205'}).waitFor({state:'visible'});await button('시연용').click();await p.locator('.mode-presentation').waitFor({state:'visible'});await p.getByRole('button',{name:/1\s*지역 살펴보기/}).click();
   await p.getByRole('button',{name:/^영등포구 자료일 .*48,205 건/}).click();await button('상세 분석 →').click();
   await visible('.presentationNav').filter({hasText:'2 / 3'}).waitFor({state:'visible'});await visible('.trendExplorer').filter({hasText:'영등포구'}).waitFor({state:'visible'});
   assert(await visible('.mapPopup').count()===0,'popup closed');
-  await p.getByRole('button',{name:/1지역 살펴보기/}).click();await p.getByRole('button',{name:/^영등포구 자료일 .*48,205 건/}).click();await button('상세 분석 →').click();await visible('.presentationNav').filter({hasText:'2 / 3'}).waitFor({state:'visible'});
+  await p.getByRole('button',{name:/1\s*지역 살펴보기/}).click();await p.getByRole('button',{name:/^영등포구 자료일 .*48,205 건/}).click();await button('상세 분석 →').click();await visible('.presentationNav').filter({hasText:'2 / 3'}).waitFor({state:'visible'});
  });
  await run('mobility-table-selection',async()=>{
   await fresh(/^생활이동 ↗/);await visible('.extraTable').getByRole('button',{name:'마포구 상세 보기',exact:true}).click();
