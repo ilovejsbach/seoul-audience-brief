@@ -1,0 +1,168 @@
+{
+  "status": "passed",
+  "validatedAt": "2026-11-14T10:12:10.033345+00:00",
+  "validationMethod": "Every prepared population and sales source numeric field compared with official raw CSV; no preparation-script import.",
+  "mismatchCount": 0,
+  "mismatchExamples": [],
+  "population": {
+    "rows": 36281,
+    "periodRows": {
+      "20211": 1650,
+      "20212": 1650,
+      "20213": 1650,
+      "20214": 1650,
+      "20221": 1650,
+      "20222": 1650,
+      "20223": 1650,
+      "20224": 1649,
+      "20231": 1649,
+      "20232": 1649,
+      "20233": 1649,
+      "20234": 1648,
+      "20241": 1649,
+      "20242": 1649,
+      "20243": 1648,
+      "20244": 1649,
+      "20251": 1650,
+      "20252": 1649,
+      "20253": 1648,
+      "20254": 1648,
+      "20261": 1649,
+      "20262": 1648
+    },
+    "periodCount": 22,
+    "marketCodes": 1650,
+    "geometryCodeMatches": 1650,
+    "sourceUrl": "https://data.seoul.go.kr/dataList/OA-15568/S/1/datasetView.do"
+  },
+  "sales": {
+    "rows": 85732,
+    "periodRows": {
+      "20251": 21427,
+      "20252": 21452,
+      "20253": 21520,
+      "20254": 21333
+    },
+    "marketCodes": 1577,
+    "industryCodes": 62,
+    "geometryCodeMatches": 1577,
+    "sourceUrl": "https://data.seoul.go.kr/dataList/OA-15572/S/1/datasetView.do"
+  },
+  "marginalSumPolicy": "Diagnostic differences only; no assertion that sex/age/time/weekday sums equal totals, and no zero imputation.",
+  "populationMarginalDifferences": {
+    "sex": {
+      "comparableRows": 36281,
+      "missingRows": 0,
+      "nonZeroDifferenceCount": 18287,
+      "minDifference": -3,
+      "maxDifference": 3,
+      "maxAbsoluteDifference": 3
+    },
+    "ageSixGroups": {
+      "comparableRows": 36281,
+      "missingRows": 0,
+      "nonZeroDifferenceCount": 25187,
+      "minDifference": -5,
+      "maxDifference": 5,
+      "maxAbsoluteDifference": 5
+    },
+    "timeSixBands": {
+      "comparableRows": 36281,
+      "missingRows": 0,
+      "nonZeroDifferenceCount": 25080,
+      "minDifference": -5,
+      "maxDifference": 5,
+      "maxAbsoluteDifference": 5
+    },
+    "weekdays": {
+      "comparableRows": 36281,
+      "missingRows": 0,
+      "nonZeroDifferenceCount": 25835,
+      "minDifference": -5,
+      "maxDifference": 6,
+      "maxAbsoluteDifference": 6
+    }
+  },
+  "salesMarginalDifferences": {
+    "sex": {
+      "comparableRows": 85732,
+      "missingRows": 0,
+      "nonZeroDifferenceCount": 50230,
+      "minDifference": -238192629824,
+      "maxDifference": 2,
+      "maxAbsoluteDifference": 238192629824
+    },
+    "ageSixGroups": {
+      "comparableRows": 85732,
+      "missingRows": 0,
+      "nonZeroDifferenceCount": 50298,
+      "minDifference": -238192629823,
+      "maxDifference": 2,
+      "maxAbsoluteDifference": 238192629823
+    },
+    "timeSixBands": {
+      "comparableRows": 85732,
+      "missingRows": 0,
+      "nonZeroDifferenceCount": 0,
+      "minDifference": 0,
+      "maxDifference": 0,
+      "maxAbsoluteDifference": 0
+    },
+    "weekdays": {
+      "comparableRows": 85732,
+      "missingRows": 0,
+      "nonZeroDifferenceCount": 0,
+      "minDifference": 0,
+      "maxDifference": 0,
+      "maxAbsoluteDifference": 0
+    }
+  },
+  "gongdeokStationRawCheckpoints": {
+    "code": "3120107",
+    "name": "공덕역(공덕오거리)",
+    "salesPeriod": "20254",
+    "allProvidedIndustryRows": 27,
+    "allSales": 38997707684,
+    "allTimeBand4Sales": 10450795765,
+    "koreanFoodIndustryCode": "CS100001",
+    "koreanFoodSales": 8705416425,
+    "koreanFoodTimeBand4Sales": 4393912588,
+    "populationPeriod": "20262",
+    "populationTotal": 1237934,
+    "populationTimeBand4": 250000,
+    "timeBand4": "17-21",
+    "note": "Sales and population checkpoint periods differ; not a conversion-rate calculation."
+  },
+  "files": [
+    {
+      "path": "data/raw/commerce/market-population-public-download.csv",
+      "bytes": 8543807,
+      "sha256": "9a481ee97de352d9a69d9c89b05b9d1338ef1fa38c20563f89901ca818b7e0cb"
+    },
+    {
+      "path": "data/raw/commerce/OA-15572_51.zip",
+      "bytes": 14035292,
+      "sha256": "c907f3d386d62b89f45781e6e6172328ee91b1b8dd2c621e4171e437bee1c6b2"
+    },
+    {
+      "path": "public/data/market-population.json",
+      "bytes": 15983278,
+      "sha256": "17b552987738359be7d770ee431f81b1b49711a74f5de74079c5a1895f49be66"
+    },
+    {
+      "path": "public/data/market-sales.json",
+      "bytes": 31051569,
+      "sha256": "5f1b0a56f4bc2c1a938475f2e3a116600cc2f3a905ee86533dc1312db7e90f70"
+    },
+    {
+      "path": "public/data/market-areas.geojson",
+      "bytes": 5993077,
+      "sha256": "2444b7c2353f1f2815bc8442d585493dc724b183b59f2e8640876256bdb8ffc7"
+    }
+  ],
+  "limitations": [
+    "Code joins do not establish current boundary geometry equivalence.",
+    "Population source daily-average versus quarterly normalization remains unverified.",
+    "Overlapping markets must not be summed as unique population."
+  ]
+}

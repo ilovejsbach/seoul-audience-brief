@@ -1,0 +1,191 @@
+{
+  "testedAt": "2026-11-14T10:13:10.846Z",
+  "browser": "Chrome",
+  "target": "production preview localhost:4173",
+  "scenarios": [
+    {
+      "id": "hero-entries",
+      "status": "passed",
+      "detail": "2 hero modes, 4 dataset entries, 3 purpose entries, back navigation",
+      "startedAt": "2026-11-14T10:04:35.552Z",
+      "finishedAt": "2026-11-14T10:04:42.590Z"
+    },
+    {
+      "id": "population-filters",
+      "status": "passed",
+      "detail": "district, date, hour, age, sex update map and validated values",
+      "startedAt": "2026-11-14T10:04:42.590Z",
+      "finishedAt": "2026-11-14T10:04:44.501Z"
+    },
+    {
+      "id": "map-popup-drilldown",
+      "status": "passed",
+      "detail": "map preview, Escape, gu→dong detail, selected geometry, level switching",
+      "startedAt": "2026-11-14T10:04:44.501Z",
+      "finishedAt": "2026-11-14T10:04:47.285Z"
+    },
+    {
+      "id": "candidate-limit",
+      "status": "passed",
+      "detail": "add/remove/reuse slots; maximum three",
+      "startedAt": "2026-11-14T10:04:47.285Z",
+      "finishedAt": "2026-11-14T10:04:49.640Z"
+    },
+    {
+      "id": "masked-and-unmapped",
+      "status": "passed",
+      "detail": "masked values remain null; historical geometry cannot create fictitious selection",
+      "startedAt": "2026-11-14T10:04:49.640Z",
+      "finishedAt": "2026-11-14T10:04:51.370Z"
+    },
+    {
+      "id": "saved-scenarios",
+      "status": "passed",
+      "detail": "immutable snapshots, limit, apply exact conditions, delete, clear",
+      "startedAt": "2026-11-14T10:04:51.370Z",
+      "finishedAt": "2026-11-14T10:04:54.898Z"
+    },
+    {
+      "id": "trend-playback",
+      "status": "passed",
+      "detail": "actual/difference/index, baseline, play/pause/speed, hidden stop, previous/next",
+      "startedAt": "2026-11-14T10:06:05.657Z",
+      "finishedAt": "2026-11-14T10:06:10.956Z"
+    },
+    {
+      "id": "mobility-aggregation",
+      "status": "passed",
+      "detail": "arrival/departure, inflow/outflow/net, hourly/cumulative/day, spatial limits",
+      "startedAt": "2026-11-14T10:06:10.956Z",
+      "finishedAt": "2026-11-14T10:06:12.022Z"
+    },
+    {
+      "id": "residential-migration",
+      "status": "passed",
+      "detail": "gu/dong, old-year reset/export, source difference notice, missing value propagation",
+      "startedAt": "2026-11-14T10:06:12.022Z",
+      "finishedAt": "2026-11-14T10:06:13.101Z"
+    },
+    {
+      "id": "commerce-detail",
+      "status": "passed",
+      "detail": "quarter, time band, dong, gu period trend, source disclosure",
+      "startedAt": "2026-11-14T10:06:13.101Z",
+      "finishedAt": "2026-11-14T10:06:14.139Z"
+    },
+    {
+      "id": "fullscreen-dataset",
+      "status": "passed",
+      "detail": "full screen, zoom in/out/reset, data transition, close",
+      "startedAt": "2026-11-14T10:06:14.139Z",
+      "finishedAt": "2026-11-14T10:06:16.891Z"
+    },
+    {
+      "id": "presentation-journey",
+      "status": "passed",
+      "detail": "three pages, back/direct links, hero resume, disclosure, analysis state preserved",
+      "startedAt": "2026-11-14T10:06:16.891Z",
+      "finishedAt": "2026-11-14T10:06:21.529Z"
+    },
+    {
+      "id": "pointer-controls",
+      "status": "passed",
+      "detail": "real pointer hover, drag pan without accidental popup, wheel zoom",
+      "startedAt": "2026-11-14T10:06:21.529Z",
+      "finishedAt": "2026-11-14T10:06:24.429Z"
+    },
+    {
+      "id": "axis-fit-manual-reset",
+      "status": "passed"
+    },
+    {
+      "id": "negative-baseline-index-guard",
+      "status": "passed"
+    },
+    {
+      "id": "population-same-dong-followup",
+      "status": "passed"
+    },
+    {
+      "id": "distribution-paired-and-delta",
+      "status": "passed"
+    },
+    {
+      "id": "mobility-relative-regions",
+      "status": "passed"
+    },
+    {
+      "id": "market-open-query-and-real-values",
+      "status": "passed"
+    },
+    {
+      "id": "market-population-scope-and-period",
+      "status": "passed"
+    },
+    {
+      "id": "map-menu-and-detail-reopen",
+      "status": "passed"
+    },
+    {
+      "id": "market-empty-and-selection-reset",
+      "status": "passed"
+    },
+    {
+      "id": "market-color-scale-options",
+      "status": "passed"
+    },
+    {
+      "id": "market-candidates-and-chart-return",
+      "status": "passed"
+    },
+    {
+      "id": "market-return-to-actual-previous-view",
+      "status": "passed"
+    },
+    {
+      "id": "market-load-failure-retry",
+      "status": "passed",
+      "exportBlocked": true,
+      "recovered": true
+    }
+  ],
+  "manual": [
+    {
+      "id": "native-market-pointer-selection",
+      "status": "passed",
+      "detail": "실제 마우스로 상권 내부 클릭 → 상세 패널 자동 열림·원값 확인"
+    },
+    {
+      "id": "selected-detail-top",
+      "status": "passed",
+      "scrollTop": 0,
+      "headingVisible": true
+    }
+  ],
+  "viewport": {
+    "actual": {
+      "height": 905,
+      "horizontalOverflow": false,
+      "width": 1800
+    },
+    "requestedOverrides": [
+      {
+        "width": 1440,
+        "height": 900
+      },
+      {
+        "width": 1280,
+        "height": 800
+      }
+    ],
+    "overrideApplied": false,
+    "note": "브라우저 크기 변경이 적용되지 않아 작은 PC 폭은 실제 통과로 계산하지 않음"
+  },
+  "data": {
+    "populationRows": 36281,
+    "salesRows": 85732,
+    "areaFeatures": 1650,
+    "rawMismatchCount": 0
+  },
+  "consoleTypeErrors": []
+}

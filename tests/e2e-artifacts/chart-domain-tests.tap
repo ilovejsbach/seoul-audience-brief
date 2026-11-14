@@ -1,0 +1,46 @@
+TAP version 13
+# Subtest: zero includes all positive, negative and crossing-zero observations
+ok 1 - zero includes all positive, negative and crossing-zero observations
+  ---
+  duration_ms: 0.378958
+  type: 'test'
+  ...
+# Subtest: fit gives 8 percent padding on either end
+ok 2 - fit gives 8 percent padding on either end
+  ---
+  duration_ms: 0.304417
+  type: 'test'
+  ...
+# Subtest: constant and missing series have finite nonzero domains
+ok 3 - constant and missing series have finite nonzero domains
+  ---
+  duration_ms: 0.137917
+  type: 'test'
+  ...
+# Subtest: manual accepts finite numbers, counts each clipped observation and includes boundaries
+ok 4 - manual accepts finite numbers, counts each clipped observation and includes boundaries
+  ---
+  duration_ms: 0.052667
+  type: 'test'
+  ...
+# Subtest: invalid manual bounds fall back to zero with actionable error
+ok 5 - invalid manual bounds fall back to zero with actionable error
+  ---
+  duration_ms: 0.065125
+  type: 'test'
+  ...
+# Subtest: huge arrays and tiny or overflowing ranges never produce broken axes
+ok 6 - huge arrays and tiny or overflowing ranges never produce broken axes
+  ---
+  duration_ms: 10.172083
+  type: 'test'
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 245.681958

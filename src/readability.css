@@ -1,0 +1,104 @@
+/* A single light, high-contrast reading surface. Loaded after all component themes. */
+:root{--panel:#fff;--border:#c8d3df;--muted:#536477;--lime:#24558b;color:#1f3045;background:#f3f5f7;color-scheme:light}
+html,body{background:#f3f5f7!important;color:#1f3045!important}
+.app{color:#1f3045!important;background:#f3f5f7!important;--panel:#fff;--border:#c8d3df;--muted:#536477;--lime:#24558b}
+.app :is(h1,h2,h3,h4,strong,b){color:#152b43!important}
+.app :is(p,li,td,th,label,legend,summary){color:#33465c!important}
+.app :is(span,small,.muted,.eyebrow,.helper,.source,.notice,.timeTicks,.rankNumber,.mapCaption,.legend,.legend .muted){color:#536477!important}
+.app a{color:#24558b!important}
+.app :is(header,.panel,.controls,.metrics,.metrics>div,.compareGrid article,.scenarioWorkbenchCurrent,.scenarioWorkbenchCount,.scenarioWorkbenchTableWrap,.dataNotes,.regionSelectionSummary,.movementConnections,.connectionDirection,.trendExplorer,.timeComparison,.distributionMaps figure){background:#fff!important;color:#1f3045!important;border-color:#c8d3df!important}
+.app :is(.panel,.controls,.metrics,.funnel,.scenarioWorkbenchCurrent,.dataNotes,.regionSelectionSummary,.compareGrid article,.timeComparison,.presentationNav,.tabs,.rankRow,.chartFacts,.trendPlayback,.connectionDirection li,.distributionMaps figure){border-color:#c8d3df!important}
+.app :is(.headerRight,header>nav,.brand,.analysisHeading,.analysisHeading h1,footer){color:#33465c!important}
+.app .brandMark{background:#24558b!important;color:#fff!important}
+.app .brandMark *{color:#fff!important}
+.app :is(.liveDot,.dataStatus i,.analysisDataTop i){background:#24558b!important}
+.app :is(input,select,textarea){background:#fff!important;color:#1f3045!important;border-color:#aabbd0!important;accent-color:#24558b}
+.app input::placeholder,.app textarea::placeholder{color:#617287!important;opacity:1}
+.app button{background:#fff!important;color:#24558b!important;border-color:#aabbd0!important}
+.app button *{color:inherit!important}
+.app button:hover:not(:disabled){background:#edf3f9!important;color:#153d69!important;border-color:#6889af!important}
+.app :is(button.active,button[aria-pressed=true],button[aria-current=step],.export,.presentationHeroStart,.heroCtas button:not(.secondary),.mapWorkspaceClose,.trendPlay,.popupActions button:first-child,.addCompare.chosen,.connectionCandidate[aria-pressed=true]){background:#24558b!important;color:#fff!important;border-color:#24558b!important}
+.app :is(button.active,button[aria-pressed=true],button[aria-current=step],.export,.presentationHeroStart,.heroCtas button:not(.secondary),.mapWorkspaceClose,.trendPlay,.popupActions button:first-child,.addCompare.chosen,.connectionCandidate[aria-pressed=true]):hover:not(:disabled){background:#173e69!important;color:#fff!important;border-color:#173e69!important}
+.app button:disabled{background:#edf1f5!important;color:#617287!important;border-color:#cbd5e1!important;opacity:1}
+.app :is(button,input,select,textarea,a,path):focus-visible{outline-color:#24558b!important}
+.app :is(.modeToggle,.distributionTabs,.mapZoomTools,.mapLevelControls,.chartAxisControls,.trendExplorerControls){background:transparent!important}
+.app :is(.tabs,.presentationNav,.funnel){background:#fff!important;color:#1f3045!important;border-color:#c8d3df!important}
+.app .tabs button{color:#33465c!important}
+.app .tabs button.active{color:#fff!important;border-bottom-color:#24558b!important}
+.app .presentationNav button[aria-current=step] span{background:#fff!important;color:#24558b!important;border-color:#fff!important}
+.app .presentationNav button:not([aria-current=step]) span{background:#edf3f9!important;color:#24558b!important;border-color:#b8c8db!important}
+.app .presentationNav>strong{color:#33465c!important}
+.app :is(.pill,.scenarioWorkbenchCount,.analysisDataTop small){background:#edf3f9!important;color:#24558b!important;border-color:#b7c9df!important}
+.app .pill *{color:inherit!important}
+.app .metrics>div:first-child strong,.app.mode-presentation .metrics strong{color:#152b43!important}
+.app .metrics small,.app .compareGrid small{color:#536477!important}
+.app .rankList,.app .ranking,.app .rankRow{background:#fff!important;color:#1f3045!important}
+.app .rankName{color:#24558b!important}
+.app .rankRow:has(.chosen),.app .selectedRegionRow{background:#edf3f9!important}
+.app :is(.rankName i,.miniBars i,.connectionShareTrack>i){background:#537fae!important}
+.app .rankRow:nth-child(-n+3) .rankName i{background:#24558b!important}
+.app .connectionShareTrack{background:#e1e8f0!important}
+.app .connectionRegion,.app .detailRegionButton{color:#24558b!important}
+.app .detailRegionButton[aria-pressed=true]{color:#fff!important}
+.app .regionSelectionSummary{border-left-color:#24558b!important}
+.app :is(.notice,.movementBasisNotice,.mapMissingReason,.trendWarning,.analysisHeroNotes){background:#edf3f9!important;color:#33465c!important;border-color:#b6c9df!important}
+.app .notice.error{background:#fff4f2!important;color:#7b3027!important;border-color:#d4aaa3!important}
+.app .notice.error *{color:#7b3027!important}
+.app :is(.source a,.dataNotes a,.mapCaption a,.mapPopup a){color:#24558b!important;text-decoration-color:#8da9c8}
+.app :is(.mapWrap,.mapIsFullscreen,.mapOverlay){background:#f7f9fb!important;color:#1f3045!important}
+.app .mapAppliedConditions{background:#edf3f9!important;border-color:#9eb8d4!important;color:#1f3045!important}
+.app .mapAppliedConditions b{color:#173e69!important}
+.app :is(.mapDatasetChoice,.mapZoomTools span,.mapLevelControls>span,.mapCaption,.boundaryNotice,.popupHint){color:#536477!important}
+.app :is(.mapPopup,.mapHoverTooltip,.distributionTooltip){background:#fff!important;color:#1f3045!important;border-color:#8eaac9!important;box-shadow:0 8px 26px #18344d26!important}
+.app :is(.mapPopup,.mapHoverTooltip,.distributionTooltip) :is(p,span,small){color:#43566e!important}
+.app :is(.mapPopup,.mapHoverTooltip,.distributionTooltip) :is(strong,b,h3){color:#152b43!important}
+.app .mapPopup button *{color:inherit!important}
+.app .mapWrap text{fill:#152b43!important;stroke:#fff!important;stroke-width:2.5px;paint-order:stroke fill}
+.app .mapWrap path{stroke:#fff!important}
+.app .mapWrap path.selected,.app .mapWrap path:hover,.app .mapWrap path:focus{stroke:#173e69!important}
+.app :is(.trendAxis,.distributionAxis){fill:#43566e!important}
+.app .trendGrid{stroke:#d5dfe8!important}
+.app .trendZero{stroke:#8ca2bc!important}
+.app .trendLine{stroke:#24558b!important}
+.app .trendPoint{fill:#fff!important;stroke:#24558b!important}
+.app .trendPoint.current{fill:#24558b!important;stroke:#fff!important}
+.app .trendPoint.outsideAxis{fill:#fff!important;stroke:#ad5f22!important}
+.app .trendHit:focus{stroke:#24558b!important}
+.app .trendNull{fill:#536477!important}
+.app .trendNoValues{background:#fffffff0!important;color:#33465c!important;border-color:#c8d3df!important}
+.app :is(.trendPlayStatus,.trendCurrent>span,.trendCurrent small,.trendExplanation,.chartAxisNotice,.chartFacts,.chartAxisControls label,.timeComparisonRate){color:#536477!important}
+.app .chartFacts b,.app .trendCurrent strong,.app .timeComparison strong{color:#152b43!important}
+.app .positive{color:#24558b!important}
+.app .negative{color:#92501f!important}
+.app .scenarioWorkbench{color:#1f3045!important}
+.app :is(.scenarioWorkbenchToggle,.scenarioWorkbenchHeading,.scenarioWorkbenchCaption,.scenarioWorkbenchCurrent p,.scenarioWorkbenchValue span){color:#43566e!important}
+.app .scenarioWorkbench :is(th,td){background:#fff!important;color:#33465c!important;border-color:#c8d3df!important}
+.app .scenarioWorkbench thead th{background:#edf3f9!important;color:#1f3045!important}
+.app .scenarioWorkbenchCurrent>div:first-child>strong,.app .scenarioWorkbenchValue strong{color:#152b43!important}
+.app :is(.scenarioWorkbenchTableWrap,.scenarioWorkbenchToggle){border-color:#c8d3df!important}
+.app .scenarioWorkbench button{background:#24558b!important;color:#fff!important;border-color:#24558b!important}
+.app .scenarioWorkbench button:disabled{background:#edf1f5!important;color:#617287!important;border-color:#cbd5e1!important}
+.app .heroAnalysis,.app .heroPresentation{background:#f7f9fb!important;color:#1f3045!important}
+.app :is(.analysisHeroHeader h1,.presentationHeroCopy h1,.presentationHeroCopy h1 em,.heroSectionTitle h2,.cityWord){color:#152b43!important}
+.app :is(.analysisDatasets>button,.analysisScenarios>button,.datasetGrid>button,.scenarioGrid>button,.presentationJourney,.heroPin,.heroArtTag){background:#fff!important;color:#1f3045!important;border-color:#c8d3df!important}
+.app :is(.analysisDatasets>button,.analysisScenarios>button,.datasetGrid>button,.scenarioGrid>button):hover{background:#edf3f9!important;border-color:#6889af!important}
+.app :is(.analysisDatasets,.analysisScenarios,.datasetGrid,.scenarioGrid) :is(h3,strong,b){color:#152b43!important}
+.app :is(.analysisDatasets,.analysisScenarios,.datasetGrid,.scenarioGrid) :is(p,small,span){color:#536477!important}
+.app :is(.analysisScenarioIcon,.heroArtTag,.heroPin span){color:#24558b!important;border-color:#a7bfd9!important}
+.app :is(.analysisDataOpen,.presentationHeroEyebrow,.presentationHeroResume){color:#24558b!important;border-color:#c8d3df!important}
+.app .presentationHeroStart,.app .presentationHeroStart span{color:#fff!important}
+.app .presentationHeroEyebrow i,.app .heroSpot{background:#24558b!important;box-shadow:none!important}
+.app .presentationJourney :is(h2,span){color:#152b43!important}
+.app .presentationJourney :is(p,i),.app .presentationHeroDisclaimer,.app .heroArtTag small{color:#536477!important}
+.app .presentationHeroArt{background:transparent!important}
+/* Workspace/data owners may style their own map layers. Shared chrome stays neutral. */
+.app .mapWorkspace{background:#fff!important;color:#1f3045!important;border-color:#c8d3df!important}
+.app :is(.mapWorkspaceHeader,.mapWorkspaceControls,.mapWorkspaceDetails,.mapWorkspacePanelHeader,.mapWorkspacePanelContent,.mapWorkspaceCenter){background:#fff!important;color:#1f3045!important;border-color:#c8d3df!important}
+.app .mapWorkspaceTimeline{background:#edf3f9!important;color:#1f3045!important;border-color:#c8d3df!important}
+.app .mapWorkspaceEmpty,.app .mapWorkspacePanelHeader p{color:#536477!important}
+.app .mapWorkspace button[aria-expanded=true]{background:#24558b!important;color:#fff!important;border-color:#24558b!important}
+.app :is(.mapWorkspacePanelContent,.rankList,.dashboardContent){scrollbar-color:#9caec2 #edf1f5}
+@media print{html,body,.app{background:#fff!important;color:#1f3045!important}.app :is(.panel,.metrics,.metrics>div,.dataNotes,.source){background:#fff!important}.app .trendLine,.app .trendPoint{print-color-adjust:exact}.app .dataNotes a{color:#24558b!important}}
+/* Keep nested button labels/icons on the button's own contrast pair. */
+.app :is(button,button.active,button[aria-pressed=true],button[aria-current=step]) :is(span,small,strong,b,h1,h2,h3,p,i){color:inherit!important}
+.app .barValue{background:#fff!important;color:#24558b!important;border-color:#b7c9df!important}
