@@ -1,0 +1,212 @@
+{
+  "method": "Independent direct data calculations with Decimal, no UI functions imported. Displays round to nearest integer. Source values retained.",
+  "notes": [
+    "Gu migration and dong migration are separate authoritative records; never sum both levels.",
+    "Population missing cells produce missing selected-target total; never replace with zero.",
+    "Living mobility uses departure hour and excludes origin=destination district.",
+    "Commerce 2025 quarter and population October2026 are different periods; no conversion-rate calculation."
+  ],
+  "checks": [
+    {
+      "id": "population_mapo_20261031_12_all",
+      "controls": {
+        "tab": "population",
+        "date": "20261031",
+        "district": "11440",
+        "dong": "all",
+        "hour": 12,
+        "sex": "all",
+        "target": "all"
+      },
+      "source": "public/data/population/250_LOCAL_RESD_ADMDONG_20261031.json",
+      "columns": [
+        "생활인구합계"
+      ],
+      "sourceRows": 16,
+      "expectedExact": "485894.24",
+      "expectedDisplay": "485,894"
+    },
+    {
+      "id": "population_mapo_20261031_12_female20to39",
+      "controls": {
+        "tab": "population",
+        "date": "20261031",
+        "district": "11440",
+        "dong": "all",
+        "hour": 12,
+        "sex": "female",
+        "target": "young"
+      },
+      "source": "public/data/population/250_LOCAL_RESD_ADMDONG_20261031.json",
+      "columns": [
+        "여자 20~24세",
+        "여자 25~29세",
+        "여자 30~34세",
+        "여자 35~39세"
+      ],
+      "sourceRows": 16,
+      "expectedExact": "102538.79",
+      "expectedDisplay": "102,539"
+    },
+    {
+      "id": "population_mapo_20261031_18_all",
+      "controls": {
+        "tab": "population",
+        "date": "20261031",
+        "district": "11440",
+        "dong": "all",
+        "hour": 18,
+        "sex": "all",
+        "target": "all"
+      },
+      "source": "public/data/population/250_LOCAL_RESD_ADMDONG_20261031.json",
+      "columns": [
+        "생활인구합계"
+      ],
+      "sourceRows": 16,
+      "expectedExact": "540998.31",
+      "expectedDisplay": "540,998"
+    },
+    {
+      "id": "population_mapo_20261031_18_female20to39",
+      "controls": {
+        "tab": "population",
+        "date": "20261031",
+        "district": "11440",
+        "dong": "all",
+        "hour": 18,
+        "sex": "female",
+        "target": "young"
+      },
+      "source": "public/data/population/250_LOCAL_RESD_ADMDONG_20261031.json",
+      "columns": [
+        "여자 20~24세",
+        "여자 25~29세",
+        "여자 30~34세",
+        "여자 35~39세"
+      ],
+      "sourceRows": 16,
+      "expectedExact": "125105.76",
+      "expectedDisplay": "125,106"
+    },
+    {
+      "id": "living_mobility_mapo_18",
+      "controls": {
+        "tab": "mobility",
+        "date": "2026-10-31",
+        "hour": 18,
+        "district": "11440"
+      },
+      "source": "public/data/living-mobility.json",
+      "internalDistrictTripsExcluded": true,
+      "expectedExact": {
+        "inflow": "47798.67",
+        "outflow": "45603.52",
+        "net": "2195.15"
+      },
+      "expectedDisplay": {
+        "inflow": "47,799",
+        "outflow": "45,604",
+        "net": "2,195"
+      }
+    },
+    {
+      "id": "commerce_mapo_2025Q4_all",
+      "controls": {
+        "tab": "commerce",
+        "period": "20254",
+        "district": "11440",
+        "band": -1
+      },
+      "source": "public/data/commerce.json",
+      "sourceDongRecords": 16,
+      "expectedExact": "1079338758575",
+      "expectedDisplay": "1,079,338,758,575"
+    },
+    {
+      "id": "commerce_mapo_2025Q4_17to21",
+      "controls": {
+        "tab": "commerce",
+        "period": "20254",
+        "district": "11440",
+        "band": 4
+      },
+      "source": "public/data/commerce.json",
+      "sourceDongRecords": 16,
+      "expectedExact": "318884312558",
+      "expectedDisplay": "318,884,312,558"
+    },
+    {
+      "id": "migration_dunchon1_2022_missing",
+      "controls": {
+        "tab": "migration",
+        "period": "2022",
+        "district": "11740",
+        "dong": "1174069000"
+      },
+      "expected": {
+        "period": "2022",
+        "code": "1174069000",
+        "name": "둔촌1동",
+        "gu": "강동구",
+        "level": "dong",
+        "inflow": null,
+        "outflow": 24,
+        "net": null
+      },
+      "expectedDisplay": {
+        "inflow": "자료 없음",
+        "outflow": "24",
+        "net": "자료 없음"
+      }
+    },
+    {
+      "id": "migration_2025_gu_11440",
+      "controls": {
+        "tab": "migration",
+        "period": "2025",
+        "district": "all",
+        "selectedCode": "11440"
+      },
+      "expected": {
+        "period": "2025",
+        "code": "11440",
+        "name": "마포구",
+        "inflow": 49402,
+        "outflow": 53428,
+        "net": -4026,
+        "source": "seoul-data-hub64",
+        "level": "gu"
+      },
+      "expectedDisplay": {
+        "inflow": "49,402",
+        "outflow": "53,428",
+        "net": "-4,026"
+      }
+    },
+    {
+      "id": "migration_2025_dong_1144056500",
+      "controls": {
+        "tab": "migration",
+        "period": "2025",
+        "district": "11440",
+        "selectedCode": "1144056500"
+      },
+      "expected": {
+        "period": "2025",
+        "code": "1144056500",
+        "name": "공덕동",
+        "gu": "마포구",
+        "level": "dong",
+        "inflow": 4919,
+        "outflow": 5193,
+        "net": -274
+      },
+      "expectedDisplay": {
+        "inflow": "4,919",
+        "outflow": "5,193",
+        "net": "-274"
+      }
+    }
+  ]
+}

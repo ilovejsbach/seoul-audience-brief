@@ -1,0 +1,37 @@
+import {useEffect,useMemo,useRef,useState} from 'react';
+import './trend-explorer.css';
+const keyLabel=(key:string)=>/^\d{5}$/.test(key)?`${key.slice(0,4)}년 ${key.slice(4)}분기`:/^\d{4}$/.test(key)?`${key}년`:/^\d{1,2}$/.test(key)?`${key}시`:key;
+type Point={key:string;value:number|null};
+type Props={points:Point[];currentKey:string;onSelect:(key:string)=>void;unit:string;label:string;active:boolean};
+type View='actual'|'difference'|'index';
+const format=(value:number|null|undefined,digits=0)=>value==null?'자료 없음':value.toLocaleString('ko-KR',{maximumFractionDigits:digits});
+export default function TrendExplorer({points,currentKey,onSelect,unit,label,active}:Props){
+ const [playing,setPlaying]=useState(false),[speed,setSpeed]=useState(1200),[view,setView]=useState<View>('actual'),[baseline,setBaseline]=useState(''),[hovered,setHovered]=useState<string|null>(null);
+ const currentIndex=points.findIndex(p=>p.key===currentKey);
+ const chosenBaseline=points.some(p=>p.key===baseline)?baseline:points.find(p=>p.value!=null)?.key||points[0]?.key||'';
+ const base=points.find(p=>p.key===chosenBaseline)?.value??null;
+ const latest=useRef({points,currentKey,onSelect});latest.current={points,currentKey,onSelect};
+ useEffect(()=>{if(!active)setPlaying(false)},[active]);
+ useEffect(()=>{if(!playing||!active||points.length<2)return;const timer=window.setInterval(()=>{const state=latest.current;const at=state.points.findIndex(p=>p.key===state.currentKey);if(at>=state.points.length-1){setPlaying(false);return}const next=state.points[Math.max(0,at+1)];if(next)state.onSelect(next.key)},speed);return()=>window.clearInterval(timer)},[playing,active,speed,points.length]);
+ const series=useMemo(()=>points.map(p=>({key:p.key,original:p.value,value:p.value==null?null:view==='actual'?p.value:base==null?null:view==='difference'?p.value-base:base===0?null:p.value/base*100})),[points,view,base]);
+ const available=series.map(p=>p.value).filter((v):v is number=>v!=null&&Number.isFinite(v));
+ const domainMin=Math.min(0,...available),domainMax=Math.max(0,...available);const range=domainMax-domainMin||1;const low=domainMin<0?domainMin-range*.08:0,high=domainMax+range*.1;
+ const width=1000,height=260,left=126,right=25,top=20,bottom=43;
+ const plotW=width-left-right,plotH=height-top-bottom;
+ const x=(i:number)=>left+(points.length<=1?plotW/2:i/(points.length-1)*plotW);
+ const y=(value:number)=>top+(high-value)/(high-low)*plotH;
+ let connected=false;const line=series.map((p,i)=>{if(p.value==null||!Number.isFinite(p.value)){connected=false;return ''}const part=`${connected?'L':'M'}${x(i)},${y(p.value)}`;connected=true;return part}).join(' ');
+ const selected=series.find(p=>p.key===(hovered||currentKey));const visibleSelected=selected||series.find(p=>p.key===currentKey);
+ const viewUnit=view==='index'?'지수':unit;
+ const viewLabel=view==='actual'?'실제값':view==='difference'?'기준 대비 증감':'기준 시점 = 100';
+ const ticks=Array.from({length:5},(_,i)=>low+(high-low)/4*i);
+ const displayTicks=Array.from(new Set([0,Math.max(0,points.length-1),...points.map((_,i)=>i).filter(i=>i%Math.max(1,Math.ceil(points.length/9))===0)])).sort((a,b)=>a-b);
+ const choose=(key:string)=>{setHovered(null);onSelect(key)};
+ const play=()=>{if(playing){setPlaying(false);return}if(currentIndex===points.length-1&&points.length>1)onSelect(points[0].key);setPlaying(true)};
+ return <section className="panel trendExplorer" aria-label={`${label} 시계열 추세`}><div className="trendExplorerHeading"><div><h2>{label}</h2><p>시점을 선택하면 지도와 비교 지표가 함께 바뀝니다.</p></div><div className="trendCurrent"><span>{visibleSelected?keyLabel(visibleSelected.key):'선택 시점'}</span><strong>{format(visibleSelected?.value,view==='index'?1:0)}{visibleSelected?.value!=null&&<small>{viewUnit}</small>}</strong></div></div>
+ <div className="trendExplorerControls"><fieldset><legend>추세 표시</legend>{([['actual','실제값'],['difference','기준 대비 증감'],['index','기준 100']] as [View,string][]).map(([key,text])=><button key={key} type="button" aria-pressed={view===key} onClick={()=>setView(key)}>{text}</button>)}</fieldset>{view!=='actual'&&<label>비교 기준 시점<select value={chosenBaseline} onChange={e=>setBaseline(e.target.value)}>{points.map(p=><option key={p.key} value={p.key}>{keyLabel(p.key)}{p.value==null?' · 자료 없음':''}</option>)}</select></label>}<span className="trendUnit">세로축: {viewUnit} · {viewLabel}</span></div>
+ {view!=='actual'&&(base==null||view==='index'&&base===0)&&<p className="trendWarning" role="status">{base==null?'기준 시점의 값이 없어 비교할 수 없습니다. 다른 기준 시점을 선택하세요.':'기준 시점이 0이므로 기준 100 지수를 계산할 수 없습니다. 다른 시점을 선택하거나 실제값으로 보세요.'}</p>}
+ <div className="trendSvgWrap"><svg viewBox={`0 0 ${width} ${height}`} role="img" aria-label={`${label}. ${viewLabel}. ${points.length}개 시점.`}><title>{label} · {viewLabel}</title>{ticks.map((tick,i)=><g key={i}><line x1={left} x2={width-right} y1={y(tick)} y2={y(tick)} className="trendGrid"/><text x={left-14} y={y(tick)+4} textAnchor="end" className="trendAxis">{format(tick,view==='index'?1:0)}</text></g>)}{low<=0&&high>=0&&<line x1={left} x2={width-right} y1={y(0)} y2={y(0)} className="trendZero"/>}{displayTicks.map(i=>points[i]&&<text key={i} x={x(i)} y={height-17} textAnchor="middle" className="trendAxis">{keyLabel(points[i].key)}</text>)}<path d={line} className="trendLine"/>{series.map((p,i)=>{if(p.value==null||!Number.isFinite(p.value))return <g key={p.key}><text x={x(i)} y={height-bottom-7} className="trendNull" textAnchor="middle">×</text></g>;const current=p.key===currentKey;return <g key={p.key}><circle cx={x(i)} cy={y(p.value)} r={current?7:4} className={current?'trendPoint current':'trendPoint'}/><circle cx={x(i)} cy={y(p.value)} r={13} className="trendHit" role="button" tabIndex={0} aria-label={`${p.key} ${format(p.value,view==='index'?1:0)} ${viewUnit} 선택`} onMouseEnter={()=>setHovered(p.key)} onMouseLeave={()=>setHovered(null)} onFocus={()=>setHovered(p.key)} onBlur={()=>setHovered(null)} onClick={()=>choose(p.key)} onKeyDown={e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();choose(p.key)}}}><title>{p.key} · {format(p.value,view==='index'?1:0)} {viewUnit} · 원본 {format(p.original)} {unit}</title></circle></g>})}</svg>{!available.length&&<div className="trendNoValues">현재 조건에서 표시할 값이 없습니다.</div>}</div>
+ <div className="trendPlayback"><div className="trendPlaybackButtons"><button aria-label="이전 시점" disabled={currentIndex<=0||!points.length} onClick={()=>{setPlaying(false);choose(points[currentIndex-1].key)}}>← 이전</button><button className="trendPlay" aria-pressed={playing} disabled={!active||points.length<2} onClick={play}>{playing?'Ⅱ 일시 정지':currentIndex===points.length-1?'▶ 처음부터 재생':'▶ 재생'}</button><button aria-label="다음 시점" disabled={currentIndex<0||currentIndex>=points.length-1} onClick={()=>{setPlaying(false);choose(points[currentIndex+1].key)}}>다음 →</button></div><label>재생 간격<select value={speed} onChange={e=>setSpeed(Number(e.target.value))}><option value={800}>0.8초</option><option value={1000}>1.0초</option><option value={1200}>1.2초</option><option value={1500}>1.5초</option></select></label><span role="status" className="trendPlayStatus">{playing?'순서대로 재생 중':`선택 ${Math.max(0,currentIndex+1)} / ${points.length}`}</span></div>
+ <details className="trendExplanation"><summary>계산 방법과 결측 처리</summary><p>같은 자료·지역·선택 조건의 추세입니다. 비공개·결측 시점은 선을 연결하지 않습니다.{view==='difference'?' 증감 = 선택 값 − 기준 값.':view==='index'?' 지수 = 선택 값 ÷ 기준 값 × 100. 기준이 0이거나 자료가 없으면 계산하지 않습니다.':''} 광고 효과·구매전환율을 의미하지 않습니다.</p></details></section>
+}

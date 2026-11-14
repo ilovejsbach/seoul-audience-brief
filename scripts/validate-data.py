@@ -80,6 +80,18 @@ def boundaries():
  require(missing=={'11230515','11230533'},'Unexpected boundary mismatches')
  require(meta['boundaryDate']=='2025-06-30','Boundary reference date changed')
  return {'districts':25,'dongBoundaries':426,'populationMatches':len(actual&set(codes)),'explicitUnmapped':sorted(missing),'referenceDate':meta['boundaryDate']}
+def arrival_mobility():
+ departure=load(P/'living-mobility.json');x=load(P/'living-mobility-arrival.json');seen=set();total=decimal.Decimal(0)
+ for r in x['records']:
+  key=(r['date'],r['hour'],r['originCode'],r['destinationCode'])
+  require(key not in seen,'Duplicate arrival OD');seen.add(key)
+  require(0<=r['hour']<=23,'Invalid arrival hour');require(r['count']>=0,'Negative arrival count')
+  total+=decimal.Decimal(str(r['count']))
+ require(total==decimal.Decimal(departure['provenance']['sourceIncludedCountSum']),'Arrival and departure totals differ')
+ require(x['provenance']['timeBasis']=='arrival','Missing explicit arrival basis')
+ require(x['provenance']['calendarArrivalDateVerified'] is False,'Calendar arrival date must remain unverified')
+ return {'records':len(seen),'sum':str(total),'basis':'arrival time code; original source date, not verified calendar arrival date'}
+check('arrival OD sum and explicit time/date semantics',arrival_mobility)
 check('official boundary coverage and explicit mismatches',boundaries)
 check('population schema, grid, duplicates, values, mapping',population);check('commerce equality to raw ZIP',commerce);check('residential migration net=inflow-outflow',migration);check('living mobility schema and sums',living)
 report={'results':results,'passed':all(r['status']=='passed' for r in results)};print(json.dumps(report,ensure_ascii=False,indent=2));sys.exit(0 if report['passed'] else 1)
