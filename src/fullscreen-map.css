@@ -1,0 +1,47 @@
+/* Fullscreen reserves its flexible middle row for the map, not stacked controls. */
+@media screen {
+.app .dashboardContent .mapPanel.mapIsFullscreen{display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-rows:auto minmax(0,1fr) auto;gap:0;padding:8px 12px;height:100dvh;overflow:hidden}
+.app .dashboardContent .mapIsFullscreen>.panelTitle{grid-column:1;grid-row:1;min-height:42px;padding:0 12px;gap:12px}
+.app .dashboardContent .mapIsFullscreen>.panelTitle h2{font-size:22px;margin:0;line-height:1.4}
+.app .dashboardContent .mapIsFullscreen>.mapPanelTools{grid-column:2;grid-row:1;padding:0 8px;gap:14px}
+.app .dashboardContent .mapIsFullscreen>.mapWrap{grid-column:1/-1;grid-row:2;display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-rows:auto auto auto auto auto auto minmax(0,1fr) auto auto auto;gap:0;min-height:0;padding:0 8px}
+.app .dashboardContent .mapIsFullscreen .mapAppliedConditions{grid-column:1/-1;grid-row:1;margin:2px 4px 4px;padding:4px 10px;gap:10px;min-height:30px}
+.app .dashboardContent .mapIsFullscreen .mapAppliedConditions>b{font-size:13px;line-height:1.5}
+.app .dashboardContent .mapIsFullscreen .mapMissingReason{grid-column:1/-1;grid-row:2;margin:0 4px 4px;padding:4px 10px;line-height:1.5}
+.app .dashboardContent .mapIsFullscreen .mapLevelControls{grid-column:1;grid-row:3;padding:2px 4px;gap:8px;align-content:center}
+.app .dashboardContent .mapIsFullscreen .mapLevelControls>span{flex-basis:auto;font-size:11px;line-height:1.4}
+.app .dashboardContent .mapIsFullscreen .mapZoomTools{grid-column:2;grid-row:3;padding:2px 4px;gap:6px}
+.app .dashboardContent .mapIsFullscreen .mapZoomTools small{margin-left:8px}
+.app .dashboardContent .mapIsFullscreen .mapColorRangeControls{grid-column:1/-1;grid-row:4;padding:4px;gap:8px 12px;align-items:center;border:0}
+.app .dashboardContent .mapIsFullscreen .mapColorRangeControls label{flex-direction:row;align-items:center;gap:7px;font-size:12px}
+.app .dashboardContent .mapIsFullscreen .mapColorRangeControls :is(select,input,button){min-height:32px;padding-top:4px;padding-bottom:4px;font-size:12px}
+.app .dashboardContent .mapIsFullscreen .mapColorRangeNotice{grid-column:1/-1;grid-row:6;margin:0;padding:0 5px 2px;font-size:12px;line-height:1.5}
+.app .dashboardContent .mapIsFullscreen .mapColorRangeError{grid-row:5;padding-bottom:4px}
+.app .dashboardContent .mapIsFullscreen .mapWrap>svg{grid-column:1/-1;grid-row:7;display:block;align-self:stretch;width:100%;height:100%;min-height:0;max-height:none;--map-label-size:17px}
+.app .dashboardContent .mapIsFullscreen .mapWrap>svg[data-map-level=dong]{--map-label-size:15px}
+.app .dashboardContent .mapIsFullscreen .mapCaption{grid-column:1/-1;grid-row:8;margin:0;padding:0 4px;font-size:11px;line-height:1.4}
+.app .dashboardContent .mapIsFullscreen .mapWrap .legend{grid-column:1/-1;grid-row:9;justify-content:center;gap:10px;padding:3px 4px 5px;font-size:12px;line-height:1.4}
+.app .dashboardContent .mapIsFullscreen .legend .muted{font-size:11px;line-height:1.4;margin-left:8px}
+.app .dashboardContent .mapIsFullscreen .boundaryNotice{grid-column:1/-1;grid-row:10;padding:0 4px 3px;font-size:11px;line-height:1.4}
+.app .dashboardContent .mapIsFullscreen>.timeControl{grid-column:1/-1;grid-row:3;padding:7px 16px;gap:14px}
+.app .dashboardContent .mapIsFullscreen .timeControl label>span{font-size:12px;margin-bottom:4px;line-height:1.4}
+.app .dashboardContent .mapIsFullscreen .timeTicks{margin-top:4px;font-size:10px;line-height:1.4}
+}
+@media screen and (max-width:1000px){
+.app .dashboardContent .mapIsFullscreen .mapLevelControls>span,.app .dashboardContent .mapIsFullscreen .mapZoomTools small{display:none}
+.app .dashboardContent .mapIsFullscreen>.panelTitle h2{font-size:19px}
+.app .dashboardContent .mapIsFullscreen .mapDatasetChoice{font-size:11px;gap:6px}
+}
+@media screen and (max-width:720px){
+.app .dashboardContent .mapPanel.mapIsFullscreen{padding:6px}
+.app .dashboardContent .mapIsFullscreen>.panelTitle{grid-column:1/-1;grid-row:2;min-height:34px;padding:0 6px}
+.app .dashboardContent .mapIsFullscreen>.mapPanelTools{grid-column:1/-1;grid-row:1;padding:0 4px}
+.app .dashboardContent .mapIsFullscreen>.mapWrap{grid-row:3;padding:0 2px}
+.app .dashboardContent .mapPanel.mapIsFullscreen{grid-template-rows:auto auto minmax(0,1fr) auto}
+.app .dashboardContent .mapIsFullscreen>.timeControl{grid-row:4;padding:6px 8px}
+.app .dashboardContent .mapIsFullscreen .mapColorRangeControls{gap:5px 8px}
+.app .dashboardContent .mapIsFullscreen .mapColorRangeControls label{font-size:11px;gap:4px}
+.app .dashboardContent .mapIsFullscreen .mapColorRangeControls select{max-width:185px}
+.app .dashboardContent .mapIsFullscreen .mapColorRangeControls input{width:65px}
+.app .dashboardContent .mapIsFullscreen .mapColorRangeNotice{font-size:11px}
+}

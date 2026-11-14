@@ -24,6 +24,7 @@ import './detail-navigation.css';
 import './typography.css';
 import './readability.css';
 import './print.css';
+import './fullscreen-map.css';
 type Region={code:string;name:string;districtCode?:string};
 type Pop={columns:string[];rows:(string|number|null)[][]};
 type IndexEntry={path:string;date:string;rows?:number};
