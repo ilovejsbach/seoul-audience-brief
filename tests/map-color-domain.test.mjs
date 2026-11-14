@@ -1,0 +1,16 @@
+import {readFile} from 'node:fs/promises';
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import ts from 'typescript';
+const source=await readFile(new URL('../src/map-color-domain.ts',import.meta.url),'utf8');
+const js=ts.transpileModule(source,{compilerOptions:{module:ts.ModuleKind.ESNext,target:ts.ScriptTarget.ES2022}}).outputText;
+const {calculateMapColorDomain:domain}=await import('data:text/javascript;base64,'+Buffer.from(js).toString('base64'));
+const close=(a,b)=>assert.ok(Math.abs(a-b)<1e-12,`${a} != ${b}`);
+test('zero keeps source scale and uses linear rather than square-root positions',()=>{const d=domain([20,100],'zero');assert.equal(d.low,0);assert.equal(d.high,100);close(d.position(25),.25);close(d.position(50),.5);assert.equal(d.observedMin,20);assert.equal(d.diverging,false)});
+test('observed starts below observed minimum by selected percentage',()=>{const d=domain([100,200],'observed',10);assert.equal(d.low,90);assert.equal(d.high,200);close(d.position(100),10/110);assert.equal(d.position(90),0);assert.equal(d.position(200),1)});
+test('nonnegative observations never create negative low bounds',()=>{const d=domain([1,101],'observed',50);assert.equal(d.low,0);assert.equal(d.high,101);const zero=domain([0,0],'observed');assert.equal(zero.low,0);assert.ok(zero.high>0)});
+test('constant positive observations produce a padded finite interval',()=>{const d=domain([100,100],'observed',0);assert.equal(d.low,90);assert.equal(d.high,110);close(d.position(100),.5);assert.ok(d.position(100)>0&&d.position(100)<1)});
+test('any negative observations preserve symmetric zero-centred diverging scale in both modes',()=>{for(const mode of ['zero','observed']){const d=domain([-5,20],mode);assert.equal(d.low,-20);assert.equal(d.high,20);assert.equal(d.diverging,true);close(d.position(0),.5)}const allNegative=domain([-10,-10],'observed');assert.equal(allNegative.low,-10);assert.equal(allNegative.high,10);close(allNegative.position(0),.5)});
+test('missing and nonfinite data do not become zero observations',()=>{const d=domain([null,undefined,NaN,Infinity,-Infinity],'observed');assert.equal(d.hasValues,false);assert.equal(d.observedMin,null);assert.equal(d.observedMax,null);assert.equal(d.low,0);assert.equal(d.high,1);assert.equal(d.position(null),null);assert.equal(d.position(NaN),null)});
+test('positions are monotonic and clipped without changing observations',()=>{const source=[10,30,50];const d=domain(source,'observed');const p=[-100,10,20,30,50,100].map(d.position);assert.equal(p[0],0);assert.equal(p.at(-1),1);assert.ok(p.every((v,i)=>i===0||v>=p[i-1]));assert.deepEqual(source,[10,30,50])});
+test('invalid padding, huge values and subnormal ranges avoid NaN',()=>{assert.equal(domain([100,200],'observed',NaN).low,90);assert.equal(domain([100,200],'observed',-5).low,90);for(const values of [[-Number.MAX_VALUE,Number.MAX_VALUE],[Number.MAX_VALUE,Number.MAX_VALUE],[Number.MIN_VALUE]]){const d=domain(values,'observed');assert.ok(Number.isFinite(d.low)&&Number.isFinite(d.high));assert.ok(d.high>d.low);for(const v of [...values,0])assert.ok(Number.isFinite(d.position(v)))}const huge=domain([-Number.MAX_VALUE,Number.MAX_VALUE]);close(huge.position(0),.5)});

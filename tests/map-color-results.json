@@ -1,0 +1,55 @@
+{
+  "date": "2026-11-14T11:07:55.383Z",
+  "colorChecks": [
+    "25구 독립 원자료 범위·색상·수치 불변",
+    "20% 적용·잘못된 입력 차단·초기화",
+    "마포구 16동 독립 범위",
+    "시간대 연동 재계산",
+    "공식·해석 도움말",
+    "전체화면 옵션·확대시 범위 유지"
+  ],
+  "regression": [
+    {
+      "id": "population-filters",
+      "status": "passed",
+      "detail": "district, date, hour, age, sex update map and validated values",
+      "startedAt": "2026-11-14T11:07:43.905Z",
+      "finishedAt": "2026-11-14T11:07:45.866Z"
+    },
+    {
+      "id": "map-popup-drilldown",
+      "status": "passed",
+      "detail": "map preview, Escape, gu→dong detail, selected geometry, level switching",
+      "startedAt": "2026-11-14T11:07:45.866Z",
+      "finishedAt": "2026-11-14T11:07:48.481Z"
+    },
+    {
+      "id": "masked-and-unmapped",
+      "status": "passed",
+      "detail": "masked values remain null; historical geometry cannot create fictitious selection",
+      "startedAt": "2026-11-14T11:07:48.481Z",
+      "finishedAt": "2026-11-14T11:07:49.913Z"
+    },
+    {
+      "id": "mobility-aggregation",
+      "status": "passed",
+      "detail": "arrival/departure, inflow/outflow/net, hourly/cumulative/day, spatial limits",
+      "startedAt": "2026-11-14T11:07:49.913Z",
+      "finishedAt": "2026-11-14T11:07:51.012Z"
+    },
+    {
+      "id": "fullscreen-dataset",
+      "status": "passed",
+      "detail": "full screen, zoom in/out/reset, data transition, close",
+      "startedAt": "2026-11-14T11:07:51.012Z",
+      "finishedAt": "2026-11-14T11:07:53.340Z"
+    },
+    {
+      "id": "pointer-controls",
+      "status": "passed",
+      "detail": "real pointer hover, drag pan without accidental popup, wheel zoom",
+      "startedAt": "2026-11-14T11:07:53.340Z",
+      "finishedAt": "2026-11-14T11:07:55.383Z"
+    }
+  ]
+}

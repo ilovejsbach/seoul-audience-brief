@@ -1,0 +1,293 @@
+{
+  "source": "public/data/population/250_LOCAL_RESD_ADMDONG_20261031.json",
+  "date": "20261031",
+  "hour": 18,
+  "target": "all",
+  "sex": "all",
+  "measureColumn": 3,
+  "method": "Independent Decimal summation by regions.json dong->district join. No map-color helper imported. Null totals stay null. Nonnegative domain lower bounds clamp to zero.",
+  "cases": [
+    {
+      "scope": "seoul-25-districts",
+      "records": [
+        {
+          "code": "11110",
+          "name": "종로구",
+          "value": "393521.30",
+          "sourceDongRows": 17
+        },
+        {
+          "code": "11140",
+          "name": "중구",
+          "value": "314835.13",
+          "sourceDongRows": 15
+        },
+        {
+          "code": "11170",
+          "name": "용산구",
+          "value": "350633.89",
+          "sourceDongRows": 16
+        },
+        {
+          "code": "11200",
+          "name": "성동구",
+          "value": "355105.81",
+          "sourceDongRows": 17
+        },
+        {
+          "code": "11215",
+          "name": "광진구",
+          "value": "400215.79",
+          "sourceDongRows": 15
+        },
+        {
+          "code": "11230",
+          "name": "동대문구",
+          "value": "371458.09",
+          "sourceDongRows": 15
+        },
+        {
+          "code": "11260",
+          "name": "중랑구",
+          "value": "392132.14",
+          "sourceDongRows": 16
+        },
+        {
+          "code": "11290",
+          "name": "성북구",
+          "value": "431859.15",
+          "sourceDongRows": 20
+        },
+        {
+          "code": "11305",
+          "name": "강북구",
+          "value": "306079.40",
+          "sourceDongRows": 13
+        },
+        {
+          "code": "11320",
+          "name": "도봉구",
+          "value": "318913.78",
+          "sourceDongRows": 14
+        },
+        {
+          "code": "11350",
+          "name": "노원구",
+          "value": "527239.35",
+          "sourceDongRows": 19
+        },
+        {
+          "code": "11380",
+          "name": "은평구",
+          "value": "471895.85",
+          "sourceDongRows": 16
+        },
+        {
+          "code": "11410",
+          "name": "서대문구",
+          "value": "335821.77",
+          "sourceDongRows": 14
+        },
+        {
+          "code": "11440",
+          "name": "마포구",
+          "value": "540998.31",
+          "sourceDongRows": 16
+        },
+        {
+          "code": "11470",
+          "name": "양천구",
+          "value": "414581.52",
+          "sourceDongRows": 18
+        },
+        {
+          "code": "11500",
+          "name": "강서구",
+          "value": "617583.50",
+          "sourceDongRows": 20
+        },
+        {
+          "code": "11530",
+          "name": "구로구",
+          "value": "404345.47",
+          "sourceDongRows": 16
+        },
+        {
+          "code": "11545",
+          "name": "금천구",
+          "value": "221402.77",
+          "sourceDongRows": 10
+        },
+        {
+          "code": "11560",
+          "name": "영등포구",
+          "value": "500451.28",
+          "sourceDongRows": 18
+        },
+        {
+          "code": "11590",
+          "name": "동작구",
+          "value": "391197.11",
+          "sourceDongRows": 15
+        },
+        {
+          "code": "11620",
+          "name": "관악구",
+          "value": "491448.88",
+          "sourceDongRows": 21
+        },
+        {
+          "code": "11650",
+          "name": "서초구",
+          "value": "605990.15",
+          "sourceDongRows": 18
+        },
+        {
+          "code": "11680",
+          "name": "강남구",
+          "value": "841342.84",
+          "sourceDongRows": 22
+        },
+        {
+          "code": "11710",
+          "name": "송파구",
+          "value": "832962.11",
+          "sourceDongRows": 27
+        },
+        {
+          "code": "11740",
+          "name": "강동구",
+          "value": "538648.98",
+          "sourceDongRows": 19
+        }
+      ],
+      "observedMin": "221402.77",
+      "observedMax": "841342.84",
+      "minimumRegions": [
+        "11545"
+      ],
+      "maximumRegions": [
+        "11680"
+      ],
+      "domainObservedPadding10": {
+        "low": "159408.763",
+        "high": "841342.84"
+      },
+      "domainObservedPadding20": {
+        "low": "97414.756",
+        "high": "841342.84"
+      },
+      "domainZero": {
+        "low": "0",
+        "high": "841342.84"
+      },
+      "nullRecords": 0
+    },
+    {
+      "scope": "mapo-dongs",
+      "records": [
+        {
+          "code": "11440555",
+          "name": "아현동",
+          "value": "26909.55"
+        },
+        {
+          "code": "11440565",
+          "name": "공덕동",
+          "value": "35737.09"
+        },
+        {
+          "code": "11440585",
+          "name": "도화동",
+          "value": "24186.47"
+        },
+        {
+          "code": "11440590",
+          "name": "용강동",
+          "value": "23220.35"
+        },
+        {
+          "code": "11440600",
+          "name": "대흥동",
+          "value": "23163.8"
+        },
+        {
+          "code": "11440610",
+          "name": "염리동",
+          "value": "21445.72"
+        },
+        {
+          "code": "11440630",
+          "name": "신수동",
+          "value": "21226.95"
+        },
+        {
+          "code": "11440655",
+          "name": "서강동",
+          "value": "33425.61"
+        },
+        {
+          "code": "11440660",
+          "name": "서교동",
+          "value": "122660.35"
+        },
+        {
+          "code": "11440680",
+          "name": "합정동",
+          "value": "27006.03"
+        },
+        {
+          "code": "11440690",
+          "name": "망원1동",
+          "value": "26896.28"
+        },
+        {
+          "code": "11440700",
+          "name": "망원2동",
+          "value": "19726.36"
+        },
+        {
+          "code": "11440710",
+          "name": "연남동",
+          "value": "22908.1"
+        },
+        {
+          "code": "11440720",
+          "name": "성산1동",
+          "value": "23276.56"
+        },
+        {
+          "code": "11440730",
+          "name": "성산2동",
+          "value": "39851.6"
+        },
+        {
+          "code": "11440740",
+          "name": "상암동",
+          "value": "49357.49"
+        }
+      ],
+      "observedMin": "19726.36",
+      "observedMax": "122660.35",
+      "minimumRegions": [
+        "11440700"
+      ],
+      "maximumRegions": [
+        "11440660"
+      ],
+      "domainObservedPadding10": {
+        "low": "9432.961",
+        "high": "122660.35"
+      },
+      "domainObservedPadding20": {
+        "low": "0",
+        "high": "122660.35"
+      },
+      "domainZero": {
+        "low": "0",
+        "high": "122660.35"
+      },
+      "nullRecords": 0
+    }
+  ]
+}
