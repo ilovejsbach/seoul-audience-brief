@@ -1,0 +1,1569 @@
+{
+  "testedAt": "2026-11-14T10:48:12.449Z",
+  "browser": "Chrome",
+  "fixture": "tests/semantic-fixtures.json",
+  "fixtureCount": 119,
+  "results": [
+    {
+      "id": "sales-gongdeok-all",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:34:09.808Z"
+    },
+    {
+      "id": "sales-gongdeok-time4",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:34:11.834Z"
+    },
+    {
+      "id": "sales-gongdeok-korean-food",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:34:12.727Z"
+    },
+    {
+      "id": "sales-gongdeok-korean-food-time4",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:34:13.548Z"
+    },
+    {
+      "id": "sales-gongdeok-male",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:34:14.752Z"
+    },
+    {
+      "id": "sales-gongdeok-female",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:34:15.748Z"
+    },
+    {
+      "id": "sales-gongdeok-age20",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:34:16.892Z"
+    },
+    {
+      "id": "sales-gongdeok-friday",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:34:17.887Z"
+    },
+    {
+      "id": "population-gongdeok-all",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:34:18.817Z"
+    },
+    {
+      "id": "population-gongdeok-time4",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:34:19.681Z"
+    },
+    {
+      "id": "population-gongdeok-male",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:34:20.546Z"
+    },
+    {
+      "id": "population-gongdeok-female",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:34:21.415Z"
+    },
+    {
+      "id": "population-gongdeok-age20",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:34:22.595Z"
+    },
+    {
+      "id": "population-gongdeok-friday",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:34:23.554Z"
+    },
+    {
+      "id": "market-sales-missing-row",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:34:24.412Z"
+    },
+    {
+      "id": "sales-gongdeok-time0",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:34:24.901Z"
+    },
+    {
+      "id": "sales-gongdeok-time1",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:34:25.895Z"
+    },
+    {
+      "id": "sales-gongdeok-time2",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:34:26.752Z"
+    },
+    {
+      "id": "sales-gongdeok-time3",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:34:27.624Z"
+    },
+    {
+      "id": "sales-gongdeok-time5",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:34:28.525Z"
+    },
+    {
+      "id": "sales-gongdeok-age10",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:34:35.083Z"
+    },
+    {
+      "id": "sales-gongdeok-age30",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:34:35.945Z"
+    },
+    {
+      "id": "sales-gongdeok-age40",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:34:36.818Z"
+    },
+    {
+      "id": "sales-gongdeok-age50",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:34:37.753Z"
+    },
+    {
+      "id": "sales-gongdeok-age60",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:34:38.639Z"
+    },
+    {
+      "id": "sales-gongdeok-monday",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:34:39.553Z"
+    },
+    {
+      "id": "sales-gongdeok-tuesday",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:34:40.412Z"
+    },
+    {
+      "id": "sales-gongdeok-wednesday",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:34:41.257Z"
+    },
+    {
+      "id": "sales-gongdeok-thursday",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:34:42.141Z"
+    },
+    {
+      "id": "sales-gongdeok-saturday",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:34:42.982Z"
+    },
+    {
+      "id": "sales-gongdeok-sunday",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:34:43.856Z"
+    },
+    {
+      "id": "population-gongdeok-time0",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:34:44.732Z"
+    },
+    {
+      "id": "population-gongdeok-time1",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:34:45.633Z"
+    },
+    {
+      "id": "population-gongdeok-time2",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:34:46.515Z"
+    },
+    {
+      "id": "population-gongdeok-time3",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:34:47.378Z"
+    },
+    {
+      "id": "population-gongdeok-time5",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:34:48.284Z"
+    },
+    {
+      "id": "population-gongdeok-age10",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:34:49.161Z"
+    },
+    {
+      "id": "population-gongdeok-age30",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:34:50.020Z"
+    },
+    {
+      "id": "population-gongdeok-age40",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:34:50.870Z"
+    },
+    {
+      "id": "population-gongdeok-age50",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:34:51.727Z"
+    },
+    {
+      "id": "population-gongdeok-age60",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:35:02.989Z"
+    },
+    {
+      "id": "population-gongdeok-monday",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:35:03.865Z"
+    },
+    {
+      "id": "population-gongdeok-tuesday",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:35:04.718Z"
+    },
+    {
+      "id": "population-gongdeok-wednesday",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:35:05.626Z"
+    },
+    {
+      "id": "population-gongdeok-thursday",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:35:06.510Z"
+    },
+    {
+      "id": "population-gongdeok-saturday",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:35:07.372Z"
+    },
+    {
+      "id": "population-gongdeok-sunday",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:35:08.274Z"
+    },
+    {
+      "id": "sales-gongdeok-industry-CS100002",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:35:09.136Z"
+    },
+    {
+      "id": "sales-gongdeok-industry-CS100003",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:35:09.329Z"
+    },
+    {
+      "id": "sales-gongdeok-industry-CS100004",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:35:10.185Z"
+    },
+    {
+      "id": "sales-gongdeok-industry-CS100005",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:35:11.061Z"
+    },
+    {
+      "id": "sales-gongdeok-industry-CS100006",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:35:11.910Z"
+    },
+    {
+      "id": "sales-gongdeok-industry-CS100007",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:35:12.777Z"
+    },
+    {
+      "id": "sales-gongdeok-industry-CS100008",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:35:13.618Z"
+    },
+    {
+      "id": "sales-gongdeok-industry-CS100009",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:35:14.473Z"
+    },
+    {
+      "id": "sales-gongdeok-industry-CS100010",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:35:15.339Z"
+    },
+    {
+      "id": "sales-gongdeok-industry-CS200001",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:35:16.235Z"
+    },
+    {
+      "id": "sales-gongdeok-industry-CS200002",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:35:16.412Z"
+    },
+    {
+      "id": "sales-gongdeok-industry-CS200003",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:35:16.562Z"
+    },
+    {
+      "id": "sales-gongdeok-industry-CS200005",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:35:16.725Z"
+    },
+    {
+      "id": "sales-gongdeok-industry-CS200006",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:35:21.794Z"
+    },
+    {
+      "id": "sales-gongdeok-industry-CS200007",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:35:22.667Z"
+    },
+    {
+      "id": "sales-gongdeok-industry-CS200008",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:35:23.517Z"
+    },
+    {
+      "id": "sales-gongdeok-industry-CS200016",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:35:24.384Z"
+    },
+    {
+      "id": "sales-gongdeok-industry-CS200017",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:35:24.550Z"
+    },
+    {
+      "id": "sales-gongdeok-industry-CS200019",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:35:25.380Z"
+    },
+    {
+      "id": "sales-gongdeok-industry-CS200024",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:35:25.572Z"
+    },
+    {
+      "id": "sales-gongdeok-industry-CS200025",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:35:26.408Z"
+    },
+    {
+      "id": "sales-gongdeok-industry-CS200026",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:35:26.550Z"
+    },
+    {
+      "id": "sales-gongdeok-industry-CS200028",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:35:26.675Z"
+    },
+    {
+      "id": "sales-gongdeok-industry-CS200029",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:35:27.517Z"
+    },
+    {
+      "id": "sales-gongdeok-industry-CS200030",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:35:28.358Z"
+    },
+    {
+      "id": "sales-gongdeok-industry-CS200031",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:35:29.268Z"
+    },
+    {
+      "id": "sales-gongdeok-industry-CS200032",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:35:29.430Z"
+    },
+    {
+      "id": "sales-gongdeok-industry-CS200033",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:35:29.570Z"
+    },
+    {
+      "id": "sales-gongdeok-industry-CS200034",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:35:29.709Z"
+    },
+    {
+      "id": "sales-gongdeok-industry-CS200037",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:35:29.856Z"
+    },
+    {
+      "id": "sales-gongdeok-industry-CS300001",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:35:30.035Z"
+    },
+    {
+      "id": "sales-gongdeok-industry-CS300002",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:35:30.860Z"
+    },
+    {
+      "id": "sales-gongdeok-industry-CS300003",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:35:31.741Z"
+    },
+    {
+      "id": "sales-gongdeok-industry-CS300004",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:35:36.786Z"
+    },
+    {
+      "id": "sales-gongdeok-industry-CS300006",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:35:37.629Z"
+    },
+    {
+      "id": "sales-gongdeok-industry-CS300007",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:35:37.800Z"
+    },
+    {
+      "id": "sales-gongdeok-industry-CS300008",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:35:37.928Z"
+    },
+    {
+      "id": "sales-gongdeok-industry-CS300009",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:35:38.056Z"
+    },
+    {
+      "id": "sales-gongdeok-industry-CS300010",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:35:38.191Z"
+    },
+    {
+      "id": "sales-gongdeok-industry-CS300011",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:35:39.035Z"
+    },
+    {
+      "id": "sales-gongdeok-industry-CS300014",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:35:39.887Z"
+    },
+    {
+      "id": "sales-gongdeok-industry-CS300015",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:35:40.079Z"
+    },
+    {
+      "id": "sales-gongdeok-industry-CS300016",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:35:40.226Z"
+    },
+    {
+      "id": "sales-gongdeok-industry-CS300017",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:35:40.358Z"
+    },
+    {
+      "id": "sales-gongdeok-industry-CS300018",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:35:40.491Z"
+    },
+    {
+      "id": "sales-gongdeok-industry-CS300019",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:35:41.319Z"
+    },
+    {
+      "id": "sales-gongdeok-industry-CS300020",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:35:42.205Z"
+    },
+    {
+      "id": "sales-gongdeok-industry-CS300021",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:35:42.359Z"
+    },
+    {
+      "id": "sales-gongdeok-industry-CS300022",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:35:42.493Z"
+    },
+    {
+      "id": "sales-gongdeok-industry-CS300024",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:35:43.314Z"
+    },
+    {
+      "id": "sales-gongdeok-industry-CS300025",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:35:43.478Z"
+    },
+    {
+      "id": "sales-gongdeok-industry-CS300026",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:35:43.618Z"
+    },
+    {
+      "id": "sales-gongdeok-industry-CS300027",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:35:43.749Z"
+    },
+    {
+      "id": "sales-gongdeok-industry-CS300028",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:35:43.888Z"
+    },
+    {
+      "id": "sales-gongdeok-industry-CS300029",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:35:44.722Z"
+    },
+    {
+      "id": "sales-gongdeok-industry-CS300031",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:35:44.878Z"
+    },
+    {
+      "id": "sales-gongdeok-industry-CS300032",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:35:45.016Z"
+    },
+    {
+      "id": "sales-gongdeok-industry-CS300033",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:35:45.154Z"
+    },
+    {
+      "id": "sales-gongdeok-industry-CS300035",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:35:45.291Z"
+    },
+    {
+      "id": "sales-gongdeok-industry-CS300036",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:35:45.421Z"
+    },
+    {
+      "id": "sales-gongdeok-industry-CS300043",
+      "status": "passed",
+      "checks": [
+        "scope matches source field",
+        "map = detail = chart original value",
+        "same-scope previous quarter and delta",
+        "correct unit and missing policy"
+      ],
+      "assertionCount": 7,
+      "at": "2026-11-14T10:35:45.549Z"
+    },
+    {
+      "id": "gongdeok-search-ranking-sales-all",
+      "status": "passed",
+      "checks": [
+        "raw-source rank order",
+        "same scope and units"
+      ],
+      "assertionCount": 9,
+      "at": "2026-11-14T10:35:45.690Z"
+    },
+    {
+      "id": "gongdeok-search-ranking-sales-time4",
+      "status": "passed",
+      "checks": [
+        "raw-source rank order",
+        "same scope and units"
+      ],
+      "assertionCount": 9,
+      "at": "2026-11-14T10:35:45.806Z"
+    },
+    {
+      "id": "gongdeok-search-ranking-population-all",
+      "status": "passed",
+      "checks": [
+        "raw-source rank order",
+        "same scope and units"
+      ],
+      "assertionCount": 9,
+      "at": "2026-11-14T10:35:45.917Z"
+    },
+    {
+      "id": "market-sales-overlap-scope",
+      "status": "passed",
+      "checks": [
+        "no false city total",
+        "no causal or conversion interpretation"
+      ],
+      "assertionCount": 2,
+      "at": "2026-11-14T10:35:46.006Z"
+    },
+    {
+      "id": "mapo-arrival18-inflow-denominator",
+      "status": "passed",
+      "checks": [
+        "inflow/outflow direction",
+        "same source hour and date",
+        "full-scope share denominator"
+      ],
+      "assertionCount": 3,
+      "at": "2026-11-14T10:35:47.260Z"
+    },
+    {
+      "id": "mapo-arrival18-inflow-outside-seoul",
+      "status": "passed",
+      "checks": [
+        "inflow/outflow direction",
+        "same source hour and date",
+        "full-scope share denominator"
+      ],
+      "assertionCount": 4,
+      "at": "2026-11-14T10:35:47.308Z"
+    },
+    {
+      "id": "mapo-arrival18-inflow-11410",
+      "status": "passed",
+      "checks": [
+        "inflow/outflow direction",
+        "same source hour and date",
+        "full-scope share denominator"
+      ],
+      "assertionCount": 3,
+      "at": "2026-11-14T10:35:47.357Z"
+    },
+    {
+      "id": "mapo-arrival18-outflow-denominator",
+      "status": "passed",
+      "checks": [
+        "inflow/outflow direction",
+        "same source hour and date",
+        "full-scope share denominator"
+      ],
+      "assertionCount": 3,
+      "at": "2026-11-14T10:35:47.387Z"
+    },
+    {
+      "id": "mapo-arrival18-outflow-outside-seoul",
+      "status": "passed",
+      "checks": [
+        "inflow/outflow direction",
+        "same source hour and date",
+        "full-scope share denominator"
+      ],
+      "assertionCount": 4,
+      "at": "2026-11-14T10:35:47.442Z"
+    },
+    {
+      "id": "mapo-arrival18-outflow-11410",
+      "status": "passed",
+      "checks": [
+        "inflow/outflow direction",
+        "same source hour and date",
+        "full-scope share denominator"
+      ],
+      "assertionCount": 3,
+      "at": "2026-11-14T10:35:47.476Z"
+    },
+    {
+      "id": "samcheong-male-partial-peak",
+      "status": "passed",
+      "checks": [
+        "not a full-day maximum claim",
+        "exact raw peak and coverage",
+        "masked hour is not zero"
+      ],
+      "assertionCount": 3,
+      "at": "2026-11-14T10:35:47.501Z"
+    },
+    {
+      "id": "tooltip-meaning-interpretation-caution",
+      "status": "passed",
+      "checks": [
+        "meaning and interpretation explicit",
+        "unsupported unique visitor claim rejected",
+        "portal and keyboard close",
+        "no data mutation"
+      ],
+      "assertionCount": 9,
+      "at": "2026-11-14T10:47:59.306Z"
+    },
+    {
+      "id": "single-dimension-not-cross-tabulated",
+      "status": "passed",
+      "checks": [
+        "sex to age replaces, does not cross",
+        "age value matches raw marginal",
+        "explanation rejects multiplication"
+      ],
+      "assertionCount": 2,
+      "at": "2026-11-14T10:48:02.086Z"
+    },
+    {
+      "id": "axis-and-preview-do-not-change-source",
+      "status": "passed",
+      "checks": [
+        "axis is presentation only",
+        "hover/focus preview distinguished",
+        "explicit selection updates map and detail"
+      ],
+      "assertionCount": 6,
+      "at": "2026-11-14T10:48:02.499Z"
+    },
+    {
+      "id": "dynamic-time-direction-year-meaning",
+      "status": "passed",
+      "checks": [
+        "definition follows departure/arrival and accumulation",
+        "outflow not inflow",
+        "annual moves not daily visits",
+        "quarter sales not campaign effect"
+      ],
+      "assertionCount": 5,
+      "at": "2026-11-14T10:48:03.793Z"
+    },
+    {
+      "id": "map-color-and-legend-semantics",
+      "status": "passed",
+      "checks": [
+        "sequential darker means higher",
+        "rank class boundaries use raw values",
+        "legend threshold matches displayed color",
+        "palette changes no original value"
+      ],
+      "assertionCount": 11,
+      "at": "2026-11-14T10:48:06.844Z"
+    },
+    {
+      "id": "distribution-meaning-not-od",
+      "status": "passed",
+      "checks": [
+        "same-color same-range comparison",
+        "delta subtraction direction explicit",
+        "not OD and missing not computed"
+      ],
+      "assertionCount": 2,
+      "at": "2026-11-14T10:48:08.359Z"
+    },
+    {
+      "id": "living-population-sex-age-time-meaning",
+      "status": "passed",
+      "checks": [
+        "source fixtures population_mapo_20261031_12/18_female20to39",
+        "real sex-age columns, not independent marginal product",
+        "12→18 difference is not actual entry count"
+      ],
+      "assertionCount": 5,
+      "at": "2026-11-14T10:48:09.829Z"
+    },
+    {
+      "id": "residential-migration-annual-and-null-meaning",
+      "status": "passed",
+      "checks": [
+        "source fixtures migration_2025_gu_11440/dong_1144056500/dunchon1_2022_missing",
+        "annual resident address moves, not everyday visits",
+        "gu and dong not added together",
+        "missing net not zero"
+      ],
+      "assertionCount": 3,
+      "at": "2026-11-14T10:48:11.611Z"
+    }
+  ],
+  "downloads": [
+    {
+      "caseId": "sales-gongdeok-korean-food-time4",
+      "at": "2026-11-14T10:34:14.430Z",
+      "dataset": "sales",
+      "period": "20254",
+      "regionCode": "3120107",
+      "expectedValue": "4393912588",
+      "unit": "원",
+      "dimension": "time",
+      "band": 4
+    },
+    {
+      "caseId": "population-gongdeok-female",
+      "at": "2026-11-14T10:34:22.266Z",
+      "dataset": "population",
+      "period": "20262",
+      "regionCode": "3120107",
+      "expectedValue": "675008",
+      "unit": "명(원본 추정치)",
+      "dimension": "sex",
+      "band": 1
+    },
+    {
+      "caseId": "market-sales-missing-row",
+      "at": "2026-11-14T10:34:24.579Z",
+      "dataset": "sales",
+      "period": "20254",
+      "regionCode": "3110011",
+      "expectedValue": "",
+      "unit": "원",
+      "dimension": "all"
+    }
+  ],
+  "manual": [
+    {
+      "id": "meaning-native-hover-keyboard",
+      "status": "passed",
+      "checks": [
+        "real mouse hover opens",
+        "mouse leave closes",
+        "keyboard focus opens",
+        "Escape closes"
+      ]
+    }
+  ],
+  "viewport": {
+    "height": 905,
+    "width": 1800
+  },
+  "fixedSemanticIssue": "등간격 색상 경계의 정수 반올림을 제거하고 정확한 소수 경계를 범례·설명에 표시",
+  "fixedSemanticIssues": [
+    "등간격 범례 경계를 정확한 소수로 표시",
+    "긴 툴팁의 버튼 겹침·Esc 재열림 제거",
+    "설명창 내용 클릭 시 닫히던 초점 처리 수정"
+  ]
+}

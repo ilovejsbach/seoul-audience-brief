@@ -47,3 +47,5 @@
 @media(max-width:750px){.marketLegend{grid-template-columns:repeat(2,minmax(0,1fr));font-size:12px}}
 
 .marketLegendNote{grid-column:1/-1;font-size:11px;color:#4d6279;line-height:1.6}.marketLegend span{white-space:normal;line-height:1.6;align-items:flex-start}.marketLegend i{margin-top:3px}
+
+.marketLegendHeading{grid-column:1/-1;display:flex;gap:8px;align-items:center;flex-wrap:wrap}.marketLegend .marketLegendHeading b{grid-column:auto;width:auto}.marketLegend .marketLegendHeading .dataMeaningAnchor{display:inline-flex}

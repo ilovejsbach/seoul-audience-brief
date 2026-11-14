@@ -1,0 +1,53 @@
+{
+  "results": [
+    {
+      "id": "sales-gongdeok-korean-food-time4",
+      "status": "passed",
+      "file": "market-sales-20254 (4).csv",
+      "row": [
+        "추정매출",
+        "20254",
+        "3120107",
+        "공덕역(공덕오거리)",
+        "CS100001",
+        "17–21시",
+        "4393912588",
+        "원"
+      ],
+      "meaning": "선택 자료·분기·상권·업종·단일 주변분포의 원값. 결측 빈칸은 0이 아님."
+    },
+    {
+      "id": "population-gongdeok-female",
+      "status": "passed",
+      "file": "market-population-20262 (2).csv",
+      "row": [
+        "유동인구",
+        "20262",
+        "3120107",
+        "공덕역(공덕오거리)",
+        "해당없음",
+        "여성",
+        "675008",
+        "명(원본 추정치)"
+      ],
+      "meaning": "선택 자료·분기·상권·업종·단일 주변분포의 원값. 결측 빈칸은 0이 아님."
+    },
+    {
+      "id": "market-sales-missing-row",
+      "status": "passed",
+      "file": "market-sales-20254 (5).csv",
+      "row": [
+        "추정매출",
+        "20254",
+        "3110011",
+        "청운초등학교",
+        "all",
+        "전체",
+        "",
+        "원"
+      ],
+      "meaning": "선택 자료·분기·상권·업종·단일 주변분포의 원값. 결측 빈칸은 0이 아님."
+    }
+  ],
+  "count": 3
+}

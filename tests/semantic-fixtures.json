@@ -1,0 +1,7017 @@
+{
+  "version": 1,
+  "generatedAt": "2026-11-14T10:18:25.500865+00:00",
+  "method": "Expected values independently computed from official raw CSV/ZIPs; prepared-data validators are supporting evidence, not numeric fixture inputs.",
+  "sources": {
+    "marketSales": {
+      "path": "data/raw/commerce/OA-15572_51.zip",
+      "url": "https://data.seoul.go.kr/dataList/OA-15572/S/1/datasetView.do",
+      "bytes": 14035292,
+      "sha256": "c907f3d386d62b89f45781e6e6172328ee91b1b8dd2c621e4171e437bee1c6b2"
+    },
+    "marketPopulation": {
+      "path": "data/raw/commerce/market-population-public-download.csv",
+      "url": "https://data.seoul.go.kr/dataList/OA-15568/S/1/datasetView.do",
+      "bytes": 8543807,
+      "sha256": "9a481ee97de352d9a69d9c89b05b9d1338ef1fa38c20563f89901ca818b7e0cb"
+    },
+    "marketBoundary": {
+      "path": "data/raw/commerce/OA-15560_5.zip",
+      "url": "https://data.seoul.go.kr/dataList/OA-15560/S/1/datasetView.do",
+      "bytes": 2123078,
+      "sha256": "38bb8fab4e45a1171af4989cd7fa1275f68e5d644aa770f5431ce7ccc38384dd"
+    },
+    "mobility": {
+      "path": "data/raw/living-mobility/OA-22300-20261031.zip",
+      "url": "https://data.seoul.go.kr/dataList/OA-22300/S/1/datasetView.do",
+      "bytes": 75117693,
+      "sha256": "899ec22fd22746ec5f26d406ea0de46c271fa8d2aba20b93e03a8f22905ed4aa"
+    },
+    "livingPopulation": {
+      "path": "data/raw/mobility/OA-23016-250_LOCAL_RESD_ADMDONG_202610.zip",
+      "url": "https://data.seoul.go.kr/dataList/OA-23016/S/1/datasetView.do",
+      "bytes": 35923265,
+      "sha256": "f5731f68be93c44a8cf6d54e3bb8c5dc2e21994a5ff0c784e00c7dc521add4d7"
+    }
+  },
+  "cases": [
+    {
+      "id": "sales-gongdeok-all",
+      "title": "공덕역 매출 · 전체 제공 업종",
+      "dataset": "marketSales",
+      "sourceIds": [
+        "marketSales",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20254",
+        "previousPeriod": "20253",
+        "industry": "all",
+        "dimension": "all",
+        "band": null,
+        "unit": "원"
+      },
+      "aggregation": {
+        "method": "원본 상권·업종 행의 선택된 단일 열 합",
+        "currentRows": 27,
+        "previousRows": 27,
+        "sourceColumn": "당월_매출_금액"
+      },
+      "expectedExact": {
+        "value": 38997707684,
+        "previous": 35628849152,
+        "delta": 3368858532
+      },
+      "expectedDisplay": {
+        "value": "38,997,707,684",
+        "previous": "35,628,849,152",
+        "delta": "+3,368,858,532",
+        "period": "2025년 4분기",
+        "previousPeriod": "2025년 3분기"
+      },
+      "meaning": "같은 상권·업종·세부 분포를 두 분기에서 조회한 추정매출과 차이입니다.",
+      "forbiddenMeanings": [
+        "개별 점포 실제 회계매출",
+        "광고 효과",
+        "여성×20대×금요일×시간대 결합 매출",
+        "일별 또는 월별 관측치"
+      ],
+      "assertions": [
+        "상권코드가3120107이다",
+        "선택 분기와 직전 분기는 같은 업종·차원을 사용한다",
+        "지도·상세·추이·CSV가 같은 원값을 사용한다",
+        "성·연령 분포 합을 전체매출과 억지로 같게 만들지 않는다"
+      ]
+    },
+    {
+      "id": "sales-gongdeok-time4",
+      "title": "공덕역 매출 · 17–21시 전체 업종",
+      "dataset": "marketSales",
+      "sourceIds": [
+        "marketSales",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20254",
+        "previousPeriod": "20253",
+        "industry": "all",
+        "dimension": "time",
+        "band": 4,
+        "unit": "원"
+      },
+      "aggregation": {
+        "method": "원본 상권·업종 행의 선택된 단일 열 합",
+        "currentRows": 27,
+        "previousRows": 27,
+        "sourceColumn": "시간대_17~21_매출_금액"
+      },
+      "expectedExact": {
+        "value": 10450795765,
+        "previous": 10221023903,
+        "delta": 229771862
+      },
+      "expectedDisplay": {
+        "value": "10,450,795,765",
+        "previous": "10,221,023,903",
+        "delta": "+229,771,862",
+        "period": "2025년 4분기",
+        "previousPeriod": "2025년 3분기"
+      },
+      "meaning": "같은 상권·업종·세부 분포를 두 분기에서 조회한 추정매출과 차이입니다.",
+      "forbiddenMeanings": [
+        "개별 점포 실제 회계매출",
+        "광고 효과",
+        "여성×20대×금요일×시간대 결합 매출",
+        "일별 또는 월별 관측치"
+      ],
+      "assertions": [
+        "상권코드가3120107이다",
+        "선택 분기와 직전 분기는 같은 업종·차원을 사용한다",
+        "지도·상세·추이·CSV가 같은 원값을 사용한다",
+        "성·연령 분포 합을 전체매출과 억지로 같게 만들지 않는다"
+      ]
+    },
+    {
+      "id": "sales-gongdeok-korean-food",
+      "title": "공덕역 매출 · 한식음식점",
+      "dataset": "marketSales",
+      "sourceIds": [
+        "marketSales",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20254",
+        "previousPeriod": "20253",
+        "industry": "CS100001",
+        "dimension": "all",
+        "band": null,
+        "unit": "원",
+        "industryName": "한식음식점"
+      },
+      "aggregation": {
+        "method": "원본 상권·업종 행의 선택된 단일 열 합",
+        "currentRows": 1,
+        "previousRows": 1,
+        "sourceColumn": "당월_매출_금액"
+      },
+      "expectedExact": {
+        "value": 8705416425,
+        "previous": 7940446097,
+        "delta": 764970328
+      },
+      "expectedDisplay": {
+        "value": "8,705,416,425",
+        "previous": "7,940,446,097",
+        "delta": "+764,970,328",
+        "period": "2025년 4분기",
+        "previousPeriod": "2025년 3분기"
+      },
+      "meaning": "같은 상권·업종·세부 분포를 두 분기에서 조회한 추정매출과 차이입니다.",
+      "forbiddenMeanings": [
+        "개별 점포 실제 회계매출",
+        "광고 효과",
+        "여성×20대×금요일×시간대 결합 매출",
+        "일별 또는 월별 관측치"
+      ],
+      "assertions": [
+        "상권코드가3120107이다",
+        "선택 분기와 직전 분기는 같은 업종·차원을 사용한다",
+        "지도·상세·추이·CSV가 같은 원값을 사용한다",
+        "성·연령 분포 합을 전체매출과 억지로 같게 만들지 않는다"
+      ]
+    },
+    {
+      "id": "sales-gongdeok-korean-food-time4",
+      "title": "공덕역 매출 · 17–21시 한식음식점",
+      "dataset": "marketSales",
+      "sourceIds": [
+        "marketSales",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20254",
+        "previousPeriod": "20253",
+        "industry": "CS100001",
+        "dimension": "time",
+        "band": 4,
+        "unit": "원"
+      },
+      "aggregation": {
+        "method": "원본 상권·업종 행의 선택된 단일 열 합",
+        "currentRows": 1,
+        "previousRows": 1,
+        "sourceColumn": "시간대_17~21_매출_금액"
+      },
+      "expectedExact": {
+        "value": 4393912588,
+        "previous": 3959465391,
+        "delta": 434447197
+      },
+      "expectedDisplay": {
+        "value": "4,393,912,588",
+        "previous": "3,959,465,391",
+        "delta": "+434,447,197",
+        "period": "2025년 4분기",
+        "previousPeriod": "2025년 3분기"
+      },
+      "meaning": "같은 상권·업종·세부 분포를 두 분기에서 조회한 추정매출과 차이입니다.",
+      "forbiddenMeanings": [
+        "개별 점포 실제 회계매출",
+        "광고 효과",
+        "여성×20대×금요일×시간대 결합 매출",
+        "일별 또는 월별 관측치"
+      ],
+      "assertions": [
+        "상권코드가3120107이다",
+        "선택 분기와 직전 분기는 같은 업종·차원을 사용한다",
+        "지도·상세·추이·CSV가 같은 원값을 사용한다",
+        "성·연령 분포 합을 전체매출과 억지로 같게 만들지 않는다"
+      ]
+    },
+    {
+      "id": "sales-gongdeok-male",
+      "title": "공덕역 매출 · 남성",
+      "dataset": "marketSales",
+      "sourceIds": [
+        "marketSales",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20254",
+        "previousPeriod": "20253",
+        "industry": "all",
+        "dimension": "sex",
+        "band": 0,
+        "unit": "원"
+      },
+      "aggregation": {
+        "method": "원본 상권·업종 행의 선택된 단일 열 합",
+        "currentRows": 27,
+        "previousRows": 27,
+        "sourceColumn": "남성_매출_금액"
+      },
+      "expectedExact": {
+        "value": 14407875233,
+        "previous": 12682133561,
+        "delta": 1725741672
+      },
+      "expectedDisplay": {
+        "value": "14,407,875,233",
+        "previous": "12,682,133,561",
+        "delta": "+1,725,741,672",
+        "period": "2025년 4분기",
+        "previousPeriod": "2025년 3분기"
+      },
+      "meaning": "같은 상권·업종·세부 분포를 두 분기에서 조회한 추정매출과 차이입니다.",
+      "forbiddenMeanings": [
+        "개별 점포 실제 회계매출",
+        "광고 효과",
+        "여성×20대×금요일×시간대 결합 매출",
+        "일별 또는 월별 관측치"
+      ],
+      "assertions": [
+        "상권코드가3120107이다",
+        "선택 분기와 직전 분기는 같은 업종·차원을 사용한다",
+        "지도·상세·추이·CSV가 같은 원값을 사용한다",
+        "성·연령 분포 합을 전체매출과 억지로 같게 만들지 않는다"
+      ]
+    },
+    {
+      "id": "sales-gongdeok-female",
+      "title": "공덕역 매출 · 여성",
+      "dataset": "marketSales",
+      "sourceIds": [
+        "marketSales",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20254",
+        "previousPeriod": "20253",
+        "industry": "all",
+        "dimension": "sex",
+        "band": 1,
+        "unit": "원"
+      },
+      "aggregation": {
+        "method": "원본 상권·업종 행의 선택된 단일 열 합",
+        "currentRows": 27,
+        "previousRows": 27,
+        "sourceColumn": "여성_매출_금액"
+      },
+      "expectedExact": {
+        "value": 19628915103,
+        "previous": 18530287934,
+        "delta": 1098627169
+      },
+      "expectedDisplay": {
+        "value": "19,628,915,103",
+        "previous": "18,530,287,934",
+        "delta": "+1,098,627,169",
+        "period": "2025년 4분기",
+        "previousPeriod": "2025년 3분기"
+      },
+      "meaning": "같은 상권·업종·세부 분포를 두 분기에서 조회한 추정매출과 차이입니다.",
+      "forbiddenMeanings": [
+        "개별 점포 실제 회계매출",
+        "광고 효과",
+        "여성×20대×금요일×시간대 결합 매출",
+        "일별 또는 월별 관측치"
+      ],
+      "assertions": [
+        "상권코드가3120107이다",
+        "선택 분기와 직전 분기는 같은 업종·차원을 사용한다",
+        "지도·상세·추이·CSV가 같은 원값을 사용한다",
+        "성·연령 분포 합을 전체매출과 억지로 같게 만들지 않는다"
+      ]
+    },
+    {
+      "id": "sales-gongdeok-age20",
+      "title": "공덕역 매출 · 20대",
+      "dataset": "marketSales",
+      "sourceIds": [
+        "marketSales",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20254",
+        "previousPeriod": "20253",
+        "industry": "all",
+        "dimension": "age",
+        "band": 1,
+        "unit": "원"
+      },
+      "aggregation": {
+        "method": "원본 상권·업종 행의 선택된 단일 열 합",
+        "currentRows": 27,
+        "previousRows": 27,
+        "sourceColumn": "연령대_20_매출_금액"
+      },
+      "expectedExact": {
+        "value": 1955253923,
+        "previous": 2066790599,
+        "delta": -111536676
+      },
+      "expectedDisplay": {
+        "value": "1,955,253,923",
+        "previous": "2,066,790,599",
+        "delta": "-111,536,676",
+        "period": "2025년 4분기",
+        "previousPeriod": "2025년 3분기"
+      },
+      "meaning": "같은 상권·업종·세부 분포를 두 분기에서 조회한 추정매출과 차이입니다.",
+      "forbiddenMeanings": [
+        "개별 점포 실제 회계매출",
+        "광고 효과",
+        "여성×20대×금요일×시간대 결합 매출",
+        "일별 또는 월별 관측치"
+      ],
+      "assertions": [
+        "상권코드가3120107이다",
+        "선택 분기와 직전 분기는 같은 업종·차원을 사용한다",
+        "지도·상세·추이·CSV가 같은 원값을 사용한다",
+        "성·연령 분포 합을 전체매출과 억지로 같게 만들지 않는다"
+      ]
+    },
+    {
+      "id": "sales-gongdeok-friday",
+      "title": "공덕역 매출 · 금요일",
+      "dataset": "marketSales",
+      "sourceIds": [
+        "marketSales",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20254",
+        "previousPeriod": "20253",
+        "industry": "all",
+        "dimension": "day",
+        "band": 4,
+        "unit": "원"
+      },
+      "aggregation": {
+        "method": "원본 상권·업종 행의 선택된 단일 열 합",
+        "currentRows": 27,
+        "previousRows": 27,
+        "sourceColumn": "금요일_매출_금액"
+      },
+      "expectedExact": {
+        "value": 7244104730,
+        "previous": 6349513657,
+        "delta": 894591073
+      },
+      "expectedDisplay": {
+        "value": "7,244,104,730",
+        "previous": "6,349,513,657",
+        "delta": "+894,591,073",
+        "period": "2025년 4분기",
+        "previousPeriod": "2025년 3분기"
+      },
+      "meaning": "같은 상권·업종·세부 분포를 두 분기에서 조회한 추정매출과 차이입니다.",
+      "forbiddenMeanings": [
+        "개별 점포 실제 회계매출",
+        "광고 효과",
+        "여성×20대×금요일×시간대 결합 매출",
+        "일별 또는 월별 관측치"
+      ],
+      "assertions": [
+        "상권코드가3120107이다",
+        "선택 분기와 직전 분기는 같은 업종·차원을 사용한다",
+        "지도·상세·추이·CSV가 같은 원값을 사용한다",
+        "성·연령 분포 합을 전체매출과 억지로 같게 만들지 않는다"
+      ]
+    },
+    {
+      "id": "population-gongdeok-all",
+      "title": "공덕역 분기 제공 유동인구 · 전체",
+      "dataset": "marketPopulation",
+      "sourceIds": [
+        "marketPopulation",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20262",
+        "previousPeriod": "20261",
+        "industry": "not-applicable",
+        "dimension": "all",
+        "band": null,
+        "unit": "명(원본 추정치)"
+      },
+      "aggregation": {
+        "method": "분기·상권에 해당하는 원본 단일 열. 환산·업종합산 없음",
+        "sourceColumn": "총_유동인구_수"
+      },
+      "expectedExact": {
+        "value": 1237934,
+        "previous": 1371279,
+        "delta": -133345
+      },
+      "expectedDisplay": {
+        "value": "1,237,934",
+        "previous": "1,371,279",
+        "delta": "-133,345",
+        "period": "2026년 2분기",
+        "previousPeriod": "2026년 1분기"
+      },
+      "meaning": "분기 제공 유동인구 지표의 원본 추정값이며 특정 날짜의 체류·출입 인원이 아닙니다.",
+      "forbiddenMeanings": [
+        "일 고유 방문자",
+        "확정 일평균",
+        "분기 고유 인원",
+        "생활이동 OD 건수",
+        "성×연령×요일×시간 교차 인구"
+      ],
+      "assertions": [
+        "매출 업종 선택이 인구에 적용되지 않는다",
+        "분포 차원은 한 번에 한 가지이다",
+        "원본 단위와 기준분기가 보인다",
+        "이 값과2025년매출을나눠전환율을만들지않는다"
+      ]
+    },
+    {
+      "id": "population-gongdeok-time4",
+      "title": "공덕역 분기 제공 유동인구 · 17–21시",
+      "dataset": "marketPopulation",
+      "sourceIds": [
+        "marketPopulation",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20262",
+        "previousPeriod": "20261",
+        "industry": "not-applicable",
+        "dimension": "time",
+        "band": 4,
+        "unit": "명(원본 추정치)"
+      },
+      "aggregation": {
+        "method": "분기·상권에 해당하는 원본 단일 열. 환산·업종합산 없음",
+        "sourceColumn": "시간대_17_21_유동인구_수"
+      },
+      "expectedExact": {
+        "value": 250000,
+        "previous": 292731,
+        "delta": -42731
+      },
+      "expectedDisplay": {
+        "value": "250,000",
+        "previous": "292,731",
+        "delta": "-42,731",
+        "period": "2026년 2분기",
+        "previousPeriod": "2026년 1분기"
+      },
+      "meaning": "분기 제공 유동인구 지표의 원본 추정값이며 특정 날짜의 체류·출입 인원이 아닙니다.",
+      "forbiddenMeanings": [
+        "일 고유 방문자",
+        "확정 일평균",
+        "분기 고유 인원",
+        "생활이동 OD 건수",
+        "성×연령×요일×시간 교차 인구"
+      ],
+      "assertions": [
+        "매출 업종 선택이 인구에 적용되지 않는다",
+        "분포 차원은 한 번에 한 가지이다",
+        "원본 단위와 기준분기가 보인다",
+        "이 값과2025년매출을나눠전환율을만들지않는다"
+      ]
+    },
+    {
+      "id": "population-gongdeok-male",
+      "title": "공덕역 분기 제공 유동인구 · 남성",
+      "dataset": "marketPopulation",
+      "sourceIds": [
+        "marketPopulation",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20262",
+        "previousPeriod": "20261",
+        "industry": "not-applicable",
+        "dimension": "sex",
+        "band": 0,
+        "unit": "명(원본 추정치)"
+      },
+      "aggregation": {
+        "method": "분기·상권에 해당하는 원본 단일 열. 환산·업종합산 없음",
+        "sourceColumn": "남성_유동인구_수"
+      },
+      "expectedExact": {
+        "value": 562925,
+        "previous": 633179,
+        "delta": -70254
+      },
+      "expectedDisplay": {
+        "value": "562,925",
+        "previous": "633,179",
+        "delta": "-70,254",
+        "period": "2026년 2분기",
+        "previousPeriod": "2026년 1분기"
+      },
+      "meaning": "분기 제공 유동인구 지표의 원본 추정값이며 특정 날짜의 체류·출입 인원이 아닙니다.",
+      "forbiddenMeanings": [
+        "일 고유 방문자",
+        "확정 일평균",
+        "분기 고유 인원",
+        "생활이동 OD 건수",
+        "성×연령×요일×시간 교차 인구"
+      ],
+      "assertions": [
+        "매출 업종 선택이 인구에 적용되지 않는다",
+        "분포 차원은 한 번에 한 가지이다",
+        "원본 단위와 기준분기가 보인다",
+        "이 값과2025년매출을나눠전환율을만들지않는다"
+      ]
+    },
+    {
+      "id": "population-gongdeok-female",
+      "title": "공덕역 분기 제공 유동인구 · 여성",
+      "dataset": "marketPopulation",
+      "sourceIds": [
+        "marketPopulation",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20262",
+        "previousPeriod": "20261",
+        "industry": "not-applicable",
+        "dimension": "sex",
+        "band": 1,
+        "unit": "명(원본 추정치)"
+      },
+      "aggregation": {
+        "method": "분기·상권에 해당하는 원본 단일 열. 환산·업종합산 없음",
+        "sourceColumn": "여성_유동인구_수"
+      },
+      "expectedExact": {
+        "value": 675008,
+        "previous": 738100,
+        "delta": -63092
+      },
+      "expectedDisplay": {
+        "value": "675,008",
+        "previous": "738,100",
+        "delta": "-63,092",
+        "period": "2026년 2분기",
+        "previousPeriod": "2026년 1분기"
+      },
+      "meaning": "분기 제공 유동인구 지표의 원본 추정값이며 특정 날짜의 체류·출입 인원이 아닙니다.",
+      "forbiddenMeanings": [
+        "일 고유 방문자",
+        "확정 일평균",
+        "분기 고유 인원",
+        "생활이동 OD 건수",
+        "성×연령×요일×시간 교차 인구"
+      ],
+      "assertions": [
+        "매출 업종 선택이 인구에 적용되지 않는다",
+        "분포 차원은 한 번에 한 가지이다",
+        "원본 단위와 기준분기가 보인다",
+        "이 값과2025년매출을나눠전환율을만들지않는다"
+      ]
+    },
+    {
+      "id": "population-gongdeok-age20",
+      "title": "공덕역 분기 제공 유동인구 · 20대",
+      "dataset": "marketPopulation",
+      "sourceIds": [
+        "marketPopulation",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20262",
+        "previousPeriod": "20261",
+        "industry": "not-applicable",
+        "dimension": "age",
+        "band": 1,
+        "unit": "명(원본 추정치)"
+      },
+      "aggregation": {
+        "method": "분기·상권에 해당하는 원본 단일 열. 환산·업종합산 없음",
+        "sourceColumn": "연령대_20_유동인구_수"
+      },
+      "expectedExact": {
+        "value": 172093,
+        "previous": 207855,
+        "delta": -35762
+      },
+      "expectedDisplay": {
+        "value": "172,093",
+        "previous": "207,855",
+        "delta": "-35,762",
+        "period": "2026년 2분기",
+        "previousPeriod": "2026년 1분기"
+      },
+      "meaning": "분기 제공 유동인구 지표의 원본 추정값이며 특정 날짜의 체류·출입 인원이 아닙니다.",
+      "forbiddenMeanings": [
+        "일 고유 방문자",
+        "확정 일평균",
+        "분기 고유 인원",
+        "생활이동 OD 건수",
+        "성×연령×요일×시간 교차 인구"
+      ],
+      "assertions": [
+        "매출 업종 선택이 인구에 적용되지 않는다",
+        "분포 차원은 한 번에 한 가지이다",
+        "원본 단위와 기준분기가 보인다",
+        "이 값과2025년매출을나눠전환율을만들지않는다"
+      ]
+    },
+    {
+      "id": "population-gongdeok-friday",
+      "title": "공덕역 분기 제공 유동인구 · 금요일",
+      "dataset": "marketPopulation",
+      "sourceIds": [
+        "marketPopulation",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20262",
+        "previousPeriod": "20261",
+        "industry": "not-applicable",
+        "dimension": "day",
+        "band": 4,
+        "unit": "명(원본 추정치)"
+      },
+      "aggregation": {
+        "method": "분기·상권에 해당하는 원본 단일 열. 환산·업종합산 없음",
+        "sourceColumn": "금요일_유동인구_수"
+      },
+      "expectedExact": {
+        "value": 191773,
+        "previous": 216103,
+        "delta": -24330
+      },
+      "expectedDisplay": {
+        "value": "191,773",
+        "previous": "216,103",
+        "delta": "-24,330",
+        "period": "2026년 2분기",
+        "previousPeriod": "2026년 1분기"
+      },
+      "meaning": "분기 제공 유동인구 지표의 원본 추정값이며 특정 날짜의 체류·출입 인원이 아닙니다.",
+      "forbiddenMeanings": [
+        "일 고유 방문자",
+        "확정 일평균",
+        "분기 고유 인원",
+        "생활이동 OD 건수",
+        "성×연령×요일×시간 교차 인구"
+      ],
+      "assertions": [
+        "매출 업종 선택이 인구에 적용되지 않는다",
+        "분포 차원은 한 번에 한 가지이다",
+        "원본 단위와 기준분기가 보인다",
+        "이 값과2025년매출을나눠전환율을만들지않는다"
+      ]
+    },
+    {
+      "id": "gongdeok-search-ranking-sales-all",
+      "title": "공덕 검색 4상권 순위 · sales-all",
+      "dataset": "marketSales",
+      "sourceIds": [
+        "marketSales",
+        "marketBoundary"
+      ],
+      "scope": {
+        "query": "공덕",
+        "gu": "all",
+        "dong": "all",
+        "marketType": "all",
+        "period": "20254",
+        "industry": "all",
+        "dimension": "all",
+        "band": null
+      },
+      "aggregation": {
+        "method": "원본 DBF 상권명에 공덕 포함하는4코드만 필터; 해당 분기·단일지표 내림차순"
+      },
+      "expectedExact": {
+        "eligibleCodes": [
+          "3110583",
+          "3110587",
+          "3120107",
+          "3130196"
+        ],
+        "eligibleCount": 4,
+        "ranked": [
+          {
+            "code": "3120107",
+            "name": "공덕역(공덕오거리)",
+            "value": 38997707684
+          },
+          {
+            "code": "3130196",
+            "name": "공덕시장",
+            "value": 5598255928
+          },
+          {
+            "code": "3110583",
+            "name": "공덕래미안3차아파트",
+            "value": 1191965833
+          },
+          {
+            "code": "3110587",
+            "name": "공덕동주민센터",
+            "value": 600037093
+          }
+        ]
+      },
+      "expectedDisplay": {
+        "rankOrder": [
+          "공덕역(공덕오거리)",
+          "공덕시장",
+          "공덕래미안3차아파트",
+          "공덕동주민센터"
+        ],
+        "values": [
+          "38,997,707,684",
+          "5,598,255,928",
+          "1,191,965,833",
+          "600,037,093"
+        ]
+      },
+      "meaning": "검색은 상권명 필터이며 대표 동 이름이나 지리적 반경 검색이 아닙니다.",
+      "forbiddenMeanings": [
+        "공덕 검색 결과 전체를 단일 공덕역 값으로 합산",
+        "검색 첫 결과를 무조건 공덕역으로 간주",
+        "상권 전체 합을 서울 소비/고유 인구로 표시"
+      ],
+      "assertions": [
+        "실제 코드와 이름이 일치한다",
+        "상위 목록 순서가 같은 지표의 내림차순이다",
+        "조건을 바꾸면 순위·지도 색상 범례도 그 조건에 맞는다"
+      ]
+    },
+    {
+      "id": "gongdeok-search-ranking-sales-time4",
+      "title": "공덕 검색 4상권 순위 · sales-time4",
+      "dataset": "marketSales",
+      "sourceIds": [
+        "marketSales",
+        "marketBoundary"
+      ],
+      "scope": {
+        "query": "공덕",
+        "gu": "all",
+        "dong": "all",
+        "marketType": "all",
+        "period": "20254",
+        "industry": "all",
+        "dimension": "time",
+        "band": 4
+      },
+      "aggregation": {
+        "method": "원본 DBF 상권명에 공덕 포함하는4코드만 필터; 해당 분기·단일지표 내림차순"
+      },
+      "expectedExact": {
+        "eligibleCodes": [
+          "3110583",
+          "3110587",
+          "3120107",
+          "3130196"
+        ],
+        "eligibleCount": 4,
+        "ranked": [
+          {
+            "code": "3120107",
+            "name": "공덕역(공덕오거리)",
+            "value": 10450795765
+          },
+          {
+            "code": "3130196",
+            "name": "공덕시장",
+            "value": 1206938730
+          },
+          {
+            "code": "3110583",
+            "name": "공덕래미안3차아파트",
+            "value": 353846426
+          },
+          {
+            "code": "3110587",
+            "name": "공덕동주민센터",
+            "value": 262043519
+          }
+        ]
+      },
+      "expectedDisplay": {
+        "rankOrder": [
+          "공덕역(공덕오거리)",
+          "공덕시장",
+          "공덕래미안3차아파트",
+          "공덕동주민센터"
+        ],
+        "values": [
+          "10,450,795,765",
+          "1,206,938,730",
+          "353,846,426",
+          "262,043,519"
+        ]
+      },
+      "meaning": "검색은 상권명 필터이며 대표 동 이름이나 지리적 반경 검색이 아닙니다.",
+      "forbiddenMeanings": [
+        "공덕 검색 결과 전체를 단일 공덕역 값으로 합산",
+        "검색 첫 결과를 무조건 공덕역으로 간주",
+        "상권 전체 합을 서울 소비/고유 인구로 표시"
+      ],
+      "assertions": [
+        "실제 코드와 이름이 일치한다",
+        "상위 목록 순서가 같은 지표의 내림차순이다",
+        "조건을 바꾸면 순위·지도 색상 범례도 그 조건에 맞는다"
+      ]
+    },
+    {
+      "id": "gongdeok-search-ranking-population-all",
+      "title": "공덕 검색 4상권 순위 · population-all",
+      "dataset": "marketPopulation",
+      "sourceIds": [
+        "marketPopulation",
+        "marketBoundary"
+      ],
+      "scope": {
+        "query": "공덕",
+        "gu": "all",
+        "dong": "all",
+        "marketType": "all",
+        "period": "20262",
+        "industry": "all",
+        "dimension": "all",
+        "band": null
+      },
+      "aggregation": {
+        "method": "원본 DBF 상권명에 공덕 포함하는4코드만 필터; 해당 분기·단일지표 내림차순"
+      },
+      "expectedExact": {
+        "eligibleCodes": [
+          "3110583",
+          "3110587",
+          "3120107",
+          "3130196"
+        ],
+        "eligibleCount": 4,
+        "ranked": [
+          {
+            "code": "3120107",
+            "name": "공덕역(공덕오거리)",
+            "value": 1237934
+          },
+          {
+            "code": "3110587",
+            "name": "공덕동주민센터",
+            "value": 561296
+          },
+          {
+            "code": "3110583",
+            "name": "공덕래미안3차아파트",
+            "value": 348385
+          },
+          {
+            "code": "3130196",
+            "name": "공덕시장",
+            "value": 44456
+          }
+        ]
+      },
+      "expectedDisplay": {
+        "rankOrder": [
+          "공덕역(공덕오거리)",
+          "공덕동주민센터",
+          "공덕래미안3차아파트",
+          "공덕시장"
+        ],
+        "values": [
+          "1,237,934",
+          "561,296",
+          "348,385",
+          "44,456"
+        ]
+      },
+      "meaning": "검색은 상권명 필터이며 대표 동 이름이나 지리적 반경 검색이 아닙니다.",
+      "forbiddenMeanings": [
+        "공덕 검색 결과 전체를 단일 공덕역 값으로 합산",
+        "검색 첫 결과를 무조건 공덕역으로 간주",
+        "상권 전체 합을 서울 소비/고유 인구로 표시"
+      ],
+      "assertions": [
+        "실제 코드와 이름이 일치한다",
+        "상위 목록 순서가 같은 지표의 내림차순이다",
+        "조건을 바꾸면 순위·지도 색상 범례도 그 조건에 맞는다"
+      ]
+    },
+    {
+      "id": "mapo-arrival18-inflow-denominator",
+      "title": "마포 18시 도착 기준 inflow 전체 분모",
+      "dataset": "mobility",
+      "sourceIds": [
+        "mobility"
+      ],
+      "scope": {
+        "regionCode": "11440",
+        "regionName": "마포구",
+        "period": "2026-10-31",
+        "timeBasis": "arrival",
+        "hour": 18,
+        "aggregation": "hour",
+        "direction": "inflow",
+        "excludeSameDistrict": true
+      },
+      "aggregation": {
+        "method": "원본 도착시간18시·마포 목적/출발 행의cnt Decimal합;구내제외"
+      },
+      "expectedExact": {
+        "value": 59831.71,
+        "valueDecimal": "59831.71",
+        "partnerCount": 25
+      },
+      "expectedDisplay": {
+        "value": "59,832"
+      },
+      "meaning": "해당 도착시간 구간에서 선택 방향의 모든 상대지역 이동량 합이며 상위5개 합이 아닙니다.",
+      "forbiddenMeanings": [
+        "고유 인원",
+        "출발18시 이동량",
+        "현재 체류 인구",
+        "상위5개만 분모"
+      ],
+      "assertions": [
+        "방향별 분모가 다르다",
+        "서울밖을 분모에서 제외하지 않는다",
+        "구내이동은 제외한다"
+      ]
+    },
+    {
+      "id": "mapo-arrival18-inflow-outside-seoul",
+      "title": "마포 18시 도착 기준 inflow · 서울 밖 · 세부지역 통합",
+      "dataset": "mobility",
+      "sourceIds": [
+        "mobility"
+      ],
+      "scope": {
+        "regionCode": "11440",
+        "regionName": "마포구",
+        "partnerCode": "outside-seoul",
+        "period": "2026-10-31",
+        "timeBasis": "arrival",
+        "hour": 18,
+        "aggregation": "hour",
+        "direction": "inflow",
+        "excludeSameDistrict": true
+      },
+      "aggregation": {
+        "method": "같은조건 원본 OD의 상대지역별 cnt Decimal합;비중=상대값/해당방향전체분모*100"
+      },
+      "expectedExact": {
+        "value": 17667.68,
+        "valueDecimal": "17667.68",
+        "denominator": 59831.71,
+        "denominatorDecimal": "59831.71",
+        "sharePercent": 29.528957136608664,
+        "shareOneDecimal": "29.5",
+        "rank": 1
+      },
+      "expectedDisplay": {
+        "value": "17,668",
+        "share": "29.5%",
+        "partner": "서울 밖 · 세부지역 통합"
+      },
+      "meaning": "도착18시로 분류된 이동 중 선택 상대지역의 건수·비중입니다. 서울밖은 여러 지역을 합친 집단입니다.",
+      "forbiddenMeanings": [
+        "도착18시 유입을 출발18시유입과 동일 취급",
+        "서울밖을 하나의자치구로표시",
+        "고유인원비중",
+        "광고도달률"
+      ],
+      "assertions": [
+        "건수와 방향별 분모가 원본 기대값과 맞는다",
+        "비중은 한자리소수로표시한다",
+        "서울밖은통합그룹임을보인다"
+      ]
+    },
+    {
+      "id": "mapo-arrival18-inflow-11410",
+      "title": "마포 18시 도착 기준 inflow · 서대문구",
+      "dataset": "mobility",
+      "sourceIds": [
+        "mobility"
+      ],
+      "scope": {
+        "regionCode": "11440",
+        "regionName": "마포구",
+        "partnerCode": "11410",
+        "period": "2026-10-31",
+        "timeBasis": "arrival",
+        "hour": 18,
+        "aggregation": "hour",
+        "direction": "inflow",
+        "excludeSameDistrict": true
+      },
+      "aggregation": {
+        "method": "같은조건 원본 OD의 상대지역별 cnt Decimal합;비중=상대값/해당방향전체분모*100"
+      },
+      "expectedExact": {
+        "value": 6838.01,
+        "valueDecimal": "6838.01",
+        "denominator": 59831.71,
+        "denominatorDecimal": "59831.71",
+        "sharePercent": 11.428739041555055,
+        "shareOneDecimal": "11.4",
+        "rank": 2
+      },
+      "expectedDisplay": {
+        "value": "6,838",
+        "share": "11.4%",
+        "partner": "서대문구"
+      },
+      "meaning": "도착18시로 분류된 이동 중 선택 상대지역의 건수·비중입니다. 서울밖은 여러 지역을 합친 집단입니다.",
+      "forbiddenMeanings": [
+        "도착18시 유입을 출발18시유입과 동일 취급",
+        "서울밖을 하나의자치구로표시",
+        "고유인원비중",
+        "광고도달률"
+      ],
+      "assertions": [
+        "건수와 방향별 분모가 원본 기대값과 맞는다",
+        "비중은 한자리소수로표시한다",
+        "서울밖은통합그룹임을보인다"
+      ]
+    },
+    {
+      "id": "mapo-arrival18-outflow-denominator",
+      "title": "마포 18시 도착 기준 outflow 전체 분모",
+      "dataset": "mobility",
+      "sourceIds": [
+        "mobility"
+      ],
+      "scope": {
+        "regionCode": "11440",
+        "regionName": "마포구",
+        "period": "2026-10-31",
+        "timeBasis": "arrival",
+        "hour": 18,
+        "aggregation": "hour",
+        "direction": "outflow",
+        "excludeSameDistrict": true
+      },
+      "aggregation": {
+        "method": "원본 도착시간18시·마포 목적/출발 행의cnt Decimal합;구내제외"
+      },
+      "expectedExact": {
+        "value": 52525.73,
+        "valueDecimal": "52525.73",
+        "partnerCount": 25
+      },
+      "expectedDisplay": {
+        "value": "52,526"
+      },
+      "meaning": "해당 도착시간 구간에서 선택 방향의 모든 상대지역 이동량 합이며 상위5개 합이 아닙니다.",
+      "forbiddenMeanings": [
+        "고유 인원",
+        "출발18시 이동량",
+        "현재 체류 인구",
+        "상위5개만 분모"
+      ],
+      "assertions": [
+        "방향별 분모가 다르다",
+        "서울밖을 분모에서 제외하지 않는다",
+        "구내이동은 제외한다"
+      ]
+    },
+    {
+      "id": "mapo-arrival18-outflow-outside-seoul",
+      "title": "마포 18시 도착 기준 outflow · 서울 밖 · 세부지역 통합",
+      "dataset": "mobility",
+      "sourceIds": [
+        "mobility"
+      ],
+      "scope": {
+        "regionCode": "11440",
+        "regionName": "마포구",
+        "partnerCode": "outside-seoul",
+        "period": "2026-10-31",
+        "timeBasis": "arrival",
+        "hour": 18,
+        "aggregation": "hour",
+        "direction": "outflow",
+        "excludeSameDistrict": true
+      },
+      "aggregation": {
+        "method": "같은조건 원본 OD의 상대지역별 cnt Decimal합;비중=상대값/해당방향전체분모*100"
+      },
+      "expectedExact": {
+        "value": 15924.53,
+        "valueDecimal": "15924.53",
+        "denominator": 52525.73,
+        "denominatorDecimal": "52525.73",
+        "sharePercent": 30.317579593848578,
+        "shareOneDecimal": "30.3",
+        "rank": 1
+      },
+      "expectedDisplay": {
+        "value": "15,925",
+        "share": "30.3%",
+        "partner": "서울 밖 · 세부지역 통합"
+      },
+      "meaning": "도착18시로 분류된 이동 중 선택 상대지역의 건수·비중입니다. 서울밖은 여러 지역을 합친 집단입니다.",
+      "forbiddenMeanings": [
+        "도착18시 유입을 출발18시유입과 동일 취급",
+        "서울밖을 하나의자치구로표시",
+        "고유인원비중",
+        "광고도달률"
+      ],
+      "assertions": [
+        "건수와 방향별 분모가 원본 기대값과 맞는다",
+        "비중은 한자리소수로표시한다",
+        "서울밖은통합그룹임을보인다"
+      ]
+    },
+    {
+      "id": "mapo-arrival18-outflow-11410",
+      "title": "마포 18시 도착 기준 outflow · 서대문구",
+      "dataset": "mobility",
+      "sourceIds": [
+        "mobility"
+      ],
+      "scope": {
+        "regionCode": "11440",
+        "regionName": "마포구",
+        "partnerCode": "11410",
+        "period": "2026-10-31",
+        "timeBasis": "arrival",
+        "hour": 18,
+        "aggregation": "hour",
+        "direction": "outflow",
+        "excludeSameDistrict": true
+      },
+      "aggregation": {
+        "method": "같은조건 원본 OD의 상대지역별 cnt Decimal합;비중=상대값/해당방향전체분모*100"
+      },
+      "expectedExact": {
+        "value": 6147.11,
+        "valueDecimal": "6147.11",
+        "denominator": 52525.73,
+        "denominatorDecimal": "52525.73",
+        "sharePercent": 11.703045345585869,
+        "shareOneDecimal": "11.7",
+        "rank": 2
+      },
+      "expectedDisplay": {
+        "value": "6,147",
+        "share": "11.7%",
+        "partner": "서대문구"
+      },
+      "meaning": "도착18시로 분류된 이동 중 선택 상대지역의 건수·비중입니다. 서울밖은 여러 지역을 합친 집단입니다.",
+      "forbiddenMeanings": [
+        "도착18시 유입을 출발18시유입과 동일 취급",
+        "서울밖을 하나의자치구로표시",
+        "고유인원비중",
+        "광고도달률"
+      ],
+      "assertions": [
+        "건수와 방향별 분모가 원본 기대값과 맞는다",
+        "비중은 한자리소수로표시한다",
+        "서울밖은통합그룹임을보인다"
+      ]
+    },
+    {
+      "id": "samcheong-male-partial-peak",
+      "title": "삼청동 남성 전체의 부분 공개 최대",
+      "dataset": "livingPopulation",
+      "sourceIds": [
+        "livingPopulation"
+      ],
+      "scope": {
+        "regionCode": "11110540",
+        "regionName": "삼청동",
+        "district": "11110",
+        "period": "2026-10-31",
+        "sex": "male",
+        "age": "all",
+        "unit": "명(시점 추계)"
+      },
+      "aggregation": {
+        "method": "남성 모든 원본 연령열 합. 어느 열이든비공개면그시간합계null. 공개시간만최대계산"
+      },
+      "expectedExact": {
+        "knownHours": 16,
+        "totalHours": 24,
+        "missingHours": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "peakHour": 15,
+        "peakValue": 7426.53,
+        "hourly": {
+          "0": 1326.32,
+          "1": 1415.32,
+          "2": null,
+          "3": null,
+          "4": null,
+          "5": null,
+          "6": null,
+          "7": null,
+          "8": null,
+          "9": null,
+          "10": 3904.01,
+          "11": 5134.83,
+          "12": 5673.19,
+          "13": 6204.83,
+          "14": 7118.66,
+          "15": 7426.53,
+          "16": 6849.41,
+          "17": 6248.28,
+          "18": 4820.61,
+          "19": 3339.04,
+          "20": 2474.13,
+          "21": 2204.29,
+          "22": 1908.67,
+          "23": 1658.55
+        }
+      },
+      "expectedDisplay": {
+        "peakTime": "15:00",
+        "peakValue": "7,427",
+        "coverage": "16/24개 시간 공개",
+        "requiredLabel": "공개된 시간대 중 최대"
+      },
+      "meaning": "공개된16시간 중 최대이며 비공개8시간까지 포함한 하루전체최대는 확정할 수 없습니다.",
+      "forbiddenMeanings": [
+        "하루전체최대확정",
+        "비공개02~09시를0으로처리",
+        "피크를고유방문자누적수로표시"
+      ],
+      "assertions": [
+        "02~09시는null이다",
+        "최대는15시이고7427명으로반올림표시한다",
+        "공개범위16/24를함께표시한다"
+      ]
+    },
+    {
+      "id": "market-sales-overlap-scope",
+      "title": "상권·업종 원본합과 서울 전체 소비의 구분",
+      "dataset": "marketSales",
+      "sourceIds": [
+        "marketSales",
+        "marketBoundary"
+      ],
+      "scope": {
+        "period": "20254",
+        "regionLevel": "all-market-rows",
+        "industry": "all",
+        "unit": "원",
+        "auditOnly": true
+      },
+      "aggregation": {
+        "method": "감사용 원본 상권×업종 행 합; 겹침제거없는지표이며UI전체소비로내보내지않음"
+      },
+      "expectedExact": {
+        "rawRowSum": 24429809919529,
+        "rows": 21333,
+        "industryCount": 62
+      },
+      "expectedDisplay": {
+        "mustNotLabel": [
+          "서울 전체 소비 총액",
+          "서울 전체 고유 인구",
+          "전체 상권의 비중을 합하면100%"
+        ]
+      },
+      "meaning": "겹칠 수 있는 상권·제공업종의 행 합은 서울 전체소비를 뜻하지 않습니다.",
+      "forbiddenMeanings": [
+        "서울경제전체소비총액",
+        "상권겹침무시",
+        "전업종포괄실매출"
+      ],
+      "assertions": [
+        "일부업종62개제공범위를명시한다",
+        "서로겹칠수있는상권합계를전체소비라고부르지않는다"
+      ]
+    },
+    {
+      "id": "market-sales-missing-row",
+      "title": "경계는 있으나 선택 분기 매출행 없음",
+      "dataset": "marketSales",
+      "sourceIds": [
+        "marketSales",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3110011",
+        "regionName": "청운초등학교",
+        "regionLevel": "market",
+        "district": "11110",
+        "marketType": "A",
+        "period": "20254",
+        "industry": "all",
+        "dimension": "all",
+        "unit": "원"
+      },
+      "aggregation": {
+        "method": "원본 DBF 경계 코드 중 원본 매출 CSV의 20254 행이 없는 코드 탐색",
+        "sourceRows": 0,
+        "geometryPresent": true
+      },
+      "expectedExact": {
+        "value": null,
+        "sourceRows": 0
+      },
+      "expectedDisplay": {
+        "value": "자료 없음",
+        "map": "회색 또는 명시적인 결측색",
+        "csvValue": ""
+      },
+      "meaning": "경계는 있지만 해당 분기의 매출 관측행이 없어 규모를 알 수 없습니다.",
+      "forbiddenMeanings": [
+        "매출 0원",
+        "점포가 없다",
+        "폐업 상권",
+        "비교 차이 0원"
+      ],
+      "assertions": [
+        "지도에서 결측 범례를 제공한다",
+        "상세에 자료 없음을 표시한다",
+        "CSV 값은 빈칸이며 0으로 대체하지 않는다",
+        "순위에서 0원 상권으로 포함하지 않는다",
+        "직전 분기 차이는 null이다"
+      ]
+    },
+    {
+      "id": "sales-gongdeok-time0",
+      "title": "공덕역 매출 · 00–06시",
+      "dataset": "marketSales",
+      "sourceIds": [
+        "marketSales",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20254",
+        "previousPeriod": "20253",
+        "industry": "all",
+        "dimension": "time",
+        "band": 0,
+        "unit": "원"
+      },
+      "aggregation": {
+        "method": "원본 상권·업종 행의 선택된 단일 열 합",
+        "currentRows": 27,
+        "previousRows": 27,
+        "sourceColumn": "시간대_00~06_매출_금액",
+        "rawColumnIndex": 18,
+        "optionLabel": "00–06시"
+      },
+      "expectedExact": {
+        "value": 202189907,
+        "previous": 222593994,
+        "delta": -20404087
+      },
+      "expectedDisplay": {
+        "value": "202,189,907",
+        "previous": "222,593,994",
+        "delta": "-20,404,087",
+        "period": "2025년 4분기",
+        "previousPeriod": "2025년 3분기"
+      },
+      "meaning": "같은 상권·업종·세부 분포를 두 분기에서 조회한 추정매출과 차이입니다.",
+      "forbiddenMeanings": [
+        "개별 점포 실제 회계매출",
+        "광고 효과",
+        "여성×20대×금요일×시간대 결합 매출",
+        "일별 또는 월별 관측치"
+      ],
+      "assertions": [
+        "상권코드가3120107이다",
+        "선택 분기와 직전 분기는 같은 업종·차원을 사용한다",
+        "지도·상세·추이·CSV가 같은 원값을 사용한다",
+        "성·연령 분포 합을 전체매출과 억지로 같게 만들지 않는다",
+        "옵션 00–06시는 원본 열 시간대_00~06_매출_금액에 대응한다"
+      ]
+    },
+    {
+      "id": "sales-gongdeok-time1",
+      "title": "공덕역 매출 · 06–11시",
+      "dataset": "marketSales",
+      "sourceIds": [
+        "marketSales",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20254",
+        "previousPeriod": "20253",
+        "industry": "all",
+        "dimension": "time",
+        "band": 1,
+        "unit": "원"
+      },
+      "aggregation": {
+        "method": "원본 상권·업종 행의 선택된 단일 열 합",
+        "currentRows": 27,
+        "previousRows": 27,
+        "sourceColumn": "시간대_06~11_매출_금액",
+        "rawColumnIndex": 19,
+        "optionLabel": "06–11시"
+      },
+      "expectedExact": {
+        "value": 3284180446,
+        "previous": 2789769904,
+        "delta": 494410542
+      },
+      "expectedDisplay": {
+        "value": "3,284,180,446",
+        "previous": "2,789,769,904",
+        "delta": "+494,410,542",
+        "period": "2025년 4분기",
+        "previousPeriod": "2025년 3분기"
+      },
+      "meaning": "같은 상권·업종·세부 분포를 두 분기에서 조회한 추정매출과 차이입니다.",
+      "forbiddenMeanings": [
+        "개별 점포 실제 회계매출",
+        "광고 효과",
+        "여성×20대×금요일×시간대 결합 매출",
+        "일별 또는 월별 관측치"
+      ],
+      "assertions": [
+        "상권코드가3120107이다",
+        "선택 분기와 직전 분기는 같은 업종·차원을 사용한다",
+        "지도·상세·추이·CSV가 같은 원값을 사용한다",
+        "성·연령 분포 합을 전체매출과 억지로 같게 만들지 않는다",
+        "옵션 06–11시는 원본 열 시간대_06~11_매출_금액에 대응한다"
+      ]
+    },
+    {
+      "id": "sales-gongdeok-time2",
+      "title": "공덕역 매출 · 11–14시",
+      "dataset": "marketSales",
+      "sourceIds": [
+        "marketSales",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20254",
+        "previousPeriod": "20253",
+        "industry": "all",
+        "dimension": "time",
+        "band": 2,
+        "unit": "원"
+      },
+      "aggregation": {
+        "method": "원본 상권·업종 행의 선택된 단일 열 합",
+        "currentRows": 27,
+        "previousRows": 27,
+        "sourceColumn": "시간대_11~14_매출_금액",
+        "rawColumnIndex": 20,
+        "optionLabel": "11–14시"
+      },
+      "expectedExact": {
+        "value": 12288145506,
+        "previous": 11725742167,
+        "delta": 562403339
+      },
+      "expectedDisplay": {
+        "value": "12,288,145,506",
+        "previous": "11,725,742,167",
+        "delta": "+562,403,339",
+        "period": "2025년 4분기",
+        "previousPeriod": "2025년 3분기"
+      },
+      "meaning": "같은 상권·업종·세부 분포를 두 분기에서 조회한 추정매출과 차이입니다.",
+      "forbiddenMeanings": [
+        "개별 점포 실제 회계매출",
+        "광고 효과",
+        "여성×20대×금요일×시간대 결합 매출",
+        "일별 또는 월별 관측치"
+      ],
+      "assertions": [
+        "상권코드가3120107이다",
+        "선택 분기와 직전 분기는 같은 업종·차원을 사용한다",
+        "지도·상세·추이·CSV가 같은 원값을 사용한다",
+        "성·연령 분포 합을 전체매출과 억지로 같게 만들지 않는다",
+        "옵션 11–14시는 원본 열 시간대_11~14_매출_금액에 대응한다"
+      ]
+    },
+    {
+      "id": "sales-gongdeok-time3",
+      "title": "공덕역 매출 · 14–17시",
+      "dataset": "marketSales",
+      "sourceIds": [
+        "marketSales",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20254",
+        "previousPeriod": "20253",
+        "industry": "all",
+        "dimension": "time",
+        "band": 3,
+        "unit": "원"
+      },
+      "aggregation": {
+        "method": "원본 상권·업종 행의 선택된 단일 열 합",
+        "currentRows": 27,
+        "previousRows": 27,
+        "sourceColumn": "시간대_14~17_매출_금액",
+        "rawColumnIndex": 21,
+        "optionLabel": "14–17시"
+      },
+      "expectedExact": {
+        "value": 10191968088,
+        "previous": 8116771706,
+        "delta": 2075196382
+      },
+      "expectedDisplay": {
+        "value": "10,191,968,088",
+        "previous": "8,116,771,706",
+        "delta": "+2,075,196,382",
+        "period": "2025년 4분기",
+        "previousPeriod": "2025년 3분기"
+      },
+      "meaning": "같은 상권·업종·세부 분포를 두 분기에서 조회한 추정매출과 차이입니다.",
+      "forbiddenMeanings": [
+        "개별 점포 실제 회계매출",
+        "광고 효과",
+        "여성×20대×금요일×시간대 결합 매출",
+        "일별 또는 월별 관측치"
+      ],
+      "assertions": [
+        "상권코드가3120107이다",
+        "선택 분기와 직전 분기는 같은 업종·차원을 사용한다",
+        "지도·상세·추이·CSV가 같은 원값을 사용한다",
+        "성·연령 분포 합을 전체매출과 억지로 같게 만들지 않는다",
+        "옵션 14–17시는 원본 열 시간대_14~17_매출_금액에 대응한다"
+      ]
+    },
+    {
+      "id": "sales-gongdeok-time5",
+      "title": "공덕역 매출 · 21–24시",
+      "dataset": "marketSales",
+      "sourceIds": [
+        "marketSales",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20254",
+        "previousPeriod": "20253",
+        "industry": "all",
+        "dimension": "time",
+        "band": 5,
+        "unit": "원"
+      },
+      "aggregation": {
+        "method": "원본 상권·업종 행의 선택된 단일 열 합",
+        "currentRows": 27,
+        "previousRows": 27,
+        "sourceColumn": "시간대_21~24_매출_금액",
+        "rawColumnIndex": 23,
+        "optionLabel": "21–24시"
+      },
+      "expectedExact": {
+        "value": 2580427972,
+        "previous": 2552947478,
+        "delta": 27480494
+      },
+      "expectedDisplay": {
+        "value": "2,580,427,972",
+        "previous": "2,552,947,478",
+        "delta": "+27,480,494",
+        "period": "2025년 4분기",
+        "previousPeriod": "2025년 3분기"
+      },
+      "meaning": "같은 상권·업종·세부 분포를 두 분기에서 조회한 추정매출과 차이입니다.",
+      "forbiddenMeanings": [
+        "개별 점포 실제 회계매출",
+        "광고 효과",
+        "여성×20대×금요일×시간대 결합 매출",
+        "일별 또는 월별 관측치"
+      ],
+      "assertions": [
+        "상권코드가3120107이다",
+        "선택 분기와 직전 분기는 같은 업종·차원을 사용한다",
+        "지도·상세·추이·CSV가 같은 원값을 사용한다",
+        "성·연령 분포 합을 전체매출과 억지로 같게 만들지 않는다",
+        "옵션 21–24시는 원본 열 시간대_21~24_매출_금액에 대응한다"
+      ]
+    },
+    {
+      "id": "sales-gongdeok-age10",
+      "title": "공덕역 매출 · 10대",
+      "dataset": "marketSales",
+      "sourceIds": [
+        "marketSales",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20254",
+        "previousPeriod": "20253",
+        "industry": "all",
+        "dimension": "age",
+        "band": 0,
+        "unit": "원"
+      },
+      "aggregation": {
+        "method": "원본 상권·업종 행의 선택된 단일 열 합",
+        "currentRows": 27,
+        "previousRows": 27,
+        "sourceColumn": "연령대_10_매출_금액",
+        "rawColumnIndex": 26,
+        "optionLabel": "10대"
+      },
+      "expectedExact": {
+        "value": 45057182,
+        "previous": 44059631,
+        "delta": 997551
+      },
+      "expectedDisplay": {
+        "value": "45,057,182",
+        "previous": "44,059,631",
+        "delta": "+997,551",
+        "period": "2025년 4분기",
+        "previousPeriod": "2025년 3분기"
+      },
+      "meaning": "같은 상권·업종·세부 분포를 두 분기에서 조회한 추정매출과 차이입니다.",
+      "forbiddenMeanings": [
+        "개별 점포 실제 회계매출",
+        "광고 효과",
+        "여성×20대×금요일×시간대 결합 매출",
+        "일별 또는 월별 관측치"
+      ],
+      "assertions": [
+        "상권코드가3120107이다",
+        "선택 분기와 직전 분기는 같은 업종·차원을 사용한다",
+        "지도·상세·추이·CSV가 같은 원값을 사용한다",
+        "성·연령 분포 합을 전체매출과 억지로 같게 만들지 않는다",
+        "옵션 10대는 원본 열 연령대_10_매출_금액에 대응한다"
+      ]
+    },
+    {
+      "id": "sales-gongdeok-age30",
+      "title": "공덕역 매출 · 30대",
+      "dataset": "marketSales",
+      "sourceIds": [
+        "marketSales",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20254",
+        "previousPeriod": "20253",
+        "industry": "all",
+        "dimension": "age",
+        "band": 2,
+        "unit": "원"
+      },
+      "aggregation": {
+        "method": "원본 상권·업종 행의 선택된 단일 열 합",
+        "currentRows": 27,
+        "previousRows": 27,
+        "sourceColumn": "연령대_30_매출_금액",
+        "rawColumnIndex": 28,
+        "optionLabel": "30대"
+      },
+      "expectedExact": {
+        "value": 6211920724,
+        "previous": 6315554262,
+        "delta": -103633538
+      },
+      "expectedDisplay": {
+        "value": "6,211,920,724",
+        "previous": "6,315,554,262",
+        "delta": "-103,633,538",
+        "period": "2025년 4분기",
+        "previousPeriod": "2025년 3분기"
+      },
+      "meaning": "같은 상권·업종·세부 분포를 두 분기에서 조회한 추정매출과 차이입니다.",
+      "forbiddenMeanings": [
+        "개별 점포 실제 회계매출",
+        "광고 효과",
+        "여성×20대×금요일×시간대 결합 매출",
+        "일별 또는 월별 관측치"
+      ],
+      "assertions": [
+        "상권코드가3120107이다",
+        "선택 분기와 직전 분기는 같은 업종·차원을 사용한다",
+        "지도·상세·추이·CSV가 같은 원값을 사용한다",
+        "성·연령 분포 합을 전체매출과 억지로 같게 만들지 않는다",
+        "옵션 30대는 원본 열 연령대_30_매출_금액에 대응한다"
+      ]
+    },
+    {
+      "id": "sales-gongdeok-age40",
+      "title": "공덕역 매출 · 40대",
+      "dataset": "marketSales",
+      "sourceIds": [
+        "marketSales",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20254",
+        "previousPeriod": "20253",
+        "industry": "all",
+        "dimension": "age",
+        "band": 3,
+        "unit": "원"
+      },
+      "aggregation": {
+        "method": "원본 상권·업종 행의 선택된 단일 열 합",
+        "currentRows": 27,
+        "previousRows": 27,
+        "sourceColumn": "연령대_40_매출_금액",
+        "rawColumnIndex": 29,
+        "optionLabel": "40대"
+      },
+      "expectedExact": {
+        "value": 6877511801,
+        "previous": 6334710820,
+        "delta": 542800981
+      },
+      "expectedDisplay": {
+        "value": "6,877,511,801",
+        "previous": "6,334,710,820",
+        "delta": "+542,800,981",
+        "period": "2025년 4분기",
+        "previousPeriod": "2025년 3분기"
+      },
+      "meaning": "같은 상권·업종·세부 분포를 두 분기에서 조회한 추정매출과 차이입니다.",
+      "forbiddenMeanings": [
+        "개별 점포 실제 회계매출",
+        "광고 효과",
+        "여성×20대×금요일×시간대 결합 매출",
+        "일별 또는 월별 관측치"
+      ],
+      "assertions": [
+        "상권코드가3120107이다",
+        "선택 분기와 직전 분기는 같은 업종·차원을 사용한다",
+        "지도·상세·추이·CSV가 같은 원값을 사용한다",
+        "성·연령 분포 합을 전체매출과 억지로 같게 만들지 않는다",
+        "옵션 40대는 원본 열 연령대_40_매출_금액에 대응한다"
+      ]
+    },
+    {
+      "id": "sales-gongdeok-age50",
+      "title": "공덕역 매출 · 50대",
+      "dataset": "marketSales",
+      "sourceIds": [
+        "marketSales",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20254",
+        "previousPeriod": "20253",
+        "industry": "all",
+        "dimension": "age",
+        "band": 4,
+        "unit": "원"
+      },
+      "aggregation": {
+        "method": "원본 상권·업종 행의 선택된 단일 열 합",
+        "currentRows": 27,
+        "previousRows": 27,
+        "sourceColumn": "연령대_50_매출_금액",
+        "rawColumnIndex": 30,
+        "optionLabel": "50대"
+      },
+      "expectedExact": {
+        "value": 9010285318,
+        "previous": 8164484457,
+        "delta": 845800861
+      },
+      "expectedDisplay": {
+        "value": "9,010,285,318",
+        "previous": "8,164,484,457",
+        "delta": "+845,800,861",
+        "period": "2025년 4분기",
+        "previousPeriod": "2025년 3분기"
+      },
+      "meaning": "같은 상권·업종·세부 분포를 두 분기에서 조회한 추정매출과 차이입니다.",
+      "forbiddenMeanings": [
+        "개별 점포 실제 회계매출",
+        "광고 효과",
+        "여성×20대×금요일×시간대 결합 매출",
+        "일별 또는 월별 관측치"
+      ],
+      "assertions": [
+        "상권코드가3120107이다",
+        "선택 분기와 직전 분기는 같은 업종·차원을 사용한다",
+        "지도·상세·추이·CSV가 같은 원값을 사용한다",
+        "성·연령 분포 합을 전체매출과 억지로 같게 만들지 않는다",
+        "옵션 50대는 원본 열 연령대_50_매출_금액에 대응한다"
+      ]
+    },
+    {
+      "id": "sales-gongdeok-age60",
+      "title": "공덕역 매출 · 60대 이상",
+      "dataset": "marketSales",
+      "sourceIds": [
+        "marketSales",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20254",
+        "previousPeriod": "20253",
+        "industry": "all",
+        "dimension": "age",
+        "band": 5,
+        "unit": "원"
+      },
+      "aggregation": {
+        "method": "원본 상권·업종 행의 선택된 단일 열 합",
+        "currentRows": 27,
+        "previousRows": 27,
+        "sourceColumn": "연령대_60_이상_매출_금액",
+        "rawColumnIndex": 31,
+        "optionLabel": "60대 이상"
+      },
+      "expectedExact": {
+        "value": 9936761378,
+        "previous": 8286821735,
+        "delta": 1649939643
+      },
+      "expectedDisplay": {
+        "value": "9,936,761,378",
+        "previous": "8,286,821,735",
+        "delta": "+1,649,939,643",
+        "period": "2025년 4분기",
+        "previousPeriod": "2025년 3분기"
+      },
+      "meaning": "같은 상권·업종·세부 분포를 두 분기에서 조회한 추정매출과 차이입니다.",
+      "forbiddenMeanings": [
+        "개별 점포 실제 회계매출",
+        "광고 효과",
+        "여성×20대×금요일×시간대 결합 매출",
+        "일별 또는 월별 관측치"
+      ],
+      "assertions": [
+        "상권코드가3120107이다",
+        "선택 분기와 직전 분기는 같은 업종·차원을 사용한다",
+        "지도·상세·추이·CSV가 같은 원값을 사용한다",
+        "성·연령 분포 합을 전체매출과 억지로 같게 만들지 않는다",
+        "옵션 60대 이상는 원본 열 연령대_60_이상_매출_금액에 대응한다"
+      ]
+    },
+    {
+      "id": "sales-gongdeok-monday",
+      "title": "공덕역 매출 · 월요일",
+      "dataset": "marketSales",
+      "sourceIds": [
+        "marketSales",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20254",
+        "previousPeriod": "20253",
+        "industry": "all",
+        "dimension": "day",
+        "band": 0,
+        "unit": "원"
+      },
+      "aggregation": {
+        "method": "원본 상권·업종 행의 선택된 단일 열 합",
+        "currentRows": 27,
+        "previousRows": 27,
+        "sourceColumn": "월요일_매출_금액",
+        "rawColumnIndex": 11,
+        "optionLabel": "월요일"
+      },
+      "expectedExact": {
+        "value": 4628489130,
+        "previous": 4726743239,
+        "delta": -98254109
+      },
+      "expectedDisplay": {
+        "value": "4,628,489,130",
+        "previous": "4,726,743,239",
+        "delta": "-98,254,109",
+        "period": "2025년 4분기",
+        "previousPeriod": "2025년 3분기"
+      },
+      "meaning": "같은 상권·업종·세부 분포를 두 분기에서 조회한 추정매출과 차이입니다.",
+      "forbiddenMeanings": [
+        "개별 점포 실제 회계매출",
+        "광고 효과",
+        "여성×20대×금요일×시간대 결합 매출",
+        "일별 또는 월별 관측치"
+      ],
+      "assertions": [
+        "상권코드가3120107이다",
+        "선택 분기와 직전 분기는 같은 업종·차원을 사용한다",
+        "지도·상세·추이·CSV가 같은 원값을 사용한다",
+        "성·연령 분포 합을 전체매출과 억지로 같게 만들지 않는다",
+        "옵션 월요일는 원본 열 월요일_매출_금액에 대응한다"
+      ]
+    },
+    {
+      "id": "sales-gongdeok-tuesday",
+      "title": "공덕역 매출 · 화요일",
+      "dataset": "marketSales",
+      "sourceIds": [
+        "marketSales",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20254",
+        "previousPeriod": "20253",
+        "industry": "all",
+        "dimension": "day",
+        "band": 1,
+        "unit": "원"
+      },
+      "aggregation": {
+        "method": "원본 상권·업종 행의 선택된 단일 열 합",
+        "currentRows": 27,
+        "previousRows": 27,
+        "sourceColumn": "화요일_매출_금액",
+        "rawColumnIndex": 12,
+        "optionLabel": "화요일"
+      },
+      "expectedExact": {
+        "value": 5762187164,
+        "previous": 6677499858,
+        "delta": -915312694
+      },
+      "expectedDisplay": {
+        "value": "5,762,187,164",
+        "previous": "6,677,499,858",
+        "delta": "-915,312,694",
+        "period": "2025년 4분기",
+        "previousPeriod": "2025년 3분기"
+      },
+      "meaning": "같은 상권·업종·세부 분포를 두 분기에서 조회한 추정매출과 차이입니다.",
+      "forbiddenMeanings": [
+        "개별 점포 실제 회계매출",
+        "광고 효과",
+        "여성×20대×금요일×시간대 결합 매출",
+        "일별 또는 월별 관측치"
+      ],
+      "assertions": [
+        "상권코드가3120107이다",
+        "선택 분기와 직전 분기는 같은 업종·차원을 사용한다",
+        "지도·상세·추이·CSV가 같은 원값을 사용한다",
+        "성·연령 분포 합을 전체매출과 억지로 같게 만들지 않는다",
+        "옵션 화요일는 원본 열 화요일_매출_금액에 대응한다"
+      ]
+    },
+    {
+      "id": "sales-gongdeok-wednesday",
+      "title": "공덕역 매출 · 수요일",
+      "dataset": "marketSales",
+      "sourceIds": [
+        "marketSales",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20254",
+        "previousPeriod": "20253",
+        "industry": "all",
+        "dimension": "day",
+        "band": 2,
+        "unit": "원"
+      },
+      "aggregation": {
+        "method": "원본 상권·업종 행의 선택된 단일 열 합",
+        "currentRows": 27,
+        "previousRows": 27,
+        "sourceColumn": "수요일_매출_금액",
+        "rawColumnIndex": 13,
+        "optionLabel": "수요일"
+      },
+      "expectedExact": {
+        "value": 6336968165,
+        "previous": 5077241275,
+        "delta": 1259726890
+      },
+      "expectedDisplay": {
+        "value": "6,336,968,165",
+        "previous": "5,077,241,275",
+        "delta": "+1,259,726,890",
+        "period": "2025년 4분기",
+        "previousPeriod": "2025년 3분기"
+      },
+      "meaning": "같은 상권·업종·세부 분포를 두 분기에서 조회한 추정매출과 차이입니다.",
+      "forbiddenMeanings": [
+        "개별 점포 실제 회계매출",
+        "광고 효과",
+        "여성×20대×금요일×시간대 결합 매출",
+        "일별 또는 월별 관측치"
+      ],
+      "assertions": [
+        "상권코드가3120107이다",
+        "선택 분기와 직전 분기는 같은 업종·차원을 사용한다",
+        "지도·상세·추이·CSV가 같은 원값을 사용한다",
+        "성·연령 분포 합을 전체매출과 억지로 같게 만들지 않는다",
+        "옵션 수요일는 원본 열 수요일_매출_금액에 대응한다"
+      ]
+    },
+    {
+      "id": "sales-gongdeok-thursday",
+      "title": "공덕역 매출 · 목요일",
+      "dataset": "marketSales",
+      "sourceIds": [
+        "marketSales",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20254",
+        "previousPeriod": "20253",
+        "industry": "all",
+        "dimension": "day",
+        "band": 3,
+        "unit": "원"
+      },
+      "aggregation": {
+        "method": "원본 상권·업종 행의 선택된 단일 열 합",
+        "currentRows": 27,
+        "previousRows": 27,
+        "sourceColumn": "목요일_매출_금액",
+        "rawColumnIndex": 14,
+        "optionLabel": "목요일"
+      },
+      "expectedExact": {
+        "value": 5947315403,
+        "previous": 5417732099,
+        "delta": 529583304
+      },
+      "expectedDisplay": {
+        "value": "5,947,315,403",
+        "previous": "5,417,732,099",
+        "delta": "+529,583,304",
+        "period": "2025년 4분기",
+        "previousPeriod": "2025년 3분기"
+      },
+      "meaning": "같은 상권·업종·세부 분포를 두 분기에서 조회한 추정매출과 차이입니다.",
+      "forbiddenMeanings": [
+        "개별 점포 실제 회계매출",
+        "광고 효과",
+        "여성×20대×금요일×시간대 결합 매출",
+        "일별 또는 월별 관측치"
+      ],
+      "assertions": [
+        "상권코드가3120107이다",
+        "선택 분기와 직전 분기는 같은 업종·차원을 사용한다",
+        "지도·상세·추이·CSV가 같은 원값을 사용한다",
+        "성·연령 분포 합을 전체매출과 억지로 같게 만들지 않는다",
+        "옵션 목요일는 원본 열 목요일_매출_금액에 대응한다"
+      ]
+    },
+    {
+      "id": "sales-gongdeok-saturday",
+      "title": "공덕역 매출 · 토요일",
+      "dataset": "marketSales",
+      "sourceIds": [
+        "marketSales",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20254",
+        "previousPeriod": "20253",
+        "industry": "all",
+        "dimension": "day",
+        "band": 5,
+        "unit": "원"
+      },
+      "aggregation": {
+        "method": "원본 상권·업종 행의 선택된 단일 열 합",
+        "currentRows": 27,
+        "previousRows": 27,
+        "sourceColumn": "토요일_매출_금액",
+        "rawColumnIndex": 16,
+        "optionLabel": "토요일"
+      },
+      "expectedExact": {
+        "value": 7287472263,
+        "previous": 5926217135,
+        "delta": 1361255128
+      },
+      "expectedDisplay": {
+        "value": "7,287,472,263",
+        "previous": "5,926,217,135",
+        "delta": "+1,361,255,128",
+        "period": "2025년 4분기",
+        "previousPeriod": "2025년 3분기"
+      },
+      "meaning": "같은 상권·업종·세부 분포를 두 분기에서 조회한 추정매출과 차이입니다.",
+      "forbiddenMeanings": [
+        "개별 점포 실제 회계매출",
+        "광고 효과",
+        "여성×20대×금요일×시간대 결합 매출",
+        "일별 또는 월별 관측치"
+      ],
+      "assertions": [
+        "상권코드가3120107이다",
+        "선택 분기와 직전 분기는 같은 업종·차원을 사용한다",
+        "지도·상세·추이·CSV가 같은 원값을 사용한다",
+        "성·연령 분포 합을 전체매출과 억지로 같게 만들지 않는다",
+        "옵션 토요일는 원본 열 토요일_매출_금액에 대응한다"
+      ]
+    },
+    {
+      "id": "sales-gongdeok-sunday",
+      "title": "공덕역 매출 · 일요일",
+      "dataset": "marketSales",
+      "sourceIds": [
+        "marketSales",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20254",
+        "previousPeriod": "20253",
+        "industry": "all",
+        "dimension": "day",
+        "band": 6,
+        "unit": "원"
+      },
+      "aggregation": {
+        "method": "원본 상권·업종 행의 선택된 단일 열 합",
+        "currentRows": 27,
+        "previousRows": 27,
+        "sourceColumn": "일요일_매출_금액",
+        "rawColumnIndex": 17,
+        "optionLabel": "일요일"
+      },
+      "expectedExact": {
+        "value": 1791170829,
+        "previous": 1453901889,
+        "delta": 337268940
+      },
+      "expectedDisplay": {
+        "value": "1,791,170,829",
+        "previous": "1,453,901,889",
+        "delta": "+337,268,940",
+        "period": "2025년 4분기",
+        "previousPeriod": "2025년 3분기"
+      },
+      "meaning": "같은 상권·업종·세부 분포를 두 분기에서 조회한 추정매출과 차이입니다.",
+      "forbiddenMeanings": [
+        "개별 점포 실제 회계매출",
+        "광고 효과",
+        "여성×20대×금요일×시간대 결합 매출",
+        "일별 또는 월별 관측치"
+      ],
+      "assertions": [
+        "상권코드가3120107이다",
+        "선택 분기와 직전 분기는 같은 업종·차원을 사용한다",
+        "지도·상세·추이·CSV가 같은 원값을 사용한다",
+        "성·연령 분포 합을 전체매출과 억지로 같게 만들지 않는다",
+        "옵션 일요일는 원본 열 일요일_매출_금액에 대응한다"
+      ]
+    },
+    {
+      "id": "population-gongdeok-time0",
+      "title": "공덕역 분기 제공 유동인구 · 00–06시",
+      "dataset": "marketPopulation",
+      "sourceIds": [
+        "marketPopulation",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20262",
+        "previousPeriod": "20261",
+        "industry": "not-applicable",
+        "dimension": "time",
+        "band": 0,
+        "unit": "명(원본 추정치)"
+      },
+      "aggregation": {
+        "method": "분기·상권에 해당하는 원본 단일 열. 환산·업종합산 없음",
+        "sourceColumn": "시간대_00_06_유동인구_수",
+        "currentRows": 1,
+        "previousRows": 1,
+        "rawColumnIndex": 14,
+        "optionLabel": "00–06시"
+      },
+      "expectedExact": {
+        "value": 167642,
+        "previous": 167926,
+        "delta": -284
+      },
+      "expectedDisplay": {
+        "value": "167,642",
+        "previous": "167,926",
+        "delta": "-284",
+        "period": "2026년 2분기",
+        "previousPeriod": "2026년 1분기"
+      },
+      "meaning": "분기 제공 유동인구 지표의 원본 추정값이며 특정 날짜의 체류·출입 인원이 아닙니다.",
+      "forbiddenMeanings": [
+        "일 고유 방문자",
+        "확정 일평균",
+        "분기 고유 인원",
+        "생활이동 OD 건수",
+        "성×연령×요일×시간 교차 인구"
+      ],
+      "assertions": [
+        "매출 업종 선택이 인구에 적용되지 않는다",
+        "분포 차원은 한 번에 한 가지이다",
+        "원본 단위와 기준분기가 보인다",
+        "이 값과2025년매출을나눠전환율을만들지않는다",
+        "옵션 00–06시는 원본 열 시간대_00_06_유동인구_수에 대응한다"
+      ]
+    },
+    {
+      "id": "population-gongdeok-time1",
+      "title": "공덕역 분기 제공 유동인구 · 06–11시",
+      "dataset": "marketPopulation",
+      "sourceIds": [
+        "marketPopulation",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20262",
+        "previousPeriod": "20261",
+        "industry": "not-applicable",
+        "dimension": "time",
+        "band": 1,
+        "unit": "명(원본 추정치)"
+      },
+      "aggregation": {
+        "method": "분기·상권에 해당하는 원본 단일 열. 환산·업종합산 없음",
+        "sourceColumn": "시간대_06_11_유동인구_수",
+        "currentRows": 1,
+        "previousRows": 1,
+        "rawColumnIndex": 15,
+        "optionLabel": "06–11시"
+      },
+      "expectedExact": {
+        "value": 261888,
+        "previous": 296224,
+        "delta": -34336
+      },
+      "expectedDisplay": {
+        "value": "261,888",
+        "previous": "296,224",
+        "delta": "-34,336",
+        "period": "2026년 2분기",
+        "previousPeriod": "2026년 1분기"
+      },
+      "meaning": "분기 제공 유동인구 지표의 원본 추정값이며 특정 날짜의 체류·출입 인원이 아닙니다.",
+      "forbiddenMeanings": [
+        "일 고유 방문자",
+        "확정 일평균",
+        "분기 고유 인원",
+        "생활이동 OD 건수",
+        "성×연령×요일×시간 교차 인구"
+      ],
+      "assertions": [
+        "매출 업종 선택이 인구에 적용되지 않는다",
+        "분포 차원은 한 번에 한 가지이다",
+        "원본 단위와 기준분기가 보인다",
+        "이 값과2025년매출을나눠전환율을만들지않는다",
+        "옵션 06–11시는 원본 열 시간대_06_11_유동인구_수에 대응한다"
+      ]
+    },
+    {
+      "id": "population-gongdeok-time2",
+      "title": "공덕역 분기 제공 유동인구 · 11–14시",
+      "dataset": "marketPopulation",
+      "sourceIds": [
+        "marketPopulation",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20262",
+        "previousPeriod": "20261",
+        "industry": "not-applicable",
+        "dimension": "time",
+        "band": 2,
+        "unit": "명(원본 추정치)"
+      },
+      "aggregation": {
+        "method": "분기·상권에 해당하는 원본 단일 열. 환산·업종합산 없음",
+        "sourceColumn": "시간대_11_14_유동인구_수",
+        "currentRows": 1,
+        "previousRows": 1,
+        "rawColumnIndex": 16,
+        "optionLabel": "11–14시"
+      },
+      "expectedExact": {
+        "value": 221211,
+        "previous": 240347,
+        "delta": -19136
+      },
+      "expectedDisplay": {
+        "value": "221,211",
+        "previous": "240,347",
+        "delta": "-19,136",
+        "period": "2026년 2분기",
+        "previousPeriod": "2026년 1분기"
+      },
+      "meaning": "분기 제공 유동인구 지표의 원본 추정값이며 특정 날짜의 체류·출입 인원이 아닙니다.",
+      "forbiddenMeanings": [
+        "일 고유 방문자",
+        "확정 일평균",
+        "분기 고유 인원",
+        "생활이동 OD 건수",
+        "성×연령×요일×시간 교차 인구"
+      ],
+      "assertions": [
+        "매출 업종 선택이 인구에 적용되지 않는다",
+        "분포 차원은 한 번에 한 가지이다",
+        "원본 단위와 기준분기가 보인다",
+        "이 값과2025년매출을나눠전환율을만들지않는다",
+        "옵션 11–14시는 원본 열 시간대_11_14_유동인구_수에 대응한다"
+      ]
+    },
+    {
+      "id": "population-gongdeok-time3",
+      "title": "공덕역 분기 제공 유동인구 · 14–17시",
+      "dataset": "marketPopulation",
+      "sourceIds": [
+        "marketPopulation",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20262",
+        "previousPeriod": "20261",
+        "industry": "not-applicable",
+        "dimension": "time",
+        "band": 3,
+        "unit": "명(원본 추정치)"
+      },
+      "aggregation": {
+        "method": "분기·상권에 해당하는 원본 단일 열. 환산·업종합산 없음",
+        "sourceColumn": "시간대_14_17_유동인구_수",
+        "currentRows": 1,
+        "previousRows": 1,
+        "rawColumnIndex": 17,
+        "optionLabel": "14–17시"
+      },
+      "expectedExact": {
+        "value": 218023,
+        "previous": 242047,
+        "delta": -24024
+      },
+      "expectedDisplay": {
+        "value": "218,023",
+        "previous": "242,047",
+        "delta": "-24,024",
+        "period": "2026년 2분기",
+        "previousPeriod": "2026년 1분기"
+      },
+      "meaning": "분기 제공 유동인구 지표의 원본 추정값이며 특정 날짜의 체류·출입 인원이 아닙니다.",
+      "forbiddenMeanings": [
+        "일 고유 방문자",
+        "확정 일평균",
+        "분기 고유 인원",
+        "생활이동 OD 건수",
+        "성×연령×요일×시간 교차 인구"
+      ],
+      "assertions": [
+        "매출 업종 선택이 인구에 적용되지 않는다",
+        "분포 차원은 한 번에 한 가지이다",
+        "원본 단위와 기준분기가 보인다",
+        "이 값과2025년매출을나눠전환율을만들지않는다",
+        "옵션 14–17시는 원본 열 시간대_14_17_유동인구_수에 대응한다"
+      ]
+    },
+    {
+      "id": "population-gongdeok-time5",
+      "title": "공덕역 분기 제공 유동인구 · 21–24시",
+      "dataset": "marketPopulation",
+      "sourceIds": [
+        "marketPopulation",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20262",
+        "previousPeriod": "20261",
+        "industry": "not-applicable",
+        "dimension": "time",
+        "band": 5,
+        "unit": "명(원본 추정치)"
+      },
+      "aggregation": {
+        "method": "분기·상권에 해당하는 원본 단일 열. 환산·업종합산 없음",
+        "sourceColumn": "시간대_21_24_유동인구_수",
+        "currentRows": 1,
+        "previousRows": 1,
+        "rawColumnIndex": 19,
+        "optionLabel": "21–24시"
+      },
+      "expectedExact": {
+        "value": 119169,
+        "previous": 132006,
+        "delta": -12837
+      },
+      "expectedDisplay": {
+        "value": "119,169",
+        "previous": "132,006",
+        "delta": "-12,837",
+        "period": "2026년 2분기",
+        "previousPeriod": "2026년 1분기"
+      },
+      "meaning": "분기 제공 유동인구 지표의 원본 추정값이며 특정 날짜의 체류·출입 인원이 아닙니다.",
+      "forbiddenMeanings": [
+        "일 고유 방문자",
+        "확정 일평균",
+        "분기 고유 인원",
+        "생활이동 OD 건수",
+        "성×연령×요일×시간 교차 인구"
+      ],
+      "assertions": [
+        "매출 업종 선택이 인구에 적용되지 않는다",
+        "분포 차원은 한 번에 한 가지이다",
+        "원본 단위와 기준분기가 보인다",
+        "이 값과2025년매출을나눠전환율을만들지않는다",
+        "옵션 21–24시는 원본 열 시간대_21_24_유동인구_수에 대응한다"
+      ]
+    },
+    {
+      "id": "population-gongdeok-age10",
+      "title": "공덕역 분기 제공 유동인구 · 10대",
+      "dataset": "marketPopulation",
+      "sourceIds": [
+        "marketPopulation",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20262",
+        "previousPeriod": "20261",
+        "industry": "not-applicable",
+        "dimension": "age",
+        "band": 0,
+        "unit": "명(원본 추정치)"
+      },
+      "aggregation": {
+        "method": "분기·상권에 해당하는 원본 단일 열. 환산·업종합산 없음",
+        "sourceColumn": "연령대_10_유동인구_수",
+        "currentRows": 1,
+        "previousRows": 1,
+        "rawColumnIndex": 8,
+        "optionLabel": "10대"
+      },
+      "expectedExact": {
+        "value": 171732,
+        "previous": 174486,
+        "delta": -2754
+      },
+      "expectedDisplay": {
+        "value": "171,732",
+        "previous": "174,486",
+        "delta": "-2,754",
+        "period": "2026년 2분기",
+        "previousPeriod": "2026년 1분기"
+      },
+      "meaning": "분기 제공 유동인구 지표의 원본 추정값이며 특정 날짜의 체류·출입 인원이 아닙니다.",
+      "forbiddenMeanings": [
+        "일 고유 방문자",
+        "확정 일평균",
+        "분기 고유 인원",
+        "생활이동 OD 건수",
+        "성×연령×요일×시간 교차 인구"
+      ],
+      "assertions": [
+        "매출 업종 선택이 인구에 적용되지 않는다",
+        "분포 차원은 한 번에 한 가지이다",
+        "원본 단위와 기준분기가 보인다",
+        "이 값과2025년매출을나눠전환율을만들지않는다",
+        "옵션 10대는 원본 열 연령대_10_유동인구_수에 대응한다"
+      ]
+    },
+    {
+      "id": "population-gongdeok-age30",
+      "title": "공덕역 분기 제공 유동인구 · 30대",
+      "dataset": "marketPopulation",
+      "sourceIds": [
+        "marketPopulation",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20262",
+        "previousPeriod": "20261",
+        "industry": "not-applicable",
+        "dimension": "age",
+        "band": 2,
+        "unit": "명(원본 추정치)"
+      },
+      "aggregation": {
+        "method": "분기·상권에 해당하는 원본 단일 열. 환산·업종합산 없음",
+        "sourceColumn": "연령대_30_유동인구_수",
+        "currentRows": 1,
+        "previousRows": 1,
+        "rawColumnIndex": 10,
+        "optionLabel": "30대"
+      },
+      "expectedExact": {
+        "value": 260844,
+        "previous": 297361,
+        "delta": -36517
+      },
+      "expectedDisplay": {
+        "value": "260,844",
+        "previous": "297,361",
+        "delta": "-36,517",
+        "period": "2026년 2분기",
+        "previousPeriod": "2026년 1분기"
+      },
+      "meaning": "분기 제공 유동인구 지표의 원본 추정값이며 특정 날짜의 체류·출입 인원이 아닙니다.",
+      "forbiddenMeanings": [
+        "일 고유 방문자",
+        "확정 일평균",
+        "분기 고유 인원",
+        "생활이동 OD 건수",
+        "성×연령×요일×시간 교차 인구"
+      ],
+      "assertions": [
+        "매출 업종 선택이 인구에 적용되지 않는다",
+        "분포 차원은 한 번에 한 가지이다",
+        "원본 단위와 기준분기가 보인다",
+        "이 값과2025년매출을나눠전환율을만들지않는다",
+        "옵션 30대는 원본 열 연령대_30_유동인구_수에 대응한다"
+      ]
+    },
+    {
+      "id": "population-gongdeok-age40",
+      "title": "공덕역 분기 제공 유동인구 · 40대",
+      "dataset": "marketPopulation",
+      "sourceIds": [
+        "marketPopulation",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20262",
+        "previousPeriod": "20261",
+        "industry": "not-applicable",
+        "dimension": "age",
+        "band": 3,
+        "unit": "명(원본 추정치)"
+      },
+      "aggregation": {
+        "method": "분기·상권에 해당하는 원본 단일 열. 환산·업종합산 없음",
+        "sourceColumn": "연령대_40_유동인구_수",
+        "currentRows": 1,
+        "previousRows": 1,
+        "rawColumnIndex": 11,
+        "optionLabel": "40대"
+      },
+      "expectedExact": {
+        "value": 245345,
+        "previous": 265364,
+        "delta": -20019
+      },
+      "expectedDisplay": {
+        "value": "245,345",
+        "previous": "265,364",
+        "delta": "-20,019",
+        "period": "2026년 2분기",
+        "previousPeriod": "2026년 1분기"
+      },
+      "meaning": "분기 제공 유동인구 지표의 원본 추정값이며 특정 날짜의 체류·출입 인원이 아닙니다.",
+      "forbiddenMeanings": [
+        "일 고유 방문자",
+        "확정 일평균",
+        "분기 고유 인원",
+        "생활이동 OD 건수",
+        "성×연령×요일×시간 교차 인구"
+      ],
+      "assertions": [
+        "매출 업종 선택이 인구에 적용되지 않는다",
+        "분포 차원은 한 번에 한 가지이다",
+        "원본 단위와 기준분기가 보인다",
+        "이 값과2025년매출을나눠전환율을만들지않는다",
+        "옵션 40대는 원본 열 연령대_40_유동인구_수에 대응한다"
+      ]
+    },
+    {
+      "id": "population-gongdeok-age50",
+      "title": "공덕역 분기 제공 유동인구 · 50대",
+      "dataset": "marketPopulation",
+      "sourceIds": [
+        "marketPopulation",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20262",
+        "previousPeriod": "20261",
+        "industry": "not-applicable",
+        "dimension": "age",
+        "band": 4,
+        "unit": "명(원본 추정치)"
+      },
+      "aggregation": {
+        "method": "분기·상권에 해당하는 원본 단일 열. 환산·업종합산 없음",
+        "sourceColumn": "연령대_50_유동인구_수",
+        "currentRows": 1,
+        "previousRows": 1,
+        "rawColumnIndex": 12,
+        "optionLabel": "50대"
+      },
+      "expectedExact": {
+        "value": 195140,
+        "previous": 210909,
+        "delta": -15769
+      },
+      "expectedDisplay": {
+        "value": "195,140",
+        "previous": "210,909",
+        "delta": "-15,769",
+        "period": "2026년 2분기",
+        "previousPeriod": "2026년 1분기"
+      },
+      "meaning": "분기 제공 유동인구 지표의 원본 추정값이며 특정 날짜의 체류·출입 인원이 아닙니다.",
+      "forbiddenMeanings": [
+        "일 고유 방문자",
+        "확정 일평균",
+        "분기 고유 인원",
+        "생활이동 OD 건수",
+        "성×연령×요일×시간 교차 인구"
+      ],
+      "assertions": [
+        "매출 업종 선택이 인구에 적용되지 않는다",
+        "분포 차원은 한 번에 한 가지이다",
+        "원본 단위와 기준분기가 보인다",
+        "이 값과2025년매출을나눠전환율을만들지않는다",
+        "옵션 50대는 원본 열 연령대_50_유동인구_수에 대응한다"
+      ]
+    },
+    {
+      "id": "population-gongdeok-age60",
+      "title": "공덕역 분기 제공 유동인구 · 60대 이상",
+      "dataset": "marketPopulation",
+      "sourceIds": [
+        "marketPopulation",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20262",
+        "previousPeriod": "20261",
+        "industry": "not-applicable",
+        "dimension": "age",
+        "band": 5,
+        "unit": "명(원본 추정치)"
+      },
+      "aggregation": {
+        "method": "분기·상권에 해당하는 원본 단일 열. 환산·업종합산 없음",
+        "sourceColumn": "연령대_60_이상_유동인구_수",
+        "currentRows": 1,
+        "previousRows": 1,
+        "rawColumnIndex": 13,
+        "optionLabel": "60대 이상"
+      },
+      "expectedExact": {
+        "value": 192780,
+        "previous": 215304,
+        "delta": -22524
+      },
+      "expectedDisplay": {
+        "value": "192,780",
+        "previous": "215,304",
+        "delta": "-22,524",
+        "period": "2026년 2분기",
+        "previousPeriod": "2026년 1분기"
+      },
+      "meaning": "분기 제공 유동인구 지표의 원본 추정값이며 특정 날짜의 체류·출입 인원이 아닙니다.",
+      "forbiddenMeanings": [
+        "일 고유 방문자",
+        "확정 일평균",
+        "분기 고유 인원",
+        "생활이동 OD 건수",
+        "성×연령×요일×시간 교차 인구"
+      ],
+      "assertions": [
+        "매출 업종 선택이 인구에 적용되지 않는다",
+        "분포 차원은 한 번에 한 가지이다",
+        "원본 단위와 기준분기가 보인다",
+        "이 값과2025년매출을나눠전환율을만들지않는다",
+        "옵션 60대 이상는 원본 열 연령대_60_이상_유동인구_수에 대응한다"
+      ]
+    },
+    {
+      "id": "population-gongdeok-monday",
+      "title": "공덕역 분기 제공 유동인구 · 월요일",
+      "dataset": "marketPopulation",
+      "sourceIds": [
+        "marketPopulation",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20262",
+        "previousPeriod": "20261",
+        "industry": "not-applicable",
+        "dimension": "day",
+        "band": 0,
+        "unit": "명(원본 추정치)"
+      },
+      "aggregation": {
+        "method": "분기·상권에 해당하는 원본 단일 열. 환산·업종합산 없음",
+        "sourceColumn": "월요일_유동인구_수",
+        "currentRows": 1,
+        "previousRows": 1,
+        "rawColumnIndex": 20,
+        "optionLabel": "월요일"
+      },
+      "expectedExact": {
+        "value": 187616,
+        "previous": 207633,
+        "delta": -20017
+      },
+      "expectedDisplay": {
+        "value": "187,616",
+        "previous": "207,633",
+        "delta": "-20,017",
+        "period": "2026년 2분기",
+        "previousPeriod": "2026년 1분기"
+      },
+      "meaning": "분기 제공 유동인구 지표의 원본 추정값이며 특정 날짜의 체류·출입 인원이 아닙니다.",
+      "forbiddenMeanings": [
+        "일 고유 방문자",
+        "확정 일평균",
+        "분기 고유 인원",
+        "생활이동 OD 건수",
+        "성×연령×요일×시간 교차 인구"
+      ],
+      "assertions": [
+        "매출 업종 선택이 인구에 적용되지 않는다",
+        "분포 차원은 한 번에 한 가지이다",
+        "원본 단위와 기준분기가 보인다",
+        "이 값과2025년매출을나눠전환율을만들지않는다",
+        "옵션 월요일는 원본 열 월요일_유동인구_수에 대응한다"
+      ]
+    },
+    {
+      "id": "population-gongdeok-tuesday",
+      "title": "공덕역 분기 제공 유동인구 · 화요일",
+      "dataset": "marketPopulation",
+      "sourceIds": [
+        "marketPopulation",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20262",
+        "previousPeriod": "20261",
+        "industry": "not-applicable",
+        "dimension": "day",
+        "band": 1,
+        "unit": "명(원본 추정치)"
+      },
+      "aggregation": {
+        "method": "분기·상권에 해당하는 원본 단일 열. 환산·업종합산 없음",
+        "sourceColumn": "화요일_유동인구_수",
+        "currentRows": 1,
+        "previousRows": 1,
+        "rawColumnIndex": 21,
+        "optionLabel": "화요일"
+      },
+      "expectedExact": {
+        "value": 191774,
+        "previous": 212235,
+        "delta": -20461
+      },
+      "expectedDisplay": {
+        "value": "191,774",
+        "previous": "212,235",
+        "delta": "-20,461",
+        "period": "2026년 2분기",
+        "previousPeriod": "2026년 1분기"
+      },
+      "meaning": "분기 제공 유동인구 지표의 원본 추정값이며 특정 날짜의 체류·출입 인원이 아닙니다.",
+      "forbiddenMeanings": [
+        "일 고유 방문자",
+        "확정 일평균",
+        "분기 고유 인원",
+        "생활이동 OD 건수",
+        "성×연령×요일×시간 교차 인구"
+      ],
+      "assertions": [
+        "매출 업종 선택이 인구에 적용되지 않는다",
+        "분포 차원은 한 번에 한 가지이다",
+        "원본 단위와 기준분기가 보인다",
+        "이 값과2025년매출을나눠전환율을만들지않는다",
+        "옵션 화요일는 원본 열 화요일_유동인구_수에 대응한다"
+      ]
+    },
+    {
+      "id": "population-gongdeok-wednesday",
+      "title": "공덕역 분기 제공 유동인구 · 수요일",
+      "dataset": "marketPopulation",
+      "sourceIds": [
+        "marketPopulation",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20262",
+        "previousPeriod": "20261",
+        "industry": "not-applicable",
+        "dimension": "day",
+        "band": 2,
+        "unit": "명(원본 추정치)"
+      },
+      "aggregation": {
+        "method": "분기·상권에 해당하는 원본 단일 열. 환산·업종합산 없음",
+        "sourceColumn": "수요일_유동인구_수",
+        "currentRows": 1,
+        "previousRows": 1,
+        "rawColumnIndex": 22,
+        "optionLabel": "수요일"
+      },
+      "expectedExact": {
+        "value": 191406,
+        "previous": 215547,
+        "delta": -24141
+      },
+      "expectedDisplay": {
+        "value": "191,406",
+        "previous": "215,547",
+        "delta": "-24,141",
+        "period": "2026년 2분기",
+        "previousPeriod": "2026년 1분기"
+      },
+      "meaning": "분기 제공 유동인구 지표의 원본 추정값이며 특정 날짜의 체류·출입 인원이 아닙니다.",
+      "forbiddenMeanings": [
+        "일 고유 방문자",
+        "확정 일평균",
+        "분기 고유 인원",
+        "생활이동 OD 건수",
+        "성×연령×요일×시간 교차 인구"
+      ],
+      "assertions": [
+        "매출 업종 선택이 인구에 적용되지 않는다",
+        "분포 차원은 한 번에 한 가지이다",
+        "원본 단위와 기준분기가 보인다",
+        "이 값과2025년매출을나눠전환율을만들지않는다",
+        "옵션 수요일는 원본 열 수요일_유동인구_수에 대응한다"
+      ]
+    },
+    {
+      "id": "population-gongdeok-thursday",
+      "title": "공덕역 분기 제공 유동인구 · 목요일",
+      "dataset": "marketPopulation",
+      "sourceIds": [
+        "marketPopulation",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20262",
+        "previousPeriod": "20261",
+        "industry": "not-applicable",
+        "dimension": "day",
+        "band": 3,
+        "unit": "명(원본 추정치)"
+      },
+      "aggregation": {
+        "method": "분기·상권에 해당하는 원본 단일 열. 환산·업종합산 없음",
+        "sourceColumn": "목요일_유동인구_수",
+        "currentRows": 1,
+        "previousRows": 1,
+        "rawColumnIndex": 23,
+        "optionLabel": "목요일"
+      },
+      "expectedExact": {
+        "value": 195594,
+        "previous": 211016,
+        "delta": -15422
+      },
+      "expectedDisplay": {
+        "value": "195,594",
+        "previous": "211,016",
+        "delta": "-15,422",
+        "period": "2026년 2분기",
+        "previousPeriod": "2026년 1분기"
+      },
+      "meaning": "분기 제공 유동인구 지표의 원본 추정값이며 특정 날짜의 체류·출입 인원이 아닙니다.",
+      "forbiddenMeanings": [
+        "일 고유 방문자",
+        "확정 일평균",
+        "분기 고유 인원",
+        "생활이동 OD 건수",
+        "성×연령×요일×시간 교차 인구"
+      ],
+      "assertions": [
+        "매출 업종 선택이 인구에 적용되지 않는다",
+        "분포 차원은 한 번에 한 가지이다",
+        "원본 단위와 기준분기가 보인다",
+        "이 값과2025년매출을나눠전환율을만들지않는다",
+        "옵션 목요일는 원본 열 목요일_유동인구_수에 대응한다"
+      ]
+    },
+    {
+      "id": "population-gongdeok-saturday",
+      "title": "공덕역 분기 제공 유동인구 · 토요일",
+      "dataset": "marketPopulation",
+      "sourceIds": [
+        "marketPopulation",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20262",
+        "previousPeriod": "20261",
+        "industry": "not-applicable",
+        "dimension": "day",
+        "band": 5,
+        "unit": "명(원본 추정치)"
+      },
+      "aggregation": {
+        "method": "분기·상권에 해당하는 원본 단일 열. 환산·업종합산 없음",
+        "sourceColumn": "토요일_유동인구_수",
+        "currentRows": 1,
+        "previousRows": 1,
+        "rawColumnIndex": 25,
+        "optionLabel": "토요일"
+      },
+      "expectedExact": {
+        "value": 146631,
+        "previous": 163694,
+        "delta": -17063
+      },
+      "expectedDisplay": {
+        "value": "146,631",
+        "previous": "163,694",
+        "delta": "-17,063",
+        "period": "2026년 2분기",
+        "previousPeriod": "2026년 1분기"
+      },
+      "meaning": "분기 제공 유동인구 지표의 원본 추정값이며 특정 날짜의 체류·출입 인원이 아닙니다.",
+      "forbiddenMeanings": [
+        "일 고유 방문자",
+        "확정 일평균",
+        "분기 고유 인원",
+        "생활이동 OD 건수",
+        "성×연령×요일×시간 교차 인구"
+      ],
+      "assertions": [
+        "매출 업종 선택이 인구에 적용되지 않는다",
+        "분포 차원은 한 번에 한 가지이다",
+        "원본 단위와 기준분기가 보인다",
+        "이 값과2025년매출을나눠전환율을만들지않는다",
+        "옵션 토요일는 원본 열 토요일_유동인구_수에 대응한다"
+      ]
+    },
+    {
+      "id": "population-gongdeok-sunday",
+      "title": "공덕역 분기 제공 유동인구 · 일요일",
+      "dataset": "marketPopulation",
+      "sourceIds": [
+        "marketPopulation",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20262",
+        "previousPeriod": "20261",
+        "industry": "not-applicable",
+        "dimension": "day",
+        "band": 6,
+        "unit": "명(원본 추정치)"
+      },
+      "aggregation": {
+        "method": "분기·상권에 해당하는 원본 단일 열. 환산·업종합산 없음",
+        "sourceColumn": "일요일_유동인구_수",
+        "currentRows": 1,
+        "previousRows": 1,
+        "rawColumnIndex": 26,
+        "optionLabel": "일요일"
+      },
+      "expectedExact": {
+        "value": 133137,
+        "previous": 145052,
+        "delta": -11915
+      },
+      "expectedDisplay": {
+        "value": "133,137",
+        "previous": "145,052",
+        "delta": "-11,915",
+        "period": "2026년 2분기",
+        "previousPeriod": "2026년 1분기"
+      },
+      "meaning": "분기 제공 유동인구 지표의 원본 추정값이며 특정 날짜의 체류·출입 인원이 아닙니다.",
+      "forbiddenMeanings": [
+        "일 고유 방문자",
+        "확정 일평균",
+        "분기 고유 인원",
+        "생활이동 OD 건수",
+        "성×연령×요일×시간 교차 인구"
+      ],
+      "assertions": [
+        "매출 업종 선택이 인구에 적용되지 않는다",
+        "분포 차원은 한 번에 한 가지이다",
+        "원본 단위와 기준분기가 보인다",
+        "이 값과2025년매출을나눠전환율을만들지않는다",
+        "옵션 일요일는 원본 열 일요일_유동인구_수에 대응한다"
+      ]
+    },
+    {
+      "id": "sales-gongdeok-industry-CS100002",
+      "title": "공덕역 매출 · 중식음식점",
+      "dataset": "marketSales",
+      "sourceIds": [
+        "marketSales",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20254",
+        "previousPeriod": "20253",
+        "industry": "CS100002",
+        "dimension": "all",
+        "band": null,
+        "unit": "원",
+        "industryName": "중식음식점"
+      },
+      "aggregation": {
+        "method": "원본 상권·업종 행의 선택된 단일 열 합",
+        "currentRows": 0,
+        "previousRows": 0,
+        "sourceColumn": "당월_매출_금액",
+        "rawColumnIndex": 7,
+        "optionLabel": "중식음식점"
+      },
+      "expectedExact": {
+        "value": null,
+        "previous": null,
+        "delta": null
+      },
+      "expectedDisplay": {
+        "value": "자료 없음",
+        "previous": "자료 없음",
+        "delta": "자료 없음",
+        "period": "2025년 4분기",
+        "previousPeriod": "2025년 3분기"
+      },
+      "meaning": "같은 상권·업종·세부 분포를 두 분기에서 조회한 추정매출과 차이입니다.",
+      "forbiddenMeanings": [
+        "개별 점포 실제 회계매출",
+        "광고 효과",
+        "여성×20대×금요일×시간대 결합 매출",
+        "일별 또는 월별 관측치",
+        "원본 행 부재를 매출 0원이나 폐업으로 해석"
+      ],
+      "assertions": [
+        "상권코드가3120107이다",
+        "선택 분기와 직전 분기는 같은 업종·차원을 사용한다",
+        "지도·상세·추이·CSV가 같은 원값을 사용한다",
+        "성·연령 분포 합을 전체매출과 억지로 같게 만들지 않는다",
+        "업종 이름 중식음식점와 원본 코드 CS100002가 대응한다",
+        "선택 업종 원본행이 없으면 null이며 0으로 대체하지 않는다",
+        "어느 분기든 null이면 전분기 차이도 null이다",
+        "자료 없는 분기는 추이에서 null 지점이며 값을 만들지 않는다"
+      ]
+    },
+    {
+      "id": "sales-gongdeok-industry-CS100003",
+      "title": "공덕역 매출 · 일식음식점",
+      "dataset": "marketSales",
+      "sourceIds": [
+        "marketSales",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20254",
+        "previousPeriod": "20253",
+        "industry": "CS100003",
+        "dimension": "all",
+        "band": null,
+        "unit": "원",
+        "industryName": "일식음식점"
+      },
+      "aggregation": {
+        "method": "원본 상권·업종 행의 선택된 단일 열 합",
+        "currentRows": 1,
+        "previousRows": 1,
+        "sourceColumn": "당월_매출_금액",
+        "rawColumnIndex": 7,
+        "optionLabel": "일식음식점"
+      },
+      "expectedExact": {
+        "value": 812193776,
+        "previous": 768727621,
+        "delta": 43466155
+      },
+      "expectedDisplay": {
+        "value": "812,193,776",
+        "previous": "768,727,621",
+        "delta": "+43,466,155",
+        "period": "2025년 4분기",
+        "previousPeriod": "2025년 3분기"
+      },
+      "meaning": "같은 상권·업종·세부 분포를 두 분기에서 조회한 추정매출과 차이입니다.",
+      "forbiddenMeanings": [
+        "개별 점포 실제 회계매출",
+        "광고 효과",
+        "여성×20대×금요일×시간대 결합 매출",
+        "일별 또는 월별 관측치",
+        "원본 행 부재를 매출 0원이나 폐업으로 해석"
+      ],
+      "assertions": [
+        "상권코드가3120107이다",
+        "선택 분기와 직전 분기는 같은 업종·차원을 사용한다",
+        "지도·상세·추이·CSV가 같은 원값을 사용한다",
+        "성·연령 분포 합을 전체매출과 억지로 같게 만들지 않는다",
+        "업종 이름 일식음식점와 원본 코드 CS100003가 대응한다",
+        "선택 업종 원본행이 없으면 null이며 0으로 대체하지 않는다",
+        "어느 분기든 null이면 전분기 차이도 null이다",
+        "자료 없는 분기는 추이에서 null 지점이며 값을 만들지 않는다"
+      ]
+    },
+    {
+      "id": "sales-gongdeok-industry-CS100004",
+      "title": "공덕역 매출 · 양식음식점",
+      "dataset": "marketSales",
+      "sourceIds": [
+        "marketSales",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20254",
+        "previousPeriod": "20253",
+        "industry": "CS100004",
+        "dimension": "all",
+        "band": null,
+        "unit": "원",
+        "industryName": "양식음식점"
+      },
+      "aggregation": {
+        "method": "원본 상권·업종 행의 선택된 단일 열 합",
+        "currentRows": 1,
+        "previousRows": 1,
+        "sourceColumn": "당월_매출_금액",
+        "rawColumnIndex": 7,
+        "optionLabel": "양식음식점"
+      },
+      "expectedExact": {
+        "value": 183949171,
+        "previous": 292114910,
+        "delta": -108165739
+      },
+      "expectedDisplay": {
+        "value": "183,949,171",
+        "previous": "292,114,910",
+        "delta": "-108,165,739",
+        "period": "2025년 4분기",
+        "previousPeriod": "2025년 3분기"
+      },
+      "meaning": "같은 상권·업종·세부 분포를 두 분기에서 조회한 추정매출과 차이입니다.",
+      "forbiddenMeanings": [
+        "개별 점포 실제 회계매출",
+        "광고 효과",
+        "여성×20대×금요일×시간대 결합 매출",
+        "일별 또는 월별 관측치",
+        "원본 행 부재를 매출 0원이나 폐업으로 해석"
+      ],
+      "assertions": [
+        "상권코드가3120107이다",
+        "선택 분기와 직전 분기는 같은 업종·차원을 사용한다",
+        "지도·상세·추이·CSV가 같은 원값을 사용한다",
+        "성·연령 분포 합을 전체매출과 억지로 같게 만들지 않는다",
+        "업종 이름 양식음식점와 원본 코드 CS100004가 대응한다",
+        "선택 업종 원본행이 없으면 null이며 0으로 대체하지 않는다",
+        "어느 분기든 null이면 전분기 차이도 null이다",
+        "자료 없는 분기는 추이에서 null 지점이며 값을 만들지 않는다"
+      ]
+    },
+    {
+      "id": "sales-gongdeok-industry-CS100005",
+      "title": "공덕역 매출 · 제과점",
+      "dataset": "marketSales",
+      "sourceIds": [
+        "marketSales",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20254",
+        "previousPeriod": "20253",
+        "industry": "CS100005",
+        "dimension": "all",
+        "band": null,
+        "unit": "원",
+        "industryName": "제과점"
+      },
+      "aggregation": {
+        "method": "원본 상권·업종 행의 선택된 단일 열 합",
+        "currentRows": 1,
+        "previousRows": 1,
+        "sourceColumn": "당월_매출_금액",
+        "rawColumnIndex": 7,
+        "optionLabel": "제과점"
+      },
+      "expectedExact": {
+        "value": 1487067783,
+        "previous": 1332328404,
+        "delta": 154739379
+      },
+      "expectedDisplay": {
+        "value": "1,487,067,783",
+        "previous": "1,332,328,404",
+        "delta": "+154,739,379",
+        "period": "2025년 4분기",
+        "previousPeriod": "2025년 3분기"
+      },
+      "meaning": "같은 상권·업종·세부 분포를 두 분기에서 조회한 추정매출과 차이입니다.",
+      "forbiddenMeanings": [
+        "개별 점포 실제 회계매출",
+        "광고 효과",
+        "여성×20대×금요일×시간대 결합 매출",
+        "일별 또는 월별 관측치",
+        "원본 행 부재를 매출 0원이나 폐업으로 해석"
+      ],
+      "assertions": [
+        "상권코드가3120107이다",
+        "선택 분기와 직전 분기는 같은 업종·차원을 사용한다",
+        "지도·상세·추이·CSV가 같은 원값을 사용한다",
+        "성·연령 분포 합을 전체매출과 억지로 같게 만들지 않는다",
+        "업종 이름 제과점와 원본 코드 CS100005가 대응한다",
+        "선택 업종 원본행이 없으면 null이며 0으로 대체하지 않는다",
+        "어느 분기든 null이면 전분기 차이도 null이다",
+        "자료 없는 분기는 추이에서 null 지점이며 값을 만들지 않는다"
+      ]
+    },
+    {
+      "id": "sales-gongdeok-industry-CS100006",
+      "title": "공덕역 매출 · 패스트푸드점",
+      "dataset": "marketSales",
+      "sourceIds": [
+        "marketSales",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20254",
+        "previousPeriod": "20253",
+        "industry": "CS100006",
+        "dimension": "all",
+        "band": null,
+        "unit": "원",
+        "industryName": "패스트푸드점"
+      },
+      "aggregation": {
+        "method": "원본 상권·업종 행의 선택된 단일 열 합",
+        "currentRows": 1,
+        "previousRows": 1,
+        "sourceColumn": "당월_매출_금액",
+        "rawColumnIndex": 7,
+        "optionLabel": "패스트푸드점"
+      },
+      "expectedExact": {
+        "value": 108967314,
+        "previous": 77354044,
+        "delta": 31613270
+      },
+      "expectedDisplay": {
+        "value": "108,967,314",
+        "previous": "77,354,044",
+        "delta": "+31,613,270",
+        "period": "2025년 4분기",
+        "previousPeriod": "2025년 3분기"
+      },
+      "meaning": "같은 상권·업종·세부 분포를 두 분기에서 조회한 추정매출과 차이입니다.",
+      "forbiddenMeanings": [
+        "개별 점포 실제 회계매출",
+        "광고 효과",
+        "여성×20대×금요일×시간대 결합 매출",
+        "일별 또는 월별 관측치",
+        "원본 행 부재를 매출 0원이나 폐업으로 해석"
+      ],
+      "assertions": [
+        "상권코드가3120107이다",
+        "선택 분기와 직전 분기는 같은 업종·차원을 사용한다",
+        "지도·상세·추이·CSV가 같은 원값을 사용한다",
+        "성·연령 분포 합을 전체매출과 억지로 같게 만들지 않는다",
+        "업종 이름 패스트푸드점와 원본 코드 CS100006가 대응한다",
+        "선택 업종 원본행이 없으면 null이며 0으로 대체하지 않는다",
+        "어느 분기든 null이면 전분기 차이도 null이다",
+        "자료 없는 분기는 추이에서 null 지점이며 값을 만들지 않는다"
+      ]
+    },
+    {
+      "id": "sales-gongdeok-industry-CS100007",
+      "title": "공덕역 매출 · 치킨전문점",
+      "dataset": "marketSales",
+      "sourceIds": [
+        "marketSales",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20254",
+        "previousPeriod": "20253",
+        "industry": "CS100007",
+        "dimension": "all",
+        "band": null,
+        "unit": "원",
+        "industryName": "치킨전문점"
+      },
+      "aggregation": {
+        "method": "원본 상권·업종 행의 선택된 단일 열 합",
+        "currentRows": 1,
+        "previousRows": 1,
+        "sourceColumn": "당월_매출_금액",
+        "rawColumnIndex": 7,
+        "optionLabel": "치킨전문점"
+      },
+      "expectedExact": {
+        "value": 235836871,
+        "previous": 243794802,
+        "delta": -7957931
+      },
+      "expectedDisplay": {
+        "value": "235,836,871",
+        "previous": "243,794,802",
+        "delta": "-7,957,931",
+        "period": "2025년 4분기",
+        "previousPeriod": "2025년 3분기"
+      },
+      "meaning": "같은 상권·업종·세부 분포를 두 분기에서 조회한 추정매출과 차이입니다.",
+      "forbiddenMeanings": [
+        "개별 점포 실제 회계매출",
+        "광고 효과",
+        "여성×20대×금요일×시간대 결합 매출",
+        "일별 또는 월별 관측치",
+        "원본 행 부재를 매출 0원이나 폐업으로 해석"
+      ],
+      "assertions": [
+        "상권코드가3120107이다",
+        "선택 분기와 직전 분기는 같은 업종·차원을 사용한다",
+        "지도·상세·추이·CSV가 같은 원값을 사용한다",
+        "성·연령 분포 합을 전체매출과 억지로 같게 만들지 않는다",
+        "업종 이름 치킨전문점와 원본 코드 CS100007가 대응한다",
+        "선택 업종 원본행이 없으면 null이며 0으로 대체하지 않는다",
+        "어느 분기든 null이면 전분기 차이도 null이다",
+        "자료 없는 분기는 추이에서 null 지점이며 값을 만들지 않는다"
+      ]
+    },
+    {
+      "id": "sales-gongdeok-industry-CS100008",
+      "title": "공덕역 매출 · 분식전문점",
+      "dataset": "marketSales",
+      "sourceIds": [
+        "marketSales",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20254",
+        "previousPeriod": "20253",
+        "industry": "CS100008",
+        "dimension": "all",
+        "band": null,
+        "unit": "원",
+        "industryName": "분식전문점"
+      },
+      "aggregation": {
+        "method": "원본 상권·업종 행의 선택된 단일 열 합",
+        "currentRows": 1,
+        "previousRows": 1,
+        "sourceColumn": "당월_매출_금액",
+        "rawColumnIndex": 7,
+        "optionLabel": "분식전문점"
+      },
+      "expectedExact": {
+        "value": 1185812269,
+        "previous": 1431029407,
+        "delta": -245217138
+      },
+      "expectedDisplay": {
+        "value": "1,185,812,269",
+        "previous": "1,431,029,407",
+        "delta": "-245,217,138",
+        "period": "2025년 4분기",
+        "previousPeriod": "2025년 3분기"
+      },
+      "meaning": "같은 상권·업종·세부 분포를 두 분기에서 조회한 추정매출과 차이입니다.",
+      "forbiddenMeanings": [
+        "개별 점포 실제 회계매출",
+        "광고 효과",
+        "여성×20대×금요일×시간대 결합 매출",
+        "일별 또는 월별 관측치",
+        "원본 행 부재를 매출 0원이나 폐업으로 해석"
+      ],
+      "assertions": [
+        "상권코드가3120107이다",
+        "선택 분기와 직전 분기는 같은 업종·차원을 사용한다",
+        "지도·상세·추이·CSV가 같은 원값을 사용한다",
+        "성·연령 분포 합을 전체매출과 억지로 같게 만들지 않는다",
+        "업종 이름 분식전문점와 원본 코드 CS100008가 대응한다",
+        "선택 업종 원본행이 없으면 null이며 0으로 대체하지 않는다",
+        "어느 분기든 null이면 전분기 차이도 null이다",
+        "자료 없는 분기는 추이에서 null 지점이며 값을 만들지 않는다"
+      ]
+    },
+    {
+      "id": "sales-gongdeok-industry-CS100009",
+      "title": "공덕역 매출 · 호프-간이주점",
+      "dataset": "marketSales",
+      "sourceIds": [
+        "marketSales",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20254",
+        "previousPeriod": "20253",
+        "industry": "CS100009",
+        "dimension": "all",
+        "band": null,
+        "unit": "원",
+        "industryName": "호프-간이주점"
+      },
+      "aggregation": {
+        "method": "원본 상권·업종 행의 선택된 단일 열 합",
+        "currentRows": 1,
+        "previousRows": 1,
+        "sourceColumn": "당월_매출_금액",
+        "rawColumnIndex": 7,
+        "optionLabel": "호프-간이주점"
+      },
+      "expectedExact": {
+        "value": 745207300,
+        "previous": 695301914,
+        "delta": 49905386
+      },
+      "expectedDisplay": {
+        "value": "745,207,300",
+        "previous": "695,301,914",
+        "delta": "+49,905,386",
+        "period": "2025년 4분기",
+        "previousPeriod": "2025년 3분기"
+      },
+      "meaning": "같은 상권·업종·세부 분포를 두 분기에서 조회한 추정매출과 차이입니다.",
+      "forbiddenMeanings": [
+        "개별 점포 실제 회계매출",
+        "광고 효과",
+        "여성×20대×금요일×시간대 결합 매출",
+        "일별 또는 월별 관측치",
+        "원본 행 부재를 매출 0원이나 폐업으로 해석"
+      ],
+      "assertions": [
+        "상권코드가3120107이다",
+        "선택 분기와 직전 분기는 같은 업종·차원을 사용한다",
+        "지도·상세·추이·CSV가 같은 원값을 사용한다",
+        "성·연령 분포 합을 전체매출과 억지로 같게 만들지 않는다",
+        "업종 이름 호프-간이주점와 원본 코드 CS100009가 대응한다",
+        "선택 업종 원본행이 없으면 null이며 0으로 대체하지 않는다",
+        "어느 분기든 null이면 전분기 차이도 null이다",
+        "자료 없는 분기는 추이에서 null 지점이며 값을 만들지 않는다"
+      ]
+    },
+    {
+      "id": "sales-gongdeok-industry-CS100010",
+      "title": "공덕역 매출 · 커피-음료",
+      "dataset": "marketSales",
+      "sourceIds": [
+        "marketSales",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20254",
+        "previousPeriod": "20253",
+        "industry": "CS100010",
+        "dimension": "all",
+        "band": null,
+        "unit": "원",
+        "industryName": "커피-음료"
+      },
+      "aggregation": {
+        "method": "원본 상권·업종 행의 선택된 단일 열 합",
+        "currentRows": 1,
+        "previousRows": 1,
+        "sourceColumn": "당월_매출_금액",
+        "rawColumnIndex": 7,
+        "optionLabel": "커피-음료"
+      },
+      "expectedExact": {
+        "value": 1457012606,
+        "previous": 1663654230,
+        "delta": -206641624
+      },
+      "expectedDisplay": {
+        "value": "1,457,012,606",
+        "previous": "1,663,654,230",
+        "delta": "-206,641,624",
+        "period": "2025년 4분기",
+        "previousPeriod": "2025년 3분기"
+      },
+      "meaning": "같은 상권·업종·세부 분포를 두 분기에서 조회한 추정매출과 차이입니다.",
+      "forbiddenMeanings": [
+        "개별 점포 실제 회계매출",
+        "광고 효과",
+        "여성×20대×금요일×시간대 결합 매출",
+        "일별 또는 월별 관측치",
+        "원본 행 부재를 매출 0원이나 폐업으로 해석"
+      ],
+      "assertions": [
+        "상권코드가3120107이다",
+        "선택 분기와 직전 분기는 같은 업종·차원을 사용한다",
+        "지도·상세·추이·CSV가 같은 원값을 사용한다",
+        "성·연령 분포 합을 전체매출과 억지로 같게 만들지 않는다",
+        "업종 이름 커피-음료와 원본 코드 CS100010가 대응한다",
+        "선택 업종 원본행이 없으면 null이며 0으로 대체하지 않는다",
+        "어느 분기든 null이면 전분기 차이도 null이다",
+        "자료 없는 분기는 추이에서 null 지점이며 값을 만들지 않는다"
+      ]
+    },
+    {
+      "id": "sales-gongdeok-industry-CS200001",
+      "title": "공덕역 매출 · 일반교습학원",
+      "dataset": "marketSales",
+      "sourceIds": [
+        "marketSales",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20254",
+        "previousPeriod": "20253",
+        "industry": "CS200001",
+        "dimension": "all",
+        "band": null,
+        "unit": "원",
+        "industryName": "일반교습학원"
+      },
+      "aggregation": {
+        "method": "원본 상권·업종 행의 선택된 단일 열 합",
+        "currentRows": 0,
+        "previousRows": 0,
+        "sourceColumn": "당월_매출_금액",
+        "rawColumnIndex": 7,
+        "optionLabel": "일반교습학원"
+      },
+      "expectedExact": {
+        "value": null,
+        "previous": null,
+        "delta": null
+      },
+      "expectedDisplay": {
+        "value": "자료 없음",
+        "previous": "자료 없음",
+        "delta": "자료 없음",
+        "period": "2025년 4분기",
+        "previousPeriod": "2025년 3분기"
+      },
+      "meaning": "같은 상권·업종·세부 분포를 두 분기에서 조회한 추정매출과 차이입니다.",
+      "forbiddenMeanings": [
+        "개별 점포 실제 회계매출",
+        "광고 효과",
+        "여성×20대×금요일×시간대 결합 매출",
+        "일별 또는 월별 관측치",
+        "원본 행 부재를 매출 0원이나 폐업으로 해석"
+      ],
+      "assertions": [
+        "상권코드가3120107이다",
+        "선택 분기와 직전 분기는 같은 업종·차원을 사용한다",
+        "지도·상세·추이·CSV가 같은 원값을 사용한다",
+        "성·연령 분포 합을 전체매출과 억지로 같게 만들지 않는다",
+        "업종 이름 일반교습학원와 원본 코드 CS200001가 대응한다",
+        "선택 업종 원본행이 없으면 null이며 0으로 대체하지 않는다",
+        "어느 분기든 null이면 전분기 차이도 null이다",
+        "자료 없는 분기는 추이에서 null 지점이며 값을 만들지 않는다"
+      ]
+    },
+    {
+      "id": "sales-gongdeok-industry-CS200002",
+      "title": "공덕역 매출 · 외국어학원",
+      "dataset": "marketSales",
+      "sourceIds": [
+        "marketSales",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20254",
+        "previousPeriod": "20253",
+        "industry": "CS200002",
+        "dimension": "all",
+        "band": null,
+        "unit": "원",
+        "industryName": "외국어학원"
+      },
+      "aggregation": {
+        "method": "원본 상권·업종 행의 선택된 단일 열 합",
+        "currentRows": 0,
+        "previousRows": 0,
+        "sourceColumn": "당월_매출_금액",
+        "rawColumnIndex": 7,
+        "optionLabel": "외국어학원"
+      },
+      "expectedExact": {
+        "value": null,
+        "previous": null,
+        "delta": null
+      },
+      "expectedDisplay": {
+        "value": "자료 없음",
+        "previous": "자료 없음",
+        "delta": "자료 없음",
+        "period": "2025년 4분기",
+        "previousPeriod": "2025년 3분기"
+      },
+      "meaning": "같은 상권·업종·세부 분포를 두 분기에서 조회한 추정매출과 차이입니다.",
+      "forbiddenMeanings": [
+        "개별 점포 실제 회계매출",
+        "광고 효과",
+        "여성×20대×금요일×시간대 결합 매출",
+        "일별 또는 월별 관측치",
+        "원본 행 부재를 매출 0원이나 폐업으로 해석"
+      ],
+      "assertions": [
+        "상권코드가3120107이다",
+        "선택 분기와 직전 분기는 같은 업종·차원을 사용한다",
+        "지도·상세·추이·CSV가 같은 원값을 사용한다",
+        "성·연령 분포 합을 전체매출과 억지로 같게 만들지 않는다",
+        "업종 이름 외국어학원와 원본 코드 CS200002가 대응한다",
+        "선택 업종 원본행이 없으면 null이며 0으로 대체하지 않는다",
+        "어느 분기든 null이면 전분기 차이도 null이다",
+        "자료 없는 분기는 추이에서 null 지점이며 값을 만들지 않는다"
+      ]
+    },
+    {
+      "id": "sales-gongdeok-industry-CS200003",
+      "title": "공덕역 매출 · 예술학원",
+      "dataset": "marketSales",
+      "sourceIds": [
+        "marketSales",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20254",
+        "previousPeriod": "20253",
+        "industry": "CS200003",
+        "dimension": "all",
+        "band": null,
+        "unit": "원",
+        "industryName": "예술학원"
+      },
+      "aggregation": {
+        "method": "원본 상권·업종 행의 선택된 단일 열 합",
+        "currentRows": 0,
+        "previousRows": 0,
+        "sourceColumn": "당월_매출_금액",
+        "rawColumnIndex": 7,
+        "optionLabel": "예술학원"
+      },
+      "expectedExact": {
+        "value": null,
+        "previous": null,
+        "delta": null
+      },
+      "expectedDisplay": {
+        "value": "자료 없음",
+        "previous": "자료 없음",
+        "delta": "자료 없음",
+        "period": "2025년 4분기",
+        "previousPeriod": "2025년 3분기"
+      },
+      "meaning": "같은 상권·업종·세부 분포를 두 분기에서 조회한 추정매출과 차이입니다.",
+      "forbiddenMeanings": [
+        "개별 점포 실제 회계매출",
+        "광고 효과",
+        "여성×20대×금요일×시간대 결합 매출",
+        "일별 또는 월별 관측치",
+        "원본 행 부재를 매출 0원이나 폐업으로 해석"
+      ],
+      "assertions": [
+        "상권코드가3120107이다",
+        "선택 분기와 직전 분기는 같은 업종·차원을 사용한다",
+        "지도·상세·추이·CSV가 같은 원값을 사용한다",
+        "성·연령 분포 합을 전체매출과 억지로 같게 만들지 않는다",
+        "업종 이름 예술학원와 원본 코드 CS200003가 대응한다",
+        "선택 업종 원본행이 없으면 null이며 0으로 대체하지 않는다",
+        "어느 분기든 null이면 전분기 차이도 null이다",
+        "자료 없는 분기는 추이에서 null 지점이며 값을 만들지 않는다"
+      ]
+    },
+    {
+      "id": "sales-gongdeok-industry-CS200005",
+      "title": "공덕역 매출 · 스포츠 강습",
+      "dataset": "marketSales",
+      "sourceIds": [
+        "marketSales",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20254",
+        "previousPeriod": "20253",
+        "industry": "CS200005",
+        "dimension": "all",
+        "band": null,
+        "unit": "원",
+        "industryName": "스포츠 강습"
+      },
+      "aggregation": {
+        "method": "원본 상권·업종 행의 선택된 단일 열 합",
+        "currentRows": 1,
+        "previousRows": 1,
+        "sourceColumn": "당월_매출_금액",
+        "rawColumnIndex": 7,
+        "optionLabel": "스포츠 강습"
+      },
+      "expectedExact": {
+        "value": 515741502,
+        "previous": 668959383,
+        "delta": -153217881
+      },
+      "expectedDisplay": {
+        "value": "515,741,502",
+        "previous": "668,959,383",
+        "delta": "-153,217,881",
+        "period": "2025년 4분기",
+        "previousPeriod": "2025년 3분기"
+      },
+      "meaning": "같은 상권·업종·세부 분포를 두 분기에서 조회한 추정매출과 차이입니다.",
+      "forbiddenMeanings": [
+        "개별 점포 실제 회계매출",
+        "광고 효과",
+        "여성×20대×금요일×시간대 결합 매출",
+        "일별 또는 월별 관측치",
+        "원본 행 부재를 매출 0원이나 폐업으로 해석"
+      ],
+      "assertions": [
+        "상권코드가3120107이다",
+        "선택 분기와 직전 분기는 같은 업종·차원을 사용한다",
+        "지도·상세·추이·CSV가 같은 원값을 사용한다",
+        "성·연령 분포 합을 전체매출과 억지로 같게 만들지 않는다",
+        "업종 이름 스포츠 강습와 원본 코드 CS200005가 대응한다",
+        "선택 업종 원본행이 없으면 null이며 0으로 대체하지 않는다",
+        "어느 분기든 null이면 전분기 차이도 null이다",
+        "자료 없는 분기는 추이에서 null 지점이며 값을 만들지 않는다"
+      ]
+    },
+    {
+      "id": "sales-gongdeok-industry-CS200006",
+      "title": "공덕역 매출 · 일반의원",
+      "dataset": "marketSales",
+      "sourceIds": [
+        "marketSales",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20254",
+        "previousPeriod": "20253",
+        "industry": "CS200006",
+        "dimension": "all",
+        "band": null,
+        "unit": "원",
+        "industryName": "일반의원"
+      },
+      "aggregation": {
+        "method": "원본 상권·업종 행의 선택된 단일 열 합",
+        "currentRows": 1,
+        "previousRows": 1,
+        "sourceColumn": "당월_매출_금액",
+        "rawColumnIndex": 7,
+        "optionLabel": "일반의원"
+      },
+      "expectedExact": {
+        "value": 4405126154,
+        "previous": 4190655455,
+        "delta": 214470699
+      },
+      "expectedDisplay": {
+        "value": "4,405,126,154",
+        "previous": "4,190,655,455",
+        "delta": "+214,470,699",
+        "period": "2025년 4분기",
+        "previousPeriod": "2025년 3분기"
+      },
+      "meaning": "같은 상권·업종·세부 분포를 두 분기에서 조회한 추정매출과 차이입니다.",
+      "forbiddenMeanings": [
+        "개별 점포 실제 회계매출",
+        "광고 효과",
+        "여성×20대×금요일×시간대 결합 매출",
+        "일별 또는 월별 관측치",
+        "원본 행 부재를 매출 0원이나 폐업으로 해석"
+      ],
+      "assertions": [
+        "상권코드가3120107이다",
+        "선택 분기와 직전 분기는 같은 업종·차원을 사용한다",
+        "지도·상세·추이·CSV가 같은 원값을 사용한다",
+        "성·연령 분포 합을 전체매출과 억지로 같게 만들지 않는다",
+        "업종 이름 일반의원와 원본 코드 CS200006가 대응한다",
+        "선택 업종 원본행이 없으면 null이며 0으로 대체하지 않는다",
+        "어느 분기든 null이면 전분기 차이도 null이다",
+        "자료 없는 분기는 추이에서 null 지점이며 값을 만들지 않는다"
+      ]
+    },
+    {
+      "id": "sales-gongdeok-industry-CS200007",
+      "title": "공덕역 매출 · 치과의원",
+      "dataset": "marketSales",
+      "sourceIds": [
+        "marketSales",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20254",
+        "previousPeriod": "20253",
+        "industry": "CS200007",
+        "dimension": "all",
+        "band": null,
+        "unit": "원",
+        "industryName": "치과의원"
+      },
+      "aggregation": {
+        "method": "원본 상권·업종 행의 선택된 단일 열 합",
+        "currentRows": 1,
+        "previousRows": 1,
+        "sourceColumn": "당월_매출_금액",
+        "rawColumnIndex": 7,
+        "optionLabel": "치과의원"
+      },
+      "expectedExact": {
+        "value": 985825771,
+        "previous": 1137730447,
+        "delta": -151904676
+      },
+      "expectedDisplay": {
+        "value": "985,825,771",
+        "previous": "1,137,730,447",
+        "delta": "-151,904,676",
+        "period": "2025년 4분기",
+        "previousPeriod": "2025년 3분기"
+      },
+      "meaning": "같은 상권·업종·세부 분포를 두 분기에서 조회한 추정매출과 차이입니다.",
+      "forbiddenMeanings": [
+        "개별 점포 실제 회계매출",
+        "광고 효과",
+        "여성×20대×금요일×시간대 결합 매출",
+        "일별 또는 월별 관측치",
+        "원본 행 부재를 매출 0원이나 폐업으로 해석"
+      ],
+      "assertions": [
+        "상권코드가3120107이다",
+        "선택 분기와 직전 분기는 같은 업종·차원을 사용한다",
+        "지도·상세·추이·CSV가 같은 원값을 사용한다",
+        "성·연령 분포 합을 전체매출과 억지로 같게 만들지 않는다",
+        "업종 이름 치과의원와 원본 코드 CS200007가 대응한다",
+        "선택 업종 원본행이 없으면 null이며 0으로 대체하지 않는다",
+        "어느 분기든 null이면 전분기 차이도 null이다",
+        "자료 없는 분기는 추이에서 null 지점이며 값을 만들지 않는다"
+      ]
+    },
+    {
+      "id": "sales-gongdeok-industry-CS200008",
+      "title": "공덕역 매출 · 한의원",
+      "dataset": "marketSales",
+      "sourceIds": [
+        "marketSales",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20254",
+        "previousPeriod": "20253",
+        "industry": "CS200008",
+        "dimension": "all",
+        "band": null,
+        "unit": "원",
+        "industryName": "한의원"
+      },
+      "aggregation": {
+        "method": "원본 상권·업종 행의 선택된 단일 열 합",
+        "currentRows": 1,
+        "previousRows": 1,
+        "sourceColumn": "당월_매출_금액",
+        "rawColumnIndex": 7,
+        "optionLabel": "한의원"
+      },
+      "expectedExact": {
+        "value": 120828306,
+        "previous": 60852178,
+        "delta": 59976128
+      },
+      "expectedDisplay": {
+        "value": "120,828,306",
+        "previous": "60,852,178",
+        "delta": "+59,976,128",
+        "period": "2025년 4분기",
+        "previousPeriod": "2025년 3분기"
+      },
+      "meaning": "같은 상권·업종·세부 분포를 두 분기에서 조회한 추정매출과 차이입니다.",
+      "forbiddenMeanings": [
+        "개별 점포 실제 회계매출",
+        "광고 효과",
+        "여성×20대×금요일×시간대 결합 매출",
+        "일별 또는 월별 관측치",
+        "원본 행 부재를 매출 0원이나 폐업으로 해석"
+      ],
+      "assertions": [
+        "상권코드가3120107이다",
+        "선택 분기와 직전 분기는 같은 업종·차원을 사용한다",
+        "지도·상세·추이·CSV가 같은 원값을 사용한다",
+        "성·연령 분포 합을 전체매출과 억지로 같게 만들지 않는다",
+        "업종 이름 한의원와 원본 코드 CS200008가 대응한다",
+        "선택 업종 원본행이 없으면 null이며 0으로 대체하지 않는다",
+        "어느 분기든 null이면 전분기 차이도 null이다",
+        "자료 없는 분기는 추이에서 null 지점이며 값을 만들지 않는다"
+      ]
+    },
+    {
+      "id": "sales-gongdeok-industry-CS200016",
+      "title": "공덕역 매출 · 당구장",
+      "dataset": "marketSales",
+      "sourceIds": [
+        "marketSales",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20254",
+        "previousPeriod": "20253",
+        "industry": "CS200016",
+        "dimension": "all",
+        "band": null,
+        "unit": "원",
+        "industryName": "당구장"
+      },
+      "aggregation": {
+        "method": "원본 상권·업종 행의 선택된 단일 열 합",
+        "currentRows": 0,
+        "previousRows": 0,
+        "sourceColumn": "당월_매출_금액",
+        "rawColumnIndex": 7,
+        "optionLabel": "당구장"
+      },
+      "expectedExact": {
+        "value": null,
+        "previous": null,
+        "delta": null
+      },
+      "expectedDisplay": {
+        "value": "자료 없음",
+        "previous": "자료 없음",
+        "delta": "자료 없음",
+        "period": "2025년 4분기",
+        "previousPeriod": "2025년 3분기"
+      },
+      "meaning": "같은 상권·업종·세부 분포를 두 분기에서 조회한 추정매출과 차이입니다.",
+      "forbiddenMeanings": [
+        "개별 점포 실제 회계매출",
+        "광고 효과",
+        "여성×20대×금요일×시간대 결합 매출",
+        "일별 또는 월별 관측치",
+        "원본 행 부재를 매출 0원이나 폐업으로 해석"
+      ],
+      "assertions": [
+        "상권코드가3120107이다",
+        "선택 분기와 직전 분기는 같은 업종·차원을 사용한다",
+        "지도·상세·추이·CSV가 같은 원값을 사용한다",
+        "성·연령 분포 합을 전체매출과 억지로 같게 만들지 않는다",
+        "업종 이름 당구장와 원본 코드 CS200016가 대응한다",
+        "선택 업종 원본행이 없으면 null이며 0으로 대체하지 않는다",
+        "어느 분기든 null이면 전분기 차이도 null이다",
+        "자료 없는 분기는 추이에서 null 지점이며 값을 만들지 않는다"
+      ]
+    },
+    {
+      "id": "sales-gongdeok-industry-CS200017",
+      "title": "공덕역 매출 · 골프연습장",
+      "dataset": "marketSales",
+      "sourceIds": [
+        "marketSales",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20254",
+        "previousPeriod": "20253",
+        "industry": "CS200017",
+        "dimension": "all",
+        "band": null,
+        "unit": "원",
+        "industryName": "골프연습장"
+      },
+      "aggregation": {
+        "method": "원본 상권·업종 행의 선택된 단일 열 합",
+        "currentRows": 1,
+        "previousRows": 1,
+        "sourceColumn": "당월_매출_금액",
+        "rawColumnIndex": 7,
+        "optionLabel": "골프연습장"
+      },
+      "expectedExact": {
+        "value": 134789026,
+        "previous": 179088161,
+        "delta": -44299135
+      },
+      "expectedDisplay": {
+        "value": "134,789,026",
+        "previous": "179,088,161",
+        "delta": "-44,299,135",
+        "period": "2025년 4분기",
+        "previousPeriod": "2025년 3분기"
+      },
+      "meaning": "같은 상권·업종·세부 분포를 두 분기에서 조회한 추정매출과 차이입니다.",
+      "forbiddenMeanings": [
+        "개별 점포 실제 회계매출",
+        "광고 효과",
+        "여성×20대×금요일×시간대 결합 매출",
+        "일별 또는 월별 관측치",
+        "원본 행 부재를 매출 0원이나 폐업으로 해석"
+      ],
+      "assertions": [
+        "상권코드가3120107이다",
+        "선택 분기와 직전 분기는 같은 업종·차원을 사용한다",
+        "지도·상세·추이·CSV가 같은 원값을 사용한다",
+        "성·연령 분포 합을 전체매출과 억지로 같게 만들지 않는다",
+        "업종 이름 골프연습장와 원본 코드 CS200017가 대응한다",
+        "선택 업종 원본행이 없으면 null이며 0으로 대체하지 않는다",
+        "어느 분기든 null이면 전분기 차이도 null이다",
+        "자료 없는 분기는 추이에서 null 지점이며 값을 만들지 않는다"
+      ]
+    },
+    {
+      "id": "sales-gongdeok-industry-CS200019",
+      "title": "공덕역 매출 · PC방",
+      "dataset": "marketSales",
+      "sourceIds": [
+        "marketSales",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20254",
+        "previousPeriod": "20253",
+        "industry": "CS200019",
+        "dimension": "all",
+        "band": null,
+        "unit": "원",
+        "industryName": "PC방"
+      },
+      "aggregation": {
+        "method": "원본 상권·업종 행의 선택된 단일 열 합",
+        "currentRows": 0,
+        "previousRows": 0,
+        "sourceColumn": "당월_매출_금액",
+        "rawColumnIndex": 7,
+        "optionLabel": "PC방"
+      },
+      "expectedExact": {
+        "value": null,
+        "previous": null,
+        "delta": null
+      },
+      "expectedDisplay": {
+        "value": "자료 없음",
+        "previous": "자료 없음",
+        "delta": "자료 없음",
+        "period": "2025년 4분기",
+        "previousPeriod": "2025년 3분기"
+      },
+      "meaning": "같은 상권·업종·세부 분포를 두 분기에서 조회한 추정매출과 차이입니다.",
+      "forbiddenMeanings": [
+        "개별 점포 실제 회계매출",
+        "광고 효과",
+        "여성×20대×금요일×시간대 결합 매출",
+        "일별 또는 월별 관측치",
+        "원본 행 부재를 매출 0원이나 폐업으로 해석"
+      ],
+      "assertions": [
+        "상권코드가3120107이다",
+        "선택 분기와 직전 분기는 같은 업종·차원을 사용한다",
+        "지도·상세·추이·CSV가 같은 원값을 사용한다",
+        "성·연령 분포 합을 전체매출과 억지로 같게 만들지 않는다",
+        "업종 이름 PC방와 원본 코드 CS200019가 대응한다",
+        "선택 업종 원본행이 없으면 null이며 0으로 대체하지 않는다",
+        "어느 분기든 null이면 전분기 차이도 null이다",
+        "자료 없는 분기는 추이에서 null 지점이며 값을 만들지 않는다"
+      ]
+    },
+    {
+      "id": "sales-gongdeok-industry-CS200024",
+      "title": "공덕역 매출 · 스포츠클럽",
+      "dataset": "marketSales",
+      "sourceIds": [
+        "marketSales",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20254",
+        "previousPeriod": "20253",
+        "industry": "CS200024",
+        "dimension": "all",
+        "band": null,
+        "unit": "원",
+        "industryName": "스포츠클럽"
+      },
+      "aggregation": {
+        "method": "원본 상권·업종 행의 선택된 단일 열 합",
+        "currentRows": 1,
+        "previousRows": 1,
+        "sourceColumn": "당월_매출_금액",
+        "rawColumnIndex": 7,
+        "optionLabel": "스포츠클럽"
+      },
+      "expectedExact": {
+        "value": 261740947,
+        "previous": 755204895,
+        "delta": -493463948
+      },
+      "expectedDisplay": {
+        "value": "261,740,947",
+        "previous": "755,204,895",
+        "delta": "-493,463,948",
+        "period": "2025년 4분기",
+        "previousPeriod": "2025년 3분기"
+      },
+      "meaning": "같은 상권·업종·세부 분포를 두 분기에서 조회한 추정매출과 차이입니다.",
+      "forbiddenMeanings": [
+        "개별 점포 실제 회계매출",
+        "광고 효과",
+        "여성×20대×금요일×시간대 결합 매출",
+        "일별 또는 월별 관측치",
+        "원본 행 부재를 매출 0원이나 폐업으로 해석"
+      ],
+      "assertions": [
+        "상권코드가3120107이다",
+        "선택 분기와 직전 분기는 같은 업종·차원을 사용한다",
+        "지도·상세·추이·CSV가 같은 원값을 사용한다",
+        "성·연령 분포 합을 전체매출과 억지로 같게 만들지 않는다",
+        "업종 이름 스포츠클럽와 원본 코드 CS200024가 대응한다",
+        "선택 업종 원본행이 없으면 null이며 0으로 대체하지 않는다",
+        "어느 분기든 null이면 전분기 차이도 null이다",
+        "자료 없는 분기는 추이에서 null 지점이며 값을 만들지 않는다"
+      ]
+    },
+    {
+      "id": "sales-gongdeok-industry-CS200025",
+      "title": "공덕역 매출 · 자동차수리",
+      "dataset": "marketSales",
+      "sourceIds": [
+        "marketSales",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20254",
+        "previousPeriod": "20253",
+        "industry": "CS200025",
+        "dimension": "all",
+        "band": null,
+        "unit": "원",
+        "industryName": "자동차수리"
+      },
+      "aggregation": {
+        "method": "원본 상권·업종 행의 선택된 단일 열 합",
+        "currentRows": 0,
+        "previousRows": 0,
+        "sourceColumn": "당월_매출_금액",
+        "rawColumnIndex": 7,
+        "optionLabel": "자동차수리"
+      },
+      "expectedExact": {
+        "value": null,
+        "previous": null,
+        "delta": null
+      },
+      "expectedDisplay": {
+        "value": "자료 없음",
+        "previous": "자료 없음",
+        "delta": "자료 없음",
+        "period": "2025년 4분기",
+        "previousPeriod": "2025년 3분기"
+      },
+      "meaning": "같은 상권·업종·세부 분포를 두 분기에서 조회한 추정매출과 차이입니다.",
+      "forbiddenMeanings": [
+        "개별 점포 실제 회계매출",
+        "광고 효과",
+        "여성×20대×금요일×시간대 결합 매출",
+        "일별 또는 월별 관측치",
+        "원본 행 부재를 매출 0원이나 폐업으로 해석"
+      ],
+      "assertions": [
+        "상권코드가3120107이다",
+        "선택 분기와 직전 분기는 같은 업종·차원을 사용한다",
+        "지도·상세·추이·CSV가 같은 원값을 사용한다",
+        "성·연령 분포 합을 전체매출과 억지로 같게 만들지 않는다",
+        "업종 이름 자동차수리와 원본 코드 CS200025가 대응한다",
+        "선택 업종 원본행이 없으면 null이며 0으로 대체하지 않는다",
+        "어느 분기든 null이면 전분기 차이도 null이다",
+        "자료 없는 분기는 추이에서 null 지점이며 값을 만들지 않는다"
+      ]
+    },
+    {
+      "id": "sales-gongdeok-industry-CS200026",
+      "title": "공덕역 매출 · 자동차미용",
+      "dataset": "marketSales",
+      "sourceIds": [
+        "marketSales",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20254",
+        "previousPeriod": "20253",
+        "industry": "CS200026",
+        "dimension": "all",
+        "band": null,
+        "unit": "원",
+        "industryName": "자동차미용"
+      },
+      "aggregation": {
+        "method": "원본 상권·업종 행의 선택된 단일 열 합",
+        "currentRows": 0,
+        "previousRows": 0,
+        "sourceColumn": "당월_매출_금액",
+        "rawColumnIndex": 7,
+        "optionLabel": "자동차미용"
+      },
+      "expectedExact": {
+        "value": null,
+        "previous": null,
+        "delta": null
+      },
+      "expectedDisplay": {
+        "value": "자료 없음",
+        "previous": "자료 없음",
+        "delta": "자료 없음",
+        "period": "2025년 4분기",
+        "previousPeriod": "2025년 3분기"
+      },
+      "meaning": "같은 상권·업종·세부 분포를 두 분기에서 조회한 추정매출과 차이입니다.",
+      "forbiddenMeanings": [
+        "개별 점포 실제 회계매출",
+        "광고 효과",
+        "여성×20대×금요일×시간대 결합 매출",
+        "일별 또는 월별 관측치",
+        "원본 행 부재를 매출 0원이나 폐업으로 해석"
+      ],
+      "assertions": [
+        "상권코드가3120107이다",
+        "선택 분기와 직전 분기는 같은 업종·차원을 사용한다",
+        "지도·상세·추이·CSV가 같은 원값을 사용한다",
+        "성·연령 분포 합을 전체매출과 억지로 같게 만들지 않는다",
+        "업종 이름 자동차미용와 원본 코드 CS200026가 대응한다",
+        "선택 업종 원본행이 없으면 null이며 0으로 대체하지 않는다",
+        "어느 분기든 null이면 전분기 차이도 null이다",
+        "자료 없는 분기는 추이에서 null 지점이며 값을 만들지 않는다"
+      ]
+    },
+    {
+      "id": "sales-gongdeok-industry-CS200028",
+      "title": "공덕역 매출 · 미용실",
+      "dataset": "marketSales",
+      "sourceIds": [
+        "marketSales",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20254",
+        "previousPeriod": "20253",
+        "industry": "CS200028",
+        "dimension": "all",
+        "band": null,
+        "unit": "원",
+        "industryName": "미용실"
+      },
+      "aggregation": {
+        "method": "원본 상권·업종 행의 선택된 단일 열 합",
+        "currentRows": 1,
+        "previousRows": 1,
+        "sourceColumn": "당월_매출_금액",
+        "rawColumnIndex": 7,
+        "optionLabel": "미용실"
+      },
+      "expectedExact": {
+        "value": 420464342,
+        "previous": 503377550,
+        "delta": -82913208
+      },
+      "expectedDisplay": {
+        "value": "420,464,342",
+        "previous": "503,377,550",
+        "delta": "-82,913,208",
+        "period": "2025년 4분기",
+        "previousPeriod": "2025년 3분기"
+      },
+      "meaning": "같은 상권·업종·세부 분포를 두 분기에서 조회한 추정매출과 차이입니다.",
+      "forbiddenMeanings": [
+        "개별 점포 실제 회계매출",
+        "광고 효과",
+        "여성×20대×금요일×시간대 결합 매출",
+        "일별 또는 월별 관측치",
+        "원본 행 부재를 매출 0원이나 폐업으로 해석"
+      ],
+      "assertions": [
+        "상권코드가3120107이다",
+        "선택 분기와 직전 분기는 같은 업종·차원을 사용한다",
+        "지도·상세·추이·CSV가 같은 원값을 사용한다",
+        "성·연령 분포 합을 전체매출과 억지로 같게 만들지 않는다",
+        "업종 이름 미용실와 원본 코드 CS200028가 대응한다",
+        "선택 업종 원본행이 없으면 null이며 0으로 대체하지 않는다",
+        "어느 분기든 null이면 전분기 차이도 null이다",
+        "자료 없는 분기는 추이에서 null 지점이며 값을 만들지 않는다"
+      ]
+    },
+    {
+      "id": "sales-gongdeok-industry-CS200029",
+      "title": "공덕역 매출 · 네일숍",
+      "dataset": "marketSales",
+      "sourceIds": [
+        "marketSales",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20254",
+        "previousPeriod": "20253",
+        "industry": "CS200029",
+        "dimension": "all",
+        "band": null,
+        "unit": "원",
+        "industryName": "네일숍"
+      },
+      "aggregation": {
+        "method": "원본 상권·업종 행의 선택된 단일 열 합",
+        "currentRows": 1,
+        "previousRows": 1,
+        "sourceColumn": "당월_매출_금액",
+        "rawColumnIndex": 7,
+        "optionLabel": "네일숍"
+      },
+      "expectedExact": {
+        "value": 32897655,
+        "previous": 30707286,
+        "delta": 2190369
+      },
+      "expectedDisplay": {
+        "value": "32,897,655",
+        "previous": "30,707,286",
+        "delta": "+2,190,369",
+        "period": "2025년 4분기",
+        "previousPeriod": "2025년 3분기"
+      },
+      "meaning": "같은 상권·업종·세부 분포를 두 분기에서 조회한 추정매출과 차이입니다.",
+      "forbiddenMeanings": [
+        "개별 점포 실제 회계매출",
+        "광고 효과",
+        "여성×20대×금요일×시간대 결합 매출",
+        "일별 또는 월별 관측치",
+        "원본 행 부재를 매출 0원이나 폐업으로 해석"
+      ],
+      "assertions": [
+        "상권코드가3120107이다",
+        "선택 분기와 직전 분기는 같은 업종·차원을 사용한다",
+        "지도·상세·추이·CSV가 같은 원값을 사용한다",
+        "성·연령 분포 합을 전체매출과 억지로 같게 만들지 않는다",
+        "업종 이름 네일숍와 원본 코드 CS200029가 대응한다",
+        "선택 업종 원본행이 없으면 null이며 0으로 대체하지 않는다",
+        "어느 분기든 null이면 전분기 차이도 null이다",
+        "자료 없는 분기는 추이에서 null 지점이며 값을 만들지 않는다"
+      ]
+    },
+    {
+      "id": "sales-gongdeok-industry-CS200030",
+      "title": "공덕역 매출 · 피부관리실",
+      "dataset": "marketSales",
+      "sourceIds": [
+        "marketSales",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20254",
+        "previousPeriod": "20253",
+        "industry": "CS200030",
+        "dimension": "all",
+        "band": null,
+        "unit": "원",
+        "industryName": "피부관리실"
+      },
+      "aggregation": {
+        "method": "원본 상권·업종 행의 선택된 단일 열 합",
+        "currentRows": 1,
+        "previousRows": 1,
+        "sourceColumn": "당월_매출_금액",
+        "rawColumnIndex": 7,
+        "optionLabel": "피부관리실"
+      },
+      "expectedExact": {
+        "value": 375440912,
+        "previous": 404467407,
+        "delta": -29026495
+      },
+      "expectedDisplay": {
+        "value": "375,440,912",
+        "previous": "404,467,407",
+        "delta": "-29,026,495",
+        "period": "2025년 4분기",
+        "previousPeriod": "2025년 3분기"
+      },
+      "meaning": "같은 상권·업종·세부 분포를 두 분기에서 조회한 추정매출과 차이입니다.",
+      "forbiddenMeanings": [
+        "개별 점포 실제 회계매출",
+        "광고 효과",
+        "여성×20대×금요일×시간대 결합 매출",
+        "일별 또는 월별 관측치",
+        "원본 행 부재를 매출 0원이나 폐업으로 해석"
+      ],
+      "assertions": [
+        "상권코드가3120107이다",
+        "선택 분기와 직전 분기는 같은 업종·차원을 사용한다",
+        "지도·상세·추이·CSV가 같은 원값을 사용한다",
+        "성·연령 분포 합을 전체매출과 억지로 같게 만들지 않는다",
+        "업종 이름 피부관리실와 원본 코드 CS200030가 대응한다",
+        "선택 업종 원본행이 없으면 null이며 0으로 대체하지 않는다",
+        "어느 분기든 null이면 전분기 차이도 null이다",
+        "자료 없는 분기는 추이에서 null 지점이며 값을 만들지 않는다"
+      ]
+    },
+    {
+      "id": "sales-gongdeok-industry-CS200031",
+      "title": "공덕역 매출 · 세탁소",
+      "dataset": "marketSales",
+      "sourceIds": [
+        "marketSales",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20254",
+        "previousPeriod": "20253",
+        "industry": "CS200031",
+        "dimension": "all",
+        "band": null,
+        "unit": "원",
+        "industryName": "세탁소"
+      },
+      "aggregation": {
+        "method": "원본 상권·업종 행의 선택된 단일 열 합",
+        "currentRows": 0,
+        "previousRows": 0,
+        "sourceColumn": "당월_매출_금액",
+        "rawColumnIndex": 7,
+        "optionLabel": "세탁소"
+      },
+      "expectedExact": {
+        "value": null,
+        "previous": null,
+        "delta": null
+      },
+      "expectedDisplay": {
+        "value": "자료 없음",
+        "previous": "자료 없음",
+        "delta": "자료 없음",
+        "period": "2025년 4분기",
+        "previousPeriod": "2025년 3분기"
+      },
+      "meaning": "같은 상권·업종·세부 분포를 두 분기에서 조회한 추정매출과 차이입니다.",
+      "forbiddenMeanings": [
+        "개별 점포 실제 회계매출",
+        "광고 효과",
+        "여성×20대×금요일×시간대 결합 매출",
+        "일별 또는 월별 관측치",
+        "원본 행 부재를 매출 0원이나 폐업으로 해석"
+      ],
+      "assertions": [
+        "상권코드가3120107이다",
+        "선택 분기와 직전 분기는 같은 업종·차원을 사용한다",
+        "지도·상세·추이·CSV가 같은 원값을 사용한다",
+        "성·연령 분포 합을 전체매출과 억지로 같게 만들지 않는다",
+        "업종 이름 세탁소와 원본 코드 CS200031가 대응한다",
+        "선택 업종 원본행이 없으면 null이며 0으로 대체하지 않는다",
+        "어느 분기든 null이면 전분기 차이도 null이다",
+        "자료 없는 분기는 추이에서 null 지점이며 값을 만들지 않는다"
+      ]
+    },
+    {
+      "id": "sales-gongdeok-industry-CS200032",
+      "title": "공덕역 매출 · 가전제품수리",
+      "dataset": "marketSales",
+      "sourceIds": [
+        "marketSales",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20254",
+        "previousPeriod": "20253",
+        "industry": "CS200032",
+        "dimension": "all",
+        "band": null,
+        "unit": "원",
+        "industryName": "가전제품수리"
+      },
+      "aggregation": {
+        "method": "원본 상권·업종 행의 선택된 단일 열 합",
+        "currentRows": 0,
+        "previousRows": 0,
+        "sourceColumn": "당월_매출_금액",
+        "rawColumnIndex": 7,
+        "optionLabel": "가전제품수리"
+      },
+      "expectedExact": {
+        "value": null,
+        "previous": null,
+        "delta": null
+      },
+      "expectedDisplay": {
+        "value": "자료 없음",
+        "previous": "자료 없음",
+        "delta": "자료 없음",
+        "period": "2025년 4분기",
+        "previousPeriod": "2025년 3분기"
+      },
+      "meaning": "같은 상권·업종·세부 분포를 두 분기에서 조회한 추정매출과 차이입니다.",
+      "forbiddenMeanings": [
+        "개별 점포 실제 회계매출",
+        "광고 효과",
+        "여성×20대×금요일×시간대 결합 매출",
+        "일별 또는 월별 관측치",
+        "원본 행 부재를 매출 0원이나 폐업으로 해석"
+      ],
+      "assertions": [
+        "상권코드가3120107이다",
+        "선택 분기와 직전 분기는 같은 업종·차원을 사용한다",
+        "지도·상세·추이·CSV가 같은 원값을 사용한다",
+        "성·연령 분포 합을 전체매출과 억지로 같게 만들지 않는다",
+        "업종 이름 가전제품수리와 원본 코드 CS200032가 대응한다",
+        "선택 업종 원본행이 없으면 null이며 0으로 대체하지 않는다",
+        "어느 분기든 null이면 전분기 차이도 null이다",
+        "자료 없는 분기는 추이에서 null 지점이며 값을 만들지 않는다"
+      ]
+    },
+    {
+      "id": "sales-gongdeok-industry-CS200033",
+      "title": "공덕역 매출 · 부동산중개업",
+      "dataset": "marketSales",
+      "sourceIds": [
+        "marketSales",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20254",
+        "previousPeriod": "20253",
+        "industry": "CS200033",
+        "dimension": "all",
+        "band": null,
+        "unit": "원",
+        "industryName": "부동산중개업"
+      },
+      "aggregation": {
+        "method": "원본 상권·업종 행의 선택된 단일 열 합",
+        "currentRows": 0,
+        "previousRows": 0,
+        "sourceColumn": "당월_매출_금액",
+        "rawColumnIndex": 7,
+        "optionLabel": "부동산중개업"
+      },
+      "expectedExact": {
+        "value": null,
+        "previous": null,
+        "delta": null
+      },
+      "expectedDisplay": {
+        "value": "자료 없음",
+        "previous": "자료 없음",
+        "delta": "자료 없음",
+        "period": "2025년 4분기",
+        "previousPeriod": "2025년 3분기"
+      },
+      "meaning": "같은 상권·업종·세부 분포를 두 분기에서 조회한 추정매출과 차이입니다.",
+      "forbiddenMeanings": [
+        "개별 점포 실제 회계매출",
+        "광고 효과",
+        "여성×20대×금요일×시간대 결합 매출",
+        "일별 또는 월별 관측치",
+        "원본 행 부재를 매출 0원이나 폐업으로 해석"
+      ],
+      "assertions": [
+        "상권코드가3120107이다",
+        "선택 분기와 직전 분기는 같은 업종·차원을 사용한다",
+        "지도·상세·추이·CSV가 같은 원값을 사용한다",
+        "성·연령 분포 합을 전체매출과 억지로 같게 만들지 않는다",
+        "업종 이름 부동산중개업와 원본 코드 CS200033가 대응한다",
+        "선택 업종 원본행이 없으면 null이며 0으로 대체하지 않는다",
+        "어느 분기든 null이면 전분기 차이도 null이다",
+        "자료 없는 분기는 추이에서 null 지점이며 값을 만들지 않는다"
+      ]
+    },
+    {
+      "id": "sales-gongdeok-industry-CS200034",
+      "title": "공덕역 매출 · 여관",
+      "dataset": "marketSales",
+      "sourceIds": [
+        "marketSales",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20254",
+        "previousPeriod": "20253",
+        "industry": "CS200034",
+        "dimension": "all",
+        "band": null,
+        "unit": "원",
+        "industryName": "여관"
+      },
+      "aggregation": {
+        "method": "원본 상권·업종 행의 선택된 단일 열 합",
+        "currentRows": 0,
+        "previousRows": 0,
+        "sourceColumn": "당월_매출_금액",
+        "rawColumnIndex": 7,
+        "optionLabel": "여관"
+      },
+      "expectedExact": {
+        "value": null,
+        "previous": null,
+        "delta": null
+      },
+      "expectedDisplay": {
+        "value": "자료 없음",
+        "previous": "자료 없음",
+        "delta": "자료 없음",
+        "period": "2025년 4분기",
+        "previousPeriod": "2025년 3분기"
+      },
+      "meaning": "같은 상권·업종·세부 분포를 두 분기에서 조회한 추정매출과 차이입니다.",
+      "forbiddenMeanings": [
+        "개별 점포 실제 회계매출",
+        "광고 효과",
+        "여성×20대×금요일×시간대 결합 매출",
+        "일별 또는 월별 관측치",
+        "원본 행 부재를 매출 0원이나 폐업으로 해석"
+      ],
+      "assertions": [
+        "상권코드가3120107이다",
+        "선택 분기와 직전 분기는 같은 업종·차원을 사용한다",
+        "지도·상세·추이·CSV가 같은 원값을 사용한다",
+        "성·연령 분포 합을 전체매출과 억지로 같게 만들지 않는다",
+        "업종 이름 여관와 원본 코드 CS200034가 대응한다",
+        "선택 업종 원본행이 없으면 null이며 0으로 대체하지 않는다",
+        "어느 분기든 null이면 전분기 차이도 null이다",
+        "자료 없는 분기는 추이에서 null 지점이며 값을 만들지 않는다"
+      ]
+    },
+    {
+      "id": "sales-gongdeok-industry-CS200037",
+      "title": "공덕역 매출 · 노래방",
+      "dataset": "marketSales",
+      "sourceIds": [
+        "marketSales",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20254",
+        "previousPeriod": "20253",
+        "industry": "CS200037",
+        "dimension": "all",
+        "band": null,
+        "unit": "원",
+        "industryName": "노래방"
+      },
+      "aggregation": {
+        "method": "원본 상권·업종 행의 선택된 단일 열 합",
+        "currentRows": 0,
+        "previousRows": 0,
+        "sourceColumn": "당월_매출_금액",
+        "rawColumnIndex": 7,
+        "optionLabel": "노래방"
+      },
+      "expectedExact": {
+        "value": null,
+        "previous": null,
+        "delta": null
+      },
+      "expectedDisplay": {
+        "value": "자료 없음",
+        "previous": "자료 없음",
+        "delta": "자료 없음",
+        "period": "2025년 4분기",
+        "previousPeriod": "2025년 3분기"
+      },
+      "meaning": "같은 상권·업종·세부 분포를 두 분기에서 조회한 추정매출과 차이입니다.",
+      "forbiddenMeanings": [
+        "개별 점포 실제 회계매출",
+        "광고 효과",
+        "여성×20대×금요일×시간대 결합 매출",
+        "일별 또는 월별 관측치",
+        "원본 행 부재를 매출 0원이나 폐업으로 해석"
+      ],
+      "assertions": [
+        "상권코드가3120107이다",
+        "선택 분기와 직전 분기는 같은 업종·차원을 사용한다",
+        "지도·상세·추이·CSV가 같은 원값을 사용한다",
+        "성·연령 분포 합을 전체매출과 억지로 같게 만들지 않는다",
+        "업종 이름 노래방와 원본 코드 CS200037가 대응한다",
+        "선택 업종 원본행이 없으면 null이며 0으로 대체하지 않는다",
+        "어느 분기든 null이면 전분기 차이도 null이다",
+        "자료 없는 분기는 추이에서 null 지점이며 값을 만들지 않는다"
+      ]
+    },
+    {
+      "id": "sales-gongdeok-industry-CS300001",
+      "title": "공덕역 매출 · 슈퍼마켓",
+      "dataset": "marketSales",
+      "sourceIds": [
+        "marketSales",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20254",
+        "previousPeriod": "20253",
+        "industry": "CS300001",
+        "dimension": "all",
+        "band": null,
+        "unit": "원",
+        "industryName": "슈퍼마켓"
+      },
+      "aggregation": {
+        "method": "원본 상권·업종 행의 선택된 단일 열 합",
+        "currentRows": 1,
+        "previousRows": 1,
+        "sourceColumn": "당월_매출_금액",
+        "rawColumnIndex": 7,
+        "optionLabel": "슈퍼마켓"
+      },
+      "expectedExact": {
+        "value": 51207068,
+        "previous": 59597999,
+        "delta": -8390931
+      },
+      "expectedDisplay": {
+        "value": "51,207,068",
+        "previous": "59,597,999",
+        "delta": "-8,390,931",
+        "period": "2025년 4분기",
+        "previousPeriod": "2025년 3분기"
+      },
+      "meaning": "같은 상권·업종·세부 분포를 두 분기에서 조회한 추정매출과 차이입니다.",
+      "forbiddenMeanings": [
+        "개별 점포 실제 회계매출",
+        "광고 효과",
+        "여성×20대×금요일×시간대 결합 매출",
+        "일별 또는 월별 관측치",
+        "원본 행 부재를 매출 0원이나 폐업으로 해석"
+      ],
+      "assertions": [
+        "상권코드가3120107이다",
+        "선택 분기와 직전 분기는 같은 업종·차원을 사용한다",
+        "지도·상세·추이·CSV가 같은 원값을 사용한다",
+        "성·연령 분포 합을 전체매출과 억지로 같게 만들지 않는다",
+        "업종 이름 슈퍼마켓와 원본 코드 CS300001가 대응한다",
+        "선택 업종 원본행이 없으면 null이며 0으로 대체하지 않는다",
+        "어느 분기든 null이면 전분기 차이도 null이다",
+        "자료 없는 분기는 추이에서 null 지점이며 값을 만들지 않는다"
+      ]
+    },
+    {
+      "id": "sales-gongdeok-industry-CS300002",
+      "title": "공덕역 매출 · 편의점",
+      "dataset": "marketSales",
+      "sourceIds": [
+        "marketSales",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20254",
+        "previousPeriod": "20253",
+        "industry": "CS300002",
+        "dimension": "all",
+        "band": null,
+        "unit": "원",
+        "industryName": "편의점"
+      },
+      "aggregation": {
+        "method": "원본 상권·업종 행의 선택된 단일 열 합",
+        "currentRows": 1,
+        "previousRows": 1,
+        "sourceColumn": "당월_매출_금액",
+        "rawColumnIndex": 7,
+        "optionLabel": "편의점"
+      },
+      "expectedExact": {
+        "value": 570203884,
+        "previous": 684148853,
+        "delta": -113944969
+      },
+      "expectedDisplay": {
+        "value": "570,203,884",
+        "previous": "684,148,853",
+        "delta": "-113,944,969",
+        "period": "2025년 4분기",
+        "previousPeriod": "2025년 3분기"
+      },
+      "meaning": "같은 상권·업종·세부 분포를 두 분기에서 조회한 추정매출과 차이입니다.",
+      "forbiddenMeanings": [
+        "개별 점포 실제 회계매출",
+        "광고 효과",
+        "여성×20대×금요일×시간대 결합 매출",
+        "일별 또는 월별 관측치",
+        "원본 행 부재를 매출 0원이나 폐업으로 해석"
+      ],
+      "assertions": [
+        "상권코드가3120107이다",
+        "선택 분기와 직전 분기는 같은 업종·차원을 사용한다",
+        "지도·상세·추이·CSV가 같은 원값을 사용한다",
+        "성·연령 분포 합을 전체매출과 억지로 같게 만들지 않는다",
+        "업종 이름 편의점와 원본 코드 CS300002가 대응한다",
+        "선택 업종 원본행이 없으면 null이며 0으로 대체하지 않는다",
+        "어느 분기든 null이면 전분기 차이도 null이다",
+        "자료 없는 분기는 추이에서 null 지점이며 값을 만들지 않는다"
+      ]
+    },
+    {
+      "id": "sales-gongdeok-industry-CS300003",
+      "title": "공덕역 매출 · 컴퓨터및주변장치판매",
+      "dataset": "marketSales",
+      "sourceIds": [
+        "marketSales",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20254",
+        "previousPeriod": "20253",
+        "industry": "CS300003",
+        "dimension": "all",
+        "band": null,
+        "unit": "원",
+        "industryName": "컴퓨터및주변장치판매"
+      },
+      "aggregation": {
+        "method": "원본 상권·업종 행의 선택된 단일 열 합",
+        "currentRows": 0,
+        "previousRows": 0,
+        "sourceColumn": "당월_매출_금액",
+        "rawColumnIndex": 7,
+        "optionLabel": "컴퓨터및주변장치판매"
+      },
+      "expectedExact": {
+        "value": null,
+        "previous": null,
+        "delta": null
+      },
+      "expectedDisplay": {
+        "value": "자료 없음",
+        "previous": "자료 없음",
+        "delta": "자료 없음",
+        "period": "2025년 4분기",
+        "previousPeriod": "2025년 3분기"
+      },
+      "meaning": "같은 상권·업종·세부 분포를 두 분기에서 조회한 추정매출과 차이입니다.",
+      "forbiddenMeanings": [
+        "개별 점포 실제 회계매출",
+        "광고 효과",
+        "여성×20대×금요일×시간대 결합 매출",
+        "일별 또는 월별 관측치",
+        "원본 행 부재를 매출 0원이나 폐업으로 해석"
+      ],
+      "assertions": [
+        "상권코드가3120107이다",
+        "선택 분기와 직전 분기는 같은 업종·차원을 사용한다",
+        "지도·상세·추이·CSV가 같은 원값을 사용한다",
+        "성·연령 분포 합을 전체매출과 억지로 같게 만들지 않는다",
+        "업종 이름 컴퓨터및주변장치판매와 원본 코드 CS300003가 대응한다",
+        "선택 업종 원본행이 없으면 null이며 0으로 대체하지 않는다",
+        "어느 분기든 null이면 전분기 차이도 null이다",
+        "자료 없는 분기는 추이에서 null 지점이며 값을 만들지 않는다"
+      ]
+    },
+    {
+      "id": "sales-gongdeok-industry-CS300004",
+      "title": "공덕역 매출 · 핸드폰",
+      "dataset": "marketSales",
+      "sourceIds": [
+        "marketSales",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20254",
+        "previousPeriod": "20253",
+        "industry": "CS300004",
+        "dimension": "all",
+        "band": null,
+        "unit": "원",
+        "industryName": "핸드폰"
+      },
+      "aggregation": {
+        "method": "원본 상권·업종 행의 선택된 단일 열 합",
+        "currentRows": 1,
+        "previousRows": 1,
+        "sourceColumn": "당월_매출_금액",
+        "rawColumnIndex": 7,
+        "optionLabel": "핸드폰"
+      },
+      "expectedExact": {
+        "value": 2742938,
+        "previous": 12068928,
+        "delta": -9325990
+      },
+      "expectedDisplay": {
+        "value": "2,742,938",
+        "previous": "12,068,928",
+        "delta": "-9,325,990",
+        "period": "2025년 4분기",
+        "previousPeriod": "2025년 3분기"
+      },
+      "meaning": "같은 상권·업종·세부 분포를 두 분기에서 조회한 추정매출과 차이입니다.",
+      "forbiddenMeanings": [
+        "개별 점포 실제 회계매출",
+        "광고 효과",
+        "여성×20대×금요일×시간대 결합 매출",
+        "일별 또는 월별 관측치",
+        "원본 행 부재를 매출 0원이나 폐업으로 해석"
+      ],
+      "assertions": [
+        "상권코드가3120107이다",
+        "선택 분기와 직전 분기는 같은 업종·차원을 사용한다",
+        "지도·상세·추이·CSV가 같은 원값을 사용한다",
+        "성·연령 분포 합을 전체매출과 억지로 같게 만들지 않는다",
+        "업종 이름 핸드폰와 원본 코드 CS300004가 대응한다",
+        "선택 업종 원본행이 없으면 null이며 0으로 대체하지 않는다",
+        "어느 분기든 null이면 전분기 차이도 null이다",
+        "자료 없는 분기는 추이에서 null 지점이며 값을 만들지 않는다"
+      ]
+    },
+    {
+      "id": "sales-gongdeok-industry-CS300006",
+      "title": "공덕역 매출 · 미곡판매",
+      "dataset": "marketSales",
+      "sourceIds": [
+        "marketSales",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20254",
+        "previousPeriod": "20253",
+        "industry": "CS300006",
+        "dimension": "all",
+        "band": null,
+        "unit": "원",
+        "industryName": "미곡판매"
+      },
+      "aggregation": {
+        "method": "원본 상권·업종 행의 선택된 단일 열 합",
+        "currentRows": 0,
+        "previousRows": 0,
+        "sourceColumn": "당월_매출_금액",
+        "rawColumnIndex": 7,
+        "optionLabel": "미곡판매"
+      },
+      "expectedExact": {
+        "value": null,
+        "previous": null,
+        "delta": null
+      },
+      "expectedDisplay": {
+        "value": "자료 없음",
+        "previous": "자료 없음",
+        "delta": "자료 없음",
+        "period": "2025년 4분기",
+        "previousPeriod": "2025년 3분기"
+      },
+      "meaning": "같은 상권·업종·세부 분포를 두 분기에서 조회한 추정매출과 차이입니다.",
+      "forbiddenMeanings": [
+        "개별 점포 실제 회계매출",
+        "광고 효과",
+        "여성×20대×금요일×시간대 결합 매출",
+        "일별 또는 월별 관측치",
+        "원본 행 부재를 매출 0원이나 폐업으로 해석"
+      ],
+      "assertions": [
+        "상권코드가3120107이다",
+        "선택 분기와 직전 분기는 같은 업종·차원을 사용한다",
+        "지도·상세·추이·CSV가 같은 원값을 사용한다",
+        "성·연령 분포 합을 전체매출과 억지로 같게 만들지 않는다",
+        "업종 이름 미곡판매와 원본 코드 CS300006가 대응한다",
+        "선택 업종 원본행이 없으면 null이며 0으로 대체하지 않는다",
+        "어느 분기든 null이면 전분기 차이도 null이다",
+        "자료 없는 분기는 추이에서 null 지점이며 값을 만들지 않는다"
+      ]
+    },
+    {
+      "id": "sales-gongdeok-industry-CS300007",
+      "title": "공덕역 매출 · 육류판매",
+      "dataset": "marketSales",
+      "sourceIds": [
+        "marketSales",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20254",
+        "previousPeriod": "20253",
+        "industry": "CS300007",
+        "dimension": "all",
+        "band": null,
+        "unit": "원",
+        "industryName": "육류판매"
+      },
+      "aggregation": {
+        "method": "원본 상권·업종 행의 선택된 단일 열 합",
+        "currentRows": 0,
+        "previousRows": 0,
+        "sourceColumn": "당월_매출_금액",
+        "rawColumnIndex": 7,
+        "optionLabel": "육류판매"
+      },
+      "expectedExact": {
+        "value": null,
+        "previous": null,
+        "delta": null
+      },
+      "expectedDisplay": {
+        "value": "자료 없음",
+        "previous": "자료 없음",
+        "delta": "자료 없음",
+        "period": "2025년 4분기",
+        "previousPeriod": "2025년 3분기"
+      },
+      "meaning": "같은 상권·업종·세부 분포를 두 분기에서 조회한 추정매출과 차이입니다.",
+      "forbiddenMeanings": [
+        "개별 점포 실제 회계매출",
+        "광고 효과",
+        "여성×20대×금요일×시간대 결합 매출",
+        "일별 또는 월별 관측치",
+        "원본 행 부재를 매출 0원이나 폐업으로 해석"
+      ],
+      "assertions": [
+        "상권코드가3120107이다",
+        "선택 분기와 직전 분기는 같은 업종·차원을 사용한다",
+        "지도·상세·추이·CSV가 같은 원값을 사용한다",
+        "성·연령 분포 합을 전체매출과 억지로 같게 만들지 않는다",
+        "업종 이름 육류판매와 원본 코드 CS300007가 대응한다",
+        "선택 업종 원본행이 없으면 null이며 0으로 대체하지 않는다",
+        "어느 분기든 null이면 전분기 차이도 null이다",
+        "자료 없는 분기는 추이에서 null 지점이며 값을 만들지 않는다"
+      ]
+    },
+    {
+      "id": "sales-gongdeok-industry-CS300008",
+      "title": "공덕역 매출 · 수산물판매",
+      "dataset": "marketSales",
+      "sourceIds": [
+        "marketSales",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20254",
+        "previousPeriod": "20253",
+        "industry": "CS300008",
+        "dimension": "all",
+        "band": null,
+        "unit": "원",
+        "industryName": "수산물판매"
+      },
+      "aggregation": {
+        "method": "원본 상권·업종 행의 선택된 단일 열 합",
+        "currentRows": 0,
+        "previousRows": 0,
+        "sourceColumn": "당월_매출_금액",
+        "rawColumnIndex": 7,
+        "optionLabel": "수산물판매"
+      },
+      "expectedExact": {
+        "value": null,
+        "previous": null,
+        "delta": null
+      },
+      "expectedDisplay": {
+        "value": "자료 없음",
+        "previous": "자료 없음",
+        "delta": "자료 없음",
+        "period": "2025년 4분기",
+        "previousPeriod": "2025년 3분기"
+      },
+      "meaning": "같은 상권·업종·세부 분포를 두 분기에서 조회한 추정매출과 차이입니다.",
+      "forbiddenMeanings": [
+        "개별 점포 실제 회계매출",
+        "광고 효과",
+        "여성×20대×금요일×시간대 결합 매출",
+        "일별 또는 월별 관측치",
+        "원본 행 부재를 매출 0원이나 폐업으로 해석"
+      ],
+      "assertions": [
+        "상권코드가3120107이다",
+        "선택 분기와 직전 분기는 같은 업종·차원을 사용한다",
+        "지도·상세·추이·CSV가 같은 원값을 사용한다",
+        "성·연령 분포 합을 전체매출과 억지로 같게 만들지 않는다",
+        "업종 이름 수산물판매와 원본 코드 CS300008가 대응한다",
+        "선택 업종 원본행이 없으면 null이며 0으로 대체하지 않는다",
+        "어느 분기든 null이면 전분기 차이도 null이다",
+        "자료 없는 분기는 추이에서 null 지점이며 값을 만들지 않는다"
+      ]
+    },
+    {
+      "id": "sales-gongdeok-industry-CS300009",
+      "title": "공덕역 매출 · 청과상",
+      "dataset": "marketSales",
+      "sourceIds": [
+        "marketSales",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20254",
+        "previousPeriod": "20253",
+        "industry": "CS300009",
+        "dimension": "all",
+        "band": null,
+        "unit": "원",
+        "industryName": "청과상"
+      },
+      "aggregation": {
+        "method": "원본 상권·업종 행의 선택된 단일 열 합",
+        "currentRows": 0,
+        "previousRows": 0,
+        "sourceColumn": "당월_매출_금액",
+        "rawColumnIndex": 7,
+        "optionLabel": "청과상"
+      },
+      "expectedExact": {
+        "value": null,
+        "previous": null,
+        "delta": null
+      },
+      "expectedDisplay": {
+        "value": "자료 없음",
+        "previous": "자료 없음",
+        "delta": "자료 없음",
+        "period": "2025년 4분기",
+        "previousPeriod": "2025년 3분기"
+      },
+      "meaning": "같은 상권·업종·세부 분포를 두 분기에서 조회한 추정매출과 차이입니다.",
+      "forbiddenMeanings": [
+        "개별 점포 실제 회계매출",
+        "광고 효과",
+        "여성×20대×금요일×시간대 결합 매출",
+        "일별 또는 월별 관측치",
+        "원본 행 부재를 매출 0원이나 폐업으로 해석"
+      ],
+      "assertions": [
+        "상권코드가3120107이다",
+        "선택 분기와 직전 분기는 같은 업종·차원을 사용한다",
+        "지도·상세·추이·CSV가 같은 원값을 사용한다",
+        "성·연령 분포 합을 전체매출과 억지로 같게 만들지 않는다",
+        "업종 이름 청과상와 원본 코드 CS300009가 대응한다",
+        "선택 업종 원본행이 없으면 null이며 0으로 대체하지 않는다",
+        "어느 분기든 null이면 전분기 차이도 null이다",
+        "자료 없는 분기는 추이에서 null 지점이며 값을 만들지 않는다"
+      ]
+    },
+    {
+      "id": "sales-gongdeok-industry-CS300010",
+      "title": "공덕역 매출 · 반찬가게",
+      "dataset": "marketSales",
+      "sourceIds": [
+        "marketSales",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20254",
+        "previousPeriod": "20253",
+        "industry": "CS300010",
+        "dimension": "all",
+        "band": null,
+        "unit": "원",
+        "industryName": "반찬가게"
+      },
+      "aggregation": {
+        "method": "원본 상권·업종 행의 선택된 단일 열 합",
+        "currentRows": 1,
+        "previousRows": 1,
+        "sourceColumn": "당월_매출_금액",
+        "rawColumnIndex": 7,
+        "optionLabel": "반찬가게"
+      },
+      "expectedExact": {
+        "value": 9824547,
+        "previous": 78350759,
+        "delta": -68526212
+      },
+      "expectedDisplay": {
+        "value": "9,824,547",
+        "previous": "78,350,759",
+        "delta": "-68,526,212",
+        "period": "2025년 4분기",
+        "previousPeriod": "2025년 3분기"
+      },
+      "meaning": "같은 상권·업종·세부 분포를 두 분기에서 조회한 추정매출과 차이입니다.",
+      "forbiddenMeanings": [
+        "개별 점포 실제 회계매출",
+        "광고 효과",
+        "여성×20대×금요일×시간대 결합 매출",
+        "일별 또는 월별 관측치",
+        "원본 행 부재를 매출 0원이나 폐업으로 해석"
+      ],
+      "assertions": [
+        "상권코드가3120107이다",
+        "선택 분기와 직전 분기는 같은 업종·차원을 사용한다",
+        "지도·상세·추이·CSV가 같은 원값을 사용한다",
+        "성·연령 분포 합을 전체매출과 억지로 같게 만들지 않는다",
+        "업종 이름 반찬가게와 원본 코드 CS300010가 대응한다",
+        "선택 업종 원본행이 없으면 null이며 0으로 대체하지 않는다",
+        "어느 분기든 null이면 전분기 차이도 null이다",
+        "자료 없는 분기는 추이에서 null 지점이며 값을 만들지 않는다"
+      ]
+    },
+    {
+      "id": "sales-gongdeok-industry-CS300011",
+      "title": "공덕역 매출 · 일반의류",
+      "dataset": "marketSales",
+      "sourceIds": [
+        "marketSales",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20254",
+        "previousPeriod": "20253",
+        "industry": "CS300011",
+        "dimension": "all",
+        "band": null,
+        "unit": "원",
+        "industryName": "일반의류"
+      },
+      "aggregation": {
+        "method": "원본 상권·업종 행의 선택된 단일 열 합",
+        "currentRows": 1,
+        "previousRows": 1,
+        "sourceColumn": "당월_매출_금액",
+        "rawColumnIndex": 7,
+        "optionLabel": "일반의류"
+      },
+      "expectedExact": {
+        "value": 14962171458,
+        "previous": 11241553496,
+        "delta": 3720617962
+      },
+      "expectedDisplay": {
+        "value": "14,962,171,458",
+        "previous": "11,241,553,496",
+        "delta": "+3,720,617,962",
+        "period": "2025년 4분기",
+        "previousPeriod": "2025년 3분기"
+      },
+      "meaning": "같은 상권·업종·세부 분포를 두 분기에서 조회한 추정매출과 차이입니다.",
+      "forbiddenMeanings": [
+        "개별 점포 실제 회계매출",
+        "광고 효과",
+        "여성×20대×금요일×시간대 결합 매출",
+        "일별 또는 월별 관측치",
+        "원본 행 부재를 매출 0원이나 폐업으로 해석"
+      ],
+      "assertions": [
+        "상권코드가3120107이다",
+        "선택 분기와 직전 분기는 같은 업종·차원을 사용한다",
+        "지도·상세·추이·CSV가 같은 원값을 사용한다",
+        "성·연령 분포 합을 전체매출과 억지로 같게 만들지 않는다",
+        "업종 이름 일반의류와 원본 코드 CS300011가 대응한다",
+        "선택 업종 원본행이 없으면 null이며 0으로 대체하지 않는다",
+        "어느 분기든 null이면 전분기 차이도 null이다",
+        "자료 없는 분기는 추이에서 null 지점이며 값을 만들지 않는다"
+      ]
+    },
+    {
+      "id": "sales-gongdeok-industry-CS300014",
+      "title": "공덕역 매출 · 신발",
+      "dataset": "marketSales",
+      "sourceIds": [
+        "marketSales",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20254",
+        "previousPeriod": "20253",
+        "industry": "CS300014",
+        "dimension": "all",
+        "band": null,
+        "unit": "원",
+        "industryName": "신발"
+      },
+      "aggregation": {
+        "method": "원본 상권·업종 행의 선택된 단일 열 합",
+        "currentRows": 0,
+        "previousRows": 0,
+        "sourceColumn": "당월_매출_금액",
+        "rawColumnIndex": 7,
+        "optionLabel": "신발"
+      },
+      "expectedExact": {
+        "value": null,
+        "previous": null,
+        "delta": null
+      },
+      "expectedDisplay": {
+        "value": "자료 없음",
+        "previous": "자료 없음",
+        "delta": "자료 없음",
+        "period": "2025년 4분기",
+        "previousPeriod": "2025년 3분기"
+      },
+      "meaning": "같은 상권·업종·세부 분포를 두 분기에서 조회한 추정매출과 차이입니다.",
+      "forbiddenMeanings": [
+        "개별 점포 실제 회계매출",
+        "광고 효과",
+        "여성×20대×금요일×시간대 결합 매출",
+        "일별 또는 월별 관측치",
+        "원본 행 부재를 매출 0원이나 폐업으로 해석"
+      ],
+      "assertions": [
+        "상권코드가3120107이다",
+        "선택 분기와 직전 분기는 같은 업종·차원을 사용한다",
+        "지도·상세·추이·CSV가 같은 원값을 사용한다",
+        "성·연령 분포 합을 전체매출과 억지로 같게 만들지 않는다",
+        "업종 이름 신발와 원본 코드 CS300014가 대응한다",
+        "선택 업종 원본행이 없으면 null이며 0으로 대체하지 않는다",
+        "어느 분기든 null이면 전분기 차이도 null이다",
+        "자료 없는 분기는 추이에서 null 지점이며 값을 만들지 않는다"
+      ]
+    },
+    {
+      "id": "sales-gongdeok-industry-CS300015",
+      "title": "공덕역 매출 · 가방",
+      "dataset": "marketSales",
+      "sourceIds": [
+        "marketSales",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20254",
+        "previousPeriod": "20253",
+        "industry": "CS300015",
+        "dimension": "all",
+        "band": null,
+        "unit": "원",
+        "industryName": "가방"
+      },
+      "aggregation": {
+        "method": "원본 상권·업종 행의 선택된 단일 열 합",
+        "currentRows": 0,
+        "previousRows": 0,
+        "sourceColumn": "당월_매출_금액",
+        "rawColumnIndex": 7,
+        "optionLabel": "가방"
+      },
+      "expectedExact": {
+        "value": null,
+        "previous": null,
+        "delta": null
+      },
+      "expectedDisplay": {
+        "value": "자료 없음",
+        "previous": "자료 없음",
+        "delta": "자료 없음",
+        "period": "2025년 4분기",
+        "previousPeriod": "2025년 3분기"
+      },
+      "meaning": "같은 상권·업종·세부 분포를 두 분기에서 조회한 추정매출과 차이입니다.",
+      "forbiddenMeanings": [
+        "개별 점포 실제 회계매출",
+        "광고 효과",
+        "여성×20대×금요일×시간대 결합 매출",
+        "일별 또는 월별 관측치",
+        "원본 행 부재를 매출 0원이나 폐업으로 해석"
+      ],
+      "assertions": [
+        "상권코드가3120107이다",
+        "선택 분기와 직전 분기는 같은 업종·차원을 사용한다",
+        "지도·상세·추이·CSV가 같은 원값을 사용한다",
+        "성·연령 분포 합을 전체매출과 억지로 같게 만들지 않는다",
+        "업종 이름 가방와 원본 코드 CS300015가 대응한다",
+        "선택 업종 원본행이 없으면 null이며 0으로 대체하지 않는다",
+        "어느 분기든 null이면 전분기 차이도 null이다",
+        "자료 없는 분기는 추이에서 null 지점이며 값을 만들지 않는다"
+      ]
+    },
+    {
+      "id": "sales-gongdeok-industry-CS300016",
+      "title": "공덕역 매출 · 안경",
+      "dataset": "marketSales",
+      "sourceIds": [
+        "marketSales",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20254",
+        "previousPeriod": "20253",
+        "industry": "CS300016",
+        "dimension": "all",
+        "band": null,
+        "unit": "원",
+        "industryName": "안경"
+      },
+      "aggregation": {
+        "method": "원본 상권·업종 행의 선택된 단일 열 합",
+        "currentRows": 0,
+        "previousRows": 0,
+        "sourceColumn": "당월_매출_금액",
+        "rawColumnIndex": 7,
+        "optionLabel": "안경"
+      },
+      "expectedExact": {
+        "value": null,
+        "previous": null,
+        "delta": null
+      },
+      "expectedDisplay": {
+        "value": "자료 없음",
+        "previous": "자료 없음",
+        "delta": "자료 없음",
+        "period": "2025년 4분기",
+        "previousPeriod": "2025년 3분기"
+      },
+      "meaning": "같은 상권·업종·세부 분포를 두 분기에서 조회한 추정매출과 차이입니다.",
+      "forbiddenMeanings": [
+        "개별 점포 실제 회계매출",
+        "광고 효과",
+        "여성×20대×금요일×시간대 결합 매출",
+        "일별 또는 월별 관측치",
+        "원본 행 부재를 매출 0원이나 폐업으로 해석"
+      ],
+      "assertions": [
+        "상권코드가3120107이다",
+        "선택 분기와 직전 분기는 같은 업종·차원을 사용한다",
+        "지도·상세·추이·CSV가 같은 원값을 사용한다",
+        "성·연령 분포 합을 전체매출과 억지로 같게 만들지 않는다",
+        "업종 이름 안경와 원본 코드 CS300016가 대응한다",
+        "선택 업종 원본행이 없으면 null이며 0으로 대체하지 않는다",
+        "어느 분기든 null이면 전분기 차이도 null이다",
+        "자료 없는 분기는 추이에서 null 지점이며 값을 만들지 않는다"
+      ]
+    },
+    {
+      "id": "sales-gongdeok-industry-CS300017",
+      "title": "공덕역 매출 · 시계및귀금속",
+      "dataset": "marketSales",
+      "sourceIds": [
+        "marketSales",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20254",
+        "previousPeriod": "20253",
+        "industry": "CS300017",
+        "dimension": "all",
+        "band": null,
+        "unit": "원",
+        "industryName": "시계및귀금속"
+      },
+      "aggregation": {
+        "method": "원본 상권·업종 행의 선택된 단일 열 합",
+        "currentRows": 0,
+        "previousRows": 0,
+        "sourceColumn": "당월_매출_금액",
+        "rawColumnIndex": 7,
+        "optionLabel": "시계및귀금속"
+      },
+      "expectedExact": {
+        "value": null,
+        "previous": null,
+        "delta": null
+      },
+      "expectedDisplay": {
+        "value": "자료 없음",
+        "previous": "자료 없음",
+        "delta": "자료 없음",
+        "period": "2025년 4분기",
+        "previousPeriod": "2025년 3분기"
+      },
+      "meaning": "같은 상권·업종·세부 분포를 두 분기에서 조회한 추정매출과 차이입니다.",
+      "forbiddenMeanings": [
+        "개별 점포 실제 회계매출",
+        "광고 효과",
+        "여성×20대×금요일×시간대 결합 매출",
+        "일별 또는 월별 관측치",
+        "원본 행 부재를 매출 0원이나 폐업으로 해석"
+      ],
+      "assertions": [
+        "상권코드가3120107이다",
+        "선택 분기와 직전 분기는 같은 업종·차원을 사용한다",
+        "지도·상세·추이·CSV가 같은 원값을 사용한다",
+        "성·연령 분포 합을 전체매출과 억지로 같게 만들지 않는다",
+        "업종 이름 시계및귀금속와 원본 코드 CS300017가 대응한다",
+        "선택 업종 원본행이 없으면 null이며 0으로 대체하지 않는다",
+        "어느 분기든 null이면 전분기 차이도 null이다",
+        "자료 없는 분기는 추이에서 null 지점이며 값을 만들지 않는다"
+      ]
+    },
+    {
+      "id": "sales-gongdeok-industry-CS300018",
+      "title": "공덕역 매출 · 의약품",
+      "dataset": "marketSales",
+      "sourceIds": [
+        "marketSales",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20254",
+        "previousPeriod": "20253",
+        "industry": "CS300018",
+        "dimension": "all",
+        "band": null,
+        "unit": "원",
+        "industryName": "의약품"
+      },
+      "aggregation": {
+        "method": "원본 상권·업종 행의 선택된 단일 열 합",
+        "currentRows": 1,
+        "previousRows": 1,
+        "sourceColumn": "당월_매출_금액",
+        "rawColumnIndex": 7,
+        "optionLabel": "의약품"
+      },
+      "expectedExact": {
+        "value": 859878522,
+        "previous": 854438365,
+        "delta": 5440157
+      },
+      "expectedDisplay": {
+        "value": "859,878,522",
+        "previous": "854,438,365",
+        "delta": "+5,440,157",
+        "period": "2025년 4분기",
+        "previousPeriod": "2025년 3분기"
+      },
+      "meaning": "같은 상권·업종·세부 분포를 두 분기에서 조회한 추정매출과 차이입니다.",
+      "forbiddenMeanings": [
+        "개별 점포 실제 회계매출",
+        "광고 효과",
+        "여성×20대×금요일×시간대 결합 매출",
+        "일별 또는 월별 관측치",
+        "원본 행 부재를 매출 0원이나 폐업으로 해석"
+      ],
+      "assertions": [
+        "상권코드가3120107이다",
+        "선택 분기와 직전 분기는 같은 업종·차원을 사용한다",
+        "지도·상세·추이·CSV가 같은 원값을 사용한다",
+        "성·연령 분포 합을 전체매출과 억지로 같게 만들지 않는다",
+        "업종 이름 의약품와 원본 코드 CS300018가 대응한다",
+        "선택 업종 원본행이 없으면 null이며 0으로 대체하지 않는다",
+        "어느 분기든 null이면 전분기 차이도 null이다",
+        "자료 없는 분기는 추이에서 null 지점이며 값을 만들지 않는다"
+      ]
+    },
+    {
+      "id": "sales-gongdeok-industry-CS300019",
+      "title": "공덕역 매출 · 의료기기",
+      "dataset": "marketSales",
+      "sourceIds": [
+        "marketSales",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20254",
+        "previousPeriod": "20253",
+        "industry": "CS300019",
+        "dimension": "all",
+        "band": null,
+        "unit": "원",
+        "industryName": "의료기기"
+      },
+      "aggregation": {
+        "method": "원본 상권·업종 행의 선택된 단일 열 합",
+        "currentRows": 1,
+        "previousRows": 1,
+        "sourceColumn": "당월_매출_금액",
+        "rawColumnIndex": 7,
+        "optionLabel": "의료기기"
+      },
+      "expectedExact": {
+        "value": 140000000,
+        "previous": 140000000,
+        "delta": 0
+      },
+      "expectedDisplay": {
+        "value": "140,000,000",
+        "previous": "140,000,000",
+        "delta": "0",
+        "period": "2025년 4분기",
+        "previousPeriod": "2025년 3분기"
+      },
+      "meaning": "같은 상권·업종·세부 분포를 두 분기에서 조회한 추정매출과 차이입니다.",
+      "forbiddenMeanings": [
+        "개별 점포 실제 회계매출",
+        "광고 효과",
+        "여성×20대×금요일×시간대 결합 매출",
+        "일별 또는 월별 관측치",
+        "원본 행 부재를 매출 0원이나 폐업으로 해석"
+      ],
+      "assertions": [
+        "상권코드가3120107이다",
+        "선택 분기와 직전 분기는 같은 업종·차원을 사용한다",
+        "지도·상세·추이·CSV가 같은 원값을 사용한다",
+        "성·연령 분포 합을 전체매출과 억지로 같게 만들지 않는다",
+        "업종 이름 의료기기와 원본 코드 CS300019가 대응한다",
+        "선택 업종 원본행이 없으면 null이며 0으로 대체하지 않는다",
+        "어느 분기든 null이면 전분기 차이도 null이다",
+        "자료 없는 분기는 추이에서 null 지점이며 값을 만들지 않는다"
+      ]
+    },
+    {
+      "id": "sales-gongdeok-industry-CS300020",
+      "title": "공덕역 매출 · 서적",
+      "dataset": "marketSales",
+      "sourceIds": [
+        "marketSales",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20254",
+        "previousPeriod": "20253",
+        "industry": "CS300020",
+        "dimension": "all",
+        "band": null,
+        "unit": "원",
+        "industryName": "서적"
+      },
+      "aggregation": {
+        "method": "원본 상권·업종 행의 선택된 단일 열 합",
+        "currentRows": 0,
+        "previousRows": 0,
+        "sourceColumn": "당월_매출_금액",
+        "rawColumnIndex": 7,
+        "optionLabel": "서적"
+      },
+      "expectedExact": {
+        "value": null,
+        "previous": null,
+        "delta": null
+      },
+      "expectedDisplay": {
+        "value": "자료 없음",
+        "previous": "자료 없음",
+        "delta": "자료 없음",
+        "period": "2025년 4분기",
+        "previousPeriod": "2025년 3분기"
+      },
+      "meaning": "같은 상권·업종·세부 분포를 두 분기에서 조회한 추정매출과 차이입니다.",
+      "forbiddenMeanings": [
+        "개별 점포 실제 회계매출",
+        "광고 효과",
+        "여성×20대×금요일×시간대 결합 매출",
+        "일별 또는 월별 관측치",
+        "원본 행 부재를 매출 0원이나 폐업으로 해석"
+      ],
+      "assertions": [
+        "상권코드가3120107이다",
+        "선택 분기와 직전 분기는 같은 업종·차원을 사용한다",
+        "지도·상세·추이·CSV가 같은 원값을 사용한다",
+        "성·연령 분포 합을 전체매출과 억지로 같게 만들지 않는다",
+        "업종 이름 서적와 원본 코드 CS300020가 대응한다",
+        "선택 업종 원본행이 없으면 null이며 0으로 대체하지 않는다",
+        "어느 분기든 null이면 전분기 차이도 null이다",
+        "자료 없는 분기는 추이에서 null 지점이며 값을 만들지 않는다"
+      ]
+    },
+    {
+      "id": "sales-gongdeok-industry-CS300021",
+      "title": "공덕역 매출 · 문구",
+      "dataset": "marketSales",
+      "sourceIds": [
+        "marketSales",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20254",
+        "previousPeriod": "20253",
+        "industry": "CS300021",
+        "dimension": "all",
+        "band": null,
+        "unit": "원",
+        "industryName": "문구"
+      },
+      "aggregation": {
+        "method": "원본 상권·업종 행의 선택된 단일 열 합",
+        "currentRows": 0,
+        "previousRows": 0,
+        "sourceColumn": "당월_매출_금액",
+        "rawColumnIndex": 7,
+        "optionLabel": "문구"
+      },
+      "expectedExact": {
+        "value": null,
+        "previous": null,
+        "delta": null
+      },
+      "expectedDisplay": {
+        "value": "자료 없음",
+        "previous": "자료 없음",
+        "delta": "자료 없음",
+        "period": "2025년 4분기",
+        "previousPeriod": "2025년 3분기"
+      },
+      "meaning": "같은 상권·업종·세부 분포를 두 분기에서 조회한 추정매출과 차이입니다.",
+      "forbiddenMeanings": [
+        "개별 점포 실제 회계매출",
+        "광고 효과",
+        "여성×20대×금요일×시간대 결합 매출",
+        "일별 또는 월별 관측치",
+        "원본 행 부재를 매출 0원이나 폐업으로 해석"
+      ],
+      "assertions": [
+        "상권코드가3120107이다",
+        "선택 분기와 직전 분기는 같은 업종·차원을 사용한다",
+        "지도·상세·추이·CSV가 같은 원값을 사용한다",
+        "성·연령 분포 합을 전체매출과 억지로 같게 만들지 않는다",
+        "업종 이름 문구와 원본 코드 CS300021가 대응한다",
+        "선택 업종 원본행이 없으면 null이며 0으로 대체하지 않는다",
+        "어느 분기든 null이면 전분기 차이도 null이다",
+        "자료 없는 분기는 추이에서 null 지점이며 값을 만들지 않는다"
+      ]
+    },
+    {
+      "id": "sales-gongdeok-industry-CS300022",
+      "title": "공덕역 매출 · 화장품",
+      "dataset": "marketSales",
+      "sourceIds": [
+        "marketSales",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20254",
+        "previousPeriod": "20253",
+        "industry": "CS300022",
+        "dimension": "all",
+        "band": null,
+        "unit": "원",
+        "industryName": "화장품"
+      },
+      "aggregation": {
+        "method": "원본 상권·업종 행의 선택된 단일 열 합",
+        "currentRows": 1,
+        "previousRows": 1,
+        "sourceColumn": "당월_매출_금액",
+        "rawColumnIndex": 7,
+        "optionLabel": "화장품"
+      },
+      "expectedExact": {
+        "value": 9567073,
+        "previous": 11522631,
+        "delta": -1955558
+      },
+      "expectedDisplay": {
+        "value": "9,567,073",
+        "previous": "11,522,631",
+        "delta": "-1,955,558",
+        "period": "2025년 4분기",
+        "previousPeriod": "2025년 3분기"
+      },
+      "meaning": "같은 상권·업종·세부 분포를 두 분기에서 조회한 추정매출과 차이입니다.",
+      "forbiddenMeanings": [
+        "개별 점포 실제 회계매출",
+        "광고 효과",
+        "여성×20대×금요일×시간대 결합 매출",
+        "일별 또는 월별 관측치",
+        "원본 행 부재를 매출 0원이나 폐업으로 해석"
+      ],
+      "assertions": [
+        "상권코드가3120107이다",
+        "선택 분기와 직전 분기는 같은 업종·차원을 사용한다",
+        "지도·상세·추이·CSV가 같은 원값을 사용한다",
+        "성·연령 분포 합을 전체매출과 억지로 같게 만들지 않는다",
+        "업종 이름 화장품와 원본 코드 CS300022가 대응한다",
+        "선택 업종 원본행이 없으면 null이며 0으로 대체하지 않는다",
+        "어느 분기든 null이면 전분기 차이도 null이다",
+        "자료 없는 분기는 추이에서 null 지점이며 값을 만들지 않는다"
+      ]
+    },
+    {
+      "id": "sales-gongdeok-industry-CS300024",
+      "title": "공덕역 매출 · 운동/경기용품",
+      "dataset": "marketSales",
+      "sourceIds": [
+        "marketSales",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20254",
+        "previousPeriod": "20253",
+        "industry": "CS300024",
+        "dimension": "all",
+        "band": null,
+        "unit": "원",
+        "industryName": "운동/경기용품"
+      },
+      "aggregation": {
+        "method": "원본 상권·업종 행의 선택된 단일 열 합",
+        "currentRows": 0,
+        "previousRows": 0,
+        "sourceColumn": "당월_매출_금액",
+        "rawColumnIndex": 7,
+        "optionLabel": "운동/경기용품"
+      },
+      "expectedExact": {
+        "value": null,
+        "previous": null,
+        "delta": null
+      },
+      "expectedDisplay": {
+        "value": "자료 없음",
+        "previous": "자료 없음",
+        "delta": "자료 없음",
+        "period": "2025년 4분기",
+        "previousPeriod": "2025년 3분기"
+      },
+      "meaning": "같은 상권·업종·세부 분포를 두 분기에서 조회한 추정매출과 차이입니다.",
+      "forbiddenMeanings": [
+        "개별 점포 실제 회계매출",
+        "광고 효과",
+        "여성×20대×금요일×시간대 결합 매출",
+        "일별 또는 월별 관측치",
+        "원본 행 부재를 매출 0원이나 폐업으로 해석"
+      ],
+      "assertions": [
+        "상권코드가3120107이다",
+        "선택 분기와 직전 분기는 같은 업종·차원을 사용한다",
+        "지도·상세·추이·CSV가 같은 원값을 사용한다",
+        "성·연령 분포 합을 전체매출과 억지로 같게 만들지 않는다",
+        "업종 이름 운동/경기용품와 원본 코드 CS300024가 대응한다",
+        "선택 업종 원본행이 없으면 null이며 0으로 대체하지 않는다",
+        "어느 분기든 null이면 전분기 차이도 null이다",
+        "자료 없는 분기는 추이에서 null 지점이며 값을 만들지 않는다"
+      ]
+    },
+    {
+      "id": "sales-gongdeok-industry-CS300025",
+      "title": "공덕역 매출 · 자전거 및 기타운송장비",
+      "dataset": "marketSales",
+      "sourceIds": [
+        "marketSales",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20254",
+        "previousPeriod": "20253",
+        "industry": "CS300025",
+        "dimension": "all",
+        "band": null,
+        "unit": "원",
+        "industryName": "자전거 및 기타운송장비"
+      },
+      "aggregation": {
+        "method": "원본 상권·업종 행의 선택된 단일 열 합",
+        "currentRows": 0,
+        "previousRows": 0,
+        "sourceColumn": "당월_매출_금액",
+        "rawColumnIndex": 7,
+        "optionLabel": "자전거 및 기타운송장비"
+      },
+      "expectedExact": {
+        "value": null,
+        "previous": null,
+        "delta": null
+      },
+      "expectedDisplay": {
+        "value": "자료 없음",
+        "previous": "자료 없음",
+        "delta": "자료 없음",
+        "period": "2025년 4분기",
+        "previousPeriod": "2025년 3분기"
+      },
+      "meaning": "같은 상권·업종·세부 분포를 두 분기에서 조회한 추정매출과 차이입니다.",
+      "forbiddenMeanings": [
+        "개별 점포 실제 회계매출",
+        "광고 효과",
+        "여성×20대×금요일×시간대 결합 매출",
+        "일별 또는 월별 관측치",
+        "원본 행 부재를 매출 0원이나 폐업으로 해석"
+      ],
+      "assertions": [
+        "상권코드가3120107이다",
+        "선택 분기와 직전 분기는 같은 업종·차원을 사용한다",
+        "지도·상세·추이·CSV가 같은 원값을 사용한다",
+        "성·연령 분포 합을 전체매출과 억지로 같게 만들지 않는다",
+        "업종 이름 자전거 및 기타운송장비와 원본 코드 CS300025가 대응한다",
+        "선택 업종 원본행이 없으면 null이며 0으로 대체하지 않는다",
+        "어느 분기든 null이면 전분기 차이도 null이다",
+        "자료 없는 분기는 추이에서 null 지점이며 값을 만들지 않는다"
+      ]
+    },
+    {
+      "id": "sales-gongdeok-industry-CS300026",
+      "title": "공덕역 매출 · 완구",
+      "dataset": "marketSales",
+      "sourceIds": [
+        "marketSales",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20254",
+        "previousPeriod": "20253",
+        "industry": "CS300026",
+        "dimension": "all",
+        "band": null,
+        "unit": "원",
+        "industryName": "완구"
+      },
+      "aggregation": {
+        "method": "원본 상권·업종 행의 선택된 단일 열 합",
+        "currentRows": 0,
+        "previousRows": 0,
+        "sourceColumn": "당월_매출_금액",
+        "rawColumnIndex": 7,
+        "optionLabel": "완구"
+      },
+      "expectedExact": {
+        "value": null,
+        "previous": null,
+        "delta": null
+      },
+      "expectedDisplay": {
+        "value": "자료 없음",
+        "previous": "자료 없음",
+        "delta": "자료 없음",
+        "period": "2025년 4분기",
+        "previousPeriod": "2025년 3분기"
+      },
+      "meaning": "같은 상권·업종·세부 분포를 두 분기에서 조회한 추정매출과 차이입니다.",
+      "forbiddenMeanings": [
+        "개별 점포 실제 회계매출",
+        "광고 효과",
+        "여성×20대×금요일×시간대 결합 매출",
+        "일별 또는 월별 관측치",
+        "원본 행 부재를 매출 0원이나 폐업으로 해석"
+      ],
+      "assertions": [
+        "상권코드가3120107이다",
+        "선택 분기와 직전 분기는 같은 업종·차원을 사용한다",
+        "지도·상세·추이·CSV가 같은 원값을 사용한다",
+        "성·연령 분포 합을 전체매출과 억지로 같게 만들지 않는다",
+        "업종 이름 완구와 원본 코드 CS300026가 대응한다",
+        "선택 업종 원본행이 없으면 null이며 0으로 대체하지 않는다",
+        "어느 분기든 null이면 전분기 차이도 null이다",
+        "자료 없는 분기는 추이에서 null 지점이며 값을 만들지 않는다"
+      ]
+    },
+    {
+      "id": "sales-gongdeok-industry-CS300027",
+      "title": "공덕역 매출 · 섬유제품",
+      "dataset": "marketSales",
+      "sourceIds": [
+        "marketSales",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20254",
+        "previousPeriod": "20253",
+        "industry": "CS300027",
+        "dimension": "all",
+        "band": null,
+        "unit": "원",
+        "industryName": "섬유제품"
+      },
+      "aggregation": {
+        "method": "원본 상권·업종 행의 선택된 단일 열 합",
+        "currentRows": 0,
+        "previousRows": 0,
+        "sourceColumn": "당월_매출_금액",
+        "rawColumnIndex": 7,
+        "optionLabel": "섬유제품"
+      },
+      "expectedExact": {
+        "value": null,
+        "previous": null,
+        "delta": null
+      },
+      "expectedDisplay": {
+        "value": "자료 없음",
+        "previous": "자료 없음",
+        "delta": "자료 없음",
+        "period": "2025년 4분기",
+        "previousPeriod": "2025년 3분기"
+      },
+      "meaning": "같은 상권·업종·세부 분포를 두 분기에서 조회한 추정매출과 차이입니다.",
+      "forbiddenMeanings": [
+        "개별 점포 실제 회계매출",
+        "광고 효과",
+        "여성×20대×금요일×시간대 결합 매출",
+        "일별 또는 월별 관측치",
+        "원본 행 부재를 매출 0원이나 폐업으로 해석"
+      ],
+      "assertions": [
+        "상권코드가3120107이다",
+        "선택 분기와 직전 분기는 같은 업종·차원을 사용한다",
+        "지도·상세·추이·CSV가 같은 원값을 사용한다",
+        "성·연령 분포 합을 전체매출과 억지로 같게 만들지 않는다",
+        "업종 이름 섬유제품와 원본 코드 CS300027가 대응한다",
+        "선택 업종 원본행이 없으면 null이며 0으로 대체하지 않는다",
+        "어느 분기든 null이면 전분기 차이도 null이다",
+        "자료 없는 분기는 추이에서 null 지점이며 값을 만들지 않는다"
+      ]
+    },
+    {
+      "id": "sales-gongdeok-industry-CS300028",
+      "title": "공덕역 매출 · 화초",
+      "dataset": "marketSales",
+      "sourceIds": [
+        "marketSales",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20254",
+        "previousPeriod": "20253",
+        "industry": "CS300028",
+        "dimension": "all",
+        "band": null,
+        "unit": "원",
+        "industryName": "화초"
+      },
+      "aggregation": {
+        "method": "원본 상권·업종 행의 선택된 단일 열 합",
+        "currentRows": 1,
+        "previousRows": 1,
+        "sourceColumn": "당월_매출_금액",
+        "rawColumnIndex": 7,
+        "optionLabel": "화초"
+      },
+      "expectedExact": {
+        "value": 217794064,
+        "previous": 171373930,
+        "delta": 46420134
+      },
+      "expectedDisplay": {
+        "value": "217,794,064",
+        "previous": "171,373,930",
+        "delta": "+46,420,134",
+        "period": "2025년 4분기",
+        "previousPeriod": "2025년 3분기"
+      },
+      "meaning": "같은 상권·업종·세부 분포를 두 분기에서 조회한 추정매출과 차이입니다.",
+      "forbiddenMeanings": [
+        "개별 점포 실제 회계매출",
+        "광고 효과",
+        "여성×20대×금요일×시간대 결합 매출",
+        "일별 또는 월별 관측치",
+        "원본 행 부재를 매출 0원이나 폐업으로 해석"
+      ],
+      "assertions": [
+        "상권코드가3120107이다",
+        "선택 분기와 직전 분기는 같은 업종·차원을 사용한다",
+        "지도·상세·추이·CSV가 같은 원값을 사용한다",
+        "성·연령 분포 합을 전체매출과 억지로 같게 만들지 않는다",
+        "업종 이름 화초와 원본 코드 CS300028가 대응한다",
+        "선택 업종 원본행이 없으면 null이며 0으로 대체하지 않는다",
+        "어느 분기든 null이면 전분기 차이도 null이다",
+        "자료 없는 분기는 추이에서 null 지점이며 값을 만들지 않는다"
+      ]
+    },
+    {
+      "id": "sales-gongdeok-industry-CS300029",
+      "title": "공덕역 매출 · 애완동물",
+      "dataset": "marketSales",
+      "sourceIds": [
+        "marketSales",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20254",
+        "previousPeriod": "20253",
+        "industry": "CS300029",
+        "dimension": "all",
+        "band": null,
+        "unit": "원",
+        "industryName": "애완동물"
+      },
+      "aggregation": {
+        "method": "원본 상권·업종 행의 선택된 단일 열 합",
+        "currentRows": 0,
+        "previousRows": 0,
+        "sourceColumn": "당월_매출_금액",
+        "rawColumnIndex": 7,
+        "optionLabel": "애완동물"
+      },
+      "expectedExact": {
+        "value": null,
+        "previous": null,
+        "delta": null
+      },
+      "expectedDisplay": {
+        "value": "자료 없음",
+        "previous": "자료 없음",
+        "delta": "자료 없음",
+        "period": "2025년 4분기",
+        "previousPeriod": "2025년 3분기"
+      },
+      "meaning": "같은 상권·업종·세부 분포를 두 분기에서 조회한 추정매출과 차이입니다.",
+      "forbiddenMeanings": [
+        "개별 점포 실제 회계매출",
+        "광고 효과",
+        "여성×20대×금요일×시간대 결합 매출",
+        "일별 또는 월별 관측치",
+        "원본 행 부재를 매출 0원이나 폐업으로 해석"
+      ],
+      "assertions": [
+        "상권코드가3120107이다",
+        "선택 분기와 직전 분기는 같은 업종·차원을 사용한다",
+        "지도·상세·추이·CSV가 같은 원값을 사용한다",
+        "성·연령 분포 합을 전체매출과 억지로 같게 만들지 않는다",
+        "업종 이름 애완동물와 원본 코드 CS300029가 대응한다",
+        "선택 업종 원본행이 없으면 null이며 0으로 대체하지 않는다",
+        "어느 분기든 null이면 전분기 차이도 null이다",
+        "자료 없는 분기는 추이에서 null 지점이며 값을 만들지 않는다"
+      ]
+    },
+    {
+      "id": "sales-gongdeok-industry-CS300031",
+      "title": "공덕역 매출 · 가구",
+      "dataset": "marketSales",
+      "sourceIds": [
+        "marketSales",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20254",
+        "previousPeriod": "20253",
+        "industry": "CS300031",
+        "dimension": "all",
+        "band": null,
+        "unit": "원",
+        "industryName": "가구"
+      },
+      "aggregation": {
+        "method": "원본 상권·업종 행의 선택된 단일 열 합",
+        "currentRows": 0,
+        "previousRows": 0,
+        "sourceColumn": "당월_매출_금액",
+        "rawColumnIndex": 7,
+        "optionLabel": "가구"
+      },
+      "expectedExact": {
+        "value": null,
+        "previous": null,
+        "delta": null
+      },
+      "expectedDisplay": {
+        "value": "자료 없음",
+        "previous": "자료 없음",
+        "delta": "자료 없음",
+        "period": "2025년 4분기",
+        "previousPeriod": "2025년 3분기"
+      },
+      "meaning": "같은 상권·업종·세부 분포를 두 분기에서 조회한 추정매출과 차이입니다.",
+      "forbiddenMeanings": [
+        "개별 점포 실제 회계매출",
+        "광고 효과",
+        "여성×20대×금요일×시간대 결합 매출",
+        "일별 또는 월별 관측치",
+        "원본 행 부재를 매출 0원이나 폐업으로 해석"
+      ],
+      "assertions": [
+        "상권코드가3120107이다",
+        "선택 분기와 직전 분기는 같은 업종·차원을 사용한다",
+        "지도·상세·추이·CSV가 같은 원값을 사용한다",
+        "성·연령 분포 합을 전체매출과 억지로 같게 만들지 않는다",
+        "업종 이름 가구와 원본 코드 CS300031가 대응한다",
+        "선택 업종 원본행이 없으면 null이며 0으로 대체하지 않는다",
+        "어느 분기든 null이면 전분기 차이도 null이다",
+        "자료 없는 분기는 추이에서 null 지점이며 값을 만들지 않는다"
+      ]
+    },
+    {
+      "id": "sales-gongdeok-industry-CS300032",
+      "title": "공덕역 매출 · 가전제품",
+      "dataset": "marketSales",
+      "sourceIds": [
+        "marketSales",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20254",
+        "previousPeriod": "20253",
+        "industry": "CS300032",
+        "dimension": "all",
+        "band": null,
+        "unit": "원",
+        "industryName": "가전제품"
+      },
+      "aggregation": {
+        "method": "원본 상권·업종 행의 선택된 단일 열 합",
+        "currentRows": 0,
+        "previousRows": 0,
+        "sourceColumn": "당월_매출_금액",
+        "rawColumnIndex": 7,
+        "optionLabel": "가전제품"
+      },
+      "expectedExact": {
+        "value": null,
+        "previous": null,
+        "delta": null
+      },
+      "expectedDisplay": {
+        "value": "자료 없음",
+        "previous": "자료 없음",
+        "delta": "자료 없음",
+        "period": "2025년 4분기",
+        "previousPeriod": "2025년 3분기"
+      },
+      "meaning": "같은 상권·업종·세부 분포를 두 분기에서 조회한 추정매출과 차이입니다.",
+      "forbiddenMeanings": [
+        "개별 점포 실제 회계매출",
+        "광고 효과",
+        "여성×20대×금요일×시간대 결합 매출",
+        "일별 또는 월별 관측치",
+        "원본 행 부재를 매출 0원이나 폐업으로 해석"
+      ],
+      "assertions": [
+        "상권코드가3120107이다",
+        "선택 분기와 직전 분기는 같은 업종·차원을 사용한다",
+        "지도·상세·추이·CSV가 같은 원값을 사용한다",
+        "성·연령 분포 합을 전체매출과 억지로 같게 만들지 않는다",
+        "업종 이름 가전제품와 원본 코드 CS300032가 대응한다",
+        "선택 업종 원본행이 없으면 null이며 0으로 대체하지 않는다",
+        "어느 분기든 null이면 전분기 차이도 null이다",
+        "자료 없는 분기는 추이에서 null 지점이며 값을 만들지 않는다"
+      ]
+    },
+    {
+      "id": "sales-gongdeok-industry-CS300033",
+      "title": "공덕역 매출 · 철물점",
+      "dataset": "marketSales",
+      "sourceIds": [
+        "marketSales",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20254",
+        "previousPeriod": "20253",
+        "industry": "CS300033",
+        "dimension": "all",
+        "band": null,
+        "unit": "원",
+        "industryName": "철물점"
+      },
+      "aggregation": {
+        "method": "원본 상권·업종 행의 선택된 단일 열 합",
+        "currentRows": 0,
+        "previousRows": 0,
+        "sourceColumn": "당월_매출_금액",
+        "rawColumnIndex": 7,
+        "optionLabel": "철물점"
+      },
+      "expectedExact": {
+        "value": null,
+        "previous": null,
+        "delta": null
+      },
+      "expectedDisplay": {
+        "value": "자료 없음",
+        "previous": "자료 없음",
+        "delta": "자료 없음",
+        "period": "2025년 4분기",
+        "previousPeriod": "2025년 3분기"
+      },
+      "meaning": "같은 상권·업종·세부 분포를 두 분기에서 조회한 추정매출과 차이입니다.",
+      "forbiddenMeanings": [
+        "개별 점포 실제 회계매출",
+        "광고 효과",
+        "여성×20대×금요일×시간대 결합 매출",
+        "일별 또는 월별 관측치",
+        "원본 행 부재를 매출 0원이나 폐업으로 해석"
+      ],
+      "assertions": [
+        "상권코드가3120107이다",
+        "선택 분기와 직전 분기는 같은 업종·차원을 사용한다",
+        "지도·상세·추이·CSV가 같은 원값을 사용한다",
+        "성·연령 분포 합을 전체매출과 억지로 같게 만들지 않는다",
+        "업종 이름 철물점와 원본 코드 CS300033가 대응한다",
+        "선택 업종 원본행이 없으면 null이며 0으로 대체하지 않는다",
+        "어느 분기든 null이면 전분기 차이도 null이다",
+        "자료 없는 분기는 추이에서 null 지점이며 값을 만들지 않는다"
+      ]
+    },
+    {
+      "id": "sales-gongdeok-industry-CS300035",
+      "title": "공덕역 매출 · 인테리어",
+      "dataset": "marketSales",
+      "sourceIds": [
+        "marketSales",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20254",
+        "previousPeriod": "20253",
+        "industry": "CS300035",
+        "dimension": "all",
+        "band": null,
+        "unit": "원",
+        "industryName": "인테리어"
+      },
+      "aggregation": {
+        "method": "원본 상권·업종 행의 선택된 단일 열 합",
+        "currentRows": 0,
+        "previousRows": 0,
+        "sourceColumn": "당월_매출_금액",
+        "rawColumnIndex": 7,
+        "optionLabel": "인테리어"
+      },
+      "expectedExact": {
+        "value": null,
+        "previous": null,
+        "delta": null
+      },
+      "expectedDisplay": {
+        "value": "자료 없음",
+        "previous": "자료 없음",
+        "delta": "자료 없음",
+        "period": "2025년 4분기",
+        "previousPeriod": "2025년 3분기"
+      },
+      "meaning": "같은 상권·업종·세부 분포를 두 분기에서 조회한 추정매출과 차이입니다.",
+      "forbiddenMeanings": [
+        "개별 점포 실제 회계매출",
+        "광고 효과",
+        "여성×20대×금요일×시간대 결합 매출",
+        "일별 또는 월별 관측치",
+        "원본 행 부재를 매출 0원이나 폐업으로 해석"
+      ],
+      "assertions": [
+        "상권코드가3120107이다",
+        "선택 분기와 직전 분기는 같은 업종·차원을 사용한다",
+        "지도·상세·추이·CSV가 같은 원값을 사용한다",
+        "성·연령 분포 합을 전체매출과 억지로 같게 만들지 않는다",
+        "업종 이름 인테리어와 원본 코드 CS300035가 대응한다",
+        "선택 업종 원본행이 없으면 null이며 0으로 대체하지 않는다",
+        "어느 분기든 null이면 전분기 차이도 null이다",
+        "자료 없는 분기는 추이에서 null 지점이며 값을 만들지 않는다"
+      ]
+    },
+    {
+      "id": "sales-gongdeok-industry-CS300036",
+      "title": "공덕역 매출 · 조명용품",
+      "dataset": "marketSales",
+      "sourceIds": [
+        "marketSales",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20254",
+        "previousPeriod": "20253",
+        "industry": "CS300036",
+        "dimension": "all",
+        "band": null,
+        "unit": "원",
+        "industryName": "조명용품"
+      },
+      "aggregation": {
+        "method": "원본 상권·업종 행의 선택된 단일 열 합",
+        "currentRows": 0,
+        "previousRows": 0,
+        "sourceColumn": "당월_매출_금액",
+        "rawColumnIndex": 7,
+        "optionLabel": "조명용품"
+      },
+      "expectedExact": {
+        "value": null,
+        "previous": null,
+        "delta": null
+      },
+      "expectedDisplay": {
+        "value": "자료 없음",
+        "previous": "자료 없음",
+        "delta": "자료 없음",
+        "period": "2025년 4분기",
+        "previousPeriod": "2025년 3분기"
+      },
+      "meaning": "같은 상권·업종·세부 분포를 두 분기에서 조회한 추정매출과 차이입니다.",
+      "forbiddenMeanings": [
+        "개별 점포 실제 회계매출",
+        "광고 효과",
+        "여성×20대×금요일×시간대 결합 매출",
+        "일별 또는 월별 관측치",
+        "원본 행 부재를 매출 0원이나 폐업으로 해석"
+      ],
+      "assertions": [
+        "상권코드가3120107이다",
+        "선택 분기와 직전 분기는 같은 업종·차원을 사용한다",
+        "지도·상세·추이·CSV가 같은 원값을 사용한다",
+        "성·연령 분포 합을 전체매출과 억지로 같게 만들지 않는다",
+        "업종 이름 조명용품와 원본 코드 CS300036가 대응한다",
+        "선택 업종 원본행이 없으면 null이며 0으로 대체하지 않는다",
+        "어느 분기든 null이면 전분기 차이도 null이다",
+        "자료 없는 분기는 추이에서 null 지점이며 값을 만들지 않는다"
+      ]
+    },
+    {
+      "id": "sales-gongdeok-industry-CS300043",
+      "title": "공덕역 매출 · 전자상거래업",
+      "dataset": "marketSales",
+      "sourceIds": [
+        "marketSales",
+        "marketBoundary"
+      ],
+      "scope": {
+        "regionCode": "3120107",
+        "regionName": "공덕역(공덕오거리)",
+        "regionLevel": "market",
+        "district": "11440",
+        "dong": "11440585",
+        "period": "20254",
+        "previousPeriod": "20253",
+        "industry": "CS300043",
+        "dimension": "all",
+        "band": null,
+        "unit": "원",
+        "industryName": "전자상거래업"
+      },
+      "aggregation": {
+        "method": "원본 상권·업종 행의 선택된 단일 열 합",
+        "currentRows": 0,
+        "previousRows": 0,
+        "sourceColumn": "당월_매출_금액",
+        "rawColumnIndex": 7,
+        "optionLabel": "전자상거래업"
+      },
+      "expectedExact": {
+        "value": null,
+        "previous": null,
+        "delta": null
+      },
+      "expectedDisplay": {
+        "value": "자료 없음",
+        "previous": "자료 없음",
+        "delta": "자료 없음",
+        "period": "2025년 4분기",
+        "previousPeriod": "2025년 3분기"
+      },
+      "meaning": "같은 상권·업종·세부 분포를 두 분기에서 조회한 추정매출과 차이입니다.",
+      "forbiddenMeanings": [
+        "개별 점포 실제 회계매출",
+        "광고 효과",
+        "여성×20대×금요일×시간대 결합 매출",
+        "일별 또는 월별 관측치",
+        "원본 행 부재를 매출 0원이나 폐업으로 해석"
+      ],
+      "assertions": [
+        "상권코드가3120107이다",
+        "선택 분기와 직전 분기는 같은 업종·차원을 사용한다",
+        "지도·상세·추이·CSV가 같은 원값을 사용한다",
+        "성·연령 분포 합을 전체매출과 억지로 같게 만들지 않는다",
+        "업종 이름 전자상거래업와 원본 코드 CS300043가 대응한다",
+        "선택 업종 원본행이 없으면 null이며 0으로 대체하지 않는다",
+        "어느 분기든 null이면 전분기 차이도 null이다",
+        "자료 없는 분기는 추이에서 null 지점이며 값을 만들지 않는다"
+      ]
+    }
+  ],
+  "caseCount": 119,
+  "rawScans": {
+    "mobilityRows": 6317901,
+    "mapoArrival18RelevantRows": 27368
+  },
+  "preparedValidationReport": "tests/e2e-artifacts/market-data-validation.json",
+  "displayPolicy": {
+    "counts": "JS Math.round style integer with Korean thousands separators; exact values retain decimals",
+    "share": "one decimal, denominator is all partners in that direction",
+    "differences": "same region/period scope and same marginal dimension only; positive plus sign"
+  },
+  "globalForbiddenMeanings": [
+    "서로다른주변분포를곱해교차값을만들지않는다",
+    "원자료범위를넘는광고효과·도달·전환율판정을하지않는다",
+    "일평균환산미검증값을하루고유인원으로표시하지않는다"
+  ],
+  "optionCoverage": {
+    "marketSales": {
+      "all": 1,
+      "time": 6,
+      "sex": 2,
+      "age": 6,
+      "day": 7,
+      "additionalIndustryCases": 2,
+      "industryCodes": 62,
+      "industryNote": "전체 제공 업종 옵션과 별도로 62개 단일 업종 전수, 한식은 기존 사례 재사용"
+    },
+    "marketPopulation": {
+      "all": 1,
+      "time": 6,
+      "sex": 2,
+      "age": 6,
+      "day": 7
+    },
+    "note": "각 주변분포는 독립 단일열; 모든 조합 교차집단을 의미하지 않는다."
+  }
+}
