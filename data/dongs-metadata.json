@@ -1,0 +1,47 @@
+{
+  "sourceUrl": "https://data.seoul.go.kr/opendata/seoulStay/grid_viewer.html",
+  "sourceTitle": "서울시 공식 250m 격자 선택기 내 공개 행정동·자치구 경계",
+  "boundaryYear": 2025,
+  "boundaryDate": "2025-06-30",
+  "retrievedAt": "2026-11-14",
+  "crs": "EPSG:4326",
+  "license": "공식 공개 페이지 제공 경계. 별도 경계 라이선스 문구는 페이지에 없어 재배포 범위 확인 필요.",
+  "featureCount": 426,
+  "districtFeatureCount": 25,
+  "populationDongCount": 427,
+  "populationMatchedCount": 425,
+  "missingPopulationDongs": [
+    {
+      "code": "11230515",
+      "name": "용두동"
+    },
+    {
+      "code": "11230533",
+      "name": "신설동"
+    }
+  ],
+  "historicalBoundaryDongs": [
+    {
+      "code": "11230536",
+      "name": "용신동",
+      "districtCode": "11230"
+    }
+  ],
+  "notes": [
+    "경계는 공식 페이지의 DONG 및 SIGUNGU GeoJSON을 변경 없이 사용. 2025-06-30 기준일은 원본 페이지에 명시.",
+    "원본 동경계 속성은 name만 제공. 공식 regions 동명과 자치구 폴리곤의 내부점을 이용해 동명을 부모구별로 구분하고 행안부 코드를 연결.",
+    "개포3동11680675/상일1동11740525/상일2동11740526은 공식 행정동 코드로 추가 연결.",
+    "2026년 생활인구 용두동11230515·신설동11230533은 이 경계에 없음. 용신동11230536 경계를 임의 분할하거나 두 동에 중복 연결하지 않음.",
+    "과거 코드 용신동은 회색 또는 데이터 없음으로 표시. 2025경계와2026통계 시점 차이를 명시할 것.",
+    "원본에서 유효하지 않은 geometry가 있더라도 임의 보정하지 않고 코드 목록을 메타데이터에 표시."
+  ],
+  "rawPageSha256": "5653764910deb5efacb7b091649df702d60dbbf1c72f6e021c4063c8e8dd1cd3",
+  "earlierSource": "https://data.seoul.go.kr/dataList/OA-22160/S/1/datasetView.do",
+  "earlierSourceNote": "2023-10 SHP425개보다 최근인 공식2025-06 경계426개 사용",
+  "geometryValidation": {
+    "emptyFeatures": 0,
+    "invalidSourceFeatures": [],
+    "uniqueCodes": 426,
+    "coordinateRangeCheck": "passed"
+  }
+}
