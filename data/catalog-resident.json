@@ -79,6 +79,15 @@
       "guide_url": "https://sgis.kostat.go.kr/html/attachFiles/SGIS%20%EC%86%8C%EC%A7%80%EC%97%AD%20%ED%86%B5%EA%B3%84%20%EC%9D%B4%EC%9A%A9%EB%A7%A4%EB%89%B4%EC%96%BC.pdf",
       "api_guide": "https://sgis.kostat.go.kr/developer/upload/doc/DataAPI-definition.pdf",
       "notes": "인구총조사 등 정주 수요. 경계 기준연도와 통계연도 일치 필요"
+    },
+    {
+      "id": "seoul-residential-migration",
+      "name": "서울 구·동 거주지 전입전출",
+      "status": "downloaded",
+      "period": "구2001~2025/동2015~2025",
+      "prepared": "public/data/residential-migration.json",
+      "source_url": "https://stat.eseoul.go.kr/stat/sip/sts/move/statsMoveBoard.do",
+      "notes": "구625/동4676행. 2023제공처불일치 및 원본결측2건 유지."
     }
   ],
   "verification_note": "실제 확보 CSV는 전국 시도 단위이며 서울특별시 행을 포함. 서울 구·동별 확보로 표시하지 않음. HTML 파일은 제공화면 원본 근거로 통계 CSV 건수에서 제외."

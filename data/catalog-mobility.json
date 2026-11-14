@@ -167,8 +167,10 @@
     "source_url": "https://data.seoul.go.kr/dataList/OA-22300/F/1/datasetView.do",
     "spatial_unit": "출발·도착 지역",
     "retrieved_at": "2026-11-14T05:02:40.260412+00:00",
-    "status": "pending",
-    "error": "IncompleteRead(0 bytes read)"
+    "status": "downloaded",
+    "path": "data/raw/living-mobility/OA-22300-20261031.zip",
+    "prepared": "public/data/living-mobility.json",
+    "period": "2026-10-31"
   },
   {
     "id": "OA-12252",
