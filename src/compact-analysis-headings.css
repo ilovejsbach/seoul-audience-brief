@@ -1,0 +1,57 @@
+/* R05/R06: keep a question and its live scope together when they fit.
+   Only heading groups are compressed; warnings, denominators and result copy
+   retain their own space and no text or font-size token is removed. */
+.app .dashboardContent .demographicHeading,
+.app .dashboardContent .patternHeading>div,
+.app .dashboardContent .movementConnectionsHeading>div:first-child,
+.app .dashboardContent .timeComparisonHeading>div{
+ display:flex;
+ align-items:center;
+ flex-wrap:wrap;
+ gap:4px 16px;
+ min-width:0;
+ max-width:100%;
+}
+.app .dashboardContent .demographicHeading{
+ margin:12px 0;
+}
+.app .dashboardContent .patternHeading,
+.app .dashboardContent .movementConnectionsHeading{
+ align-items:center;
+ gap:8px 16px;
+}
+.app .dashboardContent .patternHeading{
+ margin:10px 0;
+}
+.app .dashboardContent .timeComparisonHeading{
+ align-items:center;
+ gap:8px 16px;
+ margin-bottom:12px;
+}
+.app .dashboardContent .demographicHeading>h2,
+.app .dashboardContent .patternHeading>div>h2,
+.app .dashboardContent .movementConnectionsHeading>div:first-child>h2,
+.app .dashboardContent .timeComparisonHeading>div>h2{
+ flex:0 1 auto;
+ min-width:0;
+ max-width:100%;
+ margin:0;
+ overflow-wrap:anywhere;
+ word-break:keep-all;
+}
+.app .dashboardContent .demographicHeading>p,
+.app .dashboardContent .patternHeading>div>p,
+.app .dashboardContent .movementConnectionsHeading>div:first-child>p,
+.app .dashboardContent .timeComparisonHeading>div>p{
+ flex:0 1 auto;
+ min-width:0;
+ max-width:100%;
+ margin:0;
+ overflow-wrap:anywhere;
+ word-break:keep-all;
+}
+.app .distributionComparison>.panelTitle>div,.app .migrationBreakdownHeading,.app .trendTitleLine{display:flex;align-items:center;flex-wrap:wrap;gap:4px 12px;min-width:0}
+.app .distributionComparison .distributionContext,.app .migrationBreakdownHeading h2,.app .trendTitleLine h2{margin:0;min-width:0;max-width:100%;overflow-wrap:anywhere;word-break:keep-all}
+.app .migrationBreakdownHeading{margin:10px 0}
+.app .migrationBreakdownHeading>span,.app .migrationBreakdownHeading>a,.app .trendInterpretationNote{color:#53677c;line-height:1.5}
+@layer dashboardTypography{.app:is(.mode-analysis,.mode-presentation) :is(.trendInterpretationNote,.migrationBreakdownHeading>span,.migrationBreakdownHeading>a){font-size:14px!important}}

@@ -92,3 +92,5 @@ python3 scripts/validate-market-data.py
 자료 4종과 지도/상세 분석/후보 비교를 별도 축으로 선택합니다. 지도 클릭은 지역 조건·작은 핵심 지표·추세에 같은 선택을 적용하며, 그래프 설정은 독립 옵션 창에서 조절합니다. [현재 설계·실행 보고](docs/briefing-hierarchy-report.md).
 
 시연 상세는 보조 분석을 선택할 때 화면을 교체합니다. [그래프 집중·화면 전환 실행 보고](docs/presentation-focus-report.md).
+
+[제목·설명·단위 압축과 구 라벨 실행 보고](docs/compact-headings-report.md).

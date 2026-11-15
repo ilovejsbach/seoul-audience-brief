@@ -1,0 +1,26 @@
+/* A title, its live conditions and a brief statistical caution form one row.
+   Query feedback remains a separate task and can wrap without shrinking text. */
+.app .marketMapTitle{display:flex;flex-direction:column;gap:6px;padding:8px 14px;min-width:0}
+.app .marketMapSummaryRow{display:flex;align-items:center;gap:6px 14px;flex-wrap:wrap;min-width:0}
+.app .marketMapSummaryRow>.marketMetricHeading{flex:none;flex-wrap:nowrap;gap:8px;min-width:0}
+.app .marketMapSummaryRow>:is(.marketSummaryCondition,.marketSummaryNote){width:auto;max-width:100%;min-width:0;line-height:1.5;overflow-wrap:anywhere;word-break:keep-all}
+.app .marketMapTitle>.marketFilterFeedback{margin-top:0;padding:5px 8px;gap:4px 10px}
+.app .marketMapTitle>.marketMatchedDistricts{margin-top:0}
+.app .marketTrendDrawerHeader{align-items:center;gap:8px 14px;padding-bottom:8px;margin-bottom:8px}
+.app .marketTrendDrawerHeader>div{display:flex;align-items:center;gap:6px 14px;flex-wrap:wrap;min-width:0}
+.app .marketTrendDrawerHeader p{margin:0;line-height:1.5}
+@layer dashboardTypography{
+ .app.mode-analysis .marketMapSummaryRow>:is(.marketSummaryCondition,.marketSummaryNote){font-size:14px!important}
+ .app.mode-presentation .marketMapSummaryRow>:is(.marketSummaryCondition,.marketSummaryNote){font-size:14px!important}
+}
+.app .marketRankItem{display:flex;align-items:center;gap:5px;min-width:0;margin-bottom:6px}
+.app .marketRankItem>.marketRank{flex:1;min-width:0;margin-bottom:0;align-items:center}
+.app .marketRankItem>.marketRank>span{max-width:none;min-width:0;flex:1;word-break:keep-all;overflow-wrap:anywhere}
+.app .marketRankItem>.marketRank>b{flex:none;white-space:nowrap}
+.app .marketRankItem>.dataMeaningAnchor{flex:none}
+.app .marketRankItem .dataMeaningButton{min-width:24px;min-height:24px;padding:1px 4px;border-radius:4px}
+.app .marketAreaHeading{display:flex;align-items:center;gap:8px;min-width:0}
+.app .marketAreaHeading h2{min-width:0;overflow-wrap:anywhere;word-break:keep-all}
+.app .marketDistrictLabels text{fill:#142d49;stroke:#fff;paint-order:stroke fill;stroke-linejoin:round;stroke-linecap:round;font-weight:600;pointer-events:none}
+.app .mapWorkspaceControls>.compactDockedHeader{padding:6px 12px;min-height:0;justify-content:flex-end;gap:6px}
+.app .mapWorkspaceControls>.compactDockedHeader>.floatingPanelActions{flex-direction:row;flex-wrap:wrap;gap:6px}
