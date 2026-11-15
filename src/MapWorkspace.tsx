@@ -1,5 +1,6 @@
 import {useEffect,useId,useRef,useState,type ReactNode,type CSSProperties} from 'react';
 import FloatingQueryLayer from './FloatingQueryLayer';
+import {claimFloatingEscape} from './floating-window-escape';
 import {useFloatingPanel} from './useFloatingPanel';
 import './map-workspace.css';
 import './resizable-workspaces.css';
@@ -11,7 +12,7 @@ export default function MapWorkspace({children,controls,details,title,onClose,re
  const prefix=useId(),menuRef=useRef<HTMLButtonElement>(null),detailRef=useRef<HTMLButtonElement>(null),controlsId=`${prefix}-controls`,detailsId=`${prefix}-details`;
  useEffect(()=>{const node=bodyRef.current;if(!node)return;const observer=new ResizeObserver(()=>setBodyWidth(node.getBoundingClientRect().width));observer.observe(node);return()=>observer.disconnect()},[]);
  useEffect(()=>{if(revealDetails!==undefined){setDetailsOpen(true);requestAnimationFrame(()=>detailsContentRef.current?.scrollTo({top:0,behavior:'auto'}))}},[revealDetails]);
- useEffect(()=>{if(!floating||!controlsOpen)return;const close=(e:KeyboardEvent)=>{if(e.key==='Escape'){if(!bodyRef.current?.getClientRects().length)return;if([...document.querySelectorAll('.dataMeaningTooltip')].some(node=>node.getClientRects().length))return;setControlsOpen(false);menuRef.current?.focus()}};document.addEventListener('keydown',close);return()=>document.removeEventListener('keydown',close)},[floating,controlsOpen]);
+ useEffect(()=>{if(!floating||!controlsOpen)return;const close=(e:KeyboardEvent)=>{if(e.key==='Escape'){if(!bodyRef.current?.getClientRects().length)return;if(!claimFloatingEscape(e,document.getElementById(controlsId)))return;setControlsOpen(false);menuRef.current?.focus()}};document.addEventListener('keydown',close);return()=>document.removeEventListener('keydown',close)},[floating,controlsOpen]);
  const closeControls=()=>{setControlsOpen(false);menuRef.current?.focus()};
  const reset=()=>{setLeftWidth(280);setRightWidth(320);setForceFloating(false);geometry.reset()};
  const resize=(side:'controls'|'details',value:number)=>{if(side==='controls')setLeftWidth(Math.max(220,Math.min(360,Math.round(value))));else setRightWidth(Math.max(260,Math.min(520,Math.max(260,bodyWidth-(floating||!controlsOpen?0:leftWidth)-360),Math.round(value))))};

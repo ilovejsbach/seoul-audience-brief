@@ -1,0 +1,44 @@
+/* Graph content keeps the space; controls open in the shared free-moving layer. */
+.app:is(.mode-analysis,.mode-presentation) .dashboardContent .panel.trendExplorer{min-height:0}
+.app .trendHeadingAside{display:flex;flex-direction:column;align-items:flex-end;gap:6px;min-width:0;max-width:100%}
+.app .trendHeaderActions{display:flex;gap:5px;flex-wrap:wrap;justify-content:flex-end}
+.app .trendHeaderActions>button{font:inherit;min-height:30px;padding:3px 8px;background:#fff;color:#24558b;border:1px solid #aabbd0;border-radius:4px;line-height:1.4;white-space:nowrap;cursor:pointer}
+.app .dashboardContent .panel.trendExplorer .chartAxisNotice{margin:5px 0 8px;line-height:1.45}
+.app .dashboardContent .panel.trendExplorer .trendPlayback{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:4px;padding:5px 0 0;border-top:1px solid #c8d3df;min-height:0}
+.app .dashboardContent .panel.trendExplorer .trendPlaybackButtons{display:flex;align-items:center;gap:4px;width:auto;flex:none}
+.app .dashboardContent .panel.trendExplorer .trendPlaybackButtons>button{flex:none;min-width:32px;width:32px;min-height:32px;height:32px;padding:3px 6px;line-height:1.4;border-radius:4px}
+.app .dashboardContent .panel.trendExplorer .trendPlaybackButtons>.trendPlay{min-width:76px;width:76px}
+.app .dashboardContent .panel.trendExplorer .trendPlayStatus{margin-left:0;line-height:1.4;white-space:nowrap}
+.app .graphOptionsPanel{display:flex;flex-direction:column;box-sizing:border-box;min-width:0;min-height:0;overflow:hidden;background:#fff;border:1px solid #9eb3cb;border-radius:7px;box-shadow:0 10px 30px #152b4333;color:#233d58;z-index:55}
+.app .graphOptionsPanel[hidden]{display:none!important}
+.app .graphOptionsPanel>header{display:flex;align-items:center;justify-content:space-between;gap:6px 10px;flex-wrap:wrap;flex:none;padding:7px 10px;border-bottom:1px solid #c8d3df;cursor:move;touch-action:none;user-select:none}
+.app .graphOptionsPanel>header h3{font:inherit;font-weight:600;margin:0;line-height:1.4}
+.app .graphOptionsPanel>header>div{display:flex;gap:4px;flex-wrap:wrap}
+.app .graphOptionsPanel button{cursor:pointer;font:inherit;line-height:1.4;min-height:30px;padding:4px 7px;background:#fff;color:#24558b;border:1px solid #aabbd0;border-radius:4px}
+.app .graphOptionsBody{flex:1;min-height:0;overflow:auto;padding:8px 10px 16px;overscroll-behavior:contain;scrollbar-gutter:stable}
+.app .graphOptionsPanel .trendExplorerControls{display:flex;align-items:end;gap:8px;flex-wrap:wrap;margin:0}
+.app .graphOptionsPanel .trendExplorerControls fieldset{display:flex;flex-wrap:wrap;gap:4px;min-width:0;max-width:100%;width:100%}
+.app .graphOptionsPanel .trendExplorerControls fieldset legend{padding-bottom:4px;color:#53677c}
+.app .graphOptionsPanel .trendExplorerControls fieldset>button{flex:1 1 100px;min-width:0;min-height:32px;padding:4px 7px;margin:0;border-radius:4px;white-space:normal}
+.app .graphOptionsPanel .trendExplorerControls fieldset>button[aria-pressed=true]{background:#24558b;color:#fff;border-color:#24558b}
+.app .graphOptionsPanel :is(.trendExplorerControls label,.chartAxisControls label,.graphPlaybackSettings label){display:flex;flex-direction:column;gap:4px;min-width:0;max-width:100%;line-height:1.4;color:#53677c}
+.app .graphOptionsPanel :is(select,input){font:inherit;box-sizing:border-box;min-width:0;max-width:100%;min-height:32px;padding:4px 7px;border:1px solid #aabbd0;border-radius:4px;background:#fff;color:#233d58}
+.app .graphOptionsPanel .chartAxisControls{padding:6px 0;gap:8px}
+.app .graphOptionsPanel .chartAxisControls input{width:140px}
+.app .graphOptionsPanel .trendUnit{width:100%;margin:0;padding:0;line-height:1.4;color:#53677c}
+.app .graphOptionsPanel .graphPlaybackSettings{padding-top:8px;margin-top:8px;border-top:1px solid #c8d3df}
+.app .graphOptionsPanel .graphPlaybackSettings label{flex-direction:row;align-items:center;gap:8px}
+.app .graphOptionsPanel :is(.chartAxisSettings,.trendExplanation,.graphAxisInterpretation){margin-top:8px}
+.app .graphOptionsPanel .chartFacts{padding-top:8px;margin-top:8px;gap:5px;border-color:#c8d3df;line-height:1.5;color:#53677c}
+.app .graphOptionsPanel .chartFacts b{color:#233d58}
+.app .graphOptionsPanel :is(.trendExplanation,.graphAxisInterpretation,.chartAxisNotice){line-height:1.5;color:#53677c}
+.app .graphOptionsPanel summary{cursor:pointer;color:#24558b;line-height:1.5}
+.app .graphOptionsPanel .floatingPanelResize{min-width:24px;min-height:24px;padding:0}
+@layer dashboardTypography{
+ .app:is(.mode-analysis,.mode-presentation) :is(.trendHeaderActions>button,.trendPlaybackButtons>button,.trendPlayStatus,.graphOptionsPanel,.graphOptionsPanel h3,.graphOptionsPanel label,.graphOptionsPanel input,.graphOptionsPanel select,.graphOptionsPanel button,.graphOptionsPanel summary,.graphOptionsPanel p,.graphOptionsPanel span,.graphOptionsPanel b,.graphOptionsPanel legend){font-size:14px!important;line-height:1.5!important}
+}
+@media(max-width:650px){.app .trendHeadingAside{align-items:flex-start;width:100%}.app .trendHeaderActions{justify-content:flex-start}.app .dashboardContent .panel.trendExplorer .trendPlayback{gap:7px}}
+@media print{.app :is(.trendHeaderActions,.graphOptionsPanel){display:none!important}}
+.app .trendHeaderActions>button:disabled{opacity:1;cursor:default;color:#53677c;background:#edf2f6;border-color:#c8d3df}
+.app .graphOptionsPanel .graphOptionsContext{display:flex;flex-direction:column;gap:3px;margin:0 0 8px;padding-bottom:6px;border-bottom:1px solid #d2dce7;overflow-wrap:anywhere;word-break:keep-all;line-height:1.5;color:#53677c}
+.app .graphOptionsPanel .graphOptionsContext b{color:#233d58;font-weight:600}

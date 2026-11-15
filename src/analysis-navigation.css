@@ -1,0 +1,28 @@
+/* Data changes the population being analysed; views change how that data is read. */
+.app .analysisNavigation{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:12px 20px;margin:0 0 12px;padding:7px 10px;border:1px solid #c8d3df;border-radius:6px;background:white;min-width:0}
+.app .analysisNavData{display:flex;align-items:center;gap:8px;min-width:0}
+.app .analysisNavigation .analysisNavLabel{font-size:14px!important;color:#53677c;white-space:nowrap;line-height:1.4;flex:none}
+.app .analysisNavigation .tabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:3px;flex:1;min-width:0;border:0;margin:0;padding:0;background:transparent}
+.app .analysisNavigation .tabs>button{display:flex;justify-content:center;align-items:center;min-width:0;min-height:36px;height:auto;padding:5px 8px!important;margin:0;border:1px solid transparent;border-radius:4px;font-size:14px!important;line-height:1.4!important;white-space:normal;word-break:keep-all}
+.app .analysisNavigation .tabs>button::after{display:none}
+.app .analysisNavigation .tabs>button.active{background:#173e69!important;color:white!important;border-color:#173e69}
+.app .analysisNavigation .viewSwitcher{display:flex;align-items:center;justify-content:flex-start;gap:8px;margin:0;padding:0;border:0;min-height:0;box-shadow:none;background:transparent}
+.app .analysisNavigation .viewSwitcher>div{display:flex;gap:3px;min-width:0}
+.app .analysisNavigation .viewSwitcher>div>button{min-width:64px;min-height:32px;height:auto;padding:4px 9px!important;border:1px solid #c8d3df;border-radius:4px;background:#fff;color:#24558b;font-size:14px!important;line-height:1.4!important;white-space:nowrap}
+.app .analysisNavigation .viewSwitcher>div>button[aria-pressed=true]{background:#eaf1f8;color:#173e69;border-color:#537aa4;font-weight:600}
+.app .analysisNavigation button:focus-visible{outline:2px solid #b75a1b;outline-offset:2px}
+.app .analysisHeading{margin-bottom:8px}
+@media(max-width:1100px){.app .analysisNavigation{grid-template-columns:1fr;gap:7px}.app .analysisNavigation .viewSwitcher{justify-content:flex-end}}
+@media(max-width:600px){.app .analysisNavigation .tabs{grid-template-columns:repeat(2,minmax(0,1fr))}.app .analysisNavigation .viewSwitcher{justify-content:flex-start}}
+@media print{.analysisNavigation{display:none!important}}
+
+.app .mapShell:not(.mapIsFullscreen)>.mapPanelTools>.mapDatasetChoice{display:none}
+.app .dashboardContent .panel.mapShell:not(.mapIsFullscreen)>.panelTitle{padding-right:200px}
+
+.app .analysisNavigation .tabs>button{border:1px solid transparent!important}
+.app .analysisNavigation .tabs>button.active{border-color:#173e69!important}
+.app .analysisNavigation .presentationNav.viewSwitcher>div>button[aria-pressed=true]{background:#eaf1f8!important;color:#173e69!important;border-color:#537aa4!important}
+
+.app .presentationHeroActions{flex-wrap:wrap}
+.app .presentationDatasetChoices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;flex-basis:100%;max-width:440px}
+.app .presentationDatasetChoices>button{min-height:36px;border:1px solid #aabbd0;border-radius:4px;padding:6px 9px;background:white;color:#24558b;font-size:14px!important;line-height:1.4}

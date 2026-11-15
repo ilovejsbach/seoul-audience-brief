@@ -87,3 +87,6 @@ python3 scripts/validate-market-data.py
 일자별 상세 지도는 2026년 1–10월 304일을 제공합니다. 조회 월→기준일을 고르거나 이전일·다음일로 이동합니다. 1–9월은 선택한 날짜의 gzip JSON만 받아 브라우저에서 해제하며 원값을 반올림하지 않습니다. 요일·월초·월중·월말 시간대 평균은 2026년 1–10월 중 월을 골라 비교합니다. 확보한 원자료 304일의 유효 날짜 수와 결측을 함께 표시합니다. [자료 조사](docs/population-history-research.md) · [현재 실행 보고](docs/free-query-and-period-report.md).
 
 플로팅 조회창은 지도 밖 화면 전역으로 이동할 수 있습니다. [독립 조회창·기간 선택 실행 보고](docs/free-query-and-period-report.md).
+
+## 브리핑의 메뉴와 선택 연동
+자료 4종과 지도/상세 분석/후보 비교를 별도 축으로 선택합니다. 지도 클릭은 지역 조건·작은 핵심 지표·추세에 같은 선택을 적용하며, 그래프 설정은 독립 옵션 창에서 조절합니다. [현재 설계·실행 보고](docs/briefing-hierarchy-report.md).

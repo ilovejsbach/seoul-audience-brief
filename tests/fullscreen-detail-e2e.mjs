@@ -13,7 +13,7 @@ export async function runFullscreenDetail(tab){
 }
 export async function runPresentationDetail(tab){
  const p=tab.playwright,button=n=>p.getByRole('button',{name:n,exact:true});
- await tab.reload();await button('시연용').click();await button('브리핑 시작하기 ↗').click();await button('지도 전체화면 보기').click();await p.getByRole('button',{name:/^마포구 2026/}).click();await button('상세 분석 →').click();await p.getByRole('button',{name:/^서교동 2026/}).click();await button('상세 분석 →').click();
+ await tab.reload();await button('시연용').click();await p.getByRole('button',{name:/^브리핑 자료 선택/}).click();await p.getByRole('group',{name:'브리핑 자료 선택',exact:true}).getByRole('button',{name:'생활인구',exact:true}).click();await button('지도 전체화면 보기').click();await p.getByRole('button',{name:/^마포구 2026/}).click();await button('상세 분석 →').click();await p.getByRole('button',{name:/^서교동 2026/}).click();await button('상세 분석 →').click();
  await p.locator('#trend-population').filter({visible:true,hasText:'서교동'}).waitFor({state:'visible'});
  const state=await p.evaluate(()=>({fullscreen:!!document.querySelector('.mapIsFullscreen'),active:document.activeElement?.id,title:document.querySelector('#trend-population h2')?.textContent,step:document.querySelector('.presentationNav [aria-current=step]')?.textContent,trendTop:document.querySelector('#trend-population')?.getBoundingClientRect().top,containerTop:document.querySelector('.dashboardContent')?.getBoundingClientRect().top}));
  if(state.fullscreen||state.active!=='trend-population'||!state.step?.includes('시간 흐름')||state.trendTop<state.containerTop-2||state.trendTop>state.containerTop+40)throw Error(JSON.stringify(state));

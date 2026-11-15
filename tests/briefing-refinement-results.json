@@ -1,0 +1,180 @@
+{
+  "viewport": {
+    "width": 1800,
+    "height": 961
+  },
+  "baseline": {
+    "chart": 835.484375,
+    "followup": 47,
+    "footer": 61,
+    "nav": [
+      59,
+      55
+    ]
+  },
+  "strategy": [
+    {
+      "case": "compact-briefing-navigation-and-playbar",
+      "nav": {
+        "bottom": 184,
+        "height": 55,
+        "left": 212,
+        "right": 1588,
+        "top": 129,
+        "width": 1376,
+        "x": 212,
+        "y": 129
+      },
+      "footer": {
+        "bottom": 673.7890625,
+        "height": 38,
+        "left": 237,
+        "right": 1544,
+        "top": 635.7890625,
+        "width": 1307,
+        "x": 237,
+        "y": 635.7890625
+      },
+      "buttons": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "case": "floating-options-axis-baseline-and-speed",
+      "before": {
+        "bottom": 698.7890625,
+        "height": 502.59375,
+        "left": 212,
+        "right": 1569,
+        "top": 196.1953125,
+        "width": 1357,
+        "x": 212,
+        "y": 196.1953125
+      },
+      "caption": "기준 시점 = 100 · 기준 2024년 · 세로축 -7.7–207.7 지수 · 기준선 100"
+    },
+    {
+      "case": "playback-previous-next-and-view-return"
+    },
+    {
+      "case": "independent-data-and-view-axes",
+      "title": "지역 간 생활이동 분석 · 지역 비교"
+    },
+    {
+      "case": "multiple-options-escape-and-fullscreen-context"
+    },
+    {
+      "case": "hero-explicit-data-entry"
+    }
+  ],
+  "narrow": {
+    "case": "narrow-market-options-and-host-cleanup",
+    "measurement": {
+      "body": 263,
+      "context": "설정 대상공덕역(공덕오거리) · 추정매출 · 전체",
+      "height": 470,
+      "scroll": 263,
+      "width": 280
+    },
+    "before": 568.0859375
+  },
+  "metrics": [
+    {
+      "case": "migration-map-region-age-and-summary",
+      "text": "서초구\n2025년 · 40대 · 전입\n전입\n설명\n10,986 명\n전출 인구\n9,165 명\n순이동 인구\n+1,821 명\n\n전입 − 전출 · 거주지 이동"
+    },
+    {
+      "case": "explicit-drilldown-and-dong-selection",
+      "label": "서초1동 2025년 · 남성 · 전입 1,465 명",
+      "summary": "서초1동\n2025년 · 남성 · 전입\n전입\n설명\n1,465 명\n전출 인구\n1,594 명\n순이동 인구\n-129 명\n\n전입 − 전출 · 거주지 이동"
+    },
+    {
+      "case": "population-map-to-region-summary",
+      "text": "서초구\n2026.10.31 · 18:00 · 전체 연령 · 전체 성별\n선택 시각의 생활인구\n설명\n605,990명\n공개된 시간대 중 최대\n설명\n15:00\n\n24/24개 시간 공개 · 657,713명\n\n직전 시간 대비 인구 차이\n설명\n-19,503명\n\n17:00 → 18:00 · 같은 조건의 차이"
+    },
+    {
+      "case": "mobility-map-to-region-summary",
+      "text": "서초구\n자료일 2026-10-31 · 유입 · 도착 시각 18:00–18:59 · 선택 시간대 이동량\n유입\n설명\n55,691 건(추정)\n유출 이동량\n70,417 건(추정)\n유입−유출\n-14,726 건(추정)\n\n유입 이동량 − 유출 이동량 · 체류 인구 아님"
+    },
+    {
+      "case": "commerce-map-to-region-summary",
+      "exact": "1,546,753,103,530 원"
+    }
+  ],
+  "constraint": {
+    "case": "query-age-to-sex-preserves-map-and-net-triplet",
+    "camera": "translate(-152,-110) scale(1.4)",
+    "net": "서초구\n2025년 · 30대 · 순이동\n순이동\n설명\n+698 명\n\n전입 − 전출 · 거주지 이동\n\n전입 인구\n13,705 명\n전출 인구\n13,007 명",
+    "after": "서초구\n2025년 · 남성 · 순이동\n순이동\n설명\n+2,644 명\n\n전입 − 전출 · 거주지 이동\n\n전입 인구\n29,384 명\n전출 인구\n26,740 명"
+  },
+  "critical": [
+    {
+      "id": "axis-fit-manual-reset",
+      "status": "passed"
+    },
+    {
+      "id": "negative-baseline-index-guard",
+      "status": "passed"
+    },
+    {
+      "id": "population-same-dong-followup",
+      "status": "passed"
+    },
+    {
+      "id": "distribution-paired-and-delta",
+      "status": "passed"
+    },
+    {
+      "id": "mobility-relative-regions",
+      "status": "passed"
+    }
+  ],
+  "market": [
+    {
+      "id": "market-open-query-and-real-values",
+      "status": "passed"
+    },
+    {
+      "id": "market-population-scope-and-period",
+      "status": "passed"
+    },
+    {
+      "id": "map-menu-and-detail-reopen",
+      "status": "passed"
+    },
+    {
+      "id": "market-empty-and-selection-reset",
+      "status": "passed"
+    },
+    {
+      "id": "market-color-scale-options",
+      "status": "passed"
+    },
+    {
+      "id": "market-candidates-and-chart-return",
+      "status": "passed"
+    },
+    {
+      "id": "market-return-to-actual-previous-view",
+      "status": "passed"
+    }
+  ],
+  "fonts": {
+    "presentation": [
+      "14px",
+      "18px",
+      "24px",
+      "36px"
+    ],
+    "analysis": [
+      "12px",
+      "14px",
+      "16px",
+      "20px",
+      "28px",
+      "36px"
+    ]
+  }
+}

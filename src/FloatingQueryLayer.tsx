@@ -12,12 +12,14 @@ export default function FloatingQueryLayer({host,enabled,children}:{host:RefObje
   const sync=()=>{
    const variables:Record<string,string>={},computed=getComputedStyle(app||node);
    for(let i=0;i<computed.length;i++){const key=computed[i];if(key.startsWith('--'))variables[key]=computed.getPropertyValue(key)}
-   setSnapshot({target:document.fullscreenElement||document.body,visible:node.getClientRects().length>0,appClass:app?.className||'app mode-analysis',appData:attributes(app),scopeClass:scope.className,scopeData:attributes(scope),variables:variables as CSSProperties});
+   const fullscreen=document.fullscreenElement,overlay=[...document.querySelectorAll<HTMLElement>('.mapOverlay')].filter(element=>element.getClientRects().length>0).at(-1),activeSurface=fullscreen||overlay;
+   const belongsToSurface=!activeSurface||activeSurface.contains(node)||node.contains(activeSurface);
+   setSnapshot({target:fullscreen||document.body,visible:node.getClientRects().length>0&&belongsToSurface,appClass:app?.className||'app mode-analysis',appData:attributes(app),scopeClass:scope.className,scopeData:attributes(scope),variables:variables as CSSProperties});
   };
   sync();const observer=new MutationObserver(sync);
   for(let ancestor:HTMLElement|null=node;ancestor;ancestor=ancestor.parentElement)observer.observe(ancestor,{attributes:true,attributeFilter:['class','style','hidden','data-options-layout','data-options-open','data-controls-floating','data-secondary-mode']});
-  window.addEventListener('resize',sync);document.addEventListener('fullscreenchange',sync);
-  return()=>{observer.disconnect();window.removeEventListener('resize',sync);document.removeEventListener('fullscreenchange',sync)};
+  window.addEventListener('resize',sync);document.addEventListener('fullscreenchange',sync);window.addEventListener('map-fullscreen-state',sync);
+  return()=>{observer.disconnect();window.removeEventListener('resize',sync);document.removeEventListener('fullscreenchange',sync);window.removeEventListener('map-fullscreen-state',sync)};
  },[enabled,host]);
  if(!enabled)return <>{children}</>;
  if(!snapshot)return null;
