@@ -1,0 +1,9 @@
+/* One selected analysis surface per presentation detail screen. */
+@media screen{
+ .app.mode-presentation.presentation-step-1 .analysisView>.dashboardContent:has(>div[data-presentation-detail=true]){display:flex;flex-direction:column;min-height:0;overflow:hidden;padding-bottom:0;scrollbar-gutter:auto}
+ .app.mode-presentation.presentation-step-1 .dashboardContent>div[data-presentation-detail=true]{display:flex;flex-direction:column;flex:1;min-height:0;height:100%;max-height:100%;overflow:hidden}
+ .app.mode-presentation.presentation-step-1 .dashboardContent>div[data-presentation-detail=true]>:not([data-detail-active=true]){display:none!important}
+ .app.mode-presentation.presentation-step-1 .dashboardContent>div[data-presentation-detail=true]>[data-detail-active=true]{flex:1;min-height:0;max-height:100%;margin:0}
+ .app.mode-presentation.presentation-step-1 .dashboardContent>div[data-presentation-detail=true]>[data-detail-active=true]:not(.trendExplorer){display:block!important;overflow:auto;overscroll-behavior:contain;scrollbar-gutter:stable}
+}
+@media screen{.app.mode-presentation.presentation-step-1 .dashboardContent>div[data-presentation-detail=true]>details[data-detail-active=true]>summary{display:none}}

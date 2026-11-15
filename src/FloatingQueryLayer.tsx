@@ -17,7 +17,7 @@ export default function FloatingQueryLayer({host,enabled,children}:{host:RefObje
    setSnapshot({target:fullscreen||document.body,visible:node.getClientRects().length>0&&belongsToSurface,appClass:app?.className||'app mode-analysis',appData:attributes(app),scopeClass:scope.className,scopeData:attributes(scope),variables:variables as CSSProperties});
   };
   sync();const observer=new MutationObserver(sync);
-  for(let ancestor:HTMLElement|null=node;ancestor;ancestor=ancestor.parentElement)observer.observe(ancestor,{attributes:true,attributeFilter:['class','style','hidden','data-options-layout','data-options-open','data-controls-floating','data-secondary-mode']});
+  for(let ancestor:HTMLElement|null=node;ancestor;ancestor=ancestor.parentElement)observer.observe(ancestor,{attributes:true,attributeFilter:['class','style','hidden','data-options-layout','data-options-open','data-controls-floating','data-secondary-mode','data-detail-active','data-presentation-detail','data-detail-id']});
   window.addEventListener('resize',sync);document.addEventListener('fullscreenchange',sync);window.addEventListener('map-fullscreen-state',sync);
   return()=>{observer.disconnect();window.removeEventListener('resize',sync);document.removeEventListener('fullscreenchange',sync);window.removeEventListener('map-fullscreen-state',sync)};
  },[enabled,host]);

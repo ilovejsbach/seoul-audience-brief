@@ -1,0 +1,157 @@
+{
+  "viewport": {
+    "width": 1800,
+    "height": 961
+  },
+  "cases": [
+    {
+      "case": "full-canvas-default-graph",
+      "bodyWidth": 1800,
+      "box": "0 0 1702 538.40625",
+      "content": {
+        "bottom": 955,
+        "height": 759,
+        "left": 24,
+        "right": 1776,
+        "top": 196,
+        "width": 1752,
+        "x": 24,
+        "y": 196
+      },
+      "graph": {
+        "bottom": 955,
+        "height": 759,
+        "left": 24,
+        "right": 1768,
+        "top": 196,
+        "width": 1744,
+        "x": 24,
+        "y": 196
+      },
+      "screenHeight": 961,
+      "screenWidth": 1800,
+      "scroll": 0,
+      "svg": {
+        "bottom": 900,
+        "height": 538.40625,
+        "left": 45,
+        "right": 1747,
+        "top": 361.59375,
+        "width": 1702,
+        "x": 45,
+        "y": 361.59375
+      }
+    },
+    {
+      "case": "optional-two-time-comparison",
+      "delta": "1,782,675,618,541 원"
+    },
+    {
+      "case": "graph-options-and-index-fill"
+    },
+    {
+      "case": "population-screen-population-patterns",
+      "state": {
+        "count": 1,
+        "scroll": 0
+      }
+    },
+    {
+      "case": "population-screen-resident-context",
+      "state": {
+        "count": 1,
+        "scroll": 0
+      }
+    },
+    {
+      "case": "population-screen-demographic-population",
+      "state": {
+        "count": 1,
+        "scroll": 0
+      }
+    },
+    {
+      "case": "population-screen-distribution-population",
+      "state": {
+        "count": 1,
+        "scroll": 0
+      }
+    },
+    {
+      "case": "supplementary-apply-to-map-and-return"
+    },
+    {
+      "case": "screen-mobility-connections"
+    },
+    {
+      "case": "screen-migration-demographic-details"
+    },
+    {
+      "case": "view-mode-isolation"
+    }
+  ],
+  "smaller": [
+    {
+      "case": "smaller-screen-생활인구",
+      "bottom": 762,
+      "box": [
+        0,
+        0,
+        1268,
+        345.40625
+      ],
+      "height": 566,
+      "overflow": false,
+      "screen": 768,
+      "svgHeight": 345.40625
+    },
+    {
+      "case": "smaller-screen-생활이동",
+      "bottom": 762,
+      "box": [
+        0,
+        0,
+        1268,
+        345.40625
+      ],
+      "height": 566,
+      "overflow": false,
+      "screen": 768,
+      "svgHeight": 345.40625
+    },
+    {
+      "case": "smaller-screen-거주지 이동",
+      "bottom": 762,
+      "box": [
+        0,
+        0,
+        1268,
+        345.40625
+      ],
+      "height": 566,
+      "overflow": false,
+      "screen": 768,
+      "svgHeight": 345.40625
+    },
+    {
+      "case": "smaller-screen-추정매출",
+      "bottom": 762,
+      "box": [
+        0,
+        0,
+        1268,
+        345.40625
+      ],
+      "height": 566,
+      "overflow": false,
+      "screen": 768,
+      "svgHeight": 345.40625
+    }
+  ],
+  "fonts": [
+    "14px",
+    "18px",
+    "24px",
+    "36px"
+  ]
+}

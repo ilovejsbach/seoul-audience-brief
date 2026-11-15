@@ -1,0 +1,22 @@
+/* R03/R05/R06: a briefing comparison is an optional supplementary window. */
+.app.mode-presentation .timeComparisonHost>.timeComparison{display:none!important}
+.app .timeComparisonFloating{box-sizing:border-box;display:flex;flex-direction:column;min-width:0;min-height:0;overflow:hidden;background:#fff;border:1px solid #9eb3cb;border-radius:7px;box-shadow:0 10px 30px #152b4333;color:#233d58;z-index:56;container-type:inline-size}
+.app .timeComparisonFloating[hidden]{display:none!important}
+.app .timeComparisonFloating>header{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;flex:none;padding:8px 12px;border-bottom:1px solid #c8d3df;cursor:move;touch-action:none;user-select:none}
+.app .timeComparisonFloating>header h3{margin:0;font-weight:600;line-height:1.4}
+.app .timeComparisonFloating>header>div{display:flex;gap:5px;flex-wrap:wrap}
+.app .timeComparisonFloating button{font:inherit;line-height:1.4;min-height:30px;padding:4px 8px;background:#fff;color:#24558b;border:1px solid #aabbd0;border-radius:4px;cursor:pointer}
+.app .timeComparisonFloatingBody{flex:1;min-height:0;overflow:auto;overscroll-behavior:contain;padding:12px;scrollbar-gutter:stable}
+.app .dashboardContent .timeComparisonFloating .timeComparison{margin:0;padding:0;border:0!important;border-radius:0;box-shadow:none;min-height:0}
+.app .timeComparisonFloating .timeComparisonHeading{margin-bottom:12px;gap:10px}
+.app .timeComparisonFloating .timeComparisonHeading>div{flex-basis:100%}
+.app .timeComparisonFloating .timeComparisonHeading>label{flex:1;min-width:160px}
+.app .timeComparisonFloating .timeComparisonValues{gap:10px}
+.app .timeComparisonFloating .timeComparisonValues>article{padding:12px}
+.app .timeComparisonFloating .floatingPanelResize{min-width:24px;min-height:24px;padding:0}
+@container(max-width:520px){.app .timeComparisonFloating .timeComparisonValues{grid-template-columns:minmax(0,1fr)}}
+@layer dashboardTypography{
+ .app.mode-presentation .timeComparisonFloating :is(button,label,select,option,.timeComparisonHeading p,.timeComparisonValues span,.timeComparisonValues p,.timeComparisonNote,.timeComparisonExact,.timeComparisonExact *){font-size:14px!important;line-height:1.5!important}
+ .app.mode-presentation .timeComparisonFloating h3{font-size:18px!important;line-height:1.5!important}
+}
+@media print{.app .timeComparisonFloating{display:none!important}}

@@ -25,6 +25,7 @@ export async function navigateSection(id:string,step:number){
  }
  if(sequence!==navigationSequence)return;
  window.dispatchEvent(new CustomEvent('presentation-step',{detail:step}));
+ window.dispatchEvent(new CustomEvent('analysis-section',{detail:{id,step}}));
  // Wait for React's page visibility change and the browser's resulting layout.
  // A single frame can still measure the previous presentation page.
  await nextNavigationFrame();
@@ -39,9 +40,8 @@ export async function navigateSection(id:string,step:number){
  const presentation=element.closest('.mode-presentation');
  const scrollContainer=element.closest<HTMLElement>('.dashboardContent');
  if(presentation&&scrollContainer&&!fullscreenMap){
-  // Presentation pages scroll inside their fixed content area. Do not let
-  // scrollIntoView move the outer page or retain a previous page's offset.
-  scrollContainer.scrollTop+=element.getBoundingClientRect().top-scrollContainer.getBoundingClientRect().top;
+  // Presentation changes the selected screen, never jumps along a long page.
+  scrollContainer.scrollTop=step===1?0:scrollContainer.scrollTop+element.getBoundingClientRect().top-scrollContainer.getBoundingClientRect().top;
   window.scrollTo({top:0,left:0,behavior:'instant'});
  }else element.scrollIntoView({behavior:'auto',block:'start'});
  element.focus({preventScroll:true});

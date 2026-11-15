@@ -1,0 +1,26 @@
+/* The briefing detail view gives the available canvas to its primary graph.
+   Supplementary analysis stays reachable below or in explicitly opened windows. */
+.app.mode-analysis .timeComparisonTrigger{display:none}
+.app.mode-presentation.presentation-step-1 .dashboardContent .regionSelectionSummary{display:none}
+@media screen and (min-width:1100px){
+ .app.mode-presentation.presentation-step-1>main{max-width:none;padding-inline:24px}
+ .app.mode-presentation.presentation-step-1 .analysisView>.dashboardContent{padding-bottom:0}
+ .app.mode-presentation.presentation-step-1 .dashboardContent>div:not([hidden]){height:100%;min-height:0}
+ .app.mode-presentation.presentation-step-1 .dashboardContent>div:not([hidden])>.panel.trendExplorer{display:flex;flex-direction:column;height:100%;min-height:0;margin-top:0;padding:16px 20px 12px}
+ .app.mode-presentation.presentation-step-1 .dashboardContent>div:not([hidden])>.trendExplorer>.trendExplorerHeading{flex:none;gap:12px}
+ .app.mode-presentation.presentation-step-1 .dashboardContent>div:not([hidden])>.trendExplorer>.trendSvgWrap{flex:1;min-height:120px;margin-top:8px;overflow:hidden}
+ .app.mode-presentation.presentation-step-1 .dashboardContent>div:not([hidden])>.trendExplorer>.trendSvgWrap>svg{height:100%;min-height:0;max-height:none;min-width:0}
+ .app.mode-presentation.presentation-step-1 .dashboardContent>div:not([hidden])>.trendExplorer>:is(.chartAxisNotice,.trendWarning,.trendPlayback){flex:none}
+}
+@media print{.timeComparisonTrigger{display:none!important}.app.mode-presentation.presentation-step-1 .dashboardContent>div:not([hidden])>.panel.trendExplorer{height:auto}}
+.trendSupplementMenu{position:relative;text-align:left;align-self:flex-start}
+.app .trendSupplementMenu>summary{list-style:none;cursor:pointer;font:inherit;line-height:1.4;min-height:30px;padding:3px 8px;color:#24558b;background:#fff;border:1px solid #aabbd0;border-radius:4px}
+.trendSupplementMenu>summary::-webkit-details-marker{display:none}
+.trendSupplementMenu>summary::after{content:' ▾'}
+.trendSupplementMenu>div{position:absolute;top:calc(100% + 4px);right:0;z-index:30;display:flex;flex-direction:column;width:210px;padding:5px;border:1px solid #aabbd0;border-radius:5px;background:white;box-shadow:0 6px 18px #173e6926}
+.app .trendSupplementMenu>div>button{text-align:left;min-height:36px;padding:6px 10px;background:white;border:0;color:#24558b;font:inherit}
+.app .trendSupplementMenu>div>button:hover{background:#eaf1f8}
+.trendSupplementMenu :is(summary,button):focus-visible{outline:2px solid #b75a1b;outline-offset:2px}
+@layer dashboardTypography{.app.mode-presentation .trendSupplementMenu :is(summary,button){font-size:14px!important}}
+.app .detailScreenBack{min-height:32px;padding:4px 10px;font:inherit;color:#24558b;border:1px solid #aabbd0;border-radius:4px;background:white}
+@layer dashboardTypography{.app.mode-presentation .detailScreenBack{font-size:14px!important}}
