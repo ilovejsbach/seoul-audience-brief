@@ -1,0 +1,85 @@
+{
+  "source": "6f30271",
+  "pages": "725f0270c66b7c2c89291c4ebdca73cbcf2cc2ef",
+  "deploymentRun": 43670223613,
+  "strategy": [
+    {
+      "case": "compact-briefing-navigation-and-playbar",
+      "nav": {
+        "bottom": 184,
+        "height": 55,
+        "left": 212,
+        "right": 1588,
+        "top": 129,
+        "width": 1376,
+        "x": 212,
+        "y": 129
+      },
+      "footer": {
+        "bottom": 673.7890625,
+        "height": 38,
+        "left": 237,
+        "right": 1544,
+        "top": 635.7890625,
+        "width": 1307,
+        "x": 237,
+        "y": 635.7890625
+      },
+      "buttons": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "case": "floating-options-axis-baseline-and-speed",
+      "before": {
+        "bottom": 698.7890625,
+        "height": 502.59375,
+        "left": 212,
+        "right": 1569,
+        "top": 196.1953125,
+        "width": 1357,
+        "x": 212,
+        "y": 196.1953125
+      },
+      "caption": "기준 시점 = 100 · 기준 2024년 · 세로축 -7.7–207.7 지수 · 기준선 100"
+    },
+    {
+      "case": "playback-previous-next-and-view-return"
+    },
+    {
+      "case": "independent-data-and-view-axes",
+      "title": "지역 간 생활이동 분석 · 지역 비교"
+    },
+    {
+      "case": "multiple-options-escape-and-fullscreen-context"
+    },
+    {
+      "case": "hero-explicit-data-entry"
+    }
+  ],
+  "metrics": [
+    {
+      "case": "migration-map-region-age-and-summary",
+      "text": "서초구\n2025년 · 40대 · 전입\n전입\n설명\n10,986 명\n전출 인구\n9,165 명\n순이동 인구\n+1,821 명\n\n전입 − 전출 · 거주지 이동"
+    },
+    {
+      "case": "explicit-drilldown-and-dong-selection",
+      "label": "서초1동 2025년 · 남성 · 전입 1,465 명",
+      "summary": "서초1동\n2025년 · 남성 · 전입\n전입\n설명\n1,465 명\n전출 인구\n1,594 명\n순이동 인구\n-129 명\n\n전입 − 전출 · 거주지 이동"
+    },
+    {
+      "case": "population-map-to-region-summary",
+      "text": "서초구\n2026.10.31 · 18:00 · 전체 연령 · 전체 성별\n선택 시각의 생활인구\n설명\n605,990명\n공개된 시간대 중 최대\n설명\n15:00\n\n24/24개 시간 공개 · 657,713명\n\n직전 시간 대비 인구 차이\n설명\n-19,503명\n\n17:00 → 18:00 · 같은 조건의 차이"
+    },
+    {
+      "case": "mobility-map-to-region-summary",
+      "text": "서초구\n자료일 2026-10-31 · 유입 · 도착 시각 18:00–18:59 · 선택 시간대 이동량\n유입\n설명\n55,691 건(추정)\n유출 이동량\n70,417 건(추정)\n유입−유출\n-14,726 건(추정)\n\n유입 이동량 − 유출 이동량 · 체류 인구 아님"
+    },
+    {
+      "case": "commerce-map-to-region-summary",
+      "exact": "1,546,753,103,530 원"
+    }
+  ]
+}

@@ -49,3 +49,9 @@ Chrome 기본 1800×961의 로컬 화면에서 다음 25개 시나리오가 통�
 실제 텍스트 크기 집합은 시연 **14/18/24/36px**, 분석 **12/14/16/20/28/36px**로 각각4/6종이었다. [실행 결과](../tests/briefing-refinement-results.json), [메뉴 전략](navigation-strategy-review.md), [독립 그래프 기준](compact-chart-acceptance.md), [선택 연동·원본 대조](selected-region-acceptance.md)를 함께 확인한다.
 
 현재 변경 영향 경로를 실행했으며 과거의 전체 E2E나 모든 날짜·지역·업종 조합을 모두 실행했다고 주장하지 않는다. 네이티브 Fullscreen API가 활성화되지 않는 자동화 환경에서는 앱의 전체화면 대체 경로를 검사했고 실제 최상위 레이어 경로는 소스 검토와 구분한다.
+
+## 공개 화면 검증
+
+소스 `6f30271`, Pages `725f0270c66b7c2c89291c4ebdca73cbcf2cc2ef`를 배포했고 [배포 실행](https://github.com/ilovejsbach/seoul-audience-brief/actions/runs/43670223613)이 성공했다. Chrome의 실제 공개 화면에서 메뉴·그래프 6개와 지도·조건·핵심 지표 연동 5개를 다시 실행해 11개 모두 통과했다. [공개 실행 결과](../tests/briefing-refinement-public-results.json)를 별도로 보관한다.
+
+서초구 2025년 30대 지도 선택 시 전입13,705 / 전출13,007 / 순이동+698명이 반영됐다. 매출 지수 화면은 2025년1분기=100,4분기108.7이며 축89.6–110.4와 기준선100,0 제외 주의가 옵션을 닫아도 표시된다. 공개 화면의 메뉴55px·재생 영역38px도 다시 측정했다.
