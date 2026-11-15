@@ -18,3 +18,26 @@
 .marketDisplayOptions :is(select,input){box-sizing:border-box;width:100%;min-width:0;min-height:34px;padding:5px 8px;border:1px solid #aabbd0;border-radius:4px;background:#fff;color:#233d58;font:inherit}
 .marketDisplayOptions .mapManualRange{max-width:100%}
 .marketDisplayOptions :is(button,input,select):focus-visible,.app .marketResultTools>button:focus-visible{outline:2px solid #b75a1b;outline-offset:2px}
+/* R10/R12: a district is a geographic drill-in, a market is a data selection. */
+.app .marketMapSvg .marketDistrictContext path[role=button]{cursor:pointer!important}
+.app .marketMapSvg .marketDistrictContext path[role=button]:hover{fill:#d2e1ed;filter:none}
+.app .marketMapSvg .marketDistrictContext path[role=button]:focus-visible{stroke:#173e69;stroke-width:3;outline:none}
+.app .marketMapSvg .marketDistrictLabelAction{cursor:pointer;pointer-events:all;outline:none}
+.app .marketMapSvg .marketDistrictLabelAction rect{fill:#fffffff0;stroke:#9bb1c7;stroke-width:1;pointer-events:all}
+.app .marketMapSvg .marketDistrictLabelAction text{pointer-events:none;fill:#142d49;stroke:#fff}
+.app .marketMapSvg .marketDistrictLabelAction:hover rect,.app .marketMapSvg .marketDistrictLabelAction:focus-visible rect{fill:#edf4fb;stroke:#173e69;stroke-width:2}
+.app .marketFilterFeedback .marketReturnSeoul{font-weight:600}
+/* A single category opens its fields; this is free navigation, not a required wizard. */
+.app .marketQueryMenu[hidden],.app .marketQueryPane[hidden]{display:none!important}
+.app .mapWorkspaceControls .marketQueryMenu{display:flex;flex-direction:column;gap:0;min-width:0;width:100%}
+.app .mapWorkspaceControls .marketQueryMenu>button{display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%;min-width:0;padding:12px 4px;border:0;border-bottom:1px solid #c8d3df;border-radius:0;background:transparent;color:#233d58;text-align:left}
+.app .marketQueryMenu>button>span:first-child{display:flex;flex-direction:column;gap:4px;min-width:0}
+.app .marketQueryMenu b{font-size:16px;line-height:1.5}
+.app .marketQueryMenu small{color:#53677c;font-size:14px;line-height:1.5;word-break:keep-all;overflow-wrap:anywhere}
+.app .mapWorkspaceControls .marketQueryMenu>button:hover{background:#edf4fb}
+.app .marketQueryPaneHeading{display:flex;align-items:center;gap:8px;min-width:0;padding-bottom:8px;border-bottom:1px solid #c8d3df}
+.app .mapWorkspaceControls .marketQueryPaneHeading>button{width:auto;min-height:30px;padding:3px 7px;border:1px solid #aabbd0;border-radius:4px;background:white;color:#24558b;font-size:14px;white-space:nowrap}
+.app .marketQueryPaneHeading>b{font-size:16px;min-width:0;color:#233d58}
+.app .marketQueryPane{width:100%;min-width:0}
+.app .marketQueryPane .marketOptionGroupBody{padding:0;display:flex!important;flex-direction:column!important;align-items:stretch;gap:10px}
+.app .marketQueryMenu>button:focus-visible,.app .marketQueryPaneHeading>button:focus-visible{outline:2px solid #b75a1b;outline-offset:2px}

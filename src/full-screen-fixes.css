@@ -1,0 +1,17 @@
+/* Candidate actions must never share a text line with the primary figure. */
+.app .compareGrid article>.candidateDetail{display:block;max-width:100%;width:max-content;margin:10px 0 12px;white-space:normal;line-height:1.5}
+.app .compareGrid article>strong{display:block;max-width:100%;overflow-wrap:anywhere;line-height:1.3}
+.app .compareGrid article>p{clear:both}
+/* A briefing distribution is a complete scene, not a map below the fold. */
+.app.mode-presentation.presentation-step-1 #distribution-population{overflow:hidden;min-height:0}
+.app.mode-presentation.presentation-step-1 #distribution-population>.distributionComparison{display:flex;flex-direction:column;box-sizing:border-box;height:100%;min-height:0;overflow:hidden;padding:16px 20px}
+.app.mode-presentation.presentation-step-1 .distributionComparison>:not(.distributionMaps){flex:none}
+.app.mode-presentation.presentation-step-1 .distributionComparison>.distributionMaps{flex:1;min-height:120px;margin-top:8px;overflow:hidden}
+.app.mode-presentation.presentation-step-1 .distributionMaps figure{display:flex;flex-direction:column;min-height:0;max-height:100%}
+.app.mode-presentation.presentation-step-1 .distributionMaps figcaption{flex:none;padding:6px 10px}
+.app.mode-presentation.presentation-step-1 .distributionMaps .distributionSvg{flex:1;min-height:0;max-height:none;height:100%;width:100%}
+.app.mode-presentation.presentation-step-1 .distributionComparison .distributionNote{margin-top:6px;line-height:1.5}
+.app.mode-presentation.presentation-step-1 .distributionComparison .distributionLegendCompact{margin-top:4px}
+.app .timeComparisonFloating .timeComparisonValues strong{font-size:24px!important;line-height:1.35;word-break:keep-all;overflow-wrap:anywhere}
+.app.mode-presentation .movementConnections .connectionDirections{margin-top:12px}
+.app.mode-presentation .movementConnections .connectionDirection li{padding:8px 0}
