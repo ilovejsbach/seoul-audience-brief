@@ -29,11 +29,11 @@
       "right": {
         "bottom": 412,
         "height": 360,
-        "left": 1240,
-        "right": 1800,
+        "left": 1225,
+        "right": 1785,
         "top": 52,
         "width": 560,
-        "x": 1240,
+        "x": 1225,
         "y": 52
       },
       "left": {
@@ -185,13 +185,13 @@
               "width": 175.5
             },
             {
-              "left": 101,
+              "left": 368.5,
               "name": "타깃 연령전체 연령20–39세40–59세60세 이상",
               "value": "all",
               "width": 175.5
             },
             {
-              "left": 101,
+              "left": 368.5,
               "name": "성별전체 성별남성여성",
               "value": "all",
               "width": 175.5
@@ -207,7 +207,7 @@
               "width": 255.5
             },
             {
-              "left": 21,
+              "left": 288.5,
               "width": 255.5
             }
           ],
@@ -1520,9 +1520,5 @@
     "insideFullscreen": false,
     "text": "지도 색상 범례0 명–841,343 명0 명210,336 명210,335.71 명420,671 명420,671.42 명631,007 명631,007.13 명841"
   },
-  "escape": {
-    "active": "조회 옵션",
-    "queryVisible": true
-  },
-  "note": "Native Fullscreen API did not activate; viewport overlay executed."
+  "note": "Native Fullscreen API did not activate; viewport overlay executed. Usable screen edge excludes scrollbar."
 }

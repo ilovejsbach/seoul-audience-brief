@@ -1,0 +1,89 @@
+{
+  "source": "fe3cf61",
+  "pages": "8a36abf70bc6a9a69f3e0cc55b0b21110f5af799",
+  "daily": [
+    {
+      "case": "January-daily-source",
+      "metrics": "선택 지역 · 서울 전체\n설명\n10,465,391명\n\n2026.01.01 · 18:00 시점의 추계 인구"
+    },
+    {
+      "case": "month-boundary-and-short-month",
+      "date": "20260228"
+    },
+    {
+      "case": "January-Airport-cohort",
+      "text": "선택 지역 · 공항동\n설명\n8,653명\n\n2026.01.31 · 12:00 시점의 추계 인구"
+    },
+    {
+      "case": "fullscreen-shared-period",
+      "date": "20260930"
+    }
+  ],
+  "free": [
+    {
+      "case": "viewport-free-move",
+      "initial": {
+        "bottom": 412,
+        "height": 360,
+        "left": 10,
+        "right": 570,
+        "top": 52,
+        "width": 560,
+        "x": 10,
+        "y": 52
+      },
+      "map": {
+        "bottom": 978.4765625,
+        "height": 780.28125,
+        "left": 204.5,
+        "right": 1223,
+        "top": 198.1953125,
+        "width": 1018.5,
+        "x": 204.5,
+        "y": 198.1953125
+      },
+      "right": {
+        "bottom": 412,
+        "height": 360,
+        "left": 1225,
+        "right": 1785,
+        "top": 52,
+        "width": 560,
+        "x": 1225,
+        "y": 52
+      },
+      "left": {
+        "bottom": 360,
+        "height": 360,
+        "left": 0,
+        "right": 560,
+        "top": 0,
+        "width": 560,
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "case": "map-click-keeps-query"
+    },
+    {
+      "case": "presentation-scene-lifetime"
+    },
+    {
+      "case": "fullscreen-query-layer"
+    },
+    {
+      "case": "dock-reset-market-lifetime",
+      "market": {
+        "bottom": 412,
+        "height": 360,
+        "left": 1240,
+        "right": 1800,
+        "top": 52,
+        "width": 560,
+        "x": 1240,
+        "y": 52
+      }
+    }
+  ]
+}
