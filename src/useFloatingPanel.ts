@@ -7,10 +7,11 @@ export function useFloatingPanel(host:RefObject<HTMLElement|null>,enabled:boolea
  const [box,setBox]=useState(defaultSize.current);
  const gesture=useRef<{x:number;y:number;box:typeof box;mode:'move'|'resize'}|null>(null);
  const clamp=useCallback((next:typeof box)=>{
-  const r=viewport?{left:0,top:0,width:window.innerWidth,height:window.innerHeight}:host.current?.getBoundingClientRect();
+  const screenWidth=Math.min(window.innerWidth,document.documentElement.clientWidth||window.innerWidth),screenHeight=Math.min(window.innerHeight,document.documentElement.clientHeight||window.innerHeight);
+  const r=viewport?{left:0,top:0,width:screenWidth,height:screenHeight}:host.current?.getBoundingClientRect();
   if(!r||r.width<=0||r.height<=0)return next;
   // Intersect host-relative coordinates with the visible browser viewport.
-  let visibleLeft=0,visibleTop=0,visibleRight=window.innerWidth,visibleBottom=window.innerHeight;
+  let visibleLeft=0,visibleTop=0,visibleRight=screenWidth,visibleBottom=screenHeight;
   // A presentation scene scrolls inside the page. Its clipping edge is as real
   // as the browser edge: keep the draggable title and close action inside it.
   for(let ancestor=viewport?null:host.current?.parentElement;ancestor;ancestor=ancestor.parentElement){
