@@ -1,0 +1,6 @@
+/* One page edge for global menus, workspace navigation and primary content. */
+.app{--page-gutter:clamp(16px,4.2vw,80px)}
+.app>header{padding-inline:var(--page-gutter)}
+.app>main,.app.mode-presentation.presentation-step-1>main{width:100%;max-width:none;margin-inline:auto;padding-inline:var(--page-gutter)}
+.app.mode-presentation .analysisView>.dashboardContent{padding-inline:0;scrollbar-gutter:auto}
+@media print{.app>main,.app.mode-presentation.presentation-step-1>main{padding-inline:0}}

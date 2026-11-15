@@ -94,3 +94,5 @@ python3 scripts/validate-market-data.py
 시연 상세는 보조 분석을 선택할 때 화면을 교체합니다. [그래프 집중·화면 전환 실행 보고](docs/presentation-focus-report.md).
 
 [제목·설명·단위 압축과 구 라벨 실행 보고](docs/compact-headings-report.md).
+
+[그라데이션 선택·공통 폭 실행](docs/palette-and-alignment-report.md) · [Tableau를 참고한 조회 옵션 설계안](docs/tableau-query-options-plan.md).

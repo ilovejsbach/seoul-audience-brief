@@ -1,0 +1,597 @@
+{
+  "palette": [
+    {
+      "case": "normal-map-palette-values-range-and-legend",
+      "preview": "기본\n기본 파랑\n선택\n청록",
+      "values": "서울 전체\n2026.10.31 · 18:00 · 전체 연령 · 전체 성별\n선택 시각의 생활인구\n설명\n11,370,664명\n공개된 시간대 중 최대\n설명\n15:00\n\n24/24개 시간 공개 · 11,658,304명\n\n직전 시간 대비 인구 차이\n설명\n-97,110명\n\n17:00 → 18:00 · 같은 조건의 차이",
+      "range": "관측값 221,402.77–841,342.84 명 · 색상 범위 0–841,342.84 명"
+    },
+    {
+      "case": "fullscreen-palette-and-return"
+    },
+    {
+      "case": "market-shared-palette-and-domain",
+      "domain": [
+        "0",
+        "1261630232011"
+      ]
+    },
+    {
+      "case": "paired-common-range-and-neutral-zero",
+      "domains": [
+        [
+          "0",
+          "869945.5700000001"
+        ],
+        [
+          "0",
+          "869945.5700000001"
+        ]
+      ]
+    },
+    {
+      "case": "view-mode-palette-persistence-and-default-restore"
+    }
+  ],
+  "alignment": [
+    {
+      "brand": {
+        "bottom": 64.6953125,
+        "height": 56.390625,
+        "left": 75.59375,
+        "right": 231.8046875,
+        "top": 8.3046875,
+        "width": 156.2109375,
+        "x": 75.59375,
+        "y": 8.3046875
+      },
+      "header": {
+        "bottom": 74,
+        "height": 74,
+        "left": 0,
+        "right": 1800,
+        "top": 0,
+        "width": 1800,
+        "x": 0,
+        "y": 0
+      },
+      "label": "market",
+      "main": {
+        "bottom": 836,
+        "height": 762,
+        "left": 0,
+        "right": 1800,
+        "top": 74,
+        "width": 1800,
+        "x": 0,
+        "y": 74
+      },
+      "mainPadding": "75.6px",
+      "overflow": false,
+      "padding": "75.6px",
+      "primary": [
+        {
+          "box": {
+            "bottom": 836,
+            "height": 750,
+            "left": 75.59375,
+            "right": 1724.40625,
+            "top": 86,
+            "width": 1648.8125,
+            "x": 75.59375,
+            "y": 86
+          },
+          "name": "mapWorkspace"
+        }
+      ],
+      "screen": {
+        "h": 905,
+        "w": 1800
+      }
+    },
+    {
+      "brand": {
+        "bottom": 64.6953125,
+        "height": 56.390625,
+        "left": 75.59375,
+        "right": 231.8046875,
+        "top": 8.3046875,
+        "width": 156.2109375,
+        "x": 75.59375,
+        "y": 8.3046875
+      },
+      "header": {
+        "bottom": 74,
+        "height": 74,
+        "left": 0,
+        "right": 1785,
+        "top": 0,
+        "width": 1785,
+        "x": 0,
+        "y": 0
+      },
+      "label": "analysis",
+      "main": {
+        "bottom": 3933.8203125,
+        "height": 3859.8203125,
+        "left": 0,
+        "right": 1785,
+        "top": 74,
+        "width": 1785,
+        "x": 0,
+        "y": 74
+      },
+      "mainPadding": "75.6px",
+      "overflow": false,
+      "padding": "75.6px",
+      "primary": [
+        {
+          "box": {
+            "bottom": 185.1953125,
+            "height": 52,
+            "left": 75.59375,
+            "right": 1709.40625,
+            "top": 133.1953125,
+            "width": 1633.8125,
+            "x": 75.59375,
+            "y": 133.1953125
+          },
+          "name": "analysisNavigation"
+        },
+        {
+          "box": {
+            "bottom": 1801.234375,
+            "height": 480.484375,
+            "left": 75.59375,
+            "right": 1709.40625,
+            "top": 1320.75,
+            "width": 1633.8125,
+            "x": 75.59375,
+            "y": 1320.75
+          },
+          "name": "panel trendExplorer"
+        }
+      ],
+      "screen": {
+        "h": 905,
+        "w": 1800
+      }
+    },
+    {
+      "brand": {
+        "bottom": 68.09375,
+        "height": 63.1875,
+        "left": 75.59375,
+        "right": 244.078125,
+        "top": 4.90625,
+        "width": 168.484375,
+        "x": 75.59375,
+        "y": 4.90625
+      },
+      "header": {
+        "bottom": 74,
+        "height": 74,
+        "left": 0,
+        "right": 1800,
+        "top": 0,
+        "width": 1800,
+        "x": 0,
+        "y": 0
+      },
+      "label": "presentation graph",
+      "main": {
+        "bottom": 899,
+        "height": 825,
+        "left": 0,
+        "right": 1800,
+        "top": 74,
+        "width": 1800,
+        "x": 0,
+        "y": 74
+      },
+      "mainPadding": "75.6px",
+      "overflow": false,
+      "padding": "75.6px",
+      "primary": [
+        {
+          "box": {
+            "bottom": 184,
+            "height": 55,
+            "left": 75.59375,
+            "right": 1724.40625,
+            "top": 129,
+            "width": 1648.8125,
+            "x": 75.59375,
+            "y": 129
+          },
+          "name": "analysisNavigation"
+        },
+        {
+          "box": {
+            "bottom": 899,
+            "height": 703,
+            "left": 75.59375,
+            "right": 1724.40625,
+            "top": 196,
+            "width": 1648.8125,
+            "x": 75.59375,
+            "y": 196
+          },
+          "name": "panel trendExplorer"
+        }
+      ],
+      "screen": {
+        "h": 905,
+        "w": 1800
+      }
+    }
+  ],
+  "smallerAlignment": [
+    {
+      "brand": {
+        "bottom": 64.6953125,
+        "height": 56.390625,
+        "left": 57.3671875,
+        "right": 213.578125,
+        "top": 8.3046875,
+        "width": 156.2109375,
+        "x": 57.3671875,
+        "y": 8.3046875
+      },
+      "header": {
+        "bottom": 74,
+        "height": 74,
+        "left": 0,
+        "right": 1366,
+        "top": 0,
+        "width": 1366,
+        "x": 0,
+        "y": 0
+      },
+      "label": "market",
+      "main": {
+        "bottom": 699,
+        "height": 625,
+        "left": 0,
+        "right": 1366,
+        "top": 74,
+        "width": 1366,
+        "x": 0,
+        "y": 74
+      },
+      "mainPadding": "57.372px",
+      "overflow": false,
+      "padding": "57.372px",
+      "primary": [
+        {
+          "box": {
+            "bottom": 699,
+            "height": 613,
+            "left": 57.3671875,
+            "right": 1308.6328125,
+            "top": 86,
+            "width": 1251.265625,
+            "x": 57.3671875,
+            "y": 86
+          },
+          "name": "mapWorkspace"
+        }
+      ],
+      "screen": {
+        "h": 768,
+        "w": 1366
+      }
+    },
+    {
+      "brand": {
+        "bottom": 64.6953125,
+        "height": 56.390625,
+        "left": 57.3671875,
+        "right": 213.578125,
+        "top": 8.3046875,
+        "width": 156.2109375,
+        "x": 57.3671875,
+        "y": 8.3046875
+      },
+      "header": {
+        "bottom": 74,
+        "height": 74,
+        "left": 0,
+        "right": 1351,
+        "top": 0,
+        "width": 1351,
+        "x": 0,
+        "y": 0
+      },
+      "label": "analysis",
+      "main": {
+        "bottom": 3848.8203125,
+        "height": 3774.8203125,
+        "left": 0,
+        "right": 1351,
+        "top": 74,
+        "width": 1351,
+        "x": 0,
+        "y": 74
+      },
+      "mainPadding": "57.372px",
+      "overflow": false,
+      "padding": "57.372px",
+      "primary": [
+        {
+          "box": {
+            "bottom": 185.1953125,
+            "height": 52,
+            "left": 57.3671875,
+            "right": 1293.6328125,
+            "top": 133.1953125,
+            "width": 1236.265625,
+            "x": 57.3671875,
+            "y": 133.1953125
+          },
+          "name": "analysisNavigation"
+        },
+        {
+          "box": {
+            "bottom": 1716.234375,
+            "height": 480.484375,
+            "left": 57.3671875,
+            "right": 1293.6328125,
+            "top": 1235.75,
+            "width": 1236.265625,
+            "x": 57.3671875,
+            "y": 1235.75
+          },
+          "name": "panel trendExplorer"
+        }
+      ],
+      "screen": {
+        "h": 768,
+        "w": 1366
+      }
+    },
+    {
+      "brand": {
+        "bottom": 68.09375,
+        "height": 63.1875,
+        "left": 57.3671875,
+        "right": 225.8515625,
+        "top": 4.90625,
+        "width": 168.484375,
+        "x": 57.3671875,
+        "y": 4.90625
+      },
+      "header": {
+        "bottom": 74,
+        "height": 74,
+        "left": 0,
+        "right": 1366,
+        "top": 0,
+        "width": 1366,
+        "x": 0,
+        "y": 0
+      },
+      "label": "presentation graph",
+      "main": {
+        "bottom": 762,
+        "height": 688,
+        "left": 0,
+        "right": 1366,
+        "top": 74,
+        "width": 1366,
+        "x": 0,
+        "y": 74
+      },
+      "mainPadding": "57.372px",
+      "overflow": false,
+      "padding": "57.372px",
+      "primary": [
+        {
+          "box": {
+            "bottom": 184,
+            "height": 55,
+            "left": 57.3671875,
+            "right": 1308.6328125,
+            "top": 129,
+            "width": 1251.265625,
+            "x": 57.3671875,
+            "y": 129
+          },
+          "name": "analysisNavigation"
+        },
+        {
+          "box": {
+            "bottom": 762,
+            "height": 566,
+            "left": 57.3671875,
+            "right": 1308.6328125,
+            "top": 196,
+            "width": 1251.265625,
+            "x": 57.3671875,
+            "y": 196
+          },
+          "name": "panel trendExplorer"
+        }
+      ],
+      "screen": {
+        "h": 768,
+        "w": 1366
+      }
+    }
+  ],
+  "smallerGraphs": [
+    {
+      "case": "smaller-screen-생활인구",
+      "bottom": 762,
+      "box": [
+        0,
+        0,
+        1209.265625,
+        345.40625
+      ],
+      "height": 566,
+      "overflow": false,
+      "screen": 768,
+      "svgHeight": 345.40625
+    },
+    {
+      "case": "smaller-screen-생활이동",
+      "bottom": 762,
+      "box": [
+        0,
+        0,
+        1209.265625,
+        345.40625
+      ],
+      "height": 566,
+      "overflow": false,
+      "screen": 768,
+      "svgHeight": 345.40625
+    },
+    {
+      "case": "smaller-screen-거주지 이동",
+      "bottom": 762,
+      "box": [
+        0,
+        0,
+        1209.265625,
+        345.40625
+      ],
+      "height": 566,
+      "overflow": false,
+      "screen": 768,
+      "svgHeight": 345.40625
+    },
+    {
+      "case": "smaller-screen-추정매출",
+      "bottom": 762,
+      "box": [
+        0,
+        0,
+        1209.265625,
+        345.40625
+      ],
+      "height": 566,
+      "overflow": false,
+      "screen": 768,
+      "svgHeight": 345.40625
+    }
+  ],
+  "presentation": [
+    {
+      "case": "full-canvas-default-graph",
+      "bodyWidth": 1800,
+      "box": "0 0 1606.8125 482.40625",
+      "content": {
+        "bottom": 899,
+        "height": 703,
+        "left": 75.59375,
+        "right": 1724.40625,
+        "top": 196,
+        "width": 1648.8125,
+        "x": 75.59375,
+        "y": 196
+      },
+      "graph": {
+        "bottom": 899,
+        "height": 703,
+        "left": 75.59375,
+        "right": 1724.40625,
+        "top": 196,
+        "width": 1648.8125,
+        "x": 75.59375,
+        "y": 196
+      },
+      "screenHeight": 905,
+      "screenWidth": 1800,
+      "scroll": 0,
+      "svg": {
+        "bottom": 844,
+        "height": 482.40625,
+        "left": 96.59375,
+        "right": 1703.40625,
+        "top": 361.59375,
+        "width": 1606.8125,
+        "x": 96.59375,
+        "y": 361.59375
+      }
+    },
+    {
+      "case": "optional-two-time-comparison",
+      "delta": "1,782,675,618,541 원"
+    },
+    {
+      "case": "graph-options-and-index-fill"
+    },
+    {
+      "case": "population-screen-population-patterns",
+      "state": {
+        "count": 1,
+        "scroll": 0
+      }
+    },
+    {
+      "case": "population-screen-resident-context",
+      "state": {
+        "count": 1,
+        "scroll": 0
+      }
+    },
+    {
+      "case": "population-screen-demographic-population",
+      "state": {
+        "count": 1,
+        "scroll": 0
+      }
+    },
+    {
+      "case": "population-screen-distribution-population",
+      "state": {
+        "count": 1,
+        "scroll": 0
+      }
+    },
+    {
+      "case": "supplementary-apply-to-map-and-return"
+    },
+    {
+      "case": "screen-mobility-connections"
+    },
+    {
+      "case": "screen-migration-demographic-details"
+    },
+    {
+      "case": "view-mode-isolation"
+    }
+  ],
+  "market": [
+    {
+      "id": "market-open-query-and-real-values",
+      "status": "passed"
+    },
+    {
+      "id": "market-population-scope-and-period",
+      "status": "passed"
+    },
+    {
+      "id": "map-menu-and-detail-reopen",
+      "status": "passed"
+    },
+    {
+      "id": "market-empty-and-selection-reset",
+      "status": "passed"
+    },
+    {
+      "id": "market-color-scale-options",
+      "status": "passed"
+    },
+    {
+      "id": "market-candidates-and-chart-return",
+      "status": "passed"
+    },
+    {
+      "id": "market-return-to-actual-previous-view",
+      "status": "passed"
+    }
+  ]
+}

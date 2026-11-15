@@ -43,6 +43,7 @@ import './long-content-layout.css';
 import './analysis-navigation.css';
 import './compact-floating-options.css';
 import './compact-analysis-headings.css';
+import './page-alignment.css';
 type Region={code:string;name:string;districtCode?:string};
 type Pop={columns:string[];rows:(string|number|null)[][]};
 type IndexEntry={path:string;date:string;rows?:number};
