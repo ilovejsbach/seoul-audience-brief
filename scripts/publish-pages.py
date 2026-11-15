@@ -9,6 +9,11 @@ with tempfile.TemporaryDirectory(prefix='seoul-pages-') as folder:
  shutil.copytree(root/'dist',p,dirs_exist_ok=True)
  (p/'.nojekyll').touch()
  run(['git','init','-b','gh-pages'],p)
+ # Borrow already verified source objects. Large static datasets are identical
+ # blobs on main and gh-pages; advertise them as common instead of uploading twice.
+ objects=pathlib.Path(subprocess.check_output(['git','rev-parse','--git-path','objects'],cwd=root,text=True).strip())
+ if not objects.is_absolute():objects=(root/objects).resolve()
+ (p/'.git/objects/info/alternates').write_text(str(objects)+'\n')
  run(['git','add','.'],p)
  run(['git','-c','user.name=Codex','-c','user.email=codex@users.noreply.github.com','commit','-m','Publish verified Seoul briefing dashboard'],p)
  run(['git','remote','add','origin',remote],p)
@@ -19,4 +24,4 @@ with tempfile.TemporaryDirectory(prefix='seoul-pages-') as folder:
   # Connect this rebuilt artifact to the prior published history without changing source.
   run(['git','reset','--soft','FETCH_HEAD'],p)
   run(['git','-c','user.name=Codex','-c','user.email=codex@users.noreply.github.com','commit','-m','Update verified Seoul briefing dashboard'],p)
- run(['git','push','origin','gh-pages'],p)
+ run(['git','-c','core.compression=0','-c','http.postBuffer=104857600','push','origin','gh-pages'],p)

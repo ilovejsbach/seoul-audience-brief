@@ -53,3 +53,35 @@
 @container query-window (min-width:520px){
  .app .mapShell[data-options-layout=floating] .mapOptionsExtra .mapControlRail>.audienceMapControls:has(.migrationMapControls){grid-column:1/-1}
 }
+/* Keep query controls dense without reducing readable text or hit targets. */
+.app .mapShell[data-options-layout=floating] .mapOptionsBody{padding:8px 10px 12px}
+.app .mapShell[data-options-layout=floating] .mapOptionsBody .controls{gap:8px}
+.app .mapShell[data-options-layout=floating] .queryOptionGroup{gap:5px;padding-bottom:6px}
+.app .mapShell[data-options-layout=floating] .queryOptionGroup>b{line-height:1.4}
+.app .mapShell[data-options-layout=floating] .queryOptionGroup label{gap:2px;line-height:1.4}
+.app .mapShell[data-options-layout=floating] .mapOptionsBody .controls :is(select,button){min-height:34px;padding-block:4px}
+.app .mapShell[data-options-layout=floating] .mapOptionsExtra .mapControlRail{margin-top:8px;padding-top:8px;gap:8px}
+.app .mapWorkspace[data-controls-floating=true] .mapWorkspacePanelContent{padding:8px 10px 12px}
+.app .mapWorkspace[data-controls-floating=true] .marketOptionGroup>summary{padding-block:6px}
+.app .mapWorkspace[data-controls-floating=true] .marketOptionGroupBody{gap:6px;padding-block:6px}
+@container query-window (min-width:520px){
+ .app .mapShell[data-options-layout=floating] .mapOptionsBody .controls{gap:8px 12px}
+ .app .mapShell[data-options-layout=floating] .queryOptionGroup label{display:grid;grid-template-columns:76px minmax(0,1fr);align-items:center;gap:4px}
+ .app .mapShell[data-options-layout=floating] .queryOptionGroup label>select{grid-column:2;width:100%}
+ .app .mapShell[data-options-layout=floating] .mapOptionsBody .controls>.export{grid-column:1/-1;justify-self:end;min-height:30px;margin:0}
+ .app .mapShell[data-options-layout=floating] .mapOptionsExtra .mapControlRail{gap:8px}
+}
+/* Portal wrappers preserve styling, while only the window itself receives input. */
+.floatingQueryLayer[hidden]{display:none!important}
+.app.floatingQueryLayer .floatingQueryContext,
+.app.floatingQueryLayer .floatingQueryScope{display:contents!important}
+.app.floatingQueryLayer{border:0!important;box-shadow:none!important;overflow:visible!important}
+.app .queryDateSteps{display:flex;gap:4px;min-width:0}
+.app .queryDateSteps>button{flex:1 1 0;min-width:0;white-space:nowrap;min-height:30px!important;padding:3px 6px!important}
+.app .mapOptionsBody .queryOptionGroup>small{line-height:1.35;color:#53677c;font-size:var(--type-label,14px)}
+.app.floatingQueryLayer{background:transparent!important}
+@container query-window (min-width:520px) and (max-width:799px){
+ .app .mapShell[data-options-layout=floating] .controls>.queryOptionGroup:first-child{grid-column:1;grid-row:1/span 2}
+ .app .mapShell[data-options-layout=floating] .controls>.queryOptionGroup:nth-child(2),
+ .app .mapShell[data-options-layout=floating] .controls>.queryOptionGroup:nth-child(3){grid-column:2}
+}

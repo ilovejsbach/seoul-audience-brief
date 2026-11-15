@@ -1,0 +1,72 @@
+{
+  "source": "OA-23016",
+  "method": "Independent CSV Decimal sums; any masked component masks the selected region",
+  "cases": [
+    {
+      "date": "20260101",
+      "hour": 18,
+      "regionCode": "all",
+      "age": "all",
+      "sex": "all",
+      "sourceRows": 427,
+      "maskedRows": 0,
+      "expectedValue": "10465390.76",
+      "archiveSha256": "36cb9d3dad21c2b3afd702ad59a71fbf6e7398d7778243d390cc169f8fefc24a"
+    },
+    {
+      "date": "20260131",
+      "hour": 12,
+      "regionCode": "11500620",
+      "age": "young",
+      "sex": "male",
+      "sourceRows": 1,
+      "maskedRows": 0,
+      "expectedValue": "8652.59",
+      "archiveSha256": "36cb9d3dad21c2b3afd702ad59a71fbf6e7398d7778243d390cc169f8fefc24a"
+    },
+    {
+      "date": "20260228",
+      "hour": 18,
+      "regionCode": "11680",
+      "age": "all",
+      "sex": "female",
+      "sourceRows": 22,
+      "maskedRows": 0,
+      "expectedValue": "459753.35",
+      "archiveSha256": "755a0b352c5d3a96c98d1af2c4fec203b3d5d4bf93883eccb0095117036d9256"
+    },
+    {
+      "date": "20260731",
+      "hour": 0,
+      "regionCode": "11110670",
+      "age": "all",
+      "sex": "female",
+      "sourceRows": 1,
+      "maskedRows": 1,
+      "expectedValue": null,
+      "archiveSha256": "738e30e09a9fb1420f66d28e2cddb2b37df238e7c376cff9c6fb2e63b12cd4b2"
+    },
+    {
+      "date": "20260930",
+      "hour": 12,
+      "regionCode": "11500",
+      "age": "middle",
+      "sex": "all",
+      "sourceRows": 20,
+      "maskedRows": 0,
+      "expectedValue": "217673.34",
+      "archiveSha256": "34564933d176268d47bcf577eb9c02d4605ff0402a44d20600762556730b5945"
+    },
+    {
+      "date": "20261031",
+      "hour": 12,
+      "regionCode": "11500620",
+      "age": "young",
+      "sex": "male",
+      "sourceRows": 1,
+      "maskedRows": 0,
+      "expectedValue": "7676.14",
+      "archiveSha256": "f5731f68be93c44a8cf6d54e3bb8c5dc2e21994a5ff0c784e00c7dc521add4d7"
+    }
+  ]
+}

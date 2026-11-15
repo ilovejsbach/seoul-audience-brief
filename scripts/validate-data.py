@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Independent validation of published data against schemas and raw commerce."""
-import pathlib,json,csv,io,zipfile,collections,math,decimal,sys
+import pathlib,json,csv,io,zipfile,collections,math,decimal,sys,gzip,datetime
 ROOT=pathlib.Path(__file__).resolve().parents[1];P=ROOT/'public/data';results=[]
-def load(path):return json.loads(path.read_text())
+def load(path):return json.loads(gzip.decompress(path.read_bytes()).decode() if path.suffix=='.gz' else path.read_text())
 def check(name,fn):
  try:detail=fn();results.append({'check':name,'status':'passed','detail':detail})
  except Exception as e:results.append({'check':name,'status':'failed','detail':str(e)})
@@ -10,14 +10,14 @@ def require(ok,msg):
  if not ok:raise ValueError(msg)
 regions=load(P/'regions.json');districts={r['code'] for r in regions['districts']};dongs={r['code']:r for r in regions['dongs']}
 def population():
- idx=load(P/'population/index.json');require(len(idx)==31,'Expected 31 indexed days');require({r['date'] for r in idx}=={f'202610{i:02d}' for i in range(1,32)},'Wrong dates');total=0;allcodes=set();nulls=collections.Counter()
+ idx=load(P/'population/index.json');expected={(datetime.date(2026,1,1)+datetime.timedelta(days=i)).strftime('%Y%m%d') for i in range(304)};require(len(idx)==304,'Expected 304 indexed days');require({r['date'] for r in idx}==expected,'Wrong dates');total=0;allcodes=set();nulls=collections.Counter()
  for item in idx:
   path=ROOT/'public'/item['path'];x=load(path);rows=x['rows'];cols=x['columns'];require(len(cols)==32,f'{path.name}: expected 32 fields');require(len(rows)==427*24,f'{path.name}: row count {len(rows)}');require(item['rows']==len(rows),'Index count mismatch');require(item['bytes']==path.stat().st_size,'Index bytes mismatch');keys=set();byhour=collections.Counter()
   for n,r in enumerate(rows):
    require(len(r)==len(cols),f'{path.name} row {n}: field width');require(r[0]==item['date'],'Date mismatch');require(isinstance(r[1],int) and 0<=r[1]<24,'Invalid hour');require(r[2] in dongs,f'Unmapped dong {r[2]}');require(dongs[r[2]]['districtCode'] in districts,'Unmapped district');key=(r[0],r[1],r[2]);require(key not in keys,'Duplicate date/hour/dong');keys.add(key);byhour[r[1]]+=1;allcodes.add(r[2]);require(all(v is None or isinstance(v,(int,float)) and math.isfinite(v) and v>=0 for v in r[3:]),'Negative/non-numeric/non-finite population');require(r[3] is not None,'Missing population total');nulls.update(i for i,v in enumerate(r) if v is None)
   require(set(byhour)==set(range(24)) and set(byhour.values())=={427},'Incomplete hour/dong grid');total+=len(rows)
  require(len(allcodes)==427,'Not 427 population dong codes')
- return {'maskedOrMissingCells':sum(nulls.values()),'nullsByColumnIndex':dict(nulls),'days':31,'rows':total,'fields':32,'dongCodes':len(allcodes),'mappingCoverage':'100%','note':'No assertion that age/sex rounded cells sum exactly to rounded total.'}
+ return {'maskedOrMissingCells':sum(nulls.values()),'nullsByColumnIndex':dict(nulls),'days':len(idx),'rows':total,'fields':32,'dongCodes':len(allcodes),'mappingCoverage':'100%','note':'No assertion that age/sex rounded cells sum exactly to rounded total.'}
 def commerce():
  x=load(P/'commerce.json');raw=collections.defaultdict(lambda:[0]*8);n=0
  with zipfile.ZipFile(ROOT/'data/raw/commerce/OA-22175_7.zip') as z:
