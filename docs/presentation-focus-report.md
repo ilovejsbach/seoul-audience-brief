@@ -15,3 +15,6 @@
 매출2025년3→4분기 차이는 정확값+1,110,613,770,150원, 기준을2분기로 바꾸면+1,782,675,618,541원이었다. [실행 결과](../tests/presentation-focus-results.json), [독립 기준](presentation-graph-acceptance.md)을 보관한다.
 
 모든 과거 E2E와 모든 지역·기간 조합을 다시 검사한 것은 아니다. 네이티브 전체화면·모바일 전체 경로는 이번 실행 범위 밖이다.
+
+## 공개 화면 확인
+소스01a15ed, Pages929a6710dbf6cd5b35885a5bca323b6f764d126e를 배포했다. [배포 실행](https://github.com/ilovejsbach/seoul-audience-brief/actions/runs/43705748629) 성공 후 실제 Chrome 공개 화면에서11개 여정을 다시 실행해 모두 통과했다. 공개 브라우저1800×905에서 패널1744×703px와 실제 SVG1702×482.41px가 남은 화면을 채웠고 스크롤 위치는0이었다. [공개 실행 결과](../tests/presentation-focus-public-results.json)를 별도로 보관한다. 생활인구 지수 그래프와 연령·성별 별도 화면의 전환·복귀도 최종 확인했다.

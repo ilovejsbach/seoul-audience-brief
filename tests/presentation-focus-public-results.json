@@ -1,0 +1,92 @@
+{
+  "source": "01a15ed",
+  "pages": "929a6710dbf6cd5b35885a5bca323b6f764d126e",
+  "deploymentRun": 43705748629,
+  "cases": [
+    {
+      "case": "full-canvas-default-graph",
+      "bodyWidth": 1800,
+      "box": "0 0 1702 482.40625",
+      "content": {
+        "bottom": 899,
+        "height": 703,
+        "left": 24,
+        "right": 1776,
+        "top": 196,
+        "width": 1752,
+        "x": 24,
+        "y": 196
+      },
+      "graph": {
+        "bottom": 899,
+        "height": 703,
+        "left": 24,
+        "right": 1768,
+        "top": 196,
+        "width": 1744,
+        "x": 24,
+        "y": 196
+      },
+      "screenHeight": 905,
+      "screenWidth": 1800,
+      "scroll": 0,
+      "svg": {
+        "bottom": 844,
+        "height": 482.40625,
+        "left": 45,
+        "right": 1747,
+        "top": 361.59375,
+        "width": 1702,
+        "x": 45,
+        "y": 361.59375
+      }
+    },
+    {
+      "case": "optional-two-time-comparison",
+      "delta": "1,782,675,618,541 원"
+    },
+    {
+      "case": "graph-options-and-index-fill"
+    },
+    {
+      "case": "population-screen-population-patterns",
+      "state": {
+        "count": 1,
+        "scroll": 0
+      }
+    },
+    {
+      "case": "population-screen-resident-context",
+      "state": {
+        "count": 1,
+        "scroll": 0
+      }
+    },
+    {
+      "case": "population-screen-demographic-population",
+      "state": {
+        "count": 1,
+        "scroll": 0
+      }
+    },
+    {
+      "case": "population-screen-distribution-population",
+      "state": {
+        "count": 1,
+        "scroll": 0
+      }
+    },
+    {
+      "case": "supplementary-apply-to-map-and-return"
+    },
+    {
+      "case": "screen-mobility-connections"
+    },
+    {
+      "case": "screen-migration-demographic-details"
+    },
+    {
+      "case": "view-mode-isolation"
+    }
+  ]
+}
