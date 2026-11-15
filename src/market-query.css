@@ -1,0 +1,20 @@
+.marketMapTitle .querySummary{margin:0}
+.marketMapTitle .marketFilterFeedback{gap:4px 10px}
+.marketControls .querySearchSelect{min-width:0}
+.marketDetails .marketActions{gap:6px}
+/* R05/R06: preserve task order instead of distributing unrelated fields. */
+.app .mapWorkspaceControls .marketControls{display:flex!important;flex-direction:column!important;align-items:stretch!important;width:100%;min-width:0;gap:8px}
+.app .mapWorkspaceControls .marketControls>.marketOptionGroup{width:100%;min-width:0;max-width:100%;box-sizing:border-box}
+.app .mapWorkspaceControls .marketOptionGroupBody{display:grid!important;grid-template-columns:minmax(0,1fr)!important;gap:8px;width:100%;min-width:0;box-sizing:border-box}
+.app .mapWorkspaceControls .marketOptionGroupBody>label,.app .mapWorkspaceControls .marketSearchField,.app .mapWorkspaceControls .querySearchSelect{width:100%;min-width:0;max-width:100%;box-sizing:border-box}
+.app .mapWorkspaceControls .marketOptionGroupBody :is(input,select){min-height:36px;padding:5px 8px;border-radius:4px;box-sizing:border-box}
+.app .marketMarginalHint{display:flex;align-items:center;gap:6px;min-width:0;color:#53677c;font-size:14px;line-height:1.5}
+.app .marketMarginalHint>span{flex:1;min-width:0;word-break:keep-all;overflow-wrap:anywhere}
+.app .marketResultTools{display:flex;align-items:center;gap:5px;margin-left:auto;flex-wrap:wrap}
+.app .marketResultTools>button{min-height:30px;padding:3px 8px;border:1px solid #aabbd0;border-radius:4px;background:#fff;color:#24558b;font:inherit;font-size:14px;white-space:nowrap;cursor:pointer}
+.app .marketResultTools>button:disabled{opacity:.5;cursor:default}
+.marketDisplayOptions>.marketOptionGroupBody{display:flex;flex-direction:column;align-items:stretch;gap:10px;padding:0;min-width:0}
+.marketDisplayOptions label{display:flex;flex-direction:column;align-items:stretch;gap:4px;min-width:0;color:#43566e}
+.marketDisplayOptions :is(select,input){box-sizing:border-box;width:100%;min-width:0;min-height:34px;padding:5px 8px;border:1px solid #aabbd0;border-radius:4px;background:#fff;color:#233d58;font:inherit}
+.marketDisplayOptions .mapManualRange{max-width:100%}
+.marketDisplayOptions :is(button,input,select):focus-visible,.app .marketResultTools>button:focus-visible{outline:2px solid #b75a1b;outline-offset:2px}

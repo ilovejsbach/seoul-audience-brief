@@ -1,0 +1,42 @@
+/* Query context stays compact and never competes with the primary plot. */
+.detailQuerySummary{flex:none;min-width:0;margin:0 0 6px;padding:4px 8px;border:1px solid #c4d1df;background:#f8fafc;border-radius:4px}
+.detailQuerySummary:empty{display:none}
+.app .mapAppliedConditions.hasQuerySummary{display:block;min-width:0;padding:4px 8px}
+.app .mapAppliedConditions.hasQuerySummary .querySummary{margin:0}
+.app .mapAppliedConditions.hasQuerySummary .querySummaryLabel{font-weight:400}
+.app .analysisHeading .queryOptionsGlobal{min-height:32px}
+.app .queryTimeScrubber{display:flex;align-items:center;gap:6px;min-width:0;grid-column:1/-1;padding:2px 0;margin:0}
+.app .queryTimeScrubber>button{flex:none;width:30px;min-height:30px;padding:3px}
+.app .queryTimeScrubber>label{flex:1;min-width:0;margin:0;display:flex;align-items:center;gap:8px}
+.app .queryTimeScrubber>label>span{white-space:nowrap;font-size:14px}
+.app .queryTimeScrubber input{width:100%;min-width:50px;padding:0;height:24px;accent-color:#24558b}
+.app .mapOptionsPanel .controls .queryTimeScrubber>button{width:30px!important;min-width:30px!important;flex:0 0 30px!important}
+.app .mapOptionsPanel .controls .queryTimeScrubber>label{width:auto!important;flex:1!important;min-width:0!important}
+.app .mapOptionsPanel .querySearchSelect .querySearchTrigger,.app .mapWorkspaceControls .querySearchSelect .querySearchTrigger{width:auto!important;min-width:42px!important;flex:0 0 auto!important;padding:4px 7px!important}
+.app .mapOptionsPanel .querySearchSelect select,.app .mapWorkspaceControls .querySearchSelect select{width:0!important;min-width:0!important;flex:1!important}
+.app .mapOptionsPanel .mapOptionsBody,.app .mapOptionsPanel .controls,.app .mapOptionsPanel .queryFilterGroup{min-width:0;max-width:100%;box-sizing:border-box}
+.app .mapOptionsPanel .mapOptionsExtra{min-width:0;max-width:100%;grid-column:1/-1}
+.app .mapPanel[data-options-layout=floating] .mapOptionsPanel{backdrop-filter:blur(3px)}
+/* Focused lookup: fixed reading order, independent of window width. */
+.app .focusedQueryControls .queryFilterGroupBody>label{display:flex;flex-direction:column;align-items:stretch;gap:4px;margin:0;color:#43566e}
+.app .focusedQueryControls :is(input[type=date],select){box-sizing:border-box;width:100%;min-width:0;min-height:36px;border:1px solid #aabbd0;border-radius:4px;background:white;color:#233d58;padding:5px 8px;font:inherit}
+.app .focusedQueryControls .queryQuickTime{font-size:14px;color:#24558b}
+.app .focusedQueryControls .queryQuickTime>summary{cursor:pointer;padding:2px 0}
+.app .focusedQueryControls .queryQuickTime .queryTimeScrubber{padding-top:6px}
+.app .mapPanel[data-query-layout=focused] .mapToolsInline{grid-column:1!important;grid-row:4!important;display:flex!important;flex-wrap:wrap;align-items:center;gap:4px 12px;position:relative;min-width:0;padding:3px 0 6px}
+.app .mapPanel[data-query-layout=focused] .mapToolsInline .mapLevelControls,.app .mapPanel[data-query-layout=focused] .mapToolsInline .mapZoomTools{display:flex;align-items:center;flex-wrap:wrap;gap:4px;margin:0;min-width:0}
+.app .mapPanel[data-query-layout=focused] .mapToolsInline :is(button,summary){min-height:30px;padding:3px 7px;font-size:14px}
+.app .mapPanel[data-query-layout=focused] .mapToolsInline .mapLevelControls>button{width:auto;flex:none}
+.app .mapPanel[data-query-layout=focused] .mapToolsInline :is(.mapLevelHint,small){display:none}
+.app .mapPanel[data-query-layout=focused] .mapDisplaySettings{position:relative;display:block;margin:0;padding:0;border:0;max-width:100%}
+.app .mapPanel[data-query-layout=focused] .mapDisplaySettings>summary{cursor:pointer;border:1px solid #aabbd0;border-radius:4px;background:white;color:#24558b;list-style:none}
+.app .mapPanel[data-query-layout=focused] .mapDisplaySettings[open]{z-index:65}
+.app .mapPanel[data-query-layout=focused] .mapDisplaySettings[open]>:not(summary){background:white;padding:8px;box-sizing:border-box;width:100%;margin:0}
+.app .mapPanel[data-query-layout=focused] .mapDisplaySettings[open]{position:absolute;right:4px;top:3px;width:min(340px,calc(100% - 8px));max-height:60vh;overflow:auto;background:white;border:1px solid #aabbd0;box-shadow:0 5px 20px #173e6926}
+.app .mapPanel[data-query-layout=focused] .mapDisplaySettings[open]>summary{position:sticky;top:0;z-index:1}
+.app .dashboardContent .mapPanel.mapShell[data-query-layout=focused] .mapWrap>svg{grid-row:5!important}
+.app .mapPanel[data-query-layout=focused] .mapCaption{grid-row:6!important}
+.app .mapPanel[data-query-layout=focused] .legend{grid-row:7!important}
+.app .mapPanel[data-query-layout=focused] .boundaryNotice{grid-row:8!important}
+.app .queryExportAction{min-height:30px;padding:3px 8px;border:1px solid #aabbd0;border-radius:4px;background:white;color:#24558b;font-size:14px;white-space:nowrap}
+.app .mapPanel[data-query-layout=focused] .mapToolsInline .mapZoomTools small{display:none!important}

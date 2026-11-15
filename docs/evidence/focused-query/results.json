@@ -1,0 +1,268 @@
+{
+  "localBuild": {
+    "js": "index-h46p57Mk.js",
+    "css": "index-DptfLDNj.css"
+  },
+  "population": [
+    {
+      "viewport": "1800x905",
+      "cases": [
+        {
+          "case": "한 열 기간 지역 분석대상",
+          "passed": true
+        },
+        {
+          "case": "서울 전체 실제값",
+          "passed": true
+        },
+        {
+          "case": "서교 남20–39 18시32951",
+          "passed": true
+        },
+        {
+          "case": "같은조건12시16169",
+          "passed": true
+        },
+        {
+          "case": "상세에서 같은단일입력 포커스",
+          "passed": true
+        },
+        {
+          "case": "상세그래프도 같은값",
+          "passed": true
+        },
+        {
+          "case": "검색0건 복구있음",
+          "passed": true
+        },
+        {
+          "case": "첫Esc 검색만닫고초점복귀",
+          "passed": true
+        },
+        {
+          "case": "다음Esc 조회닫고진입점복귀",
+          "passed": true
+        },
+        {
+          "case": "긴동명 전체가독",
+          "passed": true
+        },
+        {
+          "case": "월밖날짜 적용",
+          "passed": true
+        },
+        {
+          "case": "중복입력없음",
+          "passed": true
+        },
+        {
+          "case": "화면가로넘침없음",
+          "passed": true
+        }
+      ]
+    },
+    {
+      "viewport": "1366x768",
+      "cases": [
+        {
+          "case": "한 열 기간 지역 분석대상",
+          "passed": true
+        },
+        {
+          "case": "서울 전체 실제값",
+          "passed": true
+        },
+        {
+          "case": "서교 남20–39 18시32951",
+          "passed": true
+        },
+        {
+          "case": "같은조건12시16169",
+          "passed": true
+        },
+        {
+          "case": "상세에서 같은단일입력 포커스",
+          "passed": true
+        },
+        {
+          "case": "상세그래프도 같은값",
+          "passed": true
+        },
+        {
+          "case": "검색0건 복구있음",
+          "passed": true
+        },
+        {
+          "case": "첫Esc 검색만닫고초점복귀",
+          "passed": true
+        },
+        {
+          "case": "다음Esc 조회닫고진입점복귀",
+          "passed": true
+        },
+        {
+          "case": "긴동명 전체가독",
+          "passed": true
+        },
+        {
+          "case": "월밖날짜 적용",
+          "passed": true
+        },
+        {
+          "case": "중복입력없음",
+          "passed": true
+        },
+        {
+          "case": "화면가로넘침없음",
+          "passed": true
+        }
+      ]
+    }
+  ],
+  "manual": {
+    "migration": [
+      {
+        "metric": "전입",
+        "value": "서초구\n2025년 · 30대 · 전입\n전입\n설명\n13,705 명\n전출 인구\n13,007 명\n순이동 인구\n+698 명\n\n전입 − 전출 · 거주지 이동"
+      },
+      {
+        "metric": "전출",
+        "value": "서초구\n2025년 · 30대 · 전출\n전출\n설명\n13,007 명\n전입 인구\n13,705 명\n순이동 인구\n+698 명\n\n전입 − 전출 · 거주지 이동"
+      },
+      {
+        "metric": "순이동",
+        "value": "서초구\n2025년 · 30대 · 순이동\n순이동\n설명\n+698 명\n\n전입 − 전출 · 거주지 이동\n\n전입 인구\n13,705 명\n전출 인구\n13,007 명"
+      }
+    ],
+    "otherMapLayouts": [
+      {
+        "groups": [
+          "기간",
+          "지역",
+          "분석 기준"
+        ],
+        "layout": "focused",
+        "queryOverflow": false,
+        "title": "시간별 유입·유출 비교",
+        "toolsInQuery": false,
+        "width": 280
+      },
+      {
+        "groups": [
+          "기간",
+          "지역",
+          "분석 기준"
+        ],
+        "layout": "focused",
+        "queryOverflow": false,
+        "title": "지역별 전입·전출 비교",
+        "toolsInQuery": false,
+        "width": 280
+      },
+      {
+        "groups": [
+          "기간",
+          "지역",
+          "분석 기준"
+        ],
+        "layout": "focused",
+        "queryOverflow": false,
+        "title": "지역별 추정매출 비교",
+        "toolsInQuery": false,
+        "width": 280
+      }
+    ],
+    "smallMapLayouts": [
+      {
+        "fields": [
+          {
+            "w": 240,
+            "x": 70.3671875
+          },
+          {
+            "w": 240,
+            "x": 70.3671875
+          },
+          {
+            "w": 240,
+            "x": 70.3671875
+          }
+        ],
+        "floating": "docked",
+        "queryOverflow": false,
+        "queryWidth": 280,
+        "title": "지역별 생활인구 비교",
+        "viewportOverflow": false
+      },
+      {
+        "fields": [
+          {
+            "w": 240,
+            "x": 70.3671875
+          },
+          {
+            "w": 240,
+            "x": 70.3671875
+          },
+          {
+            "w": 240,
+            "x": 70.3671875
+          }
+        ],
+        "floating": "docked",
+        "queryOverflow": false,
+        "queryWidth": 280,
+        "title": "시간별 유입·유출 비교",
+        "viewportOverflow": false
+      },
+      {
+        "fields": [
+          {
+            "w": 240,
+            "x": 70.3671875
+          },
+          {
+            "w": 240,
+            "x": 70.3671875
+          },
+          {
+            "w": 240,
+            "x": 70.3671875
+          }
+        ],
+        "floating": "docked",
+        "queryOverflow": false,
+        "queryWidth": 280,
+        "title": "지역별 전입·전출 비교",
+        "viewportOverflow": false
+      },
+      {
+        "fields": [
+          {
+            "w": 240,
+            "x": 70.3671875
+          },
+          {
+            "w": 240,
+            "x": 70.3671875
+          },
+          {
+            "w": 240,
+            "x": 70.3671875
+          }
+        ],
+        "floating": "docked",
+        "queryOverflow": false,
+        "queryWidth": 280,
+        "title": "지역별 추정매출 비교",
+        "viewportOverflow": false
+      }
+    ],
+    "marketIntersection": "조회 상권 2개\n조회 범위 맞춤\n관측값 2개 · 자료 없음 0개\n지역·검색·유형 초기화",
+    "palette": {
+      "kpiSame": true
+    },
+    "fullscreen": "fallback overlay only; single query date control confirmed",
+    "nativeFullscreen": "not exercised"
+  }
+}

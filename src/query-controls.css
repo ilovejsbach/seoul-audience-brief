@@ -1,0 +1,43 @@
+/* R04/R05/R06: compact condition controls share sizes; detailed editing is on demand. */
+.querySummary{display:flex;align-items:center;gap:5px 10px;min-width:0;max-width:100%;line-height:1.5}
+.querySummaryLabel{flex:none;color:#53677c;white-space:nowrap}
+.querySummaryItems{display:flex;align-items:center;gap:4px;min-width:0;max-width:100%;flex-wrap:wrap}
+.queryConditionChip{display:inline-flex;align-items:stretch;min-width:0;max-width:100%;border:1px solid #bdcddd;border-radius:4px;background:#fff;color:#233d58;vertical-align:middle}
+.queryChipEdit,.queryChipText{display:flex;align-items:center;gap:5px;min-width:0;max-width:100%;padding:3px 7px;text-align:left;line-height:1.5}
+.queryConditionChip .queryChipEdit,.queryConditionChip .queryChipClear{font:inherit;background:transparent;color:inherit;border:0;border-radius:3px;min-height:28px;margin:0;cursor:pointer}
+.queryChipEdit>span,.queryChipText>span{color:#53677c;flex:none}
+.queryChipEdit>b,.queryChipText>b{min-width:0;overflow-wrap:anywhere;word-break:keep-all;font-weight:600}
+.queryConditionChip .queryChipClear{flex:none;min-width:26px;padding:2px 5px;border-left:1px solid #d5dfe9;line-height:1.4}
+.queryConditionChip button:hover,.querySummaryMore:hover{background:#eaf1f8}
+.querySelectionChip{border-color:#6e90b4;background:#edf4fb}
+.querySummary .querySummaryMore{min-height:28px;padding:3px 7px;border:1px solid #aabbd0;border-radius:4px;background:white;color:#24558b;font:inherit;line-height:1.5;white-space:nowrap}
+.querySummaryOverflow{display:flex;flex-direction:column;align-items:stretch;gap:6px}
+.querySummaryOverflow .queryConditionChip{width:100%}.querySummaryOverflow .queryChipEdit,.querySummaryOverflow .queryChipText{flex:1}
+.queryFilterGroup{width:100%;min-width:0;max-width:100%;border-bottom:1px solid #d1dce7;padding-bottom:7px;margin:0}
+.queryFilterGroup>summary{display:flex;align-items:center;justify-content:space-between;gap:6px;cursor:pointer;padding:6px 0;color:#233d58;line-height:1.5;list-style:none;min-width:0}
+.queryFilterGroup>summary::before{content:'▸';flex:none}.queryFilterGroup[open]>summary::before{content:'▾'}
+.queryFilterGroup>summary>b{flex:1;min-width:0;word-break:keep-all;overflow-wrap:anywhere}.queryFilterGroup>summary>span{color:#53677c;min-width:0;max-width:60%;overflow-wrap:anywhere;text-align:right}
+.queryFilterGroupBody{display:grid;grid-template-columns:minmax(0,1fr);align-items:start;gap:8px;width:100%;min-width:0;padding:4px 0}
+.queryFilterGroupBody>label,.queryFilterGroupBody>.querySearchSelect{min-width:0;width:100%;max-width:100%}
+.querySearchSelect{width:100%;min-width:0;max-width:100%}.querySearchSelect>label{display:block;margin-bottom:4px;color:#43566e;line-height:1.5}
+.app .querySearchSelect .querySelectTrigger{display:flex!important;align-items:center;justify-content:space-between;gap:8px;width:100%!important;max-width:100%;min-width:0!important;min-height:36px;height:auto;box-sizing:border-box;border:1px solid #aabbd0;border-radius:4px;background:#fff;color:#233d58;padding:6px 10px!important;font:inherit;line-height:1.5;text-align:left;cursor:pointer}
+.app .querySearchSelect .querySelectTrigger:hover:not(:disabled){border-color:#24558b;background:#f8fbfe}
+.app .querySearchSelect .querySelectTrigger[aria-expanded=true]{border-color:#24558b;box-shadow:0 0 0 1px #24558b}
+.app .querySearchSelect .querySelectTrigger:disabled{background:#edf2f7;color:#5a6a7c;cursor:default;opacity:1}
+.querySelectValue{flex:1;min-width:0;white-space:normal;overflow-wrap:anywhere;word-break:keep-all}
+.querySelectChevron{flex:none;color:#435d77;line-height:1}
+.queryPopover{z-index:12500;display:flex;flex-direction:column;box-sizing:border-box;min-width:0;overflow:hidden;background:#fff;color:#233d58;border:1px solid #8fa5bd;border-radius:6px;box-shadow:0 8px 25px #173e6933;font-family:var(--font-ui,system-ui,sans-serif);font-size:14px;line-height:1.5;word-break:keep-all;overflow-wrap:anywhere}
+.queryPopover *{box-sizing:border-box}.queryPopoverHeader{display:flex;align-items:center;justify-content:space-between;flex:none;gap:8px;padding:7px 10px;border-bottom:1px solid #d1dce7}
+.queryPopoverHeader>b{font-weight:600;min-width:0}.queryPopover button,.queryPopover input{font:inherit;color:#233d58;line-height:1.5}
+.queryPopoverHeader>button,.querySearchEmpty>button{min-height:28px;padding:3px 8px;border:1px solid #aabbd0;border-radius:4px;background:white;color:#24558b;cursor:pointer}
+.queryPopoverBody{flex:1;min-height:0;overflow:auto;overscroll-behavior:contain;padding:10px}
+.querySearchField{display:flex;flex-direction:column;gap:4px}.querySearchField>input{display:block;min-width:0;width:100%;min-height:34px;border:1px solid #aabbd0;border-radius:4px;background:#fff;padding:5px 8px}
+.querySearchCount{color:#53677c;margin:6px 0;font-size:14px}.querySearchResults{display:flex;flex-direction:column;gap:2px;max-height:270px;overflow:auto;overscroll-behavior:contain;min-height:0}
+.querySearchResults>button{display:flex;align-items:center;justify-content:space-between;gap:6px;width:100%;min-height:32px;text-align:left;padding:5px 8px;background:white;border:1px solid transparent;border-radius:3px;cursor:pointer}
+.querySearchResults>button:hover,.querySearchResults>button[aria-selected=true]{background:#eaf1f8;border-color:#98b2cc;color:#173e69}.querySearchResults>button:disabled{color:#687787;opacity:.65;cursor:default}
+.querySearchEmpty p{margin:5px 0 8px;color:#53677c}.queryPopover :is(button,input):focus-visible,.querySummary button:focus-visible,.querySearchSelect :is(select,button):focus-visible,.queryFilterGroup>summary:focus-visible{outline:2px solid #b75a1b;outline-offset:2px}
+@layer dashboardTypography{
+ .app:is(.mode-analysis,.mode-presentation) :is(.querySummary,.querySummary *,.querySearchSelect label,.querySearchSelect select,.querySearchSelect button,.queryFilterGroup>summary,.queryFilterGroup>summary *),.queryPopover,.queryPopover *{font-size:14px!important}
+}
+@media(max-width:700px){.querySummary{align-items:flex-start;flex-wrap:wrap}.querySummaryLabel{width:100%}}
+@media print{.queryPopover,.queryChipClear,.querySummaryMore{display:none!important}.queryConditionChip{border-color:#aabbd0}.queryFilterGroup>summary{cursor:default}}

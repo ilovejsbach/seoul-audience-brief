@@ -1,0 +1,40 @@
+/* Query placement leaves at least 540px for the decision-making map. */
+.app .dashboardContent .mapPanel.mapShell[data-options-layout=docked][data-options-open=true][data-options-side=right]:not(.mapIsFullscreen){grid-template-columns:minmax(0,1fr) var(--map-options-width,220px)}
+.app .dashboardContent .mapPanel.mapShell[data-options-layout=docked][data-options-open=true][data-options-side=right]:not(.mapIsFullscreen)>:is(.panelTitle,.mapPanelTools,.mapWrap,.timeControl){grid-column:1}
+.app .mapPanel.mapShell[data-options-layout=docked][data-options-side=right]>.mapOptionsPanel{grid-column:2;border-right:0;border-left:1px solid #c8d3df}
+.app .mapPanel.mapShell[data-options-side=right]>.mapOptionsResizer{left:auto;right:calc(var(--map-options-width,220px) - 4px)}
+.app .mapPanel.mapShell .mapOptionsPanel>header{cursor:grab;touch-action:none;user-select:none}
+.app .mapPanel.mapShell .mapOptionsPanel>header:active{cursor:grabbing}
+.app .mapPanel.mapShell .floatingPanelActions button[aria-pressed=true]{background:#1d4775;color:#fff;border-color:#1d4775}
+.app .mapPanel.mapShell .floatingPanelActions button:disabled{opacity:.45;cursor:not-allowed}
+.app .mapPanel.mapShell>.mapDockPreview{position:absolute;top:0;bottom:0;width:var(--map-options-width,220px);z-index:80;pointer-events:none;border:2px dashed #24558b;background:#d9e9f2d9;display:flex;align-items:center;justify-content:center;color:#163c64;font-weight:700;grid-column:1/-1;grid-row:1/-1}
+.app .mapPanel.mapShell>.mapDockPreview[data-side=left]{left:0}
+.app .mapPanel.mapShell>.mapDockPreview[data-side=right]{right:0}
+/* Only the surface fades; controls and type remain at full contrast. */
+.app .mapPanel.mapShell[data-options-layout=floating] .mapOptionsPanel{background:rgb(255 255 255 / var(--query-background-alpha,1))!important}
+.app .mapPanel.mapShell[data-options-layout=floating] .mapOptionsPanel>.mapOptionsBody,
+.app .mapPanel.mapShell[data-options-layout=floating] .mapOptionsPanel>header{background:transparent!important}
+.app .mapPanel.mapShell .mapQueryAppearance{position:relative;align-self:center;font-size:12px}
+.app .mapPanel.mapShell .mapQueryAppearance>summary{cursor:pointer;padding:4px 7px;border:1px solid #aabbd0;border-radius:4px;background:white;color:#24558b;list-style:none}
+.app .mapPanel.mapShell .mapQueryAppearance>div{position:absolute;right:0;top:100%;z-index:55;min-width:180px;padding:10px;background:white;color:#17334f;border:1px solid #aabbd0;border-radius:5px;box-shadow:0 4px 15px #17334f26}
+.app .mapPanel.mapShell .mapQueryAppearance label{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.app .mapPanel.mapShell .mapQueryAppearance output{margin-left:auto}
+.app .mapPanel.mapShell .mapQueryAppearance input{width:100%;accent-color:#24558b}
+.app .mapPanel.mapShell .mapQueryAppearance>div{display:flex;flex-direction:column;gap:10px;min-width:210px}
+.app .mapPanel.mapShell .mapQueryPlacement{display:flex;gap:4px}
+.app .mapPanel.mapShell .mapQueryPlacement button{flex:1;white-space:nowrap}
+.app .mapPanel.mapShell .mapOptionsFloatingNote{display:none!important}
+/* R05/R06: focused query editors preserve one reading order at every width. */
+.app .mapPanel.mapShell[data-query-layout=focused] .mapOptionsBody{padding:12px;scrollbar-gutter:stable;max-height:calc(100dvh - 290px)}
+.app .mapPanel.mapShell[data-query-layout=focused] .mapOptionsBody .controls{display:flex!important;flex-direction:column!important;align-items:stretch!important;gap:10px!important;grid-template-columns:none!important;width:100%!important;min-width:0!important;max-width:100%!important}
+.app .mapPanel.mapShell[data-query-layout=focused] .mapOptionsBody .controls>.queryFilterGroup{width:100%!important;min-width:0!important;max-width:100%!important;grid-column:auto!important}
+.app .mapPanel.mapShell[data-query-layout=focused] .queryFilterGroupBody{display:flex;flex-direction:column;align-items:stretch;gap:10px;min-width:0}
+.app .mapPanel.mapShell[data-query-layout=focused] .queryFilterGroupBody>label{display:flex;flex-direction:column;align-items:stretch;gap:4px;width:100%;min-width:0}
+.app .mapPanel.mapShell[data-query-layout=focused][data-options-layout=floating] .mapOptionsBody{max-height:none!important}
+.app .mapPanel.mapShell[data-query-layout=focused] .mapOptionsPanel>header{padding:8px 10px;flex-wrap:nowrap!important}
+.app .mapPanel.mapShell[data-query-layout=focused] .mapOptionsPanel>header>h3{flex:1 1 auto!important;width:auto!important;min-width:0;font-size:20px!important}
+.app .mapPanel.mapShell[data-query-layout=focused] .mapOptionsPanel>header>.floatingPanelActions{flex:0 0 auto!important;width:auto!important;flex-wrap:nowrap}
+.app .mapPanel.mapShell[data-query-layout=focused] .mapOptionsPanel .floatingPanelActions>button{width:auto!important}
+.app .mapPanel.mapShell[data-query-layout=focused] .mapOptionsPanel .mapOptionsFloatingNote{display:none!important}
+
+.app.mode-presentation .mapPanel.mapShell[data-query-layout=focused] .mapOptionsPanel>header>h3{font-size:18px!important}

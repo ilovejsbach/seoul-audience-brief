@@ -1,0 +1,15 @@
+{
+  "controlsCount": 2,
+  "duplicates": [
+    "_r_4k_-controls",
+    "market-query-dataset",
+    "market-query-period",
+    "market-query-gu",
+    "market-query-dong",
+    "market-query-name",
+    "market-query-type",
+    "market-query-industry",
+    "market-query-dimension"
+  ],
+  "feedback": "조회 상권 1,650개조회 범위 맞춤관측값 1,565개 · 자료 없음 85개"
+}

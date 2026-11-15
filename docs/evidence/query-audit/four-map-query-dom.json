@@ -1,0 +1,666 @@
+[
+  {
+    "groups": [
+      {
+        "open": true,
+        "title": "자료·기간"
+      },
+      {
+        "open": true,
+        "title": "지역"
+      },
+      {
+        "open": false,
+        "title": "분석 대상전체 연령 · 전체 성별"
+      }
+    ],
+    "overflow": false,
+    "title": "생활인구 분포 분석",
+    "visibleInputs": [
+      {
+        "label": "우측",
+        "tag": "BUTTON",
+        "w": 60
+      },
+      {
+        "label": "띄우기",
+        "tag": "BUTTON",
+        "w": 60
+      },
+      {
+        "label": "조회 옵션 접기",
+        "tag": "BUTTON",
+        "w": 39
+      },
+      {
+        "label": "생활인구 조회 월",
+        "tag": "SELECT",
+        "w": 180
+      },
+      {
+        "label": "2026.10.012026.10.022026.10.032026.10.0420",
+        "tag": "SELECT",
+        "w": 180
+      },
+      {
+        "label": "00:0001:0002:0003:0004:0005:0006:0007:0008",
+        "tag": "SELECT",
+        "w": 180
+      },
+      {
+        "label": "이전 시간",
+        "tag": "BUTTON",
+        "w": 30
+      },
+      {
+        "label": "시간대 선택",
+        "tag": "INPUT",
+        "w": 108
+      },
+      {
+        "label": "다음 시간",
+        "tag": "BUTTON",
+        "w": 30
+      },
+      {
+        "label": "생활인구 이전 날짜",
+        "tag": "BUTTON",
+        "w": 88
+      },
+      {
+        "label": "생활인구 다음 날짜",
+        "tag": "BUTTON",
+        "w": 88
+      },
+      {
+        "label": "자치구",
+        "tag": "SELECT",
+        "w": 134
+      },
+      {
+        "label": "자치구 검색",
+        "tag": "BUTTON",
+        "w": 42
+      },
+      {
+        "label": "행정동",
+        "tag": "SELECT",
+        "w": 134
+      },
+      {
+        "label": "행정동 검색",
+        "tag": "BUTTON",
+        "w": 42
+      },
+      {
+        "label": "전체 연령20–39세40–59세60세 이상",
+        "tag": "SELECT",
+        "w": 180
+      },
+      {
+        "label": "전체 성별남성여성",
+        "tag": "SELECT",
+        "w": 180
+      },
+      {
+        "label": "↓ 표 내려받기",
+        "tag": "BUTTON",
+        "w": 180
+      },
+      {
+        "label": "서울 구 지도",
+        "tag": "BUTTON",
+        "w": 172
+      },
+      {
+        "label": "선택 구 동 지도",
+        "tag": "BUTTON",
+        "w": 172
+      },
+      {
+        "label": "지도 축소",
+        "tag": "BUTTON",
+        "w": 32
+      },
+      {
+        "label": "지도 확대",
+        "tag": "BUTTON",
+        "w": 32
+      },
+      {
+        "label": "원래 범위",
+        "tag": "BUTTON",
+        "w": 62
+      },
+      {
+        "label": "지도 색상 팔레트",
+        "tag": "SELECT",
+        "w": 178
+      },
+      {
+        "label": "0 포함 · 규모 비교관측 최솟값 아래 · 차이 강조",
+        "tag": "SELECT",
+        "w": 111
+      },
+      {
+        "label": "색상 범위 초기화",
+        "tag": "BUTTON",
+        "w": 97
+      },
+      {
+        "label": "지도 색상 시작값 의미와 해석",
+        "tag": "BUTTON",
+        "w": 41
+      },
+      {
+        "label": "",
+        "tag": "INPUT",
+        "w": 156
+      },
+      {
+        "label": "",
+        "tag": "INPUT",
+        "w": 156
+      },
+      {
+        "label": "색상 범위 적용",
+        "tag": "BUTTON",
+        "w": 102
+      },
+      {
+        "label": "범위 좁히기 −20%",
+        "tag": "BUTTON",
+        "w": 128
+      },
+      {
+        "label": "범위 넓히기 +20%",
+        "tag": "BUTTON",
+        "w": 128
+      },
+      {
+        "label": "직접 범위 초기화",
+        "tag": "BUTTON",
+        "w": 114
+      }
+    ],
+    "width": 220
+  },
+  {
+    "groups": [
+      {
+        "open": true,
+        "title": "자료·기간"
+      },
+      {
+        "open": true,
+        "title": "지역"
+      },
+      {
+        "open": true,
+        "title": "지표·시간"
+      }
+    ],
+    "overflow": false,
+    "title": "지역 간 생활이동 분석",
+    "visibleInputs": [
+      {
+        "label": "좌측",
+        "tag": "BUTTON",
+        "w": 60
+      },
+      {
+        "label": "우측",
+        "tag": "BUTTON",
+        "w": 60
+      },
+      {
+        "label": "띄우기",
+        "tag": "BUTTON",
+        "w": 60
+      },
+      {
+        "label": "조회 옵션 접기",
+        "tag": "BUTTON",
+        "w": 39
+      },
+      {
+        "label": "2026-10-31",
+        "tag": "SELECT",
+        "w": 180
+      },
+      {
+        "label": "자치구",
+        "tag": "SELECT",
+        "w": 134
+      },
+      {
+        "label": "자치구 검색",
+        "tag": "BUTTON",
+        "w": 42
+      },
+      {
+        "label": "유입유출유입−유출",
+        "tag": "SELECT",
+        "w": 180
+      },
+      {
+        "label": "도착 시각출발 시각",
+        "tag": "SELECT",
+        "w": 180
+      },
+      {
+        "label": "선택 시간대 이동량선택 시간까지 누적 이동량원본 일자 전체 이동량",
+        "tag": "SELECT",
+        "w": 180
+      },
+      {
+        "label": "00:0001:0002:0003:0004:0005:0006:0007:0008",
+        "tag": "SELECT",
+        "w": 180
+      },
+      {
+        "label": "↓ 표 내려받기",
+        "tag": "BUTTON",
+        "w": 180
+      },
+      {
+        "label": "서울 구 지도",
+        "tag": "BUTTON",
+        "w": 172
+      },
+      {
+        "label": "선택 구 동 지도",
+        "tag": "BUTTON",
+        "w": 172
+      },
+      {
+        "label": "지도 축소",
+        "tag": "BUTTON",
+        "w": 32
+      },
+      {
+        "label": "지도 확대",
+        "tag": "BUTTON",
+        "w": 32
+      },
+      {
+        "label": "원래 범위",
+        "tag": "BUTTON",
+        "w": 62
+      },
+      {
+        "label": "지도 색상 팔레트",
+        "tag": "SELECT",
+        "w": 178
+      },
+      {
+        "label": "0 포함 · 규모 비교관측 최솟값 아래 · 차이 강조",
+        "tag": "SELECT",
+        "w": 111
+      },
+      {
+        "label": "색상 범위 초기화",
+        "tag": "BUTTON",
+        "w": 97
+      },
+      {
+        "label": "지도 색상 시작값 의미와 해석",
+        "tag": "BUTTON",
+        "w": 41
+      },
+      {
+        "label": "",
+        "tag": "INPUT",
+        "w": 156
+      },
+      {
+        "label": "",
+        "tag": "INPUT",
+        "w": 156
+      },
+      {
+        "label": "색상 범위 적용",
+        "tag": "BUTTON",
+        "w": 102
+      },
+      {
+        "label": "범위 좁히기 −20%",
+        "tag": "BUTTON",
+        "w": 128
+      },
+      {
+        "label": "범위 넓히기 +20%",
+        "tag": "BUTTON",
+        "w": 128
+      },
+      {
+        "label": "직접 범위 초기화",
+        "tag": "BUTTON",
+        "w": 114
+      }
+    ],
+    "width": 220
+  },
+  {
+    "groups": [
+      {
+        "open": true,
+        "title": "자료·기간"
+      },
+      {
+        "open": true,
+        "title": "지역"
+      },
+      {
+        "open": true,
+        "title": "지표·대상"
+      }
+    ],
+    "overflow": false,
+    "title": "거주지 전입·전출 분석",
+    "visibleInputs": [
+      {
+        "label": "좌측",
+        "tag": "BUTTON",
+        "w": 60
+      },
+      {
+        "label": "우측",
+        "tag": "BUTTON",
+        "w": 60
+      },
+      {
+        "label": "띄우기",
+        "tag": "BUTTON",
+        "w": 60
+      },
+      {
+        "label": "조회 옵션 접기",
+        "tag": "BUTTON",
+        "w": 39
+      },
+      {
+        "label": "200120022003200420052006200720082009201020",
+        "tag": "SELECT",
+        "w": 180
+      },
+      {
+        "label": "자치구",
+        "tag": "SELECT",
+        "w": 134
+      },
+      {
+        "label": "자치구 검색",
+        "tag": "BUTTON",
+        "w": 42
+      },
+      {
+        "label": "행정동",
+        "tag": "SELECT",
+        "w": 134
+      },
+      {
+        "label": "행정동 검색",
+        "tag": "BUTTON",
+        "w": 42
+      },
+      {
+        "label": "전입",
+        "tag": "BUTTON",
+        "w": 57
+      },
+      {
+        "label": "전출",
+        "tag": "BUTTON",
+        "w": 57
+      },
+      {
+        "label": "순이동",
+        "tag": "BUTTON",
+        "w": 57
+      },
+      {
+        "label": "전체 인구성별 · 2021–2025연령별 · 2025 자치구",
+        "tag": "SELECT",
+        "w": 180
+      },
+      {
+        "label": "연령·성별 구성 분석 →",
+        "tag": "BUTTON",
+        "w": 180
+      },
+      {
+        "label": "↓ 표 내려받기",
+        "tag": "BUTTON",
+        "w": 180
+      },
+      {
+        "label": "서울 구 지도",
+        "tag": "BUTTON",
+        "w": 172
+      },
+      {
+        "label": "선택 구 동 지도",
+        "tag": "BUTTON",
+        "w": 172
+      },
+      {
+        "label": "지도 축소",
+        "tag": "BUTTON",
+        "w": 32
+      },
+      {
+        "label": "지도 확대",
+        "tag": "BUTTON",
+        "w": 32
+      },
+      {
+        "label": "원래 범위",
+        "tag": "BUTTON",
+        "w": 62
+      },
+      {
+        "label": "지도 색상 팔레트",
+        "tag": "SELECT",
+        "w": 178
+      },
+      {
+        "label": "0 포함 · 규모 비교관측 최솟값 아래 · 차이 강조",
+        "tag": "SELECT",
+        "w": 111
+      },
+      {
+        "label": "색상 범위 초기화",
+        "tag": "BUTTON",
+        "w": 97
+      },
+      {
+        "label": "지도 색상 시작값 의미와 해석",
+        "tag": "BUTTON",
+        "w": 41
+      },
+      {
+        "label": "",
+        "tag": "INPUT",
+        "w": 156
+      },
+      {
+        "label": "",
+        "tag": "INPUT",
+        "w": 156
+      },
+      {
+        "label": "색상 범위 적용",
+        "tag": "BUTTON",
+        "w": 102
+      },
+      {
+        "label": "범위 좁히기 −20%",
+        "tag": "BUTTON",
+        "w": 128
+      },
+      {
+        "label": "범위 넓히기 +20%",
+        "tag": "BUTTON",
+        "w": 128
+      },
+      {
+        "label": "직접 범위 초기화",
+        "tag": "BUTTON",
+        "w": 114
+      }
+    ],
+    "width": 220
+  },
+  {
+    "groups": [
+      {
+        "open": true,
+        "title": "자료·기간"
+      },
+      {
+        "open": true,
+        "title": "지역"
+      },
+      {
+        "open": true,
+        "title": "매출 시간대"
+      }
+    ],
+    "overflow": false,
+    "title": "상권 추정매출 분석",
+    "visibleInputs": [
+      {
+        "label": "좌측",
+        "tag": "BUTTON",
+        "w": 60
+      },
+      {
+        "label": "우측",
+        "tag": "BUTTON",
+        "w": 60
+      },
+      {
+        "label": "띄우기",
+        "tag": "BUTTON",
+        "w": 60
+      },
+      {
+        "label": "조회 옵션 접기",
+        "tag": "BUTTON",
+        "w": 39
+      },
+      {
+        "label": "2025년 1분기2025년 2분기2025년 3분기2025년 4분기",
+        "tag": "SELECT",
+        "w": 180
+      },
+      {
+        "label": "자치구",
+        "tag": "SELECT",
+        "w": 134
+      },
+      {
+        "label": "자치구 검색",
+        "tag": "BUTTON",
+        "w": 42
+      },
+      {
+        "label": "행정동",
+        "tag": "SELECT",
+        "w": 134
+      },
+      {
+        "label": "행정동 검색",
+        "tag": "BUTTON",
+        "w": 42
+      },
+      {
+        "label": "하루 전체00–06시06–11시11–14시14–17시17–21시21–24시",
+        "tag": "SELECT",
+        "w": 180
+      },
+      {
+        "label": "↓ 표 내려받기",
+        "tag": "BUTTON",
+        "w": 180
+      },
+      {
+        "label": "서울 구 지도",
+        "tag": "BUTTON",
+        "w": 172
+      },
+      {
+        "label": "선택 구 동 지도",
+        "tag": "BUTTON",
+        "w": 172
+      },
+      {
+        "label": "지도 축소",
+        "tag": "BUTTON",
+        "w": 32
+      },
+      {
+        "label": "지도 확대",
+        "tag": "BUTTON",
+        "w": 32
+      },
+      {
+        "label": "원래 범위",
+        "tag": "BUTTON",
+        "w": 62
+      },
+      {
+        "label": "지도 색상 팔레트",
+        "tag": "SELECT",
+        "w": 178
+      },
+      {
+        "label": "0 포함 · 규모 비교관측 최솟값 아래 · 차이 강조",
+        "tag": "SELECT",
+        "w": 111
+      },
+      {
+        "label": "색상 범위 초기화",
+        "tag": "BUTTON",
+        "w": 97
+      },
+      {
+        "label": "지도 색상 시작값 의미와 해석",
+        "tag": "BUTTON",
+        "w": 41
+      },
+      {
+        "label": "",
+        "tag": "INPUT",
+        "w": 156
+      },
+      {
+        "label": "",
+        "tag": "INPUT",
+        "w": 156
+      },
+      {
+        "label": "색상 범위 적용",
+        "tag": "BUTTON",
+        "w": 102
+      },
+      {
+        "label": "범위 좁히기 −20%",
+        "tag": "BUTTON",
+        "w": 128
+      },
+      {
+        "label": "범위 넓히기 +20%",
+        "tag": "BUTTON",
+        "w": 128
+      },
+      {
+        "label": "직접 범위 초기화",
+        "tag": "BUTTON",
+        "w": 114
+      }
+    ],
+    "width": 220
+  }
+]
