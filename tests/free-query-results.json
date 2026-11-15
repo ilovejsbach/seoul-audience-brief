@@ -1524,5 +1524,5 @@
     "active": "조회 옵션",
     "queryVisible": true
   },
-  "note": "Fullscreen API did not activate in this Chrome automation session; viewport overlay path executed."
+  "note": "Native Fullscreen API did not activate; viewport overlay executed."
 }
