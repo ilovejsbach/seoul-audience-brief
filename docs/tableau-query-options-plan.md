@@ -1,6 +1,6 @@
 # 태블로·Power BI를 참고한 조회 옵션 현행 설계
 
-2026-11-15 최신 판정: **감사 결과 적용·생활인구 우선 검수 후 다른 자료 확장·대표 여정 확인, 공개 미배포**. 사용자 지시에 따라 생활인구 조회를 목적에 맞게 정리한 뒤 실제 화면에서 확인했다. 아래는 현재 구현 계약이다. [통합 감사](query-options-audit-report.md), [공식 참고 비교](query-reference-audit.md), [독립 UX 감사](query-options-independent-audit.md)는 변경 이유의 이력이며 당시 보류 판정을 현재 승인 상태로 혼동하지 않는다. 현재 실제 실행 범위는 [조회 개선 실행 보고](focused-query-report.md), 독립 기대값은 [생활인구 수용 기준](population-query-acceptance.md)을 따른다.
+2026-11-15 최신 판정: **감사 결과 적용·생활인구 우선 검수 후 확장, 2026-11-16 공개 배포·대표 여정 확인**. 사용자 지시에 따라 생활인구 조회를 목적에 맞게 정리한 뒤 실제 화면에서 확인했다. 아래는 현재 구현 계약이다. [통합 감사](query-options-audit-report.md), [공식 참고 비교](query-reference-audit.md), [독립 UX 감사](query-options-independent-audit.md)는 변경 이유의 이력이며 당시 보류 판정을 현재 승인 상태로 혼동하지 않는다. 공개 실행은 [배포·공개 검증](public-query-deployment-report.md), 로컬 실행 범위는 [조회 개선 실행 보고](focused-query-report.md), 독립 기대값은 [생활인구 수용 기준](population-query-acceptance.md)을 따른다.
 
 ## 참고한 기능과 적용 판단
 | 공식 참고 | 확인한 동작 | 우리 화면의 적용 판단 |
