@@ -1,0 +1,37 @@
+/* R03/R05/R06/R07: presentation changes emphasis, never navigation or state.
+   The shared detail host replaces legacy numbered presentation scenes. */
+@media screen{
+ .app.mode-presentation[data-detail-system="shared"] .analysisView:not([hidden]){height:auto;min-height:0}
+ .app.mode-presentation[data-detail-system="shared"] .analysisView>.dashboardContent:not([data-analysis-main-open="true"]){height:auto;min-height:0;padding-bottom:0;overflow:visible}
+ .app.mode-presentation[data-detail-system="shared"] .dashboardContent[data-analysis-main-open="true"]{height:var(--analysis-main-height);min-height:0;overflow:hidden}
+ .app.mode-presentation[data-detail-system="shared"] :is(.analysisDetailModal,.analysisMainDetail) .analysisDetailContent :is(.trendExplorer,.compare,.extraTable,.dataNotes,.source,.scenarioWorkbench){display:block!important}
+ .app.mode-presentation[data-detail-system="shared"] :is(.analysisDetailModal,.analysisMainDetail) .analysisDetailContent :is(.populationPatterns,.residentContext,.demographicComparison,.distributionComparison,.migrationBreakdown,.movementConnections,.movementConnectionsMore){display:block!important}
+ .app.mode-presentation[data-detail-system="shared"] .analysisView :is(.notice,.movementBasisNotice,.migrationDemographicNotice){display:block!important}
+ .app.mode-presentation[data-detail-system="shared"] .analysisDetailContent .metrics{display:grid!important}
+ .app.mode-presentation[data-detail-system="shared"] .analysisDetailContent .timeComparisonHost>.timeComparison{display:block!important}
+ .app.mode-presentation[data-detail-system="shared"] .timeComparisonTrigger{display:none!important}
+ .app.mode-presentation[data-detail-system="shared"] .analysisDetailContent .compareGrid{gap:16px}
+ .app.mode-presentation[data-detail-system="shared"] .analysisDetailContent .compareGrid article{min-height:0;padding:16px}
+ .app.mode-presentation[data-detail-system="shared"] .analysisDetailContent .empty{padding:24px 16px}
+ .app.mode-presentation[data-detail-system="shared"] .floatingQueryContext{height:auto!important;min-height:0!important;padding:0!important}
+ /* Floating controls are not presentation scenes: legacy scene rules must not hide their scope. */
+ .app.mode-presentation[data-detail-system="shared"].floatingQueryLayer .floatingQueryContext>.floatingQueryScope{display:contents!important}
+ .app.mode-presentation[data-detail-system="shared"] .analysisDetailSelect{font:inherit;font-size:var(--type-control);max-width:min(240px,100%);min-height:36px}
+ .app.mode-presentation[data-detail-system="shared"] .analysisDetailModalHeader{padding:10px 16px;gap:12px}
+ .app.mode-presentation[data-detail-system="shared"] .analysisDetailSurfaceActions{flex-wrap:wrap;justify-content:flex-end}
+ .app.mode-presentation[data-detail-system="shared"] .analysisDetailContent .trendExplorer{margin:0;min-width:0;min-height:0;max-width:none}
+ .app.mode-presentation[data-detail-system="shared"] .analysisDetailContent .trendSvgWrap{min-width:0;overflow:hidden}
+ .app.mode-presentation[data-detail-system="shared"] .analysisDetailContent .trendSvgWrap>svg{max-height:none;min-width:0;width:100%}
+ .app.mode-presentation[data-detail-system="shared"] .analysisView>.dashboardContent:not([data-analysis-main-open="true"]){max-height:none;scrollbar-gutter:auto;padding-right:0}
+ .app.mode-presentation[data-detail-system="shared"] .analysisDetailContent .movementBasisNotice{display:block}
+}
+@layer dashboardTypography{
+ .app.mode-presentation[data-detail-system="shared"] :is(.analysisDetailModalHeader h2,.analysisMainDetail>header h2){font-size:var(--type-heading)!important;line-height:1.4!important}
+ .app.mode-presentation[data-detail-system="shared"] :is(.analysisDetailSurfaceActions button,.analysisDetailSelect){font-size:var(--type-control)!important;line-height:1.5!important}
+ .app.mode-presentation[data-detail-system="shared"] :is(.scenarioWorkbenchValue>strong,.scenarioWorkbenchNumber){font-size:var(--type-body)!important}
+ .app.mode-presentation[data-detail-system="shared"] .scenarioWorkbenchValue>strong{font-size:var(--type-key)!important}
+}
+@media screen and (max-width:767px){
+ .app.mode-presentation[data-detail-system="shared"] .analysisDetailSelect{min-height:44px;max-width:190px}
+ .app.mode-presentation[data-detail-system="shared"] .analysisDetailModalHeader{padding:10px 12px}
+}

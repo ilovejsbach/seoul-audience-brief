@@ -8,7 +8,10 @@ import {useFloatingPanel} from './useFloatingPanel';
 import FloatingQueryLayer from './FloatingQueryLayer';
 import WorkspaceSplitHandle from './WorkspaceSplitHandle';
 import {claimFloatingEscape,floatingEscapeHandled,markFloatingEscapeHandled,visibleFloatingWindows} from './floating-window-escape';
-export default function MapPanel({children,controls,queryLayout='legacy'}:{children:ReactNode;controls?:ReactNode;queryLayout?:'legacy'|'focused'}){
+import UnifiedMapPanel from './UnifiedMapPanel';
+type MapPanelProps={children:ReactNode;controls?:ReactNode;queryKey?:string;queryLayout?:'legacy'|'focused'};
+export default function MapPanel(props:MapPanelProps){return props.queryLayout==='focused'?<UnifiedMapPanel queryKey={props.queryKey||'population'} controls={props.controls}>{props.children}</UnifiedMapPanel>:<LegacyMapPanel {...props}/>}
+function LegacyMapPanel({children,controls,queryLayout='legacy'}:MapPanelProps){
  const focused=queryLayout==='focused',minimumWidth=focused?260:180,maximumWidth=focused?360:300,defaultWidth=focused?280:220;
  const optionsId=useId(),floatingOpenRef=useRef(false),externalOpenRef=useRef(false),visibilityHost=useRef<HTMLElement|null>(null),returnFocus=useRef<HTMLElement|null>(null),closeOptionsRef=useRef<()=>void>(()=>{});const ref=useRef<HTMLElement>(null),optionsButton=useRef<HTMLButtonElement>(null),drag=useRef<{x:number;width:number}|null>(null);const choice=useContext(MapDataContext);
  const [forceFloating,setForceFloating]=useState(false),[full,setFull]=useState(false),[fallback,setFallback]=useState(false),[width,setWidth]=useState(1000),[optionsWidth,setOptionsWidth]=useState(defaultWidth),[dockedOpen,setDockedOpen]=useState(true),[floatingOpen,setFloatingOpen]=useState(false),[host,setHost]=useState<HTMLDivElement|null>(null),[externalOpen,setExternalOpen]=useState(false),[presentation,setPresentation]=useState(false);

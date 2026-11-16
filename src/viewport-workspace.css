@@ -1,0 +1,94 @@
+/* R05/R06: every work surface fits the browser; only its content may scroll.
+   Root-only selectors deliberately exclude the .app clones used by portals. */
+@media screen {
+ html:has(#root>.app[data-detail-system="shared"]),
+ body:has(#root>.app[data-detail-system="shared"]),
+ #root:has(>.app[data-detail-system="shared"]){height:100%;min-height:0;overflow:hidden}
+ #root>.app[data-detail-system="shared"]:not(.floatingQueryLayer){display:flex;flex-direction:column;height:100dvh;max-height:100dvh;min-height:0;overflow:hidden}
+ #root>.app[data-detail-system="shared"]>header{flex:none;min-width:0}
+ #root>.app[data-detail-system="shared"]>main{display:flex;flex-direction:column;flex:1;min-width:0;min-height:0;width:100%;max-height:100%;padding-top:8px;padding-bottom:8px;overflow:hidden}
+ #root>.app[data-detail-system="shared"]>main>[hidden]{display:none!important}
+ #root>.app[data-detail-system="shared"]>main>footer{display:none}
+ /* The landing page is allowed to scroll within the same bounded main area. */
+ #root>.app[data-detail-system="shared"]>main:has(>[aria-label="광고 입지 분석 시작"]),
+ #root>.app[data-detail-system="shared"]>main:has(>[aria-label="광고주 시연 시작"]){overflow:auto;overscroll-behavior:contain}
+ #root>.app[data-detail-system="shared"] .analysisView:not([hidden]){display:flex;flex-direction:column;flex:1;height:100%;min-height:0;max-height:100%;overflow:hidden}
+ #root>.app[data-detail-system="shared"] .analysisView>.analysisToolbar,
+ #root>.app[data-detail-system="shared"] .analysisView>#active-query-summary{flex:none}
+ #root>.app[data-detail-system="shared"] .analysisView>.analysisToolbar,
+ #root>.app[data-detail-system="shared"] .analysisView>#active-query-summary{position:relative;top:auto}
+ #root>.app[data-detail-system="shared"] .analysisView>.dashboardContent{display:flex;flex-direction:column;flex:1;min-width:0;min-height:0;height:auto;max-height:none;overflow:hidden;padding-bottom:0}
+ #root>.app[data-detail-system="shared"] .analysisView>.dashboardContent>div:not([hidden]){display:flex;flex-direction:column;flex:1;min-width:0;min-height:0;height:100%;overflow:hidden}
+ #root>.app[data-detail-system="shared"] .dashboardContent .workspace{flex:1;min-width:0;min-height:0;height:0;overflow:hidden;align-items:stretch}
+ #root>.app[data-detail-system="shared"] .dashboardContent .workspace>.panel{min-height:0;max-height:100%}
+ #root>.app[data-detail-system="shared"] .dashboardContent .workspace>.ranking,
+ #root>.app[data-detail-system="shared"] .dashboardContent .workspace>.supportRanking{display:flex;flex-direction:column;height:100%;min-height:0;overflow:hidden}
+ #root>.app[data-detail-system="shared"] .workspace .supportRankingContent{display:flex;flex-direction:column;flex:1;min-height:0;overflow:auto;overscroll-behavior:contain}
+ #root>.app[data-detail-system="shared"] .workspace .rankList{flex:1;min-height:0;max-height:none;overflow:auto;overscroll-behavior:contain}
+ #root>.app[data-detail-system="shared"] .workspace .rankingDisclosure{flex:none}
+ #root>.app[data-detail-system="shared"] .dashboardContent .linkedMetricSummary{flex:none;max-height:28%;margin:8px 0 0;overflow:auto;overscroll-behavior:contain}
+ #root>.app[data-detail-system="shared"] .dashboardContent .linkedMetricHeading{display:none}
+ #root>.app[data-detail-system="shared"] .workspace .selectedRegionInsights{margin:0 0 8px;max-height:none;overflow:visible;border:0;border-bottom:1px solid #d2dce7;border-radius:0;flex:none}
+ #root>.app[data-detail-system="shared"] .selectedRegionInsights .compactKPIInsights{display:grid;grid-template-columns:1fr;gap:0}
+ #root>.app[data-detail-system="shared"] .selectedRegionInsights .compactKPIInsights>div{padding:8px 12px;border:0;min-width:0}
+ #root>.app[data-detail-system="shared"] .selectedRegionInsights .compactKPIInsights>div:first-child{grid-column:1/-1}
+ #root>.app[data-detail-system="shared"] .selectedRegionInsights .compactKPIInsights>div:not(:first-child)>strong{font-size:var(--type-body,16px)!important}
+ #root>.app[data-detail-system="shared"] .selectedRegionInsights .compactKPIInsights p{font-size:var(--type-meta,12px)!important}
+ #root>.app[data-detail-system="shared"] .dashboardContent>div>.dataNotes{flex:none;max-height:30%;margin-top:6px;overflow:auto;overscroll-behavior:contain}
+ /* The map receives the remaining grid track. Never target nested icon SVGs. */
+ #root>.app[data-detail-system="shared"] .dashboardContent .mapPanel.unifiedMapPanel:not(.mapIsFullscreen){grid-template-columns:minmax(0,1fr);grid-template-rows:auto minmax(0,1fr);height:100%;min-height:0;align-content:stretch;overflow:hidden}
+ #root>.app[data-detail-system="shared"] .mapPanel.unifiedMapPanel>.mapWrap{display:grid;grid-template-columns:minmax(0,1fr) auto auto;grid-template-rows:auto auto auto minmax(0,1fr) auto auto auto;align-content:stretch;min-height:0;min-width:0;height:100%;overflow:hidden}
+ #root>.app[data-detail-system="shared"] .mapPanel.unifiedMapPanel .mapMissingReason{grid-column:1/-1;grid-row:1}
+ #root>.app[data-detail-system="shared"] .mapPanel.unifiedMapPanel .mapCandidateSlot{grid-column:1/-1;grid-row:2}
+ #root>.app[data-detail-system="shared"] .mapPanel.unifiedMapPanel .mapCandidateSlot:empty{display:none}
+ #root>.app[data-detail-system="shared"] .mapPanel.unifiedMapPanel .mapLevelControls{grid-column:1;grid-row:3;min-width:0;align-self:center}
+ #root>.app[data-detail-system="shared"] .mapPanel.unifiedMapPanel .mapZoomTools{grid-column:2;grid-row:3;align-self:center;min-width:0}
+ #root>.app[data-detail-system="shared"] .mapPanel.unifiedMapPanel .mapDisplaySettings{grid-column:3;grid-row:3;align-self:center;min-width:0}
+ #root>.app[data-detail-system="shared"] .mapPanel.unifiedMapPanel .mapWrap>svg[aria-label]{grid-column:1/-1;grid-row:4;display:block;width:100%;height:100%!important;min-height:0!important;max-height:none;align-self:stretch}
+ #root>.app[data-detail-system="shared"] .mapPanel.unifiedMapPanel .mapCaption{grid-column:1/-1;grid-row:5;min-width:0}
+ #root>.app[data-detail-system="shared"] .mapPanel.unifiedMapPanel .legend{grid-column:1/-1;grid-row:6;min-width:0}
+ #root>.app[data-detail-system="shared"] .mapPanel.unifiedMapPanel .boundaryNotice{grid-column:1/-1;grid-row:7;min-width:0;max-height:80px;overflow:auto}
+ #root>.app[data-detail-system="shared"] .mapPanel.unifiedMapPanel.mapIsFullscreen{height:100dvh;max-height:100dvh;min-height:0;overflow:hidden}
+ #root>.app[data-detail-system="shared"] .mapPanel.unifiedMapPanel.mapIsFullscreen>.mapWrap{flex:1;height:auto;min-height:0}
+ /* Display options float above the map, never consume its grid height. */
+ #root>.app[data-detail-system="shared"] .mapPanel.unifiedMapPanel .mapDisplaySettings[open]{position:absolute;right:8px;top:4px;width:min(340px,calc(100% - 16px));max-height:min(60dvh,calc(100% - 12px));overflow:auto;z-index:65;background:#fff;border:1px solid #a9bdd2;box-shadow:0 6px 20px #173e6926;overscroll-behavior:contain}
+ #root>.app[data-detail-system="shared"] .mapPanel.unifiedMapPanel .mapDisplaySettings[open]>summary{position:sticky;top:0;z-index:1;background:#fff}
+ #root>.app[data-detail-system="shared"] .mapPanel.unifiedMapPanel .mapDisplaySettings[open]>:not(summary){padding:8px;max-width:100%;box-sizing:border-box;background:#fff}
+ /* Main details use exactly the same remaining rectangle, irrespective of module. */
+ #root>.app[data-detail-system="shared"] .analysisView>.dashboardContent[data-analysis-main-open="true"]{flex:1;height:auto!important;min-height:0;overflow:hidden}
+ #root>.app[data-detail-system="shared"] .analysisMainDetail:not([hidden]){flex:1;height:100%;max-height:100%;min-height:0;overflow:hidden}
+ #root>.app[data-detail-system="shared"] .analysisMainDetail>.analysisDetailModalBody{min-height:0;overflow:auto;overscroll-behavior:contain}
+ #root>.app[data-detail-system="shared"] .analysisDetailContent .trendSvgWrap>svg{height:100%!important;min-height:0!important;max-height:100%!important}
+ #root>.app[data-detail-system="shared"] .analysisDetailContent .trendExplorer{padding:16px!important}
+ /* Market workspace: header/query rows are fixed, map and information scroll inside. */
+ #root>.app[data-detail-system="shared"]>main>div:not([hidden]):has(>.mapWorkspace){display:flex;flex-direction:column;flex:1;min-height:0;overflow:hidden}
+ #root>.app[data-detail-system="shared"] .mapWorkspace{display:flex;flex-direction:column;flex:1;width:100%;height:100%;max-height:100%;min-height:0;overflow:hidden}
+ #root>.app[data-detail-system="shared"] .mapWorkspaceHeader,
+ #root>.app[data-detail-system="shared"] .mapWorkspaceTopQuery{flex:none;min-height:0}
+ #root>.app[data-detail-system="shared"] .mapWorkspaceBody{flex:1;min-height:0;overflow:hidden}
+ #root>.app[data-detail-system="shared"] .mapWorkspaceCenter,
+ #root>.app[data-detail-system="shared"] .mapWorkspaceMap,
+ #root>.app[data-detail-system="shared"] .marketMap,
+ #root>.app[data-detail-system="shared"] .marketMapViewport{flex:1;min-height:0;max-height:100%;overflow:hidden}
+ #root>.app[data-detail-system="shared"] .marketMap[data-analysis-main-open="true"]{height:100%!important;min-height:0}
+ #root>.app[data-detail-system="shared"] .marketMapViewport>.marketMapSvg{height:100%;min-height:0;max-height:100%;flex:1}
+ #root>.app[data-detail-system="shared"] .mapWorkspaceDetails,
+ #root>.app[data-detail-system="shared"] .mapWorkspaceControls{min-height:0;max-height:100%;overflow:hidden}
+ #root>.app[data-detail-system="shared"] .mapWorkspacePanelContent{flex:1;min-height:0;max-height:none;overflow:auto;overscroll-behavior:contain}
+ /* Native dialogs and independent panes are bounded even on short viewports. */
+ .app[data-detail-system="shared"] .analysisDetailModal{max-width:calc(100vw - 16px);max-height:calc(100dvh - 16px)}
+ .app[data-detail-system="shared"] :is(.graphOptionsPanel,.timeComparisonFloating,.supportRanking[data-support-mode="floating"],.mapPopup){max-width:calc(100vw - 16px);max-height:calc(100dvh - 16px)}
+}
+@layer dashboardTypography{
+ .app[data-detail-system="shared"] .selectedRegionInsights .compactKPIInsights>div:first-child>strong{font-size:var(--type-key,36px)!important;white-space:nowrap!important}
+ .app[data-detail-system="shared"] .insightComparisons{grid-column:1/-1;padding:4px 12px 8px}
+ .app[data-detail-system="shared"] .insightComparisons>summary{font-size:var(--type-label,14px)!important;cursor:pointer;color:#24558b;padding:4px 0}
+ .app[data-detail-system="shared"] .secondaryKPIInsights{display:grid;gap:8px;padding-top:6px}
+ .app[data-detail-system="shared"] .secondaryKPIInsights>div{min-width:0;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 8px}
+ .app[data-detail-system="shared"] .secondaryKPIInsights strong{grid-column:1/-1;white-space:nowrap!important;overflow-wrap:normal!important;font-size:var(--type-body,16px)!important;margin:0!important}
+ .app[data-detail-system="shared"] .secondaryKPIInsights p{grid-column:1/-1;font-size:var(--type-meta,14px)!important;margin:0}
+ .app[data-detail-system="shared"] .selectedRegionInsights .compactKPIInsights>div:not(:first-child)>strong{font-size:var(--type-body,16px)!important;white-space:nowrap!important;overflow-wrap:normal!important}
+ .app[data-detail-system="shared"] .selectedRegionInsights .compactKPIInsights>div:not(:first-child){display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 8px;align-items:center;padding-block:6px}
+ .app[data-detail-system="shared"] .selectedRegionInsights .compactKPIInsights>div:not(:first-child)>strong{grid-column:1/-1;margin:0!important}
+ .app[data-detail-system="shared"] .selectedRegionInsights .compactKPIInsights>div:not(:first-child)>p{grid-column:1/-1;margin:0;font-size:var(--type-meta,14px)!important}
+}

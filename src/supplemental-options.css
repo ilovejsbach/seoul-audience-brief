@@ -1,0 +1,6 @@
+.app .supplementalOptions{pointer-events:auto;width:min(340px,calc(100vw - 24px));overflow:auto;border:1px solid #a9bdd2;border-radius:6px;background:#fff;color:#233d58;box-shadow:0 8px 24px #173e6926;z-index:60;box-sizing:border-box}
+.app .supplementalOptions>header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 12px;border-bottom:1px solid #cad7e5}
+.app .supplementalOptions>div{padding:12px;display:grid;gap:10px}
+.app .supplementalOptions :is(button,select){font:inherit;min-height:34px;padding:4px 8px;color:#24558b;border:1px solid #a9bdd2;border-radius:4px;background:#fff}
+.app .supplementalOptions label{display:grid;gap:5px;font:inherit}
+.app .supplementalOptions p{margin:0;font:inherit;line-height:1.5}

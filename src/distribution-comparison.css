@@ -4,3 +4,27 @@
 /* R11: classification detail belongs in the legend tooltip, not a large inline list. */
 .app .distributionLegendCompact{display:flex;align-items:center;flex-wrap:nowrap;min-width:0;margin-top:10px;min-height:30px}
 .app .distributionComparison>.mapManualRange{margin-top:10px}
+/* One comparison canvas and one display-options entry; no range editor above the maps. */
+.app .analysisDetailContent>.distributionComparison,.app .analysisDetailContent>#distribution-population{height:100%;min-height:0;box-sizing:border-box}
+.app .analysisDetailContent>#distribution-population>.distributionComparison{height:100%;min-height:0;box-sizing:border-box}
+.app .analysisDetailContent .distributionComparison{display:flex!important;flex-direction:column;gap:8px;margin:0;padding:10px 14px;overflow:hidden}
+.app .analysisDetailContent .distributionComparison>.panelTitle{display:flex;flex:none;padding:0;min-height:0}
+.app .analysisDetailContent .distributionComparison>.panelTitle>div{display:flex;align-items:center;gap:10px;flex-wrap:wrap;min-width:0}
+.app .analysisDetailContent .distributionComparison h2,.app .analysisDetailContent .distributionContext{margin:0}
+.app .analysisDetailContent .distributionControls{gap:10px;flex:none;align-items:center}
+.app .analysisDetailContent .distributionControls label{display:flex;align-items:center;gap:6px}
+.app .analysisDetailContent .distributionControls select{min-height:34px;padding:4px 8px;border-radius:4px}
+.app .analysisDetailContent .distributionTabs{margin:0;padding:3px;border-radius:4px}
+.app .analysisDetailContent .distributionTabs button{padding:5px 9px;border-radius:3px;min-height:30px}
+.app .analysisDetailContent .distributionControls>.analysisOptionButton{margin-left:auto}
+.app .analysisDetailContent .distributionMaps{flex:1;min-height:180px;margin:0;overflow:hidden;grid-template-rows:minmax(0,1fr)}
+.app .analysisDetailContent .distributionMaps figure{display:flex;flex-direction:column;min-height:0;border-radius:6px}
+.app .analysisDetailContent .distributionMaps figcaption{flex:none;padding:6px 10px}
+.app .analysisDetailContent .distributionSvg{flex:1;min-height:0;height:100%;max-height:none;width:100%}
+.app .analysisDetailContent .distributionLegendCompact{flex:none;margin:0;justify-content:flex-end}
+.app .analysisDetailContent .distributionNote{flex:none;margin:0;line-height:1.45}
+.app .supplementalOptions .mapManualRange{margin:0}
+.app .supplementalOptions .mapManualRange>details>summary{display:none}
+.app .supplementalOptions .mapManualRangeBody{padding:0;border:0}
+@media(max-width:760px){.app .analysisDetailContent .distributionMaps:not(.delta){grid-template-columns:1fr 1fr}.app .analysisDetailContent .distributionControls{flex-wrap:wrap}.app .analysisDetailContent .distributionContext{flex-basis:100%}.app .analysisDetailContent .distributionNote{max-height:54px;overflow:auto}}
+.app .analysisDetailModalBody>.analysisDetailContent:has(>.distributionComparison),.app .analysisDetailModalBody>.analysisDetailContent:has(>#distribution-population){height:100%;min-height:0}

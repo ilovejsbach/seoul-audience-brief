@@ -2,6 +2,10 @@
 
 광고주 브리핑을 위한 서울 인구·이동·상권 지도 대시보드. React/TypeScript/Vite로 제작한 정적 웹이며, 서버·인증키 없이 배포된 실제 JSON을 읽습니다.
 
+## 다음 작업을 시작할 때
+
+[NEXT-SESSION.md](NEXT-SESSION.md)부터 읽습니다. [개발 요구서](docs/DEVELOPMENT_REQUIREMENTS.md), [휴먼 피드백 분석](docs/HUMAN_FEEDBACK.md), [2026-11-16 작업 인계](docs/SESSION-WRAPUP-2026-11-16.md)에 확정 요구·반복 결함·미완료 검수·배포 상태를 구분해 기록했습니다. 현행 조회 통합은 [진행 상태](docs/shared-query-presentation-report.md)를 따르며, 아래의 과거 실행 보고를 현재 변경의 검수 완료로 해석하지 않습니다.
+
 ## 실행
 
 ```sh

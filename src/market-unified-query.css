@@ -1,0 +1,23 @@
+.app .mapWorkspaceTopQuery{flex:none;min-width:0;padding:8px 12px;border-bottom:1px solid #c8d5e4;background:#fff;z-index:10}
+.app .mapWorkspaceTopQuery .marketUnifiedQueryFields{display:flex;align-items:flex-end;flex-wrap:wrap;gap:8px;padding:0;margin:0;background:transparent;border:0}
+.app .mapWorkspaceTopQuery .marketUnifiedQueryFields>label,.app .mapWorkspaceTopQuery .marketUnifiedQueryFields>.querySearchSelect{flex:1 1 145px;min-width:135px;max-width:205px;margin:0}
+.app .mapWorkspaceTopQuery .marketUnifiedQueryFields :is(label,.querySearchSelect>label){font-size:var(--type-label,14px);color:#50637a;line-height:1.35}
+.app .mapWorkspaceTopQuery .marketUnifiedQueryFields :is(input,select,.querySelectTrigger){min-height:36px;height:36px;box-sizing:border-box;width:100%;font:inherit;color:#193652;background:#fff;border:1px solid #aebfd4;border-radius:4px;padding:4px 8px;max-width:100%}
+.app .mapWorkspaceTopQuery .marketSearchField{position:relative;flex:1 1 145px;min-width:135px;max-width:205px;margin:0}
+.app .mapWorkspaceTopQuery .marketSearchField>label{display:flex;flex-direction:column;gap:4px;margin:0;width:100%;min-width:0}
+.app .mapWorkspaceTopQuery .marketClearSearch{position:absolute;right:3px;bottom:3px;min-height:30px;min-width:28px;padding:2px;border:0;background:#fff;color:#234f7e}
+.app .mapWorkspaceTopQuery .marketSearchField input{padding-right:28px}
+.app .marketAdvancedQueryTrigger{display:flex;align-items:center;gap:6px;flex:0 1 auto;min-height:36px;max-width:200px}
+.app .marketAdvancedSelection{font-size:var(--type-label,14px);line-height:1.4;overflow-wrap:anywhere;color:#254f7b}
+.marketAdvancedQueryBody{display:flex;flex-direction:column;gap:12px;min-width:0}
+.marketAdvancedQueryBody>label{display:flex;flex-direction:column;gap:5px;color:#50637a}
+.marketAdvancedQueryBody :is(select,input,.querySelectTrigger){width:100%;min-height:36px;font:inherit;box-sizing:border-box;color:#193652;border:1px solid #aebfd4;border-radius:4px;padding:5px 8px;background:white}
+.marketAdvancedQueryBody .marketMarginalHint{display:flex;gap:8px;align-items:center;font-size:14px;line-height:1.5;color:#50637a}
+.app .mapWorkspace[data-query-placement=top] .mapWorkspaceHeader{padding-block:8px;min-height:52px}
+.app .mapWorkspace[data-query-placement=top] .marketQueryResultRow{padding-block:0;border:0;background:transparent}
+@media(max-width:767px){.app .mapWorkspaceTopQuery{padding:8px}.app .mapWorkspaceTopQuery .marketUnifiedQueryFields>label,.app .mapWorkspaceTopQuery .marketUnifiedQueryFields>.querySearchSelect,.app .mapWorkspaceTopQuery .marketSearchField{flex:1 1 calc(50% - 8px);min-width:125px;max-width:none}.app .mapWorkspaceTopQuery .marketUnifiedQueryFields :is(input,select,.querySelectTrigger){min-height:44px;height:44px;font-size:16px}.marketAdvancedQueryBody :is(select,input,.querySelectTrigger){min-height:44px;font-size:16px}}
+
+/* The shared inline field uses width:0 for a flex child; search must remain a row. */
+.app .mapWorkspaceTopQuery .marketSearchField{flex:1 0 250px;min-width:250px;max-width:300px}
+.app .mapWorkspaceTopQuery .marketSearchField>label{flex-direction:row;align-items:center;gap:7px;white-space:nowrap}
+.app .mapWorkspaceTopQuery .marketSearchField input{min-width:90px!important;padding-right:28px!important}

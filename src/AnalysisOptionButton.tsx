@@ -16,7 +16,7 @@ function useOptionTooltip(anchor:RefObject<HTMLElement|null>,text:string){
  const id='analysis-option-tip-'+useId().replace(/:/g,'');
  const [open,setOpen]=useState(false),[position,setPosition]=useState({left:12,top:12});
  const hide=()=>{if(timer.current)clearTimeout(timer.current);timer.current=null;setOpen(false)};
- const show=(delay=false)=>{if(!anchor.current?.closest('.mode-analysis'))return;if(timer.current)clearTimeout(timer.current);if(delay)timer.current=setTimeout(()=>setOpen(true),160);else setOpen(true)};
+ const show=(delay=false)=>{if(!anchor.current?.closest('.mode-analysis,.mode-presentation'))return;if(timer.current)clearTimeout(timer.current);if(delay)timer.current=setTimeout(()=>setOpen(true),160);else setOpen(true)};
  useEffect(()=>()=>{if(timer.current)clearTimeout(timer.current)},[]);
  useLayoutEffect(()=>{
   if(!open)return;
@@ -29,7 +29,7 @@ function useOptionTooltip(anchor:RefObject<HTMLElement|null>,text:string){
  return {open,id,show,hide,portal};
 }
 
-/** Presentation keeps its text button; analysis uses the same action as a compact tool. */
+/** Both work modes share compact tools, labels and accessible explanations. */
 const AnalysisOptionButton=forwardRef<HTMLButtonElement,Props>(function AnalysisOptionButton({label,description,icon,className='',onClick,onMouseEnter,onMouseLeave,onFocus,onBlur,onKeyDown,...props},forwardedRef){
  const button=useRef<HTMLButtonElement|null>(null),tip=useOptionTooltip(button,description||label);
  return <><button {...props} type={props.type||'button'} ref={node=>{button.current=node;if(typeof forwardedRef==='function')forwardedRef(node);else if(forwardedRef)forwardedRef.current=node}} className={`analysisOptionButton ${className}`} aria-label={props['aria-label']||label} aria-describedby={[props['aria-describedby'],tip.open?tip.id:undefined].filter(Boolean).join(' ')||undefined} onMouseEnter={event=>{tip.show(true);onMouseEnter?.(event)}} onMouseLeave={event=>{tip.hide();onMouseLeave?.(event)}} onFocus={event=>{tip.show();onFocus?.(event)}} onBlur={event=>{tip.hide();onBlur?.(event)}} onKeyDown={event=>{if(event.key==='Escape')tip.hide();onKeyDown?.(event)}} onClick={event=>{tip.hide();onClick?.(event)}}><OptionContents label={label} icon={icon}/></button>{tip.portal}</>;

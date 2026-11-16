@@ -1,5 +1,6 @@
 import {useLayoutEffect,useRef,useState,type ReactNode} from 'react';
 import {createPortal} from 'react-dom';
+import {DetailNavigationControl} from './DetailNavigation';
 import './analysis-detail-modal.css';
 
 const activeModals=new Set<HTMLDialogElement>();
@@ -24,7 +25,9 @@ function leaveDetail(target:HTMLElement,owner:HTMLElement){
   detailSessions.delete(target);
   if(document.querySelector('dialog[open],.analysisMainDetail:not([hidden])'))return;
   window.scrollTo({left:session.x,top:session.y,behavior:'instant'});
-  if(session.focus?.isConnected&&session.focus.getClientRects().length)session.focus.focus({preventScroll:true});
+  const fallback=target.closest<HTMLElement>('.analysisView,.mapWorkspace')?.querySelector<HTMLElement>('.analysisDetailSelect');
+  const focus=session.focus?.isConnected&&session.focus.getClientRects().length?session.focus:fallback;
+  if(focus?.getClientRects().length)focus.focus({preventScroll:true});
  });
 }
 function lockModal(node:HTMLDialogElement){
@@ -76,7 +79,8 @@ export default function AnalysisDetailModal({analysis,open,title,onClose,childre
   const appHeader=app?.querySelector<HTMLElement>(':scope > header');
   const workspace=mainTarget.closest<HTMLElement>('.mapWorkspace');
   const localHeader=workspace?.querySelector<HTMLElement>(':scope > .mapWorkspaceHeader')||mainTarget.closest<HTMLElement>('.analysisView')?.querySelector<HTMLElement>(':scope > .analysisToolbar');
-  const headerBottom=(appHeader?.getBoundingClientRect().height||0)+(localHeader?.getBoundingClientRect().height||0)+8;
+  const queryBar=workspace?.querySelector<HTMLElement>(':scope > .mapWorkspaceTopQuery')||mainTarget.closest<HTMLElement>('.analysisView')?.querySelector<HTMLElement>(':scope > #active-query-summary');
+  const headerBottom=(appHeader?.getBoundingClientRect().height||0)+(localHeader?.getBoundingClientRect().height||0)+(queryBar?.getBoundingClientRect().height||0)+8;
   const before=mainTarget.getBoundingClientRect(),documentTop=before.top+window.scrollY;
   // A sticky menu may be used far down the old page. Bring the replacement
   // surface back under its headers; the entry snapshot restores the map later.
@@ -85,8 +89,10 @@ export default function AnalysisDetailModal({analysis,open,title,onClose,childre
   mainTarget.dataset.analysisMainOpen='true';
   const measure=()=>mainTarget.style.setProperty('--analysis-main-height',`${Math.max(240,window.innerHeight-Math.max(0,mainTarget.getBoundingClientRect().top)-12)}px`);
   measure();window.addEventListener('resize',measure);
+  const layoutObserver=new ResizeObserver(measure);
+  for(const element of [appHeader,localHeader,queryBar])if(element)layoutObserver.observe(element);
   const frame=requestAnimationFrame(()=>{measure();mainHeader.current?.focus({preventScroll:true});surfaceChanged()});
-  return()=>{cancelAnimationFrame(frame);window.removeEventListener('resize',measure);delete mainTarget.dataset.analysisMainOpen;mainTarget.style.removeProperty('--analysis-main-height');surfaceChanged()};
+  return()=>{cancelAnimationFrame(frame);layoutObserver.disconnect();window.removeEventListener('resize',measure);delete mainTarget.dataset.analysisMainOpen;mainTarget.style.removeProperty('--analysis-main-height');surfaceChanged()};
  },[main,mainTarget]);
  useLayoutEffect(()=>{
   const node=dialog.current;if(!node)return;
@@ -109,10 +115,10 @@ export default function AnalysisDetailModal({analysis,open,title,onClose,childre
  useLayoutEffect(()=>{if(analysis&&open)host.querySelectorAll<HTMLDetailsElement>(':scope > details').forEach(detail=>{detail.open=true})},[analysis,open,host]);
  return <div className="analysisDetailSlot" ref={anchor}>
   <dialog className="analysisDetailModal" ref={dialog} aria-label={title} onClick={event=>{if(event.target===event.currentTarget)close.current()}}>
-   <div className="analysisDetailModalHeader"><h2>{title}</h2><div className="analysisDetailSurfaceActions">{analysis&&mainTarget&&<button onClick={()=>changeDisplay('main')}>본문에서 보기</button>}<button className="analysisDetailClose" onClick={onClose}>닫기 <span aria-hidden="true">×</span></button></div></div>
+   <div className="analysisDetailModalHeader"><DetailNavigationControl title={title}/><div className="analysisDetailSurfaceActions">{analysis&&mainTarget&&<button onClick={()=>changeDisplay('main')}>본문에서 보기</button>}<button className="analysisDetailClose" onClick={onClose}>닫기 <span aria-hidden="true">×</span></button></div></div>
    <div className="analysisDetailModalBody" ref={body}/>
   </dialog>
-  {mainTarget&&createPortal(<section className="analysisMainDetail" hidden={!main} aria-label={`${title} 본문`} data-analysis-detail-main="true"><header ref={mainHeader} className="analysisDetailModalHeader" tabIndex={-1}><h2>{title}</h2><div className="analysisDetailSurfaceActions"><button onClick={()=>changeDisplay('popup')}>팝업으로 보기</button><button onClick={onClose} title="현재 조회 조건과 선택 지역을 유지한 채 지도로 돌아갑니다">← 지도로 돌아가기</button></div></header><div className="analysisDetailModalBody" ref={mainBody}/></section>,mainTarget)}
+  {mainTarget&&createPortal(<section className="analysisMainDetail" hidden={!main} aria-label={`${title} 본문`} data-analysis-detail-main="true"><header ref={mainHeader} className="analysisDetailModalHeader" tabIndex={-1}><DetailNavigationControl title={title}/><div className="analysisDetailSurfaceActions"><button onClick={()=>changeDisplay('popup')}>팝업으로 보기</button><button onClick={onClose} title="현재 조회 조건과 선택 지역을 유지한 채 지도로 돌아갑니다">← 지도로 돌아가기</button></div></header><div className="analysisDetailModalBody" ref={mainBody}/></section>,mainTarget)}
   {createPortal(children,host)}
  </div>;
 }

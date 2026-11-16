@@ -1,0 +1,38 @@
+[
+  {
+    "value": "mobility",
+    "activeMaps": 1,
+    "forms": 1,
+    "viewport": [
+      2000,
+      1058
+    ]
+  },
+  {
+    "value": "migration",
+    "activeMaps": 1,
+    "forms": 1,
+    "viewport": [
+      2000,
+      1058
+    ]
+  },
+  {
+    "value": "commerce",
+    "activeMaps": 1,
+    "forms": 1,
+    "viewport": [
+      2000,
+      1058
+    ]
+  },
+  {
+    "value": "population",
+    "activeMaps": 1,
+    "forms": 1,
+    "viewport": [
+      2000,
+      1058
+    ]
+  }
+]

@@ -21,7 +21,7 @@ export default function TimeComparison({id,points,currentKey,unit,label}:{id?:st
    const node=marker.current,app=node?.closest<HTMLElement>('.app');if(!node||!app)return;
    host.current=id?document.getElementById(id.replace('time-compare-','trend-')):node;
    if(!host.current)host.current=node;
-   const sync=()=>{const isPresentation=app.classList.contains('mode-presentation');setPresentation(isPresentation);if(!isPresentation||!app.classList.contains('presentation-step-1')||!host.current?.getClientRects().length)setOpen(false)};
+   const sync=()=>{const isPresentation=app.classList.contains('mode-presentation')&&app.dataset.detailSystem!=='shared';setPresentation(isPresentation);if(!isPresentation||!app.classList.contains('presentation-step-1')||!host.current?.getClientRects().length)setOpen(false)};
    sync();observer=new MutationObserver(sync);
    for(let ancestor:HTMLElement|null=host.current;ancestor;ancestor=ancestor.parentElement)observer.observe(ancestor,{attributes:true,attributeFilter:['class','style','hidden','open','data-detail-active','data-presentation-detail','data-detail-id']});
   });

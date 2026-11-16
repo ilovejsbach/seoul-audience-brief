@@ -1,0 +1,47 @@
+@import './viewport-workspace.css';
+/* The actual selected input value is also the condition display. */
+.app #active-query-summary.hasUnifiedQueryBar{position:sticky;top:calc(var(--app-header-height,74px) + var(--analysis-toolbar-height,48px));z-index:65;margin:0 0 8px;padding:7px 10px;background:#fff;border:1px solid #c4d1df;box-shadow:0 2px 5px #173e690a}
+.unifiedQueryFields,.unifiedQueryFields *{box-sizing:border-box}
+.app .unifiedQueryFields .controls{display:flex!important;flex-direction:row!important;flex-wrap:wrap!important;align-items:flex-end!important;justify-content:flex-start!important;gap:8px!important;padding:0!important;margin:0!important;border:0!important;box-shadow:none!important;background:transparent!important;min-width:0}
+.app .unifiedQueryFields .queryToolbarGroup{display:contents}
+.app .unifiedQueryFields .unifiedQueryNotice{flex-basis:100%;margin:0;padding:4px 8px;background:#fff4e7;border-left:3px solid #a35c18;color:#69401d;font:inherit;line-height:1.4}
+.app .unifiedQueryFields :is(label,.querySearchSelect){display:flex;flex-direction:row;align-items:center;justify-content:flex-start;gap:7px;flex:0 0 170px;width:170px;min-width:130px;min-height:36px;margin:0;padding:0 8px;border:1px solid #a9bdd2;border-radius:4px;background:#fff;line-height:1.35;font:inherit;color:#53677d;white-space:nowrap}
+.app .unifiedQueryFields label:has(input[type=date]){flex-basis:218px;width:218px;min-width:208px}
+.app .unifiedQueryFields label:has(select[id*="period"]){flex-basis:220px;width:220px}
+.app .unifiedQueryFields label:has(select[id*="hour"]){flex-basis:180px;width:180px}
+.app .unifiedQueryFields label:has(select[id*="basis"]){flex-basis:200px;width:200px}
+.app .unifiedQueryFields label:has(select[id*="aggregation"]){flex-basis:300px;width:300px}
+.app .unifiedQueryFields label:has(select[id*="band"]){flex-basis:240px;width:240px}
+.app .unifiedQueryFields label:has(select[id*="demo-dimension"]){flex-basis:220px;width:220px}
+.app .unifiedQueryFields .querySearchSelect{flex-basis:225px;width:225px;min-width:180px}
+.app .unifiedQueryFields .querySearchSelect:has(button[id*="dong"][disabled]){display:none}
+.app .unifiedQueryFields .querySearchSelect>label{width:auto;min-width:0;min-height:0;flex:none;padding:0;border:0;border-radius:0;background:transparent}
+.app .unifiedQueryFields :is(select,input:not([type=range]),.querySelectTrigger){display:block;flex:1;max-width:none!important;width:0!important;min-width:0!important;min-height:32px!important;height:32px;padding:3px 0!important;margin:0;border:0!important;border-radius:0;background:transparent!important;box-shadow:none!important;color:#244f80;font:inherit;font-weight:700;line-height:1.35}
+.app .unifiedQueryFields .querySelectTrigger{display:flex;align-items:center;justify-content:space-between;gap:6px;text-align:left}
+.app .unifiedQueryFields .querySelectValue{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.app .unifiedQueryFields .migrationMetricButtons{display:flex;align-items:center;gap:0;min-height:34px;align-self:flex-end;flex:none;border:1px solid #a9bdd2;border-radius:4px;overflow:hidden}
+.app .unifiedQueryFields .migrationMetricButtons>button{width:auto!important;min-width:52px!important;min-height:32px!important;height:32px;margin:0;padding:4px 8px;border:0;border-right:1px solid #c4d1df;background:#fff;color:#24558b;font:inherit;line-height:1.35}
+.app .unifiedQueryFields .migrationMetricButtons>button:last-child{border-right:0}
+.app .unifiedQueryFields .migrationMetricButtons>button[aria-pressed=true]{background:#244f80;color:#fff}
+.app .unifiedQueryFields :is(.queryToolbarNote,.queryQuickTime){position:relative;flex:none;align-self:flex-end;min-width:0;width:auto;margin:0;border:0;padding:0}
+.app .unifiedQueryFields :is(.queryToolbarNote,.queryQuickTime)>summary{list-style:none;display:flex;align-items:center;justify-content:center;width:34px;min-height:34px;padding:4px;border:1px solid #a9bdd2;border-radius:4px;background:#fff;color:#24558b;font:inherit;cursor:pointer}
+.app .unifiedQueryFields :is(.queryToolbarNote,.queryQuickTime)>summary::-webkit-details-marker{display:none}
+.app .unifiedQueryFields .queryQuickTime>summary{font-size:0;white-space:nowrap;overflow:hidden}
+.app .unifiedQueryFields .queryQuickTime>summary::before{content:'◷';font-size:18px}
+.app .unifiedQueryFields :is(.queryToolbarNote,.queryQuickTime)>div{position:absolute;top:calc(100% + 6px);left:0;z-index:90;width:min(340px,calc(100vw - 24px));padding:12px;border:1px solid #a9bdd2;border-radius:5px;background:#fff;color:#294057;box-shadow:0 8px 24px #173e6926;font:inherit;line-height:1.5}
+.app .unifiedQueryFields .queryTimeScrubber{display:flex;align-items:center;gap:6px}
+.app .unifiedQueryFields .queryTimeScrubber>label{flex:1;min-width:150px;width:auto;border:0;padding:0;display:flex;flex-direction:column;align-items:stretch;white-space:normal}
+.app .unifiedQueryFields .queryTimeScrubber>button{width:34px;min-width:34px;min-height:34px;padding:2px}
+.app .unifiedQueryFields :is(button,input,select,summary):focus-visible{outline:2px solid #b75a1b;outline-offset:2px}
+.app .unifiedQueryFields :is(label,.querySearchSelect):focus-within{outline:2px solid #b75a1b;outline-offset:2px}
+.app .unifiedQueryFields :is(label,.querySearchSelect) :is(input,select,button):focus-visible{outline:none}
+.app .unifiedMapPanel .mapAppliedConditions{display:none!important}
+.app .unifiedMapPanel .unifiedQueryFullscreenSlot:empty{display:none}
+.app .unifiedMapPanel:not(.mapIsFullscreen)>.unifiedQueryFullscreenSlot{grid-column:1/-1;grid-row:2}
+.app .unifiedMapPanel.mapIsFullscreen>.unifiedQueryFullscreenSlot{flex:none;margin:4px 8px 8px;padding:7px 10px;border:1px solid #c4d1df;background:#fff;border-radius:4px}
+.app .unifiedMapPanel:not(.mapIsFullscreen)>.mapPanelTools{max-width:180px!important}
+.app .unifiedMapPanel:not(.mapIsFullscreen)>.panelTitle{padding-right:200px!important}
+@media(max-width:767px){.app .unifiedQueryFields :is(label,.querySearchSelect){flex:1 1 210px;width:auto;min-width:180px;min-height:44px}.app .unifiedQueryFields .querySearchSelect>label{flex:none;min-width:0;min-height:0}.app .unifiedQueryFields :is(select,input:not([type=range]),.querySelectTrigger){min-height:40px!important;height:40px;font-size:16px!important}.app .unifiedQueryFields :is(.queryToolbarNote,.queryQuickTime)>summary{width:44px;min-height:44px}.app #active-query-summary.hasUnifiedQueryBar{padding:8px;max-height:40dvh;overflow:auto}}
+@media(max-width:767px){.app .unifiedQueryFields :is(.queryToolbarNote,.queryQuickTime)[open]{flex-basis:100%;width:100%}.app .unifiedQueryFields :is(.queryToolbarNote,.queryQuickTime)>div{position:static;width:100%;margin-top:6px}}
+@media print{.unifiedQueryBar{display:none!important}}
+@layer dashboardTypography{.app .unifiedQueryFields .queryQuickTime>summary{font-size:0!important}.app .unifiedQueryFields .queryQuickTime>summary::before{font-size:var(--type-control,16px)!important}}

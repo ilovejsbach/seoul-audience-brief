@@ -1,14 +1,20 @@
+@import './presentation-shared-workspace.css';
 .analysisDetailSlot:not([hidden]){display:contents}
 .analysisDetailContent{min-width:0}
 .analysisDetailModal{width:min(1440px,calc(100vw - 48px));max-width:none;height:min(900px,calc(100dvh - 48px));max-height:none;padding:0;border:1px solid #a9bfd6;border-radius:12px;color:var(--text,#18314e);background:#fff;box-shadow:0 20px 70px #112b4c44;overflow:hidden}
 .analysisDetailModal::backdrop{background:#12243c66}
 .analysisDetailModal[open]{display:flex;flex-direction:column}
-.analysisDetailModalHeader{display:flex;align-items:center;justify-content:space-between;gap:16px;flex:none;padding:12px 20px;border-bottom:1px solid #cad7e5;background:#f5f8fc}
+.analysisDetailModalHeader{display:flex;align-items:center;justify-content:space-between;gap:16px;flex:none;min-height:64px;box-sizing:border-box;padding:10px 20px;border-bottom:1px solid #cad7e5;background:#f5f8fc}
 .analysisDetailModalHeader h2{font-size:var(--type-panel-title,20px);line-height:1.4;margin:0}
+.detailNavigationHeading{display:flex;align-items:center;gap:12px;flex:1;min-width:0}
+.detailNavigationHeading>label{flex:none;font-size:var(--type-label,14px);font-weight:600;color:#50637a;white-space:nowrap}
+.detailNavigationSelect{width:340px;max-width:100%;min-width:0;flex:0 1 340px;height:36px;min-height:36px;box-sizing:border-box;padding:4px 30px 4px 10px;font:inherit;font-size:var(--type-control,14px);font-weight:600;line-height:1.5;color:#183b60;background:#fff;border:1px solid #a9bfd6;border-radius:4px}
+.analysisDetailModalHeader .detailNavigationSemanticTitle{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip-path:inset(50%)!important;white-space:nowrap!important;border:0!important}
+.detailNavigationSelect:focus-visible{outline:2px solid #b75a1b;outline-offset:2px}
 .analysisDetailSurfaceActions{display:flex;align-items:center;gap:8px;flex:none}
 .analysisDetailSurfaceActions>button{min-height:36px;padding:4px 12px;white-space:nowrap}
 .analysisDetailClose{flex:none;min-height:36px;padding:4px 12px}
-.analysisDetailModalBody{flex:1;min-height:0;overflow:auto;padding:16px 20px;overscroll-behavior:contain}
+.analysisDetailModalBody{flex:1;min-height:0;min-width:0;overflow:auto;padding:16px 20px;overscroll-behavior:contain;scrollbar-gutter:stable}
 .analysisDetailModalBody .analysisDetailContent>.panel{margin:0;width:100%;max-width:none}
 .analysisDetailModalBody .trendExplorer{height:auto;min-height:100%}
 .analysisDetailModalBody .trendChart{min-height:280px}
@@ -24,5 +30,16 @@
 .analysisMainDetail .analysisDetailContent>details>summary{display:none}
 .analysisMainDetail .analysisDetailContent>.trendExplorer,.analysisMainDetail .marketModalTrend{min-height:0}
 .analysisMainDetail .timeComparison{margin-top:16px}
-@media(max-width:767px){.analysisDetailModalHeader{flex-wrap:wrap;gap:8px}.analysisDetailSurfaceActions{margin-left:auto;gap:6px}.analysisDetailSurfaceActions>button{min-height:44px;padding:4px 8px}.analysisMainDetail .analysisDetailModalBody{padding:12px}}
+/* A primary time-series owns the full canvas. Tables and composition modules
+   retain their own internal scrolling instead of stretching into empty space. */
+.app .analysisDetailModalBody>.analysisDetailContent:has(>.trendExplorer:only-child),
+.app .analysisDetailModalBody>.analysisDetailContent:has(>.marketModalTrend:only-child){height:100%;min-height:0}
+.app .analysisDetailModalBody>.analysisDetailContent:has(>.trendExplorer:only-child)>.trendExplorer,
+.app .analysisDetailModalBody>.analysisDetailContent:has(>.marketModalTrend:only-child)>.marketModalTrend,
+.app .analysisDetailModalBody>.analysisDetailContent>.marketModalTrend>.trendExplorer{display:flex!important;flex-direction:column;height:100%;min-height:0;box-sizing:border-box}
+.app .analysisDetailModalBody>.analysisDetailContent:has(>.trendExplorer:only-child)>.trendExplorer>.trendSvgWrap,
+.app .analysisDetailModalBody>.analysisDetailContent>.marketModalTrend>.trendExplorer>.trendSvgWrap{flex:1;min-height:120px;overflow:hidden}
+.app .analysisDetailModalBody .trendSvgWrap>svg{height:100%;min-height:0;max-height:none}
+.app .analysisDetailModalBody .trendExplorer>:is(.trendExplorerHeading,.chartAxisNotice,.trendWarning,.trendPlayback){flex:none}
+@media(max-width:767px){.analysisDetailModalHeader{flex-wrap:wrap;gap:8px;min-height:108px}.detailNavigationHeading{flex-basis:100%;gap:8px}.detailNavigationSelect{flex:1;width:auto;height:44px;min-height:44px;font-size:var(--type-control,16px)}.analysisDetailSurfaceActions{margin-left:auto;gap:6px}.analysisDetailSurfaceActions>button{min-height:44px;padding:4px 8px}.analysisMainDetail .analysisDetailModalBody{padding:12px}}
 @media(max-width:767px){.analysisDetailModal{width:calc(100vw - 16px);height:calc(100dvh - 16px)}.analysisDetailModalHeader,.analysisDetailModalBody{padding:12px}.analysisDetailSelect{max-width:165px}}

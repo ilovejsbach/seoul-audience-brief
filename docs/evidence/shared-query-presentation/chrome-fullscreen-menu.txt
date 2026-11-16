@@ -1,0 +1,25 @@
+Window: "상권·인구 분석 | 광고 입지 전략", App: Google Chrome.
+0 보기, Secondary Actions: Cancel, Pick
+	1 메뉴 Secondary Actions: Cancel
+		2 북마크바 항상 표시, ID: commandDispatch:
+		3 전체화면에서 툴바 항상 표시, ID: commandDispatch:
+		4 전체 URL 항상 표시, ID: commandDispatch:
+		5 (disabled) Google 렌즈 바로가기 항상 표시, ID: commandDispatch:
+		6 AI 모드 항상 표시, ID: commandDispatch:
+		7 (disabled) 검색 바로가기 표시, ID: commandDispatch:
+		8 (disabled) 중지, ID: commandDispatch:
+		9 페이지 새로고침, ID: commandDispatch:
+		10 캐시를 무시하고 페이지 새로고침, ID: commandDispatch:
+		11 전체 화면 종료, ID: toggleFullScreen:
+		12 전체 화면 종료, ID: toggleFullScreen:
+		13 실제 크기, ID: commandDispatch:
+		14 확대, ID: commandDispatch:
+		15 축소, ID: commandDispatch:
+		16 전송…, ID: commandDispatch:
+		17 개발자 정보
+			18 메뉴 Secondary Actions: Cancel
+				19 소스 보기, ID: commandDispatch:
+				20 개발자 도구, ID: commandDispatch:
+				21 요소 검사, ID: commandDispatch:
+				22 자바스크립트 콘솔, ID: commandDispatch:
+				23 Apple Events의 자바스크립트 허용, ID: commandDispatch:
