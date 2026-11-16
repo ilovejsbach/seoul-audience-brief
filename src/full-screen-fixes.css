@@ -33,3 +33,53 @@
 .app .timeComparisonFloating .timeComparisonValues strong{font-size:24px!important;line-height:1.35;word-break:keep-all;overflow-wrap:anywhere}
 .app.mode-presentation .movementConnections .connectionDirections{margin-top:12px}
 .app.mode-presentation .movementConnections .connectionDirection li{padding:8px 0}
+/* A date-pattern briefing starts with the comparison graph, not stacked form rows. */
+.app.mode-presentation.presentation-step-1 #population-patterns .populationPatternsBody{display:grid;grid-template-columns:minmax(240px,1.1fr) auto minmax(130px,.65fr) minmax(220px,1fr) minmax(220px,1fr);gap:5px 10px;padding:8px 12px 12px;border-top:0;min-width:0;align-items:center}
+.app.mode-presentation.presentation-step-1 #population-patterns .patternHeading{grid-column:1/-1;margin:0 0 3px;min-width:0}
+.app.mode-presentation.presentation-step-1 #population-patterns .patternHeading h2{line-height:1.3}
+.app.mode-presentation.presentation-step-1 #population-patterns .patternHeading p{font-size:14px!important;line-height:1.4}
+.app.mode-presentation.presentation-step-1 #population-patterns :is(.patternControls,.patternGroupCompare){display:contents;margin:0}
+.app.mode-presentation.presentation-step-1 #population-patterns .patternControls>label:first-child{grid-column:1;grid-row:2}
+.app.mode-presentation.presentation-step-1 #population-patterns .patternControls>[role=group]{grid-column:2;grid-row:2;gap:3px;white-space:nowrap}
+.app.mode-presentation.presentation-step-1 #population-patterns .patternControls>label:last-child{grid-column:3;grid-row:2}
+.app.mode-presentation.presentation-step-1 #population-patterns .patternGroupCompare>label:first-child{grid-column:4;grid-row:2}
+.app.mode-presentation.presentation-step-1 #population-patterns .patternGroupCompare>label:last-child{grid-column:5;grid-row:2}
+.app.mode-presentation.presentation-step-1 #population-patterns :is(.patternControls,.patternGroupCompare)>label{display:flex;flex-direction:row;align-items:center;gap:5px;min-width:0;white-space:nowrap;font-size:14px!important}
+.app.mode-presentation.presentation-step-1 #population-patterns :is(.patternControls,.patternGroupCompare) select{flex:1;min-width:0;width:auto;max-width:100%}
+.app.mode-presentation.presentation-step-1 #population-patterns :is(select,button){min-height:32px;padding:4px 7px;line-height:1.4;font-size:14px!important}
+.app.mode-presentation.presentation-step-1 #population-patterns .patternCards{grid-column:1/-1;grid-row:3;gap:10px;margin:4px 0}
+.app.mode-presentation.presentation-step-1 #population-patterns .patternCards article{padding:6px 10px;border-radius:4px}
+.app.mode-presentation.presentation-step-1 #population-patterns .patternCards article :is(span,small){font-size:14px!important;line-height:1.4}
+.app.mode-presentation.presentation-step-1 #population-patterns .patternCards article>strong{font-size:24px!important;line-height:1.3!important;margin:2px 0}
+.app.mode-presentation.presentation-step-1 #population-patterns .patternChartHeading{grid-column:1/5;grid-row:4;min-width:0;gap:6px 12px}
+.app.mode-presentation.presentation-step-1 #population-patterns .patternChartHeading h3{font-size:18px!important;line-height:1.3;margin:0}
+.app.mode-presentation.presentation-step-1 #population-patterns .patternAxisSettings{grid-column:5;grid-row:4;justify-self:end;position:relative;margin:0;font-size:14px!important}
+.app.mode-presentation.presentation-step-1 #population-patterns .patternAxisSettings>summary{padding:3px 7px;border:1px solid #aabbd0;border-radius:4px;background:#fff}
+.app.mode-presentation.presentation-step-1 #population-patterns .patternAxisSettings[open]>label{position:absolute;right:0;top:100%;width:240px;padding:8px;background:white;border:1px solid #aabbd0;border-radius:4px;z-index:20}
+.app.mode-presentation.presentation-step-1 #population-patterns .patternAxisNotice{grid-column:1/-1;grid-row:5;margin:0;font-size:14px!important;line-height:1.4}
+.app.mode-presentation.presentation-step-1 #population-patterns:has(.patternChart[data-axis-low="0"]) .patternAxisNotice{display:none}
+.app.mode-presentation.presentation-step-1 #population-patterns .patternChart{grid-column:1/-1;grid-row:6;display:block;height:clamp(160px,calc(100dvh - 580px),280px);min-height:160px;max-height:280px;width:100%;min-width:0}
+.app.mode-presentation.presentation-step-1 #population-patterns .patternHeatmapDetails{grid-column:1/4;grid-row:7;margin:0;min-width:0}
+.app.mode-presentation.presentation-step-1 #population-patterns .patternHeatmapDetails>summary{padding:3px 0;font-size:14px!important}
+.app.mode-presentation.presentation-step-1 #population-patterns .patternApplyHour{grid-column:4/-1;grid-row:7;justify-self:end;width:auto;max-width:100%;white-space:nowrap;margin:0}
+.app.mode-presentation.presentation-step-1 #population-patterns .patternNotes{grid-column:1/-1;grid-row:8;margin:0;font-size:14px!important;min-width:0}
+.app.mode-presentation.presentation-step-1 #population-patterns .patternNotes>summary{padding:3px 0}
+.app.mode-presentation.presentation-step-1 #population-patterns .patternPurposeNote{display:none}
+/* Label stays readable when a sex breakdown has only two rows and wide figures. */
+.app.mode-presentation .migrationDemographicRow{grid-template-columns:100px minmax(100px,1fr) minmax(180px,270px) minmax(126px,max-content);gap:10px}
+.app.mode-presentation .migrationDemographicRow>button{white-space:nowrap;min-width:126px;width:auto;line-height:1.4;padding-inline:8px}
+@media(max-width:1199px){
+ .app.mode-presentation.presentation-step-1 #population-patterns .populationPatternsBody{display:block}
+ .app.mode-presentation.presentation-step-1 #population-patterns :is(.patternControls,.patternGroupCompare){display:flex;flex-wrap:wrap;gap:6px 10px;margin:5px 0}
+ .app.mode-presentation.presentation-step-1 #population-patterns :is(.patternControls,.patternGroupCompare)>label{flex:1 1 200px}
+ .app.mode-presentation.presentation-step-1 #population-patterns .patternAxisSettings{width:max-content;margin:4px 0 4px auto}
+ .app.mode-presentation.presentation-step-1 #population-patterns .patternApplyHour{display:block;margin-left:auto}
+}
+@layer dashboardTypography{
+ .app.mode-presentation.presentation-step-1 #population-patterns .patternCards article>strong{font-size:24px!important;line-height:1.3!important}
+ .app.mode-presentation.presentation-step-1 #population-patterns .patternChartHeading h3{font-size:18px!important;line-height:1.3!important}
+ .app.mode-presentation.presentation-step-1 #population-patterns :is(.patternControls,.patternGroupCompare)>label,
+ .app.mode-presentation.presentation-step-1 #population-patterns :is(select,button),
+ .app.mode-presentation.presentation-step-1 #population-patterns .patternHeading p,
+ .app.mode-presentation.presentation-step-1 #population-patterns .patternCards article :is(span,small){font-size:14px!important;line-height:1.4!important}
+}
