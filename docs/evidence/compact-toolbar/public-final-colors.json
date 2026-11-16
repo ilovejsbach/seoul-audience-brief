@@ -1,0 +1,82 @@
+{
+  "source": "1374062",
+  "runtime": "./assets/index-Cz8rjj3y.js",
+  "viewport": {
+    "width": 1366,
+    "height": 768
+  },
+  "checks": [
+    {
+      "mode": "분석용",
+      "topic": "생활인구",
+      "background": "rgba(0, 0, 0, 0)",
+      "barHeight": 48,
+      "color": "rgb(23, 79, 135)",
+      "hover": true,
+      "selected": "true"
+    },
+    {
+      "mode": "분석용",
+      "topic": "생활이동",
+      "background": "rgba(0, 0, 0, 0)",
+      "barHeight": 48,
+      "color": "rgb(23, 79, 135)",
+      "hover": true,
+      "selected": "true"
+    },
+    {
+      "mode": "분석용",
+      "topic": "거주지 이동",
+      "background": "rgba(0, 0, 0, 0)",
+      "barHeight": 48,
+      "color": "rgb(23, 79, 135)",
+      "hover": true,
+      "selected": "true"
+    },
+    {
+      "mode": "분석용",
+      "topic": "추정매출",
+      "background": "rgba(0, 0, 0, 0)",
+      "barHeight": 48,
+      "color": "rgb(23, 79, 135)",
+      "hover": true,
+      "selected": "true"
+    },
+    {
+      "mode": "시연용",
+      "topic": "생활인구",
+      "background": "rgba(0, 0, 0, 0)",
+      "barHeight": 51,
+      "color": "rgb(23, 79, 135)",
+      "hover": true,
+      "selected": "true"
+    },
+    {
+      "mode": "시연용",
+      "topic": "생활이동",
+      "background": "rgba(0, 0, 0, 0)",
+      "barHeight": 51,
+      "color": "rgb(23, 79, 135)",
+      "hover": true,
+      "selected": "true"
+    },
+    {
+      "mode": "시연용",
+      "topic": "거주지 이동",
+      "background": "rgba(0, 0, 0, 0)",
+      "barHeight": 51,
+      "color": "rgb(23, 79, 135)",
+      "hover": true,
+      "selected": "true"
+    },
+    {
+      "mode": "시연용",
+      "topic": "추정매출",
+      "background": "rgba(0, 0, 0, 0)",
+      "barHeight": 51,
+      "color": "rgb(23, 79, 135)",
+      "hover": true,
+      "selected": "true"
+    }
+  ]
+}
