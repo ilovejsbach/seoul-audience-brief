@@ -1,0 +1,34 @@
+{
+  "source": "969bf87",
+  "observations": [
+    {
+      "screen": "POP-PATTERN",
+      "action": "현재 선택일 지도에 12시 적용",
+      "observed": "지도 조건 시각12:00 버튼1개 확인"
+    },
+    {
+      "screen": "POP-DEMO",
+      "action": "B조건으로 지도 보기:20–39 남성",
+      "observed": "지도 연령20–39세·성별남성·시각12 표시,구별값 변경"
+    },
+    {
+      "screen": "MOV-CONNECTIONS",
+      "action": "중구 이동 추이 보기",
+      "observed": "분석 지역 조건 변경:중구 버튼1개 확인"
+    },
+    {
+      "screen": "MIG-DEMO",
+      "action": "남성 지도에 적용 후 연령구성→30대 지도적용",
+      "observed": "서울25구30대전입308182,1시점 재생비활성"
+    },
+    {
+      "screen": "MIG-UNSUPPORTED",
+      "action": "서초1동→2025년 구별 연령 지도 보기",
+      "observed": "서초구10대미만으로 복구;서초1동 저장후보 연령별동상세미지원 disabled false isEnabled"
+    }
+  ],
+  "notVerified": [
+    "POP-DEMO B지도 전체합1711000 값직접대조",
+    "저장안 다른조건 복원·3개상한·삭제전체"
+  ]
+}

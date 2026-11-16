@@ -1,0 +1,6 @@
+{
+  "id": "OV-EXPORT",
+  "mode": "presentation",
+  "status": "clicked_download_unverified",
+  "detail": "표 내려받기 실제 클릭 완료. 자동화 download 이벤트 미수신으로 저장 파일 검증 미완료. 내부 다운로드 페이지 접근 제한으로 우회하지 않음."
+}

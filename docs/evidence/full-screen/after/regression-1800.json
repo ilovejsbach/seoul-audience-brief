@@ -1,0 +1,77 @@
+{
+  "source": "a9314b5",
+  "viewport": {
+    "height": 905,
+    "width": 1800
+  },
+  "checks": [
+    {
+      "case": "한 열 기간 지역 분석대상",
+      "passed": true
+    },
+    {
+      "case": "서울 전체 실제값",
+      "passed": true
+    },
+    {
+      "case": "서교 남20–39 18시32951",
+      "passed": true
+    },
+    {
+      "case": "지도선택지역18시도32951",
+      "passed": true
+    },
+    {
+      "case": "같은조건12시16169",
+      "passed": true
+    },
+    {
+      "case": "지도선택지역12시도16169",
+      "passed": true
+    },
+    {
+      "case": "시간변경때지도색분포변경",
+      "passed": true
+    },
+    {
+      "case": "상세에서 같은단일입력 포커스",
+      "passed": true
+    },
+    {
+      "case": "상세그래프도 같은값",
+      "passed": true
+    },
+    {
+      "case": "그래프클릭도조회시각갱신",
+      "passed": true
+    },
+    {
+      "case": "검색0건 복구있음",
+      "passed": true
+    },
+    {
+      "case": "첫Esc 검색만닫고초점복귀",
+      "passed": true
+    },
+    {
+      "case": "다음Esc 조회닫고진입점복귀",
+      "passed": true
+    },
+    {
+      "case": "긴동명 전체가독",
+      "passed": true
+    },
+    {
+      "case": "월밖날짜 적용",
+      "passed": true
+    },
+    {
+      "case": "중복입력없음",
+      "passed": true
+    },
+    {
+      "case": "화면가로넘침없음",
+      "passed": true
+    }
+  ]
+}

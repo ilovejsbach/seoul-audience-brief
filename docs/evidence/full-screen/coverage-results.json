@@ -1,0 +1,573 @@
+{
+  "date": "2026-11-16",
+  "screenFamilies": 52,
+  "scope": "52개 논리 화면 및 옵션 계열 방문. 핵심 지도/추이/후보는 두 모드, 보조 화면은 지정 문맥. 모든 날짜·지역·모드·설정의 곱집합 아님.",
+  "runtimeCheckpoints": [
+    "969bf87 / Pages d6041cd",
+    "4562534 / Pages 7509f4e4",
+    "a9314b5 / Pages b3927bf38500cd494a4542e3d2713eb7f8cc9dec"
+  ],
+  "regression": "최종a9314b5 생활인구 실제값·조건·지도색·그래프연동17항목을 실제 viewport1366×768/1800×905에서 각각 실행하여34통과",
+  "limitations": [
+    "CSV 버튼 클릭까지 확인. 자동화 다운로드 관찰이 응답하지 않아 저장 파일 내용 미검증.",
+    "네이티브 전체화면 전환은 자동화 제한이 있어 모든 OS·장치 조합 통과로 주장하지 않음.",
+    "저장안 3개 상한·모든 삭제 및 모든 데이터 조합은 이번 방문 증거만으로 통과 판정하지 않음."
+  ],
+  "screens": [
+    {
+      "id": "HOME-A",
+      "name": "분석 시작",
+      "status": "visited_targeted_checks",
+      "evidence": [
+        "HOME-A-analysis.jpg"
+      ],
+      "note": "모든 하위 조합 및 모든 버튼 통과를 뜻하지 않음",
+      "finalEvidence": []
+    },
+    {
+      "id": "HOME-P",
+      "name": "시연 시작",
+      "status": "visited_targeted_checks",
+      "evidence": [
+        "HOME-P-presentation.jpg"
+      ],
+      "note": "모든 하위 조합 및 모든 버튼 통과를 뜻하지 않음",
+      "finalEvidence": []
+    },
+    {
+      "id": "POP-MAP",
+      "name": "생활인구 지도",
+      "status": "visited_targeted_checks",
+      "evidence": [
+        "POP-MAP-analysis.jpg",
+        "POP-MAP-presentation.jpg"
+      ],
+      "note": "모든 하위 조합 및 모든 버튼 통과를 뜻하지 않음",
+      "finalEvidence": []
+    },
+    {
+      "id": "POP-TREND",
+      "name": "생활인구 상세 추이",
+      "status": "visited_targeted_checks",
+      "evidence": [
+        "POP-TREND-analysis.jpg",
+        "POP-TREND-presentation.jpg"
+      ],
+      "note": "모든 하위 조합 및 모든 버튼 통과를 뜻하지 않음",
+      "finalEvidence": []
+    },
+    {
+      "id": "POP-CAND",
+      "name": "생활인구 후보 비교",
+      "status": "visited_targeted_checks",
+      "evidence": [
+        "POP-CAND-analysis.jpg",
+        "POP-CAND-presentation.jpg"
+      ],
+      "note": "모든 하위 조합 및 모든 버튼 통과를 뜻하지 않음",
+      "finalEvidence": []
+    },
+    {
+      "id": "POP-TIME",
+      "name": "생활인구 두 시점 비교",
+      "status": "visited_targeted_checks",
+      "evidence": [
+        "POP-TIME-analysis.jpg",
+        "POP-TIME-presentation.jpg"
+      ],
+      "note": "모든 하위 조합 및 모든 버튼 통과를 뜻하지 않음",
+      "finalEvidence": []
+    },
+    {
+      "id": "POP-SAVE",
+      "name": "생활인구 조건별 비교안",
+      "status": "visited_targeted_checks",
+      "evidence": [
+        "POP-SAVE-analysis.jpg"
+      ],
+      "note": "모든 하위 조합 및 모든 버튼 통과를 뜻하지 않음",
+      "finalEvidence": []
+    },
+    {
+      "id": "POP-SOURCE",
+      "name": "생활인구 출처·해석",
+      "status": "visited_targeted_checks",
+      "evidence": [
+        "POP-SOURCE-analysis.jpg"
+      ],
+      "note": "모든 하위 조합 및 모든 버튼 통과를 뜻하지 않음",
+      "finalEvidence": []
+    },
+    {
+      "id": "MOV-MAP",
+      "name": "생활이동 지도",
+      "status": "visited_targeted_checks",
+      "evidence": [
+        "MOV-MAP-analysis.jpg",
+        "MOV-MAP-presentation.jpg"
+      ],
+      "note": "모든 하위 조합 및 모든 버튼 통과를 뜻하지 않음",
+      "finalEvidence": []
+    },
+    {
+      "id": "MOV-TREND",
+      "name": "생활이동 상세 추이",
+      "status": "visited_targeted_checks",
+      "evidence": [
+        "MOV-TREND-analysis.jpg",
+        "MOV-TREND-presentation.jpg"
+      ],
+      "note": "모든 하위 조합 및 모든 버튼 통과를 뜻하지 않음",
+      "finalEvidence": []
+    },
+    {
+      "id": "MOV-CAND",
+      "name": "생활이동 후보 비교",
+      "status": "visited_targeted_checks",
+      "evidence": [
+        "MOV-CAND-analysis.jpg",
+        "MOV-CAND-presentation.jpg"
+      ],
+      "note": "모든 하위 조합 및 모든 버튼 통과를 뜻하지 않음",
+      "finalEvidence": []
+    },
+    {
+      "id": "MOV-TIME",
+      "name": "생활이동 두 시점 비교",
+      "status": "visited_targeted_checks",
+      "evidence": [
+        "MOV-TIME-analysis.jpg",
+        "MOV-TIME-presentation.jpg"
+      ],
+      "note": "모든 하위 조합 및 모든 버튼 통과를 뜻하지 않음",
+      "finalEvidence": []
+    },
+    {
+      "id": "MOV-SAVE",
+      "name": "생활이동 조건별 비교안",
+      "status": "visited_targeted_checks",
+      "evidence": [
+        "MOV-SAVE-analysis.jpg"
+      ],
+      "note": "모든 하위 조합 및 모든 버튼 통과를 뜻하지 않음",
+      "finalEvidence": []
+    },
+    {
+      "id": "MOV-SOURCE",
+      "name": "생활이동 출처·해석",
+      "status": "visited_targeted_checks",
+      "evidence": [
+        "MOV-SOURCE-analysis.jpg"
+      ],
+      "note": "모든 하위 조합 및 모든 버튼 통과를 뜻하지 않음",
+      "finalEvidence": []
+    },
+    {
+      "id": "MOV-TABLE",
+      "name": "생활이동 상세 표",
+      "status": "visited_targeted_checks",
+      "evidence": [
+        "MOV-TABLE-analysis.jpg"
+      ],
+      "note": "모든 하위 조합 및 모든 버튼 통과를 뜻하지 않음",
+      "finalEvidence": []
+    },
+    {
+      "id": "MIG-MAP",
+      "name": "거주지 이동 지도",
+      "status": "visited_targeted_checks",
+      "evidence": [
+        "MIG-MAP-analysis.jpg",
+        "MIG-MAP-presentation.jpg"
+      ],
+      "note": "모든 하위 조합 및 모든 버튼 통과를 뜻하지 않음",
+      "finalEvidence": []
+    },
+    {
+      "id": "MIG-TREND",
+      "name": "거주지 이동 상세 추이",
+      "status": "visited_targeted_checks",
+      "evidence": [
+        "MIG-TREND-analysis.jpg",
+        "MIG-TREND-presentation.jpg"
+      ],
+      "note": "모든 하위 조합 및 모든 버튼 통과를 뜻하지 않음",
+      "finalEvidence": []
+    },
+    {
+      "id": "MIG-CAND",
+      "name": "거주지 이동 후보 비교",
+      "status": "visited_targeted_checks",
+      "evidence": [
+        "MIG-CAND-analysis.jpg",
+        "MIG-CAND-presentation.jpg"
+      ],
+      "note": "모든 하위 조합 및 모든 버튼 통과를 뜻하지 않음",
+      "finalEvidence": []
+    },
+    {
+      "id": "MIG-TIME",
+      "name": "거주지 이동 두 시점 비교",
+      "status": "visited_targeted_checks",
+      "evidence": [
+        "MIG-TIME-analysis.jpg",
+        "MIG-TIME-presentation.jpg"
+      ],
+      "note": "모든 하위 조합 및 모든 버튼 통과를 뜻하지 않음",
+      "finalEvidence": []
+    },
+    {
+      "id": "MIG-SAVE",
+      "name": "거주지 이동 조건별 비교안",
+      "status": "visited_targeted_checks",
+      "evidence": [
+        "MIG-SAVE-analysis.jpg"
+      ],
+      "note": "모든 하위 조합 및 모든 버튼 통과를 뜻하지 않음",
+      "finalEvidence": []
+    },
+    {
+      "id": "MIG-SOURCE",
+      "name": "거주지 이동 출처·해석",
+      "status": "visited_targeted_checks",
+      "evidence": [
+        "MIG-SOURCE-analysis.jpg"
+      ],
+      "note": "모든 하위 조합 및 모든 버튼 통과를 뜻하지 않음",
+      "finalEvidence": []
+    },
+    {
+      "id": "MIG-TABLE",
+      "name": "거주지 이동 상세 표",
+      "status": "visited_targeted_checks",
+      "evidence": [
+        "MIG-TABLE-analysis.jpg"
+      ],
+      "note": "모든 하위 조합 및 모든 버튼 통과를 뜻하지 않음",
+      "finalEvidence": []
+    },
+    {
+      "id": "COM-MAP",
+      "name": "추정매출 지도",
+      "status": "visited_targeted_checks",
+      "evidence": [
+        "COM-MAP-analysis.jpg",
+        "COM-MAP-presentation.jpg"
+      ],
+      "note": "모든 하위 조합 및 모든 버튼 통과를 뜻하지 않음",
+      "finalEvidence": []
+    },
+    {
+      "id": "COM-TREND",
+      "name": "추정매출 상세 추이",
+      "status": "visited_targeted_checks",
+      "evidence": [
+        "COM-TREND-analysis.jpg",
+        "COM-TREND-presentation.jpg"
+      ],
+      "note": "모든 하위 조합 및 모든 버튼 통과를 뜻하지 않음",
+      "finalEvidence": []
+    },
+    {
+      "id": "COM-CAND",
+      "name": "추정매출 후보 비교",
+      "status": "visited_targeted_checks",
+      "evidence": [
+        "COM-CAND-analysis.jpg",
+        "COM-CAND-presentation.jpg"
+      ],
+      "note": "모든 하위 조합 및 모든 버튼 통과를 뜻하지 않음",
+      "finalEvidence": []
+    },
+    {
+      "id": "COM-TIME",
+      "name": "추정매출 두 시점 비교",
+      "status": "visited_targeted_checks",
+      "evidence": [
+        "COM-TIME-analysis.jpg",
+        "COM-TIME-presentation.jpg"
+      ],
+      "note": "모든 하위 조합 및 모든 버튼 통과를 뜻하지 않음",
+      "finalEvidence": []
+    },
+    {
+      "id": "COM-SAVE",
+      "name": "추정매출 조건별 비교안",
+      "status": "visited_targeted_checks",
+      "evidence": [
+        "COM-SAVE-analysis.jpg"
+      ],
+      "note": "모든 하위 조합 및 모든 버튼 통과를 뜻하지 않음",
+      "finalEvidence": []
+    },
+    {
+      "id": "COM-SOURCE",
+      "name": "추정매출 출처·해석",
+      "status": "visited_targeted_checks",
+      "evidence": [
+        "COM-SOURCE-analysis.jpg"
+      ],
+      "note": "모든 하위 조합 및 모든 버튼 통과를 뜻하지 않음",
+      "finalEvidence": []
+    },
+    {
+      "id": "COM-TABLE",
+      "name": "추정매출 상세 표",
+      "status": "visited_targeted_checks",
+      "evidence": [
+        "COM-TABLE-analysis.jpg"
+      ],
+      "note": "모든 하위 조합 및 모든 버튼 통과를 뜻하지 않음",
+      "finalEvidence": []
+    },
+    {
+      "id": "POP-PATTERN",
+      "name": "요일·월중 특성",
+      "status": "visited_targeted_checks",
+      "evidence": [
+        "POP-PATTERN-presentation.jpg"
+      ],
+      "note": "모든 하위 조합 및 모든 버튼 통과를 뜻하지 않음",
+      "finalEvidence": [
+        "FINAL-POP-PATTERN-1366.jpg",
+        "FINAL-POP-PATTERN.jpg"
+      ]
+    },
+    {
+      "id": "POP-RESIDENT",
+      "name": "체류·거주 기반",
+      "status": "visited_targeted_checks",
+      "evidence": [
+        "POP-RESIDENT-presentation.jpg"
+      ],
+      "note": "모든 하위 조합 및 모든 버튼 통과를 뜻하지 않음",
+      "finalEvidence": []
+    },
+    {
+      "id": "POP-DEMO",
+      "name": "연령·성별 두 대상",
+      "status": "visited_targeted_checks",
+      "evidence": [
+        "POP-DEMO-presentation.jpg"
+      ],
+      "note": "모든 하위 조합 및 모든 버튼 통과를 뜻하지 않음",
+      "finalEvidence": []
+    },
+    {
+      "id": "POP-DIST-SIDE",
+      "name": "두 시점 분포 나란히",
+      "status": "visited_targeted_checks",
+      "evidence": [
+        "POP-DIST-SIDE-presentation.jpg"
+      ],
+      "note": "모든 하위 조합 및 모든 버튼 통과를 뜻하지 않음",
+      "finalEvidence": [
+        "FINAL-POP-DIST-SIDE-1366.jpg",
+        "FINAL-POP-DIST-SIDE.jpg"
+      ]
+    },
+    {
+      "id": "POP-DIST-DELTA",
+      "name": "인구 증감 지도",
+      "status": "visited_targeted_checks",
+      "evidence": [
+        "POP-DIST-DELTA-presentation.jpg"
+      ],
+      "note": "모든 하위 조합 및 모든 버튼 통과를 뜻하지 않음",
+      "finalEvidence": [
+        "FINAL-POP-DIST-DELTA-1366.jpg",
+        "FINAL-POP-DIST-DELTA.jpg"
+      ]
+    },
+    {
+      "id": "MOV-CONNECTIONS",
+      "name": "이동 상대지역",
+      "status": "visited_targeted_checks",
+      "evidence": [
+        "MOV-CONNECTIONS-presentation.jpg"
+      ],
+      "note": "모든 하위 조합 및 모든 버튼 통과를 뜻하지 않음",
+      "finalEvidence": []
+    },
+    {
+      "id": "MIG-DEMO",
+      "name": "전출입 연령·성별 구성",
+      "status": "visited_targeted_checks",
+      "evidence": [
+        "MIG-DEMO-presentation.jpg"
+      ],
+      "note": "모든 하위 조합 및 모든 버튼 통과를 뜻하지 않음",
+      "finalEvidence": [
+        "FINAL-MIG-DEMO.jpg"
+      ]
+    },
+    {
+      "id": "MIG-SINGLE",
+      "name": "연령 단일연도 안내",
+      "status": "visited_targeted_checks",
+      "evidence": [
+        "MIG-SINGLE-presentation.jpg"
+      ],
+      "note": "모든 하위 조합 및 모든 버튼 통과를 뜻하지 않음",
+      "finalEvidence": []
+    },
+    {
+      "id": "MARKET-MAP",
+      "name": "상권 지도",
+      "status": "visited_targeted_checks",
+      "evidence": [
+        "MARKET-MAP-presentation.jpg"
+      ],
+      "note": "모든 하위 조합 및 모든 버튼 통과를 뜻하지 않음",
+      "finalEvidence": []
+    },
+    {
+      "id": "MARKET-DETAIL",
+      "name": "선택 상권 상세",
+      "status": "visited_targeted_checks",
+      "evidence": [
+        "MARKET-DETAIL-presentation.jpg"
+      ],
+      "note": "모든 하위 조합 및 모든 버튼 통과를 뜻하지 않음",
+      "finalEvidence": []
+    },
+    {
+      "id": "MARKET-TREND",
+      "name": "선택 상권 분기 추이",
+      "status": "visited_targeted_checks",
+      "evidence": [
+        "MARKET-TREND-presentation.jpg"
+      ],
+      "note": "모든 하위 조합 및 모든 버튼 통과를 뜻하지 않음",
+      "finalEvidence": []
+    },
+    {
+      "id": "MARKET-CAND",
+      "name": "상권 후보 비교",
+      "status": "visited_targeted_checks",
+      "evidence": [
+        "MARKET-CAND-presentation.jpg"
+      ],
+      "note": "모든 하위 조합 및 모든 버튼 통과를 뜻하지 않음",
+      "finalEvidence": []
+    },
+    {
+      "id": "MARKET-SOURCE",
+      "name": "상권 출처·경계",
+      "status": "visited_targeted_checks",
+      "evidence": [
+        "MARKET-SOURCE-presentation.jpg"
+      ],
+      "note": "모든 하위 조합 및 모든 버튼 통과를 뜻하지 않음",
+      "finalEvidence": []
+    },
+    {
+      "id": "OV-QUERY",
+      "name": "단일 조회 편집기",
+      "status": "visited_targeted_checks",
+      "evidence": [
+        "OV-QUERY-analysis.jpg"
+      ],
+      "note": "모든 하위 조합 및 모든 버튼 통과를 뜻하지 않음",
+      "finalEvidence": []
+    },
+    {
+      "id": "OV-SEARCH",
+      "name": "검색 내장 선택",
+      "status": "visited_targeted_checks",
+      "evidence": [
+        "OV-SEARCH-analysis.jpg"
+      ],
+      "note": "모든 하위 조합 및 모든 버튼 통과를 뜻하지 않음",
+      "finalEvidence": []
+    },
+    {
+      "id": "OV-MAP-DISPLAY",
+      "name": "지도 표시 설정",
+      "status": "visited_targeted_checks",
+      "evidence": [
+        "OV-MAP-DISPLAY-analysis.jpg"
+      ],
+      "note": "모든 하위 조합 및 모든 버튼 통과를 뜻하지 않음",
+      "finalEvidence": []
+    },
+    {
+      "id": "OV-LEGEND",
+      "name": "지도 범례",
+      "status": "visited_targeted_checks",
+      "evidence": [
+        "OV-LEGEND-analysis.jpg"
+      ],
+      "note": "모든 하위 조합 및 모든 버튼 통과를 뜻하지 않음",
+      "finalEvidence": []
+    },
+    {
+      "id": "OV-GRAPH",
+      "name": "그래프 표시·축 설정",
+      "status": "visited_targeted_checks",
+      "evidence": [
+        "OV-GRAPH-presentation.jpg"
+      ],
+      "note": "모든 하위 조합 및 모든 버튼 통과를 뜻하지 않음",
+      "finalEvidence": []
+    },
+    {
+      "id": "OV-LAYOUT",
+      "name": "화면 배치",
+      "status": "visited_targeted_checks",
+      "evidence": [
+        "OV-LAYOUT-analysis.jpg"
+      ],
+      "note": "모든 하위 조합 및 모든 버튼 통과를 뜻하지 않음",
+      "finalEvidence": []
+    },
+    {
+      "id": "OV-REGION",
+      "name": "지역 정보 팝업",
+      "status": "visited_targeted_checks",
+      "evidence": [
+        "OV-REGION-analysis.jpg"
+      ],
+      "note": "모든 하위 조합 및 모든 버튼 통과를 뜻하지 않음",
+      "finalEvidence": []
+    },
+    {
+      "id": "OV-DOCK",
+      "name": "창 설정·자석 배치",
+      "status": "visited_targeted_checks",
+      "evidence": [
+        "OV-DOCK-analysis.jpg"
+      ],
+      "note": "모든 하위 조합 및 모든 버튼 통과를 뜻하지 않음",
+      "finalEvidence": []
+    },
+    {
+      "id": "OV-MEANING",
+      "name": "의미·해석 툴팁",
+      "status": "visited_targeted_checks",
+      "evidence": [
+        "OV-MEANING-analysis.jpg"
+      ],
+      "note": "모든 하위 조합 및 모든 버튼 통과를 뜻하지 않음",
+      "finalEvidence": []
+    },
+    {
+      "id": "OV-EXPORT",
+      "name": "표 내려받기",
+      "status": "invoked_file_unverified",
+      "evidence": [
+        "OV-EXPORT-presentation.jpg"
+      ],
+      "note": "모든 하위 조합 및 모든 버튼 통과를 뜻하지 않음",
+      "finalEvidence": []
+    }
+  ],
+  "evidenceRule": "after 일반파일은969bf87 또는4562534 방문 증거. FINAL 접두파일은a9314b5 최종 공개 재확인. 공통동작 회귀검사는969bf87, 후속CSS는대상장면만재검사.",
+  "finalDeployment": {
+    "source": "a9314b5",
+    "pages": "b3927bf38500cd494a4542e3d2713eb7f8cc9dec",
+    "run": 43779375300,
+    "conclusion": "success",
+    "runtime": "index-Ym6Se8BT.js"
+  }
+}
