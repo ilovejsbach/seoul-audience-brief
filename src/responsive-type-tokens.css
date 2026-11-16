@@ -40,7 +40,7 @@ body:has(.app.mode-presentation),.app.mode-presentation{
 .app .trendExplorer .trendSvgWrap>svg{min-width:0!important;width:100%;display:block}
 .app .mapWorkspace .mapWorkspaceHeader button.workspaceDetailsToggle{background:#24558b!important;border-color:#24558b!important;color:#fff!important}
 @media screen and (min-width:768px),screen and (max-width:767px) and (min-height:750px){
- .app .mapWorkspace[data-magnetic-workspace=true]{height:var(--workspace-canvas-height,calc(100dvh - 90px));min-height:0}
+ .app .mapWorkspace[data-magnetic-workspace=true]{height:calc(100dvh - var(--workspace-top,90px) - 2px);min-height:0}
  .app .mapWorkspace[data-magnetic-workspace=true] .mapWorkspaceBody{min-height:0}
 }
 @media screen and (max-width:1199px){

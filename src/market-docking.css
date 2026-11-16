@@ -28,6 +28,6 @@
 .app .mapWorkspace .marketWindowOpacity input{width:100%;margin:0}
 /* Use the measured space below the shared header, rather than a fixed 155px deduction. */
 @media screen and (min-width:951px){
- .app .mapWorkspace[data-magnetic-workspace=true]{height:var(--workspace-canvas-height,calc(100dvh - 90px));min-height:0}
+ .app .mapWorkspace[data-magnetic-workspace=true]{height:calc(100dvh - var(--workspace-top,90px) - 2px);min-height:0}
  .app>main:has(>div:not([hidden])>.mapWorkspace){padding-bottom:0}
 }
