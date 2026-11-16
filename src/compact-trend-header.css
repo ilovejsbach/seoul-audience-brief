@@ -1,0 +1,29 @@
+/* The selected result shares the heading row instead of creating a second tier. */
+.app .analysisDetailContent .panel.trendExplorer{padding:12px 16px 10px}
+.app .trendExplorer .trendExplorerHeading{display:grid;grid-template-columns:minmax(0,1fr) auto auto;grid-template-areas:"title value tools";align-items:center;gap:8px 14px}
+.app .trendExplorerHeading>.trendTitleLine{grid-area:title;display:flex;align-items:center;gap:4px 8px;min-width:0;flex:none}
+.app .trendExplorerHeading>.trendHeaderActions{grid-area:tools;align-items:center;gap:4px;min-width:0;justify-content:flex-end}
+.app .trendExplorerHeading>.trendCurrent{grid-area:value;display:flex;align-items:baseline;justify-content:flex-end;gap:8px;min-width:0;text-align:right}
+.app .trendExplorerHeading .trendCurrent>span{flex:none;line-height:1.4;white-space:nowrap}
+.app .trendExplorerHeading .trendCurrent>strong{display:block;line-height:1.2;white-space:nowrap;overflow-wrap:normal}
+.app .trendExplorerHeading .trendTitleLine h2{margin:0;line-height:1.4}
+.app .analysisDetailContent .trendHeaderActions :is(.trendMapAction,.trendSupplementMenu){display:none}
+.app .analysisDetailContent .trendExplorer .chartAxisNotice{margin:4px 0 0;line-height:1.4}
+.app .analysisDetailContent .trendExplorer>.trendSvgWrap{margin-top:6px}
+.app .analysisDetailContent .trendExplorer>.trendPlayback{margin-top:4px;padding-top:4px}
+.app .analysisDetailContent .trendExplorer .trendInterpretationNote{margin:0;line-height:1.4}
+@layer dashboardTypography{
+ .app .analysisDetailContent .trendExplorerHeading .trendCurrent>strong{line-height:1.2!important}
+ .app .analysisDetailContent .trendExplorerHeading .trendCurrent>span,
+ .app .analysisDetailContent .trendExplorerHeading .trendTitleLine h2{line-height:1.4!important}
+}
+@media(max-width:1000px){
+ .app .trendExplorer .trendExplorerHeading{grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"title title" "value tools";gap:6px 10px}
+ .app .trendExplorerHeading>.trendCurrent{justify-content:flex-start;text-align:left}
+}
+@media(max-width:767px){
+ .app .analysisDetailContent .panel.trendExplorer{padding:10px 12px 8px}
+ .app .trendExplorer .trendExplorerHeading{gap:6px}
+ .app .trendExplorerHeading>.trendCurrent{flex-wrap:wrap;gap:2px 6px}
+ .app .trendExplorerHeading .trendCurrent>strong{white-space:normal}
+}

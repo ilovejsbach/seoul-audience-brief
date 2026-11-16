@@ -36,3 +36,8 @@
 .app .analysisDetailModalBody>.analysisDetailContent:has(>.populationPatterns){height:100%;min-height:0}
 .app .analysisDetailContent>.populationPatterns>.populationPatternsBody{position:absolute;inset:0;height:auto!important}
 .app .patternReferenceTools>details[open]>summary::after{content:'닫기 ×';float:right;margin-left:14px;font-weight:600}
+/* Preserve visible effective-day counts while avoiding a three-line KPI card. */
+.app .analysisDetailContent .patternCards article{grid-template-columns:minmax(0,1fr) auto;gap:2px 8px;padding:6px 10px}
+.app .analysisDetailContent .patternCards article>span{grid-column:1;align-self:center}
+.app .analysisDetailContent .patternCards article>strong{grid-column:1;grid-row:2}
+.app .analysisDetailContent .patternCards article>small{grid-column:2;grid-row:2;align-self:center}

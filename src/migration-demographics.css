@@ -13,3 +13,9 @@
 .app .analysisDetailContent .migrationDemographicRow{flex:1;min-height:36px;gap:10px}
 .app .analysisDetailContent .migrationBarCaution{flex:none;margin:8px 0 0}
 .app .analysisDetailModalBody>.analysisDetailContent:has(>.migrationBreakdown){height:100%;min-height:0}
+/* Native details creates an anonymous content box; anchor the primary bars to
+   the known detail frame rather than resolving 100% through that box. */
+.app .analysisDetailContent>.migrationBreakdown{position:relative}
+.app .analysisDetailContent .migrationBreakdownBody{position:absolute;inset:0;height:auto}
+.app .analysisDetailContent .migrationBreakdownHeading .migrationBreakdownTabs{margin:0;display:flex;flex:none}
+.app .analysisDetailContent .migrationBarLegend{margin:6px 0}

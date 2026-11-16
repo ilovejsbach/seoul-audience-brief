@@ -15,3 +15,10 @@
 .app .analysisDetailContent .demographicValue{margin:16px 0 8px}
 .app .analysisDetailContent .demographicDifference{margin:12px 0 0}
 @media(max-width:650px){.app .analysisDetailContent .demographicOptions{flex-wrap:wrap}.app .analysisDetailContent .demographicOptions label{flex-basis:100%}}
+.app .analysisDetailContent .demographicTargetControls{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.app .analysisDetailContent .demographicTargetControls h3{margin:0;flex:none}
+.app .analysisDetailContent .demographicTargetControls .demographicOptions{flex:1;min-width:220px}
+.app .analysisDetailContent .demographicHeading{margin-bottom:8px}
+.app .analysisDetailContent .demographicValue{margin:10px 0 6px}
+.app .analysisDetailContent .demographicShare{margin:6px 0}
+.app .analysisDetailContent .demographicBar{margin-bottom:10px}

@@ -9,3 +9,10 @@
 .app .analysisDetailContent .timeComparisonValues{gap:12px}
 .app .analysisDetailContent .timeComparisonValues>article{padding:12px}
 .app .analysisDetailContent .timeComparisonExact{margin-top:12px}
+/* The persistent detail selector supplies this title; retain context and the
+   comparison-period control in the compact header. */
+.app .analysisDetailContent .timeComparisonHeading h2{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.app .analysisDetailContent .timeComparisonHeading{margin-bottom:8px}
+.app .analysisDetailContent .timeComparisonHeading>label{white-space:nowrap;flex:0 0 auto}
+.app .analysisDetailContent .timeComparisonHeading>label>select{width:160px;min-width:120px;flex:none}
+@media(max-width:650px){.app .analysisDetailContent .timeComparisonHeading{flex-wrap:wrap}.app .analysisDetailContent .timeComparisonHeading>label>select{width:140px}}

@@ -1,0 +1,8 @@
+/* Detail chrome already owns navigation; result context keeps only its own scope. */
+.app .analysisDetailContent .compare .candidateContext{display:flex;align-items:center;flex-wrap:wrap;gap:6px 10px;margin:0 0 10px;padding:0 0 8px;border-bottom:1px solid #d1dce8}
+.app .analysisDetailContent .compare .candidateContext>.pill{flex:none;margin:0}
+.app .analysisDetailContent .compare .returnToRegion{display:none}
+.app .analysisDetailContent .movementConnectionsHeading>div:first-child{display:flex;align-items:center;flex-wrap:wrap;gap:6px 10px;min-width:0}
+.app .analysisDetailContent .movementConnectionsHeading :is(h2,p){margin:0}
+.app .analysisDetailContent .movementConnectionsHeading .connectionCompareAction{display:none}
+.app .analysisDetailContent .movementConnectionsHeading{gap:8px;margin-bottom:10px}

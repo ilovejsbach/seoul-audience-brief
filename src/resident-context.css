@@ -11,3 +11,6 @@
 .app .analysisDetailContent .residentContextCards h3{margin:5px 0 10px}
 .app .analysisDetailContent .residentContextCards p{margin-top:8px}
 .app .analysisDetailContent .residentSource{display:inline-block;margin-top:10px}
+.app .analysisDetailContent .residentContextHeading .residentRegion{margin:0;flex:1;min-width:0}
+.app .analysisDetailContent .residentContextCards h3{margin:0 0 8px}
+.app .analysisDetailContent .residentMismatch{margin:8px 0}

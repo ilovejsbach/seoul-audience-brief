@@ -28,3 +28,15 @@
 .app .supplementalOptions .mapManualRangeBody{padding:0;border:0}
 @media(max-width:760px){.app .analysisDetailContent .distributionMaps:not(.delta){grid-template-columns:1fr 1fr}.app .analysisDetailContent .distributionControls{flex-wrap:wrap}.app .analysisDetailContent .distributionContext{flex-basis:100%}.app .analysisDetailContent .distributionNote{max-height:54px;overflow:auto}}
 .app .analysisDetailModalBody>.analysisDetailContent:has(>.distributionComparison),.app .analysisDetailModalBody>.analysisDetailContent:has(>#distribution-population){height:100%;min-height:0}
+/* Reserve the legend and interpretation before allocating the remaining height
+   to the maps. A map minimum must not push these two rows outside the frame. */
+.app .analysisDetailContent .distributionComparison{display:grid!important;grid-template-rows:auto auto minmax(0,1fr) auto auto;min-height:0}
+.app .analysisDetailContent .distributionMaps{min-height:0;height:auto}
+.app .analysisDetailContent .distributionMaps figure{overflow:hidden}
+.app .analysisDetailContent .distributionSvg{height:0;min-height:0;flex:1 1 0}
+.app .analysisDetailContent .distributionLegendCompact{min-height:30px;align-self:stretch}
+.app .analysisDetailContent .distributionNote{min-height:0;align-self:stretch}
+/* Shared-mode visibility rules must not replace this module's layout engine.
+   Keep this selector stronger than the generic shared .panel display rule. */
+.app :is(.analysisDetailModal,.analysisMainDetail) .analysisDetailContent .panel.distributionComparison,
+.app.mode-presentation[data-detail-system="shared"] :is(.analysisDetailModal,.analysisMainDetail) .analysisDetailContent .panel.distributionComparison{display:grid!important;grid-template-rows:auto auto minmax(0,1fr) auto auto}

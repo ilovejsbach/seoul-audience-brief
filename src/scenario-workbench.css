@@ -12,3 +12,29 @@
 .scenarioWorkbench .scenarioExact p{overflow-wrap:anywhere;font-variant-numeric:tabular-nums}
 @media(max-width:900px){.scenarioWorkbenchCurrent{grid-template-columns:minmax(0,1fr) minmax(180px,1fr)}.scenarioWorkbenchCurrent>button{grid-column:1/-1;justify-self:start}}
 @media(max-width:620px){.scenarioWorkbenchCurrent{grid-template-columns:minmax(0,1fr)}}
+
+/* Embedded comparison is a compact condition workbench, not another page heading. */
+.app .scenarioWorkbench.scenarioWorkbenchEmbedded{margin:0;padding:0;border:0;border-radius:0}
+.scenarioWorkbenchEmbedded .scenarioWorkbenchHeading{align-items:center;gap:12px;margin:0 0 8px}
+.scenarioWorkbenchEmbedded .scenarioWorkbenchHeading p{margin:0}
+.scenarioWorkbenchEmbedded .scenarioWorkbenchCount{padding:2px 8px;font-size:inherit}
+.scenarioWorkbenchEmbedded .scenarioWorkbenchCurrent{grid-template-columns:minmax(0,1fr) minmax(140px,auto) auto;gap:12px;padding:10px 12px;border-radius:5px}
+.scenarioWorkbenchEmbedded .scenarioWorkbenchCurrent>div:first-child{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px}
+.scenarioWorkbenchEmbedded .scenarioWorkbenchCurrent>div:first-child>strong{flex:none}
+.scenarioWorkbenchEmbedded .scenarioWorkbenchCurrent p{margin:0;flex:1 1 260px}
+.scenarioWorkbenchEmbedded .scenarioWorkbenchValue{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px}
+.scenarioWorkbenchEmbedded .scenarioWorkbenchValue strong{font-size:20px;line-height:1.4}
+.scenarioWorkbenchEmbedded .scenarioExact{margin:0;max-width:100%}
+.scenarioWorkbenchEmbedded button{min-height:32px;padding:4px 10px}
+.scenarioWorkbenchEmbedded .scenarioWorkbenchTableWrap{margin-top:12px}
+.scenarioWorkbenchEmbedded .scenarioWorkbenchCaption{position:absolute;width:1px;height:1px;padding:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.scenarioWorkbenchEmbedded th,.scenarioWorkbenchEmbedded td{padding:8px;line-height:1.5}
+.scenarioWorkbenchEmbedded .scenarioWorkbenchActions{flex-direction:row;flex-wrap:wrap;gap:6px;min-width:120px}
+.scenarioWorkbenchEmbedded .scenarioWorkbenchFooter{align-items:center;gap:12px;margin-top:8px}
+.scenarioWorkbenchEmbedded .scenarioWorkbenchFooter p{margin:0}
+.scenarioWorkbenchEmbedded .scenarioWorkbenchEmpty{padding:12px 0;margin:0}
+.scenarioWorkbenchEmbedded .scenarioWorkbenchSessionNote{margin-top:8px}
+@media(max-width:900px){.scenarioWorkbenchEmbedded .scenarioWorkbenchCurrent{grid-template-columns:minmax(0,1fr) auto}.scenarioWorkbenchEmbedded .scenarioWorkbenchCurrent>div:first-child{grid-column:1/-1}.scenarioWorkbenchEmbedded .scenarioWorkbenchCurrent>button{grid-column:auto;justify-self:end}}
+@media(max-width:620px){.scenarioWorkbenchEmbedded .scenarioWorkbenchHeading{align-items:flex-start}.scenarioWorkbenchEmbedded .scenarioWorkbenchCurrent{grid-template-columns:minmax(0,1fr)}.scenarioWorkbenchEmbedded .scenarioWorkbenchCurrent>button{justify-self:start}.scenarioWorkbenchEmbedded .scenarioWorkbenchFooter{align-items:flex-start}}
+/* Action feedback remains readable on the shared light detail surface. */
+.app .analysisDetailContent .scenarioWorkbench .scenarioWorkbenchStatus{color:#38516b!important}
