@@ -1,0 +1,22 @@
+[
+  {
+    "dataset": "생활이동",
+    "title": "시간별 유입·유출 비교",
+    "chromeNativeFullscreen": true
+  },
+  {
+    "dataset": "거주지 전입·전출",
+    "title": "지역별 전입·전출 비교",
+    "chromeNativeFullscreen": true
+  },
+  {
+    "dataset": "상권 추정매출",
+    "title": "지역별 추정매출 비교",
+    "chromeNativeFullscreen": true
+  },
+  {
+    "dataset": "생활인구",
+    "title": "지역별 생활인구 비교",
+    "chromeNativeFullscreen": true
+  }
+]
