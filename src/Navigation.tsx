@@ -26,7 +26,8 @@ export async function navigateSection(id:string,step:number){
  const sequence=++navigationSequence;
  const target=document.getElementById(id);
  const fullscreen=document.fullscreenElement;
- if(fullscreen&&target&&!fullscreen.contains(target)&&!target.contains(fullscreen)){
+ const fullscreenSurface=fullscreen?.matches('.app')?[...document.querySelectorAll<HTMLElement>('section.mapPanel.mapIsFullscreen')].find(node=>!node.closest('[hidden]'))||fullscreen:fullscreen;
+ if(fullscreen&&fullscreenSurface&&target&&!fullscreenSurface.contains(target)&&!target.contains(fullscreenSurface)){
   try{await document.exitFullscreen()}catch{/* The user may already have closed fullscreen. */}
  }
  const overlay=document.querySelector('.mapOverlay');
@@ -45,7 +46,7 @@ export async function navigateSection(id:string,step:number){
  const destination=document.getElementById(id);
  if(!destination)return;
  if(destination instanceof HTMLDetailsElement)destination.open=true;
- const fullscreenMap=document.fullscreenElement||document.querySelector('.mapOverlay');
+ const fullscreenMap=[...document.querySelectorAll<HTMLElement>('section.mapPanel.mapIsFullscreen')].find(node=>!node.closest('[hidden]'))||document.fullscreenElement;
  const element=fullscreenMap&&destination.contains(fullscreenMap)?fullscreenMap as HTMLElement:destination;
  element.setAttribute('tabindex','-1');
  const presentation=element.closest('.mode-presentation');

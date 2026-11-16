@@ -45,3 +45,15 @@
 .app .dashboardContent .mapIsFullscreen .mapColorRangeControls input{width:65px}
 .app .dashboardContent .mapIsFullscreen .mapColorRangeNotice{font-size:11px}
 }
+
+/* A persistent fullscreen host allows dataset switches without leaving fullscreen. */
+@media screen{
+ .app:fullscreen{width:100vw;height:100dvh;overflow:hidden;background:#f3f5f7}
+ .app .dashboardContent .mapPanel.mapIsFullscreen{position:fixed!important;inset:0!important;z-index:1000!important;width:100vw;max-width:none;margin:0!important}
+}
+
+@media screen{
+ /* Background controls must not remain keyboard targets in the persistent native host. */
+ .app:fullscreen>header,.app:fullscreen>main{visibility:hidden}
+ .app:fullscreen>main section.mapPanel.mapIsFullscreen{visibility:visible}
+}

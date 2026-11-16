@@ -19,7 +19,7 @@ export async function runCoreScreenAudit(tab,mode,record){
   await b('후보 비교').click();const candidate=p.locator(`#shortlist-${key}`);await candidate.waitFor({state:'visible'});
   if(!await candidate.locator('.compareGrid article').count())throw Error(topic+' candidate lost');
   out.push(await record({id:`${key.toUpperCase()}-CAND`,mode,assertion:'후보 보존·실값·복귀',detail:(await candidate.innerText()).slice(0,450)}));
-  await candidate.getByRole('button',{name:key==='population'?'이 지역 시간 추이 →':'이 지역 상세·추이 →',exact:true}).first().click();
+  await candidate.getByRole('button',{name:key==='population'?/ 시간 추이 보기$/:/ 상세·추이 보기$/}).first().click();
   await b('지도').click();
  }
  return out;

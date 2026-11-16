@@ -9,8 +9,8 @@
 .app .timeComparisonFloatingBody{flex:1;min-height:0;overflow:auto;overscroll-behavior:contain;padding:12px;scrollbar-gutter:stable}
 .app .dashboardContent .timeComparisonFloating .timeComparison{margin:0;padding:0;border:0!important;border-radius:0;box-shadow:none;min-height:0}
 .app .timeComparisonFloating .timeComparisonHeading{margin-bottom:12px;gap:10px}
-.app .timeComparisonFloating .timeComparisonHeading>div{flex-basis:100%}
-.app .timeComparisonFloating .timeComparisonHeading>label{flex:1;min-width:160px}
+.app .timeComparisonFloating .timeComparisonHeading>div{flex:1 1 230px;min-width:0}
+.app .timeComparisonFloating .timeComparisonHeading>label{display:flex;align-items:center;gap:6px;flex:0 1 235px;min-width:170px;max-width:100%;white-space:nowrap}.app .timeComparisonFloating .timeComparisonHeading>label>select{width:auto;flex:1;min-width:0;margin-top:0}
 .app .timeComparisonFloating .timeComparisonValues{gap:10px}
 .app .timeComparisonFloating .timeComparisonValues>article{padding:12px}
 .app .timeComparisonFloating .floatingPanelResize{min-width:24px;min-height:24px;padding:0}
@@ -20,3 +20,14 @@
  .app.mode-presentation .timeComparisonFloating h3{font-size:18px!important;line-height:1.5!important}
 }
 @media print{.app .timeComparisonFloating{display:none!important}}
+
+/* R05/R06: keep optional window operations out of the comparison itself. */
+.app .timeComparisonFloating>header>h3{flex:1;min-width:0}
+.app .timeComparisonFloating>header>.timeComparisonWindowActions{flex:none;flex-wrap:nowrap;align-items:center}
+.app .timeComparisonWindowSettings{position:relative;cursor:default}
+.app .timeComparisonWindowSettings>summary{cursor:pointer;list-style:none;min-height:30px;box-sizing:border-box;padding:4px 8px;border:1px solid #aabbd0;border-radius:4px;background:white;color:#24558b;font-size:14px;line-height:1.4;white-space:nowrap}
+.app .timeComparisonWindowSettings>summary::-webkit-details-marker{display:none}
+.app .timeComparisonWindowSettings>div{position:absolute;right:0;top:calc(100% + 4px);z-index:25;min-width:165px;padding:5px;border:1px solid #aabbd0;border-radius:4px;background:white;box-shadow:0 5px 18px #173e6926}
+.app .timeComparisonWindowSettings>div>button{width:100%;white-space:nowrap}
+.app .timeComparisonWindowSettings>summary:focus-visible{outline:2px solid #b75a1b;outline-offset:2px}
+.app .timeComparisonFloating .timeComparisonHeading>div>p{margin:0;line-height:1.5;overflow-wrap:anywhere}

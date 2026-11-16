@@ -41,3 +41,38 @@
 .app .marketQueryPane{width:100%;min-width:0}
 .app .marketQueryPane .marketOptionGroupBody{padding:0;display:flex!important;flex-direction:column!important;align-items:stretch;gap:10px}
 .app .marketQueryMenu>button:focus-visible,.app .marketQueryPaneHeading>button:focus-visible{outline:2px solid #b75a1b;outline-offset:2px}
+/* R02/R05/R06: one result heading and one compact live query/result strip. */
+.app .mapWorkspaceHeader{min-height:52px;padding-block:8px;gap:12px}
+.app .mapWorkspaceHeaderLeft,.app .mapWorkspaceHeaderActions{gap:8px}
+.app .mapWorkspaceHeader h1{margin:0;line-height:1.35}
+.app .mapWorkspaceHeader button{min-height:32px;padding:4px 8px}
+.app .marketMapTitle{gap:4px;padding:6px 10px}
+.app .marketMapSummaryRow{gap:4px 10px}
+.app .marketMapSummaryRow>.marketMetricHeading{gap:6px}
+.app .marketMapSummaryRow>.marketSummaryNote{line-height:1.4}
+.app .marketResultTools{display:flex;align-items:center;gap:4px;margin-left:auto;flex-wrap:wrap}
+.app .marketResultTools>button{min-height:30px;padding:3px 7px;white-space:nowrap}
+.app .marketQueryResultRow{display:flex;align-items:center;flex-wrap:wrap;gap:4px 10px;min-width:0}
+.app .marketQueryResultRow>.querySummary{flex:1 1 340px;min-width:0;margin:0}
+.app .marketQueryResultRow>.querySummary>.querySummaryLabel{display:none}
+.app .marketQueryResultRow .querySummaryItems{gap:3px}
+.app .marketQueryResultRow .queryConditionChip :is(.queryChipEdit,.queryChipText){padding:2px 5px;min-height:28px}
+.app .marketMapTitle>.marketMatchedDistricts{gap:4px 6px;line-height:1.4;margin-top:0}
+.app .marketMatchedDistricts>button{min-height:28px;padding:2px 6px}
+.app .marketMap .marketMapViewport>.marketZoom{display:flex;align-items:center;gap:3px;top:8px;right:8px;padding:3px;border:1px solid #bacbdc;border-radius:4px;background:white}
+.app .marketZoom>button{min-height:28px;padding:2px 7px;border-radius:3px;line-height:1.4;white-space:nowrap}
+.app .marketZoomLevel{min-width:38px;text-align:center;color:#43566e;line-height:1.4;font-variant-numeric:tabular-nums}
+@layer dashboardTypography{
+ .app:is(.mode-analysis,.mode-presentation) .mapWorkspaceHeader h1{font-size:20px!important;line-height:1.35!important}
+ .app:is(.mode-analysis,.mode-presentation) :is(.marketQueryResultRow,.marketQueryResultRow b,.marketQueryResultRow span,.marketQueryResultRow button,.marketZoom,.marketZoom button,.marketZoomLevel,.marketResultTools>button){font-size:14px!important;line-height:1.4!important}
+}
+@media(max-width:950px){
+ .app .marketQueryResultRow>.querySummary{flex-basis:100%}
+}
+.app .marketMapSummaryRow>.marketFilterFeedback{display:flex;align-items:center;gap:5px 8px;flex-wrap:wrap;min-width:0;margin:0;padding:0;border:0;background:transparent;line-height:1.4}
+.app .marketMapSummaryRow>.marketFilterFeedback>b,.app .marketMapSummaryRow .marketObservationCount{white-space:nowrap}
+.app .marketResultActions{display:flex;align-items:center;flex-wrap:wrap;gap:4px;flex:0 1 auto;min-width:0}
+.app .marketResultActions>button{min-height:28px;padding:2px 6px;border:1px solid #aabbd0;border-radius:4px;background:white;color:#24558b;white-space:nowrap;line-height:1.4}
+@layer dashboardTypography{
+ .app:is(.mode-analysis,.mode-presentation) :is(.marketMapSummaryRow>.marketFilterFeedback,.marketMapSummaryRow>.marketFilterFeedback b,.marketMapSummaryRow>.marketFilterFeedback span,.marketResultActions>button){font-size:14px!important;line-height:1.4!important}
+}

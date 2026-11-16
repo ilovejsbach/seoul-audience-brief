@@ -83,3 +83,11 @@
  .app.mode-presentation.presentation-step-1 #population-patterns .patternHeading p,
  .app.mode-presentation.presentation-step-1 #population-patterns .patternCards article :is(span,small){font-size:14px!important;line-height:1.4!important}
 }
+
+/* A candidate's name is its detail action; do not repeat a second full-width button. */
+.app .compareGrid article>h3{display:flex;align-items:baseline;gap:8px;min-width:0;margin:0 24px 12px 0}
+.app .compareGrid article>h3 .candidateDetail{display:inline;text-align:left;max-width:100%;width:auto;min-width:0;padding:0;margin:0;border:0;background:transparent;color:#24558b!important;font:inherit;line-height:1.4;overflow-wrap:anywhere}
+.app .compareGrid article>h3 .candidateDetail:hover{text-decoration:underline;text-underline-offset:4px}
+.app .compareGrid article>h3>small{flex:none;color:#53677c;font-size:14px!important;font-weight:400}
+.app .candidateContext{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:8px 24px;margin:0;color:#53677c;font-size:14px;line-height:1.5}
+.app .compareGrid{padding-top:8px!important}
