@@ -16,9 +16,10 @@ export default function FloatingQueryLayer({host,visibilityHost,enabled,children
    // The shared app hosts native fullscreen; only its foreground map owns floating controls.
    const fullscreenMap=fullscreen?.matches('.app')?[...fullscreen.querySelectorAll<HTMLElement>('section.mapPanel.mapIsFullscreen')].find(element=>!element.closest('[hidden]')&&element.getClientRects().length>0):null;
    const overlay=[...document.querySelectorAll<HTMLElement>('.mapOverlay')].filter(element=>element.getClientRects().length>0).at(-1),activeSurface=fullscreenMap||fullscreen||overlay;
-   const belongsToSurface=!activeSurface||activeSurface.contains(node)||node.contains(activeSurface);
+   const modal=node.closest<HTMLDialogElement>('dialog[open]');
+   const belongsToSurface=!!modal||!activeSurface||activeSurface.contains(node)||node.contains(activeSurface);
    const visibleNode=visibilityHost?.current||node;
-   setSnapshot({target:fullscreen||document.body,visible:!node.closest('[hidden]')&&visibleNode.getClientRects().length>0&&belongsToSurface,appClass:app?.className||'app mode-analysis',appData:attributes(app),scopeClass:scope.className,scopeData:attributes(scope),variables:variables as CSSProperties});
+   setSnapshot({target:modal||fullscreen||document.body,visible:!node.closest('[hidden]')&&visibleNode.getClientRects().length>0&&belongsToSurface,appClass:app?.className||'app mode-analysis',appData:attributes(app),scopeClass:scope.className,scopeData:attributes(scope),variables:variables as CSSProperties});
   };
   sync();const observer=new MutationObserver(sync);
   const observed=new Set<HTMLElement>();for(const start of [node,visibilityHost?.current])for(let ancestor:HTMLElement|null=start||null;ancestor;ancestor=ancestor.parentElement){if(observed.has(ancestor))continue;observed.add(ancestor);observer.observe(ancestor,{attributes:true,attributeFilter:['class','style','hidden','data-options-layout','data-options-open','data-options-side','data-controls-floating','data-secondary-mode','data-detail-active','data-presentation-detail','data-detail-id','data-query-context']});}

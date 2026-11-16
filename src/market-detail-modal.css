@@ -1,0 +1,10 @@
+.analysisDetailModal .marketModalTrend{min-width:0}
+.analysisDetailModal .marketModalTrend>.trendExplorer{margin:0;max-width:none;width:100%;box-sizing:border-box}
+.analysisDetailModal .marketCandidateComparison{font-size:var(--type-body,16px);line-height:1.6;color:#18314e}
+.analysisDetailModal .marketCandidateComparison .marketCandidateHeading{margin-bottom:12px}
+.analysisDetailModal .marketCandidateComparison .marketCandidateHeading h3{font-size:var(--type-body,16px);margin:0}
+.analysisDetailModal .marketCandidateComparison .marketCandidateNote{font-size:var(--type-caption,14px);margin:0 0 16px}
+.analysisDetailModal .marketCandidateComparison .marketCandidate{padding:16px;margin-bottom:12px}
+.analysisDetailModal .marketCandidateComparison .marketCandidate p{font-size:var(--type-panel-title,20px);font-weight:600;margin:8px 0}
+.analysisDetailModal .marketCandidateComparison .marketCandidate small{font-size:var(--type-caption,14px)}
+.analysisDetailModal .marketCandidateComparison button{min-height:36px;font:inherit;padding:4px 10px;color:#234f7e;background:#fff;border:1px solid #a9bfd6;border-radius:4px;cursor:pointer}

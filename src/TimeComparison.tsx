@@ -14,13 +14,18 @@ export default function TimeComparison({id,points,currentKey,unit,label}:{id?:st
  const geometry=useFloatingPanel(host,open&&presentation,{viewport:true,width:720,height:450,minWidth:280,minHeight:240});
  const close=()=>{setOpen(false);if(trigger.current?.getClientRects().length)trigger.current.focus()};
  useLayoutEffect(()=>{
-  const node=marker.current,app=node?.closest<HTMLElement>('.app');if(!node||!app)return;
-  host.current=id?document.getElementById(id.replace('time-compare-','trend-')):node;
-  if(!host.current)host.current=node;
-  const sync=()=>{const isPresentation=app.classList.contains('mode-presentation');setPresentation(isPresentation);if(!isPresentation||!app.classList.contains('presentation-step-1')||!host.current?.getClientRects().length)setOpen(false)};
-  sync();const observer=new MutationObserver(sync);
-  for(let ancestor:HTMLElement|null=host.current;ancestor;ancestor=ancestor.parentElement)observer.observe(ancestor,{attributes:true,attributeFilter:['class','style','hidden','data-detail-active','data-presentation-detail','data-detail-id']});
-  return()=>observer.disconnect();
+  let observer:MutationObserver|undefined;
+  // Stable modal portals attach their host in a parent layout effect. Resolve
+  // ancestry after that attachment, rather than permanently missing the app.
+  const frame=requestAnimationFrame(()=>{
+   const node=marker.current,app=node?.closest<HTMLElement>('.app');if(!node||!app)return;
+   host.current=id?document.getElementById(id.replace('time-compare-','trend-')):node;
+   if(!host.current)host.current=node;
+   const sync=()=>{const isPresentation=app.classList.contains('mode-presentation');setPresentation(isPresentation);if(!isPresentation||!app.classList.contains('presentation-step-1')||!host.current?.getClientRects().length)setOpen(false)};
+   sync();observer=new MutationObserver(sync);
+   for(let ancestor:HTMLElement|null=host.current;ancestor;ancestor=ancestor.parentElement)observer.observe(ancestor,{attributes:true,attributeFilter:['class','style','hidden','open','data-detail-active','data-presentation-detail','data-detail-id']});
+  });
+  return()=>{cancelAnimationFrame(frame);observer?.disconnect()};
  },[id]);
  useEffect(()=>{if(!id)return;const toggle=(event:Event)=>{const detail=(event as CustomEvent<{id:string;trigger?:HTMLElement}>).detail;if(detail?.id!==id||!presentation||!host.current?.getClientRects().length)return;trigger.current=detail.trigger||document.activeElement as HTMLElement;setOpen(value=>!value)};window.addEventListener('time-comparison-toggle',toggle);return()=>window.removeEventListener('time-comparison-toggle',toggle)},[id,presentation]);
  useEffect(()=>{if(id)window.dispatchEvent(new CustomEvent('time-comparison-state',{detail:{id,open:open&&presentation}}))},[id,open,presentation]);

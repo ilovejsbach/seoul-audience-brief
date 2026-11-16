@@ -1,0 +1,16 @@
+.analysisDetailSlot:not([hidden]){display:contents}
+.analysisDetailContent{min-width:0}
+.analysisDetailModal{width:min(1440px,calc(100vw - 48px));max-width:none;height:min(900px,calc(100dvh - 48px));max-height:none;padding:0;border:1px solid #a9bfd6;border-radius:12px;color:var(--text,#18314e);background:#fff;box-shadow:0 20px 70px #112b4c44;overflow:hidden}
+.analysisDetailModal::backdrop{background:#12243c66}
+.analysisDetailModal[open]{display:flex;flex-direction:column}
+.analysisDetailModalHeader{display:flex;align-items:center;justify-content:space-between;gap:16px;flex:none;padding:12px 20px;border-bottom:1px solid #cad7e5;background:#f5f8fc}
+.analysisDetailModalHeader h2{font-size:var(--type-panel-title,20px);line-height:1.4;margin:0}
+.analysisDetailClose{flex:none;min-height:36px;padding:4px 12px}
+.analysisDetailModalBody{flex:1;min-height:0;overflow:auto;padding:16px 20px;overscroll-behavior:contain}
+.analysisDetailModalBody .analysisDetailContent>.panel{margin:0;width:100%;max-width:none}
+.analysisDetailModalBody .trendExplorer{height:auto;min-height:100%}
+.analysisDetailModalBody .trendChart{min-height:280px}
+.analysisDetailModalBody>.analysisDetailContent>details>summary{display:none}
+.analysisDetailModalBody .timeComparison{margin-top:16px}
+.analysisDetailSelect{min-height:32px;max-width:220px;color:#254f7b;font-weight:600;border:1px solid #a9bfd6;border-radius:4px;background:#fff;padding:4px 28px 4px 10px}
+@media(max-width:767px){.analysisDetailModal{width:calc(100vw - 16px);height:calc(100dvh - 16px)}.analysisDetailModalHeader,.analysisDetailModalBody{padding:12px}.analysisDetailSelect{max-width:165px}}
