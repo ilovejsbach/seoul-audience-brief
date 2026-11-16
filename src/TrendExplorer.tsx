@@ -36,6 +36,12 @@ export default function TrendExplorer({id,points,currentKey,onSelect,unit,label,
  const base=points.find(p=>p.key===chosenBaseline)?.value??null;
  const latest=useRef({points,currentKey,onSelect});latest.current={points,currentKey,onSelect};
  useEffect(()=>{if(!active){setPlaying(false);setOptionsOpen(false)}},[active]);
+ useEffect(()=>{
+  if(!id)return;
+  const navigate=(event:Event)=>{const destination=(event as CustomEvent<{id?:string}>).detail?.id;if(destination&&destination!==id)setOptionsOpen(false)};
+  window.addEventListener('analysis-section',navigate);
+  return()=>window.removeEventListener('analysis-section',navigate);
+ },[id]);
  useEffect(()=>{if(!playing||!active||points.length<2)return;const timer=window.setInterval(()=>{const state=latest.current;const at=state.points.findIndex(p=>p.key===state.currentKey);if(at>=state.points.length-1){setPlaying(false);return}const next=state.points[Math.max(0,at+1)];if(next)state.onSelect(next.key)},speed);return()=>window.clearInterval(timer)},[playing,active,speed,points.length]);
  const series=useMemo(()=>points.map(p=>({key:p.key,original:p.value,value:p.value==null?null:view==='actual'?p.value:base==null?null:view==='difference'?p.value-base:base<=0?null:p.value/base*100})),[points,view,base]);
  const available=series.map(p=>p.value).filter((v):v is number=>v!=null&&Number.isFinite(v));

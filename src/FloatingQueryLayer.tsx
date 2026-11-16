@@ -12,7 +12,10 @@ export default function FloatingQueryLayer({host,visibilityHost,enabled,children
   const sync=()=>{
    const variables:Record<string,string>={},computed=getComputedStyle(app||node);
    for(let i=0;i<computed.length;i++){const key=computed[i];if(key.startsWith('--'))variables[key]=computed.getPropertyValue(key)}
-   const fullscreen=document.fullscreenElement,overlay=[...document.querySelectorAll<HTMLElement>('.mapOverlay')].filter(element=>element.getClientRects().length>0).at(-1),activeSurface=fullscreen||overlay;
+   const fullscreen=document.fullscreenElement;
+   // The shared app hosts native fullscreen; only its foreground map owns floating controls.
+   const fullscreenMap=fullscreen?.matches('.app')?[...fullscreen.querySelectorAll<HTMLElement>('section.mapPanel.mapIsFullscreen')].find(element=>!element.closest('[hidden]')&&element.getClientRects().length>0):null;
+   const overlay=[...document.querySelectorAll<HTMLElement>('.mapOverlay')].filter(element=>element.getClientRects().length>0).at(-1),activeSurface=fullscreenMap||fullscreen||overlay;
    const belongsToSurface=!activeSurface||activeSurface.contains(node)||node.contains(activeSurface);
    const visibleNode=visibilityHost?.current||node;
    setSnapshot({target:fullscreen||document.body,visible:!node.closest('[hidden]')&&visibleNode.getClientRects().length>0&&belongsToSurface,appClass:app?.className||'app mode-analysis',appData:attributes(app),scopeClass:scope.className,scopeData:attributes(scope),variables:variables as CSSProperties});
