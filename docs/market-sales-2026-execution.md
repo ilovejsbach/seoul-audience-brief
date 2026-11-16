@@ -62,4 +62,18 @@ npm run build
 
 ## 공개 배포
 
-소스 푸시·Pages built·공개 데이터/화면 재검수는 수행 후 아래에 기록한다. 로컬 통과를 공개 통과로 간주하지 않는다.
+런타임 소스 `d5b9307` main 푸시 완료. Pages `766957d81733a13ed3eec8b25d9985dfe5bfd02b` built와 공개 JS `index-D7d4XnL-.js`/CSS `index-7CTjbMjC.css`를 실제 Chrome에서 확인했다.
+
+공개 매출 URL `data/market-sales.json?v=2026q2-20261117`의 HTTP200/46,190,017바이트/SHA256 `c1553f8c704232ce6b964270ce13faaec9caea9ba2b6df7661cab2ac9eb5dc99`를 스트리밍으로 대조했다. 준비파일과 정확히 일치한다. [공개 파일 검증](evidence/market-sales-2026/public-data-hash.json).
+
+공개1365×768에서 다음을 실제로 확인했다.
+
+- 최신 기본값2026Q2와2025Q1–2026Q2 여섯 선택지, 관측1,566/자료없음84.
+- 종로3가2026Q2 319,445,468,035원과 기준2025Q2 298,030,034,019원/차+21,415,434,016원을 분석 팝업과 시연 팝업에서 각각 확인.
+- 팝업→본문에서 선택2026Q1로 바꾸고 기준2025Q4와 비교하면−17,604,534,413원. 여섯 분기 추이의Q2점을 누른 뒤 지도 복귀 시2026Q2/319,445,468,035원·선택 경로·140% 확대 유지.
+- 충신시장의Q1은자료없음/회색, Q2는1,303,350원/분포색. 공개에서도0으로채우지않음.
+- 검사한 여정에서 서비스 오류 로그0개.
+
+증거: `public-analysis-year-over-year.jpg`, `public-presentation-year-over-year.jpg`, `public-six-quarter-trend.jpg`, `public-missing-observed.json`.
+
+공개에서는 위 대표 회귀를 검수했고, 로컬의 모든 세부업종/연령/시간 조합을 공개에서 반복한 것은 아니다. 코드 연결/원자료 수치 검증과2026형상·행정소속 동일성 미검증, 공식미리보기/CSV 차이는 별도 상태로 유지한다.

@@ -1,0 +1,12 @@
+{
+  "publicNull": {
+    "period": "20261",
+    "value": "자료 없음",
+    "fill": "rgb(205, 212, 208)"
+  },
+  "publicKnown": {
+    "period": "20262",
+    "value": "1,303,350 원",
+    "fill": "rgb(217, 230, 242)"
+  }
+}
