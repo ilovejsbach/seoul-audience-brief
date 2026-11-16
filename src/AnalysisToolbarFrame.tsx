@@ -8,8 +8,10 @@ export default function AnalysisToolbarFrame({children}:{children:ReactNode}){
   if(!bar||!app||!header||!dashboard)return;
   const measure=()=>{
    app.style.setProperty('--app-header-height',`${header.getBoundingClientRect().height}px`);
-   app.style.setProperty('--analysis-toolbar-height',`${bar.getBoundingClientRect().height}px`);
-   app.style.setProperty('--analysis-view-height',`${Math.max(240,window.innerHeight-(bar.parentElement?.getBoundingClientRect().top??0)-window.scrollY-12)}px`);
+   // In the integrated header this bar is already part of header height.
+   app.style.setProperty('--analysis-toolbar-height',`${header.contains(bar)?0:bar.getBoundingClientRect().height}px`);
+   const view=dashboard.closest<HTMLElement>('.analysisView');
+   app.style.setProperty('--analysis-view-height',`${Math.max(240,window.innerHeight-(view?.getBoundingClientRect().top??0)-window.scrollY-12)}px`);
    // Read the document position, not the transient position while scrolling.
    app.style.setProperty('--analysis-scene-height',`${Math.max(240,window.innerHeight-dashboard.getBoundingClientRect().top-window.scrollY-12)}px`);
   };

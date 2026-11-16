@@ -1,0 +1,65 @@
+/* Query placement changes the location of one input host, never its data. */
+.app .queryPlacementToolHost{display:inline-flex;flex:none;align-items:center;position:relative}
+.app .queryPlacementButton{display:inline-flex;align-items:center;justify-content:center;width:36px;min-width:36px;height:36px;min-height:36px;margin:0;padding:6px;border:1px solid #a9bdd2;border-radius:4px;color:#24558b;background:#fff;cursor:pointer}
+.app .queryPlacementButton[aria-expanded=true]{background:#eaf1f8;border-color:#456b96}
+.queryPlacementButton:focus-visible,.queryPlacementPane :is(button,[tabindex]):focus-visible{outline:2px solid #b75a1b;outline-offset:2px}
+.queryPlacementPopover .queryPlacementChoices{display:flex;gap:6px;flex-wrap:wrap}
+.queryPlacementPopover .queryPlacementChoices>button{flex:1;min-width:82px;min-height:36px;padding:5px 8px;border:1px solid #a9bdd2;border-radius:4px;background:white;color:#24558b;font:inherit;white-space:nowrap}
+.queryPlacementPopover .queryPlacementChoices>button[aria-pressed=true]{background:#244f80;color:#fff;border-color:#244f80}
+.queryPlacementPopover .queryPlacementChoices>button:disabled{color:#77899c;background:#edf1f5;cursor:not-allowed}
+.queryPlacementPopover .queryPlacementHint{margin:10px 0 0;line-height:1.5;color:#53677d}
+.queryPlacementPopover label{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-top:10px;color:#294057}
+.queryPlacementPopover label>input{flex:1;min-width:100px}
+.queryPlacementPopover .queryPopoverBody>button{margin-top:10px;min-height:34px;padding:5px 9px;border:1px solid #a9bdd2;border-radius:4px;background:#fff;color:#24558b;font:inherit}
+.app .queryPlacementPane{display:flex;flex-direction:column;min-width:0;min-height:0;height:100%;box-sizing:border-box;position:relative}
+.app .queryPlacementPane>[hidden]{display:none!important}
+.app .queryPlacementHeader{display:flex;align-items:center;justify-content:space-between;gap:8px;flex:none;min-height:44px;padding:8px 10px;border-bottom:1px solid #c4d1df;background:#f5f8fc;color:#193b5e;cursor:move;touch-action:none}
+.app .queryPlacementHeader>h3{margin:0;font:inherit;font-weight:700;line-height:1.4}
+.app .queryPlacementHeader>button{flex:none;min-height:30px;padding:3px 7px;border:1px solid #a9bdd2;border-radius:4px;background:#fff;color:#24558b;font:inherit;white-space:nowrap}
+.app .unifiedQueryBar .queryPlacementHeader{box-sizing:border-box!important;height:44px!important;min-height:44px!important;max-height:44px!important;flex:0 0 44px!important;flex-wrap:nowrap!important;padding:6px 10px!important}
+.app .unifiedQueryBar .queryPlacementHeader>h3{font-size:var(--type-control,16px)!important;line-height:1.3!important}
+.app .queryPlacementBody{min-width:0;min-height:0}
+.app .unifiedQueryBar[data-query-placement=top] .queryPlacementBody{overflow:visible}
+.app .unifiedQueryBar:not([data-query-placement=top]){box-sizing:border-box;min-width:0;min-height:0;border:1px solid #a9bdd2;border-radius:6px;color:#294057;background:rgba(255,255,255,var(--query-floating-alpha,1));box-shadow:0 8px 26px #173e6929}
+.app .unifiedQueryBar:not([data-query-placement=top]) .queryPlacementBody{flex:1;overflow:auto;overscroll-behavior:contain;padding:10px;scrollbar-gutter:stable}
+.app .unifiedQueryBar:not([data-query-placement=top]) .unifiedQueryFields .controls{flex-direction:column!important;align-items:stretch!important;gap:8px!important}
+.app .unifiedQueryBar:not([data-query-placement=top]) .unifiedQueryFields :is(label,.querySearchSelect){flex:none;flex-direction:column;align-items:stretch;justify-content:flex-start;width:100%!important;max-width:none;min-width:0;gap:2px;padding:4px 8px;font-size:var(--type-meta,14px)}
+.app .unifiedQueryBar:not([data-query-placement=top]) .unifiedQueryFields .querySearchSelect>label{width:auto!important;padding:0;min-height:0}
+.app .unifiedQueryBar:not([data-query-placement=top]) .unifiedQueryFields :is(select,input:not([type=range]),.querySelectTrigger){width:100%!important;flex:none;min-height:32px;font-size:var(--type-control,16px)!important}
+.app .unifiedQueryBar:not([data-query-placement=top]) .unifiedQueryFields .migrationMetricButtons{align-self:stretch}
+.app .unifiedQueryBar:not([data-query-placement=top]) .unifiedQueryFields .migrationMetricButtons>button{flex:1}
+.app .unifiedQueryBar:not([data-query-placement=top]) .unifiedQueryFields :is(.queryToolbarNote,.queryQuickTime){align-self:flex-start}
+.app .unifiedQueryBar:not([data-query-placement=top]) .unifiedQueryFields :is(.queryToolbarNote,.queryQuickTime)[open]{width:100%}
+.app .unifiedQueryBar:not([data-query-placement=top]) .unifiedQueryFields :is(.queryToolbarNote,.queryQuickTime)>div{position:static;width:100%;margin-top:6px;box-shadow:none}
+/* A resized window uses its own width, not the browser width, to compact fields. */
+.app .unifiedQueryBar[data-query-placement=floating]{container-name:queryWindow;container-type:inline-size}
+@container queryWindow (min-width:620px){
+ .app .unifiedQueryBar[data-query-placement=floating] .unifiedQueryFields .controls{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr));align-items:start!important;column-gap:10px!important;row-gap:8px!important}
+ .app .unifiedQueryBar[data-query-placement=floating] .unifiedQueryFields .unifiedQueryNotice{grid-column:1/-1}
+ .app .unifiedQueryBar[data-query-placement=floating] .unifiedQueryFields .migrationMetricButtons{align-self:end}
+ .app .unifiedQueryBar[data-query-placement=floating] .unifiedQueryFields :is(.queryToolbarNote,.queryQuickTime){justify-self:start;align-self:end}
+ .app .unifiedQueryBar[data-query-placement=floating] .unifiedQueryFields :is(.queryToolbarNote,.queryQuickTime)[open]{grid-column:1/-1;justify-self:stretch}
+ /* The clock is part of the time field, rather than a vacant field-sized cell. */
+ .app .unifiedQueryBar[data-query-placement=floating] .unifiedQueryFields .controls:has(.queryQuickTime) .queryToolbarGroup>label:has(select[id*="hour"]){grid-row:1;grid-column:2;padding-right:46px}
+ .app .unifiedQueryBar[data-query-placement=floating] .unifiedQueryFields .queryQuickTime:not([open]){grid-row:1;grid-column:2;justify-self:end;align-self:end;margin:0 6px 4px 0;z-index:1}
+ .app .unifiedQueryBar[data-query-placement=floating] .unifiedQueryFields .queryQuickTime[open]{grid-row:auto;margin:0}
+}
+@container queryWindow (min-width:940px){
+ .app .unifiedQueryBar[data-query-placement=floating] .unifiedQueryFields .controls{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+.app .analysisView{position:relative}
+.app .analysisView[data-query-placement=right]>.dashboardContent{width:calc(100% - var(--query-dock-width,320px) - 8px);max-width:calc(100% - var(--query-dock-width,320px) - 8px);margin-right:calc(var(--query-dock-width,320px) + 8px)}
+.app .queryRightDockSlot{position:absolute;top:var(--query-dock-top,0);right:0;bottom:0;width:var(--query-dock-width,320px);min-width:0;min-height:0;z-index:60;display:flex;flex-direction:column}
+.app .queryRightDockSlot>.unifiedQueryBar{width:100%;height:100%;flex:1;background:#fff;--query-floating-alpha:1;box-shadow:none;border-radius:5px}
+.app .queryRightDockSlot .queryPlacementHeader{cursor:grab}
+.app .queryPlacementHeader:active{cursor:grabbing}
+.app .unifiedMapPanel[data-query-placement=right]>.mapWrap{margin-right:calc(var(--query-dock-width,320px) + 8px);width:calc(100% - var(--query-dock-width,320px) - 8px)!important;max-width:calc(100% - var(--query-dock-width,320px) - 8px)}
+.app .unifiedMapPanel .mapPanelTools:has(.queryPlacementToolHost){max-width:240px!important}
+.app .unifiedMapPanel.mapIsFullscreen>.mapPanelTools:has(.queryPlacementToolHost){width:max-content!important;max-width:none!important;min-width:0;justify-self:end;flex-wrap:nowrap;gap:8px}
+.queryPlacementResize{position:absolute;right:0;bottom:0;width:24px;height:24px;display:flex;align-items:center;justify-content:center;color:#456b96;background:#eaf1f8;cursor:nwse-resize;touch-action:none;border-top-left-radius:5px}
+.queryDockResize{position:absolute;left:-4px;top:0;bottom:0;width:8px;cursor:col-resize;touch-action:none;z-index:2}
+.queryDockResize:hover,.queryDockResize:focus-visible{background:#7c9bbf66}
+.app .queryMagnetPreview{z-index:1450;pointer-events:none;box-sizing:border-box;display:flex;align-items:center;justify-content:center;padding:16px;background:#e4eef9d9;border:2px dashed #24558b;border-radius:5px;color:#193b5e;font:inherit;font-weight:600}
+@media(pointer:coarse){.app .queryPlacementButton{width:44px;min-width:44px;height:44px;min-height:44px}.app .queryPlacementHeader>button{min-height:40px}.queryPlacementResize{width:32px;height:32px}}
+@media(pointer:coarse){.app .unifiedQueryBar .queryPlacementHeader{padding-block:1px!important}}
+@media print{.queryPlacementToolHost,.queryRightDockSlot,.unifiedQueryBar[data-query-placement=floating]{display:none!important}.app .analysisView[data-query-placement=right]>.dashboardContent{margin-right:0}}

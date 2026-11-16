@@ -1,0 +1,58 @@
+/* One real navigation row; small screens may wrap rather than shrink text. */
+@media screen{
+ .app:not(.floatingQueryLayer)>header:is(.integratedAnalysisHeader,.integratedMarketHeader){height:auto!important;min-height:52px!important;display:flex!important;align-items:center;gap:8px!important;padding:4px 12px!important;background:#fff!important;position:sticky;top:0;z-index:80;flex:none}
+ .app>header:is(.integratedAnalysisHeader,.integratedMarketHeader) .integratedBrand{flex:none;gap:6px;font-size:var(--type-control)!important;letter-spacing:0;line-height:1.4;white-space:nowrap}
+ .app>header:is(.integratedAnalysisHeader,.integratedMarketHeader) .integratedBrand .brandMark{width:28px;height:28px;font-size:var(--type-control)!important;letter-spacing:0;padding:0}
+ .app>header.integratedAnalysisHeader>.analysisToolbar{position:static!important;top:auto!important;flex:1;min-width:0;margin:0!important;background:transparent!important}
+ .app>header.integratedAnalysisHeader .analysisToolbar>.analysisNavigation{min-height:40px!important;display:flex!important;flex-wrap:nowrap;align-items:center;gap:6px!important;margin:0!important;padding:0!important;border:0!important;border-radius:0;background:transparent!important;box-shadow:none}
+ .app>header.integratedAnalysisHeader .analysisNavData{flex:1;min-width:0}
+ .app>header.integratedAnalysisHeader .tabs{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:0!important;width:100%;margin:0!important;border:0!important}
+ .app>header.integratedAnalysisHeader .tabs>button{min-width:0;min-height:36px;padding:4px 6px!important;line-height:1.4!important;white-space:nowrap}
+ .app>header.integratedAnalysisHeader .viewSwitcher{flex:none;padding-left:8px!important;margin:0!important;border-left:1px solid #d5dfe9}
+ .app>header.integratedAnalysisHeader .viewSwitcher>div{display:flex!important;align-items:center;gap:5px!important}
+ .app>header.integratedAnalysisHeader .viewSwitcher button{min-width:44px;min-height:36px;padding:4px 8px;white-space:nowrap}
+ .app>header.integratedAnalysisHeader .analysisDetailSelect{width:146px;max-width:146px!important;min-width:0;min-height:36px;padding:4px 24px 4px 8px}
+ .app>header.integratedAnalysisHeader .analysisHeadingActions{display:flex;align-items:center;gap:6px!important;flex:none;padding-left:8px!important;margin:0!important;border-left:1px solid #d5dfe9}
+ .app>header.integratedAnalysisHeader .integratedHeaderModes{margin:0!important;max-width:none;flex-wrap:nowrap;gap:0}
+ .app>header.integratedAnalysisHeader .modeToggle{display:flex;align-items:center;white-space:nowrap;padding:2px;border:1px solid #c2d0df;border-radius:5px}
+ .app>header.integratedAnalysisHeader .modeToggle button{margin:0!important;min-height:30px;padding:3px 7px!important;border:0;border-radius:3px;font-size:var(--type-meta)!important;line-height:1.4!important}
+ .app>header.integratedAnalysisHeader .analysisHeadingActions .layoutControl>button.analysisOptionButton{width:36px;min-width:36px;height:36px;padding:4px!important}
+ .app>header.integratedAnalysisHeader .analysisHeaderMore{position:relative;flex:none;margin:0}
+ .app>header.integratedAnalysisHeader .analysisHeaderMore>summary{display:flex;align-items:center;justify-content:center;width:36px;height:36px;list-style:none;cursor:pointer;color:#24558b;background:#fff;border:1px solid #a9bfd6;border-radius:4px;font-weight:600;font-size:var(--type-body);line-height:1}
+ .app>header.integratedAnalysisHeader .analysisHeaderMore>summary::-webkit-details-marker{display:none}
+ .app>header.integratedAnalysisHeader .analysisHeaderMore>div{position:absolute;right:0;top:calc(100% + 6px);z-index:120;display:flex;flex-direction:column;gap:4px;width:180px;padding:6px;background:#fff;border:1px solid #a9bfd6;border-radius:6px;box-shadow:0 6px 20px #18314e22}
+ .app>header.integratedAnalysisHeader .analysisHeaderMore>div>button{width:100%;min-height:36px;margin:0;padding:6px 8px;font:inherit;font-size:var(--type-control);text-align:left;color:#24558b;background:#fff;border:0;border-radius:3px}
+ .app>header.integratedAnalysisHeader .analysisHeaderMore>div>button:hover{background:#edf3f9}
+ .app>header:is(.integratedAnalysisHeader,.integratedMarketHeader) #market-header-slot{flex:1;min-width:0}
+ .app>header #market-header-slot[hidden]{display:none!important}
+ .app .resultTitleWithMeaning{display:flex;align-items:center;gap:8px;min-width:0}
+}
+@media screen and (max-width:1099px){
+ .app>header.integratedAnalysisHeader{align-items:flex-start;gap:6px!important}
+ .app>header.integratedAnalysisHeader .integratedBrand{padding-top:7px}
+ .app>header.integratedAnalysisHeader .integratedBrand>span:last-child{display:none}
+ .app>header.integratedAnalysisHeader .analysisToolbar>.analysisNavigation{flex-wrap:wrap!important;gap:6px!important}
+ .app>header.integratedAnalysisHeader .analysisNavData{flex-basis:100%}
+ .app>header.integratedAnalysisHeader .analysisHeadingActions{margin-left:auto!important}
+ .app>header.integratedAnalysisHeader .viewSwitcher{padding-left:0!important;border-left:0}
+}
+@media screen and (max-width:767px){
+ .app:not(.floatingQueryLayer)>header:is(.integratedAnalysisHeader,.integratedMarketHeader){padding:4px 6px!important}
+ .app>header.integratedAnalysisHeader .analysisHeadingActions{gap:4px!important;padding-left:4px!important}
+ .app>header.integratedAnalysisHeader .analysisDetailSelect{width:128px;max-width:128px!important;min-height:44px}
+ .app>header.integratedAnalysisHeader .modeToggle button{min-height:40px;padding:3px 5px!important}
+ .app>header.integratedAnalysisHeader .analysisHeaderMore>summary,.app>header.integratedAnalysisHeader .analysisHeadingActions .layoutControl>button.analysisOptionButton{width:44px;height:44px;min-width:44px}
+ .app>header.integratedAnalysisHeader .viewSwitcher button{min-height:44px}
+ .app>header.integratedMarketHeader .integratedBrand>span:last-child{display:none}
+}
+@media screen and (max-width:640px){.app>header.integratedAnalysisHeader .tabs{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+@layer dashboardTypography{
+ .app>header.integratedAnalysisHeader .analysisToolbar .tabs>button,
+ .app>header.integratedAnalysisHeader .analysisToolbar .viewSwitcher>div>button{font-size:var(--type-control)!important;line-height:1.4!important}
+}
+@media screen and (min-width:1100px){
+ .app>header.integratedAnalysisHeader .viewSwitcher{width:auto!important;max-width:none!important}
+ .app>header.integratedAnalysisHeader .viewSwitcher>div{width:auto!important}
+ .app>header.integratedAnalysisHeader .viewSwitcher>div>button{width:auto!important;flex:none!important}
+ .app>header.integratedAnalysisHeader .viewSwitcher .analysisDetailSelect{width:146px!important;flex:0 0 146px!important}
+}

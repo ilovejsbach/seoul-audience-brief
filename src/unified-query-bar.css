@@ -45,3 +45,14 @@
 @media(max-width:767px){.app .unifiedQueryFields :is(.queryToolbarNote,.queryQuickTime)[open]{flex-basis:100%;width:100%}.app .unifiedQueryFields :is(.queryToolbarNote,.queryQuickTime)>div{position:static;width:100%;margin-top:6px}}
 @media print{.unifiedQueryBar{display:none!important}}
 @layer dashboardTypography{.app .unifiedQueryFields .queryQuickTime>summary{font-size:0!important}.app .unifiedQueryFields .queryQuickTime>summary::before{font-size:var(--type-control,16px)!important}}
+/* Fullscreen keeps the same editable query bar above the map. */
+@media screen {
+.app .dashboardContent .mapPanel.unifiedMapPanel.mapIsFullscreen{grid-template-rows:auto auto minmax(0,1fr)}
+.app .dashboardContent .mapPanel.unifiedMapPanel.mapIsFullscreen>.unifiedQueryFullscreenSlot{grid-column:1/-1;grid-row:2;min-width:0}
+.app .dashboardContent .mapPanel.unifiedMapPanel.mapIsFullscreen>.mapWrap{grid-row:3}
+}
+@media screen and (max-width:720px){
+.app .dashboardContent .mapPanel.unifiedMapPanel.mapIsFullscreen{grid-template-rows:auto auto auto minmax(0,1fr)}
+.app .dashboardContent .mapPanel.unifiedMapPanel.mapIsFullscreen>.unifiedQueryFullscreenSlot{grid-row:3}
+.app .dashboardContent .mapPanel.unifiedMapPanel.mapIsFullscreen>.mapWrap{grid-row:4}
+}
