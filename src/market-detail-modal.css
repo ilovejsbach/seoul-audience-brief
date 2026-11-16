@@ -8,3 +8,7 @@
 .analysisDetailModal .marketCandidateComparison .marketCandidate p{font-size:var(--type-panel-title,20px);font-weight:600;margin:8px 0}
 .analysisDetailModal .marketCandidateComparison .marketCandidate small{font-size:var(--type-caption,14px)}
 .analysisDetailModal .marketCandidateComparison button{min-height:36px;font:inherit;padding:4px 10px;color:#234f7e;background:#fff;border:1px solid #a9bfd6;border-radius:4px;cursor:pointer}
+.app .marketQuarterComparison{min-width:0}
+.app .marketQuarterComparison .timeComparison{margin-top:0!important}
+.app .marketComparisonNotice{display:flex;align-items:center;gap:6px 10px;flex-wrap:wrap;margin:0 0 8px;color:#53677d;font-size:var(--type-label,14px);line-height:1.5}
+.app .marketComparisonNotice .dataMeaningButton{min-height:28px;padding:2px 6px}

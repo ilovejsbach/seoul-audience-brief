@@ -1,0 +1,281 @@
+{
+  "sampleRows": 5,
+  "checks": [
+    {
+      "key": [
+        "20262",
+        "3001496",
+        "CS300032"
+      ],
+      "previewField": "TMZON_00_06_SELNG_AMT",
+      "csvColumn": "시간대_00~06_매출_금액",
+      "previewLiteral": "",
+      "csvLiteral": "0"
+    },
+    {
+      "key": [
+        "20262",
+        "3001496",
+        "CS300032"
+      ],
+      "previewField": "TMZON_21_24_SELNG_AMT",
+      "csvColumn": "시간대_21~24_매출_금액",
+      "previewLiteral": "",
+      "csvLiteral": "0"
+    },
+    {
+      "key": [
+        "20262",
+        "3001496",
+        "CS300032"
+      ],
+      "previewField": "AGRDE_10_SELNG_AMT",
+      "csvColumn": "연령대_10_매출_금액",
+      "previewLiteral": "",
+      "csvLiteral": "0"
+    },
+    {
+      "key": [
+        "20262",
+        "3001496",
+        "CS300032"
+      ],
+      "previewField": "THSMON_SELNG_AMT",
+      "csvColumn": "당월_매출_금액",
+      "previewLiteral": "470230296",
+      "csvLiteral": "470230296"
+    },
+    {
+      "key": [
+        "20262",
+        "3001496",
+        "CS300032"
+      ],
+      "previewField": "FML_SELNG_AMT",
+      "csvColumn": "여성_매출_금액",
+      "previewLiteral": "19852895",
+      "csvLiteral": "198528950"
+    },
+    {
+      "key": [
+        "20262",
+        "3001496",
+        "CS300031"
+      ],
+      "previewField": "TMZON_00_06_SELNG_AMT",
+      "csvColumn": "시간대_00~06_매출_금액",
+      "previewLiteral": "",
+      "csvLiteral": "0"
+    },
+    {
+      "key": [
+        "20262",
+        "3001496",
+        "CS300031"
+      ],
+      "previewField": "TMZON_21_24_SELNG_AMT",
+      "csvColumn": "시간대_21~24_매출_금액",
+      "previewLiteral": "",
+      "csvLiteral": "0"
+    },
+    {
+      "key": [
+        "20262",
+        "3001496",
+        "CS300031"
+      ],
+      "previewField": "AGRDE_10_SELNG_AMT",
+      "csvColumn": "연령대_10_매출_금액",
+      "previewLiteral": "",
+      "csvLiteral": "0"
+    },
+    {
+      "key": [
+        "20262",
+        "3001496",
+        "CS300031"
+      ],
+      "previewField": "THSMON_SELNG_AMT",
+      "csvColumn": "당월_매출_금액",
+      "previewLiteral": "8576149332",
+      "csvLiteral": "8576149332"
+    },
+    {
+      "key": [
+        "20262",
+        "3001496",
+        "CS300031"
+      ],
+      "previewField": "FML_SELNG_AMT",
+      "csvColumn": "여성_매출_금액",
+      "previewLiteral": "5125318028",
+      "csvLiteral": "5125318028"
+    },
+    {
+      "key": [
+        "20262",
+        "3001496",
+        "CS300028"
+      ],
+      "previewField": "TMZON_00_06_SELNG_AMT",
+      "csvColumn": "시간대_00~06_매출_금액",
+      "previewLiteral": "",
+      "csvLiteral": "0"
+    },
+    {
+      "key": [
+        "20262",
+        "3001496",
+        "CS300028"
+      ],
+      "previewField": "TMZON_21_24_SELNG_AMT",
+      "csvColumn": "시간대_21~24_매출_금액",
+      "previewLiteral": "947732",
+      "csvLiteral": "947732"
+    },
+    {
+      "key": [
+        "20262",
+        "3001496",
+        "CS300028"
+      ],
+      "previewField": "AGRDE_10_SELNG_AMT",
+      "csvColumn": "연령대_10_매출_금액",
+      "previewLiteral": "36358",
+      "csvLiteral": "36358"
+    },
+    {
+      "key": [
+        "20262",
+        "3001496",
+        "CS300028"
+      ],
+      "previewField": "THSMON_SELNG_AMT",
+      "csvColumn": "당월_매출_금액",
+      "previewLiteral": "39363",
+      "csvLiteral": "39363000"
+    },
+    {
+      "key": [
+        "20262",
+        "3001496",
+        "CS300028"
+      ],
+      "previewField": "FML_SELNG_AMT",
+      "csvColumn": "여성_매출_금액",
+      "previewLiteral": "14701362",
+      "csvLiteral": "14701362"
+    },
+    {
+      "key": [
+        "20262",
+        "3001496",
+        "CS300024"
+      ],
+      "previewField": "TMZON_00_06_SELNG_AMT",
+      "csvColumn": "시간대_00~06_매출_금액",
+      "previewLiteral": "",
+      "csvLiteral": "0"
+    },
+    {
+      "key": [
+        "20262",
+        "3001496",
+        "CS300024"
+      ],
+      "previewField": "TMZON_21_24_SELNG_AMT",
+      "csvColumn": "시간대_21~24_매출_금액",
+      "previewLiteral": "52087545",
+      "csvLiteral": "52087545"
+    },
+    {
+      "key": [
+        "20262",
+        "3001496",
+        "CS300024"
+      ],
+      "previewField": "AGRDE_10_SELNG_AMT",
+      "csvColumn": "연령대_10_매출_금액",
+      "previewLiteral": "",
+      "csvLiteral": "0"
+    },
+    {
+      "key": [
+        "20262",
+        "3001496",
+        "CS300024"
+      ],
+      "previewField": "THSMON_SELNG_AMT",
+      "csvColumn": "당월_매출_금액",
+      "previewLiteral": "996465691",
+      "csvLiteral": "996465691"
+    },
+    {
+      "key": [
+        "20262",
+        "3001496",
+        "CS300024"
+      ],
+      "previewField": "FML_SELNG_AMT",
+      "csvColumn": "여성_매출_금액",
+      "previewLiteral": "569221698",
+      "csvLiteral": "569221698"
+    },
+    {
+      "key": [
+        "20262",
+        "3001496",
+        "CS300022"
+      ],
+      "previewField": "TMZON_00_06_SELNG_AMT",
+      "csvColumn": "시간대_00~06_매출_금액",
+      "previewLiteral": "",
+      "csvLiteral": "0"
+    },
+    {
+      "key": [
+        "20262",
+        "3001496",
+        "CS300022"
+      ],
+      "previewField": "TMZON_21_24_SELNG_AMT",
+      "csvColumn": "시간대_21~24_매출_금액",
+      "previewLiteral": "67978964",
+      "csvLiteral": "67978964"
+    },
+    {
+      "key": [
+        "20262",
+        "3001496",
+        "CS300022"
+      ],
+      "previewField": "AGRDE_10_SELNG_AMT",
+      "csvColumn": "연령대_10_매출_금액",
+      "previewLiteral": "6748176",
+      "csvLiteral": "6748176"
+    },
+    {
+      "key": [
+        "20262",
+        "3001496",
+        "CS300022"
+      ],
+      "previewField": "THSMON_SELNG_AMT",
+      "csvColumn": "당월_매출_금액",
+      "previewLiteral": "1653067448",
+      "csvLiteral": "1653067448"
+    },
+    {
+      "key": [
+        "20262",
+        "3001496",
+        "CS300022"
+      ],
+      "previewField": "FML_SELNG_AMT",
+      "csvColumn": "여성_매출_금액",
+      "previewLiteral": "782332113",
+      "csvLiteral": "782332113"
+    }
+  ],
+  "note": "Empty string in Sheet response versus literal 0 in official CSV is observed. We do not infer whether preview suppresses zero or raw DB is null."
+}

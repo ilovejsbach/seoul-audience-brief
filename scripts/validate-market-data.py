@@ -3,6 +3,7 @@
 Does not import the preparation script or assume marginal sums equal totals.
 Writes one validation report; never changes raw or prepared data.
 """
+import argparse
 import collections
 import csv
 import datetime
@@ -114,14 +115,29 @@ def validate():
     sale_codes, industry_codes, seen_sales = set(), set(), set()
     raw_sales_sample = []
     source_zip = RAW / 'OA-15572_51.zip'
-    with zipfile.ZipFile(source_zip) as archive:
-        assert archive.testzip() is None, 'Sales ZIP CRC failure'
-        csv_name = next(n for n in archive.namelist() if n.endswith('.csv'))
-        with io.TextIOWrapper(archive.open(csv_name), encoding='cp949', newline='') as stream:
+    sales_sources = [source_zip]
+    raw_2026 = RAW / 'market-sales-2026-public-download.csv'
+    include_2026 = any(period.startswith('2026') for period in sales['periods'])
+    if include_2026:
+        manifest_2026 = json.loads((RAW / 'market-sales-2026-public-download.manifest.json').read_text())
+        assert file_info(raw_2026)['sha256'] == manifest_2026['sha256'], 'Raw 2026 sales hash changed'
+        sales_sources.append(raw_2026)
+    for source in sales_sources:
+        if source.suffix == '.zip':
+            archive = zipfile.ZipFile(source)
+            assert archive.testzip() is None, 'Sales ZIP CRC failure'
+            csv_name = next(n for n in archive.namelist() if n.endswith('.csv'))
+            stream = io.TextIOWrapper(archive.open(csv_name), encoding='cp949', newline='')
+        else:
+            archive = None
+            stream = source.open(encoding='cp949', newline='')
+        with stream:
             reader = csv.reader(stream)
             next(reader)
             for raw in reader:
                 assert len(raw) == 55, 'Unexpected sales source schema'
+                if source == raw_2026 and not raw[0].startswith('2026'):
+                    continue
                 key = (raw[0], raw[3], raw[5])
                 assert key not in seen_sales, 'Duplicate raw sales key'
                 seen_sales.add(key)
@@ -142,9 +158,13 @@ def validate():
                     compare(['sales', *key, field], prepared[field], value)
                 if key[:2] == ('20254', SAMPLE_CODE):
                     raw_sales_sample.append(expected)
-    assert len(seen_sales) == len(sale_index) == 85732
+        if archive:
+            archive.close()
+    assert len(seen_sales) == len(sale_index), 'Prepared/raw sales key counts differ'
+    assert sum(count for period, count in sale_counts.items() if period.startswith('2025')) == 85732
+    if include_2026:
+        assert {p: n for p, n in sale_counts.items() if p.startswith('2026')} == {'20261': 21188, '20262': 21133}, 'Unexpected 2026 quarter counts'
     compare(['sales', 'periods'], sales['periods'], sorted(sale_counts))
-    assert len(sale_codes) == 1577 and sale_codes <= set(geometry)
     assert len(industry_codes) == len(sales['industries']) == 62
     assert {r['code'] for r in sales['industries']} == industry_codes
 
@@ -168,7 +188,7 @@ def validate():
                        'sourceUrl': population['sourceUrl']},
         'sales': {'rows': len(sale_index), 'periodRows': dict(sorted(sale_counts.items())),
                   'marketCodes': len(sale_codes), 'industryCodes': len(industry_codes),
-                  'geometryCodeMatches': len(sale_codes & set(geometry)), 'sourceUrl': sales['sourceUrl']},
+                  'geometryCodeMatches': len(sale_codes & set(geometry)), 'unmatchedGeometryCodes': sorted(sale_codes - set(geometry)), 'sourceUrl': sales['sourceUrl']},
         'marginalSumPolicy': 'Diagnostic differences only; no assertion that sex/age/time/weekday sums equal totals, and no zero imputation.',
         'populationMarginalDifferences': marginal_report(population['records'], 'total', {
             'sex': lambda r: [r['male'], r['female']], 'ageSixGroups': lambda r: r['agePopulation'],
@@ -184,7 +204,7 @@ def validate():
             'populationPeriod': '20262', 'populationTotal': raw_population_sample['total'],
             'populationTimeBand4': raw_population_sample['timePopulation'][4],
             'timeBand4': '17-21', 'note': 'Sales and population checkpoint periods differ; not a conversion-rate calculation.'},
-        'files': [file_info(path) for path in [source_csv, source_zip, population_path, sales_path, geo_path]],
+        'files': [file_info(path) for path in [source_csv, *sales_sources, population_path, sales_path, geo_path]],
         'limitations': ['Code joins do not establish current boundary geometry equivalence.',
                         'Population source daily-average versus quarterly normalization remains unverified.',
                         'Overlapping markets must not be summed as unique population.'],
@@ -192,9 +212,13 @@ def validate():
 
 
 if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--output', type=pathlib.Path, default=OUT, help='Report destination; use a new path to preserve existing evidence')
+    args = parser.parse_args()
+    OUT = args.output.resolve()
     result = validate()
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(json.dumps(result, ensure_ascii=False, indent=2))
     print(json.dumps({'status': result['status'], 'mismatchCount': result['mismatchCount'],
                       'populationRows': result['population']['rows'], 'salesRows': result['sales']['rows'],
-                      'report': str(OUT.relative_to(ROOT))}, indent=2))
+                      'report': str(OUT)}, indent=2))

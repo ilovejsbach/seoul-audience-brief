@@ -48,4 +48,10 @@ def main():
    for rr,published in zip(csv.DictReader(io.TextIOWrapper(f,encoding='cp949')),check['records']):
     assert published['sales']==number(rr['당월_매출_금액']);assert published['transactions']==number(rr['당월_매출_건수']);assert published['timeSales']==[number(rr[f'시간대_{b}_매출_금액']) for b in bands]
  print(json.dumps(out['provenance'],ensure_ascii=False));print('bytes', (P/'market-sales.json').stat().st_size,(P/'market-areas.geojson').stat().st_size)
-if __name__=='__main__':main()
+if __name__=='__main__':
+ main()
+ # Keep the base ZIP preparation reproducible without silently discarding an
+ # independently acquired official 2026 extension already present locally.
+ if (RAW/'market-sales-2026-public-download.manifest.json').exists():
+  import subprocess,sys
+  subprocess.run([sys.executable,str(R/'scripts/extend-market-sales-2026.py')],check=True)

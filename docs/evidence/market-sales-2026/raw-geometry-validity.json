@@ -1,0 +1,31 @@
+{
+  "source": "data/raw/commerce/OA-15560_5.zip",
+  "sourceCoordinates": "original projected coordinates; no reprojection or repair",
+  "invalidCount": 6,
+  "invalidFeatures": [
+    {
+      "code": "3110137",
+      "reason": "Ring Self-intersection[205520.8139 449403.567399999]"
+    },
+    {
+      "code": "3110270",
+      "reason": "Ring Self-intersection[208557.9972 454737.521500001]"
+    },
+    {
+      "code": "3110234",
+      "reason": "Ring Self-intersection[206619.9998 454998.6647]"
+    },
+    {
+      "code": "3110407",
+      "reason": "Ring Self-intersection[203568.7644 464305.1741]"
+    },
+    {
+      "code": "3110515",
+      "reason": "Ring Self-intersection[194089.5152 454792.161599999]"
+    },
+    {
+      "code": "3110542",
+      "reason": "Ring Self-intersection[191209.785 451263.9614]"
+    }
+  ]
+}
