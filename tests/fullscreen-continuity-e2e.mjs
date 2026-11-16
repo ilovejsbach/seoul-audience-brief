@@ -5,7 +5,8 @@ export async function runFullscreenContinuity(tab){
  const assertFull=async()=>{const value=await state();if(value.panels.length!==1||Math.abs(value.panels[0].height-value.height)>2||Math.abs(value.panels[0].width-value.width)>2)throw Error('Fullscreen continuity lost: '+JSON.stringify(value));return value};
  const results=[];
  await b('지도 전체화면 보기').click();results.push({case:'진입',...await assertFull()});
- for(const dataset of ['mobility','migration','commerce','population']){await p.getByRole('combobox',{name:'지도 데이터',exact:true}).filter({visible:true}).selectOption(dataset);results.push({case:'자료 전환 '+dataset,...await assertFull()})}
+ const titles={mobility:'시간별 유입·유출 비교',migration:'지역별 전입·전출 비교',commerce:'지역별 추정매출 비교',population:'지역별 생활인구 비교'};
+ for(const dataset of ['mobility','migration','commerce','population']){await p.getByRole('combobox',{name:'지도 데이터',exact:true}).filter({visible:true}).selectOption(dataset);await p.locator('section.mapPanel.mapIsFullscreen').filter({visible:true}).getByRole('heading',{name:titles[dataset],exact:true}).waitFor({state:'visible'});results.push({case:'자료 전환 '+dataset,...await assertFull()})}
  await b('조회 옵션').click();await p.getByRole('combobox',{name:'조회 시각',exact:true}).filter({visible:true}).selectOption('12');
  const panel=p.locator('section.mapPanel.mapIsFullscreen').filter({visible:true});
  if(!(await panel.locator('.querySummary').innerText()).includes('12:00'))throw Error('Query hour not applied');

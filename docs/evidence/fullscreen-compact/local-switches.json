@@ -1,0 +1,50 @@
+[
+  {
+    "dataset": "mobility",
+    "native": false,
+    "panels": [
+      {
+        "height": 949,
+        "overlay": true,
+        "title": "시간별 유입·유출 비교"
+      }
+    ],
+    "viewport": 949
+  },
+  {
+    "dataset": "migration",
+    "native": false,
+    "panels": [
+      {
+        "height": 949,
+        "overlay": true,
+        "title": "지역별 전입·전출 비교"
+      }
+    ],
+    "viewport": 949
+  },
+  {
+    "dataset": "commerce",
+    "native": false,
+    "panels": [
+      {
+        "height": 949,
+        "overlay": true,
+        "title": "지역별 추정매출 비교"
+      }
+    ],
+    "viewport": 949
+  },
+  {
+    "dataset": "population",
+    "native": false,
+    "panels": [
+      {
+        "height": 949,
+        "overlay": true,
+        "title": "지역별 생활인구 비교"
+      }
+    ],
+    "viewport": 949
+  }
+]

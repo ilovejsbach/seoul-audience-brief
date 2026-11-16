@@ -1,0 +1,107 @@
+{
+  "source": "d52ab5c",
+  "results": [
+    {
+      "case": "진입",
+      "height": 768,
+      "native": false,
+      "panels": [
+        {
+          "fallback": true,
+          "height": 768,
+          "title": "지역별 생활인구 비교",
+          "width": 1366
+        }
+      ],
+      "width": 1366
+    },
+    {
+      "case": "자료 전환 mobility",
+      "height": 768,
+      "native": false,
+      "panels": [
+        {
+          "fallback": true,
+          "height": 768,
+          "title": "시간별 유입·유출 비교",
+          "width": 1366
+        }
+      ],
+      "width": 1366
+    },
+    {
+      "case": "자료 전환 migration",
+      "height": 768,
+      "native": false,
+      "panels": [
+        {
+          "fallback": true,
+          "height": 768,
+          "title": "지역별 전입·전출 비교",
+          "width": 1366
+        }
+      ],
+      "width": 1366
+    },
+    {
+      "case": "자료 전환 commerce",
+      "height": 768,
+      "native": false,
+      "panels": [
+        {
+          "fallback": true,
+          "height": 768,
+          "title": "지역별 추정매출 비교",
+          "width": 1366
+        }
+      ],
+      "width": 1366
+    },
+    {
+      "case": "자료 전환 population",
+      "height": 768,
+      "native": false,
+      "panels": [
+        {
+          "fallback": true,
+          "height": 768,
+          "title": "지역별 생활인구 비교",
+          "width": 1366
+        }
+      ],
+      "width": 1366
+    },
+    {
+      "case": "시간 조건과 실제 지도 값 유지",
+      "height": 768,
+      "native": false,
+      "panels": [
+        {
+          "fallback": true,
+          "height": 768,
+          "title": "지역별 생활인구 비교",
+          "width": 1366
+        }
+      ],
+      "width": 1366
+    },
+    {
+      "case": "구에서 동 지도 확대 유지",
+      "height": 768,
+      "native": false,
+      "panels": [
+        {
+          "fallback": true,
+          "height": 768,
+          "title": "지역별 생활인구 비교",
+          "width": 1366
+        }
+      ],
+      "width": 1366
+    },
+    {
+      "case": "동 상세 추이 전환은 명시적 전체화면 종료",
+      "passed": true
+    }
+  ]
+}
