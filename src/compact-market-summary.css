@@ -16,6 +16,11 @@
 .app .marketTrendDrawer .trendSvgWrap{flex:1;min-height:180px}
 .app .marketTrendDrawer .trendSvgWrap>svg{height:100%;min-height:180px;max-height:none}
 .app .marketMap[data-trend-open=true]>.marketCompactLegend{display:none}
+.app .marketMap[data-trend-open=true] .marketMapSvg{pointer-events:none}
+.app .marketMapBreadcrumb{display:flex;align-items:center;gap:6px;flex-wrap:wrap;min-width:0;font-size:14px;color:#53677c}
+.app .marketMapBreadcrumb button{border:0;background:transparent;padding:2px 4px;min-height:28px;color:#24558b;font:inherit;cursor:pointer}
+.app .marketMapBreadcrumb [aria-current]{color:#142d49;font-weight:700;overflow-wrap:anywhere;word-break:keep-all}
+.app .marketMapSvg .marketFocusedOutline{stroke:#bc5b18;fill:none;pointer-events:none;filter:drop-shadow(0 0 1px #fff)}
 .app .marketTrendDrawerHeader>div{display:none}
 .app .marketTrendDrawerHeader{justify-content:flex-end;padding-bottom:4px;margin-bottom:4px;border:0}
 .app .marketTrendDrawerHeader button{padding:3px 8px;min-height:30px}
@@ -26,6 +31,8 @@
 .app .marketTrendDrawer .trendCurrent{display:flex;flex-direction:row;align-items:center;gap:8px;text-align:right}
 .app .marketTrendDrawer .trendCurrent strong{font-size:28px}
 .app .marketTrendDrawer .trendTitleLine h2{font-size:20px}
+.app.mode-presentation .marketTrendDrawer .trendTitleLine h2{font-size:24px}
+.app.mode-presentation .marketTrendDrawer .trendCurrent strong{font-size:36px}
 .app .marketTrendDrawer .chartAxisNotice{margin-block:4px;flex:none}
 .app .marketTrendDrawer .trendSvgWrap{min-height:100px;overflow:hidden}
 .app .marketTrendDrawer .trendSvgWrap>svg{min-height:0}
