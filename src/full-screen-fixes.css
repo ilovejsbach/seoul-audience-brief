@@ -2,16 +2,34 @@
 .app .compareGrid article>.candidateDetail{display:block;max-width:100%;width:max-content;margin:10px 0 12px;white-space:normal;line-height:1.5}
 .app .compareGrid article>strong{display:block;max-width:100%;overflow-wrap:anywhere;line-height:1.3}
 .app .compareGrid article>p{clear:both}
-/* A briefing distribution is a complete scene, not a map below the fold. */
+/* A briefing distribution gives the remaining scene to its map, not its controls. */
 .app.mode-presentation.presentation-step-1 #distribution-population{overflow:hidden;min-height:0}
-.app.mode-presentation.presentation-step-1 #distribution-population>.distributionComparison{display:flex;flex-direction:column;box-sizing:border-box;height:100%;min-height:0;overflow:hidden;padding:16px 20px}
-.app.mode-presentation.presentation-step-1 .distributionComparison>:not(.distributionMaps){flex:none}
-.app.mode-presentation.presentation-step-1 .distributionComparison>.distributionMaps{flex:1;min-height:120px;margin-top:8px;overflow:hidden}
-.app.mode-presentation.presentation-step-1 .distributionMaps figure{display:flex;flex-direction:column;min-height:0;max-height:100%}
-.app.mode-presentation.presentation-step-1 .distributionMaps figcaption{flex:none;padding:6px 10px}
-.app.mode-presentation.presentation-step-1 .distributionMaps .distributionSvg{flex:1;min-height:0;max-height:none;height:100%;width:100%}
-.app.mode-presentation.presentation-step-1 .distributionComparison .distributionNote{margin-top:6px;line-height:1.5}
-.app.mode-presentation.presentation-step-1 .distributionComparison .distributionLegendCompact{margin-top:4px}
+.app.mode-presentation.presentation-step-1 #distribution-population>.distributionComparison{position:relative;display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-rows:auto auto minmax(0,1fr);gap:6px 12px;box-sizing:border-box;height:100%;min-height:0;overflow:hidden;padding:10px 12px 38px}
+.app.mode-presentation.presentation-step-1 .distributionComparison>.panelTitle{grid-column:1/-1;grid-row:1;margin:0;padding:0;min-height:0}
+.app.mode-presentation.presentation-step-1 .distributionComparison>.panelTitle>div{display:flex;align-items:center;flex-wrap:wrap;gap:3px 10px;width:100%;min-width:0}
+.app.mode-presentation.presentation-step-1 .distributionComparison .panelTitle h2{margin:0;line-height:1.35}
+.app.mode-presentation.presentation-step-1 .distributionComparison .distributionContext{margin:0;line-height:1.4;font-size:14px!important}
+.app.mode-presentation.presentation-step-1 .distributionComparison>.distributionControls{grid-column:1;grid-row:2;display:flex;align-items:center;gap:6px 12px;flex-wrap:wrap;min-width:0;margin:0}
+.app.mode-presentation.presentation-step-1 .distributionControls .distributionTabs{margin:0;padding:0;flex:none;min-width:0}
+.app.mode-presentation.presentation-step-1 .distributionControls .distributionTabs button{min-height:32px;padding:4px 9px;line-height:1.4}
+.app.mode-presentation.presentation-step-1 .distributionControls>label{display:flex;align-items:center;gap:6px;min-width:0;line-height:1.4;white-space:nowrap}
+.app.mode-presentation.presentation-step-1 .distributionControls select{min-width:80px;min-height:32px;padding:4px 7px;line-height:1.4}
+.app.mode-presentation.presentation-step-1 .distributionComparison>.mapManualRange{grid-column:2;grid-row:2;align-self:center;position:relative;min-width:0;max-width:220px;margin:0}
+.app.mode-presentation.presentation-step-1 .distributionComparison>.mapManualRange>.mapManualRangeSummary{display:none}
+.app.mode-presentation.presentation-step-1 .distributionComparison>.mapManualRange>details>summary{min-height:32px;padding:4px 8px;box-sizing:border-box;white-space:nowrap}
+.app.mode-presentation.presentation-step-1 .distributionComparison>.mapManualRange>details[open]{position:absolute;right:0;top:0;width:320px;max-width:calc(100vw - 40px);max-height:min(420px,60dvh);overflow:auto;z-index:30;box-shadow:0 5px 20px #173e6933}
+.app.mode-presentation.presentation-step-1 .distributionComparison>.distributionMaps{grid-column:1/-1;grid-row:3;display:grid;min-height:0;max-height:100%;height:100%;margin:0;gap:12px;overflow:hidden}
+.app.mode-presentation.presentation-step-1 .distributionMaps figure{display:flex;flex-direction:column;min-height:0;height:100%;max-height:100%;border-radius:6px}
+.app.mode-presentation.presentation-step-1 .distributionMaps figcaption{flex:none;padding:3px 8px;line-height:1.4;font-size:14px!important}
+.app.mode-presentation.presentation-step-1 .distributionMaps .distributionSvg{display:block;flex:1;min-height:0;max-height:none;height:100%;width:100%}
+.app.mode-presentation.presentation-step-1 .distributionComparison .distributionNote{display:none}
+.app.mode-presentation.presentation-step-1 .distributionComparison>.distributionLegendCompact{position:absolute;right:16px;bottom:6px;margin:0;min-height:28px;max-width:calc(100% - 32px);z-index:5;background:white;padding:0 5px;border-radius:4px}
+@media(max-width:1000px){
+ .app.mode-presentation.presentation-step-1 #distribution-population>.distributionComparison{column-gap:6px}
+ .app.mode-presentation.presentation-step-1 .distributionComparison>.mapManualRange{max-width:165px}
+ .app.mode-presentation.presentation-step-1 .distributionControls{gap:4px 8px}
+ .app.mode-presentation.presentation-step-1 .distributionControls .distributionTabs button{padding-inline:6px}
+}
 .app .timeComparisonFloating .timeComparisonValues strong{font-size:24px!important;line-height:1.35;word-break:keep-all;overflow-wrap:anywhere}
 .app.mode-presentation .movementConnections .connectionDirections{margin-top:12px}
 .app.mode-presentation .movementConnections .connectionDirection li{padding:8px 0}
