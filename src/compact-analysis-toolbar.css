@@ -22,3 +22,6 @@
 @media print{.app .analysisToolbar{display:none}.app:has(.analysisView:not([hidden]))>header{position:static}}
 
 @media screen and (min-width:1100px){.app.mode-presentation .analysisView:not([hidden]){height:var(--analysis-view-height,calc(100dvh - 100px))}}
+/* Selected titles keep the same treatment during hover and keyboard focus. */
+.app .analysisToolbar .analysisNavigation .tabs>button:is(.active,[aria-selected=true]),
+.app .analysisToolbar .analysisNavigation .tabs>button:is(.active,[aria-selected=true]):is(:hover,:focus,:focus-visible){background:transparent!important;color:#174f87!important;border:0!important}
