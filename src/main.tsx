@@ -50,6 +50,7 @@ import './page-alignment.css';
 import './tableau-query-integration.css';
 import './full-screen-fixes.css';
 import './compact-analysis-toolbar.css';
+import './responsive-type-tokens.css';
 type Region={code:string;name:string;districtCode?:string};
 type Pop={columns:string[];rows:(string|number|null)[][]};
 type IndexEntry={path:string;date:string;rows?:number};

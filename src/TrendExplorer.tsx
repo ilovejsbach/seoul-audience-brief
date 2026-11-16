@@ -22,7 +22,7 @@ export default function TrendExplorer({id,points,currentKey,onSelect,unit,label,
  const [comparisonOpen,setComparisonOpen]=useState(false);
  const chartRef=useRef<HTMLDivElement>(null);
  const [chartSize,setChartSize]=useState<{width:number;height:number}|null>(null);
- useEffect(()=>{const node=chartRef.current;if(!node)return;const sync=()=>{const presentation=!!node.closest('.mode-presentation.presentation-step-1,.marketTrendDrawer');const rect=node.getBoundingClientRect();setChartSize(presentation&&rect.width>0&&rect.height>0?{width:rect.width,height:rect.height}:null)};const resize=new ResizeObserver(sync);resize.observe(node);const app=node.closest('.app'),observer=new MutationObserver(sync);if(app)observer.observe(app,{attributes:true,attributeFilter:['class']});sync();return()=>{resize.disconnect();observer.disconnect()}},[]);
+ useEffect(()=>{const node=chartRef.current;if(!node)return;const sync=()=>{const rect=node.getBoundingClientRect();setChartSize(rect.width>0&&rect.height>0?{width:rect.width,height:rect.height}:null)};const resize=new ResizeObserver(sync);resize.observe(node);const app=node.closest('.app'),observer=new MutationObserver(sync);if(app)observer.observe(app,{attributes:true,attributeFilter:['class']});sync();return()=>{resize.disconnect();observer.disconnect()}},[]);
  useEffect(()=>{const state=(event:Event)=>{const detail=(event as CustomEvent).detail;if(detail?.id===timeComparisonId)setComparisonOpen(!!detail.open)};window.addEventListener('time-comparison-state',state);return()=>window.removeEventListener('time-comparison-state',state)},[timeComparisonId]);
  const optionId='graph-options-'+useId().replace(/:/g,'');
  const optionGeometry=useFloatingPanel(sectionRef,optionsOpen,{viewport:true,width:440,height:390,minHeight:220});
@@ -52,7 +52,7 @@ export default function TrendExplorer({id,points,currentKey,onSelect,unit,label,
  const observed=points.filter((p):p is {key:string;value:number}=>p.value!=null&&Number.isFinite(p.value));
  const peak=observed.reduce<{key:string;value:number}|null>((best,p)=>!best||p.value>best.value?p:best,null);
  const prior=points[currentIndex-1]?.value??null,current=points[currentIndex]?.value??null,delta=prior==null||current==null?null:current-prior;
- const width=chartSize?.width||1000,height=chartSize?.height||260,left=126,right=chartSize?80:25,top=20,bottom=43;
+ const width=chartSize?.width||1000,height=chartSize?.height||260,left=width<600?90:126,right=width<600?28:chartSize?80:25,top=20,bottom=43;
  const plotW=width-left-right,plotH=height-top-bottom;
  const x=(i:number)=>left+(points.length<=1?plotW/2:i/(points.length-1)*plotW);
  const y=(value:number)=>top+(high-value)/(high-low)*plotH;
@@ -60,8 +60,9 @@ export default function TrendExplorer({id,points,currentKey,onSelect,unit,label,
  const selected=series.find(p=>p.key===(hovered||currentKey));const visibleSelected=selected||series.find(p=>p.key===currentKey);
  const viewUnit=view==='index'?'지수':unit;
  const viewLabel=view==='actual'?'실제값':view==='difference'?'기준 대비 증감':'기준 시점 = 100';
- const ticks=Array.from({length:5},(_,i)=>low+(high-low)/4*i);
- const displayTicks=Array.from(new Set([0,Math.max(0,points.length-1),...points.map((_,i)=>i).filter(i=>i%Math.max(1,Math.ceil(points.length/9))===0)])).sort((a,b)=>a-b);
+ const tickCount=plotH<110?3:5;
+ const ticks=Array.from({length:tickCount},(_,i)=>low+(high-low)/(tickCount-1)*i);
+ const displayTicks=Array.from(new Set([0,Math.max(0,points.length-1),...points.map((_,i)=>i).filter(i=>i%Math.max(1,Math.ceil(points.length/Math.max(1,Math.floor(plotW/110))))===0)])).sort((a,b)=>a-b);
  const choose=(key:string)=>{setHovered(null);onSelect(key)};
  const candidateUnavailable=!!compareActionLabel&&(/이미/.test(compareActionLabel)||/해제 후/.test(compareActionLabel));
  const candidateText=compareActionLabel&&/이미/.test(compareActionLabel)?'후보에 담김':compareActionLabel&&/해제 후/.test(compareActionLabel)?'후보 3개':compareActionLabel&&/보기|열기/.test(compareActionLabel)?'후보 보기':'후보에 추가';

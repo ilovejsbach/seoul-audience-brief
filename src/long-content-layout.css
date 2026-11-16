@@ -31,6 +31,6 @@
 .app .dashboardContent .timeComparisonHeading{padding:0;border:0;position:static;box-shadow:none}
 /* Layered type rules must preserve the SVG camera's inverse label scaling. */
 @layer dashboardTypography{
- .app:is(.mode-analysis,.mode-presentation) .mapWorkspace svg .marketDistrictContext text{font-size:var(--market-context-label-size,14px)!important}
+ .app:is(.mode-analysis,.mode-presentation) .mapWorkspace svg .marketDistrictContext text{font-size:var(--type-label)!important}
 }
 .app .mapWorkspace .mapWorkspaceHeader .workspaceDetailsToggle>span{color:#fff!important}

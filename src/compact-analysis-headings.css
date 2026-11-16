@@ -54,4 +54,4 @@
 .app .distributionComparison .distributionContext,.app .migrationBreakdownHeading h2,.app .trendTitleLine h2{margin:0;min-width:0;max-width:100%;overflow-wrap:anywhere;word-break:keep-all}
 .app .migrationBreakdownHeading{margin:10px 0}
 .app .migrationBreakdownHeading>span,.app .migrationBreakdownHeading>a,.app .trendInterpretationNote{color:#53677c;line-height:1.5}
-@layer dashboardTypography{.app:is(.mode-analysis,.mode-presentation) :is(.trendInterpretationNote,.migrationBreakdownHeading>span,.migrationBreakdownHeading>a){font-size:14px!important}}
+@layer dashboardTypography{.app:is(.mode-analysis,.mode-presentation) :is(.trendInterpretationNote,.migrationBreakdownHeading>span,.migrationBreakdownHeading>a){font-size:var(--type-label)!important}}

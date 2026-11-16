@@ -39,8 +39,8 @@
 .app .marketTrendDrawer .trendAxis{font-size:14px}
 @media(max-width:800px){.app .marketTrendDrawer>.trendExplorer{overflow:auto}.app .marketTrendDrawer .trendSvgWrap{flex:none;min-height:180px}}
 @layer dashboardTypography{
- .app.mode-analysis .marketMapSummaryRow>:is(.marketSummaryCondition,.marketSummaryNote){font-size:14px!important}
- .app.mode-presentation .marketMapSummaryRow>:is(.marketSummaryCondition,.marketSummaryNote){font-size:14px!important}
+ .app.mode-analysis .marketMapSummaryRow>:is(.marketSummaryCondition,.marketSummaryNote){font-size:var(--type-label)!important}
+ .app.mode-presentation .marketMapSummaryRow>:is(.marketSummaryCondition,.marketSummaryNote){font-size:var(--type-label)!important}
 }
 .app .marketRankItem{display:flex;align-items:center;gap:5px;min-width:0;margin-bottom:6px}
 .app .marketRankItem>.marketRank{flex:1;min-width:0;margin-bottom:0;align-items:center}

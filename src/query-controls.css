@@ -37,7 +37,10 @@
 .querySearchResults>button:hover,.querySearchResults>button[aria-selected=true]{background:#eaf1f8;border-color:#98b2cc;color:#173e69}.querySearchResults>button:disabled{color:#687787;opacity:.65;cursor:default}
 .querySearchEmpty p{margin:5px 0 8px;color:#53677c}.queryPopover :is(button,input):focus-visible,.querySummary button:focus-visible,.querySearchSelect :is(select,button):focus-visible,.queryFilterGroup>summary:focus-visible{outline:2px solid #b75a1b;outline-offset:2px}
 @layer dashboardTypography{
- .app:is(.mode-analysis,.mode-presentation) :is(.querySummary,.querySummary *,.querySearchSelect label,.querySearchSelect select,.querySearchSelect button,.queryFilterGroup>summary,.queryFilterGroup>summary *),.queryPopover,.queryPopover *{font-size:14px!important}
+ .app:is(.mode-analysis,.mode-presentation) :is(.querySummary,.querySummary *,.querySearchSelect label,.querySearchSelect select,.querySearchSelect button,.queryFilterGroup>summary,.queryFilterGroup>summary *),.queryPopover,.queryPopover *{font-size:var(--type-label)!important}
 }
 @media(max-width:700px){.querySummary{align-items:flex-start;flex-wrap:wrap}.querySummaryLabel{width:100%}}
 @media print{.queryPopover,.queryChipClear,.querySummaryMore{display:none!important}.queryConditionChip{border-color:#aabbd0}.queryFilterGroup>summary{cursor:default}}
+
+/* Controls share the device role, including panels rendered outside the app. */
+@layer dashboardTypography{.app:is(.mode-analysis,.mode-presentation) .querySearchSelect :is(select,input,button),.queryPopover :is(input,select,textarea,button,option){font-size:var(--type-control,var(--type-body))!important}}

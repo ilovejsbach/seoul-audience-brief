@@ -35,10 +35,13 @@
 .app .graphOptionsPanel summary{cursor:pointer;color:#24558b;line-height:1.5}
 .app .graphOptionsPanel .floatingPanelResize{min-width:24px;min-height:24px;padding:0}
 @layer dashboardTypography{
- .app:is(.mode-analysis,.mode-presentation) :is(.trendHeaderActions>button,.trendPlaybackButtons>button,.trendPlayStatus,.graphOptionsPanel,.graphOptionsPanel h3,.graphOptionsPanel label,.graphOptionsPanel input,.graphOptionsPanel select,.graphOptionsPanel button,.graphOptionsPanel summary,.graphOptionsPanel p,.graphOptionsPanel span,.graphOptionsPanel b,.graphOptionsPanel legend){font-size:14px!important;line-height:1.5!important}
+ .app:is(.mode-analysis,.mode-presentation) :is(.trendHeaderActions>button,.trendPlaybackButtons>button,.trendPlayStatus,.graphOptionsPanel,.graphOptionsPanel h3,.graphOptionsPanel label,.graphOptionsPanel input,.graphOptionsPanel select,.graphOptionsPanel button,.graphOptionsPanel summary,.graphOptionsPanel p,.graphOptionsPanel span,.graphOptionsPanel b,.graphOptionsPanel legend){font-size:var(--type-label)!important;line-height:1.5!important}
 }
 @media(max-width:650px){.app .trendHeadingAside{align-items:flex-start;width:100%}.app .trendHeaderActions{justify-content:flex-start}.app .dashboardContent .panel.trendExplorer .trendPlayback{gap:7px}}
 @media print{.app :is(.trendHeaderActions,.graphOptionsPanel){display:none!important}}
 .app .trendHeaderActions>button:disabled{opacity:1;cursor:default;color:#53677c;background:#edf2f6;border-color:#c8d3df}
 .app .graphOptionsPanel .graphOptionsContext{display:flex;flex-direction:column;gap:3px;margin:0 0 8px;padding-bottom:6px;border-bottom:1px solid #d2dce7;overflow-wrap:anywhere;word-break:keep-all;line-height:1.5;color:#53677c}
 .app .graphOptionsPanel .graphOptionsContext b{color:#233d58;font-weight:600}
+
+/* Controls share the device role, including panels rendered outside the app. */
+@layer dashboardTypography{.app:is(.mode-analysis,.mode-presentation) :is(.graphOptionsPanel input,.graphOptionsPanel select,.graphOptionsPanel button,.trendHeaderActions>button,.trendPlaybackButtons>button){font-size:var(--type-control,var(--type-body))!important}}

@@ -1,0 +1,68 @@
+/* R07: one role scale per viewport and mode, shared with body portals.
+   Breakpoints describe available CSS width, never a guessed device model. */
+:root{font-size:100%}
+body:has(.app),.app{
+ --font-function-size:var(--type-control);--font-information-size:var(--type-body);--font-information-key-size:var(--type-key);--font-infographic-note-size:var(--type-meta);--font-window-size:var(--type-panel);
+ --ink-function:#24558b;--ink-information:#142d49;--ink-secondary:#53677c;--ink-positive:#24558b;--ink-negative:#ad501b;
+}
+body:has(.app.mode-analysis),.app.mode-analysis{
+ --type-meta:.75rem;--type-label:.875rem;--type-body:1rem;--type-panel:1.25rem;--type-heading:1.75rem;--type-key:2.25rem;--type-control:.875rem;
+ --type-map-label:var(--type-label);--type-map-label-full:var(--type-body);
+ --layout-body:var(--type-body);--layout-label:var(--type-label);--layout-title:var(--type-panel);--layout-kpi:var(--type-key)
+}
+body:has(.app.mode-presentation),.app.mode-presentation{
+ --type-meta:.875rem;--type-label:var(--type-meta);--type-body:1.125rem;--type-panel:1.5rem;--type-heading:1.5rem;--type-key:2.25rem;--type-control:var(--type-body);
+ --type-map-label:var(--type-meta);--type-map-label-full:var(--type-body);
+ --layout-body:var(--type-body);--layout-label:var(--type-label);--layout-title:var(--type-heading);--layout-kpi:var(--type-key)
+}
+@media screen and (min-width:768px) and (max-width:1199px){
+ body:has(.app.mode-analysis),.app.mode-analysis{--type-heading:1.5rem;--type-key:2rem;--type-control:1rem}
+ body:has(.app.mode-presentation),.app.mode-presentation{--type-body:1rem;--type-key:2rem;--type-control:1rem}
+}
+@media screen and (max-width:767px){
+ body:has(.app.mode-analysis),.app.mode-analysis{--type-panel:1.125rem;--type-heading:1.25rem;--type-key:1.75rem;--type-control:1rem}
+ body:has(.app.mode-presentation),.app.mode-presentation{--type-body:1rem;--type-panel:1.25rem;--type-heading:1.25rem;--type-key:1.75rem;--type-control:1rem}
+}
+@layer dashboardTypography{
+ .app:is(.mode-analysis,.mode-presentation) :is(input,select,textarea),
+ .queryPopover :is(input,select,textarea){font-size:var(--font-function-size)!important}
+ .app:is(.mode-analysis,.mode-presentation) :is(.mapColorRangeControls,.chartAxisControls,.layoutOptions,.mapPanelTools,.mapPrimaryFilters) :is(input,select,textarea){font-size:var(--type-control)!important}
+ body:has(.app:is(.mode-analysis,.mode-presentation)) .dataMeaningTooltip,
+ body:has(.app:is(.mode-analysis,.mode-presentation)) .dataMeaningTooltip :is(p,li,section,b,strong){font-size:var(--font-information-size)!important}
+ body:has(.app:is(.mode-analysis,.mode-presentation)) .dataMeaningTooltip .dataMeaningTerm{font-size:var(--font-window-size)!important}
+ body:has(.app:is(.mode-analysis,.mode-presentation)) .dataMeaningTooltip .dataMeaningSource{font-size:var(--font-infographic-note-size)!important}
+ .app:is(.mode-analysis,.mode-presentation) .graphOptionsPanel :is(.trendExplanation,.graphAxisInterpretation) p{font-size:var(--type-body)!important}
+ .app:is(.mode-analysis,.mode-presentation) :is(.mapWorkspacePanelHeader,.graphOptionsPanel>header,.mapOptionsPanel>header) :is(h2,h3){font-size:var(--font-window-size)!important;font-weight:600!important}
+}
+.app :is(.mapWorkspacePanelHeader,.graphOptionsPanel>header,.mapOptionsPanel>header) :is(h2,h3){color:var(--ink-information)}
+.app :is(.queryOptionGroup label,.marketControls label,.chartAxisControls label){color:var(--ink-secondary);font-weight:500}
+.app :is(.marketValue,.trendCurrent strong){color:var(--ink-information);font-weight:600}
+.app .trendExplorer .trendSvgWrap>svg{min-width:0!important;width:100%;display:block}
+.app .mapWorkspace .mapWorkspaceHeader button.workspaceDetailsToggle{background:#24558b!important;border-color:#24558b!important;color:#fff!important}
+@media screen and (min-width:768px),screen and (max-width:767px) and (min-height:750px){
+ .app .mapWorkspace[data-magnetic-workspace=true]{height:var(--workspace-canvas-height,calc(100dvh - 90px));min-height:0}
+ .app .mapWorkspace[data-magnetic-workspace=true] .mapWorkspaceBody{min-height:0}
+}
+@media screen and (max-width:1199px){
+ .app :is(button,input,select,textarea),.queryPopover :is(button,input,select,textarea){min-height:44px}
+ .app .queryChipClear{min-width:44px}
+ .app .mapWorkspaceHeaderActions{flex-wrap:wrap}
+}
+@media screen and (max-width:767px){
+ /* Small screens show one task surface; options and evidence are opened on demand. */
+ .app .mapWorkspaceHeaderLeft{flex-basis:100%;flex-wrap:wrap}
+ .app .mapWorkspaceHeader h1{flex:1;min-width:0}
+ .app .marketQueryResultRow>.querySummary{flex-basis:100%}
+ .app .marketRankItem>.marketRank{flex-wrap:wrap}
+ .app .marketRankItem>.marketRank>b{margin-left:auto}
+ .app .mapWorkspaceBody{min-height:480px}
+ .app .mapWorkspaceHeaderActions{gap:4px;width:100%}
+ .app .marketTrendDrawer .trendHeadingAside{flex-direction:column;align-items:stretch}
+ .app .marketTrendDrawer .trendCurrent{justify-content:space-between}
+ .app .marketTrendDrawer .trendHeaderActions{flex-wrap:wrap}
+ .app .marketTrendDrawer{position:fixed;inset:8px;z-index:1200}
+ .app .marketTrendDrawer>.trendExplorer{overflow:hidden}
+ .app .marketTrendDrawer .trendSvgWrap{flex:1;min-height:180px;height:0}
+ .app .trendSvgWrap{min-height:180px}
+ .app .trendPlaybackButtons>button{min-height:44px!important;min-width:44px!important}
+}

@@ -32,8 +32,11 @@ export default function MapWorkspace({children,controls,details,title,onClose,re
  const [viewport,setViewport]=useState(()=>({width:window.innerWidth,height:window.innerHeight}));
  const [floatingFront,setFloatingFront]=useState<Panel>('controls');
  const [focusReveal,setFocusReveal]=useState({controls:false,details:false});
+ const [compactReveal,setCompactReveal]=useState({controls:false,details:false});
+ const compactViewport=viewport.width<768;
+ useLayoutEffect(()=>setCompactReveal({controls:false,details:false}),[compactViewport]);
  useLayoutEffect(()=>setFocusReveal({controls:false,details:false}),[focusContent]);
- const revealFloating=(panel:Panel)=>setFocusReveal(previous=>({...previous,[panel]:true}));
+ const revealFloating=(panel:Panel)=>{setFocusReveal(previous=>({...previous,[panel]:true}));setCompactReveal(previous=>({...previous,[panel]:true}))};
  useLayoutEffect(()=>{const sync=()=>setViewport({width:Math.min(window.innerWidth,document.documentElement.clientWidth||window.innerWidth),height:Math.min(window.innerHeight,document.documentElement.clientHeight||window.innerHeight)});sync();window.addEventListener('resize',sync);return()=>window.removeEventListener('resize',sync)},[]);
  // Keep the whole window visible, including after a resize. Each window starts on its own side.
  const floatingBox=(panel:Panel)=>{
@@ -42,7 +45,7 @@ export default function MapWorkspace({children,controls,details,title,onClose,re
   return {width,height,x:Math.max(0,Math.min(viewport.width-width,position.x)),y:Math.max(0,Math.min(viewport.height-height,position.y))};
  };
  // On narrow viewports two open windows share the same working space: show the last requested one.
- const controlsRequested=controlsOpen&&(!focusContent||!floating||focusReveal.controls),detailsRequested=detailsOpen&&(!focusContent||!detailsFloating||focusReveal.details);
+ const controlsRequested=controlsOpen&&(!compactViewport||compactReveal.controls)&&(!focusContent||!floating||focusReveal.controls),detailsRequested=detailsOpen&&(!compactViewport||compactReveal.details)&&(!focusContent||!detailsFloating||focusReveal.details);
  const alternateFloating=floating&&detailsFloating&&controlsRequested&&detailsRequested&&geometry.box.width+detailGeometry.box.width+30>viewport.width;
  const controlsVisible=controlsRequested&&(!alternateFloating||floatingFront==='controls');
  const detailsVisible=detailsRequested&&(!alternateFloating||floatingFront==='details');
@@ -93,7 +96,7 @@ export default function MapWorkspace({children,controls,details,title,onClose,re
 
  const prefix=useId(),menuRef=useRef<HTMLButtonElement>(null),detailRef=useRef<HTMLButtonElement>(null),controlsId=`${prefix}-controls`,detailsId=`${prefix}-details`;
  useEffect(()=>{const node=bodyRef.current;if(!node)return;const observer=new ResizeObserver(()=>setBodyWidth(node.getBoundingClientRect().width));observer.observe(node);return()=>observer.disconnect()},[]);
- useEffect(()=>{if(revealDetails!==undefined){setDetailsOpen(true);setFloatingFront('details');requestAnimationFrame(()=>detailsContentRef.current?.scrollTo({top:0,behavior:'auto'}))}},[revealDetails]);
+ useEffect(()=>{if(revealDetails!==undefined){setDetailsOpen(true);setFloatingFront('details');if(revealDetails>0)revealFloating('details');requestAnimationFrame(()=>detailsContentRef.current?.scrollTo({top:0,behavior:'auto'}))}},[revealDetails]);
  useEffect(()=>{if(!floating||!controlsOpen)return;const close=(e:KeyboardEvent)=>{if(e.key==='Escape'){if(!bodyRef.current?.getClientRects().length)return;if(!claimFloatingEscape(e,document.getElementById(controlsId)))return;setControlsOpen(false);menuRef.current?.focus()}};document.addEventListener('keydown',close);return()=>document.removeEventListener('keydown',close)},[floating,controlsOpen]);
  useEffect(()=>{if(!detailsFloating||!detailsOpen)return;const close=(event:KeyboardEvent)=>{if(event.key!=='Escape'||!bodyRef.current?.getClientRects().length||!claimFloatingEscape(event,document.getElementById(detailsId)))return;setDetailsOpen(false);detailRef.current?.focus()};document.addEventListener('keydown',close);return()=>document.removeEventListener('keydown',close)},[detailsFloating,detailsOpen,detailsId]);
  const queryTrigger=useRef<HTMLElement|null>(null),modeRef=useRef<boolean|null>(null);
