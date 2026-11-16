@@ -22,9 +22,12 @@ export default function FloatingQueryLayer({host,visibilityHost,enabled,children
    setSnapshot({target:modal||fullscreen||document.body,visible:!node.closest('[hidden]')&&visibleNode.getClientRects().length>0&&belongsToSurface,appClass:app?.className||'app mode-analysis',appData:attributes(app),scopeClass:scope.className,scopeData:attributes(scope),variables:variables as CSSProperties});
   };
   sync();const observer=new MutationObserver(sync);
-  const observed=new Set<HTMLElement>();for(const start of [node,visibilityHost?.current])for(let ancestor:HTMLElement|null=start||null;ancestor;ancestor=ancestor.parentElement){if(observed.has(ancestor))continue;observed.add(ancestor);observer.observe(ancestor,{attributes:true,attributeFilter:['class','style','hidden','data-options-layout','data-options-open','data-options-side','data-controls-floating','data-secondary-mode','data-detail-active','data-presentation-detail','data-detail-id','data-query-context']});}
+  const observeAncestors=()=>{observer.disconnect();const observed=new Set<HTMLElement>();for(const start of [node,visibilityHost?.current])for(let ancestor:HTMLElement|null=start||null;ancestor;ancestor=ancestor.parentElement){if(observed.has(ancestor))continue;observed.add(ancestor);observer.observe(ancestor,{attributes:true,attributeFilter:['class','style','hidden','open','data-analysis-main-open','data-options-layout','data-options-open','data-options-side','data-controls-floating','data-secondary-mode','data-detail-active','data-presentation-detail','data-detail-id','data-query-context']});}};
+  observeAncestors();
+  const surfaceChanged=()=>{observeAncestors();sync()};
+  window.addEventListener('analysis-detail-surface-change',surfaceChanged);
   window.addEventListener('resize',sync);document.addEventListener('fullscreenchange',sync);window.addEventListener('map-fullscreen-state',sync);
-  return()=>{observer.disconnect();window.removeEventListener('resize',sync);document.removeEventListener('fullscreenchange',sync);window.removeEventListener('map-fullscreen-state',sync)};
+  return()=>{observer.disconnect();window.removeEventListener('analysis-detail-surface-change',surfaceChanged);window.removeEventListener('resize',sync);document.removeEventListener('fullscreenchange',sync);window.removeEventListener('map-fullscreen-state',sync)};
  },[enabled,host,visibilityHost]);
  if(!enabled)return <>{children}</>;
  if(!snapshot)return null;

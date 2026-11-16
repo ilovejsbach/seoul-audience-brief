@@ -5,6 +5,8 @@
 .analysisDetailModal[open]{display:flex;flex-direction:column}
 .analysisDetailModalHeader{display:flex;align-items:center;justify-content:space-between;gap:16px;flex:none;padding:12px 20px;border-bottom:1px solid #cad7e5;background:#f5f8fc}
 .analysisDetailModalHeader h2{font-size:var(--type-panel-title,20px);line-height:1.4;margin:0}
+.analysisDetailSurfaceActions{display:flex;align-items:center;gap:8px;flex:none}
+.analysisDetailSurfaceActions>button{min-height:36px;padding:4px 12px;white-space:nowrap}
 .analysisDetailClose{flex:none;min-height:36px;padding:4px 12px}
 .analysisDetailModalBody{flex:1;min-height:0;overflow:auto;padding:16px 20px;overscroll-behavior:contain}
 .analysisDetailModalBody .analysisDetailContent>.panel{margin:0;width:100%;max-width:none}
@@ -13,4 +15,14 @@
 .analysisDetailModalBody>.analysisDetailContent>details>summary{display:none}
 .analysisDetailModalBody .timeComparison{margin-top:16px}
 .analysisDetailSelect{min-height:32px;max-width:220px;color:#254f7b;font-weight:600;border:1px solid #a9bfd6;border-radius:4px;background:#fff;padding:4px 28px 4px 10px}
+.analysisMainDetail[hidden]{display:none!important}
+.analysisMainDetail:not([hidden]){display:flex;flex-direction:column;min-width:0;min-height:0;height:100%;background:#fff;border:1px solid #cad7e5;border-radius:8px;overflow:hidden;box-sizing:border-box}
+.dashboardContent[data-analysis-main-open="true"],.marketMap[data-analysis-main-open="true"]{height:var(--analysis-main-height);min-height:0;overflow:hidden;position:relative}
+.dashboardContent[data-analysis-main-open="true"]>:not(.analysisMainDetail),.marketMap[data-analysis-main-open="true"]>:not(.analysisMainDetail){display:none!important}
+.analysisMainDetail .analysisDetailModalBody{padding:12px 16px}
+.analysisMainDetail .analysisDetailContent>.panel{max-width:none;width:100%;margin:0;box-sizing:border-box}
+.analysisMainDetail .analysisDetailContent>details>summary{display:none}
+.analysisMainDetail .analysisDetailContent>.trendExplorer,.analysisMainDetail .marketModalTrend{min-height:0}
+.analysisMainDetail .timeComparison{margin-top:16px}
+@media(max-width:767px){.analysisDetailModalHeader{flex-wrap:wrap;gap:8px}.analysisDetailSurfaceActions{margin-left:auto;gap:6px}.analysisDetailSurfaceActions>button{min-height:44px;padding:4px 8px}.analysisMainDetail .analysisDetailModalBody{padding:12px}}
 @media(max-width:767px){.analysisDetailModal{width:calc(100vw - 16px);height:calc(100dvh - 16px)}.analysisDetailModalHeader,.analysisDetailModalBody{padding:12px}.analysisDetailSelect{max-width:165px}}
