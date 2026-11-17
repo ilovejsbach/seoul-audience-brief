@@ -1,0 +1,98 @@
+[
+  {
+    "fonts": [
+      "18px",
+      "14px",
+      "24px",
+      "36px"
+    ],
+    "map": {
+      "bottom": 727.8212280273438,
+      "height": 420.0000305175781,
+      "left": 12.552083969116213,
+      "right": 1223.0034999847412,
+      "top": 307.8211975097656,
+      "width": 1210.451416015625,
+      "x": 12.552083969116213,
+      "y": 307.8211975097656
+    },
+    "overflow": false,
+    "scene": "pop-consult",
+    "width": 1484
+  },
+  {
+    "fonts": [
+      "16px",
+      "12px",
+      "14px",
+      "20px",
+      "28px"
+    ],
+    "map": {
+      "bottom": 657.0573272705078,
+      "height": 420.0000305175781,
+      "left": 192.55209350585935,
+      "right": 1425.2257995605469,
+      "top": 237.0572967529297,
+      "width": 1232.6737060546875,
+      "x": 192.55209350585935,
+      "y": 237.0572967529297
+    },
+    "overflow": false,
+    "scene": "market-analysis",
+    "width": 1647
+  },
+  {
+    "scene": "market-consult-roundtrip",
+    "observed": " - option \"창신역 1번\"\n      - option \"경복고등학교\"\n      - option \"세검정\"\n      - option \"마전교지하쇼핑센터(구 한일상가)\"\n      - option \"동대문종합시장(동대문종합시장 신관, 동대문종합시장D동상가)\"\n      - option \"신설종합시장\"\n      - option \"청운초등학교\"\n      - option \"동문시장\"\n      - option \"동대문상가A동\"\n      - option \"동대문상가B동\"\n      - option \"동대문상가C동\"\n      - option \"평창동동측\"\n      - option \"동대문상가D동\"\n      - option \"홍지문\"\n      - option \"부암동주민센터\"\n    - text: 검토 분기\n    - combobox \"검토 분기\":\n      - option \"2025.1분기\"\n      - option \"2025.2분기\"\n      - option \"2025.3분기\"\n      - option \"2025.4분기\"\n      - option \"2026.1분기\" [selected]\n      - option \"2026.2분기\"\n    - text: 검토 대상\n    - combobox \"검토 대상\":\n      - option \"전체 성별\"\n      - option \"남성\"\n      - option \"여성\" [selected]\n      - option \"00-06\"\n      - option \"06-11\"\n      - option \"11-14\"\n      - option \"14-17\"\n      - option \"17-21\"\n      - option \"21-24\"\n    - region \"주 분석 결과\":\n      - generic: 공통 단위·같은 눈금으로 비교\n      - button \"← 종로구 지도\"\n      - heading \"협의 기준안과 현재 검토안\" [level=3]\n      - strong: 기준 · 종로3가역\n      - strong: 2,678,264명\n      - generic: 2026.2분기 · 여성\n      - strong: 검토 · 종로3가역\n      - strong: 2,562,184명\n      - generic: 2026.1분기 · 여성\n      - paragraph:\n        - text: 검토 − 기준\n        - strong: \"-116,080명\"\n        - text: · -4.3%\n      - paragraph: 공간·대상 조건이 다르면 동일 집단의 시간 증감으로 해석하지 않습니다.\n    - complementary:\n      - text: 현재 검토안\n      - heading \"종로3가역\" [level=3]\n      - generic: 2,562,184 명\n      - paragraph: 2026.1분기 · 여성\n      - text: 협의 기준안\n      - strong: 종로3가역\n      - paragraph: 2026.2분기 · 여성\n      - strong: 2,678,264명\n      - button \"차이 비교\"\n      - button \"기준안으로 복원\"\n      - button \"현재 조건을 기준안으로\"\n      - button \"근거 상세 확인 →\"\n    - contentinfo:\n      - generic: 자료:서울시 상권 유동·추정매출 · 주변분포 교차 불가\n      - generic: 설계 표본 · 운영 미적용"
+  },
+  {
+    "fonts": [
+      "18px",
+      "14px",
+      "24px",
+      "36px"
+    ],
+    "overflow": false,
+    "scene": "market-consult",
+    "width": 1647
+  },
+  {
+    "scene": "pop-null",
+    "observed": "    - option \"구로구\"\n          - option \"금천구\"\n          - option \"영등포구\"\n          - option \"동작구\"\n          - option \"관악구\"\n          - option \"서초구\"\n          - option \"강남구\"\n          - option \"송파구\"\n          - option \"강동구\"\n        - generic: 시안의 동별 상세는10/31 강남구22동 지원\n      - group \"분석 대상\":\n        - generic: 분석 대상\n        - text: 연령\n        - combobox \"연령\":\n          - option \"전체 연령\" [selected]\n          - option \"20–39세\"\n        - text: 성별\n        - combobox \"성별\" [active]:\n          - option \"전체 성별\"\n          - option \"남성\"\n          - option \"여성\" [selected]\n      - paragraph: 시안 지원:2일·25구·강남22동. 다른 월/동은 운영 범위와 별도.\n    - region \"주 분석 결과\":\n      - generic: 서울25구 / 선택 구·동\n      - button \"← 서울 구 지도\"\n      - img \"서울25구 또는 강남22동 실제 경계 지도\"\n      - generic: 종로구\n      - generic: 구25개 · 강남 동 상세22개\n      - button \"지도 축소\": −\n      - button \"지도 확대\": +\n      - button \"범례\"\n      - generic: 종로구 · 2026.10.31 · 18시 · 자료 없음명\n      - button \"선택 지역 추이 보기 →\"\n    - complementary:\n      - text: 선택 대상 · 같은 조회 조건\n      - heading \"종로구\" [level=3]\n      - generic: 자료 없음 명\n      - generic \"정확한 수치\"\n      - paragraph: 2026.10.31 · 18시 · 전체 연령 · 여성\n      - button \"시간·분기 근거 보기 →\"\n      - button \"후보에 담기 · 0/3\"\n      - strong: 현재 조건 상위3곳\n      - button \"1. 송파구 443,278명\":\n        - generic: 1. 송파구\n        - strong: 443,278명\n      - button \"2. 강남구 439,682명\":\n        - generic: 2. 강남구\n        - strong: 439,682명\n      - button \"3. 서초구 322,905명\":\n        - generic: 3. 서초구\n        - strong: 322,905명\n      - button \"두 시점 비교\"\n    - contentinfo:\n      - generic: 자료:서울시 생활인구 · 경계2025.06.30\n      - generic: 설계 표본 · 운영 미적용"
+  },
+  {
+    "fonts": [
+      "16px",
+      "12px",
+      "14px",
+      "20px",
+      "28px"
+    ],
+    "map": {
+      "bottom": 640.9462280273438,
+      "height": 420.0000305175781,
+      "left": 192.55209350585935,
+      "right": 1263.0035095214844,
+      "top": 220.9461975097656,
+      "width": 1070.451416015625,
+      "x": 192.55209350585935,
+      "y": 220.9461975097656
+    },
+    "overflow": false,
+    "scene": "pop-analysis-final",
+    "width": 1484
+  },
+  {
+    "fonts": [
+      "18px",
+      "14px",
+      "24px",
+      "36px"
+    ],
+    "overflow": false,
+    "scene": "requested-narrow-not-applied",
+    "width": 1484,
+    "status": "미검증: 요청390px이나 실제모형1484px"
+  }
+]

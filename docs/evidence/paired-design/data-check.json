@@ -1,0 +1,329 @@
+{
+  "preparedAt": "2026-11-16",
+  "artifactPath": "docs/prototypes/paired-review-data.json",
+  "artifactSha256": "d11fe4af980df7a49a3d1f9928de36bb2a151f28a105b8c7aff5e3fc82f288b5",
+  "sources": [
+    {
+      "path": "public/data/population/250_LOCAL_RESD_ADMDONG_20261030.json",
+      "sha256": "5ce68e64886149133d9114ad92cde2f3c027a4eb5fd89be39d44b2bc9a5a37a9",
+      "source": "OA-23016",
+      "rows": 10248
+    },
+    {
+      "path": "public/data/population/250_LOCAL_RESD_ADMDONG_20261031.json",
+      "sha256": "3a160d7f0c95bb0997f89cc2c5584ce59368359d856b4ff8b136c94b4a3d3f1a",
+      "source": "OA-23016",
+      "rows": 10248
+    },
+    {
+      "path": "public/data/market-population.json",
+      "sha256": "17b552987738359be7d770ee431f81b1b49711a74f5de74079c5a1895f49be66",
+      "source": "OA-15568",
+      "sourceUrl": "https://data.seoul.go.kr/dataList/OA-15568/S/1/datasetView.do",
+      "records": 36281
+    },
+    {
+      "path": "public/data/districts.geojson",
+      "sha256": "4b1734f4f7f6bba5589491157a596946de796cf883f6612f5cff1541a9e2d92b",
+      "role": "geometry"
+    },
+    {
+      "path": "public/data/market-areas.geojson",
+      "sha256": "2444b7c2353f1f2815bc8442d585493dc724b183b59f2e8640876256bdb8ffc7",
+      "role": "geometry"
+    },
+    {
+      "path": "public/data/market-sales.json",
+      "sha256": "5f1b0a56f4bc2c1a938475f2e3a116600cc2f3a905ee86533dc1312db7e90f70",
+      "source": "OA-15572",
+      "sourceUrl": "https://data.seoul.go.kr/dataList/OA-15572/S/1/datasetView.do",
+      "records": 85732
+    },
+    {
+      "path": "public/data/dongs.geojson",
+      "sha256": "1a307c7322e66ca158b6586271c6c54b125dbcabdb8e50265fa3960eaaae169b",
+      "role": "dong geometry"
+    }
+  ],
+  "checks": {
+    "25Districts": true,
+    "2Dates": true,
+    "24HoursEverySeries": true,
+    "74Markets6PeriodsAndGeometry": true,
+    "underOneMegabyte": true,
+    "22GangnamDongsAllSeries24Hours": true,
+    "GangnamDongSumsEqualGuAll144Combinations": true
+  },
+  "expectedValues": [
+    {
+      "kind": "population",
+      "date": "20261031",
+      "districtCode": "11680",
+      "cohort": "all-all",
+      "hour": 18,
+      "value": 841342.84,
+      "display": "841,343"
+    },
+    {
+      "kind": "population",
+      "date": "20261031",
+      "districtCode": "11680",
+      "cohort": "female-young",
+      "hour": 18,
+      "value": 146038.17,
+      "display": "146,038"
+    },
+    {
+      "kind": "population",
+      "date": "20261031",
+      "districtCode": "11440",
+      "cohort": "female-young",
+      "hour": 18,
+      "value": 125105.76,
+      "display": "125,106"
+    },
+    {
+      "kind": "population",
+      "date": "20261031",
+      "districtCode": "11110",
+      "cohort": "female-all",
+      "hour": 18,
+      "value": null,
+      "display": null
+    },
+    {
+      "kind": "population",
+      "date": "20261030",
+      "districtCode": "11680",
+      "cohort": "female-young",
+      "hour": 18,
+      "value": 219400.75,
+      "display": "219,401"
+    },
+    {
+      "kind": "market",
+      "code": "3120009",
+      "period": "20262",
+      "metric": "total",
+      "value": 5792307
+    },
+    {
+      "kind": "market",
+      "code": "3120009",
+      "period": "20262",
+      "metric": "male",
+      "value": 3114043
+    },
+    {
+      "kind": "market",
+      "code": "3120009",
+      "period": "20262",
+      "metric": "female",
+      "value": 2678264
+    },
+    {
+      "kind": "market",
+      "code": "3120009",
+      "period": "20262",
+      "metric": "timePopulation",
+      "value": [
+        598994,
+        995557,
+        1130795,
+        1184991,
+        1330908,
+        551060
+      ]
+    },
+    {
+      "kind": "market-comparison",
+      "code": "3120009",
+      "metric": "female",
+      "basePeriod": "20261",
+      "period": "20262",
+      "baseValue": 2562184,
+      "value": 2678264,
+      "difference": 116080,
+      "percent": 4.530509908734115
+    },
+    {
+      "kind": "population-seoul",
+      "date": "20261031",
+      "hour": 18,
+      "cohort": "all-all",
+      "value": 11370664.37,
+      "display": "11,370,664"
+    },
+    {
+      "kind": "market-marginal-rounding",
+      "code": "3120009",
+      "period": "20262",
+      "sourceTotal": 5792307,
+      "sourceTimeBandSum": 5792305,
+      "difference": 2,
+      "policy": "Keep source values; do not normalize or alter any band."
+    },
+    {
+      "kind": "market-sales",
+      "code": "3120009",
+      "periods": [
+        "20251",
+        "20252",
+        "20253",
+        "20254"
+      ],
+      "totalKRW": [
+        324292339823,
+        298030034019,
+        315641801526,
+        331319763982
+      ],
+      "sumDefinition": "sum source sales over all source-provided industry records at areaCode/period"
+    },
+    {
+      "kind": "market-scope-count",
+      "districtCode": "11110",
+      "period": "20262",
+      "populationSourceMarketCount": 74,
+      "geometryJoined": 74
+    },
+    {
+      "kind": "market-name-type-filter",
+      "query": "종로3가",
+      "typeCode": "D",
+      "count": 1
+    },
+    {
+      "kind": "population-dong",
+      "date": "20261031",
+      "code": "11680580",
+      "name": "삼성1동",
+      "hour": 18,
+      "all": 52477.23,
+      "femaleYoung": 13012.87
+    },
+    {
+      "kind": "population-dong",
+      "date": "20261031",
+      "code": "11680640",
+      "name": "역삼1동",
+      "hour": 18,
+      "all": 99775.96,
+      "femaleYoung": 26888.18
+    }
+  ],
+  "repairedOldPrototypePartialAggregation": {
+    "differentCellCount": 207,
+    "examples": [
+      {
+        "date": "20261030",
+        "code": "11110",
+        "cohort": "male-all",
+        "hour": 0,
+        "previousPrototypeValue": 87661.54,
+        "strictValue": null
+      },
+      {
+        "date": "20261030",
+        "code": "11110",
+        "cohort": "male-all",
+        "hour": 1,
+        "previousPrototypeValue": 86365.54,
+        "strictValue": null
+      },
+      {
+        "date": "20261030",
+        "code": "11110",
+        "cohort": "male-all",
+        "hour": 2,
+        "previousPrototypeValue": 85181.11,
+        "strictValue": null
+      },
+      {
+        "date": "20261030",
+        "code": "11110",
+        "cohort": "male-all",
+        "hour": 3,
+        "previousPrototypeValue": 84130.63,
+        "strictValue": null
+      },
+      {
+        "date": "20261030",
+        "code": "11110",
+        "cohort": "male-all",
+        "hour": 4,
+        "previousPrototypeValue": 83963.4,
+        "strictValue": null
+      },
+      {
+        "date": "20261030",
+        "code": "11110",
+        "cohort": "male-all",
+        "hour": 5,
+        "previousPrototypeValue": 84661.31,
+        "strictValue": null
+      },
+      {
+        "date": "20261030",
+        "code": "11110",
+        "cohort": "male-all",
+        "hour": 6,
+        "previousPrototypeValue": 90636.75,
+        "strictValue": null
+      },
+      {
+        "date": "20261030",
+        "code": "11110",
+        "cohort": "male-all",
+        "hour": 7,
+        "previousPrototypeValue": 109597.86,
+        "strictValue": null
+      }
+    ]
+  },
+  "limitations": [
+    "Data semantics checked; no new public UI verification here.",
+    "Only two daily population files: no weekday/month generalization.",
+    "Market scope is the 74 Jongno-gu market codes in source 2026Q2, not Seoul-wide.",
+    "Sex/age/time/weekday market marginals are separate; no invented cross-filter.",
+    "Sales includes source-provided industry records. An absent industry/quarter remains null, not zero.",
+    "Source rounding differences between marginal sums and totals are preserved.",
+    "Null gu-hour aggregates must not become zero in the UI.",
+    "Dong navigation covers Gangnam-gu only on 2026-10-31; other gu/date must explicitly recover or retain gu scope."
+  ],
+  "marketCoverage": {
+    "populationPeriods": [
+      "20251",
+      "20252",
+      "20253",
+      "20254",
+      "20261",
+      "20262"
+    ],
+    "salesPeriods": [
+      "20251",
+      "20252",
+      "20253",
+      "20254"
+    ],
+    "markets": 74,
+    "industriesInJongnoSample": 59,
+    "latestPopulationObserved": 74,
+    "salesObservedByPeriod": [
+      68,
+      68,
+      68,
+      68
+    ],
+    "industriesInFullSalesSource": 62
+  },
+  "dongScope": {
+    "districtCode": "11680",
+    "districtName": "강남구",
+    "dates": [
+      "20261031"
+    ],
+    "dongCount": 22,
+    "unsupportedDatePolicy": "20261030 has no dong series in this prototype; offer gu overview or supported date instead of silently changing scope."
+  }
+}
