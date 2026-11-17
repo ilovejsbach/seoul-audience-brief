@@ -1,0 +1,6 @@
+역할: 정리 작업자(작은 작업).
+프로젝트 루트: /Users/koscom/workspace2/seoul human. AGENTS.md를 먼저 읽는다.
+1. scripts/prepare-paired-design.py 에서 개인 절대경로(/Users/koscom/.codex/...) 쓰기를 제거하고 저장소 상대경로만 쓰게 고친다. 실행 결과(docs/prototypes/paired-*.html)가 기존 파일과 바이트 동일한지 확인한다(다르면 원인 기록, 기존 파일 덮어쓰기 금지 - 임시 폴더에 생성해 비교).
+2. tests/e2e-artifacts/market-data-validation.json: validatedAt만 바뀐 변경이다. git diff로 확인 후 원래 값으로 되돌릴지 판단 근거만 기록(되돌리기는 하지 말 것).
+금지: 위 두 파일 외 수정, git commit/push, 외부 요청, pkill.
+끝나면 /Users/koscom/workspace2/seoul human/docs/workers-2026-11-17/w7-cleanup/REPORT.md에 결과를 쓰고 쉬운 한국어로 짧게 알린다.

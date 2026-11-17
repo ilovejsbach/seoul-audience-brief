@@ -1,0 +1,10 @@
+역할: 구현 작업자 - 모바일(390px) 화면 결함 수정.
+프로젝트 루트: /Users/koscom/workspace2/seoul human. 먼저 AGENTS.md, NEXT-SESSION.md, docs/DASHBOARD_DEVELOPMENT_RULES.md, docs/HUMAN_FEEDBACK.md, 그리고 자동 검사 결과 /Users/koscom/workspace2/seoul human/docs/workers-2026-11-17/w5-playwright/REPORT.md, RESULTS.md, summary.json(defects), 실패 PNG를 읽는다.
+현황: npm run test:e2e 결과 PC 1365/1920·패드 1024는 전부 통과, 모바일 390만 8여정 실패(b 첫 화면 104건, e 추이 축 8건, f 글자 종류 5건). 예: 거주지 이동 분석 모바일에서 지도 영역이 사라지고 제목이 한 글자씩 세로로 쪼개지며 상단 메뉴·조회가 화면 대부분을 차지함.
+할 일:
+1. 실패의 공통 원인을 찾아 모바일 범위(≤767px 미디어쿼리 등)에서 고친다. 주 지도/그래프가 첫 화면에 보이고, 제목 세로 쪼개짐·축 잘림이 없고, 글자 크기 종류(시연4/분석6)를 지킨다. 조회 입력은 한 벌 유지(복제 금지), 필수 단위·기준·결측 안내 삭제 금지.
+2. PC·패드 화면은 바꾸지 않는다(회귀 금지). 수정 후 npm run test:e2e 전체(4크기 32여정) 재실행해 PC·패드 통과 유지와 모바일 개선을 확인. node --test tests/*.test.mjs, npm run build도 실행.
+3. 검사기(tests/e2e/)가 틀렸다고 판단되면 고치지 말고 근거를 보고서에 적는다. 검사 통과를 위해 기준을 낮추지 않는다.
+동시 작업 주의: 다른 작업자가 행정동 매출 반영으로 src/main.tsx, src/ExtraDashboard.tsx, scripts/, public/data/commerce.json, README, NEXT-SESSION을 수정 중이다. 이 파일들은 건드리지 말 것(꼭 필요하면 보고서에 이유만 적는다).
+금지: git commit/push/배포, 외부 요청, pkill(자신이 띄운 PID만 종료).
+산출물: /Users/koscom/workspace2/seoul human/docs/workers-2026-11-17/w8-mobile-fix/REPORT.md(원인·변경 파일·전후 수치·남은 실패·한계), 전후 스크린샷. 끝나면 쉬운 한국어로 짧게 알린다.

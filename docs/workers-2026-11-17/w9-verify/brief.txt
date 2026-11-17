@@ -1,0 +1,11 @@
+역할: 독립 평가자 - 행정동 매출 2026 반영의 배포 전 검증(구현 금지, 읽기·실행만).
+프로젝트 루트: /Users/koscom/workspace2/seoul human. 먼저 AGENTS.md, docs/DASHBOARD_DEVELOPMENT_RULES.md(R20)를 읽는다. 구현자의 보고서(docs/workers-2026-11-17/w6-dong-sales-impl/REPORT.md)는 결론을 믿지 말고 무엇을 바꿨는지 파악용으로만 본다.
+검증 대상: git diff(NEXT-SESSION.md README.md data/catalog-commerce.json public/data/commerce.json scripts/prepare-commerce.py scripts/validate-data.py src/ExtraDashboard.tsx src/Hero.tsx src/main.tsx) 와 신규 data/dong-sales-2026-manifest.json, scripts/register-dong-sales-2026.py, docs/dong-sales-2026-execution.md.
+할 일:
+1. 원자료 독립 대조: data/raw/commerce/dong-sales-2026-sheet-download-20261117.csv(CP949)를 너만의 코드로 직접 집계해 public/data/commerce.json의 2026 레코드(동별 매출·건수·6시간대 등 공개 필드)와 전수 비교. 2025 레코드는 git HEAD 버전과 바이트/값 동일한지 확인. 이름 7개 보정(같은 코드 2025 이름 사용, sourceName 보존) 확인. 미연결 2동·관측없는 3동이 0으로 채워지지 않았는지.
+2. 회귀: node --test tests/*.test.mjs, npm run build, python3 scripts/validate-data.py, 그리고 npm run test:e2e -- --project=desktop-1365 --project=desktop-1920 (PC만; 모바일은 사용자 지시로 보류).
+3. 실제 화면: PC 1365x768에서 행정동 추정매출 화면을 분석·시연 모드로 열어 2026Q2 선택, 서울 합계와 한 동(예 종로1·2·3·4가동) 값이 원자료 집계와 일치하는지, 기간 표시·출처 안내 문구, 물음표 이름 없음, 상세→지도 복귀 시 분기·동 유지. 스크린샷 저장.
+4. 코드 리뷰: 변경된 src/scripts에서 버그·회귀 위험(캐시 키, 기간 기본값, null 처리)을 찾는다.
+판정: P0(배포 차단)/P1/P2 목록과 배포 가능 여부 한 줄.
+금지: 소스·데이터 수정, git commit/push/배포, 외부 요청, pkill(자신이 띄운 PID만 종료).
+산출물: /Users/koscom/workspace2/seoul human/docs/workers-2026-11-17/w9-verify/REPORT.md, 스크린샷, 집계 결과 JSON. 끝나면 쉬운 한국어로 짧게 알린다.

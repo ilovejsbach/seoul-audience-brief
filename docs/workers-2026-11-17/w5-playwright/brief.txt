@@ -1,0 +1,11 @@
+역할: 작업자 - Playwright 화면 규칙 자동 검사 기반 구축.
+프로젝트 루트: /Users/koscom/workspace2/seoul human. 먼저 AGENTS.md, NEXT-SESSION.md, docs/DASHBOARD_DEVELOPMENT_RULES.md(R20), docs/HUMAN_FEEDBACK.md를 읽고 tests/*e2e*.mjs 31개(기존 일회용, tab.playwright 기반)를 훑는다.
+허가된 외부 다운로드: npm의 @playwright/test 와 Playwright Chromium 브라우저만. 다른 패키지 추가 금지.
+할 일:
+1. @playwright/test devDependency 추가, playwright.config, `npm run test:e2e` 스크립트. vite dev 또는 preview 서버를 config webServer로 자동 기동.
+2. tests/e2e/ 아래 반복 가능한 규칙 검사: (a) 가로 넘침 없음(scrollWidth<=clientWidth), (b) 주 지도/그래프가 첫 화면 안에 보임, (c) 모든 상세 콤보 순회 시 콤보·복귀 유지, (d) 상세→지도 복귀 후 조건 유지, (e) 추이 축 라벨이 잘리지 않음, (f) 시연4/분석6 글자 크기 종류 상한. 분석·시연 두 모드 × 생활인구/생활이동/전입전출/상권 × 뷰포트 1365x768, 1920x1080, 1024x768(패드), 390x844(모바일).
+3. 기존 일회용 스크립트는 지우지 말고, 옮긴 규칙과 못 옮긴 것을 표로 정리.
+4. 실제 실행해 통과/실패 목록을 남긴다. 실패는 소스 수정 없이 결함 목록으로만 보고(모바일·패드 실패는 예상됨).
+산출물: tests/e2e/, playwright.config.*, package.json/package-lock.json 변경, 결과는 /Users/koscom/workspace2/seoul human/docs/workers-2026-11-17/w5-playwright/ (REPORT.md, 결과 JSON, 실패 스크린샷).
+금지: src/·public/ 수정, git commit/push/배포, 지정 범위 밖 수정·삭제, pkill(자신이 띄운 PID만 종료).
+끝나면 REPORT.md에 방법·수치·한계를 쓰고 사용자에게 쉬운 한국어로 짧게 알린다.

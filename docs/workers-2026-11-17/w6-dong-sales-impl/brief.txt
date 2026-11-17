@@ -1,0 +1,11 @@
+역할: 구현 작업자 - 행정동 매출(OA-22175) 2026Q1/Q2를 서비스에 반영(구현까지, 배포는 감독자).
+프로젝트 루트: /Users/koscom/workspace2/seoul human. 먼저 AGENTS.md, NEXT-SESSION.md, docs/DASHBOARD_DEVELOPMENT_RULES.md(R13/R18/R19/R20), 그리고 너의 조사 보고서 /Users/koscom/workspace2/seoul human/docs/workers-2026-11-17/w4-dong-sales-2026/REPORT.md 를 읽는다.
+할 일: REPORT.md 5절 계획 1~4를 그대로 구현한다.
+- 원본: data/raw/commerce/dong-sales-2026-sheet-download-20261117.csv (재다운로드 불필요).
+- 2025 레코드·필드·순서·행정동명 불변. 2026Q1/Q2만 추가. 미연결 2동(일원2동·상일동)은 삭제하지 말고 coverage/주석에 남긴다. 관측 없는 동은 0으로 채우지 않는다.
+- public/data/commerce.json 재생성, validate-data.py에 2026 독립 검증 추가, src의 데이터 버전/캐시 키·기간 표시·출처 안내를 실제 확보기간(2025Q1–2026Q2)에 맞춘다. 상권 MarketDashboard와 섞지 않는다. 직전 분기 비교를 전년동기라 부르지 않는다. 새 화면 기능·재설계 금지.
+- README, NEXT-SESSION의 행정동 매출 지원기간 문구 갱신, docs/dong-sales-2026-execution.md에 실행 기록.
+검증: 오프라인 재생성 확인, 2025 불변 비교, node --test tests/*.test.mjs, npm run build, python3 scripts/validate-data.py. 가능하면 npm run test:e2e(다른 작업자가 만든 Playwright, 있을 때만)로 행정동 매출 화면 확인.
+동시 작업 주의: 다른 작업자가 tests/e2e/, playwright.config.mjs, package.json을 다룬다. 그 파일은 수정하지 말 것.
+금지: git commit/push/배포, 외부 요청, pkill, 범위 밖 파일 삭제.
+끝나면 /Users/koscom/workspace2/seoul human/docs/workers-2026-11-17/w6-dong-sales-impl/REPORT.md에 변경 파일·수치·검증·한계를 쓰고 쉬운 한국어로 짧게 알린다.

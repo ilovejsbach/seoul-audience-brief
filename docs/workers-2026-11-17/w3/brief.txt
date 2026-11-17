@@ -1,0 +1,4 @@
+역할: 작업자3 - 미커밋 문서·증거 정리 목록.
+할 일: git status로 보이는 수정·미추적 파일(docs/evidence/*, docs/prototypes, 신규 docs/*.md, scripts/prepare-paired-design.py)을 읽고, 각각 무엇인지·어느 작업에 속하는지·커밋 단위 제안을 표로 만든다. 삭제·이동·커밋 금지, 목록만 작성한다.
+산출물 폴더: /Users/koscom/workspace2/seoul human/docs/workers-2026-11-17/w3
+공통 금지: git commit/push/배포(publish-pages), 외부 서비스 요청, 지정 산출물 폴더 밖 파일 수정·삭제. 프로젝트 루트: /Users/koscom/workspace2/seoul human. 먼저 AGENTS.md와 NEXT-SESSION.md를 읽는다. 끝나면 산출물 폴더의 REPORT.md에 방법·수치·한계를 쓴다(원문 인용은 짧게). 과거 통과를 현재 통과로 간주하지 말고, 실제로 실행한 것과 못 한 것을 구분해 쓴다. 사용자 보고는 쉬운 한국어.
