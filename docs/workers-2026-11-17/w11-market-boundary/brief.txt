@@ -1,0 +1,9 @@
+역할: 작업자 - 상권 경계 최신판(OA-15560) 확보·반영.
+프로젝트 루트: /Users/koscom/workspace2/seoul human. 추가로 docs/market-sales-2026-audit.md(경계 한계: 2023 형상, 자기교차6, 명칭차이3, 2026 신규 관측코드3), scripts/prepare-market-areas.py, scripts/collect-commerce.py, public/data/market-areas.geojson 메타를 읽는다.
+허용 외부 요청: data.seoul.go.kr, datafile.seoul.go.kr 의 OA-15560 페이지·파일만.
+할 일:
+1. 공식 OA-15560 최신 파일을 받아 기준일·좌표계·상권 수·코드를 확인. 현재 사용 중인 2023 경계와 코드 집합·형상(면적·중심점 차이, 동일 형상 비율)을 비교.
+2. 최신판이 2023과 같으면 반영하지 말고 '동일 확인'으로 기록. 다르면 public/data/market-areas.geojson을 최신판으로 재생성(기존 준비 방식·단순화·속성 유지). 상권 인구·매출 코드 연결 수(특히 2026 신규 관측코드3·명칭차이3), 자기교차 수 변화를 재측정. 원본 도형을 임의 수선하지 않는다.
+3. 화면 문구의 경계 기준연도(예: '2023년 경계')가 src나 자료 메타에 있으면 실제 기준일로 맞춘다. 상권 기능·디자인 변경 금지.
+범위 파일: data/raw/commerce/ 신규 원본, scripts/prepare-market-areas.py, public/data/market-areas.geojson, 경계 기준 표시가 있는 src 파일(필요 최소), 산출물 /Users/koscom/workspace2/seoul human/docs/workers-2026-11-17/w11-market-boundary/.
+공통: 먼저 AGENTS.md, NEXT-SESSION.md, docs/DASHBOARD_DEVELOPMENT_RULES.md(R13/R18/R19/R20), docs/DEVELOPMENT_REQUIREMENTS.md를 읽는다. 원본은 data/raw/ 아래 새 파일로만 저장(기존 원본 덮어쓰기 금지), 출처 URL·요청·시각·바이트·SHA256 기록. 기존 공개 자료 값은 회귀 비교로 보존 확인. 결측을 0으로 채우지 않는다. 검증: 오프라인 재생성 확인, python3 scripts/validate-data.py(필요시 validate-market-data.py --output 지정), node --test tests/*.test.mjs, npm run build, npm run test:e2e -- --project=desktop-1365 --project=desktop-1920. 모바일은 사용자 지시로 보류. 동시 작업 주의: 다른 작업자가 tests/e2e/와 다른 자료를 다루므로 지정 범위 밖 파일 수정 금지. README.md·NEXT-SESSION.md는 수정하지 말고 반영할 문구만 REPORT.md에 제안(감독자가 통합). 금지: git commit/push/배포, 허용 도메인 외 외부 요청, pkill(자신이 띄운 PID만 종료). 끝나면 REPORT.md(방법·수치·변경 파일·검증·한계)를 쓰고 쉬운 한국어로 짧게 알린다.

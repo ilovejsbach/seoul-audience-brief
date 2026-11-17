@@ -1,0 +1,12 @@
+역할: 독립 평가자 - 생활인구 11/01–11/12 추가 반영의 배포 전 검증(구현 금지, 읽기·실행만).
+프로젝트 루트: /Users/koscom/workspace2/seoul human. 먼저 AGENTS.md, docs/DASHBOARD_DEVELOPMENT_RULES.md(R20)를 읽는다. 구현자 보고서 /Users/koscom/workspace2/seoul human/docs/workers-2026-11-17/w12-population-mobility-refresh/REPORT.md는 변경 위치 파악용으로만 보고 결론을 믿지 않는다.
+검증 대상: git diff(scripts/prepare-population-history-daily.py, scripts/prepare-population-patterns.py, scripts/validate-data.py, src/Hero.tsx, src/PopulationPatterns.tsx, src/main.tsx, tests/population-*.test.mjs, public/data/population/index.json, public/data/population-patterns/index.json)와 신규 public/data/population/*202611*.json.gz 12개, public/data/population-patterns/202611-*.json 12개, scripts/collect-population-refresh.py.
+주의: tests/e2e/, playwright.config.mjs의 변경은 다른 작업자(w10, 대비·균등 검사)의 것이므로 이번 검증 대상이 아니다.
+할 일:
+1. 원자료 독립 대조: data/raw/population-refresh-20261117/OA-23016-202611-sheet.csv를 너만의 코드로 읽어 11/01–11/12 일별 gzip의 값 전수 비교(결측은 null 유지, 0 치환 없음). 기존 304일 파일·120 요약이 git HEAD와 바이트 동일한지. 11월 부분월 요약의 평균·유효일수 표본을 독립 계산(월초/월중/월말 정의는 기존 코드 기준), 미제공 날짜가 분모에 들어가지 않는지.
+2. 회귀: node --test tests/*.test.mjs, npm run build, python3 scripts/validate-data.py, npm run test:e2e -- --project=desktop-1365 --project=desktop-1920 (a–f 결과만 판정에 사용, g/h 실패는 별도 기록).
+3. 실제 화면 1365x768 분석·시연: 생활인구 기본 날짜 11/12, 날짜 선택 범위, 11/12 12시 서울 값과 한 동 값을 원자료와 대조, 요일·월구간 패턴 화면의 11월 부분월 안내, 10/31↔11/01 전환, 상세→지도 복귀 조건 유지. 스크린샷 저장. 외부 요청 금지.
+4. 코드 리뷰: 캐시 키, 기본 날짜, 부분월 처리, null 전파의 버그 위험.
+판정: P0/P1/P2와 배포 가능 여부 한 줄.
+금지: 소스·데이터 수정, git commit/push/배포, 외부 요청, pkill(자신이 띄운 PID만 종료).
+산출물: /Users/koscom/workspace2/seoul human/docs/workers-2026-11-17/w13-verify-population/REPORT.md, 스크린샷, 대조 JSON. 끝나면 쉬운 한국어로 짧게 알린다.
