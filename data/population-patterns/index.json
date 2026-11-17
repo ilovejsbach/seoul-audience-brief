@@ -1,6 +1,6 @@
 {
   "source": "OA-23016",
-  "sourceUrl": "https://data.seoul.go.kr/dataList/OA-23016/F/1/datasetView.do",
+  "sourceUrl": "https://data.seoul.go.kr/dataList/OA-23016/S/1/datasetView.do",
   "definition": "같은 시각·지역·타깃의 생활인구를 날짜별로 먼저 집계한 뒤 요일/월 구간별 평균",
   "months": [
     {
@@ -922,6 +922,101 @@
           "bytes": 902718
         }
       ]
+    },
+    {
+      "month": "202611",
+      "dates": 12,
+      "regions": 453,
+      "sourceRows": 122976,
+      "files": [
+        {
+          "month": "202611",
+          "age": "all",
+          "sex": "all",
+          "path": "data/population-patterns/202611-all-all.json",
+          "bytes": 962932
+        },
+        {
+          "month": "202611",
+          "age": "all",
+          "sex": "male",
+          "path": "data/population-patterns/202611-all-male.json",
+          "bytes": 932979
+        },
+        {
+          "month": "202611",
+          "age": "all",
+          "sex": "female",
+          "path": "data/population-patterns/202611-all-female.json",
+          "bytes": 939937
+        },
+        {
+          "month": "202611",
+          "age": "young",
+          "sex": "all",
+          "path": "data/population-patterns/202611-young-all.json",
+          "bytes": 892945
+        },
+        {
+          "month": "202611",
+          "age": "young",
+          "sex": "male",
+          "path": "data/population-patterns/202611-young-male.json",
+          "bytes": 870382
+        },
+        {
+          "month": "202611",
+          "age": "young",
+          "sex": "female",
+          "path": "data/population-patterns/202611-young-female.json",
+          "bytes": 871467
+        },
+        {
+          "month": "202611",
+          "age": "middle",
+          "sex": "all",
+          "path": "data/population-patterns/202611-middle-all.json",
+          "bytes": 896578
+        },
+        {
+          "month": "202611",
+          "age": "middle",
+          "sex": "male",
+          "path": "data/population-patterns/202611-middle-male.json",
+          "bytes": 871138
+        },
+        {
+          "month": "202611",
+          "age": "middle",
+          "sex": "female",
+          "path": "data/population-patterns/202611-middle-female.json",
+          "bytes": 870407
+        },
+        {
+          "month": "202611",
+          "age": "senior",
+          "sex": "all",
+          "path": "data/population-patterns/202611-senior-all.json",
+          "bytes": 889782
+        },
+        {
+          "month": "202611",
+          "age": "senior",
+          "sex": "male",
+          "path": "data/population-patterns/202611-senior-male.json",
+          "bytes": 868396
+        },
+        {
+          "month": "202611",
+          "age": "senior",
+          "sex": "female",
+          "path": "data/population-patterns/202611-senior-female.json",
+          "bytes": 869488
+        }
+      ],
+      "availableThrough": "20261112",
+      "partialMonth": true,
+      "calendarDays": 30
     }
   ],
   "availableCohorts": [
