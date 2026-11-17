@@ -19,21 +19,80 @@ def population():
  require(len(allcodes)==427,'Not 427 population dong codes')
  return {'maskedOrMissingCells':sum(nulls.values()),'nullsByColumnIndex':dict(nulls),'days':len(idx),'rows':total,'fields':32,'dongCodes':len(allcodes),'mappingCoverage':'100%','note':'No assertion that age/sex rounded cells sum exactly to rounded total.'}
 def commerce():
- x=load(P/'commerce.json');raw=collections.defaultdict(lambda:[0]*8);n=0
- with zipfile.ZipFile(ROOT/'data/raw/commerce/OA-22175_7.zip') as z:
-  require(z.testzip() is None,'Bad raw ZIP')
-  for name in z.namelist():
+ # Independent raw aggregation: do not import the preparation/registration code.
+ import hashlib
+ x=load(P/'commerce.json');manifest=load(ROOT/'data/dong-sales-2026-manifest.json')
+ require(manifest['datasetId']=='OA-22175','Wrong source dataset')
+ source=ROOT/manifest['path'];payload=source.read_bytes()
+ require(hashlib.sha256(payload).hexdigest()==manifest['sha256'],'2026 raw CSV hash changed')
+ require(len(payload)==manifest['bytes'],'2026 raw CSV byte count changed')
+ baseline_path=ROOT/'data/raw/commerce/OA-22175_7.zip'
+ require(hashlib.sha256(baseline_path.read_bytes()).hexdigest()==manifest['baseline']['sha256'],'2025 ZIP hash changed')
+ raw={};source_keys=set();counts=collections.Counter();industries=collections.defaultdict(set)
+ fields=['당월_매출_금액','당월_매출_건수',*[f'시간대_{t}_매출_금액' for t in ['00~06','06~11','11~14','14~17','17~21','21~24']]]
+ def consume(rows,periods):
+  for row in rows:
+   if row['기준_년분기_코드'] not in periods:continue
+   require(None not in row and None not in row.values() and len(row)==53,'Invalid commerce source width')
+   period,code=row['기준_년분기_코드'],row['행정동_코드'];key=(period,code);source_key=(*key,row['서비스_업종_코드'])
+   require(source_key not in source_keys,'Duplicate raw quarter/dong/industry');source_keys.add(source_key)
+   counts[period]+=1;industries[period].add(row['서비스_업종_코드'])
+   if key not in raw:raw[key]={'name':row['행정동_코드_명'],'values':[0]*8}
+   target=raw[key]['values']
+   for i,field in enumerate(fields):
+    cell=row[field].strip();value=None if cell in ('','*','-','\\N','null') else int(cell.replace(',',''))
+    require(value is None or value>=0,'Negative raw commerce')
+    target[i]=None if value is None or target[i] is None else target[i]+value
+ with zipfile.ZipFile(baseline_path) as archive:
+  require(archive.testzip() is None,'Bad raw ZIP')
+  for name in archive.namelist():
    if not name.endswith('.csv'):continue
-   with z.open(name) as f:
-    for r in csv.DictReader(io.TextIOWrapper(f,encoding='cp949')):
-     n+=1;a=raw[(r['기준_년분기_코드'],r['행정동_코드'])];a[0]+=int(r['당월_매출_금액']);a[1]+=int(r['당월_매출_건수'])
-     for i,t in enumerate(['00~06','06~11','11~14','14~17','17~21','21~24']):a[i+2]+=int(r[f'시간대_{t}_매출_금액'])
- seen=set();unmapped=set()
- for r in x['records']:
-  k=(r['period'],r['code']);require(k not in seen,'Duplicate commerce key');seen.add(k);require([r['sales'],r['transactions'],*r['timeSales']]==raw[k],f'Raw mismatch {k}');require(all(v>=0 for v in raw[k]),'Negative commerce');
-  if r['code'] not in dongs:unmapped.add(r['code'])
- require(seen==set(raw),'Raw/published key coverage differs');require(not unmapped,f'Raw equality PASSED for {n} rows -> {len(seen)} records; unmapped historical commerce codes {sorted(unmapped)}')
- return {'rawRows':n,'publishedRows':len(seen),'rawEquality':'All period/dong sales, transactions and six time-band totals exact','salesTotal':sum(v[0] for v in raw.values())}
+   with archive.open(name) as stream:
+    reader=csv.DictReader(io.TextIOWrapper(stream,encoding='cp949'));baseline_columns=reader.fieldnames
+    consume(reader,{'20251','20252','20253','20254'})
+ reader=csv.DictReader(io.StringIO(payload.decode('cp949')))
+ require(reader.fieldnames==baseline_columns==manifest['columns'],'CSV/ZIP schema differs')
+ all_rows=list(reader);all_counts=collections.Counter(row['기준_년분기_코드'] for row in all_rows)
+ require(len(all_rows)==100431 and dict(all_counts)==manifest['periodRows'],'Full CSV count differs')
+ consume(all_rows,{'20261','20262'})
+ require(dict(counts)=={'20251':16770,'20252':16794,'20253':16831,'20254':16718,'20261':16659,'20262':16659},'Unexpected quarter counts')
+ require(all(len(v)==63 for v in industries.values()),'Wrong industry coverage')
+ reference_names=collections.defaultdict(set)
+ for (period,code),row in raw.items():
+  if period.startswith('2025'):reference_names[code].add(row['name'])
+ expected=[];name_corrections=[]
+ for (period,code),row in raw.items():
+  v=row['values'];record={'period':period,'code':code,'name':row['name'],'sales':v[0],'transactions':v[1],'timeSales':v[2:]}
+  if period.startswith('2026') and '?' in row['name']:
+   require(len(reference_names[code])==1,'Ambiguous same-code 2025 display name')
+   display_name=next(iter(reference_names[code]));require('?' not in display_name,'Damaged 2025 reference name')
+   record['sourceName']=row['name'];record['name']=display_name
+   name_corrections.append({'period':period,'code':code,'sourceName':row['name'],'displayName':display_name,'reference':'same administrative dong code in 2025 official ZIP'})
+  expected.append(record)
+ require(len(name_corrections)==14 and len({r['code'] for r in name_corrections})==7,'Unexpected display-name correction coverage')
+ require(x['provenance']['displayNameCorrections']==name_corrections,'Original/display name provenance differs')
+ require(x['sourceVersion']['displayNameVersion']=='2025-same-code-reference-v1','Display name version missing')
+ require(len(expected)==2550 and x['records']==expected,'Raw/prepared fields, names, order or key coverage differ')
+ require(len({(r['period'],r['code']) for r in x['records']})==2550,'Duplicate prepared commerce key')
+ require(len([r for r in expected if r['period'].startswith('2025')])==1700,'2025 coverage changed')
+ require(x['periods']==sorted(counts),'Declared periods differ')
+ geometry=load(P/'dongs.geojson');geometry_codes={str(f['properties']['code']) for f in geometry['features']}
+ coverage={}
+ for period in sorted(counts):
+  selected=[r for r in expected if r['period']==period];codes={r['code'] for r in selected}
+  require(codes<=set(dongs),'Commerce missing region-list join')
+  detail={'sourceRows':counts[period],'records':len(selected),'sourceDongCount':len(codes),'industryCount':len(industries[period]),'matchedBoundaryDongCount':len(codes&geometry_codes),'unmatchedBoundaryDongCodes':sorted(codes-geometry_codes),'boundaryWithoutObservationCodes':sorted(geometry_codes-codes)}
+  require(detail==x['coverage'][period],f'Coverage mismatch {period}')
+  require(len(codes)==425 and len(codes&geometry_codes)==423,'Unexpected geometry coverage')
+  require(codes-geometry_codes=={'11680740','11740520'},'Unexpected unmatched source dong')
+  require(geometry_codes-codes=={'11680675','11740525','11740526'},'Absent observations changed')
+  coverage[period]=detail
+ require(x['sourceVersion']['latestPeriod']=='20262','Latest period differs')
+ require(x['provenance']['extension2026']==manifest,'Published source manifest differs')
+ totals={period:sum(r['sales'] for r in expected if r['period']==period and r['sales'] is not None) for period in sorted(counts)}
+ require(totals==x['provenance']['salesSumByPeriod'],'Declared sums differ')
+ require(totals['20261']==25721602043376 and totals['20262']==26166677565829,'2026 fixed source checkpoints differ')
+ return {'rawRows':sum(counts.values()),'preserved2025RawRows':67113,'added2026RawRows':33318,'publishedRows':len(expected),'preserved2025Records':1700,'rawEquality':'Numeric fields and order exact; 2025 names unchanged; 2026 damaged display names independently resolved by same-code 2025 ZIP with original sourceName preserved','displayNameCorrectedRecords':len(name_corrections),'displayNameCorrectedCodes':7,'periodCoverage':coverage,'salesSumByPeriod':totals,'geometryCompatibility':'Code joins only; actual 2026 geometry not verified'}
 def migration():
  path=P/'residential-migration.json'
  if not path.exists():return {'status':'not present'}
@@ -93,5 +152,5 @@ def arrival_mobility():
  return {'records':len(seen),'sum':str(total),'basis':'arrival time code; original source date, not verified calendar arrival date'}
 check('arrival OD sum and explicit time/date semantics',arrival_mobility)
 check('official boundary coverage and explicit mismatches',boundaries)
-check('population schema, grid, duplicates, values, mapping',population);check('commerce equality to raw ZIP',commerce);check('residential migration net=inflow-outflow',migration);check('living mobility schema and sums',living)
+check('population schema, grid, duplicates, values, mapping',population);check('commerce equality to 2025 ZIP and 2026 CSV',commerce);check('residential migration net=inflow-outflow',migration);check('living mobility schema and sums',living)
 report={'results':results,'passed':all(r['status']=='passed' for r in results)};print(json.dumps(report,ensure_ascii=False,indent=2));sys.exit(0 if report['passed'] else 1)

@@ -18,7 +18,7 @@ import MapCanvas,{MapPanel} from './MapCanvas';
 import TimeComparison from './TimeComparison';
 import {MapPopup,focusControl,navigateSection,type PopupData} from './Navigation';
 import {geoMercator,geoPath} from 'd3-geo';
-type Row={period?:string;date?:string;hour?:number;code?:string;name?:string;level?:string;gu?:string;inflow?:number|null;outflow?:number|null;net?:number|null;originCode?:string;originName?:string;destinationCode?:string;destinationName?:string;count?:number;sales?:number;transactions?:number;timeSales?:number[]};
+type Row={period?:string;date?:string;hour?:number;code?:string;name?:string;level?:string;gu?:string;inflow?:number|null;outflow?:number|null;net?:number|null;originCode?:string;originName?:string;destinationCode?:string;destinationName?:string;count?:number;sales?:number|null;transactions?:number|null;timeSales?:(number|null)[]};
 type Dataset={sourceUrl?:string;notes?:string[]|string;periods?:string[];records:Row[]};
 type Region={code:string;name:string;districtCode?:string};
 type Stat={code:string;name:string;inflow:number|null;outflow:number|null;net:number|null};
@@ -133,7 +133,7 @@ const queryItems:QueryChip[]=[
  ...(commerce?[{id:`band-${kind}`,label:'매출 시간대',value:band<0?'하루 전체':['00–06','06–11','11–14','14–17','17–21','21–24'][band]+'시',controlId:`extra-band-${kind}`,onClear:band>=0?()=>setBand(-1):undefined}]:[])
 ];
 const querySummary=<><QuerySummary items={queryItems} label="현재 조회 조건"/>{queryNotice&&<p className="queryAdjustmentNotice" role="status">{queryNotice}</p>}</>;
-const sourceDetails=(<div className="source">{demoSource&&<a href={demoSource} target="_blank" rel="noreferrer">원본 데이터 출처 ↗</a>}<p>{Array.isArray(selectedData?.notes)?selectedData.notes.join(" · "):selectedData?.notes}</p></div>);
+const sourceDetails=(<div className="source">{commerce&&<p>행정동 추정매출 · {periods.length?`${periods[0].slice(0,4)}년 ${periods[0].slice(4)}분기–${periods.at(-1)!.slice(0,4)}년 ${periods.at(-1)!.slice(4)}분기`:"자료 확인 중"} · 원 · 제공 업종 합계</p>}{demoSource&&<a href={demoSource} target="_blank" rel="noreferrer">원본 데이터 출처 ↗</a>}<p>{Array.isArray(selectedData?.notes)?selectedData.notes.join(" · "):selectedData?.notes}</p></div>);
 const sourceInfo=(<DataMeaning term="자료 설명·출처·해석 기준" definition="" interpretation="" buttonLabel="ⓘ" ariaLabel={`${movement?"생활이동":migration?"거주지 이동":"추정매출"} 자료 설명·출처·해석 기준`} content={sourceDetails}/>);
 const queryControls=<section className="controls focusedQueryControls" aria-label={`${commerce?'추정매출':movement?'생활이동':'거주지 이동'} 조회 조건 편집`}>
  {queryNotice&&<p className="unifiedQueryNotice" role="status">{queryNotice}</p>}

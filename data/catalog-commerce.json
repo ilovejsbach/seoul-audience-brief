@@ -179,7 +179,24 @@
         "18600",
         "16650"
       ],
-      "row_count": 67113
+      "row_count": 67113,
+      "sheet_extension_2026": {
+        "manifest": "data/dong-sales-2026-manifest.json",
+        "path": "data/raw/commerce/dong-sales-2026-sheet-download-20261117.csv",
+        "periods": [
+          "20261",
+          "20262"
+        ],
+        "rows": 33318,
+        "bytes": 45043099,
+        "sha256": "57ce0737c3fc3c6a3f7ac63dd7cf3b7b40c2fff1bf2175d48f4d6509add9884a",
+        "retrieved_at": "2026-11-17T01:20:44.693575+00:00",
+        "sourceUrl": "https://data.seoul.go.kr/dataList/OA-22175/S/1/datasetView.do",
+        "zip_period": "2025",
+        "sheet_period": "2026Q1–Q2",
+        "fullCsvRows": 100431,
+        "downloadFilterAppliedByServer": false
+      }
     },
     {
       "id": "OA-15577",
