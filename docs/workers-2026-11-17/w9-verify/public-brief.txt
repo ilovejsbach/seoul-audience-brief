@@ -1,0 +1,6 @@
+감독자 추가 지시: GitHub Pages에 배포했다(gh-pages 59630fc, 기대 자산 JS index-DtotdIpr.js, CSS index-7CTjbMjC.css). 공개 화면 검증을 하라.
+https://ilovejsbach.github.io/seoul-audience-brief/ 에서
+(1) 공개 index.html이 위 자산을 참조하는지,
+(2) 공개 data/commerce.json 바이트·SHA256이 로컬 public/data/commerce.json과 같은지,
+(3) 너의 verify-browser.mjs 대조(분석·시연, 1365x768)를 공개 URL로 다시 실행.
+외부 요청은 ilovejsbach.github.io 도메인만 허용. 결과를 docs/workers-2026-11-17/w9-verify/PUBLIC-REPORT.md에 쓰고 쉬운 한국어로 짧게 알려라. 소스 수정·커밋·배포 금지.

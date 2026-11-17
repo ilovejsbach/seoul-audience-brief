@@ -1,0 +1,28 @@
+{
+  "checkedAt": "2026-11-17T03:57:54.083337+00:00",
+  "base": "https://ilovejsbach.github.io/seoul-audience-brief/",
+  "allowedExternalHost": "ilovejsbach.github.io",
+  "index": {
+    "status": 200,
+    "contentType": "text/html; charset=utf-8",
+    "bytes": 558,
+    "sha256": "67961a30296ff10b90ecb87a5b930c61a1e8205369726be2bab2234bc7587c89",
+    "jsReferenced": true,
+    "cssReferenced": true,
+    "assetReferences": [
+      "./assets/index-DtotdIpr.js",
+      "./assets/index-7CTjbMjC.css"
+    ]
+  },
+  "commerce": {
+    "status": 200,
+    "contentType": "application/json; charset=utf-8",
+    "remoteBytes": 469821,
+    "localBytes": 469821,
+    "remoteSha256": "e32d6d0840b21907d9cef398a1dd33e038ef23d81d054f90817c2888b5239543",
+    "localSha256": "e32d6d0840b21907d9cef398a1dd33e038ef23d81d054f90817c2888b5239543",
+    "bytesMatch": true,
+    "sha256Match": true
+  },
+  "passed": true
+}

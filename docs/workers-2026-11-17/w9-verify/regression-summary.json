@@ -1,0 +1,127 @@
+{
+  "playwrightStats": {
+    "startTime": "2026-11-17T03:15:41.059Z",
+    "duration": 117064.338,
+    "expected": 16,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "measuredJourneys": 16,
+  "checks": 1088,
+  "failures": 0,
+  "journeys": [
+    {
+      "project": "desktop-1920",
+      "mode": "analysis",
+      "topic": "mobility",
+      "checks": 70,
+      "failures": []
+    },
+    {
+      "project": "desktop-1920",
+      "mode": "analysis",
+      "topic": "migration",
+      "checks": 70,
+      "failures": []
+    },
+    {
+      "project": "desktop-1365",
+      "mode": "presentation",
+      "topic": "migration",
+      "checks": 70,
+      "failures": []
+    },
+    {
+      "project": "desktop-1920",
+      "mode": "analysis",
+      "topic": "population",
+      "checks": 92,
+      "failures": []
+    },
+    {
+      "project": "desktop-1920",
+      "mode": "presentation",
+      "topic": "market",
+      "checks": 40,
+      "failures": []
+    },
+    {
+      "project": "desktop-1365",
+      "mode": "presentation",
+      "topic": "mobility",
+      "checks": 70,
+      "failures": []
+    },
+    {
+      "project": "desktop-1365",
+      "mode": "presentation",
+      "topic": "population",
+      "checks": 92,
+      "failures": []
+    },
+    {
+      "project": "desktop-1920",
+      "mode": "analysis",
+      "topic": "market",
+      "checks": 40,
+      "failures": []
+    },
+    {
+      "project": "desktop-1920",
+      "mode": "presentation",
+      "topic": "mobility",
+      "checks": 70,
+      "failures": []
+    },
+    {
+      "project": "desktop-1920",
+      "mode": "presentation",
+      "topic": "population",
+      "checks": 92,
+      "failures": []
+    },
+    {
+      "project": "desktop-1365",
+      "mode": "analysis",
+      "topic": "market",
+      "checks": 40,
+      "failures": []
+    },
+    {
+      "project": "desktop-1365",
+      "mode": "analysis",
+      "topic": "population",
+      "checks": 92,
+      "failures": []
+    },
+    {
+      "project": "desktop-1365",
+      "mode": "presentation",
+      "topic": "market",
+      "checks": 40,
+      "failures": []
+    },
+    {
+      "project": "desktop-1920",
+      "mode": "presentation",
+      "topic": "migration",
+      "checks": 70,
+      "failures": []
+    },
+    {
+      "project": "desktop-1365",
+      "mode": "analysis",
+      "topic": "mobility",
+      "checks": 70,
+      "failures": []
+    },
+    {
+      "project": "desktop-1365",
+      "mode": "analysis",
+      "topic": "migration",
+      "checks": 70,
+      "failures": []
+    }
+  ]
+}
