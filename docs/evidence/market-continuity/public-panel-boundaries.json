@@ -1,0 +1,74 @@
+{
+  "clamp": {
+    "h": 724,
+    "panels": [
+      {
+        "name": "자료와 분석 조건",
+        "r": {
+          "bottom": 724,
+          "height": 370,
+          "left": 810,
+          "right": 1370,
+          "top": 354,
+          "width": 560,
+          "x": 810,
+          "y": 354
+        }
+      },
+      {
+        "name": "선택 지역 상세와 후보 비교",
+        "r": {
+          "bottom": 671.1953125,
+          "height": 520,
+          "left": 1102,
+          "right": 1502,
+          "top": 151.1953125,
+          "width": 400,
+          "x": 1102,
+          "y": 151.1953125
+        }
+      }
+    ],
+    "w": 1512
+  },
+  "narrow": [
+    {
+      "hidden": false,
+      "name": "자료와 분석 조건",
+      "r": {
+        "bottom": 700,
+        "height": 370,
+        "left": 325,
+        "right": 885,
+        "top": 330,
+        "width": 560,
+        "x": 325,
+        "y": 330
+      }
+    },
+    {
+      "hidden": true,
+      "name": "선택 지역 상세와 후보 비교",
+      "r": {
+        "bottom": 0,
+        "height": 0,
+        "left": 0,
+        "right": 0,
+        "top": 0,
+        "width": 0,
+        "x": 0,
+        "y": 0
+      }
+    }
+  ],
+  "switched": [
+    {
+      "hidden": true,
+      "name": "자료와 분석 조건"
+    },
+    {
+      "hidden": false,
+      "name": "선택 지역 상세와 후보 비교"
+    }
+  ]
+}

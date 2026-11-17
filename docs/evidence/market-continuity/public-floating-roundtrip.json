@@ -1,0 +1,85 @@
+{
+  "before": {
+    "headerBottom": 143.1953125,
+    "panels": [
+      {
+        "hidden": false,
+        "name": "자료와 분석 조건",
+        "rect": {
+          "bottom": 511.1953125,
+          "height": 360,
+          "left": 10,
+          "right": 570,
+          "top": 151.1953125,
+          "width": 560,
+          "x": 10,
+          "y": 151.1953125
+        }
+      },
+      {
+        "hidden": false,
+        "name": "선택 지역 상세와 후보 비교",
+        "rect": {
+          "bottom": 671.1953125,
+          "height": 520,
+          "left": 1102,
+          "right": 1502,
+          "top": 151.1953125,
+          "width": 400,
+          "x": 1102,
+          "y": 151.1953125
+        }
+      }
+    ]
+  },
+  "trend": {
+    "breadcrumb": "서울 전체\n›\n종로구\n›\n종로3가역",
+    "camera": "translate(0 0) scale(1)",
+    "conditions": [
+      "자료 조건 변경: 추정매출",
+      "분기 조건 변경: 2025년 3분기",
+      "자치구 조건 변경: 종로구",
+      "자치구 조건 해제",
+      "분석 기준 조건 변경: 전체"
+    ],
+    "floating": [],
+    "focus": "3120009",
+    "region": null,
+    "value": "3,156.42억 원"
+  },
+  "reopened": {
+    "breadcrumb": "서울 전체\n›\n종로구\n›\n종로3가역",
+    "camera": "translate(0 0) scale(1)",
+    "conditions": [
+      "자료 조건 변경: 추정매출",
+      "분기 조건 변경: 2025년 3분기",
+      "자치구 조건 변경: 종로구",
+      "자치구 조건 해제",
+      "분석 기준 조건 변경: 전체"
+    ],
+    "floating": [
+      "자료와 분석 조건"
+    ],
+    "focus": "3120009",
+    "region": null,
+    "value": "3,156.42억 원"
+  },
+  "returned": {
+    "breadcrumb": "서울 전체\n›\n종로구\n›\n종로3가역",
+    "camera": "translate(0 0) scale(1)",
+    "conditions": [
+      "자료 조건 변경: 추정매출",
+      "분기 조건 변경: 2025년 3분기",
+      "자치구 조건 변경: 종로구",
+      "자치구 조건 해제",
+      "분석 기준 조건 변경: 전체"
+    ],
+    "floating": [
+      "자료와 분석 조건",
+      "선택 지역 상세와 후보 비교"
+    ],
+    "focus": "3120009",
+    "region": null,
+    "value": "3,156.42억 원"
+  }
+}

@@ -1,0 +1,187 @@
+{
+  "source": "d84de17",
+  "cases": [
+    {
+      "mode": "시연용",
+      "dataset": "추정매출",
+      "before": {
+        "breadcrumb": "서울 전체\n›\n종로구",
+        "camera": "translate(0 0) scale(1.4)",
+        "conditions": [
+          "자료 조건 변경: 추정매출",
+          "분기 조건 변경: 2025년 3분기",
+          "자치구 조건 변경: 종로구",
+          "자치구 조건 해제",
+          "분석 기준 조건 변경: 전체"
+        ],
+        "floating": [],
+        "focus": null,
+        "region": "종로구 상권 비교\n\n현재 조건의 상권 74개 · 2025년 3분기 · 전체 제공 업종 · 전체",
+        "value": null
+      },
+      "focus": {
+        "breadcrumb": "서울 전체\n›\n종로구\n›\n종로3가역",
+        "camera": "translate(0 0) scale(1)",
+        "conditions": [
+          "자료 조건 변경: 추정매출",
+          "분기 조건 변경: 2025년 3분기",
+          "자치구 조건 변경: 종로구",
+          "자치구 조건 해제",
+          "분석 기준 조건 변경: 전체"
+        ],
+        "floating": [],
+        "focus": "3120009",
+        "region": null,
+        "value": "3,156.42억 원"
+      },
+      "trend": {
+        "backgroundFocusable": 0,
+        "display": "flex",
+        "value": "3,156.42억 원"
+      },
+      "returned": {
+        "breadcrumb": "서울 전체\n›\n종로구",
+        "camera": "translate(0 0) scale(1.4)",
+        "conditions": [
+          "자료 조건 변경: 추정매출",
+          "분기 조건 변경: 2025년 3분기",
+          "자치구 조건 변경: 종로구",
+          "자치구 조건 해제",
+          "분석 기준 조건 변경: 전체"
+        ],
+        "floating": [],
+        "focus": null,
+        "region": "종로구 상권 비교\n\n현재 조건의 상권 74개 · 2025년 3분기 · 전체 제공 업종 · 전체\n\n선택 유지: 종로3가역 · 상세 보기",
+        "value": null
+      },
+      "conditionsPreserved": true,
+      "cameraPreserved": true
+    },
+    {
+      "mode": "시연용",
+      "dataset": "유동인구 여성",
+      "focus": {
+        "breadcrumb": "서울 전체\n›\n종로구\n›\n종로3가역",
+        "camera": "translate(0 0) scale(1)",
+        "conditions": [
+          "자료 조건 변경: 유동인구",
+          "분기 조건 변경: 2026년 2분기",
+          "자치구 조건 변경: 종로구",
+          "자치구 조건 해제",
+          "분석 기준 조건 변경: 여성",
+          "분석 기준 조건 해제"
+        ],
+        "floating": [],
+        "focus": "3120009",
+        "region": null,
+        "value": "2,678,264 명"
+      },
+      "trend": {
+        "display": "flex",
+        "value": "2,678,264 명"
+      },
+      "returned": {
+        "breadcrumb": "서울 전체\n›\n종로구\n›\n종로3가역",
+        "camera": "translate(0 0) scale(1)",
+        "conditions": [
+          "자료 조건 변경: 유동인구",
+          "분기 조건 변경: 2026년 2분기",
+          "자치구 조건 변경: 종로구",
+          "자치구 조건 해제",
+          "분석 기준 조건 변경: 여성",
+          "분석 기준 조건 해제"
+        ],
+        "floating": [],
+        "focus": "3120009",
+        "region": null,
+        "value": "2,678,264 명"
+      },
+      "conditionsPreserved": true,
+      "valuePreserved": true,
+      "focusPreserved": true
+    },
+    {
+      "mode": "분석용",
+      "dataset": "유동인구 여성",
+      "resumed": {
+        "breadcrumb": "서울 전체\n›\n종로구\n›\n종로3가역",
+        "camera": "translate(0 0) scale(1)",
+        "conditions": [
+          "자료 조건 변경: 유동인구",
+          "분기 조건 변경: 2026년 2분기",
+          "자치구 조건 변경: 종로구",
+          "자치구 조건 해제",
+          "분석 기준 조건 변경: 여성",
+          "분석 기준 조건 해제"
+        ],
+        "floating": [],
+        "focus": "3120009",
+        "region": null,
+        "value": "2,678,264 명"
+      },
+      "trend": {
+        "display": "flex",
+        "value": "2,678,264 명"
+      },
+      "returned": {
+        "breadcrumb": "서울 전체\n›\n종로구\n›\n종로3가역",
+        "camera": "translate(0 0) scale(1)",
+        "conditions": [
+          "자료 조건 변경: 유동인구",
+          "분기 조건 변경: 2026년 2분기",
+          "자치구 조건 변경: 종로구",
+          "자치구 조건 해제",
+          "분석 기준 조건 변경: 여성",
+          "분석 기준 조건 해제"
+        ],
+        "floating": [],
+        "focus": "3120009",
+        "region": null,
+        "value": "2,678,264 명"
+      },
+      "noMarketFloatsOutside": true
+    },
+    {
+      "mode": "분석용",
+      "dataset": "추정매출",
+      "trend": {
+        "display": "flex",
+        "value": "3,156.42억 원"
+      },
+      "returned": {
+        "breadcrumb": "서울 전체\n›\n종로구\n›\n종로3가역",
+        "camera": "translate(0 0) scale(1)",
+        "conditions": [
+          "자료 조건 변경: 추정매출",
+          "분기 조건 변경: 2025년 3분기",
+          "자치구 조건 변경: 종로구",
+          "자치구 조건 해제",
+          "분석 기준 조건 변경: 전체"
+        ],
+        "floating": [],
+        "focus": "3120009",
+        "region": null,
+        "value": "3,156.42억 원"
+      }
+    }
+  ],
+  "autoDock": {
+    "data": {
+      "controlsFloating": "false",
+      "detailsFloating": "false",
+      "magneticWorkspace": "true"
+    },
+    "panels": [
+      {
+        "name": "자료와 분석 조건",
+        "position": "static"
+      },
+      {
+        "name": "선택 지역 상세와 후보 비교",
+        "position": "static"
+      }
+    ],
+    "viewport": 1512,
+    "w": 1512
+  }
+}

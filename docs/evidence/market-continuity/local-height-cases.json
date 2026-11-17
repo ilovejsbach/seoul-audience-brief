@@ -1,0 +1,58 @@
+[
+  {
+    "map": {
+      "bottom": 721,
+      "height": 468.40625,
+      "left": 64.5,
+      "right": 1127.5,
+      "top": 252.59375,
+      "width": 1063,
+      "x": 64.5,
+      "y": 252.59375
+    },
+    "mode": "시연용",
+    "pageHeight": 724,
+    "viewport": {
+      "h": 724,
+      "w": 1512
+    },
+    "workspace": {
+      "bottom": 722,
+      "height": 636,
+      "left": 63.5,
+      "right": 1448.5,
+      "top": 86,
+      "width": 1385,
+      "x": 63.5,
+      "y": 86
+    }
+  },
+  {
+    "map": {
+      "bottom": 1077,
+      "height": 824.40625,
+      "left": 81,
+      "right": 1519,
+      "top": 252.59375,
+      "width": 1438,
+      "x": 81,
+      "y": 252.59375
+    },
+    "mode": "시연용",
+    "pageHeight": 1080,
+    "viewport": {
+      "h": 1080,
+      "w": 1920
+    },
+    "workspace": {
+      "bottom": 1078,
+      "height": 992,
+      "left": 80,
+      "right": 1840,
+      "top": 86,
+      "width": 1760,
+      "x": 80,
+      "y": 86
+    }
+  }
+]
