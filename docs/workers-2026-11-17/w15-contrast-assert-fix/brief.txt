@@ -1,0 +1,45 @@
+작업 w15: 대비 검사(g) 단언 오탐 수정
+
+프로젝트: /Users/koscom/workspace2/seoul human
+산출물 폴더: docs/workers-2026-11-17/w15-contrast-assert-fix/
+
+배경
+- docs/workers-2026-11-17/w14-disabled-contrast-fix/REPORT.md를 읽어라.
+- 색 수정 뒤 신뢰 가능한 대비 미달은 0건이다.
+- 그런데 tests/e2e/screen-rules.spec.mjs의 g 단언이 aria-hidden 장식 로고(▦, .brandMark)를 실패로 셌다. 그래서 16개 여정이 모두 실패하고 종료 코드가 1이다.
+- WCAG 1.4.3은 순수 장식을 대비 기준에서 제외한다.
+
+할 일
+1. tests/e2e/screen-rules.spec.mjs(필요하면 report-results.mjs도)를 아래와 같이 고친다.
+   - 수집 단계에서 aria-hidden="true" 조상 안의 텍스트를 "장식 제외"로 분류한다.
+   - 판정 불가 항목은 단언에서 빼고 보고서에만 남긴다.
+   - 실패는 신뢰 가능한 미달일 때만 낸다.
+   - 판정 불가를 0으로 숨기지 말고 개수를 계속 보고한다.
+2. 예외가 진짜 결함을 가리지 않는지 확인하는 대조 실험을 한다.
+   - 임시로 src/readability.css 22줄의 #5b6b80을 #8a99ab처럼 흐린 색으로 바꾼다.
+   - g 검사가 실패하는지 확인한다.
+   - 반드시 #5b6b80으로 되돌린다.
+   - 되돌린 뒤 git diff src/readability.css 결과가 w14 변경(3줄)과 같은지 확인한다.
+3. 아래 명령의 종료 코드가 0이어야 한다.
+   PLAYWRIGHT_EVIDENCE_DIR=<산출물폴더>/e2e npm run test:e2e -- --project=desktop-1365 --project=desktop-1920
+   기준:
+   - g: 신뢰 가능한 미달 0
+   - h: 28/28
+   - a–f: 통과
+4. tests/e2e/README.md에 장식 제외 규칙을 한 줄로 적는다.
+
+금지
+- git commit, push, reset, checkout, clean
+- publish-pages 실행, 배포
+- 외부 요청
+- tests/e2e/ 밖의 파일 수정(대조 실험 중 임시 변경은 예외이며 반드시 원복한다)
+- 모바일 수정
+
+보고
+산출물 폴더의 REPORT.md에 쉬운 한국어로 아래를 쓴다.
+- diff 요약
+- 대조 실험 결과
+- 종료 코드
+- g/h/a–f 수치
+- 판정 불가 개수
+- 한계

@@ -1,0 +1,10 @@
+역할: 작업자 - Playwright 화면 규칙 검사에 (g) 색 대비, (h) 동위 버튼·탭 균등 크기 검사 추가. PC 전용(모바일은 사용자 지시로 보류).
+프로젝트 루트: /Users/koscom/workspace2/seoul human. 먼저 AGENTS.md, docs/DASHBOARD_DEVELOPMENT_RULES.md(R04, R07–R09, R11, R20 등 대비·균등 관련 규칙), docs/HUMAN_FEEDBACK.md("색이 가장 문제", "글자수만 기준이 되야해서는 안됨"), tests/e2e/README.md, tests/e2e/screen-rules.spec.mjs, playwright.config.mjs, 그리고 기존 일회용 tests/ux-wave1-e2e.mjs·tests/market-layout-e2e.mjs의 대비/균등 측정 방식을 읽는다.
+할 일:
+1. (g) 색 대비: 보이는 텍스트마다 실제 글자색과 합성 배경색(조상 배경·반투명 레이어·opacity 누적 합성, 배경 이미지/그라데이션/SVG 위 글자는 '판정 불가'로 분리)을 계산해 WCAG 대비비 측정. 기준: 일반 4.5:1, 큰 글자(24px 이상 또는 18.66px 이상 굵게) 3:1. 선택/hover/focus 상태(선택된 탭, 활성 토글, 포커스 링 3:1)도 최소 대표 상태로 측정. 지도 범례·도형 색 자체는 텍스트 대비와 구분.
+2. (h) 균등 크기: 같은 위계 묶음(상단 자료 탭 4개, 분석용/시연용 토글, 지도 도구 버튼 묶음, 상세 콤보와 같은 행 버튼, 상권 도구 등)을 정본 규칙에 근거해 정의하고, 묶음 안 높이 동일(±1px), 정본이 균등 폭을 요구하는 묶음은 폭 동일(±1px), 세로 중심 정렬(±1px) 확인. 묶음 정의 근거(규칙 ID)를 코드 주석과 README에 적는다.
+3. 기존 a–f와 같은 여정(2모드 × 4자료 × desktop-1365, desktop-1920, 상세 순회 포함)에 통합하되 기존 판정을 약화하지 말 것. tests/e2e/report-results.mjs도 g/h 반영.
+4. 실행: npm run test:e2e -- --project=desktop-1365 --project=desktop-1920. 실패는 제품 결함 목록(요소·실측 대비비·색·화면 캡처)으로 보고하고 src는 수정하지 않는다. 검사기 오판 가능성은 따로 표시.
+산출물: tests/e2e/ 변경, 결과는 /Users/koscom/workspace2/seoul human/docs/workers-2026-11-17/w10-contrast-uniform/ (REPORT.md, RESULTS.md, summary.json, 실패 PNG). config의 evidence 출력 경로가 w5 폴더로 고정돼 있으면 환경변수로 바꿀 수 있게 하되 기본 동작은 유지.
+금지: src/·public/ 수정, git commit/push/배포, 외부 요청, pkill(자신이 띄운 PID만 종료).
+끝나면 쉬운 한국어로 짧게 알린다.

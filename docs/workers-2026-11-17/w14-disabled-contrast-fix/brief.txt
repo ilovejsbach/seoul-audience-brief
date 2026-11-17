@@ -1,0 +1,47 @@
+작업 w14: 비활성 버튼 글자색 대비 수정 (PC)
+
+프로젝트: /Users/koscom/workspace2/seoul human
+산출물 폴더: /Users/koscom/workspace2/seoul human/docs/workers-2026-11-17/w14-disabled-contrast-fix/
+
+배경
+- w10 검사(docs/workers-2026-11-17/w10-contrast-uniform/REPORT.md)에서 대비 미달 2건이 나왔다. "선택 구 동 지도" 버튼과 지도 "−" 축소 버튼이며, 둘 다 비활성 상태다.
+- 원인: 글자색 #617287이 바탕 #edf1f5 위에 쓰여 대비가 4.34:1이다. 기준은 4.5:1이다.
+
+먼저 읽을 것
+- docs/DASHBOARD_DEVELOPMENT_RULES.md의 R04와 R20
+- w10 REPORT.md
+- tests/e2e/README.md
+
+할 일
+1. src/readability.css에서 #617287을 #5b6b80으로 바꾼다. 대상은 아래 3곳뿐이다.
+   - 16줄: placeholder
+   - 22줄: .app button:disabled
+   - 80줄: .scenarioWorkbench button:disabled
+   다른 파일과 다른 색은 바꾸지 않는다.
+2. 대비를 계산해 기록한다.
+   - #5b6b80 on #edf1f5 (기대값 약 4.79)
+   - #5b6b80 on #ffffff
+   - placeholder가 놓이는 실제 입력칸 바탕
+3. 다음 명령으로 PC 검사를 실행한다.
+   PLAYWRIGHT_EVIDENCE_DIR=<산출물폴더>/e2e npm run test:e2e -- --project=desktop-1365 --project=desktop-1920
+   통과 기준:
+   - 신뢰 가능한 대비 미달 0건
+   - 균등 크기 28/28 통과
+   - 규칙 a–f 전부 통과
+4. npm run build를 실행해 통과를 확인한다.
+5. node --test tests/*.test.mjs를 실행해 통과를 확인한다.
+6. 수정 전·후 같은 버튼의 스크린샷을 1365 크기로 각 1장씩 저장한다. 비활성 버튼이 여전히 비활성처럼 보이는지 눈으로 확인할 수 있게 한다.
+
+금지
+- git commit, push, reset, checkout, clean
+- publish-pages 실행, 배포
+- 외부 요청
+- src/readability.css 3곳과 산출물 폴더 밖의 파일 수정
+- 모바일(390) 수정. 모바일은 보류 중이므로 실행하더라도 결과만 기록한다.
+
+보고
+산출물 폴더의 REPORT.md에 쉬운 한국어로 아래를 쓴다.
+- 바꾼 줄의 diff
+- 대비 수치
+- 각 명령의 종료 코드와 통과·실패 수
+- 미검사 범위와 한계

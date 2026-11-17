@@ -13,13 +13,13 @@ html,body{background:#f3f5f7!important;color:#1f3045!important}
 .app .brandMark *{color:#fff!important}
 .app :is(.liveDot,.dataStatus i,.analysisDataTop i){background:#24558b!important}
 .app :is(input,select,textarea){background:#fff!important;color:#1f3045!important;border-color:#aabbd0!important;accent-color:#24558b}
-.app input::placeholder,.app textarea::placeholder{color:#617287!important;opacity:1}
+.app input::placeholder,.app textarea::placeholder{color:#5b6b80!important;opacity:1}
 .app button{background:#fff!important;color:#24558b!important;border-color:#aabbd0!important}
 .app button *{color:inherit!important}
 .app button:hover:not(:disabled){background:#edf3f9!important;color:#153d69!important;border-color:#6889af!important}
 .app :is(button.active,button[aria-pressed=true],button[aria-current=step],.export,.presentationHeroStart,.heroCtas button:not(.secondary),.mapWorkspaceClose,.trendPlay,.popupActions button:first-child,.addCompare.chosen,.connectionCandidate[aria-pressed=true]){background:#24558b!important;color:#fff!important;border-color:#24558b!important}
 .app :is(button.active,button[aria-pressed=true],button[aria-current=step],.export,.presentationHeroStart,.heroCtas button:not(.secondary),.mapWorkspaceClose,.trendPlay,.popupActions button:first-child,.addCompare.chosen,.connectionCandidate[aria-pressed=true]):hover:not(:disabled){background:#173e69!important;color:#fff!important;border-color:#173e69!important}
-.app button:disabled{background:#edf1f5!important;color:#617287!important;border-color:#cbd5e1!important;opacity:1}
+.app button:disabled{background:#edf1f5!important;color:#5b6b80!important;border-color:#cbd5e1!important;opacity:1}
 .app :is(button,input,select,textarea,a,path):focus-visible{outline-color:#24558b!important}
 .app :is(.modeToggle,.distributionTabs,.mapZoomTools,.mapLevelControls,.chartAxisControls,.trendExplorerControls){background:transparent!important}
 .app :is(.tabs,.presentationNav,.funnel){background:#fff!important;color:#1f3045!important;border-color:#c8d3df!important}
@@ -77,7 +77,7 @@ html,body{background:#f3f5f7!important;color:#1f3045!important}
 .app .scenarioWorkbenchCurrent>div:first-child>strong,.app .scenarioWorkbenchValue strong{color:#152b43!important}
 .app :is(.scenarioWorkbenchTableWrap,.scenarioWorkbenchToggle){border-color:#c8d3df!important}
 .app .scenarioWorkbench button{background:#24558b!important;color:#fff!important;border-color:#24558b!important}
-.app .scenarioWorkbench button:disabled{background:#edf1f5!important;color:#617287!important;border-color:#cbd5e1!important}
+.app .scenarioWorkbench button:disabled{background:#edf1f5!important;color:#5b6b80!important;border-color:#cbd5e1!important}
 .app .heroAnalysis,.app .heroPresentation{background:#f7f9fb!important;color:#1f3045!important}
 .app :is(.analysisHeroHeader h1,.presentationHeroCopy h1,.presentationHeroCopy h1 em,.heroSectionTitle h2,.cityWord){color:#152b43!important}
 .app :is(.analysisDatasets>button,.analysisScenarios>button,.datasetGrid>button,.scenarioGrid>button,.presentationJourney,.heroPin,.heroArtTag){background:#fff!important;color:#1f3045!important;border-color:#c8d3df!important}

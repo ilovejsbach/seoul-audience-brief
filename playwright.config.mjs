@@ -1,6 +1,6 @@
 import { defineConfig } from '@playwright/test';
 
-const evidence = 'docs/workers-2026-11-17/w5-playwright';
+const evidence = process.env.PLAYWRIGHT_EVIDENCE_DIR || 'docs/workers-2026-11-17/w5-playwright';
 export default defineConfig({
   testDir: './tests/e2e',
   timeout: 180_000,
