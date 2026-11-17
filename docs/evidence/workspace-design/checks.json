@@ -1,0 +1,48 @@
+[
+  {
+    "fonts": [
+      "18px",
+      "14px",
+      "28px",
+      "36px"
+    ],
+    "overflow": false,
+    "scene": "market-brief",
+    "width": 1106
+  },
+  {
+    "fonts": [
+      "16px",
+      "14px",
+      "20px",
+      "28px"
+    ],
+    "overflow": false,
+    "scene": "mobile-market-compare",
+    "width": 401
+  },
+  {
+    "fonts": [
+      "16px",
+      "14px",
+      "20px",
+      "12px",
+      "28px"
+    ],
+    "overflow": false,
+    "scene": "mobile-market-map",
+    "width": 384
+  },
+  {
+    "fonts": [
+      "16px",
+      "14px",
+      "12px",
+      "20px",
+      "28px"
+    ],
+    "overflow": false,
+    "scene": "desktop-population-trend",
+    "width": 1648
+  }
+]
