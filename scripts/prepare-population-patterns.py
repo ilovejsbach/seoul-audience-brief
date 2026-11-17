@@ -3,7 +3,7 @@ First sum the same date/hour/cohort across dongs, propagating any missing cell.
 Then average only valid dates within weekday/month-part groups and retain counts.
 No sum of hourly observations is labeled a daily unique population.
 """
-import argparse,calendar,collections,csv,datetime,hashlib,io,itertools,json,pathlib,re,zipfile
+import argparse,calendar,collections,contextlib,csv,datetime,hashlib,io,itertools,json,pathlib,re,zipfile
 from decimal import Decimal,ROUND_HALF_UP
 ROOT=pathlib.Path(__file__).resolve().parents[1]
 OUT=ROOT/'public/data/population-patterns'
@@ -30,9 +30,14 @@ def source_cents(text):
 
 def prepare(record):
  period=record['period'];path=ROOT/record['path'];daily={};columns=None;rows=0;source_codes=set();seen=set()
- with zipfile.ZipFile(path) as z:
-  for name in sorted(n for n in z.namelist() if n.lower().endswith('.csv')):
-   with z.open(name) as raw:
+ with contextlib.ExitStack() as stack:
+  if record.get('format')=='csv':
+   sources=[('official-sheet.csv',stack.enter_context(path.open('rb')))]
+  else:
+   z=stack.enter_context(zipfile.ZipFile(path))
+   sources=[(name,stack.enter_context(z.open(name))) for name in sorted(n for n in z.namelist() if n.lower().endswith('.csv'))]
+  for name,raw in sources:
+   with raw:
     text=io.TextIOWrapper(raw,encoding=record.get('encoding','cp949'));header=next(csv.reader([text.readline()]));first=text.readline();delimiter=';' if ';' in first else ','
     if columns is None:columns=header;cohort_columns=[indices(columns,a,s) for a,s in COHORTS]
     if header!=columns:raise ValueError(f'{period}: inconsistent columns')
@@ -45,7 +50,10 @@ def prepare(record):
      values=[None]*3+[source_cents(x) for x in row[3:]]
      cohorts=[None if any(values[i] is None for i in ids) else sum(values[i] for i in ids) for ids in cohort_columns]
      daily.setdefault(date,{}).setdefault(code,[None]*24)[hour]=cohorts;rows+=1
- dates=sorted(daily);last=calendar.monthrange(int(period[:4]),int(period[4:]))[1];expected_dates=[period+f'{d:02}' for d in range(1,last+1)]
+ dates=sorted(daily);last=calendar.monthrange(int(period[:4]),int(period[4:]))[1]
+ through=record.get('availableThrough',period+str(last))
+ if not through.startswith(period):raise ValueError('Coverage end does not match month')
+ expected_dates=[period+f'{d:02}' for d in range(1,int(through[6:])+1)]
  if dates!=expected_dates:raise ValueError(f'{period}: incomplete calendar dates {dates}')
  # Monthly source-code union is the completeness denominator. An absent dong-hour
  # makes the corresponding gu/Seoul scope null; it is never silently treated as 0.
@@ -82,14 +90,20 @@ def prepare(record):
    compressed_counts=[c[0] if len(set(c))==1 else c for c in counts]
    regions_out[code]={'means':means,'counts':compressed_counts}
   payload={'schemaVersion':1,'month':period,'age':age,'sex':sex,'source':'OA-23016','sourceUrl':record['sourceUrl'],'sourceSha256':record.get('sha256'),'unit':'같은 시각 생활인구의 유효 날짜 평균 · 명','dates':dates,'groups':groups,'regions':regions_out,'precision':2,'rounding':'source decimal cents summed exactly; group mean ROUND_HALF_UP to 0.01','notes':['각 날짜·시간·타깃의 지역합계를 먼저 계산한 뒤 날짜별 평균을 구함.','지역합계에 비공개·결측이 하나라도 있으면 그 날짜·시간의 합계는 null. 그룹 평균은 유효 날짜만 포함하며 counts로 분모를 제공.','월초1–10일·월중11–20일·월말21일–말일. 날짜 수가 다르므로 합계가 아닌 하루 평균으로 비교.','평일·공휴일을 별도로 분리하지 않음. 한 달의 관찰 특성이며 장기적인 반복 특성이나 광고 성과를 의미하지 않음.','행정동은 해당 월 원본 코드 기준. 월 사이 코드·경계 변화가 있으면 동일 동 장기 비교에 주의.','means는 소수 둘째 자리 반올림. counts의 정수는 해당 그룹24시간에 동일한 유효 날짜 수, 배열은 시간별 유효 날짜 수.']}
+  if record.get('partialMonth'):
+   payload.update(availableThrough=through,partialMonth=True,calendarDays=last)
+   payload['notes'].append(f'부분월: {through}까지 실제 제공된 날짜만 포함. 이후 미제공 날짜는 0이나 유효일수로 채우지 않으며, 빈 월 구간의 평균은 null·유효일수는 0.')
   filename=f'{period}-{age}-{sex}.json';dest=OUT/filename;temporary=dest.with_suffix('.json.tmp');temporary.write_text(json.dumps(payload,ensure_ascii=False,separators=(',',':')));temporary.replace(dest)
   outputs.append({'month':period,'age':age,'sex':sex,'path':'data/population-patterns/'+filename,'bytes':dest.stat().st_size})
  print(period,rows,'rows',len(all_codes),'regions',sum(o['bytes'] for o in outputs),'bytes',flush=True)
- return {'month':period,'dates':len(dates),'regions':len(all_codes),'sourceRows':rows,'files':outputs}
+ result={'month':period,'dates':len(dates),'regions':len(all_codes),'sourceRows':rows,'files':outputs}
+ if record.get('partialMonth'):result.update(availableThrough=through,partialMonth=True,calendarDays=last)
+ return result
 
 def main():
- parser=argparse.ArgumentParser();parser.add_argument('--months',nargs='*');args=parser.parse_args();OUT.mkdir(parents=True,exist_ok=True)
- manifest=json.loads((ROOT/'data/population-history-manifest.json').read_text());records=[r for r in manifest['records'] if r.get('status')=='downloaded' and (not args.months or r['period'] in args.months)]
+ global OUT
+ parser=argparse.ArgumentParser();parser.add_argument('--months',nargs='*');parser.add_argument('--source-manifest',type=pathlib.Path,default=ROOT/'data/population-history-manifest.json');parser.add_argument('--output-dir',type=pathlib.Path,default=OUT);args=parser.parse_args();OUT=args.output_dir;OUT.mkdir(parents=True,exist_ok=True)
+ manifest=json.loads(args.source_manifest.read_text());records=[r for r in manifest['records'] if r.get('status')=='downloaded' and (not args.months or r['period'] in args.months)]
  results=[]
  for record in sorted(records,key=lambda r:r['period'],reverse=True):results.append(prepare(record))
  old=json.loads((OUT/'index.json').read_text()) if (OUT/'index.json').exists() else {'months':[]}

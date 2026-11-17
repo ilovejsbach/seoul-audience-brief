@@ -10,7 +10,7 @@ def require(ok,msg):
  if not ok:raise ValueError(msg)
 regions=load(P/'regions.json');districts={r['code'] for r in regions['districts']};dongs={r['code']:r for r in regions['dongs']}
 def population():
- idx=load(P/'population/index.json');expected={(datetime.date(2026,1,1)+datetime.timedelta(days=i)).strftime('%Y%m%d') for i in range(304)};require(len(idx)==304,'Expected 304 indexed days');require({r['date'] for r in idx}==expected,'Wrong dates');total=0;allcodes=set();nulls=collections.Counter()
+ idx=load(P/'population/index.json');expected={(datetime.date(2026,1,1)+datetime.timedelta(days=i)).strftime('%Y%m%d') for i in range(316)};require(len(idx)==316,'Expected 316 indexed days through 2026-11-12');require({r['date'] for r in idx}==expected,'Wrong dates');total=0;allcodes=set();nulls=collections.Counter()
  for item in idx:
   path=ROOT/'public'/item['path'];x=load(path);rows=x['rows'];cols=x['columns'];require(len(cols)==32,f'{path.name}: expected 32 fields');require(len(rows)==427*24,f'{path.name}: row count {len(rows)}');require(item['rows']==len(rows),'Index count mismatch');require(item['bytes']==path.stat().st_size,'Index bytes mismatch');keys=set();byhour=collections.Counter()
   for n,r in enumerate(rows):
