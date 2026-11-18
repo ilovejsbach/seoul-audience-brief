@@ -1,0 +1,40 @@
+작업 w39b: 지도 결측 사선 무늬 제거 (사용자 번복 반영)
+
+담당: 창5. 같은 트리 /Users/koscom/workspace2/seoul-human-mapcolor, 브랜치 map-color(9660b02), 포트 4199.
+
+사용자 결정 (2026-11-18, 실화면 전후 비교를 보고): "빗금 하지 말자. 없는 게 깔끔하다."
+
+할 일
+1. 결측 사선 무늬와 범례의 무늬 견본을 없앤다. 결측은 평평한 회색 #d7dee6으로 칠한다.
+   - 구 지도, 동 지도, 두 시점 분포, 증감, 상권 지도 모두 같은 #d7dee6으로 통일한다(감독자 결정).
+   - 상권 지도도 이전 #cdd4d0 대신 이 색을 쓴다.
+   - 범례 "자료 없음" 견본은 평평한 회색 칸으로 둔다.
+   - map-missing.tsx가 필요 없어지면 지운다. 결측 색 상수는 map-palettes.ts 한 곳에만 둔다.
+2. 그대로 유지하는 것
+   - A안 시작색(배경 대비 1.5:1)
+   - 5단계 직선 보정
+   - 값·순위·경계 불변
+   - null은 0으로 바꾸지 않는다
+3. 결측 무늬를 전제로 한 시험을 고친다.
+   - 대상: tests/map-missing.test.mjs, tests/e2e/map-color.spec.mjs
+   - 아래를 확인하도록 바꾼다.
+     - null 지역이 #d7dee6으로 칠해지는지
+     - 범례에 "자료 없음" 견본이 있는지
+     - 무늬 요소(pattern)가 0개인지
+   - 시험을 지우거나 건너뛰지 않는다.
+4. 결측 회색과 가장 낮은 값 색(A안 #bdd0e1)은 밝기 대비가 약 1.07로 가깝다. 아래를 측정해 보고한다.
+   - 색차(ΔE, CIEDE2000 등)
+   - 실제 결측 화면 두 곳의 스크린샷
+     - 생활인구 남성·00시 중구 동 지도
+     - 상권 2026Q2
+   - 사용자가 눈으로 확인할 비교 이미지 한 장: 결측 칸과 최저 구간 칸을 나란히 둔다.
+5. G 관문(포트 4199)
+   - npm run build
+   - node --test tests/*.test.mjs
+   - python3 scripts/validate-data.py
+   - E2E_PORT=4199 PLAYWRIGHT_EVIDENCE_DIR=<w39 폴더>/e2e-w39b npm run test:e2e -- --project=desktop-1365 --project=desktop-1920
+
+주의: 디스크 여유 공간이 적다. 증거는 꼭 필요한 스크린샷만 남기고, 실패 트레이스나 동영상은 만들지 않는다.
+
+커밋: map-color 브랜치에서만 로컬 커밋한다. push와 배포는 금지다. 커밋 메시지 끝에 붙인다: Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>
+보고: w39 REPORT.md에 "w39b" 절을 추가한다. 끝나면 "W39B DONE"을 출력한다.
