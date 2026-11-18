@@ -1,0 +1,71 @@
+작업 w27: 레이아웃 이전 1a단계 독립 검증
+
+담당: 창3(검증). 구현은 창4가 w26으로 한다. 너는 구현을 고치지 않는다.
+프로젝트: /Users/koscom/workspace2/seoul human
+보고 폴더: /Users/koscom/workspace2/seoul human/docs/workers-2026-11-18/w27-layout-1a-verify/
+
+이 작업은 두 단계로 진행한다.
+
+[1부: 지금 시작. 구현이 끝나기 전에 한다]
+- 읽을 것
+  - docs/layout-migration-plan.md: 5절 1a 행, G 관문, 7절
+  - w16 REPORT의 I01, I10
+  - w26 brief: docs/workers-2026-11-18/w26-layout-1a-impl/brief.txt
+- 공개 사이트에서 I01이 재현되는지 독립 기록한다. 사이트: https://ilovejsbach.github.io/seoul-audience-brief/
+  - 1365와 1920에서 확인한다.
+  - 표시 설정 패널의 실제 폭을 측정하고 스크린샷을 남긴다.
+  - 공개 자산 버전(index-*.js/css 이름)을 적는다.
+- 검증 체크리스트를 미리 쓴다. 구현자 보고를 보기 전에 기준을 정한다는 뜻이다. 체크리스트 범위:
+  - I01 기능
+    - 열기(Enter와 포인터)
+    - 조작
+    - min/max
+    - 오류 복구
+    - Esc와 초점
+    - 다시 열기
+    - 전체화면
+    - 두 모드
+    - 부모 영역 안에 맞는지
+  - 문서
+    - REQ-22, REQ-23 신설과 ID 중복 여부
+    - 사용자 결정 (a)(b) 반영
+    - 아직 구현 안 된 구조가 "목표"로 표시됐는지
+    - I10 충돌 해소
+    - 과거 보고서 무수정
+  - 회귀
+    - 조회 수치 불변
+    - data 해시 불변
+  - 테스트
+    - 새 검사가 대상이 없을 때 통과하지 않는지
+    - 수리 전 코드에서 실패하는지
+- 1부 결과를 이 폴더의 PART1.md에 쓰고 "W27 PART1 DONE"을 출력한 뒤 기다린다.
+
+[2부: 감독자가 "w26 완료, 2부 시작"이라고 보내면 한다]
+- git diff로 w26의 변경을 직접 읽는다. 바뀐 파일이 1a 범위 안인지 확인한다.
+- 구현자 결과를 믿지 말고 G 관문을 직접 다시 실행한다. 출력은 이 폴더 아래 새 경로에 둔다.
+  - npm run build
+  - node --test tests/*.test.mjs
+  - python3 scripts/validate-data.py
+  - python3 scripts/validate-market-data.py --output <이 폴더>/...
+  - PLAYWRIGHT_EVIDENCE_DIR=<이 폴더>/e2e npm run test:e2e -- --project=desktop-1365 --project=desktop-1920
+- 로컬 빌드(preview)를 실제 브라우저로 열어 1부 체크리스트를 하나씩 판정한다.
+  - 판정은 통과 / 실패 / 판정 불가로 한다.
+  - 각 판정에 근거 스크린샷과 측정값을 붙인다.
+- 대표 조회 2개 이상의 수치가 수정 전 공개 화면과 같은지 대조한다.
+- 결과는 REPORT.md에 쓰고 "W27 DONE"을 출력한다.
+
+금지
+- src, tests, docs(이 폴더 밖) 수정
+- data 수정
+- git 쓰기 명령
+- 배포
+- 다른 작업자 폴더 수정
+- 모바일 작업
+- 외부 요청은 공개 사이트 읽기만 허용
+
+보고 형식: 쉬운 한국어
+1. 핵심 결론 3줄
+2. 체크리스트 판정표
+3. 직접 재실행 결과(명령, 종료 코드, 개수)
+4. 구현자 보고와 다른 점
+5. 미확인

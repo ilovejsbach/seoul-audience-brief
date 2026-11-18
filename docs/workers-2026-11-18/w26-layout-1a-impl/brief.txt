@@ -1,0 +1,73 @@
+작업 w26: 레이아웃 이전 1a단계 구현 — 문서 동기화와 지도 "표시 설정" 잘림(I01) 수리
+
+담당: 창4(구현). 검증은 창3이 따로 한다(w27). 커밋과 배포는 감독자가 한다.
+프로젝트: /Users/koscom/workspace2/seoul human
+증거·보고 폴더: /Users/koscom/workspace2/seoul human/docs/workers-2026-11-18/w26-layout-1a-impl/
+
+사용자 결정 (2026-11-18, "추천대로")
+- (a) 시연용 좌측 메뉴: 시연용에 처음 들어갈 때만 기본으로 접는다. 그 뒤에는 사용자가 직접 펴거나 접은 상태를 유지한다.
+- (b) 고급 창 비율 조절·도킹: 더보기 안에 남긴다. 없앨지는 나중에 따로 정한다.
+- w20 레이아웃 확정과 상권 무모드·비상속 원칙은 이미 결정되었다.
+
+기준 문서 (먼저 읽는다)
+- docs/layout-migration-plan.md
+  - 4절(0단계 개정안 표)
+  - 5절 1a 행과 G 관문
+  - 7절(테스트 이식)
+- docs/workers-2026-11-18/w16-ia-midpoint-review/REPORT.md
+  - I01: 지도 "색상·표시 설정" 패널이 폭 2px로 잘린다. 스크린샷 근거가 있다.
+  - I10: 문서끼리 충돌한다.
+- docs/DASHBOARD_DEVELOPMENT_RULES.md, docs/DEVELOPMENT_REQUIREMENTS.md, NEXT-SESSION.md
+
+할 일
+1. 기준선 기록 (G-1)
+   - HEAD, dirty 상태(내가 건드릴 파일만), 현재 공개 자산 버전, data 해시를 기록한다.
+   - 수정 전 I01이 재현되는지 1365와 1920에서 스크린샷과 측정 폭으로 남긴다.
+2. 문서 동기화 (1a)
+   - 계획서 4절 표에 따라 요구서와 개발 규칙을 실제로 개정한다.
+     - 새 REQ-22, 새 REQ-23. 쓰기 전에 ID 중복을 재확인한다.
+     - REQ-20, REQ-04/13·R05–06, REQ-07/08·R15, R04/R07–10/R20, 현행 기간 부록
+   - 위 사용자 결정 (a)(b)를 문구에 반영한다.
+   - I10 충돌 문서를 함께 정리한다: map-workspace-design.md, tableau-query-options-plan.md, 관련 수용 문서, NEXT-SESSION.md의 현행 링크.
+   - 과거 실행 보고서는 당시 증거이므로 고치지 않는다.
+   - 아직 구현되지 않은 구조(셸·좌측·우측)는 "목표(1b 이후 구현 예정)"로 표시한다. 현재 동작으로 쓰지 않는다.
+3. I01 수리
+   - 대상 파일: src/viewport-workspace.css, src/tableau-query-integration.css. 필요하면 원인 컴포넌트 최소 범위까지.
+   - 원인(구형 grid-area와 absolute 패널의 percent 폭 충돌 등)을 파일과 줄로 밝히고 최소 수정한다.
+   - 계산, 데이터, 입력 ID, 조회 수치는 바꾸지 않는다.
+4. 테스트 추가
+   - tests/e2e/screen-rules.spec.mjs에 표시 설정 검사를 넣는다.
+     - 실제 Enter와 포인터로 연다.
+     - 폭이 양수이고 내용을 조작할 수 있는지 확인한다.
+     - min/max 적용, 오류 복구, Esc와 초점 복귀, 다시 열기를 확인한다.
+     - 1365/1920 × 일반/전체화면 × 분석/시연에서 확인한다.
+     - 부모 영역 안에 맞는지 확인한다.
+   - 대상 요소가 없을 때 그냥 통과하지 않게 한다.
+   - 수리 전 코드에서 이 검사가 실패하는지 대조 실험으로 보여 준다(되돌려서 실패 확인 → 복원).
+5. G 관문 실행. 출력은 모두 이 폴더 아래 새 파일에 둔다.
+   - npm run build
+   - node --test tests/*.test.mjs: 파일 12개를 명시하고 하위 개수를 기록한다.
+   - python3 scripts/validate-data.py > <이 폴더>/data-validation.json
+   - python3 scripts/validate-market-data.py --output <이 폴더>/market-data-validation.json (기본 출력 덮어쓰기 금지)
+   - PLAYWRIGHT_EVIDENCE_DIR=<이 폴더>/e2e npm run test:e2e -- --project=desktop-1365 --project=desktop-1920
+
+금지
+- 1b 이후 단계의 작업(셸, 히어로, 메뉴 이동)
+- 데이터·scripts·public/data 수정
+- 원본·증거 덮어쓰기
+- git 쓰기 명령, 배포, 외부 요청(공개 사이트 읽기 확인은 허용)
+- 다른 작업자 폴더 수정
+- 모바일 작업
+
+보고
+이 폴더의 REPORT.md에 쉬운 한국어로 쓴다.
+1. 핵심 결론 3줄
+2. 바꾼 파일 목록. 파일마다 이유를 쓴다.
+3. I01 원인과 수정 전후 측정
+4. 문서 개정 요약. REQ, 규칙 ID별로 쓴다.
+5. G 관문 결과
+   - 명령마다 종료 코드와 개수를 적는다.
+   - 실행한 것과 실행하지 않은 것을 나눈다.
+6. 대조 실험 결과
+7. 미확인과 위험
+끝나면 "W26 DONE"을 출력한다.

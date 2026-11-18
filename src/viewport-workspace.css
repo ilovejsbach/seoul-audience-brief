@@ -51,7 +51,7 @@
  #root>.app[data-detail-system="shared"] .mapPanel.unifiedMapPanel.mapIsFullscreen{height:100dvh;max-height:100dvh;min-height:0;overflow:hidden}
  #root>.app[data-detail-system="shared"] .mapPanel.unifiedMapPanel.mapIsFullscreen>.mapWrap{flex:1;height:auto;min-height:0}
  /* Display options float above the map, never consume its grid height. */
- #root>.app[data-detail-system="shared"] .mapPanel.unifiedMapPanel .mapDisplaySettings[open]{position:absolute;right:8px;top:4px;width:min(340px,calc(100% - 16px));max-height:min(60dvh,calc(100% - 12px));overflow:auto;z-index:65;background:#fff;border:1px solid #a9bdd2;box-shadow:0 6px 20px #173e6926;overscroll-behavior:contain}
+ #root>.app[data-detail-system="shared"] .mapPanel.unifiedMapPanel .mapDisplaySettings[open]{position:absolute;grid-column:1/-1;grid-row:1/-1;right:8px;top:4px;width:min(340px,calc(100% - 16px));max-height:min(60dvh,calc(100% - 12px));overflow:auto;z-index:65;background:#fff;border:1px solid #a9bdd2;box-shadow:0 6px 20px #173e6926;overscroll-behavior:contain}
  #root>.app[data-detail-system="shared"] .mapPanel.unifiedMapPanel .mapDisplaySettings[open]>summary{position:sticky;top:0;z-index:1;background:#fff}
  #root>.app[data-detail-system="shared"] .mapPanel.unifiedMapPanel .mapDisplaySettings[open]>:not(summary){padding:8px;max-width:100%;box-sizing:border-box;background:#fff}
  /* Main details use exactly the same remaining rectangle, irrespective of module. */

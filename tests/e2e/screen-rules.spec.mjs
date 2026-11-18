@@ -263,3 +263,78 @@ for (const mode of ['analysis', 'presentation']) for (const [topic, label] of to
     }
   });
 }
+
+// I01 / R05 R06 R11 R14 R20: the map's "색상·표시 설정" panel must open to a
+// readable, operable width. Opened by the real keyboard (Enter) and pointer.
+// Every "must exist" step asserts a count first so a missing target cannot pass.
+const displayTopics = [['population', '생활인구'], ['mobility', '생활이동'], ['migration', '거주지 전입·전출'], ['commerce', '행정동 추정매출']];
+for (const mode of ['analysis', 'presentation']) for (const fullscreen of [false, true]) for (const [topic, label] of displayTopics) {
+  test(`${mode} / ${fullscreen ? 'fullscreen' : 'normal'} / ${topic} / display settings I01`, async ({ page }, info) => {
+    await page.goto('/');
+    await page.getByRole('heading', { name: '지역별 광고 입지 분석', exact: true }).waitFor();
+    await page.locator('.analysisDatasets > button').filter({ has: page.getByRole('heading', { name: new RegExp(`^${label}`) }) }).click();
+    if (mode === 'presentation') await page.getByRole('button', { name: '시연용', exact: true }).click();
+    await page.locator(`#map-${topic} svg`).filter({ visible: true }).first().waitFor();
+    if (fullscreen) { await page.getByRole('button', { name: '지도 전체화면 보기' }).click(); await expect(page.getByRole('button', { name: '지도 전체화면 닫기' })).toBeVisible(); }
+    await settle(page);
+    const panel = page.locator('.mapDisplaySettings').filter({ visible: true });
+    await expect(panel, 'exactly one visible display-settings control').toHaveCount(1);
+    const summary = panel.locator('> summary');
+    const measure = async stage => {
+      const m = await page.evaluate(() => {
+        const d = [...document.querySelectorAll('.mapDisplaySettings')].find(e => e.open);
+        if (!d) return null;
+        const rect = x => x.getBoundingClientRect().toJSON(), host = d.closest('.mapWrap');
+        return { rect: rect(d), host: rect(host), innerWidth, innerHeight, position: getComputedStyle(d).position };
+      });
+      const state = { stage, mode, fullscreen, topic, project: info.project.name, ...m };
+      const ok = !!m && m.rect.width >= 300 && m.rect.height > 80 && m.rect.left >= m.host.left - 1 && m.rect.right <= m.host.right + 1 && m.rect.top >= m.host.top - 1 && m.rect.right <= m.innerWidth + 1;
+      expect.soft(ok, `${stage}: ${JSON.stringify(state)}`).toBe(true);
+      return state;
+    };
+    const states = [];
+    // 1) keyboard open
+    await summary.focus(); await page.keyboard.press('Enter');
+    await expect(panel).toHaveJSProperty('open', true);
+    states.push(await measure('keyboard Enter'));
+    await page.screenshot({ path: info.outputPath('settings-open.png') });
+    // 2) operate: observed-minimum padding, invalid then valid (error recovery)
+    await panel.getByLabel('색상 시작 기준').selectOption('observed');
+    const pad = panel.getByLabel('최솟값 아래 여유(%)');
+    await expect(pad).toHaveCount(1);
+    const status = panel.locator('.mapColorRangeNotice[role="status"]');
+    await pad.fill('150'); await panel.getByRole('button', { name: '시작 여유 적용' }).click();
+    await expect(panel.locator('.mapColorRangeError')).toBeVisible();
+    await pad.fill('20'); await panel.getByRole('button', { name: '시작 여유 적용' }).click();
+    await expect(panel.locator('.mapColorRangeError')).toHaveCount(0);
+    await expect(status).toContainText('20%');
+    // 3) operate: manual min/max, invalid (min=max) then valid, then reset
+    await panel.locator('.mapManualRange > details > summary').click();
+    const lowInput = panel.getByLabel('색상 최솟값'), highInput = panel.getByLabel('색상 최댓값');
+    await expect(lowInput).toHaveCount(1); await expect(highInput).toHaveCount(1);
+    const summaryEl = panel.locator('.mapManualRangeSummary');
+    const low = Number(await summaryEl.getAttribute('data-color-low')), high = Number(await summaryEl.getAttribute('data-color-high'));
+    expect(high).toBeGreaterThan(low);
+    await lowInput.fill(String(low)); await highInput.fill(String(low));
+    await panel.getByRole('button', { name: '색상 범위 적용' }).click();
+    await expect(panel.locator('.mapManualRange [role="alert"]')).toBeVisible();
+    const target = Math.round((low + high) / 2);
+    await highInput.fill(String(target)); await panel.getByRole('button', { name: '색상 범위 적용' }).click();
+    await expect(panel.locator('.mapManualRange [role="alert"]')).toHaveCount(0);
+    expect(Number(await summaryEl.getAttribute('data-color-high'))).toBe(target);
+    await expect(summaryEl).toContainText('직접 범위');
+    await panel.getByRole('button', { name: '직접 범위 초기화' }).click();
+    await expect(summaryEl).toContainText('자동 범위');
+    states.push(await measure('after operating controls'));
+    // 4) Esc closes and returns focus to the summary
+    await page.keyboard.press('Escape');
+    await expect(panel).toHaveJSProperty('open', false);
+    expect(await page.evaluate(() => document.activeElement?.matches('.mapDisplaySettings > summary'))).toBe(true);
+    // 5) pointer reopen
+    await summary.click();
+    await expect(panel).toHaveJSProperty('open', true);
+    states.push(await measure('pointer click reopen'));
+    await writeFile(info.outputPath('display-settings-measurements.json'), JSON.stringify(states, null, 2));
+    await info.attach('display-settings-measurements', { path: info.outputPath('display-settings-measurements.json'), contentType: 'application/json' });
+  });
+}

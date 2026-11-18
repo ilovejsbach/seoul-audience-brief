@@ -1,0 +1,77 @@
+작업 w29: 레이아웃 이전 1b단계 독립 검증
+
+담당: 창2(검증). 구현은 창4가 w28로 한다. 너는 구현 파일을 고치지 않는다.
+프로젝트: /Users/koscom/workspace2/seoul human
+보고 폴더: /Users/koscom/workspace2/seoul human/docs/workers-2026-11-18/w29-layout-1b-verify/
+
+[1부: 지금 한다 — 구현 전 기준과 판정표]
+- 주의: 지금 같은 작업 트리에서 다른 검증(w27)이 빌드와 테스트를 돌리고 있다.
+  - 너는 빌드, 테스트, 개발 서버를 띄우지 않는다.
+  - 이 폴더 밖에는 쓰지 않는다.
+- 읽을 것
+  - docs/layout-migration-plan.md: 3절, 5절 1b 행, G 관문, 7절
+  - w20 목업 mockup.html와 REPORT.md: 확정 디자인과 히어로
+  - 작업 트리의 docs/DEVELOPMENT_REQUIREMENTS.md: REQ-22, REQ-23
+  - w16 REPORT의 I04, I08, I09
+  - w28 brief: docs/workers-2026-11-18/w28-layout-1b-impl/brief.txt
+- 공개 사이트에서 수정 전 기준을 기록한다. 사이트: https://ilovejsbach.github.io/seoul-audience-brief/
+  - CSS 뷰포트를 정확히 1365x768과 1920x1080으로 맞춘다.
+  - 기록할 것
+    - 현재 히어로 문구와 기간 표시(I08)
+    - 더보기 툴팁(I09)
+    - I04 재현: 분석용에서 상권으로 갔을 때와 시연용에서 상권으로 갔을 때 상권 글자 크기·패널·도구가 어떻게 다른지 측정한다.
+    - 대표 조회 2개의 수치. 이후 회귀 대조에 쓴다.
+- 판정표를 미리 쓴다. 범위는 아래와 같다.
+  - 상단 고정 메뉴
+    - sticky 동작
+    - 항목 4개
+    - 예정 항목 2개 비활성과 그 이유 표시
+    - 모드 전환은 지역 분석에서만 보임
+  - 히어로
+    - 지표 4개와 원본 대조
+    - 시작 버튼 2개
+    - 이어보기: 첫 방문에는 비활성, 이후 활성
+  - I04 양방향과 지역 복귀 시 mode 유지
+  - 서비스 왕복 때 조건과 후보 보존
+  - I08, I09
+  - 키보드
+    - Tab 순서
+    - Enter
+    - Esc
+    - 초점
+  - 대비와 균등 크기(규칙 g, h)
+  - 잘림
+  - 조회 수치 불변
+  - data 해시 불변
+- 결과는 PART1.md에 쓰고 "W29 PART1 DONE"을 출력한 뒤 기다린다.
+
+[2부: 감독자가 "w28 완료, w29 2부 시작"이라고 보내면 한다]
+- git diff로 변경을 직접 읽는다. 1b 범위를 넘었는지 확인한다.
+- G 관문을 직접 다시 실행한다. 출력은 이 폴더 아래 새 경로에 둔다.
+  - npm run build
+  - node --test tests/*.test.mjs
+  - python3 scripts/validate-data.py
+  - python3 scripts/validate-market-data.py --output <이 폴더>/...
+  - PLAYWRIGHT_EVIDENCE_DIR=<이 폴더>/e2e npm run test:e2e -- --project=desktop-1365 --project=desktop-1920
+- 로컬 빌드를 실제 브라우저로 열어 판정표를 하나씩 판정한다.
+  - 뷰포트를 정확히 맞춘다.
+  - 판정은 통과 / 실패 / 판정 불가로 한다.
+  - 각 판정에 근거 스크린샷과 측정값을 붙인다.
+- 1부에서 기록한 대표 조회 수치가 그대로인지 대조한다.
+- 결과는 REPORT.md에 쓰고 "W29 DONE"을 출력한다.
+
+금지
+- src, tests, data 수정
+- docs 수정(이 폴더는 예외)
+- git 쓰기 명령
+- 배포
+- 다른 작업자 폴더 수정
+- 모바일 작업
+- 외부 요청: 공개 사이트 읽기만 허용
+
+보고 형식 (쉬운 한국어)
+1. 핵심 결론 3줄
+2. 판정표
+3. 직접 재실행 결과
+4. 구현자 보고와 다른 점
+5. 미확인
