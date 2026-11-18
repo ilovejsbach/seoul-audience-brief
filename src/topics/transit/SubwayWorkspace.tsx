@@ -24,8 +24,10 @@ function useLoad<T>(fn:(()=>Promise<T>)|null,deps:unknown[]):Load<T>{
   return s;
 }
 
-export default function SubwayWorkspace(){
-  const [mode,setMode]=useState<'analysis'|'presentation'>('analysis');
+export default function SubwayWorkspace({mode,active}:{mode:'analysis'|'presentation';active:boolean}){
+  const rootRef=useRef<HTMLDivElement>(null);
+  const [headerH,setHeaderH]=useState(72);
+  useEffect(()=>{const el=document.querySelector('.appHeader');if(!el)return;const up=()=>setHeaderH(Math.round(el.getBoundingClientRect().height));up();const ro=new ResizeObserver(up);ro.observe(el);window.addEventListener('resize',up);return()=>{ro.disconnect();window.removeEventListener('resize',up)}},[active]);
   const [leftOpen,setLeftOpen]=useState(true),[rightOpen,setRightOpen]=useState(true);
   const [dataset,setDataset]=useState<Dataset>('usage');
   const [view,setView]=useState<ViewId>('map');
@@ -37,7 +39,7 @@ export default function SubwayWorkspace(){
   const [quarter,setQuarter]=useState('2026-09-30'),[cDay,setCDay]=useState<'wd'|'sat'|'sun'>('wd');
   const [candidates,setCandidates]=useState<string[]>([]);
   const [csv,setCsv]=useState<{name:string;rows:(string|number|null)[][]}|null>(null);
-  const [popover,setPopover]=useState<''|'source'|'more'>('');
+  const [popover,setPopover]=useState<''|'source'>('');
   const firstPresentation=useRef(true);
 
   const manifest=useLoad<SubwayManifest>(()=>subwayData.manifest(),[]);
@@ -48,10 +50,10 @@ export default function SubwayWorkspace(){
   const byId=useMemo(()=>new Map(stations.map(s=>[s.id,s])),[stations]);
   const sel=station?byId.get(station):undefined;
 
-  useEffect(()=>{document.title='교통 · 지하철 이용';},[]);
-  useEffect(()=>{if(mode==='presentation'&&firstPresentation.current){firstPresentation.current=false;setLeftOpen(false)}},[mode]);
+    useEffect(()=>{if(mode==='presentation'&&firstPresentation.current){firstPresentation.current=false;setLeftOpen(false)}},[mode]);
   useEffect(()=>{setCsv(null)},[view,dataset]);
   useEffect(()=>{const onKey=(e:KeyboardEvent)=>{if(e.key==='Escape')setPopover('')};window.addEventListener('keydown',onKey);return()=>window.removeEventListener('keydown',onKey)},[]);
+  useEffect(()=>{if(!active)setPopover('')},[active]);
 
   const months=monthlyL.data?.months||[];
   const idx=useMemo(()=>monthsInPeriod(months,from,to),[months,from,to]);
@@ -77,36 +79,22 @@ export default function SubwayWorkspace(){
   const downloadCsv=()=>{if(!csv)return;const blob=new Blob([toCsv(csv.rows)],{type:'text/csv;charset=utf-8'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=`${csv.name}.csv`;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)};
 
   const common={stations,byId,sel,from,to,idx,kind,day,line,setCsv,monthly:monthlyL.data,mode};
-  return <div className={`sw sw-${mode}`} data-testid="subway-workspace">
-    <header className="swTopbar">
-      <div className="swBrand"><span className="swLogo" aria-hidden="true">▦</span><div><b>상권·인구</b><span>광고 입지 분석</span></div></div>
-      <nav className="swTopics" aria-label="주제">
-        <a className="swTopic" href="./">지역 분석</a>
-        <a className="swTopic" href="./?service=market">상권 분석</a>
-        <button type="button" className="swTopic" aria-current="page">교통</button>
-        <button type="button" className="swTopic" disabled>부동산(예정)</button>
-      </nav>
-      <div className="swTopRight">
-        <div className="swSeg" role="group" aria-label="화면 모드">
-          <button type="button" className="swSegBtn" aria-pressed={mode==='analysis'} onClick={()=>setMode('analysis')}>분석용</button>
-          <button type="button" className="swSegBtn" aria-pressed={mode==='presentation'} onClick={()=>setMode('presentation')}>시연용</button>
-        </div>
-        <div className="swAnchor">
-          <button type="button" className="swBtn swIconBtn" aria-label="더보기" aria-expanded={popover==='more'} onClick={()=>setPopover(popover==='more'?'':'more')}>⋯</button>
-          {popover==='more'&&<div className="swPopover swRightPop" role="dialog" aria-label="더보기"><b>표시 안내</b><p>분석용과 시연용은 같은 값·조건을 쓰며 글자 크기와 정보량만 다릅니다.</p><button type="button" className="swBtn" onClick={()=>setPopover('')}>닫기</button></div>}
-        </div>
-      </div>
-    </header>
+  return <div ref={rootRef} className={`sw sw-${mode}`} data-testid="subway-workspace" style={{height:`calc(100vh - ${headerH}px)`}}>
     <div className="swWorkspace" style={{['--left' as string]:leftOpen?'200px':'64px',['--right' as string]:rightOpen?'300px':'0px'}}>
-      <aside className="swLeft" aria-label="자료와 보기">
+      <aside className={`swLeft${leftOpen?'':' swCollapsed'}`} aria-label="자료와 보기">
         <div className="swSideHead">{leftOpen&&<b>자료와 보기</b>}<button type="button" className="swBtn swIconBtn" aria-label={leftOpen?'왼쪽 메뉴 접기':'왼쪽 메뉴 펼치기'} aria-expanded={leftOpen} onClick={()=>setLeftOpen(v=>!v)}>{leftOpen?'‹':'›'}</button></div>
         <nav>
-          <div className="swGroupTitle">자료</div>
-          <ul className="swMenu">
+          {leftOpen&&<div className="swGroupTitle">자료</div>}
+          <ul className="swMenu" data-testid="subway-sources">
+            <li><button type="button" className="swMenuBtn" aria-current="page" title="지하철" onClick={()=>undefined}>{leftOpen?'지하철':'지하'}</button></li>
+            <li><button type="button" className="swMenuBtn" disabled title="버스(예정) · 자료 확보 후" aria-label="버스 예정 · 자료 확보 후">{leftOpen?'버스(예정)':'버스'}</button></li>
+          </ul>
+          {leftOpen&&<div className="swGroupTitle">지표</div>}
+          <ul className="swMenu" data-testid="subway-datasets">
             <li><button type="button" className="swMenuBtn" aria-current={dataset==='usage'?'page':undefined} title="역 이용(승하차)" onClick={()=>chooseDataset('usage')}>{leftOpen?'역 이용(승하차)':'이용'}</button></li>
             <li><button type="button" className="swMenuBtn" aria-current={dataset==='crowding'?'page':undefined} title="혼잡도" onClick={()=>chooseDataset('crowding')}>{leftOpen?'혼잡도':'혼잡'}</button></li>
           </ul>
-          <div className="swGroupTitle">보기</div>
+          {leftOpen&&<div className="swGroupTitle">보기</div>}
           <ul className="swMenu" data-testid="subway-views">
             {views.map(v=><li key={v.id}><button type="button" className="swMenuBtn" aria-current={view===v.id?'page':undefined} title={v.label} onClick={()=>setView(v.id)}>{leftOpen?v.label:v.label.slice(0,2)}</button></li>)}
           </ul>
@@ -279,7 +267,7 @@ function CalendarView({sel,from,to,kind,setCsv}:VP){
     <p className="swMeta">{KIND_LABEL[kind]} 하루 값(건). 회색은 그날 자료 없음(0이 아님). 공휴일 정보는 없어 요일만 표시합니다.</p>
     <div className="swCalGrid" role="grid" aria-label="일별 달력">{WEEKDAYS.map(w=><div key={w} className="swCalHead" role="columnheader">{w}</div>)}
       {Array.from({length:first}).map((_,i)=><div key={'e'+i}/>)}
-      {mdays.map(x=>{const v=val(x.i);const c=shade(v);return <div key={x.d} role="gridcell" className="swCalCell" style={{background:c,color:dark(c)?'#fff':'#152b43'}}><span>{Number(x.d.slice(6))}</span><b>{v==null?'없음':compact(v)}</b></div>})}</div></div>
+      {mdays.map(x=>{const v=val(x.i);const c=shade(v);return <div key={x.d} role="gridcell" className={`swCalCell ${dark(c)?'swDark':'swLight'}`} style={{background:c}}><span>{Number(x.d.slice(6))}</span><b>{v==null?'없음':compact(v)}</b></div>})}</div></div>
     <div className="swChartPanel swCalBars"><h2 className="swPanelTitle">요일별 평균</h2><p className="swMeta">선택 기간 전체의 요일 평균(자료 없는 날 제외).</p>
       <BarChart ariaLabel="요일별 평균" unit="건 / 하루 평균" bars={wm.map((w,i)=>({label:WEEKDAYS[i],value:w.mean,color:i>=5?'#b4530a':'#24558b'}))}/></div></div>;
 }

@@ -5,7 +5,8 @@ import { gunzipSync } from 'node:zlib';
 // 지하철 여정(w31). 기능·의미(원본 CSV 독립 계산)·시각(글자 종류·대비·균등 크기·넘침)을 함께 본다.
 const RAW = process.env.SUBWAY_RAW_DIR || '/Users/koscom/workspace2/seoul human/data/raw/transit/subway';
 const EVIDENCE = process.env.PLAYWRIGHT_EVIDENCE_DIR || 'docs/workers-2026-11-18/w31-subway-build/e2e';
-const URL = '/?topic=subway';
+const topicBtn = (page, name) => page.locator('.topicNav').getByRole('button', { name, exact: true });
+const enterTransport = async page => { await page.goto('/'); await topicBtn(page, '교통').click(); };
 const settle = async page => {
   await page.evaluate(() => document.fonts.ready);
   await page.evaluate(() => new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r))));
@@ -93,7 +94,7 @@ async function contrast(page) {
 async function equalGroups(page) {
   return page.evaluate(() => {
     const info = sel => [...document.querySelectorAll(sel)].filter(e => e.getBoundingClientRect().width).map(e => { const r = e.getBoundingClientRect(); return { w: r.width, h: r.height, cy: r.top + r.height / 2, x: r.left, t: e.textContent.trim().slice(0, 12) }; });
-    return { topics: info('.swTopic'), modes: info('.swSegBtn'), views: info('[data-testid=subway-views] .swMenuBtn'), datasets: info('.swLeft .swMenu:first-of-type .swMenuBtn') };
+    return { topics: info('.topicNav button'), modes: info('.modeToggle button'), views: info('[data-testid=subway-views] .swMenuBtn'), datasets: info('[data-testid=subway-datasets] .swMenuBtn'), sources: info('[data-testid=subway-sources] .swMenuBtn') };
   });
 }
 const spread = (xs, k) => Math.max(...xs.map(x => x[k])) - Math.min(...xs.map(x => x[k]));
@@ -103,11 +104,12 @@ for (const mode of ['analysis', 'presentation']) {
     const project = info.project.name;
     const errors = []; page.on('pageerror', e => errors.push(String(e))); page.on('console', m => m.type() === 'error' && errors.push(m.text()));
     const external = []; page.on('request', r => { const u = new globalThis.URL(r.url()); if (!['127.0.0.1', 'localhost'].includes(u.hostname) && u.protocol.startsWith('http')) external.push(r.url()); });
-    await page.goto(URL);
+    await enterTransport(page);
     await expect(page.getByTestId('subway-workspace')).toBeVisible();
     await expect(page.locator('.swDot').first()).toBeVisible({ timeout: 20000 });
     if (mode === 'presentation') {
       await page.getByRole('button', { name: '시연용', exact: true }).click();
+      await expect(page.locator('.sw')).toHaveClass(/sw-presentation/);
       // 시연용에서 처음 들어갈 때만 왼쪽 메뉴를 접는다(결정 a). 접힌 메뉴도 이름·펼치기 경로가 있어야 한다.
       await expect(page.getByRole('button', { name: '왼쪽 메뉴 펼치기' })).toBeVisible();
       expect(await page.locator('.swLeft').evaluate(e => e.getBoundingClientRect().width)).toBe(64);
@@ -131,12 +133,15 @@ for (const mode of ['analysis', 'presentation']) {
 
     // --- 균등 크기(R04): 상단 주제 4개·모드 2개·보기 7개·자료 2개 ---
     const g = await equalGroups(page);
-    expect(g.topics.length).toBe(4); expect(g.modes.length).toBe(2); expect(g.views.length).toBe(7); expect(g.datasets.length).toBe(2);
+    expect(g.topics.length).toBe(4); expect(g.modes.length).toBe(2); expect(g.views.length).toBe(7); expect(g.datasets.length).toBe(2); expect(g.sources.length).toBe(2);
     for (const k of ['topics', 'modes']) { expect(spread(g[k], 'w'), `${k} 폭`).toBeLessThanOrEqual(1); expect(spread(g[k], 'h'), `${k} 높이`).toBeLessThanOrEqual(1); expect(spread(g[k], 'cy'), `${k} 가운데선`).toBeLessThanOrEqual(1); }
-    for (const k of ['views', 'datasets']) { expect(spread(g[k], 'w'), `${k} 폭`).toBeLessThanOrEqual(1); expect(spread(g[k], 'h'), `${k} 높이`).toBeLessThanOrEqual(1); expect(spread(g[k], 'x'), `${k} x정렬`).toBeLessThanOrEqual(1); }
+    for (const k of ['views', 'datasets', 'sources']) { expect(spread(g[k], 'w'), `${k} 폭`).toBeLessThanOrEqual(1); expect(spread(g[k], 'h'), `${k} 높이`).toBeLessThanOrEqual(1); expect(spread(g[k], 'x'), `${k} x정렬`).toBeLessThanOrEqual(1); }
     record(project, `${mode}/equal-size`, { topics: g.topics.length, modes: g.modes.length, views: g.views.length });
 
     // --- 지도 ---
+    await expect(topicBtn(page, '교통')).toHaveAttribute('aria-pressed', 'true');
+    await expect(page.getByRole('button', { name: '버스 예정 · 자료 확보 후' })).toBeDisabled();
+    expect(await page.getByRole('button', { name: '교통', exact: true }).count()).toBeGreaterThan(0);
     const dots = await page.locator('.swDot').count();
     expect(dots).toBeGreaterThan(200);
     await checkScreen('지도');
@@ -209,7 +214,7 @@ for (const mode of ['analysis', 'presentation']) {
     await page.keyboard.press('Escape'); await expect(page.locator('.swSourcePop')).toHaveCount(0);
 
     // --- 혼잡도(별도 자료) ---
-    await page.getByRole('button', { name: /^혼잡도$|^혼잡$/ }).first().click();
+    await page.locator('[data-testid=subway-datasets]').getByRole('button', { name: /^혼잡도$|^혼잡$/ }).click();
     await expect(page.locator('.swBody svg').first()).toBeVisible({ timeout: 20000 });
     await expect(page.locator('.swMeta').first()).toContainText('정원 대비');
     await checkScreen('혼잡도 곡선');
@@ -227,3 +232,46 @@ for (const mode of ['analysis', 'presentation']) {
   });
 }
 
+
+// 서비스 왕복(교통↔지역↔상권↔히어로): 교통 조건·선택 역·후보 유지, 상권 모드 비상속(I04)
+test('교통 경유 왕복: 조건·선택 역·후보 유지, 상권은 모드를 물려받지 않는다', async ({ page }) => {
+  await page.goto('/');
+  await topicBtn(page, '지역 분석').click();
+  await page.getByRole('button', { name: '시연용', exact: true }).click();     // 지역에서 시연용으로
+  await topicBtn(page, '교통').click();
+  await expect(page.locator('.sw')).toHaveClass(/sw-presentation/);          // 같은 mode 상태 공유
+  await expect(page.getByRole('button', { name: '시연용', exact: true })).toHaveAttribute('aria-pressed', 'true');
+  await expect(page.locator('.swDot').first()).toBeVisible({ timeout: 20000 });
+  const left = page.getByRole('button', { name: '왼쪽 메뉴 펼치기' }); if (await left.count()) await left.click();
+  await page.getByLabel('시작 월').selectOption('202603'); await page.getByLabel('승차 하차').selectOption('b');
+  await page.getByLabel('역 검색').first().fill('강남 · 2호선');
+  await page.getByRole('button', { name: '선택 역 후보 담기' }).click();
+  await expect(page.locator('.swCand').first()).toContainText('강남');
+  const kpi = await page.locator('.swKpiValue').innerText();
+  // 교통 → 상권: 상권은 시연 글자·모드 토글을 물려받지 않는다
+  await topicBtn(page, '상권 분석').click();
+  await expect(page.locator('.marketMapSvg path[data-market-code]').first()).toBeVisible({ timeout: 30000 });
+  await expect(page.locator('#root > .app')).not.toHaveClass(/mode-presentation/);
+  expect(await page.locator('.modeToggle').evaluateAll(es => es.some(e => e.getClientRects().length))).toBe(false);
+  await expect(page.locator('.sw')).toBeHidden();
+  // 상권 → 교통: 조건·역·후보 그대로
+  await topicBtn(page, '교통').click();
+  await expect(page.locator('.swSelName')).toHaveText('강남');
+  await expect(page.getByLabel('시작 월')).toHaveValue('202603');
+  await expect(page.getByLabel('승차 하차')).toHaveValue('b');
+  await expect(page.locator('.swCand').first()).toContainText('강남');
+  expect(await page.locator('.swKpiValue').innerText()).toBe(kpi);
+  // 교통 → 지역: 지역 모드(시연용) 보존
+  await topicBtn(page, '지역 분석').click();
+  await expect(page.locator('#root > .app')).toHaveClass(/mode-presentation/);
+  // 지역 → 히어로 → 이어보기는 지역(마지막 서비스), 다시 교통 → 히어로 → 이어보기는 교통
+  await topicBtn(page, '교통').click();
+  await page.locator('.appTopbar .integratedBrand').click();
+  await page.getByRole('button', { name: '이어보기', exact: true }).click();
+  await expect(page.locator('.swSelName')).toHaveText('강남');
+  await expect(page.locator('.swCand').first()).toContainText('강남');
+  await expect(page.getByLabel('시작 월')).toHaveValue('202603');
+  // 히어로에는 교통 시작 버튼이 없다
+  await page.locator('.appTopbar .integratedBrand').click();
+  await expect(page.locator('.heroActions button')).toHaveText(['지역 분석 시작', '상권 분석 시작']);
+});

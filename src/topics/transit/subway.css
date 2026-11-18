@@ -1,7 +1,7 @@
 /* 지하철 작업공간. w20 목업의 토큰·배치를 따른다. 글자 크기는 6종(분석)/4종(시연)만 쓴다. */
 .sw{--ink:#152b43;--text:#33465c;--muted:#536477;--blue:#24558b;--blue-dark:#173e69;--line:#c8d3df;--edge:#aabbd0;--ground:#f3f5f7;--tint:#edf3f9;--disabled:#edf1f5;--disabled-text:#5b6b80;--warm:#b4530a;
   --fs-meta:12px;--fs-cond:14px;--fs-body:16px;--fs-panel:20px;--fs-title:28px;--fs-kpi:36px;
-  height:100vh;overflow:hidden;display:flex;flex-direction:column;background:var(--ground);color:var(--text);font-family:var(--font-ui);font-size:var(--fs-cond);line-height:1.6;box-sizing:border-box}
+  overflow:hidden;display:flex;flex-direction:column;background:var(--ground);color:var(--text);font-family:var(--font-ui);font-size:var(--fs-cond);line-height:1.6;box-sizing:border-box}
 .sw.sw-presentation{--fs-meta:14px;--fs-cond:14px;--fs-body:18px;--fs-panel:24px;--fs-title:24px;--fs-kpi:36px}
 .sw *{box-sizing:border-box;font-family:var(--font-ui)}
 .sw button,.sw select,.sw input{font-size:var(--fs-cond);color:var(--blue);background:#fff;border:1px solid var(--edge);border-radius:4px;min-height:36px;font-weight:600}
@@ -13,17 +13,6 @@
 .sw button[aria-pressed=true],.sw button[aria-current=page],.sw button[aria-current=true]{background:var(--blue-dark);border-color:var(--blue-dark);color:#fff}
 .sw input,.sw select{color:var(--ink);font-weight:500;padding:0 8px}
 .sw a{color:var(--blue)}
-.swTopbar{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:16px;height:72px;padding:0 16px;background:#fff;border-bottom:1px solid var(--line)}
-.swBrand{display:flex;align-items:center;gap:8px;width:184px}
-.swBrand b{display:block;color:var(--ink);font-size:var(--fs-body);line-height:1.35}.swBrand span:not(.swLogo){display:block;font-size:var(--fs-meta);color:var(--muted)}
-.sw-presentation .swBrand span:not(.swLogo){font-size:var(--fs-meta)}
-.swLogo{display:grid;place-items:center;width:36px;height:36px;background:var(--blue);color:#fff;border-radius:4px;font-size:var(--fs-body)}
-.swTopics{display:grid;grid-template-columns:repeat(4,192px);gap:8px}
-.swTopic{display:flex;align-items:center;justify-content:center;height:44px;padding:0 8px;border:1px solid var(--edge);border-radius:4px;background:#fff;color:var(--blue);font-weight:600;font-size:var(--fs-body);text-decoration:none;cursor:pointer}
-.swTopic:hover:not(:disabled){background:var(--tint)}
-.swTopic[aria-current=page]{background:var(--blue-dark);color:#fff;border-color:var(--blue-dark)}
-.swTopic:disabled{background:var(--disabled);color:var(--disabled-text);cursor:not-allowed}
-.swTopRight{margin-left:auto;display:flex;align-items:center;gap:8px}
 .swSeg{display:inline-grid;grid-auto-flow:column;gap:0;border:1px solid var(--edge);border-radius:4px;overflow:hidden}
 .sw .swSegBtn{border:0;border-radius:0;min-width:72px;height:36px}
 .swIconBtn{width:36px;padding:0!important}
@@ -31,7 +20,6 @@
 .swPopover{position:absolute;z-index:30;min-width:260px;max-width:420px;padding:12px 16px;background:#fff;border:1px solid var(--edge);border-radius:4px;box-shadow:0 4px 16px rgba(21,43,67,.18);white-space:normal;color:var(--text);font-size:var(--fs-cond)}
 .sw-presentation .swPopover{font-size:var(--fs-cond)}
 .swPopover p,.swPopover ul{margin:8px 0}.swPopover ul{padding-left:18px}
-.swRightPop{right:0;top:44px}
 .swSourcePop{right:0;bottom:44px;width:420px;max-height:70vh;overflow:auto}
 .swWorkspace{flex:1;display:grid;grid-template-columns:var(--left) minmax(0,1fr) var(--right);grid-template-rows:minmax(0,1fr);min-height:0}
 .swLeft,.swRight{background:#fff;overflow:auto}
@@ -119,3 +107,14 @@
 .sw .swRank button[aria-current=true],.sw .swRank button[aria-current=true] b,.sw .swRank button[aria-current=true] span{color:#fff}
 
 .sw button[aria-pressed=true]:hover:not(:disabled),.sw button[aria-current=page]:hover:not(:disabled),.sw button[aria-current=true]:hover:not(:disabled){background:var(--blue-dark);border-color:var(--blue-dark);color:#fff}
+
+.sw .swCalCell.swDark,.sw .swCalCell.swDark *{color:#fff!important}
+.sw .swCalCell.swLight,.sw .swCalCell.swLight *{color:#152b43!important}
+
+.app.service-transport main{max-width:none;margin:0;padding:0}
+.sw .swQuery{flex-wrap:wrap;overflow:visible}
+.sw .swField select,.sw .swField input{min-width:0;width:auto}
+.sw .swPair input{width:150px}
+.sw .swLeft.swCollapsed .swMenu{padding:0 8px}
+.sw .swLeft.swCollapsed .swMenuBtn{padding:0;justify-content:center;text-align:center}
+.sw .swLeft.swCollapsed .swMenu+.swMenu,.sw .swLeft.swCollapsed nav>.swMenu:not(:first-of-type){margin-top:8px}

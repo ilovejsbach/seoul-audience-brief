@@ -10,8 +10,7 @@
  #root>.app[data-detail-system="shared"]>main>[hidden]{display:none!important}
  #root>.app[data-detail-system="shared"]>main>footer{display:none}
  /* The landing page is allowed to scroll within the same bounded main area. */
- #root>.app[data-detail-system="shared"]>main:has(>[aria-label="광고 입지 분석 시작"]),
- #root>.app[data-detail-system="shared"]>main:has(>[aria-label="광고주 시연 시작"]){overflow:auto;overscroll-behavior:contain}
+ #root>.app[data-detail-system="shared"]>main:has(>[aria-label="서울 지역·상권 분석 소개"]){overflow:auto;overscroll-behavior:contain}
  #root>.app[data-detail-system="shared"] .analysisView:not([hidden]){display:flex;flex-direction:column;flex:1;height:100%;min-height:0;max-height:100%;overflow:hidden}
  #root>.app[data-detail-system="shared"] .analysisView>.analysisToolbar,
  #root>.app[data-detail-system="shared"] .analysisView>#active-query-summary{flex:none}

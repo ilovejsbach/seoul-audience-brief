@@ -1,0 +1,25 @@
+/* Top bar: brand, four topics, region-only mode toggle, more menu. Row 2 is the existing service row. */
+@media screen{
+ .app>header.appHeader{display:flex;flex-wrap:wrap;align-items:center;gap:0 8px;background:#fff;position:sticky;top:0;z-index:80;flex:none;padding:0 12px!important;margin:0;height:auto!important;min-height:0!important;border-bottom:1px solid #d5dfe9}
+ .app>header.appHeader.integratedAnalysisHeader,.app>header.appHeader.integratedMarketHeader{padding:0 12px!important;gap:0 8px!important}
+ .appTopbar{flex:0 0 100%;order:-1;display:flex;align-items:center;gap:12px;min-height:46px;padding:4px 0;box-sizing:border-box}
+ .appTopbar .integratedBrand{flex:none;display:inline-flex;align-items:center;gap:6px;font-size:var(--type-control,16px);white-space:nowrap;text-decoration:none;color:#1f3045;font-weight:700}
+ .appTopbar .brandMark{width:28px;height:28px;display:inline-flex;align-items:center;justify-content:center}
+ .topicNav{display:grid;grid-template-columns:repeat(4,128px);gap:6px}
+ .topicNav button{height:36px;padding:0 6px;font-size:var(--type-control,16px);line-height:1.2;white-space:nowrap;border:1px solid #aabbd0;border-radius:5px;background:#fff;color:#24558b;font-weight:600;cursor:pointer}
+ .topicNav button[aria-pressed="true"]{background:#254366;border-color:#254366;color:#fff}
+ .topicNav button:disabled{background:#eef2f6;color:#4a5b6d;border-style:dashed;cursor:not-allowed}
+ .appTopbarGrow{flex:1}
+ .appTopTools{display:flex;align-items:center;gap:8px;position:relative}
+ .appTopTools .modeToggle{display:flex;align-items:center;padding:2px;border:1px solid #c2d0df;border-radius:5px;white-space:nowrap}
+ .appTopTools .modeToggle button{margin:0;min-height:30px;padding:3px 9px;border:0;border-radius:3px;font-size:var(--type-meta,12px);line-height:1.4}
+ .moreMenu{position:relative;flex:none}
+ .moreButton{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border:1px solid #a9bfd6;border-radius:4px;background:#fff;color:#24558b;font-weight:700;font-size:var(--type-body,16px);line-height:1;cursor:pointer}
+ .moreMenuList{position:absolute;right:0;top:calc(100% + 6px);z-index:120;display:flex;flex-direction:column;gap:4px;width:200px;padding:6px;background:#fff;border:1px solid #a9bfd6;border-radius:6px;box-shadow:0 6px 20px #18314e22}
+ .moreMenuList[hidden]{display:none}
+ .moreMenuList>button{width:100%;min-height:36px;padding:6px 8px;font:inherit;font-size:var(--type-control,16px);text-align:left;color:#24558b;background:#fff;border:0;border-radius:3px;cursor:pointer}
+ .moreMenuList>button:hover{background:#edf3f9}
+ .moreMenuCustom{padding:2px 0}.moreMenuCustom .layoutControl{position:static}.moreMenuCustom .layoutControl>button{width:100%;text-align:left}
+ .moreMenuCustom .layoutOptions{position:fixed;right:12px;top:56px;z-index:130}
+ .app>header.appHeader>.analysisToolbar{flex:1 1 0;min-width:0}
+}
