@@ -1,0 +1,129 @@
+{
+ "generatedAt": "2026-11-18T15:19:18",
+ "passed": 9,
+ "failed": 0,
+ "results": [
+  {
+   "check": "매니페스트 필수 항목·해시·용량(30MB/10MB)",
+   "status": "passed",
+   "detail": {
+    "files": 15,
+    "totalBytes": 4538467,
+    "largestBytes": 637731,
+    "od": "pending"
+   }
+  },
+  {
+   "check": "원본 파일 해시 = 수집 MANIFEST",
+   "status": "passed",
+   "detail": {
+    "rawFilesChecked": 55
+   }
+  },
+  {
+   "check": "역 하루 합(원본 행 대조 40건)",
+   "status": "passed",
+   "detail": {
+    "sampled": 40,
+    "skippedNameMismatch": 6
+   }
+  },
+  {
+   "check": "환승역 서울역(1·4호선) 하루 합 + 묶음 조건",
+   "status": "passed",
+   "detail": {
+    "transferGroups": 35,
+    "seoulStationTotal": {
+     "boarding": 115468,
+     "alighting": 124016
+    },
+    "perLine": [
+     [
+      99466,
+      97013
+     ],
+     [
+      16002,
+      27003
+     ]
+    ],
+    "sameNameButNotGrouped(too far)": []
+   }
+  },
+  {
+   "check": "시간대 합(원본 12921 월·평일, 3역)",
+   "status": "passed",
+   "detail": [
+    {
+     "station": "서울역(1:0150)",
+     "month": "2025-03",
+     "weekdays": 21,
+     "boardingDayTotal": 1575015
+    },
+    {
+     "station": "강남(2:0222)",
+     "month": "2024-10",
+     "weekdays": 23,
+     "boardingDayTotal": 1882242
+    },
+    {
+     "station": "어린이대공원(7:2728)",
+     "month": "2023-06",
+     "weekdays": 22,
+     "boardingDayTotal": 382666
+    }
+   ]
+  },
+  {
+   "check": "월 합 = 일별 합(전 역·전 월)",
+   "status": "passed",
+   "detail": {
+    "stationMonthsChecked": 12650
+   }
+  },
+  {
+   "check": "승객유형 그룹 합(원본 대조·누락 없음)",
+   "status": "passed",
+   "detail": {
+    "station1:0150_2026-03_boarding": {
+     "일반": 2058093,
+     "기타": 33250,
+     "청소년": 44363,
+     "우대": 293375
+    },
+    "allTypeBoarding": 826626769,
+    "rows": 773508,
+    "mapping": "중고생→청소년, 우대권→우대, 어린이·직원·외국어 권종→기타"
+   }
+  },
+  {
+   "check": "혼잡도 셀(원본 xlsx 대조)",
+   "status": "passed",
+   "detail": {
+    "cellsChecked": 3159,
+    "slots": 39
+   }
+  },
+  {
+   "check": "행 수·결측 기록",
+   "status": "passed",
+   "detail": {
+    "dailyRawRows": 860468,
+    "dailyMappedRows": 383131,
+    "dailyUnmappedRows(좌표 없는 노선)": 477337,
+    "nullCells": 0,
+    "hourlyRows": {
+     "2023": 199270,
+     "2024": 199410,
+     "2025": 199424
+    },
+    "typeRows": 773508,
+    "crowdingRows": {
+     "2026-06-30": 1671,
+     "2026-09-30": 1671
+    },
+    "stationsWithoutDong": 33
+   }
+  }
+ ]
+}
