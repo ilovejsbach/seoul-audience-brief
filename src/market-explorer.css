@@ -59,7 +59,7 @@
 .marketValue,.marketCandidate p{overflow-wrap:anywhere;font-variant-numeric:tabular-nums}
 .marketCandidate>b{display:block;padding-right:24px;overflow-wrap:anywhere;word-break:keep-all}
 .marketCandidate small{display:block;overflow-wrap:anywhere;word-break:keep-all}
-.marketExact{margin:8px 0 12px}.marketExact summary{cursor:pointer;color:#24558a}.marketExact p{overflow-wrap:anywhere;font-variant-numeric:tabular-nums}
+
 .marketHover{max-width:min(360px,calc(100% - 36px));overflow-wrap:anywhere;word-break:keep-all}
 .marketTrendDrawerHeader{flex-wrap:wrap}.marketTrendDrawerHeader>div{flex:1 1 200px}
 

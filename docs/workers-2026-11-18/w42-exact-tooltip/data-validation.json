@@ -1,0 +1,88 @@
+{
+  "results": [
+    {
+      "check": "arrival OD sum and explicit time/date semantics",
+      "status": "passed",
+      "detail": {
+        "records": 15846,
+        "sum": "26402774.57",
+        "basis": "arrival time code; original source date, not verified calendar arrival date"
+      }
+    },
+    {
+      "check": "official boundary coverage and explicit mismatches",
+      "status": "passed",
+      "detail": {
+        "districts": 25,
+        "dongBoundaries": 426,
+        "populationMatches": 425,
+        "explicitUnmapped": [
+          "11230515",
+          "11230533"
+        ],
+        "referenceDate": "2025-06-30"
+      }
+    },
+    {
+      "check": "population schema, grid, duplicates, values, mapping",
+      "status": "passed",
+      "detail": {
+        "maskedOrMissingCells": 47869,
+        "nullsByColumnIndex": {
+          "4": 27156,
+          "18": 18743,
+          "19": 568,
+          "5": 1357,
+          "20": 25,
+          "6": 20
+        },
+        "days": 316,
+        "rows": 3238368,
+        "fields": 32,
+        "dongCodes": 427,
+        "mappingCoverage": "100%",
+        "note": "No assertion that age/sex rounded cells sum exactly to rounded total."
+      }
+    },
+    {
+      "check": "commerce equality to 2025 ZIP and 2026 CSV",
+      "status": "failed",
+      "detail": "[Errno 2] No such file or directory: '/Users/koscom/workspace2/seoul-human-tooltip/data/raw/commerce/dong-sales-2026-sheet-download-20261117.csv'"
+    },
+    {
+      "check": "residential migration net=inflow-outflow",
+      "status": "passed",
+      "detail": {
+        "records": 5301,
+        "guRecords": 625,
+        "dongRecords": 4676,
+        "dong2025": 427,
+        "nullFlowRecords": 2,
+        "nullKeys": [
+          [
+            "2022",
+            "dong",
+            "1174069000"
+          ],
+          [
+            "2023",
+            "dong",
+            "1174069000"
+          ]
+        ],
+        "netEquality": "all non-missing passed; missing preserved",
+        "aggregation": "gu/dong validated separately; no cross-level summation"
+      }
+    },
+    {
+      "check": "living mobility schema and sums",
+      "status": "passed",
+      "detail": {
+        "records": 15837,
+        "countSum": "26402774.57",
+        "sumEquality": "exact against recorded raw aggregate"
+      }
+    }
+  ],
+  "passed": false
+}

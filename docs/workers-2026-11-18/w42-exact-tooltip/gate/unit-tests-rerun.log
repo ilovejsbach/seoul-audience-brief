@@ -1,0 +1,484 @@
+TAP version 13
+# Subtest: zero includes all positive, negative and crossing-zero observations
+ok 1 - zero includes all positive, negative and crossing-zero observations
+  ---
+  duration_ms: 2.079875
+  type: 'test'
+  ...
+# Subtest: fit gives 8 percent padding on either end
+ok 2 - fit gives 8 percent padding on either end
+  ---
+  duration_ms: 0.370333
+  type: 'test'
+  ...
+# Subtest: constant and missing series have finite nonzero domains
+ok 3 - constant and missing series have finite nonzero domains
+  ---
+  duration_ms: 0.193917
+  type: 'test'
+  ...
+# Subtest: manual accepts finite numbers, counts each clipped observation and includes boundaries
+ok 4 - manual accepts finite numbers, counts each clipped observation and includes boundaries
+  ---
+  duration_ms: 0.134375
+  type: 'test'
+  ...
+# Subtest: invalid manual bounds fall back to zero with actionable error
+ok 5 - invalid manual bounds fall back to zero with actionable error
+  ---
+  duration_ms: 0.099584
+  type: 'test'
+  ...
+# Subtest: huge arrays and tiny or overflowing ranges never produce broken axes
+ok 6 - huge arrays and tiny or overflowing ranges never produce broken axes
+  ---
+  duration_ms: 13.541542
+  type: 'test'
+  ...
+# Subtest: index is centered on 100 with observed deviation plus configurable padding
+ok 7 - index is centered on 100 with observed deviation plus configurable padding
+  ---
+  duration_ms: 0.204375
+  type: 'test'
+  ...
+# Subtest: index constant, missing, and tiny changes use at least one index point radius
+ok 8 - index constant, missing, and tiny changes use at least one index point radius
+  ---
+  duration_ms: 0.361709
+  type: 'test'
+  ...
+# Subtest: index extreme finite values return a safe domain with an error rather than broken coordinates
+ok 9 - index extreme finite values return a safe domain with an error rather than broken coordinates
+  ---
+  duration_ms: 0.222125
+  type: 'test'
+  ...
+# Subtest: 25 region details: 8 + 6 + 6 + 5, unique ids
+ok 10 - 25 region details: 8 + 6 + 6 + 5, unique ids
+  ---
+  duration_ms: 0.6645
+  type: 'test'
+  ...
+# Subtest: the existing detail ids are exactly the ones the app has always used
+ok 11 - the existing detail ids are exactly the ones the app has always used
+  ---
+  duration_ms: 0.126084
+  type: 'test'
+  ...
+# Subtest: short names are unique inside a dataset and across datasets, each at most 2 characters
+ok 12 - short names are unique inside a dataset and across datasets, each at most 2 characters
+  ---
+  duration_ms: 0.122375
+  type: 'test'
+  ...
+# Subtest: labels are unique inside a dataset and the I03/I05 names are in place
+ok 13 - labels are unique inside a dataset and the I03/I05 names are in place
+  ---
+  duration_ms: 0.100583
+  type: 'test'
+  ...
+# Subtest: main.tsx no longer keeps its own detail list (the registry is the only definition)
+ok 14 - main.tsx no longer keeps its own detail list (the registry is the only definition)
+  ---
+  duration_ms: 0.068583
+  type: 'test'
+  ...
+# Subtest: independent Decimal fixture: Mapo 18h 20-39 female versus male, whole population denominator
+ok 15 - independent Decimal fixture: Mapo 18h 20-39 female versus male, whole population denominator
+  ---
+  duration_ms: 0.600125
+  type: 'test'
+  ...
+# Subtest: independent Decimal fixtures: distinct middle and senior groups
+ok 16 - independent Decimal fixtures: distinct middle and senior groups
+  ---
+  duration_ms: 0.071291
+  type: 'test'
+  ...
+# Subtest: masked cell prevents partial cohort total while all population remains independently available
+ok 17 - masked cell prevents partial cohort total while all population remains independently available
+  ---
+  duration_ms: 0.164916
+  type: 'test'
+  ...
+# Subtest: empty source is unavailable, zero source yields zero count without invented ratio
+ok 18 - empty source is unavailable, zero source yields zero count without invented ratio
+  ---
+  duration_ms: 0.076166
+  type: 'test'
+  ...
+# Subtest: real Seoul quarterly sales retain exact source values while shortening primary display
+ok 19 - real Seoul quarterly sales retain exact source values while shortening primary display
+  ---
+  duration_ms: 38.682458
+  type: 'test'
+  ...
+# Subtest: null, zero, negative and units remain distinct
+ok 20 - null, zero, negative and units remain distinct
+  ---
+  duration_ms: 0.148792
+  type: 'test'
+  ...
+# Subtest: hero market-area constant equals the boundary file count
+ok 21 - hero market-area constant equals the boundary file count
+  ---
+  duration_ms: 52.846292
+  type: 'test'
+  ...
+# Subtest: market sales areas and periods agree with the hero claims
+ok 22 - market sales areas and periods agree with the hero claims
+  ---
+  duration_ms: 439.145125
+  type: 'test'
+  ...
+# Subtest: hero run-time figures can be derived from the loaded files
+ok 23 - hero run-time figures can be derived from the loaded files
+  ---
+  duration_ms: 0.515792
+  type: 'test'
+  ...
+# Subtest: zero keeps source scale and uses linear rather than square-root positions
+ok 24 - zero keeps source scale and uses linear rather than square-root positions
+  ---
+  duration_ms: 0.453708
+  type: 'test'
+  ...
+# Subtest: observed starts below observed minimum by selected percentage
+ok 25 - observed starts below observed minimum by selected percentage
+  ---
+  duration_ms: 0.091708
+  type: 'test'
+  ...
+# Subtest: nonnegative observations never create negative low bounds
+ok 26 - nonnegative observations never create negative low bounds
+  ---
+  duration_ms: 0.049583
+  type: 'test'
+  ...
+# Subtest: constant positive observations produce a padded finite interval
+ok 27 - constant positive observations produce a padded finite interval
+  ---
+  duration_ms: 0.04875
+  type: 'test'
+  ...
+# Subtest: any negative observations preserve symmetric zero-centred diverging scale in both modes
+ok 28 - any negative observations preserve symmetric zero-centred diverging scale in both modes
+  ---
+  duration_ms: 0.147834
+  type: 'test'
+  ...
+# Subtest: missing and nonfinite data do not become zero observations
+ok 29 - missing and nonfinite data do not become zero observations
+  ---
+  duration_ms: 0.045917
+  type: 'test'
+  ...
+# Subtest: positions are monotonic and clipped without changing observations
+ok 30 - positions are monotonic and clipped without changing observations
+  ---
+  duration_ms: 0.319958
+  type: 'test'
+  ...
+# Subtest: invalid padding, huge values and subnormal ranges avoid NaN
+ok 31 - invalid padding, huge values and subnormal ranges avoid NaN
+  ---
+  duration_ms: 1.9855
+  type: 'test'
+  ...
+# Subtest: manual range validation preserves meaningful ordering, symmetry and finite inputs
+ok 32 - manual range validation preserves meaningful ordering, symmetry and finite inputs
+  ---
+  duration_ms: 0.365209
+  type: 'test'
+  ...
+# Subtest: real Airport dong paired observations move between bins without changing values
+ok 33 - real Airport dong paired observations move between bins without changing values
+  ---
+  duration_ms: 0.090583
+  type: 'test'
+  ...
+# Subtest: narrow and expand widths preserve positive floor and signed midpoint
+ok 34 - narrow and expand widths preserve positive floor and signed midpoint
+  ---
+  duration_ms: 0.320084
+  type: 'test'
+  ...
+# Subtest: large monetary input drafts can round-trip exactly with String
+ok 35 - large monetary input drafts can round-trip exactly with String
+  ---
+  duration_ms: 0.097959
+  type: 'test'
+  ...
+# Subtest: default sequential and signed maps retain their existing blue/orange colors
+ok 36 - default sequential and signed maps retain their existing blue/orange colors
+  ---
+  duration_ms: 0.625
+  type: 'test'
+  ...
+# Subtest: all palette steps become darker as magnitude rises and remain distinct
+ok 37 - all palette steps become darker as magnitude rises and remain distinct
+  ---
+  duration_ms: 0.203792
+  type: 'test'
+  ...
+# Subtest: palette changes only the color mapping, missing values remain missing and input positions unchanged
+ok 38 - palette changes only the color mapping, missing values remain missing and input positions unchanged
+  ---
+  duration_ms: 0.912167
+  type: 'test'
+  ...
+# Subtest: preview gradients use the actual continuous or stepped endpoints, with invalid stored IDs falling back
+ok 39 - preview gradients use the actual continuous or stepped endpoints, with invalid stored IDs falling back
+  ---
+  duration_ms: 0.101583
+  type: 'test'
+  ...
+# Subtest: actual source types filter all four categories without code/name confusion
+ok 40 - actual source types filter all four categories without code/name confusion
+  ---
+  duration_ms: 0.9055
+  type: 'test'
+  ...
+# Subtest: same area name in different districts remains distinct and filters combine with AND
+ok 41 - same area name in different districts remains distinct and filters combine with AND
+  ---
+  duration_ms: 6.70625
+  type: 'test'
+  ...
+# Subtest: spacing is normalized without modifying source names or geometry
+ok 42 - spacing is normalized without modifying source names or geometry
+  ---
+  duration_ms: 57.267209
+  type: 'test'
+  ...
+# Subtest: contradictory geography and names produce an explicit empty result
+ok 43 - contradictory geography and names produce an explicit empty result
+  ---
+  duration_ms: 2.499667
+  type: 'test'
+  ...
+# Subtest: related type counts intersect other filters and exclude only their own type
+ok 44 - related type counts intersect other filters and exclude only their own type
+  ---
+  duration_ms: 0.764375
+  type: 'test'
+  ...
+# Subtest: changing parent district counts the result after dependent dong is cleared
+ok 45 - changing parent district counts the result after dependent dong is cleared
+  ---
+  duration_ms: 0.095667
+  type: 'test'
+  ...
+# Subtest: dong options remain inside parent district and reflect query/type intersection
+ok 46 - dong options remain inside parent district and reflect query/type intersection
+  ---
+  duration_ms: 0.11375
+  type: 'test'
+  ...
+# Subtest: no-result current type remains selectable, unselected zero-result options are disabled
+ok 47 - no-result current type remains selectable, unselected zero-result options are disabled
+  ---
+  duration_ms: 0.0665
+  type: 'test'
+  ...
+# Subtest: counts are spatial area counts, not observation availability or arbitrary value sums
+ok 48 - counts are spatial area counts, not observation availability or arbitrary value sums
+  ---
+  duration_ms: 0.16775
+  type: 'test'
+  ...
+# Subtest: dimension periods use only the available source and supported table intersection
+ok 49 - dimension periods use only the available source and supported table intersection
+  ---
+  duration_ms: 0.599375
+  type: 'test'
+  ...
+# Subtest: unsupported periods choose the nearest valid year without inventing a data period
+ok 50 - unsupported periods choose the nearest valid year without inventing a data period
+  ---
+  duration_ms: 0.099875
+  type: 'test'
+  ...
+# Subtest: static loader handles raw gzip and CDN-already-decoded JSON without changing values
+ok 51 - static loader handles raw gzip and CDN-already-decoded JSON without changing values
+  ---
+  duration_ms: 15.143
+  type: 'test'
+  ...
+# Subtest: daily date index spans 316 days through November 12 with no gaps and eleven selectable months
+ok 52 - daily date index spans 316 days through November 12 with no gaps and eleven selectable months
+  ---
+  duration_ms: 1.370958
+  type: 'test'
+  ...
+# Subtest: each published day preserves the complete date/hour/dong grid and source precision
+ok 53 - each published day preserves the complete date/hour/dong grid and source precision
+  ---
+  duration_ms: 5648.406208
+  type: 'test'
+  ...
+# Subtest: independent raw CSV day fixture: 20260101/18/all/all/all
+ok 54 - independent raw CSV day fixture: 20260101/18/all/all/all
+  ---
+  duration_ms: 15.363375
+  type: 'test'
+  ...
+# Subtest: independent raw CSV day fixture: 20260131/12/11500620/young/male
+ok 55 - independent raw CSV day fixture: 20260131/12/11500620/young/male
+  ---
+  duration_ms: 25.236584
+  type: 'test'
+  ...
+# Subtest: independent raw CSV day fixture: 20260228/18/11680/all/female
+ok 56 - independent raw CSV day fixture: 20260228/18/11680/all/female
+  ---
+  duration_ms: 18.180958
+  type: 'test'
+  ...
+# Subtest: independent raw CSV day fixture: 20260731/0/11110670/all/female
+ok 57 - independent raw CSV day fixture: 20260731/0/11110670/all/female
+  ---
+  duration_ms: 15.720334
+  type: 'test'
+  ...
+# Subtest: independent raw CSV day fixture: 20260930/12/11500/middle/all
+ok 58 - independent raw CSV day fixture: 20260930/12/11500/middle/all
+  ---
+  duration_ms: 15.155458
+  type: 'test'
+  ...
+# Subtest: independent raw CSV day fixture: 20261031/12/11500620/young/male
+ok 59 - independent raw CSV day fixture: 20261031/12/11500620/young/male
+  ---
+  duration_ms: 10.509958
+  type: 'test'
+  ...
+# Subtest: scalar and time-varying denominators preserve missing and unsupported cells
+ok 60 - scalar and time-varying denominators preserve missing and unsupported cells
+  ---
+  duration_ms: 0.602458
+  type: 'test'
+  ...
+# Subtest: group differences require both averages and heatmap null is distinct from zero
+ok 61 - group differences require both averages and heatmap null is distinct from zero
+  ---
+  duration_ms: 0.094625
+  type: 'test'
+  ...
+# Subtest: independent Decimal raw average: 202610-11500620-young-male-weekday-monday-12
+ok 62 - independent Decimal raw average: 202610-11500620-young-male-weekday-monday-12
+  ---
+  duration_ms: 6.487958
+  type: 'test'
+  ...
+# Subtest: independent Decimal raw average: 202610-11500620-young-male-weekday-monday-18
+ok 63 - independent Decimal raw average: 202610-11500620-young-male-weekday-monday-18
+  ---
+  duration_ms: 4.902583
+  type: 'test'
+  ...
+# Subtest: independent Decimal raw average: 202610-11500620-young-male-monthphase-early-12
+ok 64 - independent Decimal raw average: 202610-11500620-young-male-monthphase-early-12
+  ---
+  duration_ms: 5.686
+  type: 'test'
+  ...
+# Subtest: independent Decimal raw average: 202610-11500620-young-male-monthphase-early-18
+ok 65 - independent Decimal raw average: 202610-11500620-young-male-monthphase-early-18
+  ---
+  duration_ms: 4.045667
+  type: 'test'
+  ...
+# Subtest: independent Decimal raw average: 202610-11500620-young-male-monthphase-late-12
+ok 66 - independent Decimal raw average: 202610-11500620-young-male-monthphase-late-12
+  ---
+  duration_ms: 4.085292
+  type: 'test'
+  ...
+# Subtest: independent Decimal raw average: 202610-11500620-young-male-monthphase-late-18
+ok 67 - independent Decimal raw average: 202610-11500620-young-male-monthphase-late-18
+  ---
+  duration_ms: 3.958917
+  type: 'test'
+  ...
+# Subtest: independent Decimal raw average: 202601-all-all-all-weekday-monday-18
+ok 68 - independent Decimal raw average: 202601-all-all-all-weekday-monday-18
+  ---
+  duration_ms: 5.89175
+  type: 'test'
+  ...
+# Subtest: independent Decimal raw average: 202601-all-all-all-monthphase-early-18
+ok 69 - independent Decimal raw average: 202601-all-all-all-monthphase-early-18
+  ---
+  duration_ms: 3.996875
+  type: 'test'
+  ...
+# Subtest: independent Decimal raw average: 202601-11440-all-all-weekday-monday-18
+ok 70 - independent Decimal raw average: 202601-11440-all-all-weekday-monday-18
+  ---
+  duration_ms: 4.012041
+  type: 'test'
+  ...
+# Subtest: independent Decimal raw average: 202610-11440-all-all-weekday-monday-18
+ok 71 - independent Decimal raw average: 202610-11440-all-all-weekday-monday-18
+  ---
+  duration_ms: 5.762625
+  type: 'test'
+  ...
+# Subtest: independent Decimal raw average: 202610-11110670-all-female-monthphase-early-00
+ok 72 - independent Decimal raw average: 202610-11110670-all-female-monthphase-early-00
+  ---
+  duration_ms: 5.937541
+  type: 'test'
+  ...
+# Subtest: eleven indexed months contain 316 available calendar days and twelve real cohorts per month
+ok 73 - eleven indexed months contain 316 available calendar days and twelve real cohorts per month
+  ---
+  duration_ms: 0.692208
+  type: 'test'
+  ...
+# Subtest: every generated month/cohort has finite means, exact group-date coverage and honest denominators
+ok 74 - every generated month/cohort has finite means, exact group-date coverage and honest denominators
+  ---
+  duration_ms: 838.828792
+  type: 'test'
+  ...
+# Subtest: November partial month keeps observed dates as denominators and the unavailable late group null
+ok 75 - November partial month keeps observed dates as denominators and the unavailable late group null
+  ---
+  duration_ms: 8.685333
+  type: 'test'
+  ...
+# Subtest: same actual source region codes: Seoul / Mapo / Seogyo / Gongdeok
+ok 76 - same actual source region codes: Seoul / Mapo / Seogyo / Gongdeok
+  ---
+  duration_ms: 0.45175
+  type: 'test'
+  ...
+# Subtest: historical unmatched codes and semantically changed name are not estimated
+ok 77 - historical unmatched codes and semantically changed name are not estimated
+  ---
+  duration_ms: 0.15425
+  type: 'test'
+  ...
+# Subtest: punctuation-only name variation is safe with matching code
+ok 78 - punctuation-only name variation is safe with matching code
+  ---
+  duration_ms: 0.089709
+  type: 'test'
+  ...
+# Subtest: ambiguous duplicate code/name is unavailable
+ok 79 - ambiguous duplicate code/name is unavailable
+  ---
+  duration_ms: 0.053583
+  type: 'test'
+  ...
+1..79
+# tests 79
+# suites 0
+# pass 79
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 6262.148417

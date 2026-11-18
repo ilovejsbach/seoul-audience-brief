@@ -16,7 +16,7 @@
 .app .timeComparisonFloating .floatingPanelResize{min-width:24px;min-height:24px;padding:0}
 @container(max-width:520px){.app .timeComparisonFloating .timeComparisonValues{grid-template-columns:minmax(0,1fr)}}
 @layer dashboardTypography{
- .app.mode-presentation .timeComparisonFloating :is(button,label,select,option,.timeComparisonHeading p,.timeComparisonValues span,.timeComparisonValues p,.timeComparisonNote,.timeComparisonExact,.timeComparisonExact *){font-size:var(--type-label)!important;line-height:1.5!important}
+ .app.mode-presentation .timeComparisonFloating :is(button,label,select,option,.timeComparisonHeading p,.timeComparisonValues span,.timeComparisonValues p,.timeComparisonNote){font-size:var(--type-label)!important;line-height:1.5!important}
  .app.mode-presentation .timeComparisonFloating h3{font-size:var(--type-body)!important;line-height:1.5!important}
 }
 @media print{.app .timeComparisonFloating{display:none!important}}

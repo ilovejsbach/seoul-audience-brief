@@ -1,0 +1,21 @@
+
+> seoul-audience-atlas@1.0.0 build
+> tsc -b && vite build
+
+vite v6.4.6 building for production...
+transforming...
+✓ 160 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                                      0.56 kB │ gzip:   0.43 kB
+dist/assets/IBMPlexSansKR-SemiBold-CS0ppiEk.woff2  434.48 kB
+dist/assets/IBMPlexSansKR-Regular-BN6ufgM4.woff2   438.54 kB
+dist/assets/IBMPlexSansKR-Medium-CwoSX12N.woff2    439.82 kB
+dist/assets/index-BxmNVqZB.css                     357.74 kB │ gzip:  58.41 kB
+dist/assets/index-DhY8Yyna.js                      549.09 kB │ gzip: 174.23 kB
+
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+✓ built in 6.08s
