@@ -7,6 +7,17 @@ const topics = [
 ];
 const activeSurface = page => page.locator('dialog.analysisDetailModal[open], .analysisMainDetail:not([hidden])').filter({ visible: true });
 const menu = page => page.getByRole('combobox', { name: '상세 분석 선택', exact: true }).filter({ visible: true });
+const heroHeading = page => page.getByRole('heading', { name: '서울의 흐름을, 광고 입지의 근거로', exact: true });
+const tabNames = { population: '생활인구', mobility: '생활이동', migration: '거주지 이동', commerce: '추정매출' };
+// Start screen -> 지역 분석 시작 -> data tab (the data tabs stay in the header row until stage 2).
+async function startRegion(page, topic, mode) {
+  await page.goto('/');
+  await heroHeading(page).waitFor();
+  await page.getByRole('button', { name: '지역 분석 시작', exact: true }).click();
+  if (topic !== 'population') await page.locator('.analysisNavData [role=tab]').filter({ hasText: tabNames[topic] }).click();
+  if (mode === 'presentation') await page.getByRole('button', { name: '시연용', exact: true }).click();
+}
+const openMarketTopic = page => page.getByRole('button', { name: '상권 분석', exact: true }).click();
 const settle = async page => {
   await page.evaluate(() => document.fonts.ready);
   await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
@@ -148,23 +159,24 @@ async function querySnapshot(page, topic) {
 }
 
 async function enter(page, topic, label, mode) {
-  await page.goto('/');
-  await page.getByRole('heading', { name: '지역별 광고 입지 분석', exact: true }).waitFor();
   if (topic === 'market') {
-    // Pick the mode before entering the market workspace, which shares this state.
-    if (mode === 'presentation') await page.getByRole('button', { name: '시연용', exact: true }).click();
-    await page.getByRole('button', { name: '상권 지도', exact: true }).click();
+    // Enter through the region (in the chosen mode) so the I04 inheritance path is exercised.
+    await startRegion(page, 'population', mode);
+    await openMarketTopic(page);
     await page.locator('.marketMapSvg path[data-market-code]').first().waitFor();
     await page.locator('#market-query-period').selectOption('20261');
   } else {
-    await page.locator('.analysisDatasets > button').filter({ has: page.getByRole('heading', { name: new RegExp(`^${label}`) }) }).click();
-    if (mode === 'presentation') await page.getByRole('button', { name: '시연용', exact: true }).click();
+    await startRegion(page, topic, mode);
     await page.locator(`#map-${topic} svg`).filter({ visible: true }).first().waitFor();
     const id = topic === 'population' ? '#population-query-hour' : topic === 'mobility' ? '#extra-hour-mobility' : '#extra-period-migration';
     await page.locator(id).filter({ visible: true }).selectOption(topic === 'migration' ? '2024' : '12');
   }
   await settle(page);
-  await expect(page.locator('#root > .app')).toHaveClass(new RegExp(`mode-${mode}`));
+  // I04: the market has no mode; entering it from presentation must not inherit it.
+  if (topic === 'market') {
+    await expect(page.locator('#root > .app')).toHaveClass(/service-market/);
+    await expect(page.locator('#root > .app')).not.toHaveClass(/mode-presentation/);
+  } else await expect(page.locator('#root > .app')).toHaveClass(new RegExp(`mode-${mode}`));
   // Launch navigation uses smooth scroll; reset once before the first-screen oracle.
   await page.evaluate(() => { window.scrollTo({ top: 0, left: 0, behavior: 'instant' }); });
   await settle(page);
@@ -187,7 +199,7 @@ for (const mode of ['analysis', 'presentation']) for (const [topic, label] of to
       const width = await page.evaluate(() => ({ scrollWidth: document.documentElement.scrollWidth, clientWidth: document.documentElement.clientWidth, innerWidth, innerHeight, dpr: devicePixelRatio, scale: visualViewport?.scale, scrollX, scrollY }));
       await check(`a / ${stage}`, width, width.scrollWidth <= width.clientWidth);
       const sizes = await fonts(page);
-      await check(`f / ${stage}`, sizes, sizes.length > 0 && sizes.length <= (mode === 'presentation' ? 4 : 6));
+      await check(`f / ${stage}`, sizes, sizes.length > 0 && sizes.length <= (mode === 'presentation' && topic !== 'market' ? 4 : 6));
     }
     try {
       await enter(page, topic, label, mode);
@@ -270,10 +282,7 @@ for (const mode of ['analysis', 'presentation']) for (const [topic, label] of to
 const displayTopics = [['population', '생활인구'], ['mobility', '생활이동'], ['migration', '거주지 전입·전출'], ['commerce', '행정동 추정매출']];
 for (const mode of ['analysis', 'presentation']) for (const fullscreen of [false, true]) for (const [topic, label] of displayTopics) {
   test(`${mode} / ${fullscreen ? 'fullscreen' : 'normal'} / ${topic} / display settings I01`, async ({ page }, info) => {
-    await page.goto('/');
-    await page.getByRole('heading', { name: '지역별 광고 입지 분석', exact: true }).waitFor();
-    await page.locator('.analysisDatasets > button').filter({ has: page.getByRole('heading', { name: new RegExp(`^${label}`) }) }).click();
-    if (mode === 'presentation') await page.getByRole('button', { name: '시연용', exact: true }).click();
+    await startRegion(page, topic, mode);
     await page.locator(`#map-${topic} svg`).filter({ visible: true }).first().waitFor();
     if (fullscreen) { await page.getByRole('button', { name: '지도 전체화면 보기' }).click(); await expect(page.getByRole('button', { name: '지도 전체화면 닫기' })).toBeVisible(); }
     await settle(page);
@@ -338,3 +347,204 @@ for (const mode of ['analysis', 'presentation']) for (const fullscreen of [false
     await info.attach('display-settings-measurements', { path: info.outputPath('display-settings-measurements.json'), contentType: 'application/json' });
   });
 }
+
+// I04 / REQ-23 / R03 R13 R20: the market must look and behave the same whichever
+// region mode the user came from, and the region mode must survive the round trip.
+const marketProbe = page => page.evaluate(() => {
+  const px = sel => { const e = [...document.querySelectorAll(sel)].find(x => x.getClientRects().length); return e ? { font: getComputedStyle(e).fontSize, weight: getComputedStyle(e).fontWeight, width: Math.round(e.getBoundingClientRect().width) } : null; };
+  return { root: document.querySelector('#root > .app').className.replace(/\s+/g, ' '),
+    period: px('#market-query-period'), heading: px('.mapWorkspaceHeader h1'), back: px('.mapWorkspaceHeaderActions button:last-child'), query: px('.mapWorkspaceTopQuery label'), tabs: px('.integratedMarketHeader .integratedBrand'),
+    modeToggleVisible: [...document.querySelectorAll('.modeToggle')].some(e => e.getClientRects().length) };
+});
+test('I04 market has no mode: both region modes give the same market', async ({ page }, info) => {
+  const results = {};
+  for (const mode of ['analysis', 'presentation']) {
+    await startRegion(page, 'population', mode);
+    await page.locator('#map-population svg').filter({ visible: true }).first().waitFor();
+    await page.locator('#population-query-hour').filter({ visible: true }).selectOption('12');
+    await openMarketTopic(page);
+    await page.locator('.marketMapSvg path[data-market-code]').first().waitFor();
+    await page.locator('#market-query-period').selectOption('20261');
+    await settle(page);
+    const probe = await marketProbe(page);
+    const sizes = await fonts(page);
+    results[mode] = { probe, sizes };
+    expect(probe.root, `${mode}: market root must not carry mode-presentation`).not.toMatch(/mode-presentation/);
+    expect(probe.modeToggleVisible, `${mode}: no mode toggle in market`).toBe(false);
+    expect(probe.period, 'target missing').not.toBeNull(); expect(probe.heading).not.toBeNull(); expect(probe.query).not.toBeNull();
+    expect(sizes.length).toBeLessThanOrEqual(6);
+    // return to the region: mode and condition are preserved
+    await page.getByRole('button', { name: '지역 분석 지도', exact: true }).click();
+    await expect(page.locator('#root > .app')).toHaveClass(new RegExp(`mode-${mode}`));
+    await expect(page.getByRole('button', { name: mode === 'presentation' ? '시연용' : '분석용', exact: true })).toHaveAttribute('aria-pressed', 'true');
+    await expect(page.locator('#population-query-hour').filter({ visible: true })).toHaveValue('12');
+    // and the market keeps its own condition on a second visit
+    await openMarketTopic(page);
+    await expect(page.locator('#market-query-period')).toHaveValue('20261');
+    // The topic menu returns to the region exactly like the in-market button does.
+    await page.getByRole('button', { name: '지역 분석', exact: true }).click();
+    await expect(page.locator('#root > .app')).toHaveClass(new RegExp(`mode-${mode}`));
+    await expect(page.locator('#population-query-hour').filter({ visible: true })).toHaveValue('12');
+  }
+  expect(results.presentation.probe).toEqual(results.analysis.probe);
+  expect(results.presentation.sizes.map(x => x.px)).toEqual(results.analysis.sizes.map(x => x.px));
+  await writeFile(info.outputPath('i04-market-probe.json'), JSON.stringify(results, null, 2));
+});
+
+// ---- 1b: start screen, topic menu, more menu (N01, I08, I09, sticky) ----
+import { readFileSync } from 'node:fs';
+const dataJson = file => JSON.parse(readFileSync(new URL(`../../public/data/${file}`, import.meta.url), 'utf8'));
+const topicButtons = page => page.locator('.topicNav button');
+
+test('N01 start screen: two equal starts, disabled resume, topic menu and planned items', async ({ page }, info) => {
+  const requests = [];
+  await page.goto('/');
+  await heroHeading(page).waitFor();
+  await settle(page);
+  // two start buttons, same size (R04)
+  const starts = await page.locator('.heroActions button').evaluateAll(es => es.map(e => { const r = e.getBoundingClientRect(); return { text: e.textContent.trim(), w: r.width, h: r.height }; }));
+  expect(starts.map(x => x.text)).toEqual(['지역 분석 시작', '상권 분석 시작']);
+  expect(Math.abs(starts[0].w - starts[1].w) <= 1 && Math.abs(starts[0].h - starts[1].h) <= 1, JSON.stringify(starts)).toBe(true);
+  // first visit: resume disabled, no topic selected, 4 topics of equal size
+  await expect(page.getByRole('button', { name: '이어보기', exact: true })).toBeDisabled();
+  await expect(topicButtons(page)).toHaveCount(4);
+  const topics = await topicButtons(page).evaluateAll(es => es.map(e => { const r = e.getBoundingClientRect(); return { text: e.textContent.trim(), w: r.width, h: r.height, cy: r.top + r.height / 2, pressed: e.getAttribute('aria-pressed'), disabled: e.disabled }; }));
+  expect(topics.map(x => x.text)).toEqual(['지역 분석', '상권 분석', '교통(예정)', '부동산(예정)']);
+  expect(topics.every(x => x.pressed !== 'true'), 'no topic selected on the start screen').toBe(true);
+  expect(Math.max(...topics.map(x => x.w)) - Math.min(...topics.map(x => x.w)) <= 1 && Math.max(...topics.map(x => x.h)) - Math.min(...topics.map(x => x.h)) <= 1 && Math.max(...topics.map(x => x.cy)) - Math.min(...topics.map(x => x.cy)) <= 1, JSON.stringify(topics)).toBe(true);
+  expect(topics.map(x => x.disabled)).toEqual([false, false, true, true]);
+  // planned topics do nothing and request nothing
+  page.on('request', r => requests.push(r.url()));
+  await topicButtons(page).nth(2).click({ force: true }); await topicButtons(page).nth(3).click({ force: true });
+  await page.waitForTimeout(400);
+  expect(requests, 'planned topics must not request data').toEqual([]);
+  await expect(heroHeading(page)).toBeVisible();
+  // no mode toggle on the start screen
+  await expect(page.locator('.modeToggle')).toHaveCount(0);
+  // start region -> mode toggle exists only there
+  await page.getByRole('button', { name: '지역 분석 시작', exact: true }).click();
+  await expect(page.locator('.modeToggle')).toHaveCount(1);
+  await expect(topicButtons(page).nth(0)).toHaveAttribute('aria-pressed', 'true');
+  await page.locator('#population-query-hour').filter({ visible: true }).selectOption('9');
+  await page.getByRole('button', { name: '시연용', exact: true }).click();
+  // back to start via brand, resume restores region, mode and condition
+  await page.locator('.appTopbar .integratedBrand').click();
+  await heroHeading(page).waitFor();
+  await expect(page.locator('.modeToggle')).toHaveCount(0);
+  await expect(page.getByRole('button', { name: '이어보기', exact: true })).toBeEnabled();
+  await page.getByRole('button', { name: '이어보기', exact: true }).click();
+  await expect(page.locator('#root > .app')).toHaveClass(/mode-presentation/);
+  await expect(page.locator('#population-query-hour').filter({ visible: true })).toHaveValue('9');
+  // market: no mode toggle; resume goes to the market the second time
+  await openMarketTopic(page);
+  await expect(page.locator('.modeToggle')).toHaveCount(0);
+  await expect(topicButtons(page).nth(1)).toHaveAttribute('aria-pressed', 'true');
+  await page.locator('.appTopbar .integratedBrand').click();
+  await expect(page.getByText('마지막으로 보던 상권 분석 화면으로 돌아갑니다.')).toBeVisible();
+  await page.getByRole('button', { name: '이어보기', exact: true }).click();
+  await expect(page.locator('.marketMapSvg path[data-market-code]').first()).toBeVisible();
+  await writeFile(info.outputPath('n01.json'), JSON.stringify({ starts, topics }, null, 2));
+});
+
+test('start screen figures equal the source files and I08 old range text is gone', async ({ page }) => {
+  await page.goto('/');
+  await heroHeading(page).waitFor();
+  const days = new Set(dataJson('population/index.json').map(e => e.date)).size;
+  const dongs = dataJson('regions.json').dongs.filter(d => d.activePopulation !== false).length;
+  const periods = dataJson('commerce.json').periods;
+  const areas = dataJson('market-areas.geojson').features.length;
+  await expect(page.locator('.heroStat')).toHaveCount(4);
+  await expect(page.locator('.heroStat dd strong')).toHaveText([String(days), String(dongs), areas.toLocaleString('ko-KR'), String(periods.length)]);
+  const dates = dataJson('population/index.json').map(e => e.date).sort();
+  const f = d => `${d.slice(0, 4)}.${d.slice(4, 6)}.${d.slice(6)}`;
+  await expect(page.locator('.heroStat').nth(0)).toContainText(`${f(dates[0])}–${f(dates.at(-1))}`);
+  await expect(page.locator('.heroStat').nth(3)).toContainText(`${periods[0].slice(0, 4)}Q${periods[0].slice(4)}–${periods.at(-1).slice(0, 4)}Q${periods.at(-1).slice(4)}`);
+  const text = await page.locator('#root').innerText();
+  expect(text, 'I08: the old fixed range text must be gone').not.toMatch(/2026\.01–10|1–10월/);
+  // silhouette: 25 single-colour paths, no data colouring
+  const fills = await page.locator('.seoulSilhouette path').evaluateAll(es => [...new Set(es.map(e => getComputedStyle(e).fill))]);
+  expect(await page.locator('.seoulSilhouette path').count()).toBe(25);
+  expect(fills.length).toBe(1);
+});
+
+test('sticky top bar and type sizes on the start screen', async ({ page }) => {
+  await page.goto('/');
+  await heroHeading(page).waitFor();
+  await page.locator('#root > .app > main').evaluate(m => { m.scrollTop = 200; });
+  const top = await page.locator('.appTopbar').evaluate(e => Math.round(e.getBoundingClientRect().top));
+  expect(top).toBe(0);
+  await expect(topicButtons(page).first()).toBeVisible();
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth)).toBe(true);
+  const sizes = await fonts(page);
+  expect(sizes.length, JSON.stringify(sizes)).toBeLessThanOrEqual(6);
+});
+
+test('I09 more menu tooltip equals the real items in every state', async ({ page }, info) => {
+  const read = async () => {
+    await page.locator('.moreButton').click();
+    const state = await page.evaluate(() => {
+      const list = document.querySelector('.moreMenuList');
+      const names = [...list.children].filter(c => c.getClientRects().length).map(c => c.matches('button') ? c.textContent.trim() : (c.querySelector('button')?.getAttribute('aria-label') || c.querySelector('button')?.textContent.trim()));
+      const b = document.querySelector('.moreButton');
+      return { names, title: b.title, label: b.getAttribute('aria-label') };
+    });
+    await page.keyboard.press('Escape');
+    expect(await page.evaluate(() => document.activeElement?.classList.contains('moreButton')), 'Esc returns focus to the button').toBe(true);
+    await expect(page.locator('.moreMenuList')).toBeHidden();
+    expect(state.names.length).toBeGreaterThan(0);
+    expect(state.title).toBe(`더보기: ${state.names.join('·')}`);
+    expect(state.label).toBe(state.title);
+    return state;
+  };
+  const seen = {};
+  await page.goto('/'); await heroHeading(page).waitFor();
+  seen.home = await read();
+  await page.getByRole('button', { name: '지역 분석 시작', exact: true }).click();
+  seen.region = await read();
+  await page.getByRole('button', { name: '시연용', exact: true }).click();
+  seen.presentation = await read();
+  await openMarketTopic(page);
+  seen.market = await read();
+  expect(seen.home.names).not.toContain('시작 화면');
+  expect(seen.presentation.names).toContain('근거 정보 보기');
+  expect(seen.region.names).not.toContain('근거 정보 보기');
+  expect(seen.market.names).toEqual(['브리핑 인쇄', '시작 화면']);
+  await writeFile(info.outputPath('i09.json'), JSON.stringify(seen, null, 2));
+});
+
+test('advanced layout stays inside the more menu and survives a start-screen round trip', async ({ page }) => {
+  await startRegion(page, 'population', 'analysis');
+  await page.locator('.moreButton').click();
+  await page.getByRole('button', { name: '화면 배치', exact: true }).click();
+  await expect(page.locator('.layoutOptions')).toBeVisible();
+  await page.getByRole('button', { name: '균형형', exact: true }).click();
+  const track = () => page.locator('#root > .app').evaluate(e => e.style.getPropertyValue('--workspace-map-track'));
+  expect(await track()).toBe('67fr');
+  await page.keyboard.press('Escape');
+  await expect(page.locator('.layoutOptions')).toHaveCount(0);
+  await page.keyboard.press('Escape');
+  await expect(page.locator('.moreMenuList')).toBeHidden();
+  await page.locator('.appTopbar .integratedBrand').click();
+  await heroHeading(page).waitFor();
+  await page.getByRole('button', { name: '이어보기', exact: true }).click();
+  expect(await track(), 'ratio is kept after the start-screen round trip').toBe('67fr');
+});
+
+test('first screen with the two-row header (R05, 1365x768 and 1920)', async ({ page }, info) => {
+  const rows = [];
+  for (const [label, go] of [
+    ['region analysis', async () => startRegion(page, 'population', 'analysis')],
+    ['region presentation', async () => startRegion(page, 'population', 'presentation')],
+    ['market', async () => { await startRegion(page, 'population', 'analysis'); await openMarketTopic(page); await page.locator('.marketMapSvg path[data-market-code]').first().waitFor(); }],
+  ]) {
+    await go(); await settle(page);
+    const m = await page.evaluate(() => {
+      const svg = [...document.querySelectorAll('#map-population .mapWrap > svg, .marketMapSvg')].find(e => e.getClientRects().length);
+      const r = svg.getBoundingClientRect(), h = document.querySelector('#root > .app > header').getBoundingClientRect();
+      return { header: Math.round(h.height), map: { top: Math.round(r.top), width: Math.round(r.width), height: Math.round(r.height), bottom: Math.round(r.bottom) }, innerHeight, innerWidth, docOverflow: document.documentElement.scrollHeight > document.documentElement.clientHeight };
+    });
+    rows.push({ label, ...m });
+    expect(m.map.bottom <= m.innerHeight + 1 && m.map.height >= 300 && !m.docOverflow, JSON.stringify(m)).toBe(true);
+  }
+  await writeFile(info.outputPath('first-screen.json'), JSON.stringify(rows, null, 2));
+});
