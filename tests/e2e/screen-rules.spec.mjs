@@ -1,20 +1,41 @@
 import { test, expect } from '@playwright/test';
 import { writeFile } from 'node:fs/promises';
 
+// PC18: region 4 datasets x 2 modes x 2 sizes = 16, market (no mode) x 2 sizes = 2.
 const topics = [
-  ['population', '생활인구'], ['mobility', '생활이동'],
-  ['migration', '거주지 전입·전출'], ['market', '상권'],
+  ['population', '생활인구'], ['mobility', '생활이동'], ['migration', '거주지 이동'], ['commerce', '행정동 추정매출'], ['market', '상권'],
 ];
+// Fixed expectation (independent of the registry): id -> display name, in menu order.
+const expectedViews = {
+  population: [['population-patterns', '요일·월중 특성'], ['resident-context', '체류·거주 기반'], ['demographic-population', '연령·성별 비교'], ['trend-population', '선택 지역 시간 추이'], ['time-compare-population', '두 시간 비교'], ['distribution-population', '두 시간 분포 지도'], ['shortlist-population', '후보 지역 비교'], ['scenario-population', '조회 조건 비교']],
+  mobility: [['trend-mobility', '시간대별 이동 추이'], ['time-compare-mobility', '두 시간 비교'], ['mobility-connections', '이동 상대지역'], ['table-mobility', '지역별 상세 내역'], ['shortlist-mobility', '후보 지역 비교'], ['scenario-mobility', '조회 조건 비교']],
+  migration: [['trend-migration', '선택 지역 연도별 추이'], ['time-compare-migration', '두 연도 비교'], ['migration-demographic-details', '연령·성별 구성'], ['table-migration', '지역별 상세 내역'], ['shortlist-migration', '후보 지역 비교'], ['scenario-migration', '조회 조건 비교']],
+  commerce: [['trend-commerce', '선택 지역 분기별 추이'], ['time-compare-commerce', '두 분기 비교'], ['table-commerce', '지역별 상세 내역'], ['shortlist-commerce', '후보 지역 비교'], ['scenario-commerce', '조회 조건 비교']],
+};
+const viewName = id => Object.values(expectedViews).flat().find(x => x[0] === id)?.[1];
+const dataNav = page => page.locator('nav[aria-label="자료 선택"]');
+const viewNav = page => page.locator('nav[aria-label="보기 선택"]');
+const openView = (page, id) => viewNav(page).getByRole('button', { name: viewName(id), exact: true }).click();
+// Vertical groups: x-aligned and equal width; height at least the 36px minimum. No centerY test here.
+async function verticalNav(page, topic) {
+  const m = await page.evaluate(() => {
+    const read = sel => [...document.querySelectorAll(sel)].filter(e => e.getClientRects().length).map(e => { const r = e.getBoundingClientRect(); return { name: e.getAttribute('aria-label'), left: r.left, width: r.width, height: r.height, current: e.getAttribute('aria-pressed') === 'true' || e.getAttribute('aria-current') === 'page' }; });
+    const aside = document.querySelector('.workspaceNav')?.getBoundingClientRect();
+    return { data: read('nav[aria-label="자료 선택"] button'), view: read('nav[aria-label="보기 선택"] button'), aside: aside && { width: aside.width, left: aside.left, height: aside.height }, collapsed: document.querySelector('.workspaceNav')?.getAttribute('data-collapsed') };
+  });
+  const spread = (xs, f) => Math.max(...xs.map(f)) - Math.min(...xs.map(f));
+  const groupOk = g => g.length > 0 && spread(g, x => x.left) <= 1 && spread(g, x => x.width) <= 1 && g.every(x => x.height >= 35.5);
+  return { ...m, expectedViewCount: 1 + expectedViews[topic].length, ok: m.data.length === 4 && m.view.length === 1 + expectedViews[topic].length && groupOk(m.data) && groupOk(m.view) && m.data.filter(x => x.current).length === 1 };
+}
 const activeSurface = page => page.locator('dialog.analysisDetailModal[open], .analysisMainDetail:not([hidden])').filter({ visible: true });
-const menu = page => page.getByRole('combobox', { name: '상세 분석 선택', exact: true }).filter({ visible: true });
 const heroHeading = page => page.getByRole('heading', { name: '서울의 흐름을, 광고 입지의 근거로', exact: true });
-const tabNames = { population: '생활인구', mobility: '생활이동', migration: '거주지 이동', commerce: '추정매출' };
+const tabNames = { population: '생활인구', mobility: '생활이동', migration: '거주지 이동', commerce: '행정동 추정매출' };
 // Start screen -> 지역 분석 시작 -> data tab (the data tabs stay in the header row until stage 2).
 async function startRegion(page, topic, mode) {
   await page.goto('/');
   await heroHeading(page).waitFor();
   await page.getByRole('button', { name: '지역 분석 시작', exact: true }).click();
-  if (topic !== 'population') await page.locator('.analysisNavData [role=tab]').filter({ hasText: tabNames[topic] }).click();
+  if (topic !== 'population') await dataNav(page).getByRole('button', { name: tabNames[topic], exact: true }).click();
   if (mode === 'presentation') await page.getByRole('button', { name: '시연용', exact: true }).click();
 }
 const openMarketTopic = page => page.getByRole('button', { name: '상권 분석', exact: true }).click();
@@ -139,7 +160,6 @@ async function uniformity(page) {
   return page.evaluate(() => {
     const groups=[];
     const add=(name,selector,equalWidth=false)=>{const els=[...document.querySelectorAll(selector)].filter(e=>{const r=e.getBoundingClientRect();return r.width&&r.height&&getComputedStyle(e).visibility==='visible'&&!e.closest('[hidden]')}); if(els.length>1)groups.push({name,equalWidth,items:els.map(e=>{const r=e.getBoundingClientRect();return {text:e.textContent.trim().replace(/\s+/g,' ').slice(0,35),x:r.x,y:r.y,width:r.width,height:r.height,centerY:r.top+r.height/2}})});};
-    add('four dataset tabs','.analysisNavData [role=tab]',true);
     add('analysis/presentation mode choices','.modeToggle button');
     add('market zoom +/- controls','.marketZoom button');
     for(const g of groups){const heights=g.items.map(i=>i.height),centers=g.items.map(i=>i.centerY),widths=g.items.map(i=>i.width);g.maxHeightDelta=Math.max(...heights)-Math.min(...heights);g.maxCenterDelta=Math.max(...centers)-Math.min(...centers);g.maxWidthDelta=Math.max(...widths)-Math.min(...widths);g.pass=g.maxHeightDelta<=1&&g.maxCenterDelta<=1&&(!g.equalWidth||g.maxWidthDelta<=1);}
@@ -168,8 +188,8 @@ async function enter(page, topic, label, mode) {
   } else {
     await startRegion(page, topic, mode);
     await page.locator(`#map-${topic} svg`).filter({ visible: true }).first().waitFor();
-    const id = topic === 'population' ? '#population-query-hour' : topic === 'mobility' ? '#extra-hour-mobility' : '#extra-period-migration';
-    await page.locator(id).filter({ visible: true }).selectOption(topic === 'migration' ? '2024' : '12');
+    const id = topic === 'population' ? '#population-query-hour' : topic === 'mobility' ? '#extra-hour-mobility' : topic === 'commerce' ? '#extra-period-commerce' : '#extra-period-migration';
+    await page.locator(id).filter({ visible: true }).selectOption(topic === 'migration' ? '2024' : topic === 'commerce' ? '20261' : '12');
   }
   await settle(page);
   // I04: the market has no mode; entering it from presentation must not inherit it.
@@ -183,6 +203,7 @@ async function enter(page, topic, label, mode) {
 }
 
 for (const mode of ['analysis', 'presentation']) for (const [topic, label] of topics) {
+  if (topic === 'market' && mode === 'presentation') continue; // the market has no mode: one row per size
   test(`${mode} / ${topic} / R05 R07 R15 R20`, async ({ page }, info) => {
     const checks = [];
     async function check(rule, state, pass) {
@@ -204,7 +225,7 @@ for (const mode of ['analysis', 'presentation']) for (const [topic, label] of to
     try {
       await enter(page, topic, label, mode);
       await common('map');
-      const focusTarget=topic==='market'?'.integratedMarketHeader .integratedBrand':'.analysisNavData [role=tab][aria-selected=true]';
+      const focusTarget=topic==='market'?'.integratedMarketHeader .integratedBrand':'.workspaceNav [data-nav-kind=data][aria-pressed=true]';
       await page.locator(focusTarget).focus();
       await page.keyboard.press('Tab');
       const g=await contrast(page);
@@ -217,6 +238,10 @@ for (const mode of ['analysis', 'presentation']) for (const [topic, label] of to
         focus:g.focus,
       },reliableDefects.length===0);
       const h=await uniformity(page); await check('h / normative peer sizes / map',h,h.every(x=>x.pass));
+      if (topic !== 'market') {
+        const nav = await verticalNav(page, topic);
+        await check('h / vertical menu groups (open/collapsed) / map', nav, nav.ok && Math.abs(nav.aside.width - (mode === 'analysis' ? 200 : 64)) <= 1 && nav.view.map(x => x.name).join('|') === ['지도', ...expectedViews[topic].map(x => x[1])].join('|') && nav.data.map(x => x.name).join('|') === '생활인구|생활이동|거주지 이동|행정동 추정매출');
+      } else await check('left menu absent in the market (stage 4)', await page.locator('.workspaceNav').filter({ visible: true }).count(), (await page.locator('.workspaceNav').filter({ visible: true }).count()) === 0);
       const mapSelector = topic === 'market' ? '.marketMapSvg' : `#map-${topic} .mapWrap > svg`;
       const map = await geometry(page, mapSelector);
       await check('b / main map first screen', map, map.length === 1 && map[0].fits);
@@ -226,16 +251,22 @@ for (const mode of ['analysis', 'presentation']) for (const [topic, label] of to
         await page.locator('.marketMapSvg path[data-market-code="3120107"]').press('Enter');
         await page.getByRole('combobox', { name: '상권 상세 분석 선택', exact: true }).selectOption('trend');
       } else {
-        await menu(page).selectOption(`trend-${topic}`);
+        await openView(page, `trend-${topic}`);
       }
       await activeSurface(page).waitFor();
       const options = await activeSurface(page).getByRole('combobox', { name: '상세 분석 선택', exact: true }).locator('option').evaluateAll(es => es.filter(e => e.value && !e.disabled).map(e => ({ value: e.value, label: e.textContent })));
       await check('c / options discovered', options, options.length > 0);
+      if (topic !== 'market') await check('c / exact detail list equals the expected ids and names', options, JSON.stringify(options.map(o => [o.value, o.label])) === JSON.stringify(expectedViews[topic]));
+      // 1365: every detail. 1920: one representative (trend) plus the last detail per dataset.
+      const toRun = info.project.name === 'desktop-1920' && topic !== 'market' ? options.filter((o, i) => i === options.findIndex(x => x.value.startsWith('trend')) || i === options.length - 1) : options;
+      await check('c / details to run', toRun.map(o => o.value), toRun.length > 0 && (info.project.name !== 'desktop-1920' || topic === 'market' || toRun.length === 2));
       for (const display of ['popup', 'main']) {
         if (display === 'main') await activeSurface(page).getByRole('button', { name: '본문에서 보기', exact: true }).click();
-        for (const option of options) {
+        for (const option of toRun) {
           const before = await querySnapshot(page, topic);
-          await activeSurface(page).getByRole('combobox', { name: '상세 분석 선택', exact: true }).selectOption(option.value);
+          // In the main-body state the left menu is active too: use it there, the persistent combo in the popup.
+          if (display === 'main' && topic !== 'market') await openView(page, option.value);
+          else await activeSurface(page).getByRole('combobox', { name: '상세 분석 선택', exact: true }).selectOption(option.value);
           await settle(page);
           const surface = activeSurface(page);
           const combo = await geometry(page, 'dialog[open] .detailNavigationSelect, .analysisMainDetail:not([hidden]) .detailNavigationSelect');
@@ -260,7 +291,7 @@ for (const mode of ['analysis', 'presentation']) for (const [topic, label] of to
           const restored = await geometry(page, mapSelector);
           await check(`b / returned / ${display} / ${option.value}`, restored, restored.length === 1 && restored[0].fits);
           if (topic === 'market') await page.getByRole('combobox', { name: '상권 상세 분석 선택', exact: true }).selectOption(option.value);
-          else await menu(page).selectOption(option.value);
+          else await openView(page, option.value);
           await activeSurface(page).waitFor();
         }
       }
@@ -547,4 +578,138 @@ test('first screen with the two-row header (R05, 1365x768 and 1920)', async ({ p
     expect(m.map.bottom <= m.innerHeight + 1 && m.map.height >= 300 && !m.docOverflow, JSON.stringify(m)).toBe(true);
   }
   await writeFile(info.outputPath('first-screen.json'), JSON.stringify(rows, null, 2));
+});
+
+// ---- 2: left menu (N04 states, keyboard, collapsed access, fullscreen, scroll, I03/I05) ----
+const asideWidth = page => page.locator('.workspaceNav').evaluate(e => Math.round(e.getBoundingClientRect().width));
+const toggleNav = page => page.locator('.workspaceNavToggle').click();
+const navNames = page => page.locator('.workspaceNav nav button').evaluateAll(es => es.map(e => e.getAttribute('aria-label')));
+
+test('N04 left menu: 200/64 x analysis/presentation, first presentation entry collapsed, user choice kept', async ({ page }, info) => {
+  const log = [];
+  const note = async stage => { const w = await asideWidth(page); const center = await page.locator('.analysisView').evaluate(e => Math.round(e.getBoundingClientRect().width)); log.push({ stage, nav: w, center }); return w; };
+  await startRegion(page, 'population', 'analysis');
+  expect(await note('analysis first entry')).toBe(200);
+  await expect(page.locator('.workspaceNavToggle')).toHaveAttribute('aria-expanded', 'true');
+  await toggleNav(page);
+  expect(await note('analysis collapsed by user')).toBe(64);
+  await expect(page.locator('.workspaceNavToggle')).toHaveAttribute('aria-expanded', 'false');
+  // first presentation entry: collapsed by default, independent of the analysis choice
+  await page.getByRole('button', { name: '시연용', exact: true }).click();
+  expect(await note('presentation first entry')).toBe(64);
+  await toggleNav(page);
+  expect(await note('presentation opened by user')).toBe(200);
+  // back to analysis: its own choice (collapsed) is kept; presentation keeps its open state
+  await page.getByRole('button', { name: '분석용', exact: true }).click();
+  expect(await note('analysis again')).toBe(64);
+  await page.getByRole('button', { name: '시연용', exact: true }).click();
+  expect(await note('presentation again')).toBe(200);
+  // dataset switch, detail round trip, market round trip and start-screen round trip keep the state
+  await dataNav(page).getByRole('button', { name: '생활이동', exact: true }).click();
+  expect(await note('after dataset switch')).toBe(200);
+  await openView(page, 'trend-mobility'); await activeSurface(page).waitFor();
+  await activeSurface(page).locator('.analysisDetailClose, .analysisDetailSurfaceActions button:last-child').last().click();
+  await expect(activeSurface(page)).toHaveCount(0);
+  expect(await note('after detail round trip')).toBe(200);
+  await openMarketTopic(page);
+  await expect(page.locator('.workspaceNav').filter({ visible: true })).toHaveCount(0);
+  await page.getByRole('button', { name: '지역 분석', exact: true }).click();
+  expect(await note('after market round trip')).toBe(200);
+  await page.locator('.appTopbar .integratedBrand').click(); await heroHeading(page).waitFor();
+  await page.getByRole('button', { name: '이어보기', exact: true }).click();
+  expect(await note('after start-screen round trip')).toBe(200);
+  await writeFile(info.outputPath('n04-left-states.json'), JSON.stringify(log, null, 2));
+});
+
+test('left menu keyboard: stops, arrows move focus only, Enter opens, Esc never collapses, collapsed names and tips', async ({ page }) => {
+  await startRegion(page, 'population', 'analysis');
+  const active = () => page.evaluate(() => { const e = document.activeElement; return { kind: e?.getAttribute('data-nav-kind'), id: e?.getAttribute('data-nav-id'), toggle: e?.classList.contains('workspaceNavToggle') }; });
+  await page.locator('.workspaceNavToggle').focus();
+  await page.keyboard.press('Tab');
+  expect(await active()).toMatchObject({ kind: 'data', id: 'population' });
+  await page.keyboard.press('Tab');
+  expect(await active()).toMatchObject({ kind: 'view', id: 'map' });
+  // arrows move focus without opening anything
+  await page.keyboard.press('ArrowDown'); await page.keyboard.press('ArrowDown');
+  expect(await active()).toMatchObject({ kind: 'view', id: 'resident-context' });
+  await page.keyboard.press('End'); expect(await active()).toMatchObject({ id: 'scenario-population' });
+  await page.keyboard.press('Home'); expect(await active()).toMatchObject({ id: 'map' });
+  await expect(page.locator('dialog[open]')).toHaveCount(0);
+  // Esc does not collapse the menu
+  await page.keyboard.press('Escape');
+  await expect(page.locator('.workspaceNav')).toHaveAttribute('data-collapsed', 'false');
+  // Enter activates
+  await page.keyboard.press('ArrowDown');
+  await page.keyboard.press('Enter');
+  await activeSurface(page).waitFor();
+  await page.keyboard.press('Escape');
+  await expect(activeSurface(page)).toHaveCount(0);
+  await expect(page.locator('.workspaceNav')).toHaveAttribute('data-collapsed', 'false');
+  // collapsed: accessible names are unchanged, short names visible, a full-name tip appears on focus and stays in the viewport
+  const openNames = await navNames(page);
+  await toggleNav(page);
+  expect(await navNames(page)).toEqual(openNames);
+  const shorts = await page.locator('.workspaceNav nav button').evaluateAll(es => es.map(e => e.textContent.trim()));
+  expect(new Set(shorts).size, 'short names must be unique').toBe(shorts.length);
+  expect(shorts.every(t => [...t].length <= 2)).toBe(true);
+  await viewNav(page).getByRole('button', { name: '두 시간 분포 지도', exact: true }).focus();
+  const tip = page.locator('.workspaceNavTip');
+  await expect(tip).toHaveText('두 시간 분포 지도');
+  const box = await tip.boundingBox();
+  expect(box.x >= 0 && box.y >= 0 && box.x + box.width <= 1365 && box.y + box.height <= 768, JSON.stringify(box)).toBe(true);
+});
+
+test('fullscreen hides the menu (state kept) and the dataset select uses the I03 name', async ({ page }) => {
+  await startRegion(page, 'population', 'analysis');
+  await page.getByRole('button', { name: '지도 전체화면 보기' }).click();
+  await expect(page.getByRole('button', { name: '지도 전체화면 닫기' })).toBeVisible();
+  await expect(page.locator('.workspaceNav')).toBeHidden();
+  const select = page.locator('select[data-map-dataset]').filter({ visible: true });
+  const options = await select.locator('option').allTextContents();
+  expect(options).toEqual(['생활인구', '생활이동', '거주지 전입·전출', '행정동 추정매출']);
+  expect(options.join('|')).not.toContain('상권 추정매출');
+  await select.selectOption('commerce');
+  await settle(page);
+  await page.getByRole('button', { name: '지도 전체화면 닫기' }).click();
+  await expect(page.locator('.workspaceNav')).toBeVisible();
+  await expect(dataNav(page).getByRole('button', { name: '행정동 추정매출', exact: true })).toHaveAttribute('aria-pressed', 'true');
+  expect(await asideWidth(page)).toBe(200);
+});
+
+test('long menu scrolls inside its group area; toggle stays fixed (1365x591)', async ({ page }) => {
+  await page.setViewportSize({ width: 1365, height: 591 });
+  await startRegion(page, 'population', 'analysis');
+  const m = await page.evaluate(() => { const b = document.querySelector('.workspaceNavBody'), h = document.querySelector('.workspaceNavHead'); return { scroll: b.scrollHeight, client: b.clientHeight, headTop: h.getBoundingClientRect().top, overflowY: getComputedStyle(b).overflowY }; });
+  expect(m.scroll, JSON.stringify(m)).toBeGreaterThan(m.client);
+  expect(m.overflowY).toBe('auto');
+  await viewNav(page).getByRole('button', { name: '조회 조건 비교', exact: true }).focus();
+  const inside = await page.evaluate(() => { const b = document.querySelector('.workspaceNavBody').getBoundingClientRect(), e = document.activeElement.getBoundingClientRect(); return e.top >= b.top - 1 && e.bottom <= b.bottom + 1; });
+  expect(inside, 'the focused last item is scrolled into view').toBe(true);
+  expect(await page.locator('.workspaceNavHead').evaluate(e => Math.round(e.getBoundingClientRect().top))).toBe(Math.round(m.headTop));
+  expect(await page.evaluate(() => document.documentElement.scrollHeight <= document.documentElement.clientHeight)).toBe(true);
+});
+
+test('I03/I05 names: data menu, two-point detail names and dialog titles equal the menu names', async ({ page }) => {
+  await startRegion(page, 'population', 'analysis');
+  expect(await dataNav(page).getByRole('button').evaluateAll(es => es.map(e => e.getAttribute('aria-label')))).toEqual(['생활인구', '생활이동', '거주지 이동', '행정동 추정매출']);
+  for (const [topic, name] of [['population', '두 시간 비교'], ['mobility', '두 시간 비교'], ['migration', '두 연도 비교'], ['commerce', '두 분기 비교']]) {
+    await dataNav(page).getByRole('button', { name: tabNames[topic], exact: true }).click();
+    const id = `time-compare-${topic}`;
+    await openView(page, id);
+    await activeSurface(page).waitFor();
+    expect(viewName(id)).toBe(name);
+    await expect(page.locator('dialog[open]')).toHaveAttribute('aria-label', name);
+    await expect(page.locator('dialog[open] .detailNavigationSelect')).toHaveValue(id);
+    await page.keyboard.press('Escape');
+    await expect(activeSurface(page)).toHaveCount(0);
+  }
+  // titles of every detail equal the menu names (popup aria-label), one dataset at a time
+  for (const topic of ['population', 'mobility', 'migration', 'commerce']) {
+    await dataNav(page).getByRole('button', { name: tabNames[topic], exact: true }).click();
+    for (const [id, label] of expectedViews[topic]) {
+      await openView(page, id); await activeSurface(page).waitFor();
+      await expect(page.locator('dialog[open]')).toHaveAttribute('aria-label', label);
+      await page.keyboard.press('Escape'); await expect(activeSurface(page)).toHaveCount(0);
+    }
+  }
 });

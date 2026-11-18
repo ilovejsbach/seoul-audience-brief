@@ -131,3 +131,5 @@
 .sw .swQuery.swFloat .swField{flex:0 0 auto}
 .sw.sw-presentation .swQuery select[aria-label$="월"]{max-width:116px}
 .sw.sw-presentation .swQuery select{max-width:130px}
+
+.sw .swWorkspace>.workspaceNav{overflow:hidden}

@@ -205,12 +205,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 15013,
+                  "duration": 16882,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-18T07:33:58.849Z",
+                  "startTime": "2026-11-18T07:40:23.549Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -234,12 +234,12 @@
                   "workerIndex": 2,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 15626,
+                  "duration": 6821,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-18T07:35:47.961Z",
+                  "startTime": "2026-11-18T07:42:44.213Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -255,7 +255,7 @@
           ],
           "id": "ea39948459aead79d56e-5c64f97fe49f45f0a523",
           "file": "screen-rules.spec.mjs",
-          "line": 186,
+          "line": 207,
           "column": 3
         },
         {
@@ -274,12 +274,12 @@
                   "workerIndex": 1,
                   "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 10980,
+                  "duration": 12566,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-18T07:33:58.841Z",
+                  "startTime": "2026-11-18T07:40:23.549Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -303,12 +303,12 @@
                   "workerIndex": 3,
                   "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 11323,
+                  "duration": 7114,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-18T07:35:49.011Z",
+                  "startTime": "2026-11-18T07:42:46.724Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -324,7 +324,7 @@
           ],
           "id": "ea39948459aead79d56e-f78b4b0fc1e0f81a2c90",
           "file": "screen-rules.spec.mjs",
-          "line": 186,
+          "line": 207,
           "column": 3
         },
         {
@@ -343,12 +343,12 @@
                   "workerIndex": 1,
                   "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 11331,
+                  "duration": 11685,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-18T07:34:09.935Z",
+                  "startTime": "2026-11-18T07:40:36.222Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -369,15 +369,15 @@
               "projectName": "desktop-1920",
               "results": [
                 {
-                  "workerIndex": 3,
-                  "parallelIndex": 1,
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 12748,
+                  "duration": 7373,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-18T07:36:00.419Z",
+                  "startTime": "2026-11-18T07:42:51.212Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -393,7 +393,76 @@
           ],
           "id": "ea39948459aead79d56e-31d940da2478dda97a4d",
           "file": "screen-rules.spec.mjs",
-          "line": 186,
+          "line": 207,
+          "column": 3
+        },
+        {
+          "title": "analysis / commerce / R05 R07 R15 R20",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1365",
+              "projectName": "desktop-1365",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 10257,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T07:40:40.537Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "rule-measurements",
+                      "contentType": "application/json",
+                      "path": "/Users/koscom/workspace2/seoul-human-subway/docs/workers-2026-11-18/w34-subway-integrate/e2e/test-results/screen-rules-analysis-commerce-R05-R07-R15-R20-desktop-1365/attachments/rule-measurements-5dd3ef7162816ff50c30e01731dfd6198d8b32f1.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1920",
+              "projectName": "desktop-1920",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 7739,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T07:42:53.991Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "rule-measurements",
+                      "contentType": "application/json",
+                      "path": "/Users/koscom/workspace2/seoul-human-subway/docs/workers-2026-11-18/w34-subway-integrate/e2e/test-results/screen-rules-analysis-commerce-R05-R07-R15-R20-desktop-1920/attachments/rule-measurements-ce9fda90b417d5682b9c17497d4e3ca641528882.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ea39948459aead79d56e-7643ce91c11a1dc5bd43",
+          "file": "screen-rules.spec.mjs",
+          "line": 207,
           "column": 3
         },
         {
@@ -409,15 +478,15 @@
               "projectName": "desktop-1365",
               "results": [
                 {
-                  "workerIndex": 0,
-                  "parallelIndex": 0,
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 17230,
+                  "duration": 17946,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-18T07:34:13.967Z",
+                  "startTime": "2026-11-18T07:40:47.917Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -441,12 +510,12 @@
                   "workerIndex": 2,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 19549,
+                  "duration": 21824,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-18T07:36:03.677Z",
+                  "startTime": "2026-11-18T07:42:58.619Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -462,7 +531,7 @@
           ],
           "id": "ea39948459aead79d56e-0c863ed9456e123110c6",
           "file": "screen-rules.spec.mjs",
-          "line": 186,
+          "line": 207,
           "column": 3
         },
         {
@@ -478,15 +547,15 @@
               "projectName": "desktop-1365",
               "results": [
                 {
-                  "workerIndex": 1,
-                  "parallelIndex": 1,
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 15024,
+                  "duration": 16697,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-18T07:34:21.272Z",
+                  "startTime": "2026-11-18T07:40:50.802Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -510,12 +579,12 @@
                   "workerIndex": 3,
                   "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 16972,
+                  "duration": 8184,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-18T07:36:13.178Z",
+                  "startTime": "2026-11-18T07:43:01.745Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -531,7 +600,7 @@
           ],
           "id": "ea39948459aead79d56e-f512cf09629c9f1bbd61",
           "file": "screen-rules.spec.mjs",
-          "line": 186,
+          "line": 207,
           "column": 3
         },
         {
@@ -547,15 +616,15 @@
               "projectName": "desktop-1365",
               "results": [
                 {
-                  "workerIndex": 0,
-                  "parallelIndex": 0,
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 10852,
+                  "duration": 11736,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-18T07:34:31.202Z",
+                  "startTime": "2026-11-18T07:41:05.869Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -576,15 +645,15 @@
               "projectName": "desktop-1920",
               "results": [
                 {
-                  "workerIndex": 2,
-                  "parallelIndex": 0,
+                  "workerIndex": 3,
+                  "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 13580,
+                  "duration": 8337,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-18T07:36:23.247Z",
+                  "startTime": "2026-11-18T07:43:09.942Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -600,7 +669,7 @@
           ],
           "id": "ea39948459aead79d56e-e07a69b199375ee46c2e",
           "file": "screen-rules.spec.mjs",
-          "line": 186,
+          "line": 207,
           "column": 3
         },
         {
@@ -616,15 +685,15 @@
               "projectName": "desktop-1365",
               "results": [
                 {
-                  "workerIndex": 1,
-                  "parallelIndex": 1,
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 11150,
+                  "duration": 11866,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-18T07:34:36.302Z",
+                  "startTime": "2026-11-18T07:41:07.505Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -648,12 +717,12 @@
                   "workerIndex": 3,
                   "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 13596,
+                  "duration": 8250,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-18T07:36:30.163Z",
+                  "startTime": "2026-11-18T07:43:18.292Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -669,11 +738,11 @@
           ],
           "id": "ea39948459aead79d56e-39a1ab42eb949f91b1b6",
           "file": "screen-rules.spec.mjs",
-          "line": 186,
+          "line": 207,
           "column": 3
         },
         {
-          "title": "presentation / market / R05 R07 R15 R20",
+          "title": "presentation / commerce / R05 R07 R15 R20",
           "ok": true,
           "tags": [],
           "tests": [
@@ -685,21 +754,21 @@
               "projectName": "desktop-1365",
               "results": [
                 {
-                  "workerIndex": 0,
-                  "parallelIndex": 0,
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 17399,
+                  "duration": 10050,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-18T07:34:42.059Z",
+                  "startTime": "2026-11-18T07:41:17.610Z",
                   "annotations": [],
                   "attachments": [
                     {
                       "name": "rule-measurements",
                       "contentType": "application/json",
-                      "path": "/Users/koscom/workspace2/seoul-human-subway/docs/workers-2026-11-18/w34-subway-integrate/e2e/test-results/screen-rules-presentation-market-R05-R07-R15-R20-desktop-1365/attachments/rule-measurements-31ced9a9adedd7b2e9adf27e282ec79560e0af44.json"
+                      "path": "/Users/koscom/workspace2/seoul-human-subway/docs/workers-2026-11-18/w34-subway-integrate/e2e/test-results/screen-rules-presentation-commerce-R05-R07-R15-R20-desktop-1365/attachments/rule-measurements-1c13016f4ce4eec744bb21a66638dae9179438f6.json"
                     }
                   ]
                 }
@@ -717,18 +786,18 @@
                   "workerIndex": 2,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 21628,
+                  "duration": 7561,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-18T07:36:36.837Z",
+                  "startTime": "2026-11-18T07:43:20.469Z",
                   "annotations": [],
                   "attachments": [
                     {
                       "name": "rule-measurements",
                       "contentType": "application/json",
-                      "path": "/Users/koscom/workspace2/seoul-human-subway/docs/workers-2026-11-18/w34-subway-integrate/e2e/test-results/screen-rules-presentation-market-R05-R07-R15-R20-desktop-1920/attachments/rule-measurements-489c8e96b5bc351170bb610dfcf1ae68819da3a8.json"
+                      "path": "/Users/koscom/workspace2/seoul-human-subway/docs/workers-2026-11-18/w34-subway-integrate/e2e/test-results/screen-rules-presentation-commerce-R05-R07-R15-R20-desktop-1920/attachments/rule-measurements-4ffe6f8d293ba098afa38a3a770315eb5e48104c.json"
                     }
                   ]
                 }
@@ -736,9 +805,9 @@
               "status": "expected"
             }
           ],
-          "id": "ea39948459aead79d56e-a89a898312aba2afe82d",
+          "id": "ea39948459aead79d56e-814c4ffe220826ecfb08",
           "file": "screen-rules.spec.mjs",
-          "line": 186,
+          "line": 207,
           "column": 3
         },
         {
@@ -754,15 +823,15 @@
               "projectName": "desktop-1365",
               "results": [
                 {
-                  "workerIndex": 1,
-                  "parallelIndex": 1,
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 2742,
+                  "duration": 2754,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-18T07:34:47.456Z",
+                  "startTime": "2026-11-18T07:41:19.375Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -786,12 +855,12 @@
                   "workerIndex": 3,
                   "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 3435,
+                  "duration": 4130,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-18T07:36:43.765Z",
+                  "startTime": "2026-11-18T07:43:26.562Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -807,7 +876,7 @@
           ],
           "id": "ea39948459aead79d56e-b708dcadbdeae5ec1fb6",
           "file": "screen-rules.spec.mjs",
-          "line": 284,
+          "line": 315,
           "column": 3
         },
         {
@@ -823,15 +892,15 @@
               "projectName": "desktop-1365",
               "results": [
                 {
-                  "workerIndex": 1,
-                  "parallelIndex": 1,
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 3018,
+                  "duration": 2915,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-18T07:34:50.203Z",
+                  "startTime": "2026-11-18T07:41:22.134Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -852,15 +921,15 @@
               "projectName": "desktop-1920",
               "results": [
                 {
-                  "workerIndex": 3,
-                  "parallelIndex": 1,
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 3767,
+                  "duration": 4376,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-18T07:36:47.208Z",
+                  "startTime": "2026-11-18T07:43:28.041Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -876,7 +945,7 @@
           ],
           "id": "ea39948459aead79d56e-8be07747e69046cae83b",
           "file": "screen-rules.spec.mjs",
-          "line": 284,
+          "line": 315,
           "column": 3
         },
         {
@@ -892,15 +961,15 @@
               "projectName": "desktop-1365",
               "results": [
                 {
-                  "workerIndex": 1,
-                  "parallelIndex": 1,
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 2990,
+                  "duration": 3072,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-18T07:34:53.226Z",
+                  "startTime": "2026-11-18T07:41:25.054Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -924,12 +993,12 @@
                   "workerIndex": 3,
                   "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 4219,
+                  "duration": 4829,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-18T07:36:50.983Z",
+                  "startTime": "2026-11-18T07:43:30.708Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -945,7 +1014,7 @@
           ],
           "id": "ea39948459aead79d56e-ada55594f52a7d42a5d1",
           "file": "screen-rules.spec.mjs",
-          "line": 284,
+          "line": 315,
           "column": 3
         },
         {
@@ -964,12 +1033,12 @@
                   "workerIndex": 1,
                   "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 2968,
+                  "duration": 2986,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-18T07:34:56.221Z",
+                  "startTime": "2026-11-18T07:41:27.666Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -990,15 +1059,15 @@
               "projectName": "desktop-1920",
               "results": [
                 {
-                  "workerIndex": 3,
-                  "parallelIndex": 1,
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 3862,
+                  "duration": 4752,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-18T07:36:55.215Z",
+                  "startTime": "2026-11-18T07:43:32.435Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -1014,7 +1083,7 @@
           ],
           "id": "ea39948459aead79d56e-cce2250ca1699875df2d",
           "file": "screen-rules.spec.mjs",
-          "line": 284,
+          "line": 315,
           "column": 3
         },
         {
@@ -1030,15 +1099,15 @@
               "projectName": "desktop-1365",
               "results": [
                 {
-                  "workerIndex": 1,
-                  "parallelIndex": 1,
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 3082,
+                  "duration": 3000,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-18T07:34:59.194Z",
+                  "startTime": "2026-11-18T07:41:28.131Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -1059,15 +1128,15 @@
               "projectName": "desktop-1920",
               "results": [
                 {
-                  "workerIndex": 2,
-                  "parallelIndex": 0,
+                  "workerIndex": 3,
+                  "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 3672,
+                  "duration": 4959,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-18T07:36:58.475Z",
+                  "startTime": "2026-11-18T07:43:35.550Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -1083,7 +1152,7 @@
           ],
           "id": "ea39948459aead79d56e-a49e0326a1d944f5a3fd",
           "file": "screen-rules.spec.mjs",
-          "line": 284,
+          "line": 315,
           "column": 3
         },
         {
@@ -1099,15 +1168,15 @@
               "projectName": "desktop-1365",
               "results": [
                 {
-                  "workerIndex": 0,
-                  "parallelIndex": 0,
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 3315,
+                  "duration": 3171,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-18T07:34:59.464Z",
+                  "startTime": "2026-11-18T07:41:30.659Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -1128,15 +1197,15 @@
               "projectName": "desktop-1920",
               "results": [
                 {
-                  "workerIndex": 3,
-                  "parallelIndex": 1,
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 3691,
+                  "duration": 6028,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-18T07:36:59.089Z",
+                  "startTime": "2026-11-18T07:43:37.204Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -1152,7 +1221,7 @@
           ],
           "id": "ea39948459aead79d56e-d4bf86664f3075817932",
           "file": "screen-rules.spec.mjs",
-          "line": 284,
+          "line": 315,
           "column": 3
         },
         {
@@ -1168,15 +1237,15 @@
               "projectName": "desktop-1365",
               "results": [
                 {
-                  "workerIndex": 1,
-                  "parallelIndex": 1,
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 3299,
+                  "duration": 3134,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-18T07:35:02.280Z",
+                  "startTime": "2026-11-18T07:41:31.135Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -1197,15 +1266,15 @@
               "projectName": "desktop-1920",
               "results": [
                 {
-                  "workerIndex": 2,
-                  "parallelIndex": 0,
+                  "workerIndex": 3,
+                  "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 3852,
+                  "duration": 4860,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-18T07:37:02.158Z",
+                  "startTime": "2026-11-18T07:43:40.530Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -1221,7 +1290,7 @@
           ],
           "id": "ea39948459aead79d56e-29e503ffca6a3c3c3672",
           "file": "screen-rules.spec.mjs",
-          "line": 284,
+          "line": 315,
           "column": 3
         },
         {
@@ -1237,15 +1306,15 @@
               "projectName": "desktop-1365",
               "results": [
                 {
-                  "workerIndex": 0,
-                  "parallelIndex": 0,
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 3323,
+                  "duration": 3203,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-18T07:35:02.786Z",
+                  "startTime": "2026-11-18T07:41:33.834Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -1266,15 +1335,15 @@
               "projectName": "desktop-1920",
               "results": [
                 {
-                  "workerIndex": 3,
-                  "parallelIndex": 1,
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 4107,
+                  "duration": 3979,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-18T07:37:02.786Z",
+                  "startTime": "2026-11-18T07:43:43.251Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -1290,7 +1359,7 @@
           ],
           "id": "ea39948459aead79d56e-4330845e67d0ecdb95af",
           "file": "screen-rules.spec.mjs",
-          "line": 284,
+          "line": 315,
           "column": 3
         },
         {
@@ -1306,15 +1375,15 @@
               "projectName": "desktop-1365",
               "results": [
                 {
-                  "workerIndex": 1,
-                  "parallelIndex": 1,
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 3206,
+                  "duration": 3040,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-18T07:35:05.584Z",
+                  "startTime": "2026-11-18T07:41:34.274Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -1335,15 +1404,15 @@
               "projectName": "desktop-1920",
               "results": [
                 {
-                  "workerIndex": 2,
-                  "parallelIndex": 0,
+                  "workerIndex": 3,
+                  "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 3591,
+                  "duration": 3881,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-18T07:37:06.017Z",
+                  "startTime": "2026-11-18T07:43:45.405Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -1359,7 +1428,7 @@
           ],
           "id": "ea39948459aead79d56e-6d5878c297a525a049aa",
           "file": "screen-rules.spec.mjs",
-          "line": 284,
+          "line": 315,
           "column": 3
         },
         {
@@ -1375,15 +1444,15 @@
               "projectName": "desktop-1365",
               "results": [
                 {
-                  "workerIndex": 0,
-                  "parallelIndex": 0,
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 3460,
+                  "duration": 3276,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-18T07:35:06.116Z",
+                  "startTime": "2026-11-18T07:41:37.041Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -1404,15 +1473,15 @@
               "projectName": "desktop-1920",
               "results": [
                 {
-                  "workerIndex": 3,
-                  "parallelIndex": 1,
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 3787,
+                  "duration": 4132,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-18T07:37:06.914Z",
+                  "startTime": "2026-11-18T07:43:47.244Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -1428,7 +1497,7 @@
           ],
           "id": "ea39948459aead79d56e-f16b327b97d6536dca2d",
           "file": "screen-rules.spec.mjs",
-          "line": 284,
+          "line": 315,
           "column": 3
         },
         {
@@ -1444,15 +1513,15 @@
               "projectName": "desktop-1365",
               "results": [
                 {
-                  "workerIndex": 1,
-                  "parallelIndex": 1,
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 3271,
+                  "duration": 3300,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-18T07:35:08.795Z",
+                  "startTime": "2026-11-18T07:41:37.319Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -1473,15 +1542,15 @@
               "projectName": "desktop-1920",
               "results": [
                 {
-                  "workerIndex": 2,
-                  "parallelIndex": 0,
+                  "workerIndex": 3,
+                  "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 4056,
+                  "duration": 4120,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-18T07:37:09.616Z",
+                  "startTime": "2026-11-18T07:43:49.300Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -1497,7 +1566,7 @@
           ],
           "id": "ea39948459aead79d56e-18975112408786a95591",
           "file": "screen-rules.spec.mjs",
-          "line": 284,
+          "line": 315,
           "column": 3
         },
         {
@@ -1513,15 +1582,15 @@
               "projectName": "desktop-1365",
               "results": [
                 {
-                  "workerIndex": 0,
-                  "parallelIndex": 0,
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 3221,
+                  "duration": 3280,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-18T07:35:09.581Z",
+                  "startTime": "2026-11-18T07:41:40.322Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -1542,15 +1611,15 @@
               "projectName": "desktop-1920",
               "results": [
                 {
-                  "workerIndex": 3,
-                  "parallelIndex": 1,
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 3786,
+                  "duration": 4009,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-18T07:37:10.710Z",
+                  "startTime": "2026-11-18T07:43:51.406Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -1566,7 +1635,7 @@
           ],
           "id": "ea39948459aead79d56e-a678fc6936334c2d84bb",
           "file": "screen-rules.spec.mjs",
-          "line": 284,
+          "line": 315,
           "column": 3
         },
         {
@@ -1582,15 +1651,15 @@
               "projectName": "desktop-1365",
               "results": [
                 {
-                  "workerIndex": 1,
-                  "parallelIndex": 1,
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 3155,
+                  "duration": 3166,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-18T07:35:12.070Z",
+                  "startTime": "2026-11-18T07:41:40.625Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -1611,15 +1680,15 @@
               "projectName": "desktop-1920",
               "results": [
                 {
-                  "workerIndex": 2,
-                  "parallelIndex": 0,
+                  "workerIndex": 3,
+                  "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 3781,
+                  "duration": 3708,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-18T07:37:13.677Z",
+                  "startTime": "2026-11-18T07:43:53.432Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -1635,7 +1704,7 @@
           ],
           "id": "ea39948459aead79d56e-1d8e5a48e36e86cb9f1d",
           "file": "screen-rules.spec.mjs",
-          "line": 284,
+          "line": 315,
           "column": 3
         },
         {
@@ -1651,15 +1720,15 @@
               "projectName": "desktop-1365",
               "results": [
                 {
-                  "workerIndex": 0,
-                  "parallelIndex": 0,
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 3369,
+                  "duration": 3478,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-18T07:35:12.806Z",
+                  "startTime": "2026-11-18T07:41:43.607Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -1680,15 +1749,15 @@
               "projectName": "desktop-1920",
               "results": [
                 {
-                  "workerIndex": 3,
-                  "parallelIndex": 1,
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 4048,
+                  "duration": 3780,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-18T07:37:14.506Z",
+                  "startTime": "2026-11-18T07:43:55.432Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -1704,7 +1773,7 @@
           ],
           "id": "ea39948459aead79d56e-007cb6696c7a6b490ae7",
           "file": "screen-rules.spec.mjs",
-          "line": 284,
+          "line": 315,
           "column": 3
         },
         {
@@ -1720,15 +1789,15 @@
               "projectName": "desktop-1365",
               "results": [
                 {
-                  "workerIndex": 1,
-                  "parallelIndex": 1,
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 3353,
+                  "duration": 3494,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-18T07:35:15.230Z",
+                  "startTime": "2026-11-18T07:41:43.801Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -1749,15 +1818,15 @@
               "projectName": "desktop-1920",
               "results": [
                 {
-                  "workerIndex": 2,
-                  "parallelIndex": 0,
+                  "workerIndex": 3,
+                  "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 4028,
+                  "duration": 4147,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-18T07:37:17.468Z",
+                  "startTime": "2026-11-18T07:43:57.151Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -1773,7 +1842,7 @@
           ],
           "id": "ea39948459aead79d56e-cd99184ecb0665d08e4b",
           "file": "screen-rules.spec.mjs",
-          "line": 284,
+          "line": 315,
           "column": 3
         },
         {
@@ -1789,15 +1858,15 @@
               "projectName": "desktop-1365",
               "results": [
                 {
-                  "workerIndex": 0,
-                  "parallelIndex": 0,
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 3301,
+                  "duration": 3402,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-18T07:35:16.180Z",
+                  "startTime": "2026-11-18T07:41:47.092Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -1818,15 +1887,15 @@
               "projectName": "desktop-1920",
               "results": [
                 {
-                  "workerIndex": 3,
-                  "parallelIndex": 1,
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 4250,
+                  "duration": 4111,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-18T07:37:18.564Z",
+                  "startTime": "2026-11-18T07:43:59.220Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -1842,7 +1911,7 @@
           ],
           "id": "ea39948459aead79d56e-80cff78b2b1c61b88668",
           "file": "screen-rules.spec.mjs",
-          "line": 284,
+          "line": 315,
           "column": 3
         },
         {
@@ -1858,15 +1927,15 @@
               "projectName": "desktop-1365",
               "results": [
                 {
-                  "workerIndex": 1,
-                  "parallelIndex": 1,
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 13106,
+                  "duration": 13784,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-18T07:35:18.588Z",
+                  "startTime": "2026-11-18T07:41:47.300Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -1881,15 +1950,15 @@
               "projectName": "desktop-1920",
               "results": [
                 {
-                  "workerIndex": 2,
-                  "parallelIndex": 0,
+                  "workerIndex": 3,
+                  "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 15904,
+                  "duration": 14393,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-18T07:37:21.503Z",
+                  "startTime": "2026-11-18T07:44:01.305Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -1899,7 +1968,7 @@
           ],
           "id": "ea39948459aead79d56e-c418ed8954c957f74ed2",
           "file": "screen-rules.spec.mjs",
-          "line": 359,
+          "line": 390,
           "column": 1
         },
         {
@@ -1915,300 +1984,15 @@
               "projectName": "desktop-1365",
               "results": [
                 {
-                  "workerIndex": 0,
-                  "parallelIndex": 0,
-                  "status": "passed",
-                  "duration": 5629,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-11-18T07:35:19.485Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            },
-            {
-              "timeout": 180000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "desktop-1920",
-              "projectName": "desktop-1920",
-              "results": [
-                {
-                  "workerIndex": 3,
-                  "parallelIndex": 1,
-                  "status": "passed",
-                  "duration": 6632,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-11-18T07:37:22.823Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "ea39948459aead79d56e-fc9fa796ea1e0fdb2648",
-          "file": "screen-rules.spec.mjs",
-          "line": 399,
-          "column": 1
-        },
-        {
-          "title": "start screen figures equal the source files and I08 old range text is gone",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 180000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "desktop-1365",
-              "projectName": "desktop-1365",
-              "results": [
-                {
-                  "workerIndex": 0,
-                  "parallelIndex": 0,
-                  "status": "passed",
-                  "duration": 1288,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-11-18T07:35:25.121Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            },
-            {
-              "timeout": 180000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "desktop-1920",
-              "projectName": "desktop-1920",
-              "results": [
-                {
-                  "workerIndex": 3,
-                  "parallelIndex": 1,
-                  "status": "passed",
-                  "duration": 2268,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-11-18T07:37:29.559Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "ea39948459aead79d56e-d817fc67e869c47f230a",
-          "file": "screen-rules.spec.mjs",
-          "line": 449,
-          "column": 1
-        },
-        {
-          "title": "sticky top bar and type sizes on the start screen",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 180000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "desktop-1365",
-              "projectName": "desktop-1365",
-              "results": [
-                {
-                  "workerIndex": 0,
-                  "parallelIndex": 0,
-                  "status": "passed",
-                  "duration": 1443,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-11-18T07:35:26.415Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            },
-            {
-              "timeout": 180000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "desktop-1920",
-              "projectName": "desktop-1920",
-              "results": [
-                {
-                  "workerIndex": 3,
-                  "parallelIndex": 1,
-                  "status": "passed",
-                  "duration": 1933,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-11-18T07:37:31.848Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "ea39948459aead79d56e-84747fc7c33701b2a1fa",
-          "file": "screen-rules.spec.mjs",
-          "line": 470,
-          "column": 1
-        },
-        {
-          "title": "I09 more menu tooltip equals the real items in every state",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 180000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "desktop-1365",
-              "projectName": "desktop-1365",
-              "results": [
-                {
-                  "workerIndex": 0,
-                  "parallelIndex": 0,
-                  "status": "passed",
-                  "duration": 3979,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-11-18T07:35:27.863Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            },
-            {
-              "timeout": 180000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "desktop-1920",
-              "projectName": "desktop-1920",
-              "results": [
-                {
-                  "workerIndex": 3,
-                  "parallelIndex": 1,
-                  "status": "passed",
-                  "duration": 3455,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-11-18T07:37:33.799Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "ea39948459aead79d56e-3c521b7cf5caee3d27fe",
-          "file": "screen-rules.spec.mjs",
-          "line": 482,
-          "column": 1
-        },
-        {
-          "title": "advanced layout stays inside the more menu and survives a start-screen round trip",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 180000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "desktop-1365",
-              "projectName": "desktop-1365",
-              "results": [
-                {
                   "workerIndex": 1,
                   "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 2455,
+                  "duration": 5583,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-18T07:35:31.699Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            },
-            {
-              "timeout": 180000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "desktop-1920",
-              "projectName": "desktop-1920",
-              "results": [
-                {
-                  "workerIndex": 3,
-                  "parallelIndex": 1,
-                  "status": "passed",
-                  "duration": 3267,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-11-18T07:37:37.268Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "ea39948459aead79d56e-2394f1207480e094171a",
-          "file": "screen-rules.spec.mjs",
-          "line": 515,
-          "column": 1
-        },
-        {
-          "title": "first screen with the two-row header (R05, 1365x768 and 1920)",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 180000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "desktop-1365",
-              "projectName": "desktop-1365",
-              "results": [
-                {
-                  "workerIndex": 0,
-                  "parallelIndex": 0,
-                  "status": "passed",
-                  "duration": 6601,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-11-18T07:35:31.847Z",
+                  "startTime": "2026-11-18T07:41:50.499Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -2226,12 +2010,297 @@
                   "workerIndex": 2,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 8185,
+                  "duration": 6836,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-18T07:37:37.420Z",
+                  "startTime": "2026-11-18T07:44:03.338Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ea39948459aead79d56e-fc9fa796ea1e0fdb2648",
+          "file": "screen-rules.spec.mjs",
+          "line": 430,
+          "column": 1
+        },
+        {
+          "title": "start screen figures equal the source files and I08 old range text is gone",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1365",
+              "projectName": "desktop-1365",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 1706,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T07:41:56.089Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1920",
+              "projectName": "desktop-1920",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1612,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T07:44:10.183Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ea39948459aead79d56e-d817fc67e869c47f230a",
+          "file": "screen-rules.spec.mjs",
+          "line": 480,
+          "column": 1
+        },
+        {
+          "title": "sticky top bar and type sizes on the start screen",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1365",
+              "projectName": "desktop-1365",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 2044,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T07:41:57.809Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1920",
+              "projectName": "desktop-1920",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1699,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T07:44:11.809Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ea39948459aead79d56e-84747fc7c33701b2a1fa",
+          "file": "screen-rules.spec.mjs",
+          "line": 501,
+          "column": 1
+        },
+        {
+          "title": "I09 more menu tooltip equals the real items in every state",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1365",
+              "projectName": "desktop-1365",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 4046,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T07:41:59.870Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1920",
+              "projectName": "desktop-1920",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3614,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T07:44:13.519Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ea39948459aead79d56e-3c521b7cf5caee3d27fe",
+          "file": "screen-rules.spec.mjs",
+          "line": 513,
+          "column": 1
+        },
+        {
+          "title": "advanced layout stays inside the more menu and survives a start-screen round trip",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1365",
+              "projectName": "desktop-1365",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3210,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T07:42:01.098Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1920",
+              "projectName": "desktop-1920",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 2812,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T07:44:15.706Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ea39948459aead79d56e-2394f1207480e094171a",
+          "file": "screen-rules.spec.mjs",
+          "line": 546,
+          "column": 1
+        },
+        {
+          "title": "first screen with the two-row header (R05, 1365x768 and 1920)",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1365",
+              "projectName": "desktop-1365",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 8996,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T07:42:03.935Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1920",
+              "projectName": "desktop-1920",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 7316,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T07:44:17.147Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -2241,7 +2310,292 @@
           ],
           "id": "ea39948459aead79d56e-977fde42b9fddf6bf0e0",
           "file": "screen-rules.spec.mjs",
-          "line": 533,
+          "line": 564,
+          "column": 1
+        },
+        {
+          "title": "N04 left menu: 200/64 x analysis/presentation, first presentation entry collapsed, user choice kept",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1365",
+              "projectName": "desktop-1365",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 8116,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T07:42:04.327Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1920",
+              "projectName": "desktop-1920",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 7419,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T07:44:18.528Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ea39948459aead79d56e-01624c1cdabc05bac693",
+          "file": "screen-rules.spec.mjs",
+          "line": 588,
+          "column": 1
+        },
+        {
+          "title": "left menu keyboard: stops, arrows move focus only, Enter opens, Esc never collapses, collapsed names and tips",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1365",
+              "projectName": "desktop-1365",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3801,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T07:42:12.467Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1920",
+              "projectName": "desktop-1920",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2973,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T07:44:24.474Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ea39948459aead79d56e-22bf1f171c79a7437854",
+          "file": "screen-rules.spec.mjs",
+          "line": 624,
+          "column": 1
+        },
+        {
+          "title": "fullscreen hides the menu (state kept) and the dataset select uses the I03 name",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1365",
+              "projectName": "desktop-1365",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 3488,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T07:42:12.943Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1920",
+              "projectName": "desktop-1920",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 2518,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T07:44:25.971Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ea39948459aead79d56e-6ccf391c79b5ad86866d",
+          "file": "screen-rules.spec.mjs",
+          "line": 662,
+          "column": 1
+        },
+        {
+          "title": "long menu scrolls inside its group area; toggle stays fixed (1365x591)",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1365",
+              "projectName": "desktop-1365",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2539,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T07:42:16.309Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1920",
+              "projectName": "desktop-1920",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1853,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T07:44:27.459Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ea39948459aead79d56e-e14eb31d3431cbdd1c19",
+          "file": "screen-rules.spec.mjs",
+          "line": 679,
+          "column": 1
+        },
+        {
+          "title": "I03/I05 names: data menu, two-point detail names and dialog titles equal the menu names",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1365",
+              "projectName": "desktop-1365",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 17194,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T07:42:16.449Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1920",
+              "projectName": "desktop-1920",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 14763,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T07:44:28.501Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ea39948459aead79d56e-63070fb4031c6e6eb01f",
+          "file": "screen-rules.spec.mjs",
+          "line": 692,
           "column": 1
         }
       ]
@@ -2265,15 +2619,15 @@
               "projectName": "desktop-1365",
               "results": [
                 {
-                  "workerIndex": 1,
-                  "parallelIndex": 1,
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 6914,
+                  "duration": 10137,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-18T07:35:34.172Z",
+                  "startTime": "2026-11-18T07:42:18.890Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -2288,15 +2642,15 @@
               "projectName": "desktop-1920",
               "results": [
                 {
-                  "workerIndex": 3,
-                  "parallelIndex": 1,
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 9520,
+                  "duration": 7325,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-18T07:37:40.566Z",
+                  "startTime": "2026-11-18T07:44:29.333Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -2325,12 +2679,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 6806,
+                  "duration": 11199,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-18T07:35:38.462Z",
+                  "startTime": "2026-11-18T07:42:29.046Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -2348,12 +2702,12 @@
                   "workerIndex": 2,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 10363,
+                  "duration": 9597,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-18T07:37:45.636Z",
+                  "startTime": "2026-11-18T07:44:36.663Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -2382,12 +2736,12 @@
                   "workerIndex": 1,
                   "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 7526,
+                  "duration": 8955,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-18T07:35:41.090Z",
+                  "startTime": "2026-11-18T07:42:33.685Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -2405,12 +2759,12 @@
                   "workerIndex": 3,
                   "parallelIndex": 1,
                   "status": "passed",
-                  "duration": 10215,
+                  "duration": 9666,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-18T07:37:50.102Z",
+                  "startTime": "2026-11-18T07:44:43.293Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -2439,12 +2793,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 2275,
+                  "duration": 2904,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-18T07:35:45.271Z",
+                  "startTime": "2026-11-18T07:42:40.262Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -2462,12 +2816,12 @@
                   "workerIndex": 2,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 2843,
+                  "duration": 3340,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-18T07:37:56.008Z",
+                  "startTime": "2026-11-18T07:44:46.267Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -2479,15 +2833,72 @@
           "file": "subway.spec.mjs",
           "line": 280,
           "column": 1
+        },
+        {
+          "title": "교통 좌측 메뉴는 지역 메뉴와 같은 폭·키보드 규칙",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1365",
+              "projectName": "desktop-1365",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 3165,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T07:42:42.660Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1920",
+              "projectName": "desktop-1920",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3584,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T07:44:49.629Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4db0a206acbf6bc269e6-37b78e5bda751090be93",
+          "file": "subway.spec.mjs",
+          "line": 307,
+          "column": 1
         }
       ]
     }
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-11-18T07:33:58.159Z",
-    "duration": 242392.057,
-    "expected": 70,
+    "startTime": "2026-11-18T07:40:22.669Z",
+    "duration": 274077.22599999997,
+    "expected": 84,
     "skipped": 0,
     "unexpected": 0,
     "flaky": 0

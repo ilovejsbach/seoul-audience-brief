@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-18T07:37:55.949Z",
+ "generatedAt": "2026-11-18T07:44:46.166Z",
  "project": "desktop-1920",
  "mode": "presentation",
  "results": [
@@ -51,7 +51,7 @@
     18,
     24
    ],
-   "contrastMin": 4.79,
+   "contrastMin": 5.43,
    "contrastTexts": 76
   },
   {
@@ -62,7 +62,7 @@
     18,
     24
    ],
-   "contrastMin": 4.79,
+   "contrastMin": 4.94,
    "contrastTexts": 147
   },
   {
@@ -73,7 +73,7 @@
     18,
     24
    ],
-   "contrastMin": 4.79,
+   "contrastMin": 5.43,
    "contrastTexts": 128
   },
   {
@@ -84,7 +84,7 @@
     18,
     24
    ],
-   "contrastMin": 4.79,
+   "contrastMin": 5.43,
    "contrastTexts": 89
   },
   {
@@ -126,7 +126,7 @@
     18,
     24
    ],
-   "contrastMin": 4.79,
+   "contrastMin": 6.07,
    "contrastTexts": 55
   },
   {
@@ -136,7 +136,7 @@
     18,
     24
    ],
-   "contrastMin": 4.79,
+   "contrastMin": 6.07,
    "contrastTexts": 101
   }
  ]

@@ -2,6 +2,7 @@ import React,{useCallback,useEffect,useMemo,useRef,useState} from 'react';
 import './subway.css';
 import {subwayData,type Boundary,type Crowding,type Hourly,type Monthly,type PassengerTypes,type Station,type Stations,type SubwayManifest,type DailyFile} from './subway-data';
 import {PASSENGER_GROUPS,SEASONS,WEEKDAYS,fmt,monthLabel,monthsInPeriod,seasonSummary,stationMetric,sumNullable,toCsv,weekdayMeans,weekdayIndex,type DayType,type Kind} from './subway-model';
+import WorkspaceNav from '../../WorkspaceNav';
 import SubwayMap,{LINE_COLORS,type MapPoint} from './SubwayMap';
 import {BarChart,LineChart,compact} from './SubwayCharts';
 
@@ -86,25 +87,11 @@ export default function SubwayWorkspace({mode,active}:{mode:'analysis'|'presenta
   const common={stations,byId,sel,from,to,idx,kind,day,line,setCsv,monthly:monthlyL.data,mode};
   return <div ref={rootRef} className={`sw sw-${mode}`} data-testid="subway-workspace" style={{height:`calc(100vh - ${headerH}px)`}}>
     <div className="swWorkspace" style={{['--left' as string]:leftOpen?'200px':'64px',['--right' as string]:rightOpen?'300px':'0px'}}>
-      <aside className={`swLeft${leftOpen?'':' swCollapsed'}`} aria-label="자료와 보기">
-        <div className="swSideHead">{leftOpen&&<b>자료와 보기</b>}<button type="button" className="swBtn swIconBtn" aria-label={leftOpen?'왼쪽 메뉴 접기':'왼쪽 메뉴 펼치기'} aria-expanded={leftOpen} onClick={()=>setLeftOpen(v=>!v)}>{leftOpen?'‹':'›'}</button></div>
-        <nav>
-          {leftOpen&&<div className="swGroupTitle">자료</div>}
-          <ul className="swMenu" data-testid="subway-sources">
-            <li><button type="button" className="swMenuBtn" aria-current="page" title="지하철" onClick={()=>undefined}>{leftOpen?'지하철':'지하'}</button></li>
-            <li><button type="button" className="swMenuBtn" disabled title="버스(예정) · 자료 확보 후" aria-label="버스 예정 · 자료 확보 후">{leftOpen?'버스(예정)':'버스'}</button></li>
-          </ul>
-          {leftOpen&&<div className="swGroupTitle">지표</div>}
-          <ul className="swMenu" data-testid="subway-datasets">
-            <li><button type="button" className="swMenuBtn" aria-current={dataset==='usage'?'page':undefined} title="역 이용(승하차)" onClick={()=>chooseDataset('usage')}>{leftOpen?'역 이용(승하차)':'이용'}</button></li>
-            <li><button type="button" className="swMenuBtn" aria-current={dataset==='crowding'?'page':undefined} title="혼잡도" onClick={()=>chooseDataset('crowding')}>{leftOpen?'혼잡도':'혼잡'}</button></li>
-          </ul>
-          {leftOpen&&<div className="swGroupTitle">보기</div>}
-          <ul className="swMenu" data-testid="subway-views">
-            {views.map(v=><li key={v.id}><button type="button" className="swMenuBtn" aria-current={view===v.id?'page':undefined} title={v.label} onClick={()=>setView(v.id)}>{leftOpen?v.label:v.label.slice(0,2)}</button></li>)}
-          </ul>
-        </nav>
-      </aside>
+      <WorkspaceNav collapsed={!leftOpen} onToggle={()=>setLeftOpen(v=>!v)} ariaLabel="교통 자료와 보기" heading="자료와 보기" groups={[
+        {title:'자료',kind:'data',aria:'자료 선택',items:[{id:'subway',label:'지하철',short:'지하',current:true,onSelect:()=>undefined},{id:'bus',label:'버스(예정)',short:'버스',current:false,disabled:true,onSelect:()=>undefined}]},
+        {title:'지표',kind:'data',aria:'지표 선택',items:[{id:'usage',label:'역 이용(승하차)',short:'이용',current:dataset==='usage',onSelect:()=>chooseDataset('usage')},{id:'crowding',label:'혼잡도',short:'혼잡',current:dataset==='crowding',onSelect:()=>chooseDataset('crowding')}]},
+        {title:'보기',kind:'view',aria:'보기 선택',items:views.map(v=>({id:v.id,label:v.label,short:v.label.slice(0,2),current:view===v.id,onSelect:()=>setView(v.id)}))}
+      ]}/>
       <div className="swCenter" role="main">
         <section className={`swQuery${floating?' swFloat':''}`} aria-label="조회 조건" style={floating?{left:fpos.x,top:fpos.y}:undefined}>
           {floating&&<div className="swFloatHead" onPointerDown={e=>{(e.target as HTMLElement).setPointerCapture?.(e.pointerId);fdrag.current={px:e.clientX,py:e.clientY,x:fpos.x,y:fpos.y}}} onPointerMove={e=>{const d=fdrag.current;if(d)setFpos(clampPos(d.x+e.clientX-d.px,d.y+e.clientY-d.py))}} onPointerUp={()=>{fdrag.current=null}}><b>조회 조건</b><span className="swMeta">끌어서 이동</span>

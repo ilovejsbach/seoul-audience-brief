@@ -94,7 +94,7 @@ async function contrast(page) {
 async function equalGroups(page) {
   return page.evaluate(() => {
     const info = sel => [...document.querySelectorAll(sel)].filter(e => e.getBoundingClientRect().width).map(e => { const r = e.getBoundingClientRect(); return { w: r.width, h: r.height, cy: r.top + r.height / 2, x: r.left, t: e.textContent.trim().slice(0, 12) }; });
-    return { topics: info('.topicNav button'), modes: info('.modeToggle button'), views: info('[data-testid=subway-views] .swMenuBtn'), datasets: info('[data-testid=subway-datasets] .swMenuBtn'), sources: info('[data-testid=subway-sources] .swMenuBtn') };
+    return { topics: info('.topicNav button'), modes: info('.modeToggle button'), views: info('[aria-label="교통 자료와 보기"] nav[aria-label="보기 선택"] button'), datasets: info('[aria-label="교통 자료와 보기"] nav[aria-label="지표 선택"] button'), sources: info('[aria-label="교통 자료와 보기"] nav[aria-label="자료 선택"] button') };
   });
 }
 const spread = (xs, k) => Math.max(...xs.map(x => x[k])) - Math.min(...xs.map(x => x[k]));
@@ -112,11 +112,11 @@ for (const mode of ['analysis', 'presentation']) {
       await expect(page.locator('.sw')).toHaveClass(/sw-presentation/);
       // 시연용에서 처음 들어갈 때만 왼쪽 메뉴를 접는다(결정 a). 접힌 메뉴도 이름·펼치기 경로가 있어야 한다.
       await expect(page.getByRole('button', { name: '왼쪽 메뉴 펼치기' })).toBeVisible();
-      expect(await page.locator('.swLeft').evaluate(e => e.getBoundingClientRect().width)).toBe(64);
+      expect(await page.locator('.workspaceNav[aria-label="교통 자료와 보기"]').evaluate(e => e.getBoundingClientRect().width)).toBe(64);
       await page.getByRole('button', { name: '왼쪽 메뉴 펼치기' }).click();
     }
     await settle(page);
-    const viewBtn = name => page.locator('[data-testid=subway-views]').getByRole('button', { name, exact: true });
+    const viewBtn = name => page.locator('[aria-label="교통 자료와 보기"] nav[aria-label="보기 선택"]').getByRole('button', { name, exact: true });
     const fontLimit = mode === 'presentation' ? 4 : 6;
     const checkScreen = async label => {
       await settle(page);
@@ -140,7 +140,7 @@ for (const mode of ['analysis', 'presentation']) {
 
     // --- 지도 ---
     await expect(topicBtn(page, '교통')).toHaveAttribute('aria-pressed', 'true');
-    await expect(page.getByRole('button', { name: '버스 예정 · 자료 확보 후' })).toBeDisabled();
+    await expect(page.getByRole('button', { name: '버스(예정)' })).toBeDisabled();
     expect(await page.getByRole('button', { name: '교통', exact: true }).count()).toBeGreaterThan(0);
     const dots = await page.locator('.swDot').count();
     expect(dots).toBeGreaterThan(200);
@@ -214,7 +214,7 @@ for (const mode of ['analysis', 'presentation']) {
     await page.keyboard.press('Escape'); await expect(page.locator('.swSourcePop')).toHaveCount(0);
 
     // --- 혼잡도(별도 자료) ---
-    await page.locator('[data-testid=subway-datasets]').getByRole('button', { name: /^혼잡도$|^혼잡$/ }).click();
+    await page.locator('[aria-label="교통 자료와 보기"] nav[aria-label="지표 선택"]').getByRole('button', { name: '혼잡도', exact: true }).click();
     await expect(page.locator('.swBody svg').first()).toBeVisible({ timeout: 20000 });
     await expect(page.locator('.swMeta').first()).toContainText('정원 대비');
     await checkScreen('혼잡도 곡선');
@@ -301,4 +301,28 @@ test('조회 바는 한 줄, 플로팅으로 띄워도 같은 입력과 상태',
   await expect(page.locator('.swQuery.swFloat')).toHaveCount(0);
   await expect(page.getByLabel('승차 하차')).toHaveValue('b');
   await expect(page.locator('.swSelName')).toHaveText('강남');
+});
+
+// 좌측 메뉴: 지역과 같은 WorkspaceNav(폭 200/64, 화살표 키 규칙)
+test('교통 좌측 메뉴는 지역 메뉴와 같은 폭·키보드 규칙', async ({ page }) => {
+  await page.goto('/');
+  await topicBtn(page, '지역 분석').click();
+  const regionW = await page.locator('.workspaceNav[aria-label="지역 분석 자료와 보기"]').evaluate(e => e.getBoundingClientRect().width);
+  await topicBtn(page, '교통').click();
+  await expect(page.locator('.swDot').first()).toBeVisible({ timeout: 20000 });
+  const nav = page.locator('.workspaceNav[aria-label="교통 자료와 보기"]');
+  expect(await nav.evaluate(e => e.getBoundingClientRect().width)).toBe(regionW);
+  expect(regionW).toBe(200);
+  const first = nav.locator('nav[aria-label="보기 선택"] button').first();
+  await page.locator('[aria-label="교통 자료와 보기"] nav[aria-label="보기 선택"] button[aria-current="page"]').focus();
+  await page.keyboard.press('ArrowDown');
+  await expect(page.locator('[aria-label="교통 자료와 보기"] nav[aria-label="보기 선택"] button').nth(1)).toBeFocused();
+  await page.keyboard.press('End'); await expect(page.locator('[aria-label="교통 자료와 보기"] nav[aria-label="보기 선택"] button').last()).toBeFocused();
+  await page.keyboard.press('Home'); await expect(first).toBeFocused();
+  // 비활성 버스는 화살표 순서에서 빠진다
+  await page.locator('[aria-label="교통 자료와 보기"] nav[aria-label="자료 선택"] button[aria-pressed="true"]').focus();
+  await page.keyboard.press('ArrowDown'); await expect(page.locator('[aria-label="교통 자료와 보기"] nav[aria-label="자료 선택"] button[aria-pressed="true"]')).toBeFocused();
+  await page.getByRole('button', { name: '왼쪽 메뉴 접기' }).click();
+  expect(await nav.evaluate(e => e.getBoundingClientRect().width)).toBe(64);
+  await expect(page.getByRole('button', { name: '지도', exact: true })).toBeVisible();   // 접힌 메뉴도 이름 유지
 });
