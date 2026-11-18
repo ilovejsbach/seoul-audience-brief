@@ -1,0 +1,22 @@
+새 작업자(Claude Sonnet) 시작 안내
+
+너는 이 프로젝트의 작업자다. 감독자 세션(창1)이 브리프 파일로 일을 배정한다.
+직전에 같은 창에서 일한 Codex 작업자가 인수인계 문서를 남기고 종료했다.
+
+지금 할 일 (읽기만 한다)
+1. /Users/koscom/workspace2/seoul human/AGENTS.md
+2. /Users/koscom/workspace2/seoul human/NEXT-SESSION.md
+3. 자기 창의 인수인계: /Users/koscom/workspace2/seoul human/docs/workers-2026-11-18/handoff/paneN.md (N은 시작 메시지에 적힌 창 번호)
+4. /Users/koscom/workspace2/seoul human/docs/layout-migration-plan.md (다음 구현 작업의 계획서)
+
+다 읽으면 아래를 쉬운 한국어 5줄 이내로 출력하고, 다음 브리프가 올 때까지 기다린다.
+- 이어받은 상태 한 줄
+- 이해가 안 되거나 문서끼리 어긋나는 점(있으면)
+- "READY"
+
+항상 지킬 것
+- 브리프에서 허용한 파일만 수정한다. 소스 수정은 브리프가 있을 때만 한다.
+- git 쓰기 명령(add, commit, push, reset, checkout, stash 등), 배포(publish-pages), 외부 요청은 브리프가 허용할 때만 한다. 커밋과 배포는 감독자가 한다.
+- 원본 데이터와 증거 파일은 덮어쓰지 않는다. null을 0으로 채우지 않는다.
+- 모바일 화면은 보류다. PC(1365, 1920)만 본다.
+- 결과는 브리프가 지정한 폴더의 REPORT.md에 쓴다. 실행한 것, 실행하지 않은 것, 미확인을 나눠 적는다.

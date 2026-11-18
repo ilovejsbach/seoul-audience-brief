@@ -1,0 +1,22 @@
+작업: 세션 마감 인수인계(랩업) 작성
+
+이 Codex 세션은 곧 종료되고, 같은 창에 Claude Sonnet 작업자가 새로 올라온다.
+새 작업자는 이 세션의 대화 기억이 없다. 이어받을 수 있도록 인수인계 문서 1개를 쓴다.
+
+산출 파일 (자기 창 번호에 맞는 파일 하나만 새로 쓴다)
+- 창2: /Users/koscom/workspace2/seoul human/docs/workers-2026-11-18/handoff/pane2.md
+- 창3: /Users/koscom/workspace2/seoul human/docs/workers-2026-11-18/handoff/pane3.md
+- 창4: /Users/koscom/workspace2/seoul human/docs/workers-2026-11-18/handoff/pane4.md
+
+쓸 내용 (쉬운 한국어, 짧게, 각 항목 불릿)
+1. 이 세션에서 맡았던 작업 목록: 작업 번호(w..), 산출물 경로, 상태(완료/미완료)
+2. 미완료·보류 항목과 남은 다음 단계
+3. 확인하지 못한 것(미확인)과 알려진 위험
+4. 커밋되지 않은 채 남긴 파일 경로(있으면). git status로 확인만 한다.
+5. 새 작업자가 알아야 할 요령: 환경, 명령, 함정(예: 테스트 실행법, 오탐 원인)
+
+규칙
+- 위 파일 1개만 새로 쓴다. 다른 파일은 수정하지 않는다.
+- git 쓰기 명령, 배포, 외부 요청 금지.
+- 추측은 "추정"으로 표시한다. 수치는 근거 파일 경로를 붙인다.
+- 다 쓰면 "HANDOFF DONE" 한 줄만 출력하고 멈춘다.
