@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-18T07:05:37.678Z",
+ "generatedAt": "2026-11-18T07:37:55.949Z",
  "project": "desktop-1920",
  "mode": "presentation",
  "results": [
@@ -18,7 +18,7 @@
     24
    ],
    "contrastMin": 4.79,
-   "contrastTexts": 80
+   "contrastTexts": 78
   },
   {
    "project": "desktop-1920",
@@ -28,7 +28,7 @@
     24
    ],
    "contrastMin": 4.79,
-   "contrastTexts": 89
+   "contrastTexts": 87
   },
   {
    "project": "desktop-1920",
@@ -52,7 +52,7 @@
     24
    ],
    "contrastMin": 4.79,
-   "contrastTexts": 78
+   "contrastTexts": 76
   },
   {
    "project": "desktop-1920",
@@ -63,7 +63,7 @@
     24
    ],
    "contrastMin": 4.79,
-   "contrastTexts": 149
+   "contrastTexts": 147
   },
   {
    "project": "desktop-1920",
@@ -74,7 +74,7 @@
     24
    ],
    "contrastMin": 4.79,
-   "contrastTexts": 130
+   "contrastTexts": 128
   },
   {
    "project": "desktop-1920",
@@ -85,7 +85,7 @@
     24
    ],
    "contrastMin": 4.79,
-   "contrastTexts": 91
+   "contrastTexts": 89
   },
   {
    "project": "desktop-1920",
@@ -95,7 +95,7 @@
     24
    ],
    "contrastMin": 4.79,
-   "contrastTexts": 62
+   "contrastTexts": 60
   },
   {
    "project": "desktop-1920",
@@ -105,7 +105,7 @@
     24
    ],
    "contrastMin": 4.79,
-   "contrastTexts": 62
+   "contrastTexts": 60
   },
   {
    "project": "desktop-1920",
@@ -116,7 +116,7 @@
     24
    ],
    "contrastMin": 4.79,
-   "contrastTexts": 124
+   "contrastTexts": 122
   },
   {
    "project": "desktop-1920",
@@ -127,7 +127,7 @@
     24
    ],
    "contrastMin": 4.79,
-   "contrastTexts": 56
+   "contrastTexts": 55
   },
   {
    "project": "desktop-1920",
@@ -137,7 +137,7 @@
     24
    ],
    "contrastMin": 4.79,
-   "contrastTexts": 102
+   "contrastTexts": 101
   }
  ]
 }

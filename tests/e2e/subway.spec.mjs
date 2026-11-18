@@ -275,3 +275,30 @@ test('교통 경유 왕복: 조건·선택 역·후보 유지, 상권은 모드�
   await page.locator('.appTopbar .integratedBrand').click();
   await expect(page.locator('.heroActions button')).toHaveText(['지역 분석 시작', '상권 분석 시작']);
 });
+
+// 한 줄 조회 바와 플로팅: 같은 입력 호스트를 옮기며 조건·선택·후보가 유지된다
+test('조회 바는 한 줄, 플로팅으로 띄워도 같은 입력과 상태', async ({ page }) => {
+  await enterTransport(page);
+  await expect(page.locator('.swDot').first()).toBeVisible({ timeout: 20000 });
+  const lines = await page.locator('.swQuery').evaluate(q => { const tops = new Set([...q.querySelectorAll('select,input')].map(e => Math.round(e.getBoundingClientRect().top))); return tops.size; });
+  expect(lines, '조회 입력이 한 줄에 놓여야 함').toBe(1);
+  await page.getByLabel('역 검색').first().fill('강남 · 2호선');
+  const kpi = await page.locator('.swKpiValue').innerText();
+  const mapH = () => page.locator('.swMapBox').evaluate(e => e.getBoundingClientRect().height);
+  const before = await mapH();
+  await page.getByRole('button', { name: '조회 띄우기' }).click();
+  await expect(page.locator('.swQuery.swFloat')).toBeVisible();
+  await expect(page.getByLabel('역 검색')).toHaveCount(1);                       // 복제 없음
+  expect(await mapH(), '띄우면 지도가 더 커져야 함').toBeGreaterThan(before);
+  const box = await page.locator('.swQuery.swFloat').boundingBox();
+  await page.mouse.move(box.x + 60, box.y + 20); await page.mouse.down(); await page.mouse.move(box.x - 140, box.y + 90); await page.mouse.up();
+  const moved = await page.locator('.swQuery.swFloat').boundingBox();
+  expect(Math.abs(moved.x - (box.x - 200))).toBeLessThan(3);
+  const vp = page.viewportSize(); expect(moved.x >= 0 && moved.y >= 0 && moved.x + moved.width <= vp.width && moved.y + moved.height <= vp.height).toBe(true);
+  await page.getByLabel('승차 하차').selectOption('b');                           // 띄운 상태에서도 편집 가능
+  await expect(page.locator('.swKpiValue')).not.toHaveText(kpi);
+  await page.getByRole('button', { name: '상단으로' }).click();
+  await expect(page.locator('.swQuery.swFloat')).toHaveCount(0);
+  await expect(page.getByLabel('승차 하차')).toHaveValue('b');
+  await expect(page.locator('.swSelName')).toHaveText('강남');
+});

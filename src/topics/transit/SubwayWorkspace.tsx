@@ -41,6 +41,11 @@ export default function SubwayWorkspace({mode,active}:{mode:'analysis'|'presenta
   const [csv,setCsv]=useState<{name:string;rows:(string|number|null)[][]}|null>(null);
   const [popover,setPopover]=useState<''|'source'>('');
   const firstPresentation=useRef(true);
+  const [floating,setFloating]=useState(false);
+  const [fpos,setFpos]=useState({x:0,y:0});
+  const fdrag=useRef<{px:number;py:number;x:number;y:number}|null>(null);
+  const clampPos=(x:number,y:number)=>({x:Math.max(0,Math.min(window.innerWidth-380,x)),y:Math.max(headerH,Math.min(window.innerHeight-120,y))});
+  const floatQuery=()=>{setFloating(true);setFpos(clampPos((leftOpen?200:64)+40,headerH+220))};
 
   const manifest=useLoad<SubwayManifest>(()=>subwayData.manifest(),[]);
   const stationsL=useLoad<Stations>(manifest.data?()=>subwayData.stations():null,[manifest.data]);
@@ -101,22 +106,24 @@ export default function SubwayWorkspace({mode,active}:{mode:'analysis'|'presenta
         </nav>
       </aside>
       <div className="swCenter" role="main">
-        <section className="swQuery" aria-label="조회 조건">
+        <section className={`swQuery${floating?' swFloat':''}`} aria-label="조회 조건" style={floating?{left:fpos.x,top:fpos.y}:undefined}>
+          {floating&&<div className="swFloatHead" onPointerDown={e=>{(e.target as HTMLElement).setPointerCapture?.(e.pointerId);fdrag.current={px:e.clientX,py:e.clientY,x:fpos.x,y:fpos.y}}} onPointerMove={e=>{const d=fdrag.current;if(d)setFpos(clampPos(d.x+e.clientX-d.px,d.y+e.clientY-d.py))}} onPointerUp={()=>{fdrag.current=null}}><b>조회 조건</b><span className="swMeta">끌어서 이동</span>
+            <button type="button" className="swBtn" onPointerDown={e=>e.stopPropagation()} onClick={()=>setFloating(false)}>상단으로</button></div>}
           {dataset==='usage'?<>
             <label className="swField"><span>기간</span><span className="swPair">
               <select aria-label="시작 월" value={from} onChange={e=>setFrom(e.target.value)}>{monthOptions.map(o=><option key={o.value} value={o.value}>{o.label}</option>)}</select>
               <i>~</i>
               <select aria-label="끝 월" value={to} onChange={e=>setTo(e.target.value)}>{monthOptions.map(o=><option key={o.value} value={o.value}>{o.label}</option>)}</select></span></label>
-            <label className="swField"><span>호선</span><select aria-label="호선" value={String(line)} onChange={e=>setLine(e.target.value==='all'?'all':Number(e.target.value))}><option value="all">전체</option>{[1,2,3,4,5,6,7,8].map(n=><option key={n} value={n}>{n}호선</option>)}</select></label>
+            <label className="swField"><select aria-label="호선" value={String(line)} onChange={e=>setLine(e.target.value==='all'?'all':Number(e.target.value))}><option value="all">호선 전체</option>{[1,2,3,4,5,6,7,8].map(n=><option key={n} value={n}>{n}호선</option>)}</select></label>
             <label className="swField"><span>역</span>
               <StationPicker options={stationOptions} label={stationLabel} value={sel?stationLabel(sel):''} onPick={id=>{setStation(id);const s=byId.get(id);if(s&&line!=='all'&&s.line!==line)setLine(s.line)}} onClear={()=>setStation('')}/></label>
-            <label className="swField"><span>요일</span><select aria-label="요일 구분" value={day} onChange={e=>setDay(e.target.value as DayType)}><option value="all">전체</option><option value="wd">평일</option><option value="we">주말</option></select></label>
-            <label className="swField"><span>구분</span><select aria-label="승차 하차" value={kind} onChange={e=>setKind(e.target.value as Kind)}><option value="ab">승차+하차</option><option value="b">승차</option><option value="a">하차</option></select></label>
+            <label className="swField"><select aria-label="요일 구분" value={day} onChange={e=>setDay(e.target.value as DayType)}><option value="all">요일 전체</option><option value="wd">평일</option><option value="we">주말</option></select></label>
+            <label className="swField"><select aria-label="승차 하차" value={kind} onChange={e=>setKind(e.target.value as Kind)}><option value="ab">승차+하차</option><option value="b">승차</option><option value="a">하차</option></select></label>
           </>:<>
             <label className="swField"><span>기준</span><select aria-label="혼잡도 분기" value={quarter} onChange={e=>setQuarter(e.target.value)}><option value="2026-09-30">2026-09-30 분기</option><option value="2026-06-30">2026-06-30 분기</option></select></label>
-            <label className="swField"><span>호선</span><select aria-label="호선" value={String(line)} onChange={e=>setLine(e.target.value==='all'?'all':Number(e.target.value))}><option value="all">전체</option>{[1,2,3,4,5,6,7,8].map(n=><option key={n} value={n}>{n}호선</option>)}</select></label>
+            <label className="swField"><select aria-label="호선" value={String(line)} onChange={e=>setLine(e.target.value==='all'?'all':Number(e.target.value))}><option value="all">호선 전체</option>{[1,2,3,4,5,6,7,8].map(n=><option key={n} value={n}>{n}호선</option>)}</select></label>
             <label className="swField"><span>역</span><StationPicker options={stationOptions} label={stationLabel} value={sel?stationLabel(sel):''} onPick={id=>{setStation(id);const s=byId.get(id);if(s&&line!=='all'&&s.line!==line)setLine(s.line)}} onClear={()=>setStation('')}/></label>
-            <label className="swField"><span>요일</span><select aria-label="혼잡도 요일" value={cDay} onChange={e=>setCDay(e.target.value as 'wd'|'sat'|'sun')}><option value="wd">평일</option><option value="sat">토요일</option><option value="sun">일요일</option></select></label>
+            <label className="swField"><select aria-label="혼잡도 요일" value={cDay} onChange={e=>setCDay(e.target.value as 'wd'|'sat'|'sun')}><option value="wd">평일</option><option value="sat">토요일</option><option value="sun">일요일</option></select></label>
           </>}
         </section>
         <section className="swResult" aria-label="결과">
@@ -124,6 +131,7 @@ export default function SubwayWorkspace({mode,active}:{mode:'analysis'|'presenta
             <div><h1 className="swTitle">{centerTitle}</h1>
               <p className="swSub">{dataset==='usage'?`${monthLabel(from)}~${monthLabel(to)} · ${KIND_LABEL[kind]} · ${DAY_LABEL[day]} · ${view==='types'?'기간 합계(카드 태그 건수, 요일 구분 없음)':view==='calendar'?'하루 값(카드 태그 건수)':'하루 평균(카드 태그 건수)'}`:`정원 대비 평균 혼잡도(%) · ${quarter} 분기 · 승하차 인원과 다른 지표`}</p></div>
             <div className="swResultTools">
+              {!floating&&<button type="button" className="swBtn" onClick={floatQuery} title="조회 조건을 지도 위에 띄워 지도 공간을 넓힙니다">조회 띄우기</button>}
               <button type="button" className="swBtn" disabled={!csv} onClick={downloadCsv}>CSV 내려받기</button>
               <button type="button" className="swBtn" aria-expanded={rightOpen} onClick={()=>setRightOpen(v=>!v)}>{rightOpen?'보조정보 접기 ›':'‹ 보조정보 펼치기'}</button>
             </div>
