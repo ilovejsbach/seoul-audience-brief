@@ -1,0 +1,162 @@
+{
+ "generatedAt": "2026-11-18T08:29:25.536Z",
+ "project": "desktop-1365",
+ "mode": "analysis",
+ "results": [
+  {
+   "project": "desktop-1365",
+   "name": "analysis/equal-size",
+   "topics": 4,
+   "modes": 2,
+   "views": 7
+  },
+  {
+   "project": "desktop-1365",
+   "name": "analysis/지도",
+   "fontSizes": [
+    14,
+    16,
+    28
+   ],
+   "contrastMin": 4.79,
+   "contrastTexts": 78
+  },
+  {
+   "project": "desktop-1365",
+   "name": "analysis/범례 열림",
+   "fontSizes": [
+    14,
+    16,
+    28
+   ],
+   "contrastMin": 4.79,
+   "contrastTexts": 87
+  },
+  {
+   "project": "desktop-1365",
+   "name": "analysis/semantic-강남",
+   "rawDays": 131,
+   "rawBoardingPerDay": 89305,
+   "shown": 89305
+  },
+  {
+   "project": "desktop-1365",
+   "name": "analysis/semantic-transfer-서울역",
+   "shownSum": 180948,
+   "rawSum": 180948
+  },
+  {
+   "project": "desktop-1365",
+   "name": "analysis/시간대 곡선",
+   "fontSizes": [
+    12,
+    14,
+    16,
+    20,
+    28
+   ],
+   "contrastMin": 5.43,
+   "contrastTexts": 77
+  },
+  {
+   "project": "desktop-1365",
+   "name": "analysis/일별 달력·요일",
+   "fontSizes": [
+    12,
+    14,
+    16,
+    20,
+    28
+   ],
+   "contrastMin": 4.94,
+   "contrastTexts": 148
+  },
+  {
+   "project": "desktop-1365",
+   "name": "analysis/월별·계절 비교",
+   "fontSizes": [
+    12,
+    14,
+    16,
+    20,
+    28
+   ],
+   "contrastMin": 5.43,
+   "contrastTexts": 129
+  },
+  {
+   "project": "desktop-1365",
+   "name": "analysis/승객 유형",
+   "fontSizes": [
+    12,
+    14,
+    16,
+    20,
+    28
+   ],
+   "contrastMin": 5.43,
+   "contrastTexts": 90
+  },
+  {
+   "project": "desktop-1365",
+   "name": "analysis/성별",
+   "fontSizes": [
+    14,
+    16,
+    20,
+    28
+   ],
+   "contrastMin": 4.79,
+   "contrastTexts": 61
+  },
+  {
+   "project": "desktop-1365",
+   "name": "analysis/OD 준비 중",
+   "fontSizes": [
+    14,
+    16,
+    20,
+    28
+   ],
+   "contrastMin": 4.79,
+   "contrastTexts": 61
+  },
+  {
+   "project": "desktop-1365",
+   "name": "analysis/출처 팝오버",
+   "fontSizes": [
+    12,
+    14,
+    16,
+    28
+   ],
+   "contrastMin": 4.79,
+   "contrastTexts": 123
+  },
+  {
+   "project": "desktop-1365",
+   "name": "analysis/혼잡도 곡선",
+   "fontSizes": [
+    12,
+    14,
+    16,
+    20,
+    28
+   ],
+   "contrastMin": 6.07,
+   "contrastTexts": 55
+  },
+  {
+   "project": "desktop-1365",
+   "name": "analysis/혼잡 상위 역",
+   "fontSizes": [
+    14,
+    16,
+    20,
+    28
+   ],
+   "contrastMin": 6.07,
+   "contrastTexts": 101
+  }
+ ]
+}

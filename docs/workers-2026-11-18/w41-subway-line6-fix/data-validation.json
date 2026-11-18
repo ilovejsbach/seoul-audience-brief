@@ -1,0 +1,204 @@
+{
+  "results": [
+    {
+      "check": "arrival OD sum and explicit time/date semantics",
+      "status": "passed",
+      "detail": {
+        "records": 15846,
+        "sum": "26402774.57",
+        "basis": "arrival time code; original source date, not verified calendar arrival date"
+      }
+    },
+    {
+      "check": "official boundary coverage and explicit mismatches",
+      "status": "passed",
+      "detail": {
+        "districts": 25,
+        "dongBoundaries": 426,
+        "populationMatches": 425,
+        "explicitUnmapped": [
+          "11230515",
+          "11230533"
+        ],
+        "referenceDate": "2025-06-30"
+      }
+    },
+    {
+      "check": "population schema, grid, duplicates, values, mapping",
+      "status": "passed",
+      "detail": {
+        "maskedOrMissingCells": 47869,
+        "nullsByColumnIndex": {
+          "4": 27156,
+          "18": 18743,
+          "19": 568,
+          "5": 1357,
+          "20": 25,
+          "6": 20
+        },
+        "days": 316,
+        "rows": 3238368,
+        "fields": 32,
+        "dongCodes": 427,
+        "mappingCoverage": "100%",
+        "note": "No assertion that age/sex rounded cells sum exactly to rounded total."
+      }
+    },
+    {
+      "check": "commerce equality to 2025 ZIP and 2026 CSV",
+      "status": "passed",
+      "detail": {
+        "rawRows": 100431,
+        "preserved2025RawRows": 67113,
+        "added2026RawRows": 33318,
+        "publishedRows": 2550,
+        "preserved2025Records": 1700,
+        "rawEquality": "Numeric fields and order exact; 2025 names unchanged; 2026 damaged display names independently resolved by same-code 2025 ZIP with original sourceName preserved",
+        "displayNameCorrectedRecords": 14,
+        "displayNameCorrectedCodes": 7,
+        "periodCoverage": {
+          "20251": {
+            "sourceRows": 16770,
+            "records": 425,
+            "sourceDongCount": 425,
+            "industryCount": 63,
+            "matchedBoundaryDongCount": 423,
+            "unmatchedBoundaryDongCodes": [
+              "11680740",
+              "11740520"
+            ],
+            "boundaryWithoutObservationCodes": [
+              "11680675",
+              "11740525",
+              "11740526"
+            ]
+          },
+          "20252": {
+            "sourceRows": 16794,
+            "records": 425,
+            "sourceDongCount": 425,
+            "industryCount": 63,
+            "matchedBoundaryDongCount": 423,
+            "unmatchedBoundaryDongCodes": [
+              "11680740",
+              "11740520"
+            ],
+            "boundaryWithoutObservationCodes": [
+              "11680675",
+              "11740525",
+              "11740526"
+            ]
+          },
+          "20253": {
+            "sourceRows": 16831,
+            "records": 425,
+            "sourceDongCount": 425,
+            "industryCount": 63,
+            "matchedBoundaryDongCount": 423,
+            "unmatchedBoundaryDongCodes": [
+              "11680740",
+              "11740520"
+            ],
+            "boundaryWithoutObservationCodes": [
+              "11680675",
+              "11740525",
+              "11740526"
+            ]
+          },
+          "20254": {
+            "sourceRows": 16718,
+            "records": 425,
+            "sourceDongCount": 425,
+            "industryCount": 63,
+            "matchedBoundaryDongCount": 423,
+            "unmatchedBoundaryDongCodes": [
+              "11680740",
+              "11740520"
+            ],
+            "boundaryWithoutObservationCodes": [
+              "11680675",
+              "11740525",
+              "11740526"
+            ]
+          },
+          "20261": {
+            "sourceRows": 16659,
+            "records": 425,
+            "sourceDongCount": 425,
+            "industryCount": 63,
+            "matchedBoundaryDongCount": 423,
+            "unmatchedBoundaryDongCodes": [
+              "11680740",
+              "11740520"
+            ],
+            "boundaryWithoutObservationCodes": [
+              "11680675",
+              "11740525",
+              "11740526"
+            ]
+          },
+          "20262": {
+            "sourceRows": 16659,
+            "records": 425,
+            "sourceDongCount": 425,
+            "industryCount": 63,
+            "matchedBoundaryDongCount": 423,
+            "unmatchedBoundaryDongCodes": [
+              "11680740",
+              "11740520"
+            ],
+            "boundaryWithoutObservationCodes": [
+              "11680675",
+              "11740525",
+              "11740526"
+            ]
+          }
+        },
+        "salesSumByPeriod": {
+          "20251": 25036425038435,
+          "20252": 25433647412663,
+          "20253": 26105709261054,
+          "20254": 27216323031204,
+          "20261": 25721602043376,
+          "20262": 26166677565829
+        },
+        "geometryCompatibility": "Code joins only; actual 2026 geometry not verified"
+      }
+    },
+    {
+      "check": "residential migration net=inflow-outflow",
+      "status": "passed",
+      "detail": {
+        "records": 5301,
+        "guRecords": 625,
+        "dongRecords": 4676,
+        "dong2025": 427,
+        "nullFlowRecords": 2,
+        "nullKeys": [
+          [
+            "2022",
+            "dong",
+            "1174069000"
+          ],
+          [
+            "2023",
+            "dong",
+            "1174069000"
+          ]
+        ],
+        "netEquality": "all non-missing passed; missing preserved",
+        "aggregation": "gu/dong validated separately; no cross-level summation"
+      }
+    },
+    {
+      "check": "living mobility schema and sums",
+      "status": "passed",
+      "detail": {
+        "records": 15837,
+        "countSum": "26402774.57",
+        "sumEquality": "exact against recorded raw aggregate"
+      }
+    }
+  ],
+  "passed": true
+}
