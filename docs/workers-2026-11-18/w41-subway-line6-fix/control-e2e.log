@@ -1,0 +1,102 @@
+
+Running 3 tests using 2 workers
+
+  ✘  1 [desktop-1365] › tests/e2e/subway.spec.mjs:342:3 › 6호선 상수: 시간대 곡선이 이름 기준 원본과 같고 일별 값과 같은 역 (3.4s)
+  ✘  2 [desktop-1365] › tests/e2e/subway.spec.mjs:342:3 › 6호선 합정: 시간대 곡선이 이름 기준 원본과 같고 일별 값과 같은 역 (3.4s)
+  ✘  3 [desktop-1365] › tests/e2e/subway.spec.mjs:342:3 › 6호선 광흥창: 시간대 곡선이 이름 기준 원본과 같고 일별 값과 같은 역 (2.9s)
+
+
+  1) [desktop-1365] › tests/e2e/subway.spec.mjs:342:3 › 6호선 합정: 시간대 곡선이 이름 기준 원본과 같고 일별 값과 같은 역 ────
+
+    Error: expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 20
+    Received:    3483.260869565218
+
+      357 |     const raw = rawHourlyWeekday(2025, '6호선', rawName, '2025-01');
+      358 |     expect(raw.days).toBe(23);
+    > 359 |     expect(Math.abs(hb - raw.b / raw.days)).toBeLessThanOrEqual(20);              // 20개 구간 반올림 오차
+          |                                             ^
+      360 |     expect(Math.abs(ha - raw.a / raw.days)).toBeLessThanOrEqual(20);
+      361 |     // 같은 역의 일별 합과 시간대 합은 1% 안에서 같아야 한다(코드 어긋남이면 이웃 역 값이 되어 수십 %가 어긋난다)
+      362 |     expect(Math.abs((hb + ha) - (day.b + day.a) / day.days) / ((day.b + day.a) / day.days)).toBeLessThan(0.02);
+        at /private/tmp/claude-501/-Users-koscom-workspace2-seoul-human/10060fb6-3b48-4ffe-bbb3-06f98a2a307f/scratchpad/subway-ctl2/tests/e2e/subway.spec.mjs:359:45
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../../../../../../Users/koscom/workspace2/seoul-human-subway/docs/workers-2026-11-18/w41-subway-line6-fix/control-e2e/test-results/subway-6호선-합정-시간대-곡선이-이름-기준-원본과-같고-일별-값과-같은-역-desktop-1365/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../../../../../../Users/koscom/workspace2/seoul-human-subway/docs/workers-2026-11-18/w41-subway-line6-fix/control-e2e/test-results/subway-6호선-합정-시간대-곡선이-이름-기준-원본과-같고-일별-값과-같은-역-desktop-1365/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../../../../../../Users/koscom/workspace2/seoul-human-subway/docs/workers-2026-11-18/w41-subway-line6-fix/control-e2e/test-results/subway-6호선-합정-시간대-곡선이-이름-기준-원본과-같고-일별-값과-같은-역-desktop-1365/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../../../../../../Users/koscom/workspace2/seoul-human-subway/docs/workers-2026-11-18/w41-subway-line6-fix/control-e2e/test-results/subway-6호선-합정-시간대-곡선이-이름-기준-원본과-같고-일별-값과-같은-역-desktop-1365/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [desktop-1365] › tests/e2e/subway.spec.mjs:342:3 › 6호선 상수: 시간대 곡선이 이름 기준 원본과 같고 일별 값과 같은 역 ────
+
+    Error: expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 20
+    Received:    126.21739130434798
+
+      357 |     const raw = rawHourlyWeekday(2025, '6호선', rawName, '2025-01');
+      358 |     expect(raw.days).toBe(23);
+    > 359 |     expect(Math.abs(hb - raw.b / raw.days)).toBeLessThanOrEqual(20);              // 20개 구간 반올림 오차
+          |                                             ^
+      360 |     expect(Math.abs(ha - raw.a / raw.days)).toBeLessThanOrEqual(20);
+      361 |     // 같은 역의 일별 합과 시간대 합은 1% 안에서 같아야 한다(코드 어긋남이면 이웃 역 값이 되어 수십 %가 어긋난다)
+      362 |     expect(Math.abs((hb + ha) - (day.b + day.a) / day.days) / ((day.b + day.a) / day.days)).toBeLessThan(0.02);
+        at /private/tmp/claude-501/-Users-koscom-workspace2-seoul-human/10060fb6-3b48-4ffe-bbb3-06f98a2a307f/scratchpad/subway-ctl2/tests/e2e/subway.spec.mjs:359:45
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../../../../../../Users/koscom/workspace2/seoul-human-subway/docs/workers-2026-11-18/w41-subway-line6-fix/control-e2e/test-results/subway-6호선-상수-시간대-곡선이-이름-기준-원본과-같고-일별-값과-같은-역-desktop-1365/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../../../../../../Users/koscom/workspace2/seoul-human-subway/docs/workers-2026-11-18/w41-subway-line6-fix/control-e2e/test-results/subway-6호선-상수-시간대-곡선이-이름-기준-원본과-같고-일별-값과-같은-역-desktop-1365/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../../../../../../Users/koscom/workspace2/seoul-human-subway/docs/workers-2026-11-18/w41-subway-line6-fix/control-e2e/test-results/subway-6호선-상수-시간대-곡선이-이름-기준-원본과-같고-일별-값과-같은-역-desktop-1365/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../../../../../../Users/koscom/workspace2/seoul-human-subway/docs/workers-2026-11-18/w41-subway-line6-fix/control-e2e/test-results/subway-6호선-상수-시간대-곡선이-이름-기준-원본과-같고-일별-값과-같은-역-desktop-1365/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3) [desktop-1365] › tests/e2e/subway.spec.mjs:342:3 › 6호선 광흥창: 시간대 곡선이 이름 기준 원본과 같고 일별 값과 같은 역 ───
+
+    Error: expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 20
+    Received:    648.95652173913
+
+      357 |     const raw = rawHourlyWeekday(2025, '6호선', rawName, '2025-01');
+      358 |     expect(raw.days).toBe(23);
+    > 359 |     expect(Math.abs(hb - raw.b / raw.days)).toBeLessThanOrEqual(20);              // 20개 구간 반올림 오차
+          |                                             ^
+      360 |     expect(Math.abs(ha - raw.a / raw.days)).toBeLessThanOrEqual(20);
+      361 |     // 같은 역의 일별 합과 시간대 합은 1% 안에서 같아야 한다(코드 어긋남이면 이웃 역 값이 되어 수십 %가 어긋난다)
+      362 |     expect(Math.abs((hb + ha) - (day.b + day.a) / day.days) / ((day.b + day.a) / day.days)).toBeLessThan(0.02);
+        at /private/tmp/claude-501/-Users-koscom-workspace2-seoul-human/10060fb6-3b48-4ffe-bbb3-06f98a2a307f/scratchpad/subway-ctl2/tests/e2e/subway.spec.mjs:359:45
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../../../../../../Users/koscom/workspace2/seoul-human-subway/docs/workers-2026-11-18/w41-subway-line6-fix/control-e2e/test-results/subway-6호선-광흥창-시간대-곡선이-이름-기준-원본과-같고-일별-값과-같은-역-desktop-1365/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../../../../../../Users/koscom/workspace2/seoul-human-subway/docs/workers-2026-11-18/w41-subway-line6-fix/control-e2e/test-results/subway-6호선-광흥창-시간대-곡선이-이름-기준-원본과-같고-일별-값과-같은-역-desktop-1365/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../../../../../../Users/koscom/workspace2/seoul-human-subway/docs/workers-2026-11-18/w41-subway-line6-fix/control-e2e/test-results/subway-6호선-광흥창-시간대-곡선이-이름-기준-원본과-같고-일별-값과-같은-역-desktop-1365/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../../../../../../Users/koscom/workspace2/seoul-human-subway/docs/workers-2026-11-18/w41-subway-line6-fix/control-e2e/test-results/subway-6호선-광흥창-시간대-곡선이-이름-기준-원본과-같고-일별-값과-같은-역-desktop-1365/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3 failed
+    [desktop-1365] › tests/e2e/subway.spec.mjs:342:3 › 6호선 합정: 시간대 곡선이 이름 기준 원본과 같고 일별 값과 같은 역 ─────
+    [desktop-1365] › tests/e2e/subway.spec.mjs:342:3 › 6호선 상수: 시간대 곡선이 이름 기준 원본과 같고 일별 값과 같은 역 ─────
+    [desktop-1365] › tests/e2e/subway.spec.mjs:342:3 › 6호선 광흥창: 시간대 곡선이 이름 기준 원본과 같고 일별 값과 같은 역 ────

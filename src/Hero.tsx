@@ -3,14 +3,14 @@ import {useMemo} from 'react';
 import {geoMercator,geoPath} from 'd3-geo';
 import {MARKET_AREA_COUNT} from './hero-summary';
 export type HeroStats={days:number|null;first:string;last:string;dongs:number|null;periods:string[]|null};
-type HeroProps={geo:any;stats:HeroStats;lastService:'region'|'market'|null;onStart:(service:'region'|'market')=>void;onResume:()=>void};
+type HeroProps={geo:any;stats:HeroStats;lastService:'region'|'market'|'transport'|null;onStart:(service:'region'|'market')=>void;onResume:()=>void};
 const dateLabel=(d:string)=>d.length===8?`${d.slice(0,4)}.${d.slice(4,6)}.${d.slice(6)}`:d;
 const quarter=(p:string)=>`${p.slice(0,4)}Q${p.slice(4)}`;
 const pending='불러오는 중';
 /** Start screen. Figures come from loaded data; nothing is shown as 0 before it arrives. */
 export default function Hero({geo,stats,lastService,onStart,onResume}:HeroProps){
  const paths=useMemo(()=>{if(!geo?.features?.length)return [];const projection=geoMercator().fitSize([480,360],geo),path=geoPath(projection);return geo.features.map((f:any,i:number)=>({key:String(f.properties?.code||i),name:String(f.properties?.name||''),d:path(f)||''}))},[geo]);
- const resumeName=lastService==='market'?'상권 분석':lastService==='region'?'지역 분석':'';
+ const resumeName=lastService==='market'?'상권 분석':lastService==='transport'?'교통':lastService==='region'?'지역 분석':'';
  const stat=(label:string,value:string,unit:string,note:string)=><div className="heroStat"><dt>{label}</dt><dd><strong>{value}</strong><span>{unit}</span></dd><p>{note}</p></div>;
  return <section className="heroHome" aria-label="서울 지역·상권 분석 소개">
   <div className="heroMain">

@@ -440,15 +440,15 @@ test('N01 start screen: two equal starts, disabled resume, topic menu and planne
   await expect(page.getByRole('button', { name: '이어보기', exact: true })).toBeDisabled();
   await expect(topicButtons(page)).toHaveCount(4);
   const topics = await topicButtons(page).evaluateAll(es => es.map(e => { const r = e.getBoundingClientRect(); return { text: e.textContent.trim(), w: r.width, h: r.height, cy: r.top + r.height / 2, pressed: e.getAttribute('aria-pressed'), disabled: e.disabled }; }));
-  expect(topics.map(x => x.text)).toEqual(['지역 분석', '상권 분석', '교통(예정)', '부동산(예정)']);
+  expect(topics.map(x => x.text)).toEqual(['지역 분석', '상권 분석', '교통', '부동산(예정)']);
   expect(topics.every(x => x.pressed !== 'true'), 'no topic selected on the start screen').toBe(true);
   expect(Math.max(...topics.map(x => x.w)) - Math.min(...topics.map(x => x.w)) <= 1 && Math.max(...topics.map(x => x.h)) - Math.min(...topics.map(x => x.h)) <= 1 && Math.max(...topics.map(x => x.cy)) - Math.min(...topics.map(x => x.cy)) <= 1, JSON.stringify(topics)).toBe(true);
-  expect(topics.map(x => x.disabled)).toEqual([false, false, true, true]);
-  // planned topics do nothing and request nothing
+  expect(topics.map(x => x.disabled)).toEqual([false, false, false, true]);
+  // 교통은 이제 활성이다(w34). 아직 예정인 부동산만 아무 일도 하지 않고 요청도 없다.
   page.on('request', r => requests.push(r.url()));
-  await topicButtons(page).nth(2).click({ force: true }); await topicButtons(page).nth(3).click({ force: true });
+  await topicButtons(page).nth(3).click({ force: true });
   await page.waitForTimeout(400);
-  expect(requests, 'planned topics must not request data').toEqual([]);
+  expect(requests, 'the planned topic must not request data').toEqual([]);
   await expect(heroHeading(page)).toBeVisible();
   // no mode toggle on the start screen
   await expect(page.locator('.modeToggle')).toHaveCount(0);

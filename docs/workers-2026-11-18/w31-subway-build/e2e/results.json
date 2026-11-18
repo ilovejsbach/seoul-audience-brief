@@ -1,0 +1,1982 @@
+{
+  "config": {
+    "argv": [
+      "/Users/koscom/.local/share/fnm/node-versions/v22.16.0/installation/bin/node",
+      "/Users/koscom/workspace2/seoul-human-subway/node_modules/.bin/playwright",
+      "test",
+      "--project=desktop-1365",
+      "--project=desktop-1920"
+    ],
+    "configFile": "/Users/koscom/workspace2/seoul-human-subway/playwright.config.mjs",
+    "rootDir": "/Users/koscom/workspace2/seoul-human-subway/tests/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 2
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/koscom/workspace2/seoul-human-subway/docs/workers-2026-11-18/w31-subway-build/e2e/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "id": "desktop-1365",
+        "name": "desktop-1365",
+        "testDir": "/Users/koscom/workspace2/seoul-human-subway/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 180000
+      },
+      {
+        "outputDir": "/Users/koscom/workspace2/seoul-human-subway/docs/workers-2026-11-18/w31-subway-build/e2e/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "id": "desktop-1920",
+        "name": "desktop-1920",
+        "testDir": "/Users/koscom/workspace2/seoul-human-subway/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 180000
+      },
+      {
+        "outputDir": "/Users/koscom/workspace2/seoul-human-subway/docs/workers-2026-11-18/w31-subway-build/e2e/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "id": "tablet-1024",
+        "name": "tablet-1024",
+        "testDir": "/Users/koscom/workspace2/seoul-human-subway/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 180000
+      },
+      {
+        "outputDir": "/Users/koscom/workspace2/seoul-human-subway/docs/workers-2026-11-18/w31-subway-build/e2e/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "id": "mobile-390",
+        "name": "mobile-390",
+        "testDir": "/Users/koscom/workspace2/seoul-human-subway/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 180000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/koscom/workspace2/seoul-human-subway/docs/workers-2026-11-18/w31-subway-build/e2e/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "name": "desktop-1365",
+        "testDir": "/Users/koscom/workspace2/seoul-human-subway/tests/e2e",
+        "snapshotDir": "/Users/koscom/workspace2/seoul-human-subway/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 180000,
+        "use": {
+          "browserName": "chromium",
+          "baseURL": "http://127.0.0.1:4197",
+          "deviceScaleFactor": 1,
+          "screenshot": "only-on-failure",
+          "trace": "retain-on-failure",
+          "actionTimeout": 10000,
+          "viewport": {
+            "width": 1365,
+            "height": 768
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "desktop-1365"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/koscom/workspace2/seoul-human-subway/docs/workers-2026-11-18/w31-subway-build/e2e/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "name": "desktop-1920",
+        "testDir": "/Users/koscom/workspace2/seoul-human-subway/tests/e2e",
+        "snapshotDir": "/Users/koscom/workspace2/seoul-human-subway/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 180000,
+        "use": {
+          "browserName": "chromium",
+          "baseURL": "http://127.0.0.1:4197",
+          "deviceScaleFactor": 1,
+          "screenshot": "only-on-failure",
+          "trace": "retain-on-failure",
+          "actionTimeout": 10000,
+          "viewport": {
+            "width": 1920,
+            "height": 1080
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "desktop-1920"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "docs/workers-2026-11-18/w31-subway-build/e2e/results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.65.1",
+    "workers": 2,
+    "webServer": {
+      "command": "npm run dev -- --host 127.0.0.1 --port 4197 --strictPort",
+      "url": "http://127.0.0.1:4197",
+      "reuseExistingServer": false,
+      "timeout": 30000
+    }
+  },
+  "suites": [
+    {
+      "title": "screen-rules.spec.mjs",
+      "file": "screen-rules.spec.mjs",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "analysis / population / R05 R07 R15 R20",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1365",
+              "projectName": "desktop-1365",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 14690,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T06:30:54.897Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "rule-measurements",
+                      "contentType": "application/json",
+                      "path": "/Users/koscom/workspace2/seoul-human-subway/docs/workers-2026-11-18/w31-subway-build/e2e/test-results/screen-rules-analysis-population-R05-R07-R15-R20-desktop-1365/attachments/rule-measurements-3f08100202ec9cfddd78fd7b287138df1732a9ee.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1920",
+              "projectName": "desktop-1920",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 14571,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T06:32:13.680Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "rule-measurements",
+                      "contentType": "application/json",
+                      "path": "/Users/koscom/workspace2/seoul-human-subway/docs/workers-2026-11-18/w31-subway-build/e2e/test-results/screen-rules-analysis-population-R05-R07-R15-R20-desktop-1920/attachments/rule-measurements-72dc6512da96fd8ff80cd6718c67542be3f417d2.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ea39948459aead79d56e-5c64f97fe49f45f0a523",
+          "file": "screen-rules.spec.mjs",
+          "line": 174,
+          "column": 3
+        },
+        {
+          "title": "analysis / mobility / R05 R07 R15 R20",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1365",
+              "projectName": "desktop-1365",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 10741,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T06:30:54.897Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "rule-measurements",
+                      "contentType": "application/json",
+                      "path": "/Users/koscom/workspace2/seoul-human-subway/docs/workers-2026-11-18/w31-subway-build/e2e/test-results/screen-rules-analysis-mobility-R05-R07-R15-R20-desktop-1365/attachments/rule-measurements-c48f99c77aa39784a0b437e2fe6ee8661a97985b.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1920",
+              "projectName": "desktop-1920",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 10477,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T06:32:16.433Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "rule-measurements",
+                      "contentType": "application/json",
+                      "path": "/Users/koscom/workspace2/seoul-human-subway/docs/workers-2026-11-18/w31-subway-build/e2e/test-results/screen-rules-analysis-mobility-R05-R07-R15-R20-desktop-1920/attachments/rule-measurements-156cb36d3f2d6749339cbe9a05acdbe8ed68992d.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ea39948459aead79d56e-f78b4b0fc1e0f81a2c90",
+          "file": "screen-rules.spec.mjs",
+          "line": 174,
+          "column": 3
+        },
+        {
+          "title": "analysis / migration / R05 R07 R15 R20",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1365",
+              "projectName": "desktop-1365",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 10293,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T06:31:05.905Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "rule-measurements",
+                      "contentType": "application/json",
+                      "path": "/Users/koscom/workspace2/seoul-human-subway/docs/workers-2026-11-18/w31-subway-build/e2e/test-results/screen-rules-analysis-migration-R05-R07-R15-R20-desktop-1365/attachments/rule-measurements-9db967a644ed3b0129d4013de909296c00077dd0.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1920",
+              "projectName": "desktop-1920",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 10483,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T06:32:27.003Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "rule-measurements",
+                      "contentType": "application/json",
+                      "path": "/Users/koscom/workspace2/seoul-human-subway/docs/workers-2026-11-18/w31-subway-build/e2e/test-results/screen-rules-analysis-migration-R05-R07-R15-R20-desktop-1920/attachments/rule-measurements-92fd02f2ade2dcb31dfceabb3df11656e317c315.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ea39948459aead79d56e-31d940da2478dda97a4d",
+          "file": "screen-rules.spec.mjs",
+          "line": 174,
+          "column": 3
+        },
+        {
+          "title": "analysis / market / R05 R07 R15 R20",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1365",
+              "projectName": "desktop-1365",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 16226,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T06:31:09.854Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "rule-measurements",
+                      "contentType": "application/json",
+                      "path": "/Users/koscom/workspace2/seoul-human-subway/docs/workers-2026-11-18/w31-subway-build/e2e/test-results/screen-rules-analysis-market-R05-R07-R15-R20-desktop-1365/attachments/rule-measurements-b4205e02f45f66c8530b3f113d8f4e519a85ac27.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1920",
+              "projectName": "desktop-1920",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 16485,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T06:32:28.338Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "rule-measurements",
+                      "contentType": "application/json",
+                      "path": "/Users/koscom/workspace2/seoul-human-subway/docs/workers-2026-11-18/w31-subway-build/e2e/test-results/screen-rules-analysis-market-R05-R07-R15-R20-desktop-1920/attachments/rule-measurements-c0be1b735f3bdbd14f3d44327cac617a62eaee57.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ea39948459aead79d56e-0c863ed9456e123110c6",
+          "file": "screen-rules.spec.mjs",
+          "line": 174,
+          "column": 3
+        },
+        {
+          "title": "presentation / population / R05 R07 R15 R20",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1365",
+              "projectName": "desktop-1365",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 14515,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T06:31:16.202Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "rule-measurements",
+                      "contentType": "application/json",
+                      "path": "/Users/koscom/workspace2/seoul-human-subway/docs/workers-2026-11-18/w31-subway-build/e2e/test-results/screen-rules-presentation-population-R05-R07-R15-R20-desktop-1365/attachments/rule-measurements-5f4b058ed955977593385f6a811d7262d3069e89.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1920",
+              "projectName": "desktop-1920",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 14525,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T06:32:37.491Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "rule-measurements",
+                      "contentType": "application/json",
+                      "path": "/Users/koscom/workspace2/seoul-human-subway/docs/workers-2026-11-18/w31-subway-build/e2e/test-results/screen-rules-presentation-population-R05-R07-R15-R20-desktop-1920/attachments/rule-measurements-a83e8f9da80354f884eff02dd8d0e13a4bd5d578.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ea39948459aead79d56e-f512cf09629c9f1bbd61",
+          "file": "screen-rules.spec.mjs",
+          "line": 174,
+          "column": 3
+        },
+        {
+          "title": "presentation / mobility / R05 R07 R15 R20",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1365",
+              "projectName": "desktop-1365",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 10698,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T06:31:26.085Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "rule-measurements",
+                      "contentType": "application/json",
+                      "path": "/Users/koscom/workspace2/seoul-human-subway/docs/workers-2026-11-18/w31-subway-build/e2e/test-results/screen-rules-presentation-mobility-R05-R07-R15-R20-desktop-1365/attachments/rule-measurements-a5db025380432f74583a477631d4abc54ccd2916.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1920",
+              "projectName": "desktop-1920",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 10771,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T06:32:44.828Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "rule-measurements",
+                      "contentType": "application/json",
+                      "path": "/Users/koscom/workspace2/seoul-human-subway/docs/workers-2026-11-18/w31-subway-build/e2e/test-results/screen-rules-presentation-mobility-R05-R07-R15-R20-desktop-1920/attachments/rule-measurements-5f75d66df230c5213e53ceae1edd210dfb67a72d.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ea39948459aead79d56e-e07a69b199375ee46c2e",
+          "file": "screen-rules.spec.mjs",
+          "line": 174,
+          "column": 3
+        },
+        {
+          "title": "presentation / migration / R05 R07 R15 R20",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1365",
+              "projectName": "desktop-1365",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 10647,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T06:31:30.722Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "rule-measurements",
+                      "contentType": "application/json",
+                      "path": "/Users/koscom/workspace2/seoul-human-subway/docs/workers-2026-11-18/w31-subway-build/e2e/test-results/screen-rules-presentation-migration-R05-R07-R15-R20-desktop-1365/attachments/rule-measurements-ba5152df2029bd5e2c901294f512c0e8f4eec4f1.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1920",
+              "projectName": "desktop-1920",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 10772,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T06:32:52.021Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "rule-measurements",
+                      "contentType": "application/json",
+                      "path": "/Users/koscom/workspace2/seoul-human-subway/docs/workers-2026-11-18/w31-subway-build/e2e/test-results/screen-rules-presentation-migration-R05-R07-R15-R20-desktop-1920/attachments/rule-measurements-4e8b01c12179a58949f7a08c01418a268aeb9ccb.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ea39948459aead79d56e-39a1ab42eb949f91b1b6",
+          "file": "screen-rules.spec.mjs",
+          "line": 174,
+          "column": 3
+        },
+        {
+          "title": "presentation / market / R05 R07 R15 R20",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1365",
+              "projectName": "desktop-1365",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 17885,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T06:31:36.787Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "rule-measurements",
+                      "contentType": "application/json",
+                      "path": "/Users/koscom/workspace2/seoul-human-subway/docs/workers-2026-11-18/w31-subway-build/e2e/test-results/screen-rules-presentation-market-R05-R07-R15-R20-desktop-1365/attachments/rule-measurements-e519cc7b4c4f415acb159c84be4bba447f81a19a.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1920",
+              "projectName": "desktop-1920",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 17953,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T06:32:55.604Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "rule-measurements",
+                      "contentType": "application/json",
+                      "path": "/Users/koscom/workspace2/seoul-human-subway/docs/workers-2026-11-18/w31-subway-build/e2e/test-results/screen-rules-presentation-market-R05-R07-R15-R20-desktop-1920/attachments/rule-measurements-75d144ce56fd618e21b39860cb8de217d6ffdded.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ea39948459aead79d56e-a89a898312aba2afe82d",
+          "file": "screen-rules.spec.mjs",
+          "line": 174,
+          "column": 3
+        },
+        {
+          "title": "analysis / normal / population / display settings I01",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1365",
+              "projectName": "desktop-1365",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 2692,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T06:31:41.374Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "display-settings-measurements",
+                      "contentType": "application/json",
+                      "path": "/Users/koscom/workspace2/seoul-human-subway/docs/workers-2026-11-18/w31-subway-build/e2e/test-results/screen-rules-analysis-normal-population-display-settings-I01-desktop-1365/attachments/display-settings-measurements-7633b85728d942050417c22ba96a5f7f71288c83.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1920",
+              "projectName": "desktop-1920",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2685,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T06:33:02.799Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "display-settings-measurements",
+                      "contentType": "application/json",
+                      "path": "/Users/koscom/workspace2/seoul-human-subway/docs/workers-2026-11-18/w31-subway-build/e2e/test-results/screen-rules-analysis-normal-population-display-settings-I01-desktop-1920/attachments/display-settings-measurements-11222f6c953690505cf9a2296918cb0c36e649ea.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ea39948459aead79d56e-b708dcadbdeae5ec1fb6",
+          "file": "screen-rules.spec.mjs",
+          "line": 272,
+          "column": 3
+        },
+        {
+          "title": "analysis / normal / mobility / display settings I01",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1365",
+              "projectName": "desktop-1365",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 2737,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T06:31:44.071Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "display-settings-measurements",
+                      "contentType": "application/json",
+                      "path": "/Users/koscom/workspace2/seoul-human-subway/docs/workers-2026-11-18/w31-subway-build/e2e/test-results/screen-rules-analysis-normal-mobility-display-settings-I01-desktop-1365/attachments/display-settings-measurements-3e2fd9784ec9e41665a066345e2b5a04d193abc5.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1920",
+              "projectName": "desktop-1920",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2755,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T06:33:05.489Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "display-settings-measurements",
+                      "contentType": "application/json",
+                      "path": "/Users/koscom/workspace2/seoul-human-subway/docs/workers-2026-11-18/w31-subway-build/e2e/test-results/screen-rules-analysis-normal-mobility-display-settings-I01-desktop-1920/attachments/display-settings-measurements-156f78cd92fb1f22a9f3339eee52504d49eb5f39.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ea39948459aead79d56e-8be07747e69046cae83b",
+          "file": "screen-rules.spec.mjs",
+          "line": 272,
+          "column": 3
+        },
+        {
+          "title": "analysis / normal / migration / display settings I01",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1365",
+              "projectName": "desktop-1365",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 2655,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T06:31:46.813Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "display-settings-measurements",
+                      "contentType": "application/json",
+                      "path": "/Users/koscom/workspace2/seoul-human-subway/docs/workers-2026-11-18/w31-subway-build/e2e/test-results/screen-rules-analysis-normal-migration-display-settings-I01-desktop-1365/attachments/display-settings-measurements-6947e141156d57236bdac3fa1686360e39692aec.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1920",
+              "projectName": "desktop-1920",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2737,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T06:33:08.248Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "display-settings-measurements",
+                      "contentType": "application/json",
+                      "path": "/Users/koscom/workspace2/seoul-human-subway/docs/workers-2026-11-18/w31-subway-build/e2e/test-results/screen-rules-analysis-normal-migration-display-settings-I01-desktop-1920/attachments/display-settings-measurements-0d8dd1771d4b91ff12e8c3d45264bc011128035d.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ea39948459aead79d56e-ada55594f52a7d42a5d1",
+          "file": "screen-rules.spec.mjs",
+          "line": 272,
+          "column": 3
+        },
+        {
+          "title": "analysis / normal / commerce / display settings I01",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1365",
+              "projectName": "desktop-1365",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 2685,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T06:31:49.472Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "display-settings-measurements",
+                      "contentType": "application/json",
+                      "path": "/Users/koscom/workspace2/seoul-human-subway/docs/workers-2026-11-18/w31-subway-build/e2e/test-results/screen-rules-analysis-normal-commerce-display-settings-I01-desktop-1365/attachments/display-settings-measurements-8d517fc6685ccfb8ab01294f0fcae2ffda3929bd.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1920",
+              "projectName": "desktop-1920",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2674,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T06:33:10.989Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "display-settings-measurements",
+                      "contentType": "application/json",
+                      "path": "/Users/koscom/workspace2/seoul-human-subway/docs/workers-2026-11-18/w31-subway-build/e2e/test-results/screen-rules-analysis-normal-commerce-display-settings-I01-desktop-1920/attachments/display-settings-measurements-6bbe49742cc77eebbfb1867db91ce44a4cbff1a3.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ea39948459aead79d56e-cce2250ca1699875df2d",
+          "file": "screen-rules.spec.mjs",
+          "line": 272,
+          "column": 3
+        },
+        {
+          "title": "analysis / fullscreen / population / display settings I01",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1365",
+              "projectName": "desktop-1365",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 2890,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T06:31:52.163Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "display-settings-measurements",
+                      "contentType": "application/json",
+                      "path": "/Users/koscom/workspace2/seoul-human-subway/docs/workers-2026-11-18/w31-subway-build/e2e/test-results/screen-rules-analysis-full-8dee3-lation-display-settings-I01-desktop-1365/attachments/display-settings-measurements-4f8d509147adafb2a553e2c6529e53ee28d6902c.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1920",
+              "projectName": "desktop-1920",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 2954,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T06:33:13.561Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "display-settings-measurements",
+                      "contentType": "application/json",
+                      "path": "/Users/koscom/workspace2/seoul-human-subway/docs/workers-2026-11-18/w31-subway-build/e2e/test-results/screen-rules-analysis-full-8dee3-lation-display-settings-I01-desktop-1920/attachments/display-settings-measurements-41b278e706aa29f2794a848bfcb96f6c7f075997.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ea39948459aead79d56e-a49e0326a1d944f5a3fd",
+          "file": "screen-rules.spec.mjs",
+          "line": 272,
+          "column": 3
+        },
+        {
+          "title": "analysis / fullscreen / mobility / display settings I01",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1365",
+              "projectName": "desktop-1365",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3022,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T06:31:54.677Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "display-settings-measurements",
+                      "contentType": "application/json",
+                      "path": "/Users/koscom/workspace2/seoul-human-subway/docs/workers-2026-11-18/w31-subway-build/e2e/test-results/screen-rules-analysis-full-8ed32-bility-display-settings-I01-desktop-1365/attachments/display-settings-measurements-8315e224fe4b9bf579b765f37f2bf85e9eb9e710.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1920",
+              "projectName": "desktop-1920",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2927,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T06:33:13.671Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "display-settings-measurements",
+                      "contentType": "application/json",
+                      "path": "/Users/koscom/workspace2/seoul-human-subway/docs/workers-2026-11-18/w31-subway-build/e2e/test-results/screen-rules-analysis-full-8ed32-bility-display-settings-I01-desktop-1920/attachments/display-settings-measurements-c0bfd53c198d308ccdb0e3a155a42fe0de096e3d.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ea39948459aead79d56e-d4bf86664f3075817932",
+          "file": "screen-rules.spec.mjs",
+          "line": 272,
+          "column": 3
+        },
+        {
+          "title": "analysis / fullscreen / migration / display settings I01",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1365",
+              "projectName": "desktop-1365",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 2887,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T06:31:55.058Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "display-settings-measurements",
+                      "contentType": "application/json",
+                      "path": "/Users/koscom/workspace2/seoul-human-subway/docs/workers-2026-11-18/w31-subway-build/e2e/test-results/screen-rules-analysis-full-9324e-ration-display-settings-I01-desktop-1365/attachments/display-settings-measurements-ddf8687342ee7642191dd7edccdb91603e4e7d0a.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1920",
+              "projectName": "desktop-1920",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 2845,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T06:33:16.520Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "display-settings-measurements",
+                      "contentType": "application/json",
+                      "path": "/Users/koscom/workspace2/seoul-human-subway/docs/workers-2026-11-18/w31-subway-build/e2e/test-results/screen-rules-analysis-full-9324e-ration-display-settings-I01-desktop-1920/attachments/display-settings-measurements-d42a719141270c36c59a242ecc036dbfd3b98742.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ea39948459aead79d56e-29e503ffca6a3c3c3672",
+          "file": "screen-rules.spec.mjs",
+          "line": 272,
+          "column": 3
+        },
+        {
+          "title": "analysis / fullscreen / commerce / display settings I01",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1365",
+              "projectName": "desktop-1365",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2898,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T06:31:57.704Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "display-settings-measurements",
+                      "contentType": "application/json",
+                      "path": "/Users/koscom/workspace2/seoul-human-subway/docs/workers-2026-11-18/w31-subway-build/e2e/test-results/screen-rules-analysis-full-50e8d-mmerce-display-settings-I01-desktop-1365/attachments/display-settings-measurements-87dba758a4384f487128b2756864b094fba5d61c.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1920",
+              "projectName": "desktop-1920",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2828,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T06:33:16.606Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "display-settings-measurements",
+                      "contentType": "application/json",
+                      "path": "/Users/koscom/workspace2/seoul-human-subway/docs/workers-2026-11-18/w31-subway-build/e2e/test-results/screen-rules-analysis-full-50e8d-mmerce-display-settings-I01-desktop-1920/attachments/display-settings-measurements-ba45385961b29dde55494389d1b5a8a99cd27351.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ea39948459aead79d56e-4330845e67d0ecdb95af",
+          "file": "screen-rules.spec.mjs",
+          "line": 272,
+          "column": 3
+        },
+        {
+          "title": "presentation / normal / population / display settings I01",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1365",
+              "projectName": "desktop-1365",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 2937,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T06:31:57.951Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "display-settings-measurements",
+                      "contentType": "application/json",
+                      "path": "/Users/koscom/workspace2/seoul-human-subway/docs/workers-2026-11-18/w31-subway-build/e2e/test-results/screen-rules-presentation--35577-lation-display-settings-I01-desktop-1365/attachments/display-settings-measurements-a33e2f4db313a277b77a1621b6a4a382bf00594b.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1920",
+              "projectName": "desktop-1920",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 2900,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T06:33:19.369Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "display-settings-measurements",
+                      "contentType": "application/json",
+                      "path": "/Users/koscom/workspace2/seoul-human-subway/docs/workers-2026-11-18/w31-subway-build/e2e/test-results/screen-rules-presentation--35577-lation-display-settings-I01-desktop-1920/attachments/display-settings-measurements-a05c4273e0c97ed82b5572017169b20ce311257d.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ea39948459aead79d56e-6d5878c297a525a049aa",
+          "file": "screen-rules.spec.mjs",
+          "line": 272,
+          "column": 3
+        },
+        {
+          "title": "presentation / normal / mobility / display settings I01",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1365",
+              "projectName": "desktop-1365",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2924,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T06:32:00.607Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "display-settings-measurements",
+                      "contentType": "application/json",
+                      "path": "/Users/koscom/workspace2/seoul-human-subway/docs/workers-2026-11-18/w31-subway-build/e2e/test-results/screen-rules-presentation--e9717-bility-display-settings-I01-desktop-1365/attachments/display-settings-measurements-9f62143de6c93f17d825862cda93a33a21fa6070.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1920",
+              "projectName": "desktop-1920",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2965,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T06:33:19.441Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "display-settings-measurements",
+                      "contentType": "application/json",
+                      "path": "/Users/koscom/workspace2/seoul-human-subway/docs/workers-2026-11-18/w31-subway-build/e2e/test-results/screen-rules-presentation--e9717-bility-display-settings-I01-desktop-1920/attachments/display-settings-measurements-cdc06e7388e28d0522889fd7f69a3ea7ce9ca895.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ea39948459aead79d56e-f16b327b97d6536dca2d",
+          "file": "screen-rules.spec.mjs",
+          "line": 272,
+          "column": 3
+        },
+        {
+          "title": "presentation / normal / migration / display settings I01",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1365",
+              "projectName": "desktop-1365",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 2938,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T06:32:00.892Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "display-settings-measurements",
+                      "contentType": "application/json",
+                      "path": "/Users/koscom/workspace2/seoul-human-subway/docs/workers-2026-11-18/w31-subway-build/e2e/test-results/screen-rules-presentation--4ab38-ration-display-settings-I01-desktop-1365/attachments/display-settings-measurements-dd18522e8a878940a6d91b86a06c9d4993da35d5.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1920",
+              "projectName": "desktop-1920",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 2917,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T06:33:22.273Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "display-settings-measurements",
+                      "contentType": "application/json",
+                      "path": "/Users/koscom/workspace2/seoul-human-subway/docs/workers-2026-11-18/w31-subway-build/e2e/test-results/screen-rules-presentation--4ab38-ration-display-settings-I01-desktop-1920/attachments/display-settings-measurements-f957d2ba56da9901362b5667de82ce7ab606eb27.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ea39948459aead79d56e-18975112408786a95591",
+          "file": "screen-rules.spec.mjs",
+          "line": 272,
+          "column": 3
+        },
+        {
+          "title": "presentation / normal / commerce / display settings I01",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1365",
+              "projectName": "desktop-1365",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2936,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T06:32:03.536Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "display-settings-measurements",
+                      "contentType": "application/json",
+                      "path": "/Users/koscom/workspace2/seoul-human-subway/docs/workers-2026-11-18/w31-subway-build/e2e/test-results/screen-rules-presentation--2e9a2-mmerce-display-settings-I01-desktop-1365/attachments/display-settings-measurements-a06ea017af8757795f91367b1fe556e29791a2c8.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1920",
+              "projectName": "desktop-1920",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2968,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T06:33:22.411Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "display-settings-measurements",
+                      "contentType": "application/json",
+                      "path": "/Users/koscom/workspace2/seoul-human-subway/docs/workers-2026-11-18/w31-subway-build/e2e/test-results/screen-rules-presentation--2e9a2-mmerce-display-settings-I01-desktop-1920/attachments/display-settings-measurements-d40435cf3c393ceeee862893a1fac27188fe76b2.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ea39948459aead79d56e-a678fc6936334c2d84bb",
+          "file": "screen-rules.spec.mjs",
+          "line": 272,
+          "column": 3
+        },
+        {
+          "title": "presentation / fullscreen / population / display settings I01",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1365",
+              "projectName": "desktop-1365",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 3102,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T06:32:03.834Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "display-settings-measurements",
+                      "contentType": "application/json",
+                      "path": "/Users/koscom/workspace2/seoul-human-subway/docs/workers-2026-11-18/w31-subway-build/e2e/test-results/screen-rules-presentation--b7927-lation-display-settings-I01-desktop-1365/attachments/display-settings-measurements-c4624e3a4c7543ee02150884956ede8ed43336aa.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1920",
+              "projectName": "desktop-1920",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 3062,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T06:33:25.194Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "display-settings-measurements",
+                      "contentType": "application/json",
+                      "path": "/Users/koscom/workspace2/seoul-human-subway/docs/workers-2026-11-18/w31-subway-build/e2e/test-results/screen-rules-presentation--b7927-lation-display-settings-I01-desktop-1920/attachments/display-settings-measurements-2438e9a919df67013525e0c23a5c9f1356a3ec01.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ea39948459aead79d56e-1d8e5a48e36e86cb9f1d",
+          "file": "screen-rules.spec.mjs",
+          "line": 272,
+          "column": 3
+        },
+        {
+          "title": "presentation / fullscreen / mobility / display settings I01",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1365",
+              "projectName": "desktop-1365",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3188,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T06:32:06.476Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "display-settings-measurements",
+                      "contentType": "application/json",
+                      "path": "/Users/koscom/workspace2/seoul-human-subway/docs/workers-2026-11-18/w31-subway-build/e2e/test-results/screen-rules-presentation--0a582-bility-display-settings-I01-desktop-1365/attachments/display-settings-measurements-5c495b787bfe346d045f6a51d679ee949d16a1af.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1920",
+              "projectName": "desktop-1920",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3117,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T06:33:25.382Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "display-settings-measurements",
+                      "contentType": "application/json",
+                      "path": "/Users/koscom/workspace2/seoul-human-subway/docs/workers-2026-11-18/w31-subway-build/e2e/test-results/screen-rules-presentation--0a582-bility-display-settings-I01-desktop-1920/attachments/display-settings-measurements-e0626a1b68d417f55bfb2d40bf61722d7a8afd43.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ea39948459aead79d56e-007cb6696c7a6b490ae7",
+          "file": "screen-rules.spec.mjs",
+          "line": 272,
+          "column": 3
+        },
+        {
+          "title": "presentation / fullscreen / migration / display settings I01",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1365",
+              "projectName": "desktop-1365",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 3133,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T06:32:06.941Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "display-settings-measurements",
+                      "contentType": "application/json",
+                      "path": "/Users/koscom/workspace2/seoul-human-subway/docs/workers-2026-11-18/w31-subway-build/e2e/test-results/screen-rules-presentation--418be-ration-display-settings-I01-desktop-1365/attachments/display-settings-measurements-dc77d9a35d7f119d2d4791fd93dc7a6a67cb43ac.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1920",
+              "projectName": "desktop-1920",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 3064,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T06:33:28.261Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "display-settings-measurements",
+                      "contentType": "application/json",
+                      "path": "/Users/koscom/workspace2/seoul-human-subway/docs/workers-2026-11-18/w31-subway-build/e2e/test-results/screen-rules-presentation--418be-ration-display-settings-I01-desktop-1920/attachments/display-settings-measurements-c1e4cd004f8ff80860bd948392c216f673640300.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ea39948459aead79d56e-cd99184ecb0665d08e4b",
+          "file": "screen-rules.spec.mjs",
+          "line": 272,
+          "column": 3
+        },
+        {
+          "title": "presentation / fullscreen / commerce / display settings I01",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1365",
+              "projectName": "desktop-1365",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3103,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T06:32:09.668Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "display-settings-measurements",
+                      "contentType": "application/json",
+                      "path": "/Users/koscom/workspace2/seoul-human-subway/docs/workers-2026-11-18/w31-subway-build/e2e/test-results/screen-rules-presentation--ffccb-mmerce-display-settings-I01-desktop-1365/attachments/display-settings-measurements-905a26f9fe97250a4c00459cdd90e298e8ebb99a.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1920",
+              "projectName": "desktop-1920",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3113,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T06:33:28.504Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "display-settings-measurements",
+                      "contentType": "application/json",
+                      "path": "/Users/koscom/workspace2/seoul-human-subway/docs/workers-2026-11-18/w31-subway-build/e2e/test-results/screen-rules-presentation--ffccb-mmerce-display-settings-I01-desktop-1920/attachments/display-settings-measurements-dacce4a7f8233c1036dbea4f1fa464c9057e5145.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ea39948459aead79d56e-80cff78b2b1c61b88668",
+          "file": "screen-rules.spec.mjs",
+          "line": 272,
+          "column": 3
+        }
+      ]
+    },
+    {
+      "title": "subway.spec.mjs",
+      "file": "subway.spec.mjs",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "지하철 여정 · analysis",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1365",
+              "projectName": "desktop-1365",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 3227,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T06:32:10.087Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1920",
+              "projectName": "desktop-1920",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 3306,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T06:33:31.338Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4db0a206acbf6bc269e6-9398725351b014f7c048",
+          "file": "subway.spec.mjs",
+          "line": 102,
+          "column": 3
+        },
+        {
+          "title": "지하철 여정 · presentation",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1365",
+              "projectName": "desktop-1365",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3309,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T06:32:12.782Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1920",
+              "projectName": "desktop-1920",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3334,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T06:33:31.628Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4db0a206acbf6bc269e6-76b8d7aee98c953be06a",
+          "file": "subway.spec.mjs",
+          "line": 102,
+          "column": 3
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-18T06:30:54.155Z",
+    "duration": 160896.701,
+    "expected": 52,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

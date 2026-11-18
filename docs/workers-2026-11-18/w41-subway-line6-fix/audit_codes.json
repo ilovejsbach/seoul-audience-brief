@@ -1,0 +1,608 @@
+{
+ "sources": {
+  "시간대": {
+   "codes": 283,
+   "notInCoords": [
+    "7:2753 까치울",
+    "7:2755 춘의",
+    "7:2756 신중동",
+    "7:2757 부천시청",
+    "7:2758 상동",
+    "7:2759 삼산체육관",
+    "7:2760 굴포천",
+    "8:2810 암사역사공원"
+   ],
+   "nameMismatch": 37
+  },
+  "승객유형": {
+   "codes": 273,
+   "notInCoords": [
+    "8:2810 암사역사공원"
+   ],
+   "nameMismatch": 36
+  },
+  "혼잡도": {
+   "codes": 282,
+   "notInCoords": [
+    "2:0260 까치산",
+    "2:9001 성수E",
+    "2:9002 성수",
+    "2:9003 신도림",
+    "5:9005 강동(마천)",
+    "6:9006 응암S",
+    "8:2810 암사역사공원"
+   ],
+   "nameMismatch": 37
+  }
+ },
+ "mismatch": [
+  {
+   "line": 4,
+   "sourceCode": "0409",
+   "sourceName": "불암산",
+   "coordsNameAtThatCode": "당고개",
+   "coordsCodeForSameName": [],
+   "sources": [
+    "승객유형",
+    "시간대",
+    "혼잡도"
+   ],
+   "shift": null
+  },
+  {
+   "line": 6,
+   "sourceCode": "2615",
+   "sourceName": "연신내",
+   "coordsNameAtThatCode": "봉화산",
+   "coordsCodeForSameName": [
+    "2616"
+   ],
+   "sources": [
+    "시간대",
+    "혼잡도"
+   ],
+   "shift": 1
+  },
+  {
+   "line": 6,
+   "sourceCode": "2616",
+   "sourceName": "구산",
+   "coordsNameAtThatCode": "연신내",
+   "coordsCodeForSameName": [
+    "2617"
+   ],
+   "sources": [
+    "승객유형",
+    "시간대",
+    "혼잡도"
+   ],
+   "shift": 1
+  },
+  {
+   "line": 6,
+   "sourceCode": "2617",
+   "sourceName": "새절(신사)",
+   "coordsNameAtThatCode": "구산",
+   "coordsCodeForSameName": [
+    "2618"
+   ],
+   "sources": [
+    "승객유형",
+    "시간대",
+    "혼잡도"
+   ],
+   "shift": 1
+  },
+  {
+   "line": 6,
+   "sourceCode": "2618",
+   "sourceName": "증산(명지대앞)",
+   "coordsNameAtThatCode": "새절",
+   "coordsCodeForSameName": [
+    "2619"
+   ],
+   "sources": [
+    "승객유형",
+    "시간대",
+    "혼잡도"
+   ],
+   "shift": 1
+  },
+  {
+   "line": 6,
+   "sourceCode": "2619",
+   "sourceName": "디지털미디어시티",
+   "coordsNameAtThatCode": "증산",
+   "coordsCodeForSameName": [
+    "2620"
+   ],
+   "sources": [
+    "승객유형",
+    "시간대",
+    "혼잡도"
+   ],
+   "shift": 1
+  },
+  {
+   "line": 6,
+   "sourceCode": "2620",
+   "sourceName": "월드컵경기장(성산)",
+   "coordsNameAtThatCode": "디지털미디어시티",
+   "coordsCodeForSameName": [
+    "2621"
+   ],
+   "sources": [
+    "승객유형",
+    "시간대",
+    "혼잡도"
+   ],
+   "shift": 1
+  },
+  {
+   "line": 6,
+   "sourceCode": "2621",
+   "sourceName": "마포구청",
+   "coordsNameAtThatCode": "월드컵경기장",
+   "coordsCodeForSameName": [
+    "2622"
+   ],
+   "sources": [
+    "승객유형",
+    "시간대",
+    "혼잡도"
+   ],
+   "shift": 1
+  },
+  {
+   "line": 6,
+   "sourceCode": "2622",
+   "sourceName": "망원",
+   "coordsNameAtThatCode": "마포구청",
+   "coordsCodeForSameName": [
+    "2623"
+   ],
+   "sources": [
+    "승객유형",
+    "시간대",
+    "혼잡도"
+   ],
+   "shift": 1
+  },
+  {
+   "line": 6,
+   "sourceCode": "2623",
+   "sourceName": "합정",
+   "coordsNameAtThatCode": "망원",
+   "coordsCodeForSameName": [
+    "2624"
+   ],
+   "sources": [
+    "승객유형",
+    "시간대",
+    "혼잡도"
+   ],
+   "shift": 1
+  },
+  {
+   "line": 6,
+   "sourceCode": "2624",
+   "sourceName": "상수",
+   "coordsNameAtThatCode": "합정",
+   "coordsCodeForSameName": [
+    "2625"
+   ],
+   "sources": [
+    "승객유형",
+    "시간대",
+    "혼잡도"
+   ],
+   "shift": 1
+  },
+  {
+   "line": 6,
+   "sourceCode": "2625",
+   "sourceName": "광흥창(서강)",
+   "coordsNameAtThatCode": "상수",
+   "coordsCodeForSameName": [
+    "2626"
+   ],
+   "sources": [
+    "승객유형",
+    "시간대",
+    "혼잡도"
+   ],
+   "shift": 1
+  },
+  {
+   "line": 6,
+   "sourceCode": "2626",
+   "sourceName": "대흥(서강대앞)",
+   "coordsNameAtThatCode": "광흥창",
+   "coordsCodeForSameName": [
+    "2627"
+   ],
+   "sources": [
+    "승객유형",
+    "시간대",
+    "혼잡도"
+   ],
+   "shift": 1
+  },
+  {
+   "line": 6,
+   "sourceCode": "2627",
+   "sourceName": "공덕",
+   "coordsNameAtThatCode": "대흥",
+   "coordsCodeForSameName": [
+    "2628"
+   ],
+   "sources": [
+    "승객유형",
+    "시간대",
+    "혼잡도"
+   ],
+   "shift": 1
+  },
+  {
+   "line": 6,
+   "sourceCode": "2628",
+   "sourceName": "효창공원앞",
+   "coordsNameAtThatCode": "공덕",
+   "coordsCodeForSameName": [
+    "2629"
+   ],
+   "sources": [
+    "승객유형",
+    "시간대",
+    "혼잡도"
+   ],
+   "shift": 1
+  },
+  {
+   "line": 6,
+   "sourceCode": "2629",
+   "sourceName": "삼각지(전쟁기념관)",
+   "coordsNameAtThatCode": "효창공원앞",
+   "coordsCodeForSameName": [
+    "2630"
+   ],
+   "sources": [
+    "승객유형",
+    "시간대",
+    "혼잡도"
+   ],
+   "shift": 1
+  },
+  {
+   "line": 6,
+   "sourceCode": "2630",
+   "sourceName": "녹사평(용산구청)",
+   "coordsNameAtThatCode": "삼각지",
+   "coordsCodeForSameName": [
+    "2631"
+   ],
+   "sources": [
+    "승객유형",
+    "시간대",
+    "혼잡도"
+   ],
+   "shift": 1
+  },
+  {
+   "line": 6,
+   "sourceCode": "2631",
+   "sourceName": "이태원",
+   "coordsNameAtThatCode": "녹사평",
+   "coordsCodeForSameName": [
+    "2632"
+   ],
+   "sources": [
+    "승객유형",
+    "시간대",
+    "혼잡도"
+   ],
+   "shift": 1
+  },
+  {
+   "line": 6,
+   "sourceCode": "2632",
+   "sourceName": "한강진",
+   "coordsNameAtThatCode": "이태원",
+   "coordsCodeForSameName": [
+    "2633"
+   ],
+   "sources": [
+    "승객유형",
+    "시간대",
+    "혼잡도"
+   ],
+   "shift": 1
+  },
+  {
+   "line": 6,
+   "sourceCode": "2633",
+   "sourceName": "버티고개",
+   "coordsNameAtThatCode": "한강진",
+   "coordsCodeForSameName": [
+    "2634"
+   ],
+   "sources": [
+    "승객유형",
+    "시간대",
+    "혼잡도"
+   ],
+   "shift": 1
+  },
+  {
+   "line": 6,
+   "sourceCode": "2634",
+   "sourceName": "약수",
+   "coordsNameAtThatCode": "버티고개",
+   "coordsCodeForSameName": [
+    "2635"
+   ],
+   "sources": [
+    "승객유형",
+    "시간대",
+    "혼잡도"
+   ],
+   "shift": 1
+  },
+  {
+   "line": 6,
+   "sourceCode": "2635",
+   "sourceName": "청구",
+   "coordsNameAtThatCode": "약수",
+   "coordsCodeForSameName": [
+    "2636"
+   ],
+   "sources": [
+    "승객유형",
+    "시간대",
+    "혼잡도"
+   ],
+   "shift": 1
+  },
+  {
+   "line": 6,
+   "sourceCode": "2636",
+   "sourceName": "신당",
+   "coordsNameAtThatCode": "청구",
+   "coordsCodeForSameName": [
+    "2637"
+   ],
+   "sources": [
+    "승객유형",
+    "시간대",
+    "혼잡도"
+   ],
+   "shift": 1
+  },
+  {
+   "line": 6,
+   "sourceCode": "2637",
+   "sourceName": "동묘앞",
+   "coordsNameAtThatCode": "신당",
+   "coordsCodeForSameName": [
+    "2638"
+   ],
+   "sources": [
+    "승객유형",
+    "시간대",
+    "혼잡도"
+   ],
+   "shift": 1
+  },
+  {
+   "line": 6,
+   "sourceCode": "2638",
+   "sourceName": "창신",
+   "coordsNameAtThatCode": "동묘앞",
+   "coordsCodeForSameName": [
+    "2639"
+   ],
+   "sources": [
+    "승객유형",
+    "시간대",
+    "혼잡도"
+   ],
+   "shift": 1
+  },
+  {
+   "line": 6,
+   "sourceCode": "2639",
+   "sourceName": "보문",
+   "coordsNameAtThatCode": "창신",
+   "coordsCodeForSameName": [
+    "2640"
+   ],
+   "sources": [
+    "승객유형",
+    "시간대",
+    "혼잡도"
+   ],
+   "shift": 1
+  },
+  {
+   "line": 6,
+   "sourceCode": "2640",
+   "sourceName": "안암(고대병원앞)",
+   "coordsNameAtThatCode": "보문",
+   "coordsCodeForSameName": [
+    "2641"
+   ],
+   "sources": [
+    "승객유형",
+    "시간대",
+    "혼잡도"
+   ],
+   "shift": 1
+  },
+  {
+   "line": 6,
+   "sourceCode": "2641",
+   "sourceName": "고려대(종암)",
+   "coordsNameAtThatCode": "안암",
+   "coordsCodeForSameName": [
+    "2642"
+   ],
+   "sources": [
+    "승객유형",
+    "시간대",
+    "혼잡도"
+   ],
+   "shift": 1
+  },
+  {
+   "line": 6,
+   "sourceCode": "2642",
+   "sourceName": "월곡(동덕여대)",
+   "coordsNameAtThatCode": "고려대",
+   "coordsCodeForSameName": [
+    "2643"
+   ],
+   "sources": [
+    "승객유형",
+    "시간대",
+    "혼잡도"
+   ],
+   "shift": 1
+  },
+  {
+   "line": 6,
+   "sourceCode": "2643",
+   "sourceName": "상월곡(한국과학기술연구원)",
+   "coordsNameAtThatCode": "월곡",
+   "coordsCodeForSameName": [
+    "2644"
+   ],
+   "sources": [
+    "승객유형",
+    "시간대",
+    "혼잡도"
+   ],
+   "shift": 1
+  },
+  {
+   "line": 6,
+   "sourceCode": "2644",
+   "sourceName": "돌곶이",
+   "coordsNameAtThatCode": "상월곡",
+   "coordsCodeForSameName": [
+    "2645"
+   ],
+   "sources": [
+    "승객유형",
+    "시간대",
+    "혼잡도"
+   ],
+   "shift": 1
+  },
+  {
+   "line": 6,
+   "sourceCode": "2645",
+   "sourceName": "석계",
+   "coordsNameAtThatCode": "돌곶이",
+   "coordsCodeForSameName": [
+    "2646"
+   ],
+   "sources": [
+    "승객유형",
+    "시간대",
+    "혼잡도"
+   ],
+   "shift": 1
+  },
+  {
+   "line": 6,
+   "sourceCode": "2646",
+   "sourceName": "태릉입구",
+   "coordsNameAtThatCode": "석계",
+   "coordsCodeForSameName": [
+    "2647"
+   ],
+   "sources": [
+    "승객유형",
+    "시간대",
+    "혼잡도"
+   ],
+   "shift": 1
+  },
+  {
+   "line": 6,
+   "sourceCode": "2647",
+   "sourceName": "화랑대(서울여대입구)",
+   "coordsNameAtThatCode": "태릉입구",
+   "coordsCodeForSameName": [
+    "2648"
+   ],
+   "sources": [
+    "승객유형",
+    "시간대",
+    "혼잡도"
+   ],
+   "shift": 1
+  },
+  {
+   "line": 6,
+   "sourceCode": "2648",
+   "sourceName": "봉화산(서울의료원)",
+   "coordsNameAtThatCode": "화랑대",
+   "coordsCodeForSameName": [
+    "2615"
+   ],
+   "sources": [
+    "승객유형",
+    "시간대",
+    "혼잡도"
+   ],
+   "shift": -33
+  },
+  {
+   "line": 7,
+   "sourceCode": "2730",
+   "sourceName": "자양(뚝섬한강공원)",
+   "coordsNameAtThatCode": "뚝섬유원지",
+   "coordsCodeForSameName": [],
+   "sources": [
+    "승객유형",
+    "시간대",
+    "혼잡도"
+   ],
+   "shift": null
+  },
+  {
+   "line": 7,
+   "sourceCode": "2738",
+   "sourceName": "이수",
+   "coordsNameAtThatCode": "총신대입구",
+   "coordsCodeForSameName": [],
+   "sources": [
+    "승객유형",
+    "시간대",
+    "혼잡도"
+   ],
+   "shift": null
+  }
+ ],
+ "alias": [],
+ "daily_names_without_coords": [
+  "4호선 불암산",
+  "7호선 굴포천",
+  "7호선 까치울",
+  "7호선 부천시청",
+  "7호선 부평구청",
+  "7호선 삼산체육관",
+  "7호선 상동",
+  "7호선 신중동",
+  "7호선 이수",
+  "7호선 자양(뚝섬한강공원)",
+  "7호선 춘의",
+  "8호선 암사역사공원"
+ ],
+ "mismatchByLine": {
+  "4": 1,
+  "6": 34,
+  "7": 2
+ }
+}

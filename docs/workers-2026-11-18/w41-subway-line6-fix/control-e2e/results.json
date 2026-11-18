@@ -1,0 +1,397 @@
+{
+  "config": {
+    "argv": [
+      "/Users/koscom/.local/share/fnm/node-versions/v22.16.0/installation/bin/node",
+      "/private/tmp/claude-501/-Users-koscom-workspace2-seoul-human/10060fb6-3b48-4ffe-bbb3-06f98a2a307f/scratchpad/subway-ctl2/node_modules/.bin/playwright",
+      "test",
+      "--project=desktop-1365",
+      "tests/e2e/subway.spec.mjs",
+      "-g",
+      "6호선"
+    ],
+    "configFile": "/private/tmp/claude-501/-Users-koscom-workspace2-seoul-human/10060fb6-3b48-4ffe-bbb3-06f98a2a307f/scratchpad/subway-ctl2/playwright.config.mjs",
+    "rootDir": "/private/tmp/claude-501/-Users-koscom-workspace2-seoul-human/10060fb6-3b48-4ffe-bbb3-06f98a2a307f/scratchpad/subway-ctl2/tests/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 2
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/koscom/workspace2/seoul-human-subway/docs/workers-2026-11-18/w41-subway-line6-fix/control-e2e/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "id": "desktop-1365",
+        "name": "desktop-1365",
+        "testDir": "/private/tmp/claude-501/-Users-koscom-workspace2-seoul-human/10060fb6-3b48-4ffe-bbb3-06f98a2a307f/scratchpad/subway-ctl2/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 180000
+      },
+      {
+        "outputDir": "/Users/koscom/workspace2/seoul-human-subway/docs/workers-2026-11-18/w41-subway-line6-fix/control-e2e/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "id": "desktop-1920",
+        "name": "desktop-1920",
+        "testDir": "/private/tmp/claude-501/-Users-koscom-workspace2-seoul-human/10060fb6-3b48-4ffe-bbb3-06f98a2a307f/scratchpad/subway-ctl2/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 180000
+      },
+      {
+        "outputDir": "/Users/koscom/workspace2/seoul-human-subway/docs/workers-2026-11-18/w41-subway-line6-fix/control-e2e/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "id": "tablet-1024",
+        "name": "tablet-1024",
+        "testDir": "/private/tmp/claude-501/-Users-koscom-workspace2-seoul-human/10060fb6-3b48-4ffe-bbb3-06f98a2a307f/scratchpad/subway-ctl2/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 180000
+      },
+      {
+        "outputDir": "/Users/koscom/workspace2/seoul-human-subway/docs/workers-2026-11-18/w41-subway-line6-fix/control-e2e/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "id": "mobile-390",
+        "name": "mobile-390",
+        "testDir": "/private/tmp/claude-501/-Users-koscom-workspace2-seoul-human/10060fb6-3b48-4ffe-bbb3-06f98a2a307f/scratchpad/subway-ctl2/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 180000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/koscom/workspace2/seoul-human-subway/docs/workers-2026-11-18/w41-subway-line6-fix/control-e2e/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "name": "desktop-1365",
+        "testDir": "/private/tmp/claude-501/-Users-koscom-workspace2-seoul-human/10060fb6-3b48-4ffe-bbb3-06f98a2a307f/scratchpad/subway-ctl2/tests/e2e",
+        "snapshotDir": "/private/tmp/claude-501/-Users-koscom-workspace2-seoul-human/10060fb6-3b48-4ffe-bbb3-06f98a2a307f/scratchpad/subway-ctl2/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 180000,
+        "use": {
+          "browserName": "chromium",
+          "baseURL": "http://127.0.0.1:4198",
+          "deviceScaleFactor": 1,
+          "screenshot": "only-on-failure",
+          "trace": "retain-on-failure",
+          "actionTimeout": 10000,
+          "viewport": {
+            "width": 1365,
+            "height": 768
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "desktop-1365"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "/Users/koscom/workspace2/seoul-human-subway/docs/workers-2026-11-18/w41-subway-line6-fix/control-e2e/results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.65.1",
+    "workers": 2,
+    "webServer": {
+      "command": "npm run dev -- --host 127.0.0.1 --port 4198 --strictPort",
+      "url": "http://127.0.0.1:4198",
+      "reuseExistingServer": false,
+      "timeout": 30000
+    }
+  },
+  "suites": [
+    {
+      "title": "subway.spec.mjs",
+      "file": "subway.spec.mjs",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "6호선 합정: 시간대 곡선이 이름 기준 원본과 같고 일별 값과 같은 역",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1365",
+              "projectName": "desktop-1365",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 3417,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m20\u001b[39m\nReceived:    \u001b[31m3483.260869565218\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m20\u001b[39m\nReceived:    \u001b[31m3483.260869565218\u001b[39m\n    at /private/tmp/claude-501/-Users-koscom-workspace2-seoul-human/10060fb6-3b48-4ffe-bbb3-06f98a2a307f/scratchpad/subway-ctl2/tests/e2e/subway.spec.mjs:359:45",
+                    "location": {
+                      "file": "/private/tmp/claude-501/-Users-koscom-workspace2-seoul-human/10060fb6-3b48-4ffe-bbb3-06f98a2a307f/scratchpad/subway-ctl2/tests/e2e/subway.spec.mjs",
+                      "column": 45,
+                      "line": 359
+                    },
+                    "snippet": " \u001b[90m 357 |\u001b[39m     \u001b[36mconst\u001b[39m raw \u001b[33m=\u001b[39m rawHourlyWeekday(\u001b[35m2025\u001b[39m\u001b[33m,\u001b[39m \u001b[32m'6호선'\u001b[39m\u001b[33m,\u001b[39m rawName\u001b[33m,\u001b[39m \u001b[32m'2025-01'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 358 |\u001b[39m     expect(raw\u001b[33m.\u001b[39mdays)\u001b[33m.\u001b[39mtoBe(\u001b[35m23\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 359 |\u001b[39m     expect(\u001b[33mMath\u001b[39m\u001b[33m.\u001b[39mabs(hb \u001b[33m-\u001b[39m raw\u001b[33m.\u001b[39mb \u001b[33m/\u001b[39m raw\u001b[33m.\u001b[39mdays))\u001b[33m.\u001b[39mtoBeLessThanOrEqual(\u001b[35m20\u001b[39m)\u001b[33m;\u001b[39m              \u001b[90m// 20개 구간 반올림 오차\u001b[39m\n \u001b[90m     |\u001b[39m                                             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 360 |\u001b[39m     expect(\u001b[33mMath\u001b[39m\u001b[33m.\u001b[39mabs(ha \u001b[33m-\u001b[39m raw\u001b[33m.\u001b[39ma \u001b[33m/\u001b[39m raw\u001b[33m.\u001b[39mdays))\u001b[33m.\u001b[39mtoBeLessThanOrEqual(\u001b[35m20\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 361 |\u001b[39m     \u001b[90m// 같은 역의 일별 합과 시간대 합은 1% 안에서 같아야 한다(코드 어긋남이면 이웃 역 값이 되어 수십 %가 어긋난다)\u001b[39m\n \u001b[90m 362 |\u001b[39m     expect(\u001b[33mMath\u001b[39m\u001b[33m.\u001b[39mabs((hb \u001b[33m+\u001b[39m ha) \u001b[33m-\u001b[39m (day\u001b[33m.\u001b[39mb \u001b[33m+\u001b[39m day\u001b[33m.\u001b[39ma) \u001b[33m/\u001b[39m day\u001b[33m.\u001b[39mdays) \u001b[33m/\u001b[39m ((day\u001b[33m.\u001b[39mb \u001b[33m+\u001b[39m day\u001b[33m.\u001b[39ma) \u001b[33m/\u001b[39m day\u001b[33m.\u001b[39mdays))\u001b[33m.\u001b[39mtoBeLessThan(\u001b[35m0.02\u001b[39m)\u001b[33m;\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/private/tmp/claude-501/-Users-koscom-workspace2-seoul-human/10060fb6-3b48-4ffe-bbb3-06f98a2a307f/scratchpad/subway-ctl2/tests/e2e/subway.spec.mjs",
+                        "column": 45,
+                        "line": 359
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m20\u001b[39m\nReceived:    \u001b[31m3483.260869565218\u001b[39m\n\n  357 |     const raw = rawHourlyWeekday(2025, '6호선', rawName, '2025-01');\n  358 |     expect(raw.days).toBe(23);\n> 359 |     expect(Math.abs(hb - raw.b / raw.days)).toBeLessThanOrEqual(20);              // 20개 구간 반올림 오차\n      |                                             ^\n  360 |     expect(Math.abs(ha - raw.a / raw.days)).toBeLessThanOrEqual(20);\n  361 |     // 같은 역의 일별 합과 시간대 합은 1% 안에서 같아야 한다(코드 어긋남이면 이웃 역 값이 되어 수십 %가 어긋난다)\n  362 |     expect(Math.abs((hb + ha) - (day.b + day.a) / day.days) / ((day.b + day.a) / day.days)).toBeLessThan(0.02);\n    at /private/tmp/claude-501/-Users-koscom-workspace2-seoul-human/10060fb6-3b48-4ffe-bbb3-06f98a2a307f/scratchpad/subway-ctl2/tests/e2e/subway.spec.mjs:359:45"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T08:26:19.591Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/koscom/workspace2/seoul-human-subway/docs/workers-2026-11-18/w41-subway-line6-fix/control-e2e/test-results/subway-6호선-합정-시간대-곡선이-이름-기준-원본과-같고-일별-값과-같은-역-desktop-1365/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/koscom/workspace2/seoul-human-subway/docs/workers-2026-11-18/w41-subway-line6-fix/control-e2e/test-results/subway-6호선-합정-시간대-곡선이-이름-기준-원본과-같고-일별-값과-같은-역-desktop-1365/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/koscom/workspace2/seoul-human-subway/docs/workers-2026-11-18/w41-subway-line6-fix/control-e2e/test-results/subway-6호선-합정-시간대-곡선이-이름-기준-원본과-같고-일별-값과-같은-역-desktop-1365/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/private/tmp/claude-501/-Users-koscom-workspace2-seoul-human/10060fb6-3b48-4ffe-bbb3-06f98a2a307f/scratchpad/subway-ctl2/tests/e2e/subway.spec.mjs",
+                    "column": 45,
+                    "line": 359
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "4db0a206acbf6bc269e6-fbeff14a6f5621d40c83",
+          "file": "subway.spec.mjs",
+          "line": 342,
+          "column": 3
+        },
+        {
+          "title": "6호선 상수: 시간대 곡선이 이름 기준 원본과 같고 일별 값과 같은 역",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1365",
+              "projectName": "desktop-1365",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "failed",
+                  "duration": 3417,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m20\u001b[39m\nReceived:    \u001b[31m126.21739130434798\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m20\u001b[39m\nReceived:    \u001b[31m126.21739130434798\u001b[39m\n    at /private/tmp/claude-501/-Users-koscom-workspace2-seoul-human/10060fb6-3b48-4ffe-bbb3-06f98a2a307f/scratchpad/subway-ctl2/tests/e2e/subway.spec.mjs:359:45",
+                    "location": {
+                      "file": "/private/tmp/claude-501/-Users-koscom-workspace2-seoul-human/10060fb6-3b48-4ffe-bbb3-06f98a2a307f/scratchpad/subway-ctl2/tests/e2e/subway.spec.mjs",
+                      "column": 45,
+                      "line": 359
+                    },
+                    "snippet": " \u001b[90m 357 |\u001b[39m     \u001b[36mconst\u001b[39m raw \u001b[33m=\u001b[39m rawHourlyWeekday(\u001b[35m2025\u001b[39m\u001b[33m,\u001b[39m \u001b[32m'6호선'\u001b[39m\u001b[33m,\u001b[39m rawName\u001b[33m,\u001b[39m \u001b[32m'2025-01'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 358 |\u001b[39m     expect(raw\u001b[33m.\u001b[39mdays)\u001b[33m.\u001b[39mtoBe(\u001b[35m23\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 359 |\u001b[39m     expect(\u001b[33mMath\u001b[39m\u001b[33m.\u001b[39mabs(hb \u001b[33m-\u001b[39m raw\u001b[33m.\u001b[39mb \u001b[33m/\u001b[39m raw\u001b[33m.\u001b[39mdays))\u001b[33m.\u001b[39mtoBeLessThanOrEqual(\u001b[35m20\u001b[39m)\u001b[33m;\u001b[39m              \u001b[90m// 20개 구간 반올림 오차\u001b[39m\n \u001b[90m     |\u001b[39m                                             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 360 |\u001b[39m     expect(\u001b[33mMath\u001b[39m\u001b[33m.\u001b[39mabs(ha \u001b[33m-\u001b[39m raw\u001b[33m.\u001b[39ma \u001b[33m/\u001b[39m raw\u001b[33m.\u001b[39mdays))\u001b[33m.\u001b[39mtoBeLessThanOrEqual(\u001b[35m20\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 361 |\u001b[39m     \u001b[90m// 같은 역의 일별 합과 시간대 합은 1% 안에서 같아야 한다(코드 어긋남이면 이웃 역 값이 되어 수십 %가 어긋난다)\u001b[39m\n \u001b[90m 362 |\u001b[39m     expect(\u001b[33mMath\u001b[39m\u001b[33m.\u001b[39mabs((hb \u001b[33m+\u001b[39m ha) \u001b[33m-\u001b[39m (day\u001b[33m.\u001b[39mb \u001b[33m+\u001b[39m day\u001b[33m.\u001b[39ma) \u001b[33m/\u001b[39m day\u001b[33m.\u001b[39mdays) \u001b[33m/\u001b[39m ((day\u001b[33m.\u001b[39mb \u001b[33m+\u001b[39m day\u001b[33m.\u001b[39ma) \u001b[33m/\u001b[39m day\u001b[33m.\u001b[39mdays))\u001b[33m.\u001b[39mtoBeLessThan(\u001b[35m0.02\u001b[39m)\u001b[33m;\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/private/tmp/claude-501/-Users-koscom-workspace2-seoul-human/10060fb6-3b48-4ffe-bbb3-06f98a2a307f/scratchpad/subway-ctl2/tests/e2e/subway.spec.mjs",
+                        "column": 45,
+                        "line": 359
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m20\u001b[39m\nReceived:    \u001b[31m126.21739130434798\u001b[39m\n\n  357 |     const raw = rawHourlyWeekday(2025, '6호선', rawName, '2025-01');\n  358 |     expect(raw.days).toBe(23);\n> 359 |     expect(Math.abs(hb - raw.b / raw.days)).toBeLessThanOrEqual(20);              // 20개 구간 반올림 오차\n      |                                             ^\n  360 |     expect(Math.abs(ha - raw.a / raw.days)).toBeLessThanOrEqual(20);\n  361 |     // 같은 역의 일별 합과 시간대 합은 1% 안에서 같아야 한다(코드 어긋남이면 이웃 역 값이 되어 수십 %가 어긋난다)\n  362 |     expect(Math.abs((hb + ha) - (day.b + day.a) / day.days) / ((day.b + day.a) / day.days)).toBeLessThan(0.02);\n    at /private/tmp/claude-501/-Users-koscom-workspace2-seoul-human/10060fb6-3b48-4ffe-bbb3-06f98a2a307f/scratchpad/subway-ctl2/tests/e2e/subway.spec.mjs:359:45"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T08:26:19.586Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/koscom/workspace2/seoul-human-subway/docs/workers-2026-11-18/w41-subway-line6-fix/control-e2e/test-results/subway-6호선-상수-시간대-곡선이-이름-기준-원본과-같고-일별-값과-같은-역-desktop-1365/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/koscom/workspace2/seoul-human-subway/docs/workers-2026-11-18/w41-subway-line6-fix/control-e2e/test-results/subway-6호선-상수-시간대-곡선이-이름-기준-원본과-같고-일별-값과-같은-역-desktop-1365/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/koscom/workspace2/seoul-human-subway/docs/workers-2026-11-18/w41-subway-line6-fix/control-e2e/test-results/subway-6호선-상수-시간대-곡선이-이름-기준-원본과-같고-일별-값과-같은-역-desktop-1365/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/private/tmp/claude-501/-Users-koscom-workspace2-seoul-human/10060fb6-3b48-4ffe-bbb3-06f98a2a307f/scratchpad/subway-ctl2/tests/e2e/subway.spec.mjs",
+                    "column": 45,
+                    "line": 359
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "4db0a206acbf6bc269e6-05fcc1e56908672bb905",
+          "file": "subway.spec.mjs",
+          "line": 342,
+          "column": 3
+        },
+        {
+          "title": "6호선 광흥창: 시간대 곡선이 이름 기준 원본과 같고 일별 값과 같은 역",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1365",
+              "projectName": "desktop-1365",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 1,
+                  "status": "failed",
+                  "duration": 2937,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m20\u001b[39m\nReceived:    \u001b[31m648.95652173913\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m20\u001b[39m\nReceived:    \u001b[31m648.95652173913\u001b[39m\n    at /private/tmp/claude-501/-Users-koscom-workspace2-seoul-human/10060fb6-3b48-4ffe-bbb3-06f98a2a307f/scratchpad/subway-ctl2/tests/e2e/subway.spec.mjs:359:45",
+                    "location": {
+                      "file": "/private/tmp/claude-501/-Users-koscom-workspace2-seoul-human/10060fb6-3b48-4ffe-bbb3-06f98a2a307f/scratchpad/subway-ctl2/tests/e2e/subway.spec.mjs",
+                      "column": 45,
+                      "line": 359
+                    },
+                    "snippet": " \u001b[90m 357 |\u001b[39m     \u001b[36mconst\u001b[39m raw \u001b[33m=\u001b[39m rawHourlyWeekday(\u001b[35m2025\u001b[39m\u001b[33m,\u001b[39m \u001b[32m'6호선'\u001b[39m\u001b[33m,\u001b[39m rawName\u001b[33m,\u001b[39m \u001b[32m'2025-01'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 358 |\u001b[39m     expect(raw\u001b[33m.\u001b[39mdays)\u001b[33m.\u001b[39mtoBe(\u001b[35m23\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 359 |\u001b[39m     expect(\u001b[33mMath\u001b[39m\u001b[33m.\u001b[39mabs(hb \u001b[33m-\u001b[39m raw\u001b[33m.\u001b[39mb \u001b[33m/\u001b[39m raw\u001b[33m.\u001b[39mdays))\u001b[33m.\u001b[39mtoBeLessThanOrEqual(\u001b[35m20\u001b[39m)\u001b[33m;\u001b[39m              \u001b[90m// 20개 구간 반올림 오차\u001b[39m\n \u001b[90m     |\u001b[39m                                             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 360 |\u001b[39m     expect(\u001b[33mMath\u001b[39m\u001b[33m.\u001b[39mabs(ha \u001b[33m-\u001b[39m raw\u001b[33m.\u001b[39ma \u001b[33m/\u001b[39m raw\u001b[33m.\u001b[39mdays))\u001b[33m.\u001b[39mtoBeLessThanOrEqual(\u001b[35m20\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 361 |\u001b[39m     \u001b[90m// 같은 역의 일별 합과 시간대 합은 1% 안에서 같아야 한다(코드 어긋남이면 이웃 역 값이 되어 수십 %가 어긋난다)\u001b[39m\n \u001b[90m 362 |\u001b[39m     expect(\u001b[33mMath\u001b[39m\u001b[33m.\u001b[39mabs((hb \u001b[33m+\u001b[39m ha) \u001b[33m-\u001b[39m (day\u001b[33m.\u001b[39mb \u001b[33m+\u001b[39m day\u001b[33m.\u001b[39ma) \u001b[33m/\u001b[39m day\u001b[33m.\u001b[39mdays) \u001b[33m/\u001b[39m ((day\u001b[33m.\u001b[39mb \u001b[33m+\u001b[39m day\u001b[33m.\u001b[39ma) \u001b[33m/\u001b[39m day\u001b[33m.\u001b[39mdays))\u001b[33m.\u001b[39mtoBeLessThan(\u001b[35m0.02\u001b[39m)\u001b[33m;\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/private/tmp/claude-501/-Users-koscom-workspace2-seoul-human/10060fb6-3b48-4ffe-bbb3-06f98a2a307f/scratchpad/subway-ctl2/tests/e2e/subway.spec.mjs",
+                        "column": 45,
+                        "line": 359
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m20\u001b[39m\nReceived:    \u001b[31m648.95652173913\u001b[39m\n\n  357 |     const raw = rawHourlyWeekday(2025, '6호선', rawName, '2025-01');\n  358 |     expect(raw.days).toBe(23);\n> 359 |     expect(Math.abs(hb - raw.b / raw.days)).toBeLessThanOrEqual(20);              // 20개 구간 반올림 오차\n      |                                             ^\n  360 |     expect(Math.abs(ha - raw.a / raw.days)).toBeLessThanOrEqual(20);\n  361 |     // 같은 역의 일별 합과 시간대 합은 1% 안에서 같아야 한다(코드 어긋남이면 이웃 역 값이 되어 수십 %가 어긋난다)\n  362 |     expect(Math.abs((hb + ha) - (day.b + day.a) / day.days) / ((day.b + day.a) / day.days)).toBeLessThan(0.02);\n    at /private/tmp/claude-501/-Users-koscom-workspace2-seoul-human/10060fb6-3b48-4ffe-bbb3-06f98a2a307f/scratchpad/subway-ctl2/tests/e2e/subway.spec.mjs:359:45"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T08:26:23.732Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/koscom/workspace2/seoul-human-subway/docs/workers-2026-11-18/w41-subway-line6-fix/control-e2e/test-results/subway-6호선-광흥창-시간대-곡선이-이름-기준-원본과-같고-일별-값과-같은-역-desktop-1365/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/koscom/workspace2/seoul-human-subway/docs/workers-2026-11-18/w41-subway-line6-fix/control-e2e/test-results/subway-6호선-광흥창-시간대-곡선이-이름-기준-원본과-같고-일별-값과-같은-역-desktop-1365/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/Users/koscom/workspace2/seoul-human-subway/docs/workers-2026-11-18/w41-subway-line6-fix/control-e2e/test-results/subway-6호선-광흥창-시간대-곡선이-이름-기준-원본과-같고-일별-값과-같은-역-desktop-1365/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/private/tmp/claude-501/-Users-koscom-workspace2-seoul-human/10060fb6-3b48-4ffe-bbb3-06f98a2a307f/scratchpad/subway-ctl2/tests/e2e/subway.spec.mjs",
+                    "column": 45,
+                    "line": 359
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "4db0a206acbf6bc269e6-e130785696a72d8d6108",
+          "file": "subway.spec.mjs",
+          "line": 342,
+          "column": 3
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-18T08:26:18.794Z",
+    "duration": 8293.925000000001,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 3,
+    "flaky": 0
+  }
+}

@@ -1,0 +1,143 @@
+{
+ "generatedAt": "2026-11-18T07:44:46.166Z",
+ "project": "desktop-1920",
+ "mode": "presentation",
+ "results": [
+  {
+   "project": "desktop-1920",
+   "name": "presentation/equal-size",
+   "topics": 4,
+   "modes": 2,
+   "views": 7
+  },
+  {
+   "project": "desktop-1920",
+   "name": "presentation/지도",
+   "fontSizes": [
+    18,
+    24
+   ],
+   "contrastMin": 4.79,
+   "contrastTexts": 78
+  },
+  {
+   "project": "desktop-1920",
+   "name": "presentation/범례 열림",
+   "fontSizes": [
+    18,
+    24
+   ],
+   "contrastMin": 4.79,
+   "contrastTexts": 87
+  },
+  {
+   "project": "desktop-1920",
+   "name": "presentation/semantic-강남",
+   "rawDays": 131,
+   "rawBoardingPerDay": 89305,
+   "shown": 89305
+  },
+  {
+   "project": "desktop-1920",
+   "name": "presentation/semantic-transfer-서울역",
+   "shownSum": 180948,
+   "rawSum": 180948
+  },
+  {
+   "project": "desktop-1920",
+   "name": "presentation/시간대 곡선",
+   "fontSizes": [
+    14,
+    18,
+    24
+   ],
+   "contrastMin": 5.43,
+   "contrastTexts": 76
+  },
+  {
+   "project": "desktop-1920",
+   "name": "presentation/일별 달력·요일",
+   "fontSizes": [
+    14,
+    18,
+    24
+   ],
+   "contrastMin": 4.94,
+   "contrastTexts": 147
+  },
+  {
+   "project": "desktop-1920",
+   "name": "presentation/월별·계절 비교",
+   "fontSizes": [
+    14,
+    18,
+    24
+   ],
+   "contrastMin": 5.43,
+   "contrastTexts": 128
+  },
+  {
+   "project": "desktop-1920",
+   "name": "presentation/승객 유형",
+   "fontSizes": [
+    14,
+    18,
+    24
+   ],
+   "contrastMin": 5.43,
+   "contrastTexts": 89
+  },
+  {
+   "project": "desktop-1920",
+   "name": "presentation/성별",
+   "fontSizes": [
+    18,
+    24
+   ],
+   "contrastMin": 4.79,
+   "contrastTexts": 60
+  },
+  {
+   "project": "desktop-1920",
+   "name": "presentation/OD 준비 중",
+   "fontSizes": [
+    18,
+    24
+   ],
+   "contrastMin": 4.79,
+   "contrastTexts": 60
+  },
+  {
+   "project": "desktop-1920",
+   "name": "presentation/출처 팝오버",
+   "fontSizes": [
+    14,
+    18,
+    24
+   ],
+   "contrastMin": 4.79,
+   "contrastTexts": 122
+  },
+  {
+   "project": "desktop-1920",
+   "name": "presentation/혼잡도 곡선",
+   "fontSizes": [
+    14,
+    18,
+    24
+   ],
+   "contrastMin": 6.07,
+   "contrastTexts": 55
+  },
+  {
+   "project": "desktop-1920",
+   "name": "presentation/혼잡 상위 역",
+   "fontSizes": [
+    18,
+    24
+   ],
+   "contrastMin": 6.07,
+   "contrastTexts": 101
+  }
+ ]
+}

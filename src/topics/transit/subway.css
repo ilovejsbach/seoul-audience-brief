@@ -1,0 +1,135 @@
+/* 지하철 작업공간. w20 목업의 토큰·배치를 따른다. 글자 크기는 6종(분석)/4종(시연)만 쓴다. */
+.sw{--ink:#152b43;--text:#33465c;--muted:#536477;--blue:#24558b;--blue-dark:#173e69;--line:#c8d3df;--edge:#aabbd0;--ground:#f3f5f7;--tint:#edf3f9;--disabled:#edf1f5;--disabled-text:#5b6b80;--warm:#b4530a;
+  --fs-meta:12px;--fs-cond:14px;--fs-body:16px;--fs-panel:20px;--fs-title:28px;--fs-kpi:36px;
+  overflow:hidden;display:flex;flex-direction:column;background:var(--ground);color:var(--text);font-family:var(--font-ui);font-size:var(--fs-cond);line-height:1.6;box-sizing:border-box}
+.sw.sw-presentation{--fs-meta:14px;--fs-cond:14px;--fs-body:18px;--fs-panel:24px;--fs-title:24px;--fs-kpi:36px}
+.sw *{box-sizing:border-box;font-family:var(--font-ui)}
+.sw button,.sw select,.sw input{font-size:var(--fs-cond);color:var(--blue);background:#fff;border:1px solid var(--edge);border-radius:4px;min-height:36px;font-weight:600}
+.sw.sw-presentation button,.sw.sw-presentation select,.sw.sw-presentation input{font-size:var(--fs-body)}
+.sw button{cursor:pointer;padding:0 12px;white-space:nowrap}
+.sw button:hover:not(:disabled){background:var(--tint);border-color:#6889af}
+.sw button:disabled{opacity:1;background:var(--disabled);color:var(--disabled-text);cursor:not-allowed}
+.sw :focus-visible{outline:3px solid var(--warm);outline-offset:2px}
+.sw button[aria-pressed=true],.sw button[aria-current=page],.sw button[aria-current=true]{background:var(--blue-dark);border-color:var(--blue-dark);color:#fff}
+.sw input,.sw select{color:var(--ink);font-weight:500;padding:0 8px}
+.sw a{color:var(--blue)}
+.swSeg{display:inline-grid;grid-auto-flow:column;gap:0;border:1px solid var(--edge);border-radius:4px;overflow:hidden}
+.sw .swSegBtn{border:0;border-radius:0;min-width:72px;height:36px}
+.swIconBtn{width:36px;padding:0!important}
+.swAnchor{position:relative}
+.swPopover{position:absolute;z-index:30;min-width:260px;max-width:420px;padding:12px 16px;background:#fff;border:1px solid var(--edge);border-radius:4px;box-shadow:0 4px 16px rgba(21,43,67,.18);white-space:normal;color:var(--text);font-size:var(--fs-cond)}
+.sw-presentation .swPopover{font-size:var(--fs-cond)}
+.swPopover p,.swPopover ul{margin:8px 0}.swPopover ul{padding-left:18px}
+.swSourcePop{right:0;bottom:44px;width:420px;max-height:70vh;overflow:auto}
+.swWorkspace{flex:1;display:grid;grid-template-columns:var(--left) minmax(0,1fr) var(--right);grid-template-rows:minmax(0,1fr);min-height:0}
+.swLeft,.swRight{background:#fff;overflow:auto}
+.swLeft{border-right:1px solid var(--line)}.swRight{border-left:1px solid var(--line);width:300px}
+.swRight[hidden]{display:none}
+.swSideHead{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:12px 10px;border-bottom:1px solid var(--line);color:var(--ink);font-size:var(--fs-body);min-height:56px}
+.swGroupTitle{padding:12px 16px 4px;color:var(--muted);font-size:var(--fs-meta)}
+.sw-presentation .swGroupTitle{font-size:var(--fs-meta)}
+.swMenu{list-style:none;margin:0;padding:0 10px}
+.swMenu li{margin:0 0 4px}
+.sw .swMenuBtn{width:100%;height:40px;justify-content:flex-start;text-align:left;border-color:transparent;overflow:hidden;font-size:var(--fs-cond)}
+.sw.sw-presentation .swMenuBtn{font-size:var(--fs-body)}
+.swCenter{height:100%;padding:16px;min-width:0;display:flex;flex-direction:column;gap:12px;overflow:hidden}
+.swQuery{display:flex;flex-wrap:nowrap;align-items:center;gap:8px;overflow:hidden;padding:8px;background:#fff;border:1px solid var(--line);border-radius:4px}
+.swField{display:flex;align-items:center;gap:6px;flex:0 1 auto;min-width:0;color:var(--muted);font-size:var(--fs-cond)}
+.swField>span:first-child{font-size:var(--fs-cond);white-space:nowrap}
+.swPair{display:inline-flex;align-items:center;gap:4px}.swPair i{font-style:normal}
+.swPair input{min-width:0;width:150px}
+.swResult{flex:1;min-height:0;display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:4px}
+.swResultHead{display:flex;justify-content:space-between;gap:12px;padding:12px 16px;border-bottom:1px solid var(--line)}
+.swTitle{margin:0;color:var(--ink);font-size:var(--fs-title);line-height:1.4}
+.sw.sw-analysis .swTitle{font-size:var(--fs-panel)}
+.swSub{margin:0;color:var(--muted);font-size:var(--fs-cond)}
+.swResultTools{display:flex;gap:8px;align-items:flex-start;flex-wrap:wrap;justify-content:flex-end}
+.swBody{flex:1;min-height:0;padding:12px 16px;display:flex;flex-direction:column;overflow:auto}
+.swBody>*{flex:1;min-width:0;min-height:0}
+.swMapArea,.swMapWrap{display:flex;flex-direction:column;gap:8px;min-height:0;position:relative}
+.swMapArea{overflow:hidden}
+.swMapWrap{flex:1}
+.swMapTools{display:flex;gap:8px;justify-content:flex-end;align-items:center;flex-wrap:wrap}
+.swZoomGroup{display:inline-flex;gap:4px;align-items:center}.swZoomValue{min-width:48px;text-align:center;color:var(--ink);font-size:var(--fs-cond)}
+.swLegendBar{display:flex;width:200px;height:10px;align-self:flex-end}.swLegendBar i{flex:1}
+.swLegendPop{right:0;top:44px}
+.swLegendPop li{list-style:none;display:flex;align-items:center;gap:8px}.swLegendPop ul{padding:0}.swLegendPop i{display:inline-block;width:16px;height:12px;border:1px solid var(--edge)}
+.swMapBox{flex:1;min-height:0;position:relative;background:var(--tint);border:1px solid var(--line);border-radius:4px;overflow:hidden;touch-action:none;cursor:grab}
+.swGu{fill:#fff;stroke:#9fb3c8;stroke-width:1;vector-effect:non-scaling-stroke}
+.swDot{cursor:pointer}
+.swMapLabel{font-size:var(--fs-cond);fill:var(--ink);font-weight:600}
+.swTip{position:absolute;left:8px;bottom:8px;padding:4px 8px;background:#fff;border:1px solid var(--edge);border-radius:4px;color:var(--ink);font-size:var(--fs-cond);pointer-events:none}
+.swMapNote,.swMeta{margin:0;color:var(--muted);font-size:var(--fs-meta);line-height:1.6}
+.sw-presentation .swMapNote,.sw-presentation .swMeta{font-size:var(--fs-meta)}
+.swChartBox{flex:1;min-height:200px;position:relative}
+.swChartBox svg,.swMapBox>svg{position:absolute;left:0;top:0;display:block}
+.swChartPanel{display:flex;flex-direction:column;gap:8px;min-height:280px;min-width:0;border:1px solid var(--line);border-radius:4px;padding:12px 16px;background:#fff}
+.swChartPanel .swChartBox{flex:1}
+.swPanelTitle{margin:0;color:var(--ink);font-size:var(--fs-panel);line-height:1.4}
+.swPanelRow{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+.swGrid{stroke:#d9e1ea;stroke-width:1}
+.swAxis{font-size:var(--fs-meta);fill:var(--muted)}
+.sw-presentation .swAxis{font-size:var(--fs-meta)}
+.swBarValue{font-size:var(--fs-meta);fill:var(--ink);font-weight:600}
+.swSeriesLegend{display:flex;gap:16px;margin:0;padding:0;list-style:none;font-size:var(--fs-cond);color:var(--ink)}
+.swSeriesLegend i{display:inline-block;width:18px;height:4px;margin-right:6px;vertical-align:middle}
+.swEmpty,.swPlaceholder{display:grid;place-items:center;align-content:center;gap:8px;min-height:200px;padding:16px;text-align:center;color:var(--text);font-size:var(--fs-body)}
+.swPlaceholder p{margin:0;max-width:640px}.swStrong{color:var(--ink);font-size:var(--fs-panel);font-weight:600}
+.swNotice{margin:8px 16px 0;padding:8px 12px;background:#fff4e5;border:1px solid var(--warm);color:var(--ink);border-radius:4px;font-size:var(--fs-cond)}
+.swWarn{margin:0;padding:8px 12px;background:#fff4e5;border:1px solid var(--warm);border-radius:4px;color:var(--ink);font-size:var(--fs-cond)}
+.swCalWrap,.swSeasonWrap,.swTypesWrap{display:grid;gap:12px;align-content:start;flex:0 0 auto}
+.swCalWrap{grid-template-columns:minmax(0,1.3fr) minmax(0,1fr)}
+.swCalGrid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px}
+.swCalHead{text-align:center;color:var(--muted);font-size:var(--fs-cond)}
+.swCalCell{display:flex;flex-direction:column;justify-content:space-between;min-height:56px;padding:4px 6px;border-radius:4px;font-size:var(--fs-meta)}
+.swCalCell span{font-size:var(--fs-meta)}.swCalCell b{font-size:var(--fs-cond)}
+.sw-presentation .swCalCell span,.sw-presentation .swCalCell b{font-size:var(--fs-meta)}
+.swTable{width:100%;border-collapse:collapse;font-size:var(--fs-cond);color:var(--text)}
+.swTable th,.swTable td{padding:6px 8px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;font-weight:500}
+.swTable thead th{color:var(--muted);font-size:var(--fs-cond)}.swTable tbody th{color:var(--ink);font-weight:600}
+.swSeasonTable td b{display:block;color:var(--ink);font-variant-numeric:tabular-nums}.swSeasonTable td span{color:var(--muted);font-size:var(--fs-meta)}
+.sw .swLink{border:0;background:none;color:var(--blue);padding:0;min-height:0;text-decoration:underline}
+.swRight{display:block}
+.swSection{padding:12px 16px;border-bottom:1px solid var(--line)}
+.swLabel{display:flex;justify-content:space-between;color:var(--muted);font-size:var(--fs-cond)}
+.swLabel span{color:var(--muted)}
+.swSelName{color:var(--ink);font-size:var(--fs-panel);font-weight:600;line-height:1.4}
+.swKpiValue{color:var(--ink);font-size:var(--fs-kpi);line-height:1.3;font-weight:600;font-variant-numeric:tabular-nums}.swKpiValue span{font-size:var(--fs-cond);margin-left:4px;font-weight:500}
+.swGroupBox{margin-top:8px;padding:8px;background:var(--tint);border-radius:4px}.swGroupBox ul{margin:4px 0;padding:0;list-style:none}.swGroupBox li{display:flex;justify-content:space-between;gap:8px;font-size:var(--fs-cond)}.swSum{border-top:1px solid var(--edge);margin-top:4px;padding-top:4px}
+.swCand{display:flex;align-items:center;justify-content:space-between;gap:4px;min-height:36px;margin:4px 0;padding:0 8px;border:1px solid var(--line);border-radius:4px;font-size:var(--fs-cond);color:var(--text)}
+.sw .swCandName{border:0;background:none;padding:0;min-height:0;text-align:left;overflow:hidden;text-overflow:ellipsis;max-width:150px}
+.swWide{width:100%;margin-top:4px}
+.swRank{list-style:none;margin:4px 0 0;padding:0}.swRank li{margin:2px 0}
+.sw .swRank button{width:100%;height:32px;display:flex;align-items:center;gap:8px;border-color:transparent;font-weight:500;color:var(--ink)}
+.swRank button span{width:20px;color:var(--muted)}.swRank button[aria-current=true] span{color:#fff}.swRank button b{margin-left:auto;font-variant-numeric:tabular-nums}
+.swSource .swBtn{margin-top:8px}
+
+.sw .swRank button[aria-current=true],.sw .swRank button[aria-current=true] b,.sw .swRank button[aria-current=true] span{color:#fff}
+
+.sw button[aria-pressed=true]:hover:not(:disabled),.sw button[aria-current=page]:hover:not(:disabled),.sw button[aria-current=true]:hover:not(:disabled){background:var(--blue-dark);border-color:var(--blue-dark);color:#fff}
+
+.sw .swCalCell.swDark,.sw .swCalCell.swDark *{color:#fff!important}
+.sw .swCalCell.swLight,.sw .swCalCell.swLight *{color:#152b43!important}
+
+.app.service-transport main{max-width:none;margin:0;padding:0}
+.sw .swQuery{flex-wrap:wrap;overflow:visible}
+.sw .swField select,.sw .swField input{min-width:0;width:auto}
+.sw .swPair input{width:150px}
+.sw .swLeft.swCollapsed .swMenu{padding:0 8px}
+.sw .swLeft.swCollapsed .swMenuBtn{padding:0;justify-content:center;text-align:center}
+.sw .swLeft.swCollapsed .swMenu+.swMenu,.sw .swLeft.swCollapsed nav>.swMenu:not(:first-of-type){margin-top:8px}
+
+/* 한 줄 조회 바(주 인포그래픽 우선): 라벨은 기간·역만, 나머지는 자기설명 선택지 */
+.sw .swQuery{flex-wrap:nowrap;gap:6px;padding:6px 8px}
+.sw .swQuery select{max-width:112px;padding:0 4px}
+.sw .swQuery select[aria-label$="월"]{max-width:84px}
+.sw .swPair input{width:132px}
+.sw .swField{gap:4px}
+.sw .swQuery.swFloat{position:fixed;z-index:25;width:380px;flex-wrap:wrap;overflow:visible;padding:0 12px 12px;box-shadow:0 6px 24px rgba(21,43,67,.28);border:1px solid var(--blue)}
+.sw .swFloatHead{flex:0 0 calc(100% + 24px);display:flex;align-items:center;gap:8px;min-height:44px;margin:0 -12px 4px;padding:0 12px;background:var(--tint);border-bottom:1px solid var(--line);cursor:move;touch-action:none;color:var(--ink);font-size:var(--fs-cond)}
+.sw .swFloatHead .swBtn{margin-left:auto;cursor:pointer}
+.sw .swQuery.swFloat .swField{flex:0 0 auto}
+.sw.sw-presentation .swQuery select[aria-label$="월"]{max-width:116px}
+.sw.sw-presentation .swQuery select{max-width:130px}
+
+.sw .swWorkspace>.workspaceNav{overflow:hidden}
