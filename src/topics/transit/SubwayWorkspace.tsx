@@ -3,27 +3,17 @@ import './subway.css';
 import {subwayData,type Boundary,type Crowding,type Hourly,type Monthly,type PassengerTypes,type Station,type Stations,type SubwayManifest,type DailyFile} from './subway-data';
 import {PASSENGER_GROUPS,SEASONS,WEEKDAYS,fmt,monthLabel,monthsInPeriod,seasonSummary,stationMetric,sumNullable,toCsv,weekdayMeans,weekdayIndex,type DayType,type Kind} from './subway-model';
 import WorkspaceNav from '../../WorkspaceNav';
-import SubwayMap,{LINE_COLORS,type MapPoint} from './SubwayMap';
+import {useLoad} from './use-load';
+import {StationTrend,PeriodCompare,SamePeriod,CandidateTrend} from './SubwayDetailViews';
+import SubwayMap,{type MapPoint} from './SubwayMap';
 import {BarChart,LineChart,compact} from './SubwayCharts';
 
 type Dataset='usage'|'crowding';
-type ViewId='map'|'hourly'|'calendar'|'season'|'types'|'gender'|'od'|'crowd-curve'|'crowd-rank';
-const USAGE_VIEWS:{id:ViewId;label:string}[]=[{id:'map',label:'지도'},{id:'hourly',label:'시간대 곡선'},{id:'calendar',label:'일별 달력·요일'},{id:'season',label:'월별·계절 비교'},{id:'types',label:'승객 유형'},{id:'gender',label:'성별'},{id:'od',label:'출발·도착(OD)'}];
+type ViewId='trend'|'compare'|'sameperiod'|'cands'|'map'|'hourly'|'calendar'|'season'|'types'|'gender'|'od'|'crowd-curve'|'crowd-rank';
+const USAGE_VIEWS:{id:ViewId;label:string}[]=[{id:'map',label:'지도'},{id:'hourly',label:'시간대 곡선'},{id:'calendar',label:'일별 달력·요일'},{id:'season',label:'월별·계절 비교'},{id:'trend',label:'선택 역 추이'},{id:'compare',label:'두 기간 비교'},{id:'sameperiod',label:'연도별 같은 시기'},{id:'cands',label:'후보 역 비교'},{id:'types',label:'승객 유형'},{id:'gender',label:'성별'},{id:'od',label:'출발·도착(OD)'}];
 const CROWD_VIEWS:{id:ViewId;label:string}[]=[{id:'crowd-curve',label:'30분 혼잡도 곡선'},{id:'crowd-rank',label:'혼잡 상위 역'}];
 const KIND_LABEL:Record<Kind,string>={b:'승차',a:'하차',ab:'승차+하차'};
 const DAY_LABEL:Record<DayType,string>={all:'전체 요일',wd:'평일',we:'주말'};
-
-type Load<T>={data:T|null;error:string;loading:boolean};
-function useLoad<T>(fn:(()=>Promise<T>)|null,deps:unknown[]):Load<T>{
-  const [s,setS]=useState<Load<T>>({data:null,error:'',loading:!!fn});
-  useEffect(()=>{
-    if(!fn){setS({data:null,error:'',loading:false});return}
-    let alive=true;setS(p=>({data:p.data,error:'',loading:true}));
-    fn().then(d=>alive&&setS({data:d,error:'',loading:false}),e=>alive&&setS({data:null,error:String(e?.message||e),loading:false}));
-    return()=>{alive=false};
-  },deps);// eslint-disable-line
-  return s;
-}
 
 export default function SubwayWorkspace({mode,active}:{mode:'analysis'|'presentation';active:boolean}){
   const rootRef=useRef<HTMLDivElement>(null);
@@ -74,6 +64,10 @@ export default function SubwayWorkspace({mode,active}:{mode:'analysis'|'presenta
     const m=monthlyL.data;if(!m)return [] as MapPoint[];
     return stations.filter(s=>line==='all'||s.line===line).map(s=>({station:s,value:m.stations[s.id]?stationMetric(m.stations[s.id],idx,kind,day).perDay:null}));
   },[monthlyL.data,stations,line,idx,kind,day]);
+  // 지도는 모든 노선을 그리고(선택 안 한 노선은 흐리게), 순위·CSV·합계는 조회 조건(호선)대로 그대로 둔다.
+  const allPoints=useMemo(()=>{const m=monthlyL.data;return m?stations.map(s=>({station:s,value:m.stations[s.id]?stationMetric(m.stations[s.id],idx,kind,day).perDay:null})):[] as MapPoint[]},[monthlyL.data,stations,idx,kind,day]);
+  // 흐린 점을 눌러도 그 역이 선택되고, 특정 호선이 강조 중이면 그 역의 호선으로 강조가 옮겨 간다('전체'면 그대로).
+  const pickOnMap=(id:string)=>{setStation(id);const s=byId.get(id);if(s&&line!=='all'&&s.line!==line)setLine(s.line)};
   const ranking=useMemo(()=>[...rowsForMetric].filter(r=>r.value!=null).sort((a,b)=>(b.value as number)-(a.value as number)),[rowsForMetric]);
   const missingCount=rowsForMetric.length-ranking.length;
 
@@ -127,11 +121,15 @@ export default function SubwayWorkspace({mode,active}:{mode:'analysis'|'presenta
           {!periodOk&&dataset==='usage'&&<div className="swNotice" role="alert">시작 월이 끝 월보다 늦습니다. 기간을 바꿔 주세요.</div>}
           {(stationsL.error||monthlyL.error||manifest.error)&&<div className="swNotice" role="alert">{stationsL.error||monthlyL.error||manifest.error}</div>}
           <div className="swBody" data-view={view}>
-            {view==='map'&&<div className="swMapArea"><SubwayMap boundary={boundaryL.data} points={rowsForMetric} selected={station} onSelect={setStation} candidates={candidates} unitLabel={`${KIND_LABEL[kind]} 하루 평균(건)`}/>
+            {view==='map'&&<div className="swMapArea"><SubwayMap boundary={boundaryL.data} points={allPoints} selected={station} onSelect={pickOnMap} candidates={candidates} activeLine={line} onSelectLine={setLine} unitLabel={`${KIND_LABEL[kind]} 하루 평균(건)`}/>
               <CsvPublisher setCsv={setCsv} name="역별-하루평균" rows={periodOk?[['역','호선','역코드','행정동','하루평균','구분','기간','요일'],...rowsForMetric.map(r=>[r.station.name,r.station.line,r.station.code,r.station.dongName,r.value==null?null:Math.round(r.value),KIND_LABEL[kind],`${from}~${to}`,DAY_LABEL[day]])]:[]}/></div>}
             {view==='hourly'&&<HourlyView {...common} sel={sel}/>}
             {view==='calendar'&&<CalendarView {...common} sel={sel}/>}
             {view==='season'&&<SeasonView {...common} sel={sel}/>}
+            {view==='trend'&&<StationTrend {...common} sel={sel}/>}
+            {view==='compare'&&<PeriodCompare {...common} sel={sel}/>}
+            {view==='sameperiod'&&<SamePeriod {...common} sel={sel}/>}
+            {view==='cands'&&<CandidateTrend {...common} sel={sel} candidates={candidates} onPick={setStation}/>}
             {view==='types'&&<TypesView {...common} sel={sel}/>}
             {view==='gender'&&<Placeholder title="성별" lines={['성별 자료 없음','이번에 수집한 승하차·승객유형·혼잡도 공식 파일에는 성별 항목이 없습니다.','다른 통계의 비율을 곱해 성별을 추정하지 않습니다. 공식 성별 자료를 확보하면 이 보기에 추가합니다.']}/>}
             {view==='od'&&<Placeholder title="출발·도착(OD) 준비 중" lines={['준비 중입니다.','OA-21222 표본 한 달을 검사했지만 지하철·버스를 가르는 수단 코드 열이 없고, 환승을 한 통행으로 보는지 구간으로 나누는지 원문 정의를 확인하지 못했습니다.','역 코드와 승하차 합계는 일치했으나(1~8호선 271역) 이 두 가지가 확인되기 전에는 OD를 만들지 않습니다. 자세한 근거는 출처·해석에서 읽을 수 있습니다.']}/>}

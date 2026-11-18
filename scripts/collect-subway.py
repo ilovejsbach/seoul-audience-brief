@@ -145,6 +145,10 @@ def targets():
     t.append(dict(key='f', kind='seoul', inf='OA-21222', orig='kscc_dx_ra_od_202610.zip',
                   dest='OA-21222-od-202610.zip', period='2026-10', dataset='OA-21222',
                   note='정류장/역사별 수단 출발/도착 표본 1개월; OD 검증용'))
+    # g. 역간거리 및 소요시간 OA-12034 (w46: 노선 선의 역 순서 대조용, 파일 1개)
+    t.append(dict(key='g', kind='seoul', inf='OA-12034', orig='서울교통공사 역간거리 및 소요시간_240810.csv',
+                  dest='OA-12034-station-distance-240810.csv', period='2024-08-10 기준', dataset='OA-12034',
+                  note='1~8호선 호선·역명·역간거리(km)·호선별 누계; 공공누리 1유형'))
     return t
 
 

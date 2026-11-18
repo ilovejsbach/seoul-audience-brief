@@ -89,3 +89,71 @@ export function toCsv(rows:(string|number|null)[][]):string{
 }
 
 export const monthLabel=(m:string)=>`${m.slice(0,4)}.${m.slice(4,6)}`;
+
+/* ---------- w47: 역별 상세(일·월·계절·연 추이, 두 기간 비교) ---------- */
+export type PeriodUnit='month'|'season'|'year';
+export type Basis='avg'|'total';
+export type PeriodDef={key:string;label:string;unit:PeriodUnit;idx:number[];months:number[];complete:boolean;season?:Season;year:number};
+const monthNo=(m:string)=>Number(m.slice(4,6));
+
+/** 같은 단위의 기간 목록. 계절은 겨울(12–2월)의 연도가 12월이 속한 해이고, 3개월이 다 없으면 complete=false(일부 달). 연은 12개월이 다 있어야 complete. */
+export function listPeriods(months:string[],unit:PeriodUnit):PeriodDef[]{
+  if(unit==='month')return months.map((m,i)=>({key:m,label:monthLabel(m),unit,idx:[i],months:[monthNo(m)],complete:true,year:Number(m.slice(0,4))}));
+  const groups=new Map<string,PeriodDef>();
+  months.forEach((m,i)=>{
+    if(unit==='season'){
+      const s=seasonOf(m),k=`${s.year}-${s.season}`;
+      if(!groups.has(k))groups.set(k,{key:k,label:`${s.year} ${s.season}`,unit,idx:[],months:[],complete:false,season:s.season,year:s.year});
+      const g=groups.get(k)!;g.idx.push(i);g.months.push(monthNo(m));g.complete=s.monthsNeeded.every(n=>months.includes(n));
+    }else{
+      const y=m.slice(0,4);
+      if(!groups.has(y))groups.set(y,{key:y,label:y,unit,idx:[],months:[],complete:false,year:Number(y)});
+      const g=groups.get(y)!;g.idx.push(i);g.months.push(monthNo(m));g.complete=g.months.length===12;
+    }
+  });
+  return [...groups.values()].map(g=>{
+    if(unit==='year'&&!g.complete){const lo=Math.min(...g.months),hi=Math.max(...g.months);g.label=`${g.year}(${lo===hi?lo:lo+'~'+hi}월)`}
+    if(unit==='season'&&g.season==='겨울')g.label=`${g.year} 겨울(${g.year}.12~${g.year+1}.2)`;
+    if(unit==='season'&&!g.complete)g.label+=' · 일부 달';
+    return g;
+  }).sort((a,b)=>a.idx[0]-b.idx[0]);
+}
+
+/** 두 기간에 공통으로 있는 달 번호. */
+export const commonMonths=(a:PeriodDef,b:PeriodDef)=>a.months.filter(n=>b.months.includes(n));
+
+/** 하루 평균(avg) 또는 합계(total). 합계는 null이 하나라도 섞이면 null이다. */
+export function periodValue(rec:Parameters<typeof stationMetric>[0],idx:number[],kind:Kind,day:DayType,basis:Basis){
+  const r=stationMetric(rec,idx,kind,day);
+  return {value:basis==='avg'?r.perDay:r.total,perDay:r.perDay,total:r.total,days:r.days};
+}
+
+export const changeRate=(a:number|null,b:number|null):number|null=>a==null||b==null||a<=0?null:(b-a)/a*100;
+export const difference=(a:number|null,b:number|null):number|null=>a==null||b==null?null:b-a;
+
+/**
+ * 두 기간 비교. 연↔연, 같은 계절↔같은 계절은 서로 있는 달만(공통 달) 비교한다(예: 2026은 1~10월뿐이므로 2025도 1~10월로 맞춤).
+ * 달↔달과 서로 다른 계절은 각 기간 전체를 쓰되 일부 달이면 partial로 알린다.
+ */
+export function comparePeriods(rec:Parameters<typeof stationMetric>[0],months:string[],a:PeriodDef,b:PeriodDef,kind:Kind,day:DayType,basis:Basis){
+  const align=a.unit==='year'||(a.unit==='season'&&a.season===b.season);
+  const common=align?commonMonths(a,b):null;
+  const pick=(p:PeriodDef)=>common?p.idx.filter(i=>common.includes(monthNo(months[i]))):p.idx;
+  const va=periodValue(rec,pick(a),kind,day,basis),vb=periodValue(rec,pick(b),kind,day,basis);
+  const pa=periodValue(rec,pick(a),kind,day,'avg'),pb=periodValue(rec,pick(b),kind,day,'avg');
+  return {a:va,b:vb,diff:difference(va.value,vb.value),rate:changeRate(va.value,vb.value),aligned:!!common,commonMonths:common,partial:!common&&(!a.complete||!b.complete),perDayA:pa.perDay,perDayB:pb.perDay};
+}
+export const compareTitle=(u:PeriodUnit)=>u==='month'?'두 달 비교':u==='season'?'두 계절 비교':'두 연도 비교';
+export const monthsText=(ms:number[])=>{const s=[...ms].sort((x,y)=>x-y);return s.length===0?'':s.every((n,i)=>i===0||n===s[i-1]+1)?(s.length===1?`${s[0]}월`:`${s[0]}~${s.at(-1)}월`):s.join('·')+'월'};
+
+/** 일 단위: 선택 기간(YYYYMM~YYYYMM) 안의 날짜만, 요일 구분에 맞는 날만. 값이 없는 날은 null을 유지한다. 최대 limit일(기간 끝에서부터). */
+export function dailySeries(dates:string[],b:(number|null)[],a:(number|null)[],kind:Kind,day:DayType,from:string,to:string,limit=366){
+  const out:{date:string;value:number|null}[]=[];
+  dates.forEach((d,i)=>{
+    const ym=d.slice(0,6);if(ym<from||ym>to)return;
+    const we=weekdayIndex(d)>=5;if((day==='wd'&&we)||(day==='we'&&!we))return;
+    const bi=b[i],ai=a[i];
+    out.push({date:d,value:kind==='b'?bi:kind==='a'?ai:(bi==null||ai==null?null:bi+ai)});
+  });
+  return {rows:out.slice(-limit),total:out.length,truncated:out.length>limit};
+}

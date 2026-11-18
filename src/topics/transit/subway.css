@@ -133,3 +133,18 @@
 .sw.sw-presentation .swQuery select{max-width:130px}
 
 .sw .swWorkspace>.workspaceNav{overflow:hidden}
+
+/* w46: 노선 색 범례(이용량 색 막대와 별개) */
+.swMapTools{justify-content:space-between}
+.swLineLegend{display:flex;flex-wrap:wrap;gap:4px;margin-right:auto}
+.sw .swLineChip{display:inline-flex;align-items:center;gap:6px;min-height:32px;padding:0 8px;font-size:var(--fs-cond);color:var(--ink);font-weight:600}
+.sw .swLineChip i{display:inline-block;width:18px;height:6px;border-radius:3px}
+.sw .swLineChip[aria-pressed=true]{color:#fff}
+
+/* w47: 역별 상세(추이·비교) — 기존 .swChartPanel/.swSeg/.swTable 재사용, 배치만 추가 */
+.swDetailWrap{display:grid;gap:12px;align-content:start;flex:0 0 auto}
+.swDetailTools{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.swCompareCards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.swCard{display:flex;flex-direction:column;gap:4px;min-width:0;padding:12px;border:1px solid var(--line);border-radius:4px;background:var(--tint)}
+.swCard .swKpiValue{font-size:var(--fs-panel)}
+@media (max-width:1100px){.swCompareCards{grid-template-columns:repeat(2,minmax(0,1fr))}}

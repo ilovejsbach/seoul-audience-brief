@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-18T17:27:24",
+ "generatedAt": "2026-11-18T23:23:36",
  "passed": 13,
  "failed": 0,
  "results": [
@@ -7,8 +7,8 @@
    "check": "매니페스트 필수 항목·해시·용량(30MB/10MB)",
    "status": "passed",
    "detail": {
-    "files": 15,
-    "totalBytes": 4548682,
+    "files": 16,
+    "totalBytes": 4569351,
     "largestBytes": 637730,
     "od": "pending"
    }
@@ -17,7 +17,7 @@
    "check": "원본 파일 해시 = 수집 MANIFEST",
    "status": "passed",
    "detail": {
-    "rawFilesChecked": 55
+    "rawFilesChecked": 56
    }
   },
   {

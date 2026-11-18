@@ -133,7 +133,7 @@ for (const mode of ['analysis', 'presentation']) {
 
     // --- 균등 크기(R04): 상단 주제 4개·모드 2개·보기 7개·자료 2개 ---
     const g = await equalGroups(page);
-    expect(g.topics.length).toBe(4); expect(g.modes.length).toBe(2); expect(g.views.length).toBe(7); expect(g.datasets.length).toBe(2); expect(g.sources.length).toBe(2);
+    expect(g.topics.length).toBe(4); expect(g.modes.length).toBe(2); expect(g.views.length).toBe(11); expect(g.datasets.length).toBe(2); expect(g.sources.length).toBe(2);
     for (const k of ['topics', 'modes']) { expect(spread(g[k], 'w'), `${k} 폭`).toBeLessThanOrEqual(1); expect(spread(g[k], 'h'), `${k} 높이`).toBeLessThanOrEqual(1); expect(spread(g[k], 'cy'), `${k} 가운데선`).toBeLessThanOrEqual(1); }
     for (const k of ['views', 'datasets', 'sources']) { expect(spread(g[k], 'w'), `${k} 폭`).toBeLessThanOrEqual(1); expect(spread(g[k], 'h'), `${k} 높이`).toBeLessThanOrEqual(1); expect(spread(g[k], 'x'), `${k} x정렬`).toBeLessThanOrEqual(1); }
     record(project, `${mode}/equal-size`, { topics: g.topics.length, modes: g.modes.length, views: g.views.length });
