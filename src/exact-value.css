@@ -4,7 +4,8 @@
 .app .dataMeaningButton.exactValueButton:hover,.app .dataMeaningButton.exactValueButton[aria-expanded=true]{background:transparent!important;color:inherit!important;border-bottom-style:solid!important}
 .app .dataMeaningButton.exactValueButton:focus-visible{outline:3px solid #397eb8;outline-offset:3px}
 .exactValueText{margin:4px 0 0;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
-.exactPrint{display:none}
-@media print{.exactPrint{display:inline;font-size:.8em;font-weight:400;color:#333}.app .dataMeaningButton.exactValueButton{border-bottom:0!important}}
+/* The parenthesised exact value is for paper only. Other layout rules such as `.app .timeComparisonValues span{display:block}` out-rank a plain `.exactPrint`, so both states are forced here. */
+.app .exactPrint,.exactPrint{display:none!important}
+@media print{.app .exactPrint,.exactPrint{display:inline!important;font-size:.8em;font-weight:400;color:#333}.app .dataMeaningButton.exactValueButton{border-bottom:0!important}}
 @layer dashboardTypography{#root .app .dataMeaningAnchor.exactValueAnchor,#root .app .dataMeaningButton.exactValueButton{font-size:inherit!important;line-height:inherit!important;font-weight:inherit!important;color:inherit!important}}
 #root .app .dataMeaningAnchor.exactValueAnchor,#root .app .dataMeaningButton.exactValueButton{font-size:inherit!important;line-height:inherit!important;font-weight:inherit!important;color:inherit!important}

@@ -7,7 +7,6 @@
 .app .timeComparisonValues>article{min-width:0;padding:16px;border:1px solid #d2dce7;border-radius:6px;background:#f7f9fb}
 .app .timeComparisonValues strong{margin:8px 0;overflow-wrap:normal;white-space:normal;word-break:keep-all}
 .app .timeComparisonValues span{display:block;color:#536477}.app .timeComparisonValues p{margin:8px 0 0}
-.app .timeComparisonExact{margin-top:14px}.app .timeComparisonExact summary{cursor:pointer;color:#24558b}.app .timeComparisonExact dl{margin:10px 0}.app .timeComparisonExact dl>div{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:6px 0}.app .timeComparisonExact dd{margin:0;overflow-wrap:anywhere;font-variant-numeric:tabular-nums}
 .app .timeComparisonNote{margin-top:12px;color:#536477}
 .app .dashboardContent :is(.metrics,.compareGrid){grid-template-columns:repeat(3,minmax(0,1fr))}
 .app .dashboardContent :is(.metrics>div,.compareGrid article,.panelTitle>div,.regionSelectionSummary>div){min-width:0}

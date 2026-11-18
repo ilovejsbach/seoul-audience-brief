@@ -1,0 +1,160 @@
+
+Running 4 tests using 2 workers
+
+  ✘  1 [desktop-1365] › tests/e2e/screen-rules.spec.mjs:746:1 › w42 region popup: the big number shows its exact value in a tooltip, no expandable (2.3s)
+  ✘  3 [desktop-1365] › tests/e2e/screen-rules.spec.mjs:809:1 › w42b: no dataset's two-point comparison keeps an exact-value expandable, and print-only copies stay off the screen (1.6s)
+  ✘  2 [desktop-1365] › tests/e2e/screen-rules.spec.mjs:759:1 › w42 market info: value and quarter change show exact values; candidate card too; no expandable (6.0s)
+  ✘  4 [desktop-1365] › tests/e2e/screen-rules.spec.mjs:819:1 › w42 comparison and KPI numbers use the same tooltip; small values show no tooltip; print shows exact values (12.2s)
+
+
+  1) [desktop-1365] › tests/e2e/screen-rules.spec.mjs:746:1 › w42 region popup: the big number shows its exact value in a tooltip, no expandable 
+
+    Error: region popup: no <details>/<summary> holds an exact value ("정확한 수치")
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 10
+
+    - Array []
+    + Array [
+    +   "timeComparisonExact",
+    +   "timeComparisonExact",
+    +   "timeComparisonExact",
+    +   "timeComparisonExact",
+    +   "timeComparisonExact",
+    +   "timeComparisonExact",
+    +   "timeComparisonExact",
+    +   "timeComparisonExact",
+    + ]
+
+      795 |   });
+      796 |   expect(scan.details, `${label}: the scan found <details> elements (otherwise it checked nothing)`).toBeGreaterThan(0);
+    > 797 |   expect(scan.offenders, `${label}: no <details>/<summary> holds an exact value ("정확한 수치")`).toEqual([]);
+          |                                                                                              ^
+      798 |   return scan;
+      799 | }
+      800 | // w42b: the print-only copy of an exact value is hidden on screen (and the check requires copies to exist).
+        at expectNoExactExpandable (/Users/koscom/workspace2/seoul-human-tooltip/tests/e2e/screen-rules.spec.mjs:797:94)
+        at /Users/koscom/workspace2/seoul-human-tooltip/tests/e2e/screen-rules.spec.mjs:753:3
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    docs/workers-2026-11-18/w42-exact-tooltip/w42b/control-e2e/test-results/screen-rules-w42-region-po-f1114--in-a-tooltip-no-expandable-desktop-1365/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: docs/workers-2026-11-18/w42-exact-tooltip/w42b/control-e2e/test-results/screen-rules-w42-region-po-f1114--in-a-tooltip-no-expandable-desktop-1365/error-context.md
+
+  2) [desktop-1365] › tests/e2e/screen-rules.spec.mjs:759:1 › w42 market info: value and quarter change show exact values; candidate card too; no expandable 
+
+    Error: market info + candidate card: no <details>/<summary> holds an exact value ("정확한 수치")
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 12
+
+    - Array []
+    + Array [
+    +   "timeComparisonExact",
+    +   "timeComparisonExact",
+    +   "timeComparisonExact",
+    +   "timeComparisonExact",
+    +   "timeComparisonExact",
+    +   "timeComparisonExact",
+    +   "timeComparisonExact",
+    +   "timeComparisonExact",
+    +   "timeComparisonExact",
+    +   "timeComparisonExact",
+    + ]
+
+      795 |   });
+      796 |   expect(scan.details, `${label}: the scan found <details> elements (otherwise it checked nothing)`).toBeGreaterThan(0);
+    > 797 |   expect(scan.offenders, `${label}: no <details>/<summary> holds an exact value ("정확한 수치")`).toEqual([]);
+          |                                                                                              ^
+      798 |   return scan;
+      799 | }
+      800 | // w42b: the print-only copy of an exact value is hidden on screen (and the check requires copies to exist).
+        at expectNoExactExpandable (/Users/koscom/workspace2/seoul-human-tooltip/tests/e2e/screen-rules.spec.mjs:797:94)
+        at /Users/koscom/workspace2/seoul-human-tooltip/tests/e2e/screen-rules.spec.mjs:784:3
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    docs/workers-2026-11-18/w42-exact-tooltip/w42b/control-e2e/test-results/screen-rules-w42-market-in-cca5c-date-card-too-no-expandable-desktop-1365/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: docs/workers-2026-11-18/w42-exact-tooltip/w42b/control-e2e/test-results/screen-rules-w42-market-in-cca5c-date-card-too-no-expandable-desktop-1365/error-context.md
+
+  3) [desktop-1365] › tests/e2e/screen-rules.spec.mjs:809:1 › w42b: no dataset's two-point comparison keeps an exact-value expandable, and print-only copies stay off the screen 
+
+    Error: population two-point comparison: no <details>/<summary> holds an exact value ("정확한 수치")
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 10
+
+    - Array []
+    + Array [
+    +   "timeComparisonExact",
+    +   "timeComparisonExact",
+    +   "timeComparisonExact",
+    +   "timeComparisonExact",
+    +   "timeComparisonExact",
+    +   "timeComparisonExact",
+    +   "timeComparisonExact",
+    +   "timeComparisonExact",
+    + ]
+
+      795 |   });
+      796 |   expect(scan.details, `${label}: the scan found <details> elements (otherwise it checked nothing)`).toBeGreaterThan(0);
+    > 797 |   expect(scan.offenders, `${label}: no <details>/<summary> holds an exact value ("정확한 수치")`).toEqual([]);
+          |                                                                                              ^
+      798 |   return scan;
+      799 | }
+      800 | // w42b: the print-only copy of an exact value is hidden on screen (and the check requires copies to exist).
+        at expectNoExactExpandable (/Users/koscom/workspace2/seoul-human-tooltip/tests/e2e/screen-rules.spec.mjs:797:94)
+        at /Users/koscom/workspace2/seoul-human-tooltip/tests/e2e/screen-rules.spec.mjs:813:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    docs/workers-2026-11-18/w42-exact-tooltip/w42b/control-e2e/test-results/screen-rules-w42b-no-datas-80651--copies-stay-off-the-screen-desktop-1365/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: docs/workers-2026-11-18/w42-exact-tooltip/w42b/control-e2e/test-results/screen-rules-w42b-no-datas-80651--copies-stay-off-the-screen-desktop-1365/error-context.md
+
+  4) [desktop-1365] › tests/e2e/screen-rules.spec.mjs:819:1 › w42 comparison and KPI numbers use the same tooltip; small values show no tooltip; print shows exact values 
+
+    Error: the two-point exact expandable is gone
+
+    expect(locator).toHaveCount(expected) failed
+
+    Locator:  locator('details.timeComparisonExact')
+    Expected: 0
+    Received: 8
+    Timeout:  10000ms
+
+    Call log:
+      - the two-point exact expandable is gone locator('details.timeComparisonExact') with timeout 10000ms
+      - waiting for locator('details.timeComparisonExact')
+        24 × locator resolved to 8 elements
+           - unexpected value "8"
+
+
+      825 |   const first = page.locator('dialog[open] .timeComparisonValues strong .exactValueButton').first();
+      826 |   await checkExactTooltip(page, first, 'two-quarter comparison');
+    > 827 |   await expect(page.locator('details.timeComparisonExact'), 'the two-point exact expandable is gone').toHaveCount(0);
+          |                                                                                                       ^
+      828 |   await expectNoExactExpandable(page, 'two-quarter comparison (popup)');
+      829 |   await expectPrintCopiesHiddenOnScreen(page, 'dialog[open] .timeComparisonValues', 'two-quarter comparison (popup)');
+      830 |   await page.keyboard.press('Escape');
+        at /Users/koscom/workspace2/seoul-human-tooltip/tests/e2e/screen-rules.spec.mjs:827:103
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    docs/workers-2026-11-18/w42-exact-tooltip/w42b/control-e2e/test-results/screen-rules-w42-compariso-e5018-ip-print-shows-exact-values-desktop-1365/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: docs/workers-2026-11-18/w42-exact-tooltip/w42b/control-e2e/test-results/screen-rules-w42-compariso-e5018-ip-print-shows-exact-values-desktop-1365/error-context.md
+
+  4 failed
+    [desktop-1365] › tests/e2e/screen-rules.spec.mjs:746:1 › w42 region popup: the big number shows its exact value in a tooltip, no expandable 
+    [desktop-1365] › tests/e2e/screen-rules.spec.mjs:759:1 › w42 market info: value and quarter change show exact values; candidate card too; no expandable 
+    [desktop-1365] › tests/e2e/screen-rules.spec.mjs:809:1 › w42b: no dataset's two-point comparison keeps an exact-value expandable, and print-only copies stay off the screen 
+    [desktop-1365] › tests/e2e/screen-rules.spec.mjs:819:1 › w42 comparison and KPI numbers use the same tooltip; small values show no tooltip; print shows exact values 

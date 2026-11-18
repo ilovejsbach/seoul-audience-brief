@@ -74,3 +74,40 @@
 - 첫 단위 시험 실패(`Z_DATA_ERROR`)의 정확한 원인은 확인하지 못했다(재실행 통과, 단독 실행 통과, 모든 gzip 파일 디코드 확인).
 
 W42 DONE
+
+## w42b: w44 검증 지적 수정 (두 시점 비교의 펼침·인쇄용 값)
+
+작성 2026-11-18 · 창3 · 브랜치 `exact-tooltip`(수정 전 `814f3fd`) · 포트 4194 · 로컬 커밋만, push·배포·다른 트리 수정 없음. 트레이스는 껐다(`--trace=off`). 증거는 `w42b/`.
+
+**핵심 3줄**
+1. `TimeComparison.tsx`의 `<details class="timeComparisonExact"><summary>정확한 수치 보기</summary>…</details>`를 지웠다. 같은 값은 숫자 위 `ExactValue` 툴팁이 이미 보여 준다. 쓰이지 않게 된 CSS 규칙(`time-comparison.css`, `long-content-layout.css`, `supplemental-time-comparison.css`)과 불필요해진 `exactNumber` import도 지웠다.
+2. 인쇄 전용 괄호 값 `.exactPrint`가 화면에 보인 원인은 `.app .timeComparisonValues span{display:block}`(`long-content-layout.css`)가 `.exactPrint{display:none}`보다 우선순위가 높았기 때문이다. `exact-value.css`에서 화면은 `display:none!important`, 인쇄(`@media print`)는 `display:inline!important`로 두 상태를 모두 강제했다.
+3. 전수 검색을 클래스명이 아니라 구조로 다시 했고(아래), E2E에 구조 검사를 넣었다. G 관문 통과: build 0, 단위 79/79, validate-data 0, E2E **82/82**(기존 80 + 새 시험 1개 × 2크기).
+
+**전수 검색(구조 기준)**: `<details>…</details>` 안에서 `exactNumber(`나 "정확" 문구가 있는 곳을 `src/*.tsx` 전부에서 찾았다.
+| 위치 | 내용 | 판정 |
+|---|---|---|
+| `TimeComparison.tsx` | summary "정확한 수치 보기" | **삭제함** |
+| `PopulationPatterns.tsx` | 패널 전체 `details` 안 히트맵 셀의 `title` 속성에 `exactNumber` | 펼침이 아니라 브라우저 기본 툴팁(title). 이번 범위 밖 |
+| `TrendExplorer.tsx` | "적용된 축과 표시 기준" 안 안내문 `title`에 `exactNumber` | 같음(title). 범위 밖 |
+- `<summary>…정확…` 검색은 `TimeComparison.tsx` 한 곳뿐이었다. `popupExact`·`marketExact`·`scenarioExact`·`timeComparisonExact` 클래스는 `src`·CSS에서 0건.
+- 레거시 스크립트 `tests/long-content-e2e.mjs`는 `.timeComparisonExact summary`를 클릭해 정확한 값을 확인하고 있었다(Playwright 정식 시험이 아닌 단독 스크립트). 툴팁 버튼의 `aria-label`(정확한 값 포함)을 읽도록 고쳤다.
+
+**E2E 추가·변경** (`tests/e2e/screen-rules.spec.mjs`)
+- `expectNoExactExpandable`: 문서 안 모든 `<details>`를 조사해 summary에 "정확"이 있거나 내용에 "정확한 수치"가 있으면 실패. **`<details>`가 하나도 없으면 실패**(아무것도 검사하지 못한 경우).
+- `expectPrintCopiesHiddenOnScreen`: 범위 안 `.exactPrint`가 화면에서 보이면(`display≠none` 또는 박스 있음) 실패. 대상이 0개면 실패(요구 시).
+- 적용: 지역 팝업, 상권 정보·후보 카드, 두 분기 비교(commerce, 인쇄 복사본 필수), 새 시험 "네 자료의 두 시점 비교 전수"(population·mobility·migration·commerce, 인쇄 복사본은 조 원 단위인 commerce만 필수).
+
+**대조 실험**(소스 4개 파일을 수정 전으로 되돌리고 새 시험만 실행 → 복원 후 diff 동일 확인): `w42b/control-e2e.log` — w42 관련 시험 **4개 모두 실패**(지역 팝업: "no `<details>` holds an exact value … 10개 발견", 두 분기: 펼침 존재 등). 수정 후 82/82.
+
+**G 관문(포트 4194)**
+| 명령 | 종료 코드 | 결과 |
+|---|---:|---|
+| `npm run build` | 0 | 성공 |
+| `node --test tests/*.test.mjs` | 0 | 79/79 |
+| `python3 scripts/validate-data.py` | 0 | 통과(`data/raw`는 메인 raw 링크, 커밋 안 함) |
+| `E2E_PORT=4194 … test:e2e --project=desktop-1365 --project=desktop-1920 --trace=off` | 0 | **82 통과 / 0 실패** |
+
+**미확인**: 인쇄 미리보기 실물, 위 두 `title` 속성(히트맵 셀·축 안내)은 이번 범위 밖, 3단계 이후 화면. 두 시점 비교의 인쇄 복사본은 팝업이 인쇄에서 숨겨지는 기존 규칙 때문에 인쇄 쪽 가시성은 따로 검사하지 않았다(핵심 지표의 인쇄 복사본은 기존 시험이 계속 검사).
+
+W42B DONE

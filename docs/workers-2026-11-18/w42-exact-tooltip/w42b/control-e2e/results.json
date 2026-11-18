@@ -1,0 +1,452 @@
+{
+  "config": {
+    "argv": [
+      "/Users/koscom/.local/share/fnm/node-versions/v22.16.0/installation/bin/node",
+      "/Users/koscom/workspace2/seoul-human-tooltip/node_modules/.bin/playwright",
+      "test",
+      "--project=desktop-1365",
+      "--trace=off",
+      "tests/e2e/screen-rules.spec.mjs",
+      "-g",
+      "w42"
+    ],
+    "configFile": "/Users/koscom/workspace2/seoul-human-tooltip/playwright.config.mjs",
+    "rootDir": "/Users/koscom/workspace2/seoul-human-tooltip/tests/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 2
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/koscom/workspace2/seoul-human-tooltip/docs/workers-2026-11-18/w42-exact-tooltip/w42b/control-e2e/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "id": "desktop-1365",
+        "name": "desktop-1365",
+        "testDir": "/Users/koscom/workspace2/seoul-human-tooltip/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 180000
+      },
+      {
+        "outputDir": "/Users/koscom/workspace2/seoul-human-tooltip/docs/workers-2026-11-18/w42-exact-tooltip/w42b/control-e2e/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "id": "desktop-1920",
+        "name": "desktop-1920",
+        "testDir": "/Users/koscom/workspace2/seoul-human-tooltip/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 180000
+      },
+      {
+        "outputDir": "/Users/koscom/workspace2/seoul-human-tooltip/docs/workers-2026-11-18/w42-exact-tooltip/w42b/control-e2e/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "id": "tablet-1024",
+        "name": "tablet-1024",
+        "testDir": "/Users/koscom/workspace2/seoul-human-tooltip/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 180000
+      },
+      {
+        "outputDir": "/Users/koscom/workspace2/seoul-human-tooltip/docs/workers-2026-11-18/w42-exact-tooltip/w42b/control-e2e/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "id": "mobile-390",
+        "name": "mobile-390",
+        "testDir": "/Users/koscom/workspace2/seoul-human-tooltip/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 180000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/koscom/workspace2/seoul-human-tooltip/docs/workers-2026-11-18/w42-exact-tooltip/w42b/control-e2e/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "name": "desktop-1365",
+        "testDir": "/Users/koscom/workspace2/seoul-human-tooltip/tests/e2e",
+        "snapshotDir": "/Users/koscom/workspace2/seoul-human-tooltip/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 180000,
+        "use": {
+          "browserName": "chromium",
+          "baseURL": "http://127.0.0.1:4194",
+          "deviceScaleFactor": 1,
+          "screenshot": "only-on-failure",
+          "trace": "off",
+          "actionTimeout": 10000,
+          "viewport": {
+            "width": 1365,
+            "height": 768
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "desktop-1365"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "/Users/koscom/workspace2/seoul-human-tooltip/docs/workers-2026-11-18/w42-exact-tooltip/w42b/control-e2e/results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.65.1",
+    "workers": 2,
+    "webServer": {
+      "command": "npm run dev -- --host 127.0.0.1 --port 4194 --strictPort",
+      "url": "http://127.0.0.1:4194",
+      "reuseExistingServer": false,
+      "timeout": 30000
+    }
+  },
+  "suites": [
+    {
+      "title": "screen-rules.spec.mjs",
+      "file": "screen-rules.spec.mjs",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "w42 region popup: the big number shows its exact value in a tooltip, no expandable",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1365",
+              "projectName": "desktop-1365",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 2317,
+                  "error": {
+                    "message": "Error: region popup: no <details>/<summary> holds an exact value (\"정확한 수치\")\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  -  1\u001b[39m\n\u001b[31m+ Received  + 10\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"timeComparisonExact\",\u001b[39m\n\u001b[31m+   \"timeComparisonExact\",\u001b[39m\n\u001b[31m+   \"timeComparisonExact\",\u001b[39m\n\u001b[31m+   \"timeComparisonExact\",\u001b[39m\n\u001b[31m+   \"timeComparisonExact\",\u001b[39m\n\u001b[31m+   \"timeComparisonExact\",\u001b[39m\n\u001b[31m+   \"timeComparisonExact\",\u001b[39m\n\u001b[31m+   \"timeComparisonExact\",\u001b[39m\n\u001b[31m+ ]\u001b[39m",
+                    "stack": "Error: region popup: no <details>/<summary> holds an exact value (\"정확한 수치\")\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  -  1\u001b[39m\n\u001b[31m+ Received  + 10\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"timeComparisonExact\",\u001b[39m\n\u001b[31m+   \"timeComparisonExact\",\u001b[39m\n\u001b[31m+   \"timeComparisonExact\",\u001b[39m\n\u001b[31m+   \"timeComparisonExact\",\u001b[39m\n\u001b[31m+   \"timeComparisonExact\",\u001b[39m\n\u001b[31m+   \"timeComparisonExact\",\u001b[39m\n\u001b[31m+   \"timeComparisonExact\",\u001b[39m\n\u001b[31m+   \"timeComparisonExact\",\u001b[39m\n\u001b[31m+ ]\u001b[39m\n    at expectNoExactExpandable (/Users/koscom/workspace2/seoul-human-tooltip/tests/e2e/screen-rules.spec.mjs:797:94)\n    at /Users/koscom/workspace2/seoul-human-tooltip/tests/e2e/screen-rules.spec.mjs:753:3",
+                    "location": {
+                      "file": "/Users/koscom/workspace2/seoul-human-tooltip/tests/e2e/screen-rules.spec.mjs",
+                      "column": 94,
+                      "line": 797
+                    },
+                    "snippet": " \u001b[90m 795 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 796 |\u001b[39m   expect(scan\u001b[33m.\u001b[39mdetails\u001b[33m,\u001b[39m \u001b[32m`${label}: the scan found <details> elements (otherwise it checked nothing)`\u001b[39m)\u001b[33m.\u001b[39mtoBeGreaterThan(\u001b[35m0\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 797 |\u001b[39m   expect(scan\u001b[33m.\u001b[39moffenders\u001b[33m,\u001b[39m \u001b[32m`${label}: no <details>/<summary> holds an exact value (\"정확한 수치\")`\u001b[39m)\u001b[33m.\u001b[39mtoEqual([])\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                                                                                              \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 798 |\u001b[39m   \u001b[36mreturn\u001b[39m scan\u001b[33m;\u001b[39m\n \u001b[90m 799 |\u001b[39m }\n \u001b[90m 800 |\u001b[39m \u001b[90m// w42b: the print-only copy of an exact value is hidden on screen (and the check requires copies to exist).\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/koscom/workspace2/seoul-human-tooltip/tests/e2e/screen-rules.spec.mjs",
+                        "column": 94,
+                        "line": 797
+                      },
+                      "message": "Error: region popup: no <details>/<summary> holds an exact value (\"정확한 수치\")\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  -  1\u001b[39m\n\u001b[31m+ Received  + 10\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"timeComparisonExact\",\u001b[39m\n\u001b[31m+   \"timeComparisonExact\",\u001b[39m\n\u001b[31m+   \"timeComparisonExact\",\u001b[39m\n\u001b[31m+   \"timeComparisonExact\",\u001b[39m\n\u001b[31m+   \"timeComparisonExact\",\u001b[39m\n\u001b[31m+   \"timeComparisonExact\",\u001b[39m\n\u001b[31m+   \"timeComparisonExact\",\u001b[39m\n\u001b[31m+   \"timeComparisonExact\",\u001b[39m\n\u001b[31m+ ]\u001b[39m\n\n  795 |   });\n  796 |   expect(scan.details, `${label}: the scan found <details> elements (otherwise it checked nothing)`).toBeGreaterThan(0);\n> 797 |   expect(scan.offenders, `${label}: no <details>/<summary> holds an exact value (\"정확한 수치\")`).toEqual([]);\n      |                                                                                              ^\n  798 |   return scan;\n  799 | }\n  800 | // w42b: the print-only copy of an exact value is hidden on screen (and the check requires copies to exist).\n    at expectNoExactExpandable (/Users/koscom/workspace2/seoul-human-tooltip/tests/e2e/screen-rules.spec.mjs:797:94)\n    at /Users/koscom/workspace2/seoul-human-tooltip/tests/e2e/screen-rules.spec.mjs:753:3"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T13:04:37.334Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/koscom/workspace2/seoul-human-tooltip/docs/workers-2026-11-18/w42-exact-tooltip/w42b/control-e2e/test-results/screen-rules-w42-region-po-f1114--in-a-tooltip-no-expandable-desktop-1365/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/koscom/workspace2/seoul-human-tooltip/docs/workers-2026-11-18/w42-exact-tooltip/w42b/control-e2e/test-results/screen-rules-w42-region-po-f1114--in-a-tooltip-no-expandable-desktop-1365/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/koscom/workspace2/seoul-human-tooltip/tests/e2e/screen-rules.spec.mjs",
+                    "column": 94,
+                    "line": 797
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "ea39948459aead79d56e-14f9f053ecd43e96c09e",
+          "file": "screen-rules.spec.mjs",
+          "line": 746,
+          "column": 1
+        },
+        {
+          "title": "w42 market info: value and quarter change show exact values; candidate card too; no expandable",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1365",
+              "projectName": "desktop-1365",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "failed",
+                  "duration": 5950,
+                  "error": {
+                    "message": "Error: market info + candidate card: no <details>/<summary> holds an exact value (\"정확한 수치\")\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  -  1\u001b[39m\n\u001b[31m+ Received  + 12\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"timeComparisonExact\",\u001b[39m\n\u001b[31m+   \"timeComparisonExact\",\u001b[39m\n\u001b[31m+   \"timeComparisonExact\",\u001b[39m\n\u001b[31m+   \"timeComparisonExact\",\u001b[39m\n\u001b[31m+   \"timeComparisonExact\",\u001b[39m\n\u001b[31m+   \"timeComparisonExact\",\u001b[39m\n\u001b[31m+   \"timeComparisonExact\",\u001b[39m\n\u001b[31m+   \"timeComparisonExact\",\u001b[39m\n\u001b[31m+   \"timeComparisonExact\",\u001b[39m\n\u001b[31m+   \"timeComparisonExact\",\u001b[39m\n\u001b[31m+ ]\u001b[39m",
+                    "stack": "Error: market info + candidate card: no <details>/<summary> holds an exact value (\"정확한 수치\")\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  -  1\u001b[39m\n\u001b[31m+ Received  + 12\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"timeComparisonExact\",\u001b[39m\n\u001b[31m+   \"timeComparisonExact\",\u001b[39m\n\u001b[31m+   \"timeComparisonExact\",\u001b[39m\n\u001b[31m+   \"timeComparisonExact\",\u001b[39m\n\u001b[31m+   \"timeComparisonExact\",\u001b[39m\n\u001b[31m+   \"timeComparisonExact\",\u001b[39m\n\u001b[31m+   \"timeComparisonExact\",\u001b[39m\n\u001b[31m+   \"timeComparisonExact\",\u001b[39m\n\u001b[31m+   \"timeComparisonExact\",\u001b[39m\n\u001b[31m+   \"timeComparisonExact\",\u001b[39m\n\u001b[31m+ ]\u001b[39m\n    at expectNoExactExpandable (/Users/koscom/workspace2/seoul-human-tooltip/tests/e2e/screen-rules.spec.mjs:797:94)\n    at /Users/koscom/workspace2/seoul-human-tooltip/tests/e2e/screen-rules.spec.mjs:784:3",
+                    "location": {
+                      "file": "/Users/koscom/workspace2/seoul-human-tooltip/tests/e2e/screen-rules.spec.mjs",
+                      "column": 94,
+                      "line": 797
+                    },
+                    "snippet": " \u001b[90m 795 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 796 |\u001b[39m   expect(scan\u001b[33m.\u001b[39mdetails\u001b[33m,\u001b[39m \u001b[32m`${label}: the scan found <details> elements (otherwise it checked nothing)`\u001b[39m)\u001b[33m.\u001b[39mtoBeGreaterThan(\u001b[35m0\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 797 |\u001b[39m   expect(scan\u001b[33m.\u001b[39moffenders\u001b[33m,\u001b[39m \u001b[32m`${label}: no <details>/<summary> holds an exact value (\"정확한 수치\")`\u001b[39m)\u001b[33m.\u001b[39mtoEqual([])\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                                                                                              \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 798 |\u001b[39m   \u001b[36mreturn\u001b[39m scan\u001b[33m;\u001b[39m\n \u001b[90m 799 |\u001b[39m }\n \u001b[90m 800 |\u001b[39m \u001b[90m// w42b: the print-only copy of an exact value is hidden on screen (and the check requires copies to exist).\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/koscom/workspace2/seoul-human-tooltip/tests/e2e/screen-rules.spec.mjs",
+                        "column": 94,
+                        "line": 797
+                      },
+                      "message": "Error: market info + candidate card: no <details>/<summary> holds an exact value (\"정확한 수치\")\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  -  1\u001b[39m\n\u001b[31m+ Received  + 12\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"timeComparisonExact\",\u001b[39m\n\u001b[31m+   \"timeComparisonExact\",\u001b[39m\n\u001b[31m+   \"timeComparisonExact\",\u001b[39m\n\u001b[31m+   \"timeComparisonExact\",\u001b[39m\n\u001b[31m+   \"timeComparisonExact\",\u001b[39m\n\u001b[31m+   \"timeComparisonExact\",\u001b[39m\n\u001b[31m+   \"timeComparisonExact\",\u001b[39m\n\u001b[31m+   \"timeComparisonExact\",\u001b[39m\n\u001b[31m+   \"timeComparisonExact\",\u001b[39m\n\u001b[31m+   \"timeComparisonExact\",\u001b[39m\n\u001b[31m+ ]\u001b[39m\n\n  795 |   });\n  796 |   expect(scan.details, `${label}: the scan found <details> elements (otherwise it checked nothing)`).toBeGreaterThan(0);\n> 797 |   expect(scan.offenders, `${label}: no <details>/<summary> holds an exact value (\"정확한 수치\")`).toEqual([]);\n      |                                                                                              ^\n  798 |   return scan;\n  799 | }\n  800 | // w42b: the print-only copy of an exact value is hidden on screen (and the check requires copies to exist).\n    at expectNoExactExpandable (/Users/koscom/workspace2/seoul-human-tooltip/tests/e2e/screen-rules.spec.mjs:797:94)\n    at /Users/koscom/workspace2/seoul-human-tooltip/tests/e2e/screen-rules.spec.mjs:784:3"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T13:04:37.335Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/koscom/workspace2/seoul-human-tooltip/docs/workers-2026-11-18/w42-exact-tooltip/w42b/control-e2e/test-results/screen-rules-w42-market-in-cca5c-date-card-too-no-expandable-desktop-1365/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/koscom/workspace2/seoul-human-tooltip/docs/workers-2026-11-18/w42-exact-tooltip/w42b/control-e2e/test-results/screen-rules-w42-market-in-cca5c-date-card-too-no-expandable-desktop-1365/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/koscom/workspace2/seoul-human-tooltip/tests/e2e/screen-rules.spec.mjs",
+                    "column": 94,
+                    "line": 797
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "ea39948459aead79d56e-76be1f85365171a0a441",
+          "file": "screen-rules.spec.mjs",
+          "line": 759,
+          "column": 1
+        },
+        {
+          "title": "w42b: no dataset's two-point comparison keeps an exact-value expandable, and print-only copies stay off the screen",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1365",
+              "projectName": "desktop-1365",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 1552,
+                  "error": {
+                    "message": "Error: population two-point comparison: no <details>/<summary> holds an exact value (\"정확한 수치\")\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  -  1\u001b[39m\n\u001b[31m+ Received  + 10\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"timeComparisonExact\",\u001b[39m\n\u001b[31m+   \"timeComparisonExact\",\u001b[39m\n\u001b[31m+   \"timeComparisonExact\",\u001b[39m\n\u001b[31m+   \"timeComparisonExact\",\u001b[39m\n\u001b[31m+   \"timeComparisonExact\",\u001b[39m\n\u001b[31m+   \"timeComparisonExact\",\u001b[39m\n\u001b[31m+   \"timeComparisonExact\",\u001b[39m\n\u001b[31m+   \"timeComparisonExact\",\u001b[39m\n\u001b[31m+ ]\u001b[39m",
+                    "stack": "Error: population two-point comparison: no <details>/<summary> holds an exact value (\"정확한 수치\")\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  -  1\u001b[39m\n\u001b[31m+ Received  + 10\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"timeComparisonExact\",\u001b[39m\n\u001b[31m+   \"timeComparisonExact\",\u001b[39m\n\u001b[31m+   \"timeComparisonExact\",\u001b[39m\n\u001b[31m+   \"timeComparisonExact\",\u001b[39m\n\u001b[31m+   \"timeComparisonExact\",\u001b[39m\n\u001b[31m+   \"timeComparisonExact\",\u001b[39m\n\u001b[31m+   \"timeComparisonExact\",\u001b[39m\n\u001b[31m+   \"timeComparisonExact\",\u001b[39m\n\u001b[31m+ ]\u001b[39m\n    at expectNoExactExpandable (/Users/koscom/workspace2/seoul-human-tooltip/tests/e2e/screen-rules.spec.mjs:797:94)\n    at /Users/koscom/workspace2/seoul-human-tooltip/tests/e2e/screen-rules.spec.mjs:813:5",
+                    "location": {
+                      "file": "/Users/koscom/workspace2/seoul-human-tooltip/tests/e2e/screen-rules.spec.mjs",
+                      "column": 94,
+                      "line": 797
+                    },
+                    "snippet": " \u001b[90m 795 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 796 |\u001b[39m   expect(scan\u001b[33m.\u001b[39mdetails\u001b[33m,\u001b[39m \u001b[32m`${label}: the scan found <details> elements (otherwise it checked nothing)`\u001b[39m)\u001b[33m.\u001b[39mtoBeGreaterThan(\u001b[35m0\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 797 |\u001b[39m   expect(scan\u001b[33m.\u001b[39moffenders\u001b[33m,\u001b[39m \u001b[32m`${label}: no <details>/<summary> holds an exact value (\"정확한 수치\")`\u001b[39m)\u001b[33m.\u001b[39mtoEqual([])\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                                                                                              \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 798 |\u001b[39m   \u001b[36mreturn\u001b[39m scan\u001b[33m;\u001b[39m\n \u001b[90m 799 |\u001b[39m }\n \u001b[90m 800 |\u001b[39m \u001b[90m// w42b: the print-only copy of an exact value is hidden on screen (and the check requires copies to exist).\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/koscom/workspace2/seoul-human-tooltip/tests/e2e/screen-rules.spec.mjs",
+                        "column": 94,
+                        "line": 797
+                      },
+                      "message": "Error: population two-point comparison: no <details>/<summary> holds an exact value (\"정확한 수치\")\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  -  1\u001b[39m\n\u001b[31m+ Received  + 10\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"timeComparisonExact\",\u001b[39m\n\u001b[31m+   \"timeComparisonExact\",\u001b[39m\n\u001b[31m+   \"timeComparisonExact\",\u001b[39m\n\u001b[31m+   \"timeComparisonExact\",\u001b[39m\n\u001b[31m+   \"timeComparisonExact\",\u001b[39m\n\u001b[31m+   \"timeComparisonExact\",\u001b[39m\n\u001b[31m+   \"timeComparisonExact\",\u001b[39m\n\u001b[31m+   \"timeComparisonExact\",\u001b[39m\n\u001b[31m+ ]\u001b[39m\n\n  795 |   });\n  796 |   expect(scan.details, `${label}: the scan found <details> elements (otherwise it checked nothing)`).toBeGreaterThan(0);\n> 797 |   expect(scan.offenders, `${label}: no <details>/<summary> holds an exact value (\"정확한 수치\")`).toEqual([]);\n      |                                                                                              ^\n  798 |   return scan;\n  799 | }\n  800 | // w42b: the print-only copy of an exact value is hidden on screen (and the check requires copies to exist).\n    at expectNoExactExpandable (/Users/koscom/workspace2/seoul-human-tooltip/tests/e2e/screen-rules.spec.mjs:797:94)\n    at /Users/koscom/workspace2/seoul-human-tooltip/tests/e2e/screen-rules.spec.mjs:813:5"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T13:04:40.121Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/koscom/workspace2/seoul-human-tooltip/docs/workers-2026-11-18/w42-exact-tooltip/w42b/control-e2e/test-results/screen-rules-w42b-no-datas-80651--copies-stay-off-the-screen-desktop-1365/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/koscom/workspace2/seoul-human-tooltip/docs/workers-2026-11-18/w42-exact-tooltip/w42b/control-e2e/test-results/screen-rules-w42b-no-datas-80651--copies-stay-off-the-screen-desktop-1365/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/koscom/workspace2/seoul-human-tooltip/tests/e2e/screen-rules.spec.mjs",
+                    "column": 94,
+                    "line": 797
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "ea39948459aead79d56e-bb488fad3f9f430ce612",
+          "file": "screen-rules.spec.mjs",
+          "line": 809,
+          "column": 1
+        },
+        {
+          "title": "w42 comparison and KPI numbers use the same tooltip; small values show no tooltip; print shows exact values",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1365",
+              "projectName": "desktop-1365",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 12234,
+                  "error": {
+                    "message": "Error: the two-point exact expandable is gone\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('details.timeComparisonExact')\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m8\u001b[39m\nTimeout:  10000ms\n\nCall log:\n\u001b[2m  - the two-point exact expandable is gone locator('details.timeComparisonExact') with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for locator('details.timeComparisonExact')\u001b[22m\n\u001b[2m    24 × locator resolved to 8 elements\u001b[22m\n\u001b[2m       - unexpected value \"8\"\u001b[22m\n",
+                    "stack": "Error: the two-point exact expandable is gone\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('details.timeComparisonExact')\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m8\u001b[39m\nTimeout:  10000ms\n\nCall log:\n\u001b[2m  - the two-point exact expandable is gone locator('details.timeComparisonExact') with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for locator('details.timeComparisonExact')\u001b[22m\n\u001b[2m    24 × locator resolved to 8 elements\u001b[22m\n\u001b[2m       - unexpected value \"8\"\u001b[22m\n\n    at /Users/koscom/workspace2/seoul-human-tooltip/tests/e2e/screen-rules.spec.mjs:827:103",
+                    "location": {
+                      "file": "/Users/koscom/workspace2/seoul-human-tooltip/tests/e2e/screen-rules.spec.mjs",
+                      "column": 103,
+                      "line": 827
+                    },
+                    "snippet": " \u001b[90m 825 |\u001b[39m   \u001b[36mconst\u001b[39m first \u001b[33m=\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'dialog[open] .timeComparisonValues strong .exactValueButton'\u001b[39m)\u001b[33m.\u001b[39mfirst()\u001b[33m;\u001b[39m\n \u001b[90m 826 |\u001b[39m   \u001b[36mawait\u001b[39m checkExactTooltip(page\u001b[33m,\u001b[39m first\u001b[33m,\u001b[39m \u001b[32m'two-quarter comparison'\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 827 |\u001b[39m   \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(\u001b[32m'details.timeComparisonExact'\u001b[39m)\u001b[33m,\u001b[39m \u001b[32m'the two-point exact expandable is gone'\u001b[39m)\u001b[33m.\u001b[39mtoHaveCount(\u001b[35m0\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                                                                                                       \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 828 |\u001b[39m   \u001b[36mawait\u001b[39m expectNoExactExpandable(page\u001b[33m,\u001b[39m \u001b[32m'two-quarter comparison (popup)'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 829 |\u001b[39m   \u001b[36mawait\u001b[39m expectPrintCopiesHiddenOnScreen(page\u001b[33m,\u001b[39m \u001b[32m'dialog[open] .timeComparisonValues'\u001b[39m\u001b[33m,\u001b[39m \u001b[32m'two-quarter comparison (popup)'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 830 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mkeyboard\u001b[33m.\u001b[39mpress(\u001b[32m'Escape'\u001b[39m)\u001b[33m;\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/koscom/workspace2/seoul-human-tooltip/tests/e2e/screen-rules.spec.mjs",
+                        "column": 103,
+                        "line": 827
+                      },
+                      "message": "Error: the two-point exact expandable is gone\n\n\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveCount\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('details.timeComparisonExact')\nExpected: \u001b[32m0\u001b[39m\nReceived: \u001b[31m8\u001b[39m\nTimeout:  10000ms\n\nCall log:\n\u001b[2m  - the two-point exact expandable is gone locator('details.timeComparisonExact') with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for locator('details.timeComparisonExact')\u001b[22m\n\u001b[2m    24 × locator resolved to 8 elements\u001b[22m\n\u001b[2m       - unexpected value \"8\"\u001b[22m\n\n\n  825 |   const first = page.locator('dialog[open] .timeComparisonValues strong .exactValueButton').first();\n  826 |   await checkExactTooltip(page, first, 'two-quarter comparison');\n> 827 |   await expect(page.locator('details.timeComparisonExact'), 'the two-point exact expandable is gone').toHaveCount(0);\n      |                                                                                                       ^\n  828 |   await expectNoExactExpandable(page, 'two-quarter comparison (popup)');\n  829 |   await expectPrintCopiesHiddenOnScreen(page, 'dialog[open] .timeComparisonValues', 'two-quarter comparison (popup)');\n  830 |   await page.keyboard.press('Escape');\n    at /Users/koscom/workspace2/seoul-human-tooltip/tests/e2e/screen-rules.spec.mjs:827:103"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T13:04:42.117Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/Users/koscom/workspace2/seoul-human-tooltip/docs/workers-2026-11-18/w42-exact-tooltip/w42b/control-e2e/test-results/screen-rules-w42-compariso-e5018-ip-print-shows-exact-values-desktop-1365/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/koscom/workspace2/seoul-human-tooltip/docs/workers-2026-11-18/w42-exact-tooltip/w42b/control-e2e/test-results/screen-rules-w42-compariso-e5018-ip-print-shows-exact-values-desktop-1365/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/koscom/workspace2/seoul-human-tooltip/tests/e2e/screen-rules.spec.mjs",
+                    "column": 103,
+                    "line": 827
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "ea39948459aead79d56e-87031945067703ff1115",
+          "file": "screen-rules.spec.mjs",
+          "line": 819,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-18T13:04:36.525Z",
+    "duration": 18006.578999999998,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 4,
+    "flaky": 0
+  }
+}

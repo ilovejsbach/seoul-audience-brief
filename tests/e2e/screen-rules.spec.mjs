@@ -750,6 +750,7 @@ test('w42 region popup: the big number shows its exact value in a tooltip, no ex
   await expect(popup).toHaveCount(1);
   await expect(page.locator('details.popupExact'), 'the old expandable is gone').toHaveCount(0);
   const result = await checkExactTooltip(page, popup.locator('.exactValueButton'), 'region popup');
+  await expectNoExactExpandable(page, 'region popup');
   // the popup stays open after Esc closed only the tooltip? (Esc closes the tooltip first)
   await expect(popup).toHaveCount(1);
   await writeFile(info.outputPath('w42-region.json'), JSON.stringify(result, null, 2));
@@ -780,7 +781,39 @@ test('w42 market info: value and quarter change show exact values; candidate car
   await expect(card).toBeVisible();
   await checkExactTooltip(page, card.locator('.exactValueButton'), 'candidate card');
   await expect(page.locator('details.marketExact')).toHaveCount(0);
+  await expectNoExactExpandable(page, 'market info + candidate card');
   await writeFile(info.outputPath('w42-market.json'), JSON.stringify(value, null, 2));
+});
+
+
+// w42b: "정확한 값" must never be an expandable. Search by structure (details/summary and the phrase 정확), not by class names.
+async function expectNoExactExpandable(page, label) {
+  const scan = await page.evaluate(() => {
+    const all = [...document.querySelectorAll('details')];
+    const offenders = all.filter(d => /정확/.test(d.querySelector(':scope > summary')?.textContent || '') || /정확한 수치/.test(d.textContent || '')).map(d => d.className || d.querySelector('summary')?.textContent);
+    return { details: all.length, offenders, printCopies: document.querySelectorAll('.exactPrint').length };
+  });
+  expect(scan.details, `${label}: the scan found <details> elements (otherwise it checked nothing)`).toBeGreaterThan(0);
+  expect(scan.offenders, `${label}: no <details>/<summary> holds an exact value ("정확한 수치")`).toEqual([]);
+  return scan;
+}
+// w42b: the print-only copy of an exact value is hidden on screen (and the check requires copies to exist).
+async function expectPrintCopiesHiddenOnScreen(page, scope, label, requireCopies = true) {
+  const copies = page.locator(`${scope} .exactPrint`);
+  const n = await copies.count();
+  if (requireCopies) expect(n, `${label}: the scene has print-only copies to test`).toBeGreaterThan(0);
+  const shown = await copies.evaluateAll(es => es.filter(e => getComputedStyle(e).display !== 'none' || e.getClientRects().length).map(e => e.textContent));
+  expect(shown, `${label}: print-only copies are not visible on screen`).toEqual([]);
+}
+
+test('w42b: no dataset\'s two-point comparison keeps an exact-value expandable, and print-only copies stay off the screen', async ({ page }) => {
+  for (const topic of ['population', 'mobility', 'migration', 'commerce']) {
+    await startRegion(page, topic, 'analysis');
+    await openView(page, `time-compare-${topic}`); await activeSurface(page).waitFor();
+    await expectNoExactExpandable(page, `${topic} two-point comparison`);
+    await expectPrintCopiesHiddenOnScreen(page, 'dialog[open]', `${topic} two-point comparison`, topic === 'commerce');   // only 조 원 sized values have a print copy
+    await page.keyboard.press('Escape'); await expect(activeSurface(page)).toHaveCount(0);
+  }
 });
 
 test('w42 comparison and KPI numbers use the same tooltip; small values show no tooltip; print shows exact values', async ({ page }) => {
@@ -791,6 +824,9 @@ test('w42 comparison and KPI numbers use the same tooltip; small values show no 
   await openView(page, 'time-compare-commerce'); await activeSurface(page).waitFor();
   const first = page.locator('dialog[open] .timeComparisonValues strong .exactValueButton').first();
   await checkExactTooltip(page, first, 'two-quarter comparison');
+  await expect(page.locator('details.timeComparisonExact'), 'the two-point exact expandable is gone').toHaveCount(0);
+  await expectNoExactExpandable(page, 'two-quarter comparison (popup)');
+  await expectPrintCopiesHiddenOnScreen(page, 'dialog[open] .timeComparisonValues', 'two-quarter comparison (popup)');
   await page.keyboard.press('Escape');
   // rule: a number whose shortened text already equals its exact text gets no tooltip and no print copy
   await page.keyboard.press('Escape');
