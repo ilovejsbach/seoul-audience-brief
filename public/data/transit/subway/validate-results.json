@@ -1,6 +1,6 @@
 {
- "generatedAt": "2026-11-18T16:40:22",
- "passed": 9,
+ "generatedAt": "2026-11-18T17:27:24",
+ "passed": 13,
  "failed": 0,
  "results": [
   {
@@ -8,8 +8,8 @@
    "status": "passed",
    "detail": {
     "files": 15,
-    "totalBytes": 4538467,
-    "largestBytes": 637731,
+    "totalBytes": 4548682,
+    "largestBytes": 637730,
     "od": "pending"
    }
   },
@@ -109,8 +109,8 @@
    "status": "passed",
    "detail": {
     "dailyRawRows": 860468,
-    "dailyMappedRows": 383131,
-    "dailyUnmappedRows(좌표 없는 노선)": 477337,
+    "dailyMappedRows": 383704,
+    "dailyUnmappedRows(좌표 없는 노선)": 476764,
     "nullCells": 0,
     "hourlyRows": {
      "2023": 199270,
@@ -123,6 +123,59 @@
      "2026-09-30": 1671
     },
     "stationsWithoutDong": 33
+   }
+  },
+  {
+   "check": "시간대: 이름 기준 원본 대조(전 역·전 월, 20개 구간 배열 전부)",
+   "status": "passed",
+   "detail": {
+    "stationMonthsCompared(2023~2025)": 9828,
+    "unresolvedNamesSkipped": {
+     "7호선 삼산체육관": 6,
+     "7호선 까치울": 12,
+     "7호선 신중동": 10,
+     "7호선 춘의": 4,
+     "7호선 상동": 4,
+     "7호선 부천시청": 8,
+     "7호선 굴포천": 4,
+     "8호선 암사역사공원": 1036
+    }
+   }
+  },
+  {
+   "check": "승객유형: 이름 기준 원본 대조(전 역·그룹·월)",
+   "status": "passed",
+   "detail": {
+    "stationGroupKindsCompared": 2176,
+    "unresolvedNamesSkipped": {
+     "8호선 암사역사공원": 1914
+    }
+   }
+  },
+  {
+   "check": "혼잡도: 이름 기준 원본 대조 + 승하차 역 이름과 같은지",
+   "status": "passed",
+   "detail": {
+    "cellRowsCompared": 3282,
+    "crowdingStationsNameChecked(값→원본 이름)": 440
+   }
+  },
+  {
+   "check": "교차: 같은 역·월의 일별 합 ↔ 시간대 합(평일 승·하차)",
+   "status": "passed",
+   "detail": {
+    "stationMonthCells": 19584,
+    "smallMonthsSkipped(<1000)": 72,
+    "share>2%": 0.0602,
+    "stationsMedianDiff>10%": 1,
+    "explainedBySource": {
+     "4:0431": {
+      "name": "동작",
+      "preparedMedianDiff": 0.314,
+      "rawByNameMedianDiff": 0.314
+     }
+    },
+    "toleranceNote": "시간대(OA-12921)와 일별(OA-12914)은 같은 역이라도 집계 차이로 중앙값 0.5%, 드물게 수% 어긋난다. 코드가 한 칸 어긋난 6호선은 역 중앙값 차이가 수십~수천 %가 된다."
    }
   }
  ]

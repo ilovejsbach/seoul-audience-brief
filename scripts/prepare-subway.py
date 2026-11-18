@@ -128,19 +128,42 @@ def name_index(stations):
         idx[(s['line'], norm_name(s['name']))].append(s['id'])
     return idx
 
-# 역명이 바뀌어 좌표 파일(2025-08-14)과 12914의 이름이 다른 경우. 같은 호선·외부역코드로 확인한 이름 변경만 적는다.
-ALIAS = {(7, '이수'): '7:2738', (7, '자양(뚝섬한강공원)'): '7:2730'}
+# 역명이 바뀌어 좌표 파일(2025-08-14)과 원본의 이름이 다른 경우. 같은 호선·외부역코드로 확인한 이름 변경만 적는다.
+# 4호선 불암산 = 좌표 파일의 당고개(외부역코드 0409), 7호선 이수 = 총신대입구(2738), 자양(뚝섬한강공원) = 뚝섬유원지(2730).
+ALIAS = {(7, '이수'): '7:2738', (7, '자양(뚝섬한강공원)'): '7:2730', (4, '불암산'): '4:0409'}
 
-def match_12914(line_label, name, idx):
-    if not line_label.endswith('호선') or not line_label[:-2].isdigit() or int(line_label[:-2]) > 8:
-        return None
-    line = int(line_label[:-2]); n = norm_name(name)
+# w41: 좌표 파일(15099316)의 6호선 외부역코드가 연신내~봉화산 구간에서 원본 3종(시간대·승객유형·혼잡도)보다 한 칸씩 뒤로 밀려 있다
+# (예: 합정 원본 2623 / 좌표 파일 2624). 그래서 원본 3종도 코드가 아니라 (호선, 정규화한 역명)으로 역 마스터에 잇는다.
+# 코드는 연결 키로 쓰지 않고, 서로 다를 때 화면에서 둘 다 보여 주려고 기록만 한다(TX_CODES).
+# 9000번대 코드(성수지선 등 지선 가상 코드)는 본선 역과 이름이 같아 섞일 수 있으므로 연결하지 않는다.
+TX_CODES = collections.defaultdict(set)   # 역 id -> 원본 3종이 쓴 역번호들
+SKIPPED_BRANCH = collections.Counter()
+
+def match_station(line, name, idx):
+    """(호선 번호, 원본 역명) -> 역 id 또는 None. 이름이 같은 역이 둘 이상이면 연결하지 않는다."""
     if (line, name) in ALIAS:
         return ALIAS[(line, name)]
+    n = norm_name(name)
     for cand in (n, n[:-1] if n.endswith('역') and len(n) > 2 else None, n + '역'):
         if cand and (line, cand) in idx and len(idx[(line, cand)]) == 1:
             return idx[(line, cand)][0]
     return None
+
+def match_tx(line, code, name, idx):
+    """원본 3종의 한 행을 역 id에 잇는다. 이름 기준. 9000번대 지선 코드는 연결하지 않는다."""
+    code = str(code).strip().zfill(4)
+    if int(code) >= 9000:
+        SKIPPED_BRANCH[(line, code, name)] += 1
+        return None
+    sid = match_station(line, name, idx)
+    if sid is not None:
+        TX_CODES[sid].add(code)
+    return sid
+
+def match_12914(line_label, name, idx):
+    if not line_label.endswith('호선') or not line_label[:-2].isdigit() or int(line_label[:-2]) > 8:
+        return None
+    return match_station(int(line_label[:-2]), name, idx)
 
 # ---------- 일별(OA-12914) ----------
 def prepare_daily(stations):
@@ -148,7 +171,7 @@ def prepare_daily(stations):
     files = sorted(RAW.glob('OA-12914-CARD_SUBWAY_MONTH_*.csv'))
     by = {}            # (id, 'YYYYMMDD') -> [b, a]
     unmatched = collections.Counter(); matched_rows = 0; total_rows = 0; null_cells = 0; dup = 0
-    per_file = {}
+    per_file = {}; external = collections.defaultdict(set)   # 정규화한 역명 -> 1~8호선이 아닌 노선명(다른 운영기관 등)
     for f in files:
         rows = read_csv(f); head = rows[0]
         ix = {h: i for i, h in enumerate(head)}
@@ -159,7 +182,13 @@ def prepare_daily(stations):
             total_rows += 1; n_file += 1
             sid = match_12914(r[ix['노선명']], r[ix['역명']], idx)
             if sid is None:
-                unmatched[(r[ix['노선명']], r[ix['역명']])] += 1; continue
+                unmatched[(r[ix['노선명']], r[ix['역명']])] += 1
+                lab = r[ix['노선명']]
+                if not (lab.endswith('호선') and lab[:-2].isdigit() and 1 <= int(lab[:-2]) <= 8):
+                    nn = norm_name(r[ix['역명']]); external[nn].add(lab)
+                    if nn.endswith('역') and len(nn) > 2:
+                        external[nn[:-1]].add(lab)
+                continue
             b, a = num(r[ix['승차총승객수']]), num(r[ix['하차총승객수']])
             null_cells += (b is None) + (a is None)
             key = (sid, r[ix['사용일자']])
@@ -199,14 +228,13 @@ def prepare_daily(stations):
         monthly[sid] = m
     return {'dates': alldates, 'months': months, 'daily': daily, 'monthly': monthly, 'unmatched': unmatched,
             'matched_rows': matched_rows, 'total_rows': total_rows, 'null_cells': null_cells, 'dup': dup, 'per_file': per_file,
-            'files': [f.name for f in files]}
+            'files': [f.name for f in files], 'external': external}
 
 # ---------- 시간대(OA-12921) ----------
 BUCKETS = ['06시 이전'] + [f'{h:02d}-{h + 1:02d}시' for h in range(6, 24)] + ['24시 이후']
 
 def prepare_hourly(stations):
-    known = {s['id'] for s in stations}
-    by_code = {(s['line'], s['code']): s['id'] for s in stations}
+    idx = name_index(stations)
     out = {}; stats = {}
     for f in sorted(RAW.glob('OA-12921-hourly-*.csv')):
         year = f.stem.split('-')[-1]
@@ -214,13 +242,16 @@ def prepare_hourly(stations):
         DATE = ix.get('수송일자', ix.get('날짜')); KIND = ix.get('승하차구분', ix.get('구분'))
         cols = list(range(KIND + 1, len(head))); assert len(cols) == 20, head
         days = collections.defaultdict(dict)   # (sid, date) -> {'승차':[..], '하차':[..]}
-        bad = 0; unm = collections.Counter(); null_cells = 0
+        bad = 0; unm = collections.Counter(); null_cells = 0; owners = {}; collisions = []
         for r in rows[1:]:
             if not r or not r[0]:
                 continue
-            line = int(r[ix['호선']][:-2]); sid = by_code.get((line, r[ix['역번호']].strip().zfill(4)))
+            line = int(r[ix['호선']][:-2]); sid = match_tx(line, r[ix['역번호']], r[ix['역명']], idx)
             if sid is None:
                 unm[(r[ix['호선']], r[ix['역번호']], r[ix['역명']])] += 1; continue
+            owner = owners.setdefault(sid, r[ix['역번호']].strip().zfill(4))
+            if owner != r[ix['역번호']].strip().zfill(4):
+                collisions.append(f'{sid}: {owner} / {r[ix["역번호"]]} {r[ix["역명"]]}')
             vals = [num(r[c]) for c in cols]; null_cells += sum(v is None for v in vals)
             days[(sid, r[DATE])][r[KIND]] = vals
         st = {}
@@ -236,7 +267,7 @@ def prepare_hourly(stations):
                     tgt[i] = add(tgt[i], x)
         out[year] = st
         stats[year] = {'rows': len(rows) - 1, 'stationDays': len(days), 'incompleteStationDays': bad, 'unmatched': dict((' / '.join(k), v) for k, v in unm.items()), 'nullCells': null_cells,
-                       'stations': len(st)}
+                       'stations': len(st), 'codeCollisions': collisions}
     return out, stats
 
 # ---------- 승객유형(15099330) ----------
@@ -244,7 +275,7 @@ TYPE_GROUP = {'일반': '일반', '청소년': '청소년', '중고생': '청소
 GROUPS = ['일반', '청소년', '우대', '기타']
 
 def prepare_types(stations):
-    by_code = {(s['line'], s['code']): s['id'] for s in stations}
+    idx = name_index(stations); owners = {}; collisions = []
     rows = read_csv(RAW / '15099330-passenger-type-2026H1.csv'); head = rows[0]; ix = {h: i for i, h in enumerate(head)}
     cols = list(range(ix['승객유형'] + 1, len(head))); assert len(cols) == 20, head
     st = {}; raw_totals = collections.defaultdict(lambda: [0, 0]); unm = collections.Counter(); null_cells = 0
@@ -253,9 +284,11 @@ def prepare_types(stations):
     for r in rows[1:]:
         if not r:
             continue
-        line = int(r[ix['호선명']][:-2]); sid = by_code.get((line, r[ix['역번호']].strip().zfill(4)))
+        line = int(r[ix['호선명']][:-2]); sid = match_tx(line, r[ix['역번호']], r[ix['역명']], idx)
         if sid is None:
-            unm[(r[ix['호선명']], r[ix['역번호']])] += 1; continue
+            unm[(r[ix['호선명']], r[ix['역번호']], r[ix['역명']])] += 1; continue
+        if owners.setdefault(sid, r[ix['역번호']].strip().zfill(4)) != r[ix['역번호']].strip().zfill(4):
+            collisions.append(f'{sid}: {owners[sid]} / {r[ix["역번호"]]} {r[ix["역명"]]}')
         vals = [num(r[c]) for c in cols]; null_cells += sum(v is None for v in vals)
         total = None if any(v is None for v in vals) else sum(vals)
         typ = r[ix['승객유형']]; g = TYPE_GROUP.get(typ, '기타'); kind = 'b' if r[ix['승하차구분']] == '승차' else 'a'
@@ -275,17 +308,17 @@ def prepare_types(stations):
         dt = datetime.date.fromisoformat(d); k = 'dh' if is_weekend(dt) else 'dw'
         st[sid][k][months.index(d[:7])] += 1
     return {'months': months, 'stations': st, 'rawTotals': dict(raw_totals), 'unmatched': dict((' / '.join(k), v) for k, v in unm.items()),
-            'rows': len(rows) - 1, 'nullCells': null_cells}
+            'rows': len(rows) - 1, 'nullCells': null_cells, 'codeCollisions': collisions}
 
 # ---------- 혼잡도(OA-12928) ----------
 def prepare_crowding(stations):
     import openpyxl
-    by_code = {(s['line'], s['code']): s['id'] for s in stations}
+    idx = name_index(stations)
     quarters = {}; stats = {}; qslots = {}
     for f in sorted(RAW.glob('OA-12928-crowding-*.xlsx')):
         q = f.stem.split('-')[-1]; qd = f'{q[:4]}-{q[4:6]}-{q[6:]}'
         wb = openpyxl.load_workbook(f, read_only=True, data_only=True)
-        slots = None; res = {}; n = 0; nulls = 0; unm = 0
+        slots = None; res = {}; n = 0; nulls = 0; unm = 0; owners = {}; collisions = []
         for ws, key in (('평일', 'wd'), ('토요일', 'sat'), ('일요일', 'sun')):
             rows = list(wb[ws].iter_rows(values_only=True))
             o = 1 if str(rows[0][0]).strip() == '구분' else 0   # 2026-06 파일은 앞에 요일 구분 열이 하나 더 있다
@@ -293,14 +326,16 @@ def prepare_crowding(stations):
             for r in rows[1:]:
                 if r[o] is None or str(r[o]).strip() == '' or r[o + 1] is None:
                     continue
-                n += 1; line = int(str(r[o])[:-2]); sid = by_code.get((line, str(int(r[o + 1])).zfill(4)))
+                n += 1; line = int(str(r[o])[:-2]); code = str(int(r[o + 1])).zfill(4); sid = match_tx(line, code, str(r[o + 2]).strip(), idx)
                 if sid is None:
                     unm += 1; continue
+                if owners.setdefault((key, sid), code) != code:
+                    collisions.append(f'{key} {sid}: {owners[(key, sid)]} / {code} {r[o + 2]}')
                 vals = [None if v is None else round(float(v), 2) for v in r[o + 4:]]
                 nulls += sum(v is None for v in vals)
                 res.setdefault(key, {}).setdefault(sid, {})[str(r[o + 3])] = vals
         quarters[qd] = res; qslots[qd] = slots
-        stats[qd] = {'rows': n, 'nullCells': nulls, 'unmatched': unm, 'slots': len(slots)}
+        stats[qd] = {'rows': n, 'nullCells': nulls, 'unmatched': unm, 'slots': len(slots), 'codeCollisions': collisions}
     assert len({tuple(v) for v in qslots.values()}) == 1 or True
     return {'slots': qslots[sorted(qslots)[-1]], 'slotsByQuarter': qslots, 'quarters': quarters}, stats
 
@@ -317,6 +352,18 @@ def main():
     types = prepare_types(stations)
     crowd, cstats = prepare_crowding(stations)
     mapped = {s for s in daily['daily']}
+    # w41: 원본 3종의 역번호가 좌표 파일의 코드와 다르면 둘 다 기록한다(화면에서 함께 보여 줌).
+    for s in stations:
+        tx = TX_CODES.get(s['id'])
+        if tx and tx != {s['code']}:
+            s['txCode'] = '/'.join(sorted(tx))
+    # B7: 같은 이름의 다른 운영기관 노선(경의선·경부선·공항철도 등) 역이 일별 원본에 따로 있는 환승 묶음. 합계에는 포함되지 않는다.
+    by_id = {s['id']: s for s in stations}
+    for g in groups:
+        lab = set()
+        for m in g['members']:
+            lab |= daily['external'].get(norm_name(by_id[m]['name']), set())
+        g['external'] = sorted(lab)
     notes_null = '원문 결측(빈 칸)은 null이며 0이 아니다. null이 섞인 합계도 null이다. 관측되지 않은 날은 행이 없고 관측 일수로 센다.'
     man = {'schemaVersion': 1, 'topic': 'transit.subway', 'generatedAt': NOW, 'version': VERSION, 'datasets': []}
     def ds(id, title, files, period, unit_measures, dims, source, raws, notes, partitions):
@@ -375,7 +422,10 @@ def main():
                          'unmatchedRows': sum(daily['unmatched'].values()),
                          'unmatchedTopLines': collections.Counter({k[0]: 0 for k in daily['unmatched']}) and dict(collections.Counter(k[0] for k in daily['unmatched']).most_common(40))},
                'unmatched1to8': sorted(f'{k[0]} {k[1]}' for k in daily['unmatched'] if k[0].endswith('호선') and k[0][:-2].isdigit() and int(k[0][:-2]) <= 8),
-               'hourly': hstats, 'types': {'rows': types['rows'], 'nullCells': types['nullCells'], 'unmatched': types['unmatched'], 'rawTypeTotals': types['rawTotals']},
+               'hourly': hstats, 'types': {'rows': types['rows'], 'nullCells': types['nullCells'], 'unmatched': types['unmatched'], 'rawTypeTotals': types['rawTotals'], 'codeCollisions': types['codeCollisions']},
+               'skippedBranchCodes(9000번대 지선 가상 코드)': dict((' / '.join(map(str, k)), v) for k, v in SKIPPED_BRANCH.items()),
+               'txCodeDiffers': {s['id']: s['txCode'] for s in stations if s.get('txCode')},
+               'groupsWithExternalLines': {g['id']: g['external'] for g in groups if g['external']},
                'crowding': cstats}
     (OUT / 'prepare-summary.json').write_text(json.dumps(summary, ensure_ascii=False, indent=1, default=list), encoding='utf-8')
     total = sum(p.stat().st_size for p in OUT.rglob('*') if p.is_file())
