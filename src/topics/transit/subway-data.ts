@@ -7,8 +7,8 @@ import {decodeStaticJson} from '../../static-json';
 const ROOT='data/transit/subway/';
 const base=():string=>(import.meta as unknown as {env?:{BASE_URL?:string}}).env?.BASE_URL||'./';
 
-export type Station={id:string;line:number;code:string;name:string;lat:number;lng:number;gu:string|null;guName:string|null;dong:string|null;dongName:string|null;group:string};
-export type StationGroup={id:string;name:string;members:string[]};
+export type Station={id:string;line:number;code:string;name:string;lat:number;lng:number;gu:string|null;guName:string|null;dong:string|null;dongName:string|null;group:string;txCode?:string};
+export type StationGroup={id:string;name:string;members:string[];external?:string[]};
 export type Stations={stations:Station[];groups:StationGroup[];note:string};
 export type MonthlyRec={bw:(number|null)[];bh:(number|null)[];aw:(number|null)[];ah:(number|null)[];dw:number[];dh:number[];nb:number[];na:number[]};
 export type Monthly={months:string[];stations:Record<string,MonthlyRec>};

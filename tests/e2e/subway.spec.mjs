@@ -326,3 +326,57 @@ test('교통 좌측 메뉴는 지역 메뉴와 같은 폭·키보드 규칙', as
   expect(await nav.evaluate(e => e.getBoundingClientRect().width)).toBe(64);
   await expect(page.getByRole('button', { name: '지도', exact: true })).toBeVisible();   // 접힌 메뉴도 이름 유지
 });
+
+// ---- w41: 6호선 외부역코드 어긋남 재발 방지. 원본을 "이름"으로 읽어 화면 값과 대조한다 ----
+function rawHourlyWeekday(year, lineLabel, rawNamePrefix, ym) {
+  const rows = parseCsv(decode(readFileSync(`${RAW}/OA-12921-hourly-${year}.csv`))); const out = { 승차: 0, 하차: 0, days: new Set() };
+  for (const r of rows.slice(1)) {
+    if (r.length < 26 || r[2] !== lineLabel || !r[4].startsWith(rawNamePrefix) || r[1].slice(0, 7) !== ym) continue;
+    const d = new Date(Date.UTC(+r[1].slice(0, 4), +r[1].slice(5, 7) - 1, +r[1].slice(8, 10)));
+    if ([0, 6].includes(d.getUTCDay())) continue;
+    out.days.add(r[1]); for (let i = 6; i < 26; i++) out[r[5]] += +r[i];
+  }
+  return { b: out.승차, a: out.하차, days: out.days.size };
+}
+for (const [name, rawName] of [['합정', '합정'], ['상수', '상수'], ['광흥창', '광흥창']]) {
+  test(`6호선 ${name}: 시간대 곡선이 이름 기준 원본과 같고 일별 값과 같은 역`, async ({ page }, info) => {
+    await enterTransport(page);
+    await expect(page.locator('.swDot').first()).toBeVisible({ timeout: 20000 });
+    const left = page.getByRole('button', { name: '왼쪽 메뉴 펼치기' }); if (await left.count()) await left.click();
+    await page.getByLabel('시작 월').selectOption('202501'); await page.getByLabel('끝 월').selectOption('202501');
+    await page.getByLabel('요일 구분').selectOption('wd'); await page.getByLabel('호선').selectOption('6');
+    await page.getByLabel('역 검색').first().fill(`${name} · 6호선`);
+    await expect(page.locator('.swSelName')).toHaveText(name);
+    const day = rawDaily('6호선', name === '광흥창' ? '광흥창(서강)' : name, '202501', '202501', 'wd');
+    const kpi = (await page.locator('.swKpiValue').innerText()).replace(/[^\d]/g, '');
+    expect(+kpi).toBe(Math.round((day.b + day.a) / day.days));                     // 일별 값
+    await page.locator('aside[aria-label^="교통"] button[aria-label="시간대 곡선"]').click();
+    const [dl] = await Promise.all([page.waitForEvent('download'), page.getByRole('button', { name: 'CSV 내려받기' }).click()]);
+    const csv = readFileSync(await dl.path(), 'utf8').split('\n').slice(1).filter(Boolean).map(l => l.split(','));
+    const hb = csv.reduce((s, r) => s + +r[1], 0), ha = csv.reduce((s, r) => s + +r[2], 0);
+    const raw = rawHourlyWeekday(2025, '6호선', rawName, '2025-01');
+    expect(raw.days).toBe(23);
+    expect(Math.abs(hb - raw.b / raw.days)).toBeLessThanOrEqual(20);              // 20개 구간 반올림 오차
+    expect(Math.abs(ha - raw.a / raw.days)).toBeLessThanOrEqual(20);
+    // 같은 역의 일별 합과 시간대 합은 1% 안에서 같아야 한다(코드 어긋남이면 이웃 역 값이 되어 수십 %가 어긋난다)
+    expect(Math.abs((hb + ha) - (day.b + day.a) / day.days) / ((day.b + day.a) / day.days)).toBeLessThan(0.02);
+    record(info.project.name, `6호선 ${name}`, { kpi: +kpi, hourlySum: Math.round(hb + ha) });
+  });
+}
+test('환승 합계에 다른 운영기관 노선 미포함 표시, 승객유형 제목은 좌표 있는 역 수', async ({ page }) => {
+  await enterTransport(page);
+  await expect(page.locator('.swDot').first()).toBeVisible({ timeout: 20000 });
+  const left = page.getByRole('button', { name: '왼쪽 메뉴 펼치기' }); if (await left.count()) await left.click();
+  await page.getByLabel('역 검색').first().fill('서울 · 1호선');
+  const note = page.getByTestId('subway-external-note');
+  await expect(note).toContainText('다른 운영기관 노선 구간 미포함');
+  await expect(note).toContainText('경의선');
+  await page.getByLabel('역 검색').first().fill('합정 · 2호선');                  // 6호선과 2호선만 있는 환승역에는 외부 노선 문구가 없어야 한다
+  await expect(page.locator('.swSelName')).toHaveText('합정');
+  await expect(page.getByTestId('subway-external-note')).toHaveCount(0);
+  await page.getByRole('button', { name: '역 선택 해제' }).first().click();
+  await expect(page.locator('.swSelName')).toHaveText('선택 전');
+  await page.locator('aside[aria-label^="교통"] button[aria-label="승객 유형"]').click();
+  await expect(page.locator('.swPanelTitle').first()).toContainText(/좌표 있는 \d+역 합/);
+  await expect(page.locator('.swPanelTitle').first()).not.toContainText('1~8호선 전체');
+});

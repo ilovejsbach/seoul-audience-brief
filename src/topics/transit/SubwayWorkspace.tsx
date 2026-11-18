@@ -79,7 +79,8 @@ export default function SubwayWorkspace({mode,active}:{mode:'analysis'|'presenta
 
   const toggleCandidate=(id:string)=>setCandidates(c=>c.includes(id)?c.filter(x=>x!==id):c.length<3?[...c,id]:c);
   const metricFor=(id:string)=>monthlyL.data?.stations[id]?stationMetric(monthlyL.data.stations[id],idx,kind,day):{perDay:null,days:0,total:null};
-  const groupRows=sel?(stationsL.data?.groups.find(g=>g.id===sel.group)?.members||[sel.id]):[];
+  const selGroup=sel?stationsL.data?.groups.find(g=>g.id===sel.group):undefined;
+  const groupRows=sel?(selGroup?.members||[sel.id]):[];
 
   const centerTitle=views.find(v=>v.id===view)?.label||'';
   const downloadCsv=()=>{if(!csv)return;const blob=new Blob([toCsv(csv.rows)],{type:'text/csv;charset=utf-8'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=`${csv.name}.csv`;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)};
@@ -144,7 +145,7 @@ export default function SubwayWorkspace({mode,active}:{mode:'analysis'|'presenta
         <section className="swSection" aria-label="선택 역">
           <div className="swLabel">선택 역</div>
           <div className="swSelName">{sel?sel.name:'선택 전'}</div>
-          {sel?<p className="swMeta">{sel.line}호선 · 외부역코드 {sel.code} · {sel.guName&&sel.dongName?`${sel.guName} ${sel.dongName}`:'서울 밖 또는 행정동 연결 없음'}</p>:<p className="swMeta">지도의 점, 순위, 또는 위 ‘역’ 검색으로 고릅니다.</p>}
+          {sel?<p className="swMeta">{sel.line}호선 · 외부역코드 {sel.code}{sel.txCode?` (좌표 파일 기준 · 승하차 원본은 ${sel.txCode})`:''} · {sel.guName&&sel.dongName?`${sel.guName} ${sel.dongName}`:'서울 밖 또는 행정동 연결 없음'}</p>:<p className="swMeta">지도의 점, 순위, 또는 위 ‘역’ 검색으로 고릅니다.</p>}
         </section>
         {dataset==='usage'&&<section className="swSection" aria-label="핵심 지표">
           <div className="swKpi" data-testid="subway-kpi"><div className="swLabel">{KIND_LABEL[kind]} 하루 평균</div><div className="swKpiValue">{sel?fmt(metricFor(sel.id).perDay):'—'}<span>건</span></div>
@@ -152,7 +153,8 @@ export default function SubwayWorkspace({mode,active}:{mode:'analysis'|'presenta
           {sel&&groupRows.length>1&&<div className="swGroupBox"><div className="swLabel">환승역 호선별 행과 역 단위 합계</div>
             <ul>{groupRows.map(id=>{const s=byId.get(id)!;return <li key={id}><span>{s.line}호선 {s.name}</span><b>{fmt(metricFor(id).perDay)}</b></li>})}
               <li className="swSum"><span>역 단위 합계</span><b>{fmt(sumNullable(groupRows.map(id=>metricFor(id).perDay)))}</b></li></ul>
-            <p className="swMeta">호선별 개찰구 이용 건수를 더한 값이며 중복 없는 사람 수가 아닙니다.</p></div>}
+            <p className="swMeta">호선별 개찰구 이용 건수를 더한 값이며 중복 없는 사람 수가 아닙니다.</p>
+            {selGroup?.external?.length?<p className="swMeta" data-testid="subway-external-note">다른 운영기관 노선 구간 미포함(1~8호선 서울교통공사 구간만 더함): 같은 이름의 {selGroup.external.join('·')} 역은 원본에 따로 있어 이 합계에 넣지 않았습니다.</p>:null}</div>}
         </section>}
         <section className="swSection" aria-label="후보">
           <div className="swLabel">후보 <span>{candidates.length} / 3곳</span></div>
@@ -224,12 +226,13 @@ function HourlyView({sel,from,to,kind,day,stations,setCsv}:VP){
       for(const [mo,rec] of Object.entries(st)){const ym=`${h.year}${mo}`;if(ym<from||ym>to)continue;
         for(const k of dt){days+=rec.d[k];for(let i=0;i<20;i++){acc.b[i]=acc.b[i]==null||rec.b[k][i]==null?null:(acc.b[i] as number)+(rec.b[k][i] as number);acc.a[i]=acc.a[i]==null||rec.a[k][i]==null?null:(acc.a[i] as number)+(rec.a[k][i] as number)}}}}}
     const per=(arr:(number|null)[])=>arr.map(v=>v==null||!days?null:v/days);
-    return {buckets:L.data[0]?.buckets||[],b:per(acc.b),a:per(acc.a),days,sel:!!sel};
+    const n=ids.filter(id=>L.data!.some(h=>!!h.stations[id])).length;
+    return {buckets:L.data[0]?.buckets||[],b:per(acc.b),a:per(acc.a),days,sel:!!sel,n};
   },[L.data,sel,from,to,day,stations.length]);
   useEffect(()=>{setCsv(out&&out.days?{name:'시간대-하루평균',rows:[['시간대','승차 하루평균','하차 하루평균'],...out.buckets.map((b,i)=>[b,out.b[i]==null?null:Math.round(out.b[i] as number),out.a[i]==null?null:Math.round(out.a[i] as number)])]}:null)},[out]);// eslint-disable-line
   if(!years.length)return <Placeholder title="선택한 기간에 시간대 자료 없음" lines={['시간대 자료는 2023~2025년입니다.','위 기간을 이 범위로 바꾸면 곡선이 보입니다.']}/>;
   if(L.loading||!out)return <Loading text="시간대 자료를 불러오는 중입니다"/>;
-  return <div className="swChartPanel"><h2 className="swPanelTitle">{sel?`${sel.name} ${sel.line}호선`:'1~8호선 전체 역 평균'} · 시간대별 하루 평균</h2>
+  return <div className="swChartPanel"><h2 className="swPanelTitle">{sel?`${sel.name} ${sel.line}호선`:`좌표 있는 ${out.n}역 평균`} · 시간대별 하루 평균</h2>
     <p className="swMeta">시간대 자료 기간 2023~2025년 중 선택 기간과 겹치는 {out.days.toLocaleString('ko-KR')}개 역-일. {sel?'':'역을 고르지 않으면 역 하나당 평균입니다. '}‘06시 이전’과 ‘24시 이후’는 묶음 구간입니다.</p>
     <LineChart ariaLabel="시간대별 승차·하차 하루 평균" unit="건 / 하루 평균" xLabels={out.buckets.map(b=>b.replace('시 이전','↓').replace('시 이후','↑').replace('-','~').replace('시',''))} tickEvery={2}
       series={[...(kind!=='a'?[{label:'승차',color:'#24558b',values:out.b}]:[]),...(kind!=='b'?[{label:'하차',color:'#b4530a',values:out.a,dash:'6 4'}]:[])]}/>
@@ -302,14 +305,15 @@ function TypesView({sel,from,to,day,setCsv}:VP){
     if(!L.data)return null;
     const mi=monthsIdx(L.data.months,from,to);
     const ids=sel?[sel.id]:Object.keys(L.data.stations);
+    const nStations=ids.filter(id=>!!L.data!.stations[id]).length;
     const tot=PASSENGER_GROUPS.map(g=>sumNullable(ids.flatMap(id=>mi.map(i=>L.data!.stations[id]?.m[g]?.[which][i]??null))));
-    return {mi,tot,sum:sumNullable(tot)};
+    return {mi,tot,sum:sumNullable(tot),nStations};
   },[L.data,sel,from,to,which]);
   useEffect(()=>{setCsv(out&&out.mi.length?{name:'승객유형',rows:[['유형',which==='b'?'승차':'하차','비중(%)'],...PASSENGER_GROUPS.map((g,i)=>[g==='기타'?'기타(어린이 등)':g,out.tot[i],out.sum&&out.tot[i]!=null?Math.round(1000*(out.tot[i] as number)/out.sum)/10:null])]}:null)},[out,which]);// eslint-disable-line
   if(L.loading||!out||!L.data)return <Loading text="승객 유형 자료를 불러오는 중입니다"/>;
   if(!out.mi.length)return <Placeholder title="선택한 기간에 승객 유형 자료 없음" lines={['승객 유형 자료는 2026년 1~6월입니다.','기간을 이 범위와 겹치게 바꿔 주세요.']}/>;
   const colors=['#24558b','#2e8b3a','#b4530a','#6b7a8c'];
-  return <div className="swTypesWrap"><div className="swChartPanel"><div className="swPanelRow"><h2 className="swPanelTitle">{sel?`${sel.name} ${sel.line}호선`:'1~8호선 전체'} · 승객 유형별 {which==='b'?'승차':'하차'}</h2>
+  return <div className="swTypesWrap"><div className="swChartPanel"><div className="swPanelRow"><h2 className="swPanelTitle">{sel?`${sel.name} ${sel.line}호선`:`좌표 있는 ${out.nStations}역 합`} · 승객 유형별 {which==='b'?'승차':'하차'}</h2>
     <span className="swSeg" role="group" aria-label="승차 하차 선택"><button type="button" className="swSegBtn" aria-pressed={which==='b'} onClick={()=>setWhich('b')}>승차</button><button type="button" className="swSegBtn" aria-pressed={which==='a'} onClick={()=>setWhich('a')}>하차</button></span></div>
     <p className="swMeta">기간 {monthLabel(L.data.months[out.mi[0]].replace('-',''))}~{monthLabel(L.data.months[out.mi.at(-1)!].replace('-',''))} 합계(건). 승객 유형은 카드 권종이며 실제 나이·성별이 아닙니다. 요일 구분은 이 월 합에 적용하지 않습니다{day!=='all'?'(조회의 요일 선택은 무시됨)':''}.</p>
     <BarChart ariaLabel="승객 유형별 합계" unit="건(기간 합)" bars={PASSENGER_GROUPS.map((g,i)=>({label:g==='기타'?'기타(어린이 등)':g,value:out.tot[i],color:colors[i]}))}/></div>
