@@ -1,0 +1,149 @@
+{
+  "metrics": [
+    {
+      "value": "316",
+      "unit": "일",
+      "label": "생활인구 제공 기간",
+      "detail": "2026.01.01–11.12",
+      "source": "public/data/population/index.json",
+      "calculation": "316 distinct date entries, no gaps within range"
+    },
+    {
+      "value": "427",
+      "unit": "동",
+      "label": "생활인구 분석 대상",
+      "detail": "현재 생활인구 대상 코드 기준",
+      "source": "public/data/regions.json",
+      "calculation": "430 dongs minus 3 activePopulation=false historical codes; latest population file confirms 427 unique row[2] codes"
+    },
+    {
+      "value": "1,650",
+      "unit": "곳",
+      "label": "보유 상권 경계",
+      "detail": "매출 관측 수와 구분",
+      "source": "public/data/market-sales.json",
+      "calculation": "areas: 1650 unique codes; not the per-quarter sales observation count"
+    },
+    {
+      "value": "6",
+      "unit": "분기",
+      "label": "행정동·상권 매출",
+      "detail": "2025년 1분기–2026년 2분기",
+      "source": "public/data/commerce.json; public/data/market-sales.json",
+      "calculation": "6 distinct periods, same list in both files"
+    }
+  ],
+  "sourceFiles": {
+    "districts.geojson": {
+      "sha256": "4b1734f4f7f6bba5589491157a596946de796cf883f6612f5cff1541a9e2d92b"
+    },
+    "population/index.json": {
+      "sha256": "073a5211f631a92020c2b878e742c42efb76ccaaa3a14bfbd50067f3095462cd"
+    },
+    "regions.json": {
+      "sha256": "90a4d760c2d0c7b11004f4077289efcd218af7a76fdab1687f35d166f516481d"
+    },
+    "market-sales.json": {
+      "sha256": "c1553f8c704232ce6b964270ce13faaec9caea9ba2b6df7661cab2ac9eb5dc99"
+    },
+    "market-population.json": {
+      "sha256": "17b552987738359be7d770ee431f81b1b49711a74f5de74079c5a1895f49be66"
+    },
+    "commerce.json": {
+      "sha256": "e32d6d0840b21907d9cef398a1dd33e038ef23d81d054f90817c2888b5239543"
+    }
+  },
+  "latestPopulation": {
+    "path": "public/data/population/250_LOCAL_RESD_ADMDONG_20261112.json.gz",
+    "uniqueDongCodes": 427
+  },
+  "regionCodes": {
+    "total": 430,
+    "activePopulation": 427,
+    "excludedHistorical": [
+      {
+        "code": "11230536",
+        "name": "용신동",
+        "districtCode": "11230",
+        "activePopulation": false,
+        "notes": "상권 원본의 과거 행정동 코드. 현재 생활인구 코드로 소급 재배분하지 않음."
+      },
+      {
+        "code": "11680740",
+        "name": "일원2동",
+        "districtCode": "11680",
+        "activePopulation": false,
+        "notes": "상권 원본의 과거 행정동 코드. 현재 생활인구 코드로 소급 재배분하지 않음."
+      },
+      {
+        "code": "11740520",
+        "name": "상일동",
+        "districtCode": "11740",
+        "activePopulation": false,
+        "notes": "상권 원본의 과거 행정동 코드. 현재 생활인구 코드로 소급 재배분하지 않음."
+      }
+    ]
+  },
+  "marketSales": {
+    "areaCodes": 1650,
+    "periods": [
+      "20251",
+      "20252",
+      "20253",
+      "20254",
+      "20261",
+      "20262"
+    ],
+    "latestCoverage": {
+      "records": 21133,
+      "sourceAreaCount": 1566,
+      "matchedBoundaryAreaCount": 1566,
+      "unmatchedBoundaryAreaCodes": [],
+      "boundaryWithoutSalesCount": 84
+    }
+  },
+  "marketPopulation": {
+    "periods": [
+      "20211",
+      "20212",
+      "20213",
+      "20214",
+      "20221",
+      "20222",
+      "20223",
+      "20224",
+      "20231",
+      "20232",
+      "20233",
+      "20234",
+      "20241",
+      "20242",
+      "20243",
+      "20244",
+      "20251",
+      "20252",
+      "20253",
+      "20254",
+      "20261",
+      "20262"
+    ],
+    "latestCoverage": {
+      "records": 1648,
+      "matchedBoundaryCodes": 1648,
+      "missingFromBoundary": [],
+      "boundaryWithoutPopulation": [
+        "3110946",
+        "3111002"
+      ]
+    }
+  },
+  "svg": {
+    "features": 25,
+    "paths": 25,
+    "pointsBefore": 2321,
+    "pointsAfter": 1375,
+    "projection": "Mercator fitted to 480x360; Douglas-Peucker tolerance 0.65 CSS units",
+    "fill": "#dbe4ed; same for all districts",
+    "source": "public/data/districts.geojson"
+  }
+}
