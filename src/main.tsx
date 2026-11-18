@@ -182,4 +182,6 @@ return <MapDataContext.Provider value={{selected:tab,select:selectMapData}}><div
 </div>{(['mobility','migration','commerce'] as const).map(key=><div hidden={tab!==key} key={key}><ExtraDashboard analysis={sharedDetailFlow} detail={analysisDetail} onDetailChange={setAnalysisDetail} queryView={presentationStep} arrivalData={arrival as any} animate={true} active={view==='analysis'&&tab===key} kind={key} data={(key==='mobility'?mobility:key==='migration'?migration:commerce) as any} geo={geo} dongGeo={dongGeo} onRetryBoundaries={retryBoundaries} regions={regions} error={extraErrors[key]}/></div>)}
 
 </div></div></DetailNavigationProvider>{view==='analysis'&&<footer><p>현재 제공 범위: 서울 · 자료별 기준 기간과 집계 단위를 확인하세요.</p></footer>}</main></div></MapDataContext.Provider>}
-createRoot(document.getElementById('root')!).render(<React.StrictMode><App/></React.StrictMode>);
+// 교통(지하철) 임시 진입점: ?topic=subway. 1b 상단 주제 메뉴가 반영되면 '교통' 메뉴가 이 컴포넌트를 연다.
+const SubwayWorkspace=React.lazy(()=>import('./topics/transit/SubwayWorkspace'));
+createRoot(document.getElementById('root')!).render(<React.StrictMode>{new URLSearchParams(window.location.search).get('topic')==='subway'?<React.Suspense fallback={null}><SubwayWorkspace/></React.Suspense>:<App/>}</React.StrictMode>);
