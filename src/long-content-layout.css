@@ -26,7 +26,7 @@
 .app .mapOptionsBody .queryOptionGroup{display:flex;flex-direction:column;gap:10px;border-bottom:1px solid #d2dce7;padding-bottom:12px}.app .queryOptionGroup>b{color:#53677c}.app .queryOptionGroup label{display:flex;flex-direction:column;gap:4px;min-width:0}.app .queryOptionGroup select{width:100%;max-width:100%}
 .app .workspaceDetailsToggle,.app .workspaceDetailsToggle span{color:#fff!important}.app .workspaceDetailsToggle svg{color:#fff!important}
 .app .marketRank{grid-template-columns:minmax(0,1fr);gap:6px}.app .marketRank>span{width:100%;max-width:none}.app .marketRank>b{justify-self:end;white-space:nowrap}
-.app .timeComparisonValues strong.negative{color:#a64b1b!important}.app .timeComparisonValues strong.positive{color:#173e69!important}.app .popupExact{overflow-wrap:anywhere;word-break:normal}
+.app .timeComparisonValues strong.negative{color:#a64b1b!important}.app .timeComparisonValues strong.positive{color:#173e69!important}
 .app :is(.timeComparisonHeading,.mapOptionsPanel>header,.floatingLegendPanel>header,.marketTrendDrawerHeader){height:auto;min-height:0}
 .app .dashboardContent .timeComparisonHeading{padding:0;border:0;position:static;box-shadow:none}
 /* Layered type rules must preserve the SVG camera's inverse label scaling. */

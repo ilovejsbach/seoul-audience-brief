@@ -1,0 +1,10 @@
+/* The shortened number is the tooltip anchor; it keeps the surrounding size, weight and colour. */
+.app .exactValueAnchor{display:inline;margin:0!important;float:none!important;vertical-align:baseline}
+.app .dataMeaningButton.exactValueButton{font:inherit!important;font-size:inherit!important;font-weight:inherit!important;line-height:inherit!important;color:inherit!important;background:transparent!important;border:0!important;border-bottom:1px dotted currentColor!important;border-radius:0!important;padding:0!important;min-height:0!important;white-space:normal;text-align:inherit;cursor:help!important}
+.app .dataMeaningButton.exactValueButton:hover,.app .dataMeaningButton.exactValueButton[aria-expanded=true]{background:transparent!important;color:inherit!important;border-bottom-style:solid!important}
+.app .dataMeaningButton.exactValueButton:focus-visible{outline:3px solid #397eb8;outline-offset:3px}
+.exactValueText{margin:4px 0 0;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+.exactPrint{display:none}
+@media print{.exactPrint{display:inline;font-size:.8em;font-weight:400;color:#333}.app .dataMeaningButton.exactValueButton{border-bottom:0!important}}
+@layer dashboardTypography{#root .app .dataMeaningAnchor.exactValueAnchor,#root .app .dataMeaningButton.exactValueButton{font-size:inherit!important;line-height:inherit!important;font-weight:inherit!important;color:inherit!important}}
+#root .app .dataMeaningAnchor.exactValueAnchor,#root .app .dataMeaningButton.exactValueButton{font-size:inherit!important;line-height:inherit!important;font-weight:inherit!important;color:inherit!important}

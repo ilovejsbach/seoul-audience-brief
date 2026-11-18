@@ -713,3 +713,97 @@ test('I03/I05 names: data menu, two-point detail names and dialog titles equal t
     }
   }
 });
+
+// ---- w42: "정확한 수치" expandables are tooltips now (hover, focus, Esc, aria, print) ----
+const exactText = value => value.toLocaleString('ko-KR', { maximumFractionDigits: 2 });
+async function checkExactTooltip(page, button, label) {
+  await expect(button, `${label}: the big number is a focusable tooltip anchor`).toHaveCount(1);
+  const shown = (await button.innerText()).trim();
+  const name = await button.getAttribute('aria-label');
+  expect(name, `${label}: accessible name carries the exact value`).toMatch(/정확한 값 [\d,.]+/);
+  const exact = name.match(/정확한 값 (.+)$/)[1].trim();
+  expect(exact.replace(/[^\d]/g, '').length, `${label}: exact has more digits than the shortened text ${shown}`).toBeGreaterThan(shown.replace(/[^\d]/g, '').length - 1);
+  const tip = page.locator('.dataMeaningTooltip').filter({ visible: true });
+  // mouse hover
+  await button.hover();
+  await expect(tip, `${label}: hover shows the tooltip`).toHaveCount(1);
+  await expect(tip).toContainText(exact);
+  expect(await button.getAttribute('aria-describedby'), `${label}: aria-describedby points at the tooltip`).toBe(await tip.getAttribute('id'));
+  const box = await tip.boundingBox(), vp = page.viewportSize();
+  expect(box.x >= 0 && box.y >= 0 && box.x + box.width <= vp.width && box.y + box.height <= vp.height, `${label}: tooltip stays inside the window ${JSON.stringify(box)}`).toBe(true);
+  await page.mouse.move(5, 5);
+  await expect(tip).toHaveCount(0, { timeout: 3000 });
+  // keyboard focus
+  await button.focus();
+  await expect(tip, `${label}: focus shows the tooltip`).toHaveCount(1);
+  await expect(tip).toContainText(exact);
+  // Esc closes the tooltip (and only it)
+  await page.keyboard.press('Escape');
+  await expect(tip, `${label}: Esc closes`).toHaveCount(0);
+  return { shown, exact };
+}
+
+test('w42 region popup: the big number shows its exact value in a tooltip, no expandable', async ({ page }, info) => {
+  await startRegion(page, 'commerce', 'analysis');
+  await page.locator('#map-commerce .mapWrap > svg path').nth(10).click({ force: true });
+  const popup = page.locator('.mapPopup').filter({ visible: true });
+  await expect(popup).toHaveCount(1);
+  await expect(page.locator('details.popupExact'), 'the old expandable is gone').toHaveCount(0);
+  const result = await checkExactTooltip(page, popup.locator('.exactValueButton'), 'region popup');
+  // the popup stays open after Esc closed only the tooltip? (Esc closes the tooltip first)
+  await expect(popup).toHaveCount(1);
+  await writeFile(info.outputPath('w42-region.json'), JSON.stringify(result, null, 2));
+});
+
+test('w42 market info: value and quarter change show exact values; candidate card too; no expandable', async ({ page }, info) => {
+  await startRegion(page, 'population', 'analysis');
+  await openMarketTopic(page);
+  await page.locator('.marketMapSvg path[data-market-code]').first().waitFor();
+  await page.locator('#market-query-period').selectOption('20262');
+  await page.locator('.marketMapSvg path[data-market-code="3120107"]').press('Enter');
+  const details = page.locator('.marketDetails');
+  await expect(details.locator('.marketValue')).toBeVisible();
+  await expect(page.locator('details.marketExact, details.popupExact, details.scenarioExact'), 'the old expandables are gone').toHaveCount(0);
+  const value = await checkExactTooltip(page, details.locator('.marketValue .exactValueButton'), 'market value');
+  // the exact value equals the source data (independent read of market-sales.json)
+  const sales = dataJson('market-sales.json');
+  const code = '3120107';
+  const total = sales.records.filter(r => r.period === '20262' && String(r.areaCode) === code).reduce((s, r) => s + (r.sales ?? 0), 0);
+  expect(value.exact.replace(/[^\d.]/g, '')).toBe(exactText(total).replace(/[^\d.]/g, ''));
+  // the change line (직전 분기 대비) is a tooltip too when it is abbreviated
+  const delta = details.locator('.marketDeltaLine .exactValueButton');
+  if (await delta.count()) await checkExactTooltip(page, delta, 'market quarter change');
+  // candidate card
+  await details.getByRole('button', { name: '후보 담기', exact: true }).click();
+  await page.getByRole('combobox', { name: '상권 상세 분석 선택', exact: true }).selectOption('candidates');
+  const card = page.locator('dialog[open] .marketCandidate').first();
+  await expect(card).toBeVisible();
+  await checkExactTooltip(page, card.locator('.exactValueButton'), 'candidate card');
+  await expect(page.locator('details.marketExact')).toHaveCount(0);
+  await writeFile(info.outputPath('w42-market.json'), JSON.stringify(value, null, 2));
+});
+
+test('w42 comparison and KPI numbers use the same tooltip; small values show no tooltip; print shows exact values', async ({ page }) => {
+  await startRegion(page, 'commerce', 'analysis');
+  // KPI numbers of the support panel (abbreviated 억/조) are tooltip anchors
+  await checkExactTooltip(page, page.locator('.selectedRegionInsights').filter({ visible: true }).locator('strong .exactValueButton').first(), 'support KPI');
+  // two-point comparison values
+  await openView(page, 'time-compare-commerce'); await activeSurface(page).waitFor();
+  const first = page.locator('dialog[open] .timeComparisonValues strong .exactValueButton').first();
+  await checkExactTooltip(page, first, 'two-quarter comparison');
+  await page.keyboard.press('Escape');
+  // rule: a number whose shortened text already equals its exact text gets no tooltip and no print copy
+  await page.keyboard.press('Escape');
+  await dataNav(page).getByRole('button', { name: '생활인구', exact: true }).click();
+  const plain = await page.locator('.selectedRegionInsights').filter({ visible: true }).locator('strong').first().evaluate(e => ({ text: e.textContent.trim(), anchors: e.querySelectorAll('.exactValueButton').length, print: e.querySelectorAll('.exactPrint').length }));
+  expect(plain.text.length).toBeGreaterThan(0);
+  expect(plain.text, 'population value is a plain integer').toMatch(/^[\d,]+\s*명?$/);
+  expect(plain.anchors + plain.print, 'no tooltip anchor and no print copy for an unabbreviated value').toBe(0);
+  // print: the exact value is written next to the shortened one
+  await dataNav(page).getByRole('button', { name: '행정동 추정매출', exact: true }).click();
+  await page.emulateMedia({ media: 'print' });
+  const printed = await page.evaluate(() => { const e = [...document.querySelectorAll('.selectedRegionInsights strong .exactPrint')].find(x => x.getClientRects().length); return e ? e.textContent.trim() : ''; });
+  expect(printed, 'print copy exists and is visible').toMatch(/^\([\d,.]+ 원\)$/);
+  await page.emulateMedia({ media: 'screen' });
+  expect(await page.locator('.selectedRegionInsights').filter({ visible: true }).locator('strong .exactPrint').first().isVisible(), 'the print copy is hidden on screen').toBe(false);
+});
