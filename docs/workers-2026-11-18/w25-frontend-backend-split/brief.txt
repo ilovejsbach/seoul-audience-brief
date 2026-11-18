@@ -1,0 +1,96 @@
+작업 w25: 프론트엔드·백엔드 분리 방안 분석 (분석과 제안만, 구현 없음)
+
+프로젝트: /Users/koscom/workspace2/seoul human
+산출물 폴더: /Users/koscom/workspace2/seoul human/docs/workers-2026-11-18/w25-frontend-backend-split/
+
+사용자 요청 (2026-11-18): "프론트엔드와 백엔드 분리 방안 분석해봐."
+배경
+- 지금 서비스는 정적 SPA(Vite+React)다. public/data의 JSON 등 약 528MB를 GitHub Pages로 함께 배포한다.
+- 자료 준비는 scripts/의 Python 스크립트가 한다.
+- 앞으로 주제가 늘어난다(수평 확장): 교통(지하철 1차, 버스 2차), 부동산.
+- 기간·화면·분석 깊이도 늘어난다(수직 확장).
+- 레이아웃 이전(w20→w22 계획)은 별도로 진행 중이다. 이번 작업은 그 계획과 충돌하지 않는 분리 경로를 찾는 것이다.
+
+먼저 읽을 것
+- 구조 검토와 관련 보고서
+  - docs/workers-2026-11-18/w17-architecture-review/REPORT.md
+    - 등록부·로더·주제 모듈 제안이 있다.
+    - 백엔드 선택지 ①–④와 전환 기준이 있다. 이번 작업은 이를 더 깊게 판다.
+  - docs/workers-2026-11-18/w18-pages-deploy-limits/REPORT.md (용량, 선로딩, 압축, 상업 이용 제한)
+  - docs/workers-2026-11-18/w23-subway-data-feasibility/REPORT.md, w24-bus-planning/REPORT.md와 architecture-notes.md (교통 자료 규모)
+  - docs/layout-migration-plan.md
+- 기준 문서: README.md, docs/DASHBOARD_DEVELOPMENT_RULES.md, docs/DEVELOPMENT_REQUIREMENTS.md
+- 소스: src/ 전체(특히 main.tsx의 데이터 로딩, fetch 경로, 캐시), scripts/, public/data 구조, package.json, vite 설정
+
+할 일
+1. 현재 경계 진단
+   - 데이터가 어디서 만들어지고(scripts) 어디에 놓이고(public/data) 어떻게 불려 오는지(src의 fetch, 선로딩, 캐시) 지도로 그린다.
+   - 표시 로직과 계산·집계 로직이 섞인 곳을 파일과 줄로 표시한다.
+     - 예: 브라우저에서 하는 집계, 비교, 순위
+   - 각 곳이 백엔드나 사전 집계로 옮겨야 할 대상인지 판정한다.
+2. 분리 선택지 비교. 최소 아래 4안을 다룬다.
+   A. 정적 유지 + 데이터만 분리 호스팅
+      - 객체 저장소와 CDN에 둔다. 예: Cloudflare R2, S3+CloudFront, GitHub Releases.
+      - 프론트는 manifest로 자료 위치와 버전을 찾는다.
+   B. 정적 "API" (사전 집계 파일 분할)
+      - 질의 단위로 미리 잘라 둔 파일을 요청 시에만 받는다.
+      - 대안 기술 예: DuckDB-WASM, Parquet+HTTP range, PMTiles.
+   C. 경량 API 서버 + DB
+      - 서버 예: FastAPI 또는 Node.
+      - DB 예: DuckDB, Postgres/PostGIS.
+      - 질의를 서버에서 계산한다.
+   D. 서버리스·엣지 함수 + 저장소
+      - 예: Cloudflare Workers+R2/D1, Supabase.
+   각 안마다 아래를 적는다.
+   - 구조도(글 또는 ASCII)
+   - 비용: 월 추정. 근거가 있으면 공식 요금 페이지를 인용하고, 아니면 "추정"으로 적는다.
+   - 운영 부담
+   - 성능: 첫 진입, 상권 첫 진입, 지도 전환
+   - 보안
+     - 인증키는 서버 쪽에 둔다.
+     - 공개 범위
+   - 상업 이용(GitHub Pages 제한) 해결 여부
+   - 교통·부동산 확장성
+   - 데이터 원칙을 지킬 수 있는지
+     - 원본 불변
+     - null≠0
+     - 독립 대조
+     - 자료 정의 계약
+   - 이전 난이도
+3. 데이터 계약 설계(어느 안이든 공통)
+   - 자료 manifest 형식. 넣을 항목:
+     - id
+     - 주제
+     - 기간
+     - 버전·해시
+     - 단위
+     - null 의미
+     - 출처
+     - 갱신일
+   - 프론트가 쓰는 데이터 접근 계층(인터페이스)의 초안을 적는다. 화면 코드는 이 계층만 부르게 한다.
+   - 정적에서 서버로 바뀌어도 화면 코드가 그대로 남게 하는 방법을 적는다.
+4. 저장소 구조안
+   - 예: apps/web, pipeline(scripts), api(필요 시), packages/contracts
+   - 지금 구조에서 단계적으로 옮기는 순서를 적는다.
+   - 레이아웃 이전 단계(1a~5, L)와 어떻게 맞물리는지 적는다. 같은 파일을 동시에 고치지 않게 한다.
+5. 권고
+   - 지금, 교통 1차 추가 시, 상업 서비스 전환 시의 세 시점별로 권장안을 낸다.
+   - 전환 기준: 용량, 동시 사용자, 질의 복잡도, 비용.
+   - 사용자가 정할 질문 목록을 붙인다. 예: 상업 서비스 여부, 월 예산, 운영 인력, 로그인 필요 여부.
+
+금지
+- src/, public/, scripts/, tests/, data/, 기존 docs 수정. 산출물 폴더 안에만 쓴다.
+- git 쓰기 명령, 배포, 서버 띄우기, 패키지 설치, 계정 가입·로그인.
+- 외부 요청은 호스팅·DB 서비스의 공식 문서·요금 페이지 읽기만 허용한다.
+  - 예: pages.github.com, docs.github.com, cloudflare.com, aws.amazon.com, supabase.com, duckdb.org
+
+보고
+산출물 폴더의 REPORT.md에 쉬운 한국어로 아래 순서로 쓴다.
+1. 핵심 결론 3줄
+2. 현재 경계 진단
+3. 선택지 비교표 (A–D)
+4. 데이터 계약과 접근 계층 초안
+5. 저장소 구조안과 이전 순서 (레이아웃 단계와의 맞물림 포함)
+6. 시점별 권고와 전환 기준
+7. 사용자 결정 질문
+8. 한계·미확인. "추정"과 "확인"을 구분한다.
