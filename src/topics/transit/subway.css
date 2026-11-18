@@ -8,7 +8,7 @@
 .sw.sw-presentation button,.sw.sw-presentation select,.sw.sw-presentation input{font-size:var(--fs-body)}
 .sw button{cursor:pointer;padding:0 12px;white-space:nowrap}
 .sw button:hover:not(:disabled){background:var(--tint);border-color:#6889af}
-.sw button:disabled{background:var(--disabled);color:var(--disabled-text);cursor:not-allowed}
+.sw button:disabled{opacity:1;background:var(--disabled);color:var(--disabled-text);cursor:not-allowed}
 .sw :focus-visible{outline:3px solid var(--warm);outline-offset:2px}
 .sw button[aria-pressed=true],.sw button[aria-current=page],.sw button[aria-current=true]{background:var(--blue-dark);border-color:var(--blue-dark);color:#fff}
 .sw input,.sw select{color:var(--ink);font-weight:500;padding:0 8px}
