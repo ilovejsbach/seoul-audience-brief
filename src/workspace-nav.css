@@ -1,0 +1,39 @@
+/* Region service layout: left menu (200px, collapsed 64px) + the existing analysis view. */
+@media screen{
+ .regionBody:not([hidden]){display:grid;grid-template-columns:var(--left-nav-width,200px) minmax(0,1fr);flex:1;min-width:0;min-height:0;height:100%}
+ .regionBody[data-nav-collapsed="true"]{--left-nav-width:64px}
+ .regionBody>.analysisView{grid-column:2;min-width:0}
+ .app .workspaceNav{grid-column:1;display:flex;flex-direction:column;min-height:0;min-width:0;background:#fff;border-right:1px solid #d5dfe9;box-sizing:border-box}
+ .app .workspaceNavHead{flex:none;display:flex;align-items:center;justify-content:space-between;gap:6px;min-height:44px;padding:4px 8px;border-bottom:1px solid #e1e8f0}
+ .app .workspaceNav[data-collapsed="true"] .app .workspaceNavHead{justify-content:center;padding:4px}
+ .app .workspaceNavHead strong{font-size:var(--type-label,14px);color:#1f3045;white-space:nowrap}
+ .app .workspaceNavToggle{width:32px;height:32px;border:1px solid #a9bfd6;border-radius:4px;background:#fff;color:#24558b;font-size:var(--type-label,14px);cursor:pointer}
+ .app .workspaceNavBody{flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain;padding:6px 8px 12px}
+ .app .workspaceNav[data-collapsed="true"] .app .workspaceNavBody{padding:6px 4px 12px}
+ .app .workspaceNav .navGroup{margin:0 0 10px;padding:0}
+ .app .workspaceNav .navGroup .navGroupTitle{margin:6px 4px 4px;padding:0;font-size:var(--type-label,14px)!important;font-weight:600;color:#4a5b6d!important;line-height:1.4!important;letter-spacing:0}
+ .app .workspaceNav[data-collapsed="true"] .navGroup .navGroupTitle{text-align:center;margin-inline:0}
+ .app .workspaceNav nav{display:flex;flex-direction:column;gap:3px}
+ .app .workspaceNav nav>button{position:relative;width:100%;min-height:36px;padding:6px 8px;box-sizing:border-box;font-size:var(--type-label,14px);line-height:1.4;text-align:left;word-break:keep-all;color:#24558b!important;background:#fff;border:1px solid transparent!important;border-radius:4px;cursor:pointer;font-weight:500;letter-spacing:0}
+ .app .workspaceNav[data-collapsed="true"] nav>button{text-align:center;padding:6px 2px}
+ .app .workspaceNav nav>button:hover{background:#edf3f9}
+ .app .workspaceNav nav>button[aria-pressed="true"]{background:#173e69!important;color:#fff!important;font-weight:700}
+ .app .workspaceNav nav>button[aria-current="page"]{background:#eaf1f8!important;color:#173e69!important;font-weight:700;box-shadow:inset 3px 0 0 #173e69}
+ .app .workspaceNav button:focus-visible{outline:2px solid #b75a1b;outline-offset:-2px}
+ .app .workspaceNavTip{position:fixed;transform:translateY(-50%);z-index:200;max-width:240px;padding:6px 10px;background:#1f3045;color:#fff;font-size:var(--type-label,14px);line-height:1.4;border-radius:4px;box-shadow:0 4px 14px #18314e44;pointer-events:none}
+ /* Fullscreen map covers the app; the menu keeps its state but cannot take focus or show. */
+ .app:has(.mapPanel.mapIsFullscreen) .workspaceNav{visibility:hidden}
+}
+@media print{.app .workspaceNav{display:none!important}.regionBody{display:block!important}}
+
+@media screen{
+ /* The menu sits at the window edge; the content column takes what is left. */
+ .app[data-service="region"]>main{max-width:none;padding-left:0;padding-right:12px}
+ .app .regionBody>.analysisView{padding-left:8px}
+ /* The analysis title stays for assistive technology; the row itself takes no height. */
+ .app>header.appHeader>.analysisToolbar{position:absolute!important;width:1px!important;height:1px!important;min-height:0!important;margin:0!important;padding:0!important;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;flex:none!important}
+}
+@media screen{
+ .app:not(.floatingQueryLayer)>header.appHeader.appHeader{padding:0 12px!important}
+ .app:not(.floatingQueryLayer)>header.appHeader.integratedAnalysisHeader>.analysisToolbar{position:absolute!important;top:auto!important}
+}

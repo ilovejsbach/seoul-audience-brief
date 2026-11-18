@@ -25,7 +25,7 @@ function leaveDetail(target:HTMLElement,owner:HTMLElement){
   detailSessions.delete(target);
   if(document.querySelector('dialog[open],.analysisMainDetail:not([hidden])'))return;
   window.scrollTo({left:session.x,top:session.y,behavior:'instant'});
-  const fallback=target.closest<HTMLElement>('.analysisView,.mapWorkspace')?.querySelector<HTMLElement>('.analysisDetailSelect');
+  const fallback=target.closest<HTMLElement>('.analysisView,.mapWorkspace')?.querySelector<HTMLElement>('.analysisDetailSelect')||document.querySelector<HTMLElement>('.workspaceNav [data-nav-kind="view"][aria-current="page"]');
   const focus=session.focus?.isConnected&&session.focus.getClientRects().length?session.focus:fallback;
   if(focus?.getClientRects().length)focus.focus({preventScroll:true});
  });
