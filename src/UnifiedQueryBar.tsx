@@ -41,7 +41,7 @@ export default function UnifiedQueryBar({children,scope,active,panel,fullscreenS
    const state=latest.current,root=focused?node:view;
    const share=Number.parseFloat(app?.style.getPropertyValue('--workspace-map-track')||'75')/100;
    const rankingNode=node?.closest('.workspace')?.querySelector<HTMLElement>(':scope>.ranking,:scope>.supportRanking');
-   const ranking=focused||mainOpen||app?.getAttribute('data-secondary-mode')==='hidden'?0:Math.max(280,rankingNode?.getBoundingClientRect().width||0);
+   const ranking=focused||mainOpen||app?.getAttribute('data-secondary-mode')==='hidden'?0:(rankingNode?Math.max(280,rankingNode.getBoundingClientRect().width):0);
    const available=(root?.clientWidth||0)-state.dockWidth-16;
    const failureKey=`${root?.clientWidth}-${state.dockWidth}-${share}-${ranking}-${mainOpen}-${focused}`;
    const fits=dockFailure.current!==failureKey&&available-ranking>=540&&(focused||mainOpen||available*Math.min(.85,Math.max(.55,share))>=540);

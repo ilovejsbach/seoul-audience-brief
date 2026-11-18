@@ -1,0 +1,25 @@
+/* One-row top query bar at 1365 with both side panels open (center about 865px). Font sizes are untouched. */
+@media screen{
+ .app .unifiedQueryBar[data-query-placement="top"] .unifiedQueryFields .controls{gap:6px!important;flex-wrap:wrap!important}
+ .app .unifiedQueryBar[data-query-placement="top"] .unifiedQueryFields :is(label,.querySearchSelect){gap:5px;padding:0 6px}
+ .app .unifiedQueryBar[data-query-placement="top"] .unifiedQueryFields label:has(input[type=date]){flex-basis:182px;width:182px;min-width:176px}
+ .app .unifiedQueryBar[data-query-placement="top"] .unifiedQueryFields label:has(select[id*="period"]){flex-basis:178px;width:178px;min-width:150px}
+ .app .unifiedQueryBar[data-query-placement="top"] .unifiedQueryFields label:has(select[id*="hour"]){flex-basis:120px;width:120px;min-width:110px}
+ .app .unifiedQueryBar[data-query-placement="top"] .unifiedQueryFields label:has(select[id*="band"]){flex-basis:176px;width:176px;min-width:150px}
+ .app .unifiedQueryBar[data-query-placement="top"] .unifiedQueryFields label:has(select[id*="metric"]){flex-basis:170px;width:170px;min-width:150px}
+ .app .unifiedQueryBar[data-query-placement="top"] .unifiedQueryFields .querySearchSelect{flex-basis:152px;width:152px;min-width:140px}
+ .app .unifiedQueryBar[data-query-placement="top"] .unifiedQueryFields .querySearchSelect:has(button[id*="dong"]){flex-basis:172px;width:172px;min-width:150px}
+ /* "조건 더보기": one button for the seldom-used conditions */
+ .app .unifiedQueryFields .queryMore{flex:none;align-self:flex-end}
+ .app .unifiedQueryFields .queryMoreButton{display:flex;align-items:center;gap:6px;min-height:36px;padding:0 10px;border:1px solid #a9bdd2;border-radius:4px;background:#fff;color:#24558b;font:inherit;line-height:1.35;white-space:nowrap;cursor:pointer}
+ .app .unifiedQueryFields .queryMoreButton:hover{background:#edf3f9}
+ .app .unifiedQueryFields .queryMoreButton[data-changed]:not([data-changed="0"]){border-color:#24558b;background:#edf4fb;font-weight:600}
+ .app .unifiedQueryFields .queryMoreButton:focus-visible{outline:2px solid #b75a1b;outline-offset:2px}
+ .queryMoreBadge{display:inline-flex;align-items:center;justify-content:center;min-width:20px;height:20px;padding:0 5px;border-radius:10px;background:#244f80;color:#fff;font-size:var(--type-meta,12px);font-weight:700;line-height:1}
+}
+/* The folded inputs live in a popover that sits outside the bar: give them a plain stacked layout. */
+.queryMorePanel{display:grid;gap:10px;min-width:0}
+.queryMorePanel>label,.queryMorePanel>div>label{display:flex;flex-direction:column;gap:4px;font:inherit;color:#33465c}
+.queryMorePanel select,.queryMorePanel input{width:100%;min-height:36px;padding:4px 8px;border:1px solid #aabbd0;border-radius:4px;background:#fff;color:#233d58;font:inherit}
+.queryMorePanel small{color:#4a5b6d}
+.queryMorePanel button:not(.dataMeaningButton){min-height:34px;padding:4px 10px;border:1px solid #aabbd0;border-radius:4px;background:#fff;color:#24558b;font:inherit;cursor:pointer}

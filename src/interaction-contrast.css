@@ -31,7 +31,7 @@
 .app .mapIsFullscreen .mapDisplaySettings{grid-column:1/-1;grid-row:4}
 .app .mapWrap svg .mapLabelLayer{pointer-events:none}.app .mapWrap svg .mapLabelLayer text{paint-order:stroke fill;stroke:#fff;stroke-linejoin:round;fill:#17324f;font-weight:600;pointer-events:none}
 .app .rankingDisclosure{display:flex;gap:8px;justify-content:space-between;padding:10px 16px;flex-wrap:wrap;border-top:1px solid #d5dfe8}.app .rankingDisclosure button{min-height:34px;padding:6px 10px;font-size:12px;border:1px solid #aabbd0;border-radius:4px;color:#24558b;background:#fff}
-.app:not([data-secondary-mode=expanded]) .ranking .rankRow:nth-child(n+6){display:none}.app[data-secondary-mode=hidden] .ranking{display:none}
+.app:not([data-secondary-mode=expanded]) .ranking .rankRow:nth-child(n+6){display:none}.app[data-secondary-mode=hidden] .workspace>.ranking{display:none}
 @media(min-width:1100px){.app[data-secondary-mode=hidden] .dashboardContent>div:not([hidden])>.workspace{grid-template-columns:minmax(0,1fr)!important}.app .dashboardContent .mapPanel:not(.mapIsFullscreen) .mapWrap>svg{height:var(--workspace-map-height,clamp(250px,calc(100dvh - 650px),340px))!important}}
 .layoutControl{display:flex;gap:8px}.layoutOptions label{margin-block:12px}.layoutOptions select{min-height:34px;max-width:190px;font-size:14px;border:1px solid #aabbd0;border-radius:4px;background:#fff;color:#24558b;padding:5px}
 @media screen and (min-width:1100px){.app .dashboardContent .mapPanel:not(.mapIsFullscreen)>.timeControl{padding-block:4px}.app .dashboardContent .mapPanel:not(.mapIsFullscreen) .timeTicks{margin-top:2px}.app .dashboardContent .mapPanel:not(.mapIsFullscreen) .timeControl label>span{margin-bottom:2px}}

@@ -1,0 +1,137 @@
+/* Right support column (300px; 0 when folded). Width comes from the shell grid in workspace-nav.css. */
+@media screen{
+ .regionBody[data-support-open="false"]{--right-panel-width:0px}
+ /* Advanced ratio (only when the user turned it on): the support column takes (100 - share)% of menu-free width, 280-480px, center at least 540px. */
+ .regionBody[data-ratio="true"][data-support-open="true"]{--right-panel-width:min(clamp(280px,calc((100% - var(--left-nav-width,200px)) * (100 - var(--support-share,75)) / 100),480px),calc(100% - var(--left-nav-width,200px) - 540px))}
+ .regionBody[data-support-open="false"] .workspaceSplitHandle,.workspace[data-ranking-dock] .workspaceSplitHandle{display:none}
+ .app .regionSupport{grid-column:3;display:flex;flex-direction:column;min-width:0;min-height:0;overflow:hidden;background:#fff;border-left:1px solid #d5dfe9;box-sizing:border-box}
+ .app .regionBody[data-support-open="false"] .regionSupport{visibility:hidden;border-left:0}
+ /* In the default mode the map workspace holds only the map; docked/floating ranking keep their own grids. */
+ .app .dashboardContent>div:not([hidden])>.workspace:not([data-ranking-dock]){grid-template-columns:minmax(0,1fr)!important}
+ /* The panel moved out of .dashboardContent/.workspace: carry the rules that were scoped there. */
+ :is(.app .regionSupport,.app .supportRankingMount,.app .supportRanking[data-support-mode="floating"])>.supportRanking{position:relative;flex:1;display:flex;flex-direction:column;min-width:0;min-height:0;height:100%;overflow:hidden!important;border:0;border-radius:0;box-shadow:none;margin:0;background:#fff}
+ :is(.app .regionSupport,.app .supportRankingMount,.app .supportRanking[data-support-mode="floating"]) .supportRankingContent{display:flex;flex-direction:column;flex:1;min-height:0;overflow:auto;overscroll-behavior:contain}
+ :is(.app .regionSupport,.app .supportRankingMount,.app .supportRanking[data-support-mode="floating"]) .rankList{flex:1 0 80px;min-height:80px;max-height:none;overflow:auto;overscroll-behavior:contain;padding:0 12px 12px}
+ :is(.app .regionSupport,.app .supportRankingMount,.app .supportRanking[data-support-mode="floating"]) .rankingDisclosure{flex:none}
+ :is(.app .regionSupport,.app .supportRankingMount,.app .supportRanking[data-support-mode="floating"]) .panelTitle{padding:12px 12px 4px;min-height:48px}
+ :is(.app .regionSupport,.app .supportRankingMount,.app .supportRanking[data-support-mode="floating"]) .helper{margin:3px 12px 7px;font-size:12px}
+ :is(.app .regionSupport,.app .supportRankingMount,.app .supportRanking[data-support-mode="floating"]) .rankRow{min-height:47px;padding:10px 0}
+ :is(.app .regionSupport,.app .supportRankingMount,.app .supportRanking[data-support-mode="floating"]) .linkedMetricSummary{flex:none;max-height:none;margin:0;overflow:visible;border:0;border-bottom:1px solid #d2dce7;border-radius:0}
+ :is(.app .regionSupport,.app .supportRankingMount,.app .supportRanking[data-support-mode="floating"]) .supportWindowBar{padding:4px 8px;min-height:40px}
+ :is(.app .regionSupport,.app .supportRankingMount,.app .supportRanking[data-support-mode="floating"]) .helper{display:none}
+ :is(.app .regionSupport,.app .supportRankingMount,.app .supportRanking[data-support-mode="floating"]) .panelTitle{min-height:32px;padding:6px 12px 2px}
+ :is(.app .regionSupport,.app .supportRankingMount,.app .supportRanking[data-support-mode="floating"]) .panelTitle h2{font-size:var(--type-label,14px)!important;margin:0}
+}
+/* Print keeps the target, KPI and ranking (folded or not) below the map. */
+@media screen{
+ .app .regionSupport .supportTitle{margin:0;font-size:var(--type-label,14px);font-weight:700;color:#1f3045;line-height:1.4}
+ :is(.app .regionSupport,.app .supportRankingMount,.app .supportRanking[data-support-mode="floating"]) .supportCandidates{flex:none;padding:6px 12px;border-bottom:1px solid #d2dce7}
+ :is(.app .regionSupport,.app .supportRankingMount,.app .supportRanking[data-support-mode="floating"]) .supportCandidatesHead{display:flex;align-items:center;justify-content:space-between}
+ :is(.app .regionSupport,.app .supportRankingMount,.app .supportRanking[data-support-mode="floating"]) .supportCount{font-size:var(--type-meta,12px);color:#4a5b6d}
+ :is(.app .regionSupport,.app .supportRankingMount,.app .supportRanking[data-support-mode="floating"]) .supportCandidates ol{list-style:none;margin:6px 0;padding:0;display:grid;gap:4px}
+ :is(.app .regionSupport,.app .supportRankingMount,.app .supportRanking[data-support-mode="floating"]) .supportCandidates li{display:grid;grid-template-columns:20px minmax(0,1fr) auto 28px;align-items:center;gap:6px;min-height:26px;padding:0 4px;border:1px solid #d2dce7;border-radius:4px;background:#f7f9fb;font-size:var(--type-label,14px)}
+ :is(.app .regionSupport,.app .supportRankingMount,.app .supportRanking[data-support-mode="floating"]) .supportCandidates li.filled{background:#eaf1f8;border-color:#bdcfe0}
+ :is(.app .regionSupport,.app .supportRankingMount,.app .supportRanking[data-support-mode="floating"]) .supportCandidates .slot{font-size:var(--type-meta,12px);color:#4a5b6d;text-align:center}
+ :is(.app .regionSupport,.app .supportRankingMount,.app .supportRanking[data-support-mode="floating"]) .supportCandidates .name{min-width:0;word-break:keep-all;color:#173f68}
+ :is(.app .regionSupport,.app .supportRankingMount,.app .supportRanking[data-support-mode="floating"]) .supportCandidates .placeholder{grid-column:2/-1;color:#4a5b6d}
+ :is(.app .regionSupport,.app .supportRankingMount,.app .supportRanking[data-support-mode="floating"]) .supportCandidates b{font-variant-numeric:tabular-nums;color:#173f68;font-weight:600}
+ :is(.app .regionSupport,.app .supportRankingMount,.app .supportRanking[data-support-mode="floating"]) .supportCandidates li button{width:26px;height:26px;padding:0;border:1px solid #9eb3cb;border-radius:4px;background:#fff;color:#24558b;cursor:pointer}
+ :is(.app .regionSupport,.app .supportRankingMount,.app .supportRanking[data-support-mode="floating"]) .supportHint{display:none;margin:0 0 6px;font-size:var(--type-meta,12px);color:#4a5b6d}
+ :is(.app .regionSupport,.app .supportRankingMount,.app .supportRanking[data-support-mode="floating"]) .supportCandidatesActions{display:grid;grid-template-columns:1fr 1fr;gap:4px}
+ :is(.app .regionSupport,.app .supportRankingMount,.app .supportRanking[data-support-mode="floating"]) .supportCandidatesActions button{min-height:32px;padding:2px 4px;line-height:1.25;font-size:var(--type-label,14px);border:1px solid #9eb3cb;border-radius:4px;background:#fff;color:#24558b;cursor:pointer}
+ :is(.app .regionSupport,.app .supportRankingMount,.app .supportRanking[data-support-mode="floating"]) .supportCandidatesActions button:disabled{color:#4a5b6d;background:#eef2f6;cursor:not-allowed}
+ :is(.app .regionSupport,.app .supportRankingMount,.app .supportRanking[data-support-mode="floating"]) .supportSource{flex:none;padding:8px 12px;border-top:1px solid #d2dce7;display:grid;gap:4px;justify-items:start}
+ :is(.app .regionSupport,.app .supportRankingMount,.app .supportRanking[data-support-mode="floating"]) .supportNote{margin:0;font-size:var(--type-meta,12px);line-height:1.5;color:#33465c}
+ :is(.app .regionSupport,.app .supportRankingMount,.app .supportRanking[data-support-mode="floating"]) .supportDetachedNote{padding:16px 12px;display:grid;gap:8px;font-size:var(--type-label,14px)}
+ :is(.app .regionSupport,.app .supportRankingMount,.app .supportRanking[data-support-mode="floating"]) .supportDetachedNote p{margin:0}
+ /* The map-side candidate bar returns when the support column is folded or the map is fullscreen. */
+ .app .regionBody[data-support-open="true"] .mapPanel:not(.mapIsFullscreen) .mapCandidateTray{display:none}
+}
+@media print{.app .regionSupport{display:block!important;visibility:visible!important;width:auto!important;border:0;overflow:visible}:is(.app .regionSupport,.app .supportRankingMount,.app .supportRanking[data-support-mode="floating"]) .ranking{display:flex!important}:is(.app .regionSupport,.app .supportRankingMount,.app .supportRanking[data-support-mode="floating"]) .supportWindowBar,:is(.app .regionSupport,.app .supportRankingMount,.app .supportRanking[data-support-mode="floating"]) .rankingDisclosure{display:none!important}}
+@media screen{
+ /* Compact so that target, KPI, candidates, ranking and source fit the 300px column at 1365x768. */
+ #root>.app #region-support-host .panelTitle h2{font-size:var(--type-label,14px)!important;line-height:1.4!important;margin:0}
+ :is(#root>.app #region-support-host,#root>.app .supportRankingMount,#root>.app .supportRanking[data-support-mode="floating"]) .linkedMetricHeading{display:block!important;padding:6px 12px 0}
+ :is(#root>.app #region-support-host,#root>.app .supportRankingMount,#root>.app .supportRanking[data-support-mode="floating"]) .linkedMetricHeading b{font-size:var(--type-body,16px)}
+ :is(#root>.app #region-support-host,#root>.app .supportRankingMount,#root>.app .supportRanking[data-support-mode="floating"]) .linkedMetricHeading span{display:none}
+ :is(#root>.app #region-support-host,#root>.app .supportRankingMount,#root>.app .supportRanking[data-support-mode="floating"]) .selectedRegionInsights{border:0!important;margin:0!important;padding:2px 12px 6px!important;box-shadow:none!important}
+ :is(#root>.app #region-support-host,#root>.app .supportRankingMount,#root>.app .supportRanking[data-support-mode="floating"]) .rankRow{min-height:40px;padding:6px 0}
+ :is(#root>.app #region-support-host,#root>.app .supportRankingMount,#root>.app .supportRanking[data-support-mode="floating"]) .rankingDisclosure{display:grid;grid-template-columns:1fr 1fr;gap:4px;padding:6px 12px}
+ :is(#root>.app #region-support-host,#root>.app .supportRankingMount,#root>.app .supportRanking[data-support-mode="floating"]) .rankingDisclosure button{min-height:32px;padding:2px 4px;font-size:var(--type-label,14px)}
+}
+@media screen{
+ #root>.app #region-support-host .supportRankingContent .panelTitle h2{font-size:var(--type-label,14px)!important;line-height:1.4!important}
+ :is(#root>.app #region-support-host,#root>.app .supportRankingMount,#root>.app .supportRanking[data-support-mode="floating"]) .supportSource{display:grid;grid-template-columns:1fr auto;align-items:center;gap:2px 8px;padding:6px 12px}
+ :is(#root>.app #region-support-host,#root>.app .supportRankingMount,#root>.app .supportRanking[data-support-mode="floating"]) .supportSource .supportNote{grid-column:1/-1;grid-row:2}
+ :is(#root>.app #region-support-host,#root>.app .supportRankingMount,#root>.app .supportRanking[data-support-mode="floating"]) .supportSource .dataMeaningWrap,:is(#root>.app #region-support-host,#root>.app .supportRankingMount,#root>.app .supportRanking[data-support-mode="floating"]) .supportSource>:last-child{grid-row:1;grid-column:2}
+ :is(#root>.app #region-support-host,#root>.app .supportRankingMount,#root>.app .supportRanking[data-support-mode="floating"]) .supportCandidates ol{gap:3px;margin:4px 0}
+}
+/* Typography rules live in a cascade layer; important declarations there beat unlayered ones. */
+@layer dashboardTypography{
+ #root>.app #region-support-host .panelTitle h2{font-size:var(--type-label,14px)!important;line-height:1.4!important}
+}
+@media screen{
+ #root>.app #region-support-host .linkedMetrics>div{padding:4px 12px!important}
+ :is(#root>.app #region-support-host,#root>.app .supportRankingMount,#root>.app .supportRanking[data-support-mode="floating"]) .supportSource .supportNote{line-height:1.4}
+}
+
+@media screen{
+ .app .supportToggle{white-space:nowrap;padding:3px 8px}
+ :is(.app .regionSupport,.app .supportRankingMount,.app .supportRanking[data-support-mode="floating"]) .supportCandidatesActions button{word-break:keep-all}
+}
+/* w37b: make room for at least five ranking rows at 1365x768 (compact target/KPI/candidates/source). */
+@media screen{
+ #root>.app #region-support-host .supportWindowBar{min-height:32px;padding:2px 8px;gap:4px}
+ :is(#root>.app #region-support-host,#root>.app .supportRankingMount,#root>.app .supportRanking[data-support-mode="floating"]) .supportWindowBar>span{min-width:0}
+ :is(#root>.app #region-support-host,#root>.app .supportRankingMount,#root>.app .supportRanking[data-support-mode="floating"]) .supportWindowBar button,:is(#root>.app #region-support-host,#root>.app .supportRankingMount,#root>.app .supportRanking[data-support-mode="floating"]) .supportDockTools>summary{min-height:26px;padding:1px 6px}
+ :is(#root>.app #region-support-host,#root>.app .supportRankingMount,#root>.app .supportRanking[data-support-mode="floating"]) .linkedMetricHeading{padding:4px 12px 0}
+ :is(#root>.app #region-support-host,#root>.app .supportRankingMount,#root>.app .supportRanking[data-support-mode="floating"]) .linkedMetrics>div{padding:2px 10px!important}
+ :is(#root>.app #region-support-host,#root>.app .supportRankingMount,#root>.app .supportRanking[data-support-mode="floating"]) .linkedMetrics strong{line-height:1.15!important}
+ :is(#root>.app #region-support-host,#root>.app .supportRankingMount,#root>.app .supportRanking[data-support-mode="floating"]) .linkedMetrics .dataMeaningButton{min-height:22px;height:22px;padding:0 8px}
+ :is(#root>.app #region-support-host,#root>.app .supportRankingMount,#root>.app .supportRanking[data-support-mode="floating"]) .linkedMetrics .dataMeaningAnchor{height:22px}
+ :is(#root>.app #region-support-host,#root>.app .supportRankingMount,#root>.app .supportRanking[data-support-mode="floating"]) .insightComparisons>summary{min-height:24px;padding:0}
+ :is(#root>.app #region-support-host,#root>.app .supportRankingMount,#root>.app .supportRanking[data-support-mode="floating"]) .selectedRegionInsights{padding:0 12px 4px!important}
+ :is(#root>.app #region-support-host,#root>.app .supportRankingMount,#root>.app .supportRanking[data-support-mode="floating"]) .supportCandidates{padding:4px 12px}
+ :is(#root>.app #region-support-host,#root>.app .supportRankingMount,#root>.app .supportRanking[data-support-mode="floating"]) .supportCandidates ol{margin:3px 0;gap:2px}
+ :is(#root>.app #region-support-host,#root>.app .supportRankingMount,#root>.app .supportRanking[data-support-mode="floating"]) .supportCandidates li{min-height:24px}
+ :is(#root>.app #region-support-host,#root>.app .supportRankingMount,#root>.app .supportRanking[data-support-mode="floating"]) .supportCandidates li button{width:22px;height:22px}
+ :is(#root>.app #region-support-host,#root>.app .supportRankingMount,#root>.app .supportRanking[data-support-mode="floating"]) .supportCandidatesActions button{min-height:28px}
+ :is(#root>.app #region-support-host,#root>.app .supportRankingMount,#root>.app .supportRanking[data-support-mode="floating"]) .supportSource{padding:4px 12px}
+ :is(#root>.app #region-support-host,#root>.app .supportRankingMount,#root>.app .supportRanking[data-support-mode="floating"]) .supportSource .supportTitle{line-height:1.2}
+ :is(#root>.app #region-support-host,#root>.app .supportRankingMount,#root>.app .supportRanking[data-support-mode="floating"]) .supportSource .dataMeaningButton{min-height:24px;height:24px;padding:0 8px}
+ :is(#root>.app #region-support-host,#root>.app .supportRankingMount,#root>.app .supportRanking[data-support-mode="floating"]) .rankingDisclosure{padding:4px 12px}
+ :is(#root>.app #region-support-host,#root>.app .supportRankingMount,#root>.app .supportRanking[data-support-mode="floating"]) .rankingDisclosure button{min-height:28px}
+ :is(#root>.app #region-support-host,#root>.app .supportRankingMount,#root>.app .supportRanking[data-support-mode="floating"]) .panelTitle{min-height:26px;padding:4px 12px 0}
+ :is(#root>.app #region-support-host,#root>.app .supportRankingMount,#root>.app .supportRanking[data-support-mode="floating"]) .rankList{flex:1 0 200px;min-height:200px}
+}
+@media screen{
+ #root>.app #region-support-host .supportWindowBar{flex-wrap:nowrap}
+ :is(#root>.app #region-support-host,#root>.app .supportRankingMount,#root>.app .supportRanking[data-support-mode="floating"]) .supportWindowBar>span{white-space:nowrap}
+ :is(#root>.app #region-support-host,#root>.app .supportRankingMount,#root>.app .supportRanking[data-support-mode="floating"]) .linkedMetrics{margin:4px 0!important}
+ :is(#root>.app #region-support-host,#root>.app .supportRankingMount,#root>.app .supportRanking[data-support-mode="floating"]) .linkedMetrics strong{margin:2px 0!important}
+ :is(#root>.app #region-support-host,#root>.app .supportRankingMount,#root>.app .supportRanking[data-support-mode="floating"]) .insightComparisons{padding:2px 12px 4px!important}
+ :is(#root>.app #region-support-host,#root>.app .supportRankingMount,#root>.app .supportRanking[data-support-mode="floating"]) .supportCandidates li{height:24px;min-height:24px;line-height:1.2;padding:0 4px}
+}
+/* The page-level "header{height:74px}" rule also hits the panel's <header> bar. */
+@media screen{#root>.app #region-support-host .supportWindowBar{height:auto}}
+
+@media screen{
+ #root>.app #region-support-host .rankRow{min-height:36px;padding:3px 0}
+ :is(#root>.app #region-support-host,#root>.app .supportRankingMount,#root>.app .supportRanking[data-support-mode="floating"]) .rankList{flex:1 0 235px;min-height:235px}
+}
+@media screen{
+ #root>.app #region-support-host .supportCandidatesHead{min-height:0;line-height:1.2}
+ :is(#root>.app #region-support-host,#root>.app .supportRankingMount,#root>.app .supportRanking[data-support-mode="floating"]) .supportCandidatesHead .supportTitle{line-height:1.2}
+ :is(#root>.app #region-support-host,#root>.app .supportRankingMount,#root>.app .supportRanking[data-support-mode="floating"]) .supportSource{padding:2px 12px}
+ :is(#root>.app #region-support-host,#root>.app .supportRankingMount,#root>.app .supportRanking[data-support-mode="floating"]) .rankingDisclosure{padding:2px 12px}
+ :is(#root>.app #region-support-host,#root>.app .supportRankingMount,#root>.app .supportRanking[data-support-mode="floating"]) .panelTitle{min-height:22px;padding:2px 12px 0}
+ :is(#root>.app #region-support-host,#root>.app .supportRankingMount,#root>.app .supportRanking[data-support-mode="floating"]) .rankList{flex:1 0 228px;min-height:228px}
+}
+/* w37c: the legacy ratio rule (interaction-contrast.css, !important) out-ranked the dock rules, so a docked ranking got the 67fr
+   track and the map the 33fr one (map 301px). Dock layouts must win over the ratio rule; the ratio only applies to the old
+   in-workspace placement. The shell grid already took the support column out of this width, so nothing is subtracted twice. */
+@media screen{
+ .app .dashboardContent>div:not([hidden])>.workspace[data-ranking-dock="left"]{grid-template-columns:var(--support-ranking-width,320px) minmax(0,1fr)!important}
+ .app .dashboardContent>div:not([hidden])>.workspace[data-ranking-dock="right"]{grid-template-columns:minmax(0,1fr) var(--support-ranking-width,320px)!important}
+ .app .dashboardContent>div:not([hidden])>.workspace[data-ranking-dock="floating"]{grid-template-columns:minmax(0,1fr)!important}
+}

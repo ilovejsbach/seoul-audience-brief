@@ -37,3 +37,14 @@ export function QueryGroup({title,children,defaultOpen=false,summary}:{title:str
  if(toolbar)return <div className="queryToolbarGroup" role="group" aria-label={title}>{Children.map(children,child=>isValidElement<{children:ReactNode}>(child)&&child.type==='small'?<details className="queryToolbarNote"><summary aria-label={`${title} 조회 기준 설명`} title={`${title} 조회 기준 설명`}>ⓘ</summary><div>{child.props.children}</div></details>:child)}</div>;
  return <details className="queryFilterGroup" open={defaultOpen||undefined}><summary><b>{title}</b>{summary&&<span>{summary}</span>}</summary><div className="queryFilterGroupBody">{children}</div></details>;
 }
+
+/**
+ * Folds seldom-used conditions behind ONE button so the top query bar stays on a single row.
+ * Values, ids and handlers stay with the owner; the button shows how many hidden conditions differ
+ * from their defaults and exposes their current values in its name/title.
+ */
+export function QueryMore({title,changed,summary,children,label='조건 더보기'}:{title:string;changed:number;summary:string;children:ReactNode;label?:string}){
+ const trigger=useRef<HTMLButtonElement>(null),[open,setOpen]=useState(false);
+ return <div className="queryMore"><button ref={trigger} type="button" className="queryMoreButton" aria-haspopup="dialog" aria-expanded={open} data-changed={changed} title={`${title}: ${summary}`} aria-label={`${label}${changed?` · 기본값과 다른 조건 ${changed}개`:''} · ${summary}`} onClick={()=>setOpen(value=>!value)}><span>{label}</span>{changed>0&&<b className="queryMoreBadge" aria-hidden="true">{changed}</b>}</button>
+  <QueryPopover open={open} anchor={trigger} title={title} onClose={()=>setOpen(false)}><div className="queryMorePanel">{children}</div></QueryPopover></div>;
+}
