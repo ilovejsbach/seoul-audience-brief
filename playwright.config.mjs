@@ -1,5 +1,6 @@
 import { defineConfig } from '@playwright/test';
 
+const port = Number(process.env.E2E_PORT || 4187);
 const evidence = process.env.PLAYWRIGHT_EVIDENCE_DIR || 'docs/workers-2026-11-17/w5-playwright';
 export default defineConfig({
   testDir: './tests/e2e',
@@ -12,15 +13,15 @@ export default defineConfig({
   reporter: [['list'], ['json', { outputFile: `${evidence}/results.json` }]],
   use: {
     browserName: 'chromium',
-    baseURL: 'http://127.0.0.1:4187',
+    baseURL: `http://127.0.0.1:${port}`,
     deviceScaleFactor: 1,
     screenshot: 'only-on-failure',
     trace: 'retain-on-failure',
     actionTimeout: 10_000,
   },
   webServer: {
-    command: 'npm run dev -- --host 127.0.0.1 --port 4187 --strictPort',
-    url: 'http://127.0.0.1:4187',
+    command: `npm run dev -- --host 127.0.0.1 --port ${port} --strictPort`,
+    url: `http://127.0.0.1:${port}`,
     reuseExistingServer: false,
     timeout: 30_000,
   },

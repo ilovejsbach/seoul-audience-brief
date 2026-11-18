@@ -1,0 +1,108 @@
+{
+ "pageBg": "rgb(243, 245, 247)",
+ "gu": {
+  "darkest": "rgb(23, 74, 122)",
+  "lightest": "rgb(145, 173, 198)",
+  "lowestVsPage": 2.14,
+  "spanDarkLight": 3.92
+ },
+ "label": {
+  "fill": "rgb(21, 43, 67)",
+  "stroke": "rgb(255, 255, 255)",
+  "paintOrder": "stroke",
+  "strokeWidth": "2px",
+  "vsDarkest": 1.57,
+  "vsLightest": 6.17,
+  "haloVsText": 14.4,
+  "haloVsDarkest": 9.14
+ },
+ "selected": {
+  "stroke": "rgb(23, 62, 105)",
+  "width": "4px",
+  "fill": "rgb(109, 144, 176)",
+  "vsOwnFill": 3.25,
+  "vsLightest": 4.66,
+  "vsDarkest": 1.19,
+  "vsPage": 9.96
+ },
+ "legend": {
+  "swatches": [
+   {
+    "bg": "rgb(189, 208, 225)",
+    "missing": false,
+    "w": 12,
+    "h": 12
+   },
+   {
+    "bg": "rgb(148, 175, 199)",
+    "missing": false,
+    "w": 12,
+    "h": 12
+   },
+   {
+    "bg": "rgb(106, 141, 174)",
+    "missing": false,
+    "w": 12,
+    "h": 12
+   },
+   {
+    "bg": "rgb(65, 108, 148)",
+    "missing": false,
+    "w": 12,
+    "h": 12
+   },
+   {
+    "bg": "rgb(23, 74, 122)",
+    "missing": false,
+    "w": 12,
+    "h": 12
+   },
+   {
+    "bg": "repeating-linear-gradient(135deg, rgb(91",
+    "missing": true,
+    "w": 12,
+    "h": 12
+   }
+  ],
+  "tipBg": "rgba(0, 0, 0, 0)",
+  "firstSwatchVsWhite": 1.58
+ },
+ "distSide": {
+  "distinct": 4,
+  "pattern": 0,
+  "darkest": "#174a7a",
+  "lightest": "#94afc7"
+ },
+ "distDelta": {
+  "fills": [
+   "#4f83bc",
+   "#245c96",
+   "#afcce8",
+   "#dea98c",
+   "#dce9f5",
+   "#7faad5",
+   "#d18b68",
+   "#ebc6b0",
+   "#c36e44"
+  ]
+ },
+ "patternBeforeZoom": {
+  "userWidth": 9.001022843504943,
+  "screenPx": 6
+ },
+ "patternAfterZoom": {
+  "userWidth": 3.2802561383035513,
+  "screenPx": 6
+ },
+ "zoomK": "translate(-662.7199999999998,-479.5999999999999) scale(2.7439999999999993)",
+ "market": {
+  "darkest": "#174a7a",
+  "lightest": "#bdd0e1",
+  "pattern": 84,
+  "total": 1650,
+  "contextFill": "rgb(223, 231, 238)",
+  "lowestVsContext": 1.27,
+  "lowestVsPage": 1.45,
+  "missingBgVsContext": 1.09
+ }
+}

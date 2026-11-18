@@ -1,0 +1,2792 @@
+{
+  "config": {
+    "argv": [
+      "/Users/koscom/.local/share/fnm/node-versions/v22.16.0/installation/bin/node",
+      "/Users/koscom/workspace2/seoul-human-mapcolor/node_modules/.bin/playwright",
+      "test",
+      "--project=desktop-1365",
+      "--project=desktop-1920"
+    ],
+    "configFile": "/Users/koscom/workspace2/seoul-human-mapcolor/playwright.config.mjs",
+    "rootDir": "/Users/koscom/workspace2/seoul-human-mapcolor/tests/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 2
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/koscom/workspace2/seoul-human-mapcolor/docs/workers-2026-11-18/w39-map-color-impl/e2e/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "id": "desktop-1365",
+        "name": "desktop-1365",
+        "testDir": "/Users/koscom/workspace2/seoul-human-mapcolor/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 180000
+      },
+      {
+        "outputDir": "/Users/koscom/workspace2/seoul-human-mapcolor/docs/workers-2026-11-18/w39-map-color-impl/e2e/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "id": "desktop-1920",
+        "name": "desktop-1920",
+        "testDir": "/Users/koscom/workspace2/seoul-human-mapcolor/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 180000
+      },
+      {
+        "outputDir": "/Users/koscom/workspace2/seoul-human-mapcolor/docs/workers-2026-11-18/w39-map-color-impl/e2e/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "id": "tablet-1024",
+        "name": "tablet-1024",
+        "testDir": "/Users/koscom/workspace2/seoul-human-mapcolor/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 180000
+      },
+      {
+        "outputDir": "/Users/koscom/workspace2/seoul-human-mapcolor/docs/workers-2026-11-18/w39-map-color-impl/e2e/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "id": "mobile-390",
+        "name": "mobile-390",
+        "testDir": "/Users/koscom/workspace2/seoul-human-mapcolor/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 180000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/koscom/workspace2/seoul-human-mapcolor/docs/workers-2026-11-18/w39-map-color-impl/e2e/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "name": "desktop-1365",
+        "testDir": "/Users/koscom/workspace2/seoul-human-mapcolor/tests/e2e",
+        "snapshotDir": "/Users/koscom/workspace2/seoul-human-mapcolor/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 180000,
+        "use": {
+          "browserName": "chromium",
+          "baseURL": "http://127.0.0.1:4199",
+          "deviceScaleFactor": 1,
+          "screenshot": "only-on-failure",
+          "trace": "retain-on-failure",
+          "actionTimeout": 10000,
+          "viewport": {
+            "width": 1365,
+            "height": 768
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "desktop-1365"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/koscom/workspace2/seoul-human-mapcolor/docs/workers-2026-11-18/w39-map-color-impl/e2e/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "name": "desktop-1920",
+        "testDir": "/Users/koscom/workspace2/seoul-human-mapcolor/tests/e2e",
+        "snapshotDir": "/Users/koscom/workspace2/seoul-human-mapcolor/tests/e2e",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 180000,
+        "use": {
+          "browserName": "chromium",
+          "baseURL": "http://127.0.0.1:4199",
+          "deviceScaleFactor": 1,
+          "screenshot": "only-on-failure",
+          "trace": "retain-on-failure",
+          "actionTimeout": 10000,
+          "viewport": {
+            "width": 1920,
+            "height": 1080
+          }
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "desktop-1920"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "docs/workers-2026-11-18/w39-map-color-impl/e2e/results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.65.1",
+    "workers": 2,
+    "webServer": {
+      "command": "npm run dev -- --host 127.0.0.1 --port 4199 --strictPort",
+      "url": "http://127.0.0.1:4199",
+      "reuseExistingServer": false,
+      "timeout": 30000
+    }
+  },
+  "suites": [
+    {
+      "title": "map-color.spec.mjs",
+      "file": "map-color.spec.mjs",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "실제 결측 화면: 생활인구 남성 00시 중구 동 지도에서 자료 없음 동은 무늬, 값 있는 동은 색",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1365",
+              "projectName": "desktop-1365",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3050,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T08:25:20.262Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1920",
+              "projectName": "desktop-1920",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2966,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T08:27:14.459Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "94e795e76a4a73b64ada-1f1e918564af3975068f",
+          "file": "map-color.spec.mjs",
+          "line": 6,
+          "column": 1
+        },
+        {
+          "title": "상권 지도: 자료 없음 상권 수와 무늬 수가 같고 값 색은 첫 구간이 배경과 구분된다",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1365",
+              "projectName": "desktop-1365",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 3057,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T08:25:20.260Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1920",
+              "projectName": "desktop-1920",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2913,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T08:27:17.514Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "94e795e76a4a73b64ada-97e7869e02807e835d98",
+          "file": "map-color.spec.mjs",
+          "line": 33,
+          "column": 1
+        },
+        {
+          "title": "두 시점 분포 지도: 색 5단계는 A안 값이고 결측 견본이 범례에 있다",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1365",
+              "projectName": "desktop-1365",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1800,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T08:25:23.450Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1920",
+              "projectName": "desktop-1920",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1830,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T08:27:20.437Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "94e795e76a4a73b64ada-cad622012a8f45c7944e",
+          "file": "map-color.spec.mjs",
+          "line": 47,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "screen-rules.spec.mjs",
+      "file": "screen-rules.spec.mjs",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "analysis / population / R05 R07 R15 R20",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1365",
+              "projectName": "desktop-1365",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 15569,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T08:25:23.471Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "rule-measurements",
+                      "contentType": "application/json",
+                      "path": "/Users/koscom/workspace2/seoul-human-mapcolor/docs/workers-2026-11-18/w39-map-color-impl/e2e/test-results/screen-rules-analysis-population-R05-R07-R15-R20-desktop-1365/attachments/rule-measurements-088567a1a0e7ab4f83bceea711a6f8d3adbf8020.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1920",
+              "projectName": "desktop-1920",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5685,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T08:27:22.288Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "rule-measurements",
+                      "contentType": "application/json",
+                      "path": "/Users/koscom/workspace2/seoul-human-mapcolor/docs/workers-2026-11-18/w39-map-color-impl/e2e/test-results/screen-rules-analysis-population-R05-R07-R15-R20-desktop-1920/attachments/rule-measurements-368d2a5b89e65b89c647334ef88a6407754b3505.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ea39948459aead79d56e-5c64f97fe49f45f0a523",
+          "file": "screen-rules.spec.mjs",
+          "line": 207,
+          "column": 3
+        },
+        {
+          "title": "analysis / mobility / R05 R07 R15 R20",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1365",
+              "projectName": "desktop-1365",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 11219,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T08:25:25.267Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "rule-measurements",
+                      "contentType": "application/json",
+                      "path": "/Users/koscom/workspace2/seoul-human-mapcolor/docs/workers-2026-11-18/w39-map-color-impl/e2e/test-results/screen-rules-analysis-mobility-R05-R07-R15-R20-desktop-1365/attachments/rule-measurements-b777aba1e32f94f079f55d07e656808521deed01.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1920",
+              "projectName": "desktop-1920",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 6310,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T08:27:27.026Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "rule-measurements",
+                      "contentType": "application/json",
+                      "path": "/Users/koscom/workspace2/seoul-human-mapcolor/docs/workers-2026-11-18/w39-map-color-impl/e2e/test-results/screen-rules-analysis-mobility-R05-R07-R15-R20-desktop-1920/attachments/rule-measurements-6a9ea81f3aee3519d754b62572212406139799b4.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ea39948459aead79d56e-f78b4b0fc1e0f81a2c90",
+          "file": "screen-rules.spec.mjs",
+          "line": 207,
+          "column": 3
+        },
+        {
+          "title": "analysis / migration / R05 R07 R15 R20",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1365",
+              "projectName": "desktop-1365",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 11641,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T08:25:36.492Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "rule-measurements",
+                      "contentType": "application/json",
+                      "path": "/Users/koscom/workspace2/seoul-human-mapcolor/docs/workers-2026-11-18/w39-map-color-impl/e2e/test-results/screen-rules-analysis-migration-R05-R07-R15-R20-desktop-1365/attachments/rule-measurements-5b121a139d5f249e3899122377ab13163058c253.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1920",
+              "projectName": "desktop-1920",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6259,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T08:27:27.978Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "rule-measurements",
+                      "contentType": "application/json",
+                      "path": "/Users/koscom/workspace2/seoul-human-mapcolor/docs/workers-2026-11-18/w39-map-color-impl/e2e/test-results/screen-rules-analysis-migration-R05-R07-R15-R20-desktop-1920/attachments/rule-measurements-82e23eb50eee50cac858fe990b588ab560c1152b.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ea39948459aead79d56e-31d940da2478dda97a4d",
+          "file": "screen-rules.spec.mjs",
+          "line": 207,
+          "column": 3
+        },
+        {
+          "title": "analysis / commerce / R05 R07 R15 R20",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1365",
+              "projectName": "desktop-1365",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 9688,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T08:25:39.047Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "rule-measurements",
+                      "contentType": "application/json",
+                      "path": "/Users/koscom/workspace2/seoul-human-mapcolor/docs/workers-2026-11-18/w39-map-color-impl/e2e/test-results/screen-rules-analysis-commerce-R05-R07-R15-R20-desktop-1365/attachments/rule-measurements-aaa189b3b20909c02e6f2d6e4014aa61bf1a0acf.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1920",
+              "projectName": "desktop-1920",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 5999,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T08:27:33.451Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "rule-measurements",
+                      "contentType": "application/json",
+                      "path": "/Users/koscom/workspace2/seoul-human-mapcolor/docs/workers-2026-11-18/w39-map-color-impl/e2e/test-results/screen-rules-analysis-commerce-R05-R07-R15-R20-desktop-1920/attachments/rule-measurements-4a3c9684c987ed8f2bc1922bc58c4fc0b00b3065.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ea39948459aead79d56e-7643ce91c11a1dc5bd43",
+          "file": "screen-rules.spec.mjs",
+          "line": 207,
+          "column": 3
+        },
+        {
+          "title": "analysis / market / R05 R07 R15 R20",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1365",
+              "projectName": "desktop-1365",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 17921,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T08:25:48.140Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "rule-measurements",
+                      "contentType": "application/json",
+                      "path": "/Users/koscom/workspace2/seoul-human-mapcolor/docs/workers-2026-11-18/w39-map-color-impl/e2e/test-results/screen-rules-analysis-market-R05-R07-R15-R20-desktop-1365/attachments/rule-measurements-ec4c62f7cf491e295f53a83a04c78e0f300c5a75.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1920",
+              "projectName": "desktop-1920",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 18884,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T08:27:34.244Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "rule-measurements",
+                      "contentType": "application/json",
+                      "path": "/Users/koscom/workspace2/seoul-human-mapcolor/docs/workers-2026-11-18/w39-map-color-impl/e2e/test-results/screen-rules-analysis-market-R05-R07-R15-R20-desktop-1920/attachments/rule-measurements-bfa5a11d83b3b732c68fea5b981d2d57df3826c4.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ea39948459aead79d56e-0c863ed9456e123110c6",
+          "file": "screen-rules.spec.mjs",
+          "line": 207,
+          "column": 3
+        },
+        {
+          "title": "presentation / population / R05 R07 R15 R20",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1365",
+              "projectName": "desktop-1365",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 17000,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T08:25:48.740Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "rule-measurements",
+                      "contentType": "application/json",
+                      "path": "/Users/koscom/workspace2/seoul-human-mapcolor/docs/workers-2026-11-18/w39-map-color-impl/e2e/test-results/screen-rules-presentation-population-R05-R07-R15-R20-desktop-1365/attachments/rule-measurements-0c9553102e39ff6371c87211de9f39aeb1c207ca.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1920",
+              "projectName": "desktop-1920",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 6626,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T08:27:39.458Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "rule-measurements",
+                      "contentType": "application/json",
+                      "path": "/Users/koscom/workspace2/seoul-human-mapcolor/docs/workers-2026-11-18/w39-map-color-impl/e2e/test-results/screen-rules-presentation-population-R05-R07-R15-R20-desktop-1920/attachments/rule-measurements-99881aaae026adf058a532da17a74396f61686c6.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ea39948459aead79d56e-f512cf09629c9f1bbd61",
+          "file": "screen-rules.spec.mjs",
+          "line": 207,
+          "column": 3
+        },
+        {
+          "title": "presentation / mobility / R05 R07 R15 R20",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1365",
+              "projectName": "desktop-1365",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 11904,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T08:26:05.752Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "rule-measurements",
+                      "contentType": "application/json",
+                      "path": "/Users/koscom/workspace2/seoul-human-mapcolor/docs/workers-2026-11-18/w39-map-color-impl/e2e/test-results/screen-rules-presentation-mobility-R05-R07-R15-R20-desktop-1365/attachments/rule-measurements-4a4431c9b19129496ee93875a9872263a3828665.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1920",
+              "projectName": "desktop-1920",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 6188,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T08:27:46.091Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "rule-measurements",
+                      "contentType": "application/json",
+                      "path": "/Users/koscom/workspace2/seoul-human-mapcolor/docs/workers-2026-11-18/w39-map-color-impl/e2e/test-results/screen-rules-presentation-mobility-R05-R07-R15-R20-desktop-1920/attachments/rule-measurements-bb5ea3366b1c5460e38e09a6b543c898ee7343ab.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ea39948459aead79d56e-e07a69b199375ee46c2e",
+          "file": "screen-rules.spec.mjs",
+          "line": 207,
+          "column": 3
+        },
+        {
+          "title": "presentation / migration / R05 R07 R15 R20",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1365",
+              "projectName": "desktop-1365",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 11981,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T08:26:06.069Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "rule-measurements",
+                      "contentType": "application/json",
+                      "path": "/Users/koscom/workspace2/seoul-human-mapcolor/docs/workers-2026-11-18/w39-map-color-impl/e2e/test-results/screen-rules-presentation-migration-R05-R07-R15-R20-desktop-1365/attachments/rule-measurements-2a60fdacbb55a018efa64bbce133cccac2095f40.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1920",
+              "projectName": "desktop-1920",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 6225,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T08:27:52.283Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "rule-measurements",
+                      "contentType": "application/json",
+                      "path": "/Users/koscom/workspace2/seoul-human-mapcolor/docs/workers-2026-11-18/w39-map-color-impl/e2e/test-results/screen-rules-presentation-migration-R05-R07-R15-R20-desktop-1920/attachments/rule-measurements-8fa4faff9bca831f5bd387b0f61f464b18f6f493.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ea39948459aead79d56e-39a1ab42eb949f91b1b6",
+          "file": "screen-rules.spec.mjs",
+          "line": 207,
+          "column": 3
+        },
+        {
+          "title": "presentation / commerce / R05 R07 R15 R20",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1365",
+              "projectName": "desktop-1365",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 10659,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T08:26:17.668Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "rule-measurements",
+                      "contentType": "application/json",
+                      "path": "/Users/koscom/workspace2/seoul-human-mapcolor/docs/workers-2026-11-18/w39-map-color-impl/e2e/test-results/screen-rules-presentation-commerce-R05-R07-R15-R20-desktop-1365/attachments/rule-measurements-b9c5d60772036d341a9c92024335af600bf815ef.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1920",
+              "projectName": "desktop-1920",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6129,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T08:27:53.138Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "rule-measurements",
+                      "contentType": "application/json",
+                      "path": "/Users/koscom/workspace2/seoul-human-mapcolor/docs/workers-2026-11-18/w39-map-color-impl/e2e/test-results/screen-rules-presentation-commerce-R05-R07-R15-R20-desktop-1920/attachments/rule-measurements-eda31da336ae41f004d7897dfe4cc78cc19752c5.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ea39948459aead79d56e-814c4ffe220826ecfb08",
+          "file": "screen-rules.spec.mjs",
+          "line": 207,
+          "column": 3
+        },
+        {
+          "title": "analysis / normal / population / display settings I01",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1365",
+              "projectName": "desktop-1365",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2959,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T08:26:18.059Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "display-settings-measurements",
+                      "contentType": "application/json",
+                      "path": "/Users/koscom/workspace2/seoul-human-mapcolor/docs/workers-2026-11-18/w39-map-color-impl/e2e/test-results/screen-rules-analysis-normal-population-display-settings-I01-desktop-1365/attachments/display-settings-measurements-5b1da19c7ba5ba7e2d9c9643ed388f93f363735b.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1920",
+              "projectName": "desktop-1920",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 3025,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T08:27:58.515Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "display-settings-measurements",
+                      "contentType": "application/json",
+                      "path": "/Users/koscom/workspace2/seoul-human-mapcolor/docs/workers-2026-11-18/w39-map-color-impl/e2e/test-results/screen-rules-analysis-normal-population-display-settings-I01-desktop-1920/attachments/display-settings-measurements-566f6ded3038a68451319a44f8ceefe7eec51d64.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ea39948459aead79d56e-b708dcadbdeae5ec1fb6",
+          "file": "screen-rules.spec.mjs",
+          "line": 315,
+          "column": 3
+        },
+        {
+          "title": "analysis / normal / mobility / display settings I01",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1365",
+              "projectName": "desktop-1365",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3120,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T08:26:21.022Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "display-settings-measurements",
+                      "contentType": "application/json",
+                      "path": "/Users/koscom/workspace2/seoul-human-mapcolor/docs/workers-2026-11-18/w39-map-color-impl/e2e/test-results/screen-rules-analysis-normal-mobility-display-settings-I01-desktop-1365/attachments/display-settings-measurements-9cf5b5e3ea937df6d6b279c5ef2eea751f8d2985.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1920",
+              "projectName": "desktop-1920",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3297,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T08:27:59.276Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "display-settings-measurements",
+                      "contentType": "application/json",
+                      "path": "/Users/koscom/workspace2/seoul-human-mapcolor/docs/workers-2026-11-18/w39-map-color-impl/e2e/test-results/screen-rules-analysis-normal-mobility-display-settings-I01-desktop-1920/attachments/display-settings-measurements-d79cc717ef6a0ecee0f156fc2fdb8398d2a80fa1.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ea39948459aead79d56e-8be07747e69046cae83b",
+          "file": "screen-rules.spec.mjs",
+          "line": 315,
+          "column": 3
+        },
+        {
+          "title": "analysis / normal / migration / display settings I01",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1365",
+              "projectName": "desktop-1365",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3061,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T08:26:24.148Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "display-settings-measurements",
+                      "contentType": "application/json",
+                      "path": "/Users/koscom/workspace2/seoul-human-mapcolor/docs/workers-2026-11-18/w39-map-color-impl/e2e/test-results/screen-rules-analysis-normal-migration-display-settings-I01-desktop-1365/attachments/display-settings-measurements-9803bfdd3c4e6d4a663d248ea697e69967b839ea.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1920",
+              "projectName": "desktop-1920",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 3188,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T08:28:01.545Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "display-settings-measurements",
+                      "contentType": "application/json",
+                      "path": "/Users/koscom/workspace2/seoul-human-mapcolor/docs/workers-2026-11-18/w39-map-color-impl/e2e/test-results/screen-rules-analysis-normal-migration-display-settings-I01-desktop-1920/attachments/display-settings-measurements-b116ce7292e10bf812cb2de7440383ad906845bb.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ea39948459aead79d56e-ada55594f52a7d42a5d1",
+          "file": "screen-rules.spec.mjs",
+          "line": 315,
+          "column": 3
+        },
+        {
+          "title": "analysis / normal / commerce / display settings I01",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1365",
+              "projectName": "desktop-1365",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2968,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T08:26:27.215Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "display-settings-measurements",
+                      "contentType": "application/json",
+                      "path": "/Users/koscom/workspace2/seoul-human-mapcolor/docs/workers-2026-11-18/w39-map-color-impl/e2e/test-results/screen-rules-analysis-normal-commerce-display-settings-I01-desktop-1365/attachments/display-settings-measurements-862c603fb9b0d5afb96766806191cb81eb830f79.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1920",
+              "projectName": "desktop-1920",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3189,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T08:28:02.578Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "display-settings-measurements",
+                      "contentType": "application/json",
+                      "path": "/Users/koscom/workspace2/seoul-human-mapcolor/docs/workers-2026-11-18/w39-map-color-impl/e2e/test-results/screen-rules-analysis-normal-commerce-display-settings-I01-desktop-1920/attachments/display-settings-measurements-00e3488e53563a98572222846af3952258c1c682.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ea39948459aead79d56e-cce2250ca1699875df2d",
+          "file": "screen-rules.spec.mjs",
+          "line": 315,
+          "column": 3
+        },
+        {
+          "title": "analysis / fullscreen / population / display settings I01",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1365",
+              "projectName": "desktop-1365",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 3170,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T08:26:28.332Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "display-settings-measurements",
+                      "contentType": "application/json",
+                      "path": "/Users/koscom/workspace2/seoul-human-mapcolor/docs/workers-2026-11-18/w39-map-color-impl/e2e/test-results/screen-rules-analysis-full-8dee3-lation-display-settings-I01-desktop-1365/attachments/display-settings-measurements-15ea09bc1b0adceac06de3f2d6d5313f04a1a8cc.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1920",
+              "projectName": "desktop-1920",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 3137,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T08:28:04.738Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "display-settings-measurements",
+                      "contentType": "application/json",
+                      "path": "/Users/koscom/workspace2/seoul-human-mapcolor/docs/workers-2026-11-18/w39-map-color-impl/e2e/test-results/screen-rules-analysis-full-8dee3-lation-display-settings-I01-desktop-1920/attachments/display-settings-measurements-98a42427255c83ec947a799e65411c21ed82b3ed.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ea39948459aead79d56e-a49e0326a1d944f5a3fd",
+          "file": "screen-rules.spec.mjs",
+          "line": 315,
+          "column": 3
+        },
+        {
+          "title": "analysis / fullscreen / mobility / display settings I01",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1365",
+              "projectName": "desktop-1365",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3301,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T08:26:30.187Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "display-settings-measurements",
+                      "contentType": "application/json",
+                      "path": "/Users/koscom/workspace2/seoul-human-mapcolor/docs/workers-2026-11-18/w39-map-color-impl/e2e/test-results/screen-rules-analysis-full-8ed32-bility-display-settings-I01-desktop-1365/attachments/display-settings-measurements-f10bca1b2da9cf4ff598195e378925664aa41b27.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1920",
+              "projectName": "desktop-1920",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3323,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T08:28:05.771Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "display-settings-measurements",
+                      "contentType": "application/json",
+                      "path": "/Users/koscom/workspace2/seoul-human-mapcolor/docs/workers-2026-11-18/w39-map-color-impl/e2e/test-results/screen-rules-analysis-full-8ed32-bility-display-settings-I01-desktop-1920/attachments/display-settings-measurements-205f1cb4d17d075b984d92de4429a1f76b4c2e81.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ea39948459aead79d56e-d4bf86664f3075817932",
+          "file": "screen-rules.spec.mjs",
+          "line": 315,
+          "column": 3
+        },
+        {
+          "title": "analysis / fullscreen / migration / display settings I01",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1365",
+              "projectName": "desktop-1365",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 3269,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T08:26:31.507Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "display-settings-measurements",
+                      "contentType": "application/json",
+                      "path": "/Users/koscom/workspace2/seoul-human-mapcolor/docs/workers-2026-11-18/w39-map-color-impl/e2e/test-results/screen-rules-analysis-full-9324e-ration-display-settings-I01-desktop-1365/attachments/display-settings-measurements-3bc902187d1506fdc50f84b7beef5b62be0fbc19.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1920",
+              "projectName": "desktop-1920",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 3342,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T08:28:07.880Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "display-settings-measurements",
+                      "contentType": "application/json",
+                      "path": "/Users/koscom/workspace2/seoul-human-mapcolor/docs/workers-2026-11-18/w39-map-color-impl/e2e/test-results/screen-rules-analysis-full-9324e-ration-display-settings-I01-desktop-1920/attachments/display-settings-measurements-40ccf6bae008bf9d24193f2835dfd603b0e73a7f.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ea39948459aead79d56e-29e503ffca6a3c3c3672",
+          "file": "screen-rules.spec.mjs",
+          "line": 315,
+          "column": 3
+        },
+        {
+          "title": "analysis / fullscreen / commerce / display settings I01",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1365",
+              "projectName": "desktop-1365",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3251,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T08:26:33.494Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "display-settings-measurements",
+                      "contentType": "application/json",
+                      "path": "/Users/koscom/workspace2/seoul-human-mapcolor/docs/workers-2026-11-18/w39-map-color-impl/e2e/test-results/screen-rules-analysis-full-50e8d-mmerce-display-settings-I01-desktop-1365/attachments/display-settings-measurements-d5288d444a9c02875ec193cfd98923df56e30bc3.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1920",
+              "projectName": "desktop-1920",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3332,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T08:28:09.098Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "display-settings-measurements",
+                      "contentType": "application/json",
+                      "path": "/Users/koscom/workspace2/seoul-human-mapcolor/docs/workers-2026-11-18/w39-map-color-impl/e2e/test-results/screen-rules-analysis-full-50e8d-mmerce-display-settings-I01-desktop-1920/attachments/display-settings-measurements-cad3f5490b3ee92aface25740bd3369cc5b12fe5.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ea39948459aead79d56e-4330845e67d0ecdb95af",
+          "file": "screen-rules.spec.mjs",
+          "line": 315,
+          "column": 3
+        },
+        {
+          "title": "presentation / normal / population / display settings I01",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1365",
+              "projectName": "desktop-1365",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 3212,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T08:26:34.781Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "display-settings-measurements",
+                      "contentType": "application/json",
+                      "path": "/Users/koscom/workspace2/seoul-human-mapcolor/docs/workers-2026-11-18/w39-map-color-impl/e2e/test-results/screen-rules-presentation--35577-lation-display-settings-I01-desktop-1365/attachments/display-settings-measurements-dd7118d656c1608f260263ecbf881895c9ce2129.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1920",
+              "projectName": "desktop-1920",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 3191,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T08:28:11.229Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "display-settings-measurements",
+                      "contentType": "application/json",
+                      "path": "/Users/koscom/workspace2/seoul-human-mapcolor/docs/workers-2026-11-18/w39-map-color-impl/e2e/test-results/screen-rules-presentation--35577-lation-display-settings-I01-desktop-1920/attachments/display-settings-measurements-be1323521227d0833bbec3c8a301807a10dc4832.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ea39948459aead79d56e-6d5878c297a525a049aa",
+          "file": "screen-rules.spec.mjs",
+          "line": 315,
+          "column": 3
+        },
+        {
+          "title": "presentation / normal / mobility / display settings I01",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1365",
+              "projectName": "desktop-1365",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3575,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T08:26:36.750Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "display-settings-measurements",
+                      "contentType": "application/json",
+                      "path": "/Users/koscom/workspace2/seoul-human-mapcolor/docs/workers-2026-11-18/w39-map-color-impl/e2e/test-results/screen-rules-presentation--e9717-bility-display-settings-I01-desktop-1365/attachments/display-settings-measurements-145a32d75015d3084573f2099966e4d0f8365c95.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1920",
+              "projectName": "desktop-1920",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3413,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T08:28:12.435Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "display-settings-measurements",
+                      "contentType": "application/json",
+                      "path": "/Users/koscom/workspace2/seoul-human-mapcolor/docs/workers-2026-11-18/w39-map-color-impl/e2e/test-results/screen-rules-presentation--e9717-bility-display-settings-I01-desktop-1920/attachments/display-settings-measurements-d6a742b4a844f1b6371bf46d4558c9e578546982.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ea39948459aead79d56e-f16b327b97d6536dca2d",
+          "file": "screen-rules.spec.mjs",
+          "line": 315,
+          "column": 3
+        },
+        {
+          "title": "presentation / normal / migration / display settings I01",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1365",
+              "projectName": "desktop-1365",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 3781,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T08:26:38.002Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "display-settings-measurements",
+                      "contentType": "application/json",
+                      "path": "/Users/koscom/workspace2/seoul-human-mapcolor/docs/workers-2026-11-18/w39-map-color-impl/e2e/test-results/screen-rules-presentation--4ab38-ration-display-settings-I01-desktop-1365/attachments/display-settings-measurements-ea9102de44199ded98d87a5dea0410acceffb58f.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1920",
+              "projectName": "desktop-1920",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 3402,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T08:28:14.425Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "display-settings-measurements",
+                      "contentType": "application/json",
+                      "path": "/Users/koscom/workspace2/seoul-human-mapcolor/docs/workers-2026-11-18/w39-map-color-impl/e2e/test-results/screen-rules-presentation--4ab38-ration-display-settings-I01-desktop-1920/attachments/display-settings-measurements-e65480ed11332da8d6e19e8eb50305ccc36995ee.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ea39948459aead79d56e-18975112408786a95591",
+          "file": "screen-rules.spec.mjs",
+          "line": 315,
+          "column": 3
+        },
+        {
+          "title": "presentation / normal / commerce / display settings I01",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1365",
+              "projectName": "desktop-1365",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3338,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T08:26:40.329Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "display-settings-measurements",
+                      "contentType": "application/json",
+                      "path": "/Users/koscom/workspace2/seoul-human-mapcolor/docs/workers-2026-11-18/w39-map-color-impl/e2e/test-results/screen-rules-presentation--2e9a2-mmerce-display-settings-I01-desktop-1365/attachments/display-settings-measurements-8951bd2b79c96b30d5f3ded98f073955ed0dc784.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1920",
+              "projectName": "desktop-1920",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3373,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T08:28:15.853Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "display-settings-measurements",
+                      "contentType": "application/json",
+                      "path": "/Users/koscom/workspace2/seoul-human-mapcolor/docs/workers-2026-11-18/w39-map-color-impl/e2e/test-results/screen-rules-presentation--2e9a2-mmerce-display-settings-I01-desktop-1920/attachments/display-settings-measurements-041c91cfa5317e41b9e53d0dfe1c715772a42359.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ea39948459aead79d56e-a678fc6936334c2d84bb",
+          "file": "screen-rules.spec.mjs",
+          "line": 315,
+          "column": 3
+        },
+        {
+          "title": "presentation / fullscreen / population / display settings I01",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1365",
+              "projectName": "desktop-1365",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 3302,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T08:26:41.791Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "display-settings-measurements",
+                      "contentType": "application/json",
+                      "path": "/Users/koscom/workspace2/seoul-human-mapcolor/docs/workers-2026-11-18/w39-map-color-impl/e2e/test-results/screen-rules-presentation--b7927-lation-display-settings-I01-desktop-1365/attachments/display-settings-measurements-3da16d18e52330085b67e318c9bf61f071754961.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1920",
+              "projectName": "desktop-1920",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 3286,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T08:28:17.833Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "display-settings-measurements",
+                      "contentType": "application/json",
+                      "path": "/Users/koscom/workspace2/seoul-human-mapcolor/docs/workers-2026-11-18/w39-map-color-impl/e2e/test-results/screen-rules-presentation--b7927-lation-display-settings-I01-desktop-1920/attachments/display-settings-measurements-ddf66ec82e0a54fcd6aba46e19d6b42117797639.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ea39948459aead79d56e-1d8e5a48e36e86cb9f1d",
+          "file": "screen-rules.spec.mjs",
+          "line": 315,
+          "column": 3
+        },
+        {
+          "title": "presentation / fullscreen / mobility / display settings I01",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1365",
+              "projectName": "desktop-1365",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3487,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T08:26:43.671Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "display-settings-measurements",
+                      "contentType": "application/json",
+                      "path": "/Users/koscom/workspace2/seoul-human-mapcolor/docs/workers-2026-11-18/w39-map-color-impl/e2e/test-results/screen-rules-presentation--0a582-bility-display-settings-I01-desktop-1365/attachments/display-settings-measurements-3c39b52ab867f5ab2a03aba21599c977f6fec713.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1920",
+              "projectName": "desktop-1920",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3475,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T08:28:19.230Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "display-settings-measurements",
+                      "contentType": "application/json",
+                      "path": "/Users/koscom/workspace2/seoul-human-mapcolor/docs/workers-2026-11-18/w39-map-color-impl/e2e/test-results/screen-rules-presentation--0a582-bility-display-settings-I01-desktop-1920/attachments/display-settings-measurements-a70194e387fee0b4a8c59d7adc659b4f6aa53e61.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ea39948459aead79d56e-007cb6696c7a6b490ae7",
+          "file": "screen-rules.spec.mjs",
+          "line": 315,
+          "column": 3
+        },
+        {
+          "title": "presentation / fullscreen / migration / display settings I01",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1365",
+              "projectName": "desktop-1365",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 3451,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T08:26:45.098Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "display-settings-measurements",
+                      "contentType": "application/json",
+                      "path": "/Users/koscom/workspace2/seoul-human-mapcolor/docs/workers-2026-11-18/w39-map-color-impl/e2e/test-results/screen-rules-presentation--418be-ration-display-settings-I01-desktop-1365/attachments/display-settings-measurements-2ee05c33fa6cfccb1c5c7582dfa8cb03bd167bbb.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1920",
+              "projectName": "desktop-1920",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 3514,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T08:28:21.123Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "display-settings-measurements",
+                      "contentType": "application/json",
+                      "path": "/Users/koscom/workspace2/seoul-human-mapcolor/docs/workers-2026-11-18/w39-map-color-impl/e2e/test-results/screen-rules-presentation--418be-ration-display-settings-I01-desktop-1920/attachments/display-settings-measurements-892cd9dab15fd4a36b9f624bf976ab60ff05b72a.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ea39948459aead79d56e-cd99184ecb0665d08e4b",
+          "file": "screen-rules.spec.mjs",
+          "line": 315,
+          "column": 3
+        },
+        {
+          "title": "presentation / fullscreen / commerce / display settings I01",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1365",
+              "projectName": "desktop-1365",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3488,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T08:26:47.163Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "display-settings-measurements",
+                      "contentType": "application/json",
+                      "path": "/Users/koscom/workspace2/seoul-human-mapcolor/docs/workers-2026-11-18/w39-map-color-impl/e2e/test-results/screen-rules-presentation--ffccb-mmerce-display-settings-I01-desktop-1365/attachments/display-settings-measurements-b4470aea12bac39c372c975b1de79b6d7f819324.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1920",
+              "projectName": "desktop-1920",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3505,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T08:28:22.709Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "display-settings-measurements",
+                      "contentType": "application/json",
+                      "path": "/Users/koscom/workspace2/seoul-human-mapcolor/docs/workers-2026-11-18/w39-map-color-impl/e2e/test-results/screen-rules-presentation--ffccb-mmerce-display-settings-I01-desktop-1920/attachments/display-settings-measurements-b7ddaa74bb34d5624e26240cf95d3feede036a3c.json"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ea39948459aead79d56e-80cff78b2b1c61b88668",
+          "file": "screen-rules.spec.mjs",
+          "line": 315,
+          "column": 3
+        },
+        {
+          "title": "I04 market has no mode: both region modes give the same market",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1365",
+              "projectName": "desktop-1365",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 12652,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T08:26:48.553Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1920",
+              "projectName": "desktop-1920",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 12682,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T08:28:24.642Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ea39948459aead79d56e-c418ed8954c957f74ed2",
+          "file": "screen-rules.spec.mjs",
+          "line": 390,
+          "column": 1
+        },
+        {
+          "title": "N01 start screen: two equal starts, disabled resume, topic menu and planned items",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1365",
+              "projectName": "desktop-1365",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6023,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T08:26:50.658Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1920",
+              "projectName": "desktop-1920",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5987,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T08:28:26.219Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ea39948459aead79d56e-fc9fa796ea1e0fdb2648",
+          "file": "screen-rules.spec.mjs",
+          "line": 430,
+          "column": 1
+        },
+        {
+          "title": "start screen figures equal the source files and I08 old range text is gone",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1365",
+              "projectName": "desktop-1365",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1468,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T08:26:56.694Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1920",
+              "projectName": "desktop-1920",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1507,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T08:28:32.213Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ea39948459aead79d56e-d817fc67e869c47f230a",
+          "file": "screen-rules.spec.mjs",
+          "line": 480,
+          "column": 1
+        },
+        {
+          "title": "sticky top bar and type sizes on the start screen",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1365",
+              "projectName": "desktop-1365",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1389,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T08:26:58.167Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1920",
+              "projectName": "desktop-1920",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1455,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T08:28:33.726Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ea39948459aead79d56e-84747fc7c33701b2a1fa",
+          "file": "screen-rules.spec.mjs",
+          "line": 501,
+          "column": 1
+        },
+        {
+          "title": "I09 more menu tooltip equals the real items in every state",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1365",
+              "projectName": "desktop-1365",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3577,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T08:26:59.562Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1920",
+              "projectName": "desktop-1920",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3896,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T08:28:35.187Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ea39948459aead79d56e-3c521b7cf5caee3d27fe",
+          "file": "screen-rules.spec.mjs",
+          "line": 513,
+          "column": 1
+        },
+        {
+          "title": "advanced layout stays inside the more menu and survives a start-screen round trip",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1365",
+              "projectName": "desktop-1365",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 2300,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T08:27:01.210Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1920",
+              "projectName": "desktop-1920",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 2576,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T08:28:37.329Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ea39948459aead79d56e-2394f1207480e094171a",
+          "file": "screen-rules.spec.mjs",
+          "line": 546,
+          "column": 1
+        },
+        {
+          "title": "first screen with the two-row header (R05, 1365x768 and 1920)",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1365",
+              "projectName": "desktop-1365",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6495,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T08:27:03.144Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1920",
+              "projectName": "desktop-1920",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6526,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T08:28:39.089Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ea39948459aead79d56e-977fde42b9fddf6bf0e0",
+          "file": "screen-rules.spec.mjs",
+          "line": 564,
+          "column": 1
+        },
+        {
+          "title": "N04 left menu: 200/64 x analysis/presentation, first presentation entry collapsed, user choice kept",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1365",
+              "projectName": "desktop-1365",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 6850,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T08:27:03.515Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1920",
+              "projectName": "desktop-1920",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 6843,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T08:28:39.910Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ea39948459aead79d56e-01624c1cdabc05bac693",
+          "file": "screen-rules.spec.mjs",
+          "line": 588,
+          "column": 1
+        },
+        {
+          "title": "left menu keyboard: stops, arrows move focus only, Enter opens, Esc never collapses, collapsed names and tips",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1365",
+              "projectName": "desktop-1365",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2537,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T08:27:09.648Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1920",
+              "projectName": "desktop-1920",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2696,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T08:28:45.619Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ea39948459aead79d56e-22bf1f171c79a7437854",
+          "file": "screen-rules.spec.mjs",
+          "line": 624,
+          "column": 1
+        },
+        {
+          "title": "fullscreen hides the menu (state kept) and the dataset select uses the I03 name",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1365",
+              "projectName": "desktop-1365",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 2153,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T08:27:10.370Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1920",
+              "projectName": "desktop-1920",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 2280,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T08:28:46.761Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ea39948459aead79d56e-6ccf391c79b5ad86866d",
+          "file": "screen-rules.spec.mjs",
+          "line": 662,
+          "column": 1
+        },
+        {
+          "title": "long menu scrolls inside its group area; toggle stays fixed (1365x591)",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1365",
+              "projectName": "desktop-1365",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1700,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T08:27:12.189Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1920",
+              "projectName": "desktop-1920",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1687,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T08:28:48.323Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ea39948459aead79d56e-e14eb31d3431cbdd1c19",
+          "file": "screen-rules.spec.mjs",
+          "line": 679,
+          "column": 1
+        },
+        {
+          "title": "I03/I05 names: data menu, two-point detail names and dialog titles equal the menu names",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1365",
+              "projectName": "desktop-1365",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 13920,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T08:27:12.528Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            },
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop-1920",
+              "projectName": "desktop-1920",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 13704,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-11-18T08:28:49.046Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "ea39948459aead79d56e-63070fb4031c6e6eb01f",
+          "file": "screen-rules.spec.mjs",
+          "line": 692,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-18T08:25:19.427Z",
+    "duration": 223525.67200000002,
+    "expected": 80,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}
